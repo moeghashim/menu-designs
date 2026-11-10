@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Chez Craie · شي كريه</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Chez Craie — a neighbourhood French bistro whose menu is chalked on the board every morning. شي كريه — بيسترو فرنسي تُكتب قائمته بالطبشور كل صباح.">
+<meta name="theme-color" content="#27312e">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fredericka+the+Great&family=Playpen+Sans+Arabic:wght@400;700&family=Rakkas&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--chalk:#f2efe6;--dim:#d5d6cc;--yel:#f6d977;--pink:#f4aaa3;--blue:#a6d5ea;--slate:#27312e;
+--dust:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 -.22'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+--wood:repeating-linear-gradient(91deg,#8b5a32 0 3px,#7b4d29 3px 8px,#96643a 8px 10px,#774926 10px 15px,#855530 15px 21px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Caveat,"Segoe Print","Comic Sans MS",cursive;font-weight:500;color:var(--chalk);font-size:21px;line-height:1.25;
+ background:linear-gradient(#0000 58px,rgba(120,105,80,.28) 58px 60px) 0 0/124px 60px,linear-gradient(90deg,#0000 122px,rgba(120,105,80,.28) 122px 124px) 0 0/124px 120px,linear-gradient(90deg,#0000 122px,rgba(120,105,80,.28) 122px 124px) 62px 60px/124px 120px,linear-gradient(180deg,#f3ecdd,#e6dcc8);background-color:#efe7d6}
+html[lang="ar"] body{font-family:"Playpen Sans Arabic","Noto Kufi Arabic",Tahoma,sans-serif;font-weight:400;font-size:17px;line-height:1.7}
+html[lang="ar"] *{letter-spacing:0!important}
+ul{list-style:none}
+a{color:inherit}
+.bl{font-family:"Fredericka the Great","Rockwell",Georgia,serif;font-weight:400}
+html[lang="ar"] .bl{font-family:Rakkas,"Aref Ruqaa",serif}
+.ck{filter:url(#chalk)}
+.wall{overflow:clip;padding:clamp(.6rem,2vw,1.6rem) clamp(.5rem,2.4vw,2.6rem) 4rem}
+
+/* enamel plaques */
+.plq{display:flex;justify-content:flex-end;gap:.6rem;margin-bottom:.8rem}
+#langToggle,.home-link{font:700 15px/1 "Playpen Sans Arabic",Tahoma,sans-serif;height:42px;display:grid;place-items:center;background:#1c3f94;color:#fff;border:2px solid #fff;outline:3px solid #1f6b46;border-radius:5px;cursor:pointer;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,.3);margin:3px}
+#langToggle{padding:0 1rem}
+html[lang="ar"] #langToggle{font-family:Georgia,serif;letter-spacing:.06em!important}
+.home-link{width:42px}.home-link svg{width:17px;height:17px;fill:#fff}
+#langToggle:hover,.home-link:hover{background:#274fb0}
+:focus-visible{outline:3px solid #d1322b!important;outline-offset:2px}
+
+/* frame + board */
+.frame{position:relative;max-width:1500px;margin-inline:auto;padding:clamp(9px,1.5vw,24px);background:var(--wood);border-radius:6px;box-shadow:0 22px 40px -10px rgba(40,25,10,.55),inset 0 0 0 2px rgba(255,220,170,.25),inset 0 0 14px rgba(0,0,0,.5)}
+.board{position:relative;overflow:hidden;padding:clamp(1.3rem,3.4vw,3.2rem) clamp(.9rem,3.2vw,3.4rem) clamp(2rem,4vw,3.4rem);background:radial-gradient(40% 14% at 22% 9%,rgba(255,255,255,.075),transparent 70%),radial-gradient(34% 12% at 78% 44%,rgba(255,255,255,.06),transparent 70%),radial-gradient(45% 10% at 40% 82%,rgba(255,255,255,.055),transparent 70%),linear-gradient(101deg,transparent 28%,rgba(255,255,255,.035) 44%,transparent 58%),var(--dust),var(--slate);box-shadow:inset 0 0 40px rgba(0,0,0,.65),inset 0 0 0 2px rgba(0,0,0,.5)}
+.board::before{content:"Merci!";direction:ltr;position:absolute;inset-block-end:6%;inset-inline-end:-2%;font:400 clamp(6rem,17vw,15rem)/1 Caveat,cursive;color:#fff;opacity:.035;transform:rotate(-9deg);pointer-events:none;filter:blur(2px)}
+.ledge{position:relative;height:24px;margin:clamp(9px,1.5vw,24px) clamp(-24px,-1.5vw,-9px) clamp(-24px,-1.5vw,-9px);background:linear-gradient(180deg,#a8744a,#6d4222);border-radius:0 0 6px 6px;box-shadow:0 10px 12px -4px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,225,180,.4)}
+.ledge i{position:absolute;inset-block-end:100%;height:11px;border-radius:3px;background:var(--chalk);box-shadow:0 1px 2px rgba(0,0,0,.5)}
+.ledge i:nth-child(1){width:64px;inset-inline-start:9%}
+.ledge i:nth-child(2){width:38px;inset-inline-start:calc(9% + 76px);background:var(--yel);transform:rotate(-4deg)}
+.ledge i:nth-child(3){width:46px;inset-inline-start:calc(9% + 126px);background:var(--pink)}
+.ledge i:nth-child(4){width:120px;height:34px;inset-inline-end:8%;border-radius:4px;background:linear-gradient(180deg,#b98a57 0 55%,#3a3d44 55%)}
+
+/* header */
+.top{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;gap:.4rem;margin-bottom:clamp(1.6rem,3vw,2.6rem)}
+.dood{stroke:var(--chalk);stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.top .dood{display:none;width:clamp(130px,15vw,210px);height:auto}
+.since{font-size:1.5rem;color:var(--yel);transform:rotate(-3deg)}
+html[lang="ar"] .since{font-size:1.2rem}
+h1{font-size:clamp(3.6rem,13vw,8.4rem);line-height:.95;letter-spacing:.03em;text-transform:uppercase}
+html[lang="ar"] h1{font-size:clamp(4.4rem,16vw,9.6rem);line-height:1.1}
+.swash{display:block;width:min(78%,430px);height:22px;margin:.1rem auto;stroke:var(--pink);stroke-width:3;fill:none;stroke-linecap:round}
+.kind{font-size:clamp(1.2rem,2.4vw,1.7rem);letter-spacing:.3em;text-transform:uppercase}
+.tagl{font-size:clamp(1.5rem,2.6vw,2rem);color:var(--blue);max-width:22em}
+html[lang="ar"] .tagl{font-size:clamp(1.15rem,2vw,1.5rem)}
+.intro{max-width:34em;color:var(--dim);font-size:1.25rem;margin-top:.3rem}
+html[lang="ar"] .intro{font-size:1.02rem}
+
+/* columns */
+.cols{display:grid;gap:2.6rem}
+.col{position:relative;display:grid;gap:2.6rem;align-content:start}
+.sec h2{font-size:clamp(2rem,3.4vw,2.7rem);letter-spacing:.08em;text-transform:uppercase;line-height:1.1;display:flex;align-items:center;gap:.8rem}
+html[lang="ar"] .sec h2{font-size:clamp(2.2rem,3.6vw,3rem);line-height:1.3}
+.sec h2 .dood{width:54px;height:44px;flex:none;stroke:var(--yel)}
+.sec>.swash{margin:.1rem 0 .7rem;width:170px;height:16px}
+.sec h2+p{color:var(--dim);margin-bottom:.4rem}
+.items li{padding:.5rem 0}
+.row{display:flex;align-items:baseline;gap:.5rem}
+.row h3{font-size:1.62rem;font-weight:700;line-height:1.1}
+html[lang="ar"] .row h3{font-size:1.22rem;line-height:1.5}
+.row::after{content:"";order:1;flex:1;min-width:.8rem;border-bottom:3px dotted var(--chalk);opacity:.45;transform:translateY(-.22em)}
+.p{order:2;font-family:"Fredericka the Great",Georgia,serif;font-size:1.5rem;color:var(--yel);white-space:nowrap;direction:ltr;unicode-bidi:isolate;line-height:1}
+.p::after{content:" €";font-size:.8em}
+.items p{color:var(--dim);font-size:1.2rem;line-height:1.2;max-width:30em}
+html[lang="ar"] .items p{font-size:.98rem;line-height:1.65}
+.hrt{display:inline-block;width:.8em;height:.74em;margin-inline-start:.35em;fill:var(--pink);vertical-align:-.02em}
+.veg{font-size:.72em;color:#b4e0aa;border:2px solid currentColor;border-radius:50%;padding:0 .32em;margin-inline-start:.4em;font-weight:700;white-space:nowrap}
+
+/* boxed specials */
+.box{position:relative;padding:1.4rem clamp(1rem,2.4vw,1.8rem) 1.5rem;text-align:center}
+.box::before,.box::after{content:"";position:absolute;inset:0;border:3px solid var(--chalk);border-radius:14px 9px 16px 8px/9px 15px 8px 14px;filter:url(#chalk);pointer-events:none}
+.box::after{inset:6px;border-width:1.5px;opacity:.7}
+.jour{transform:rotate(-.8deg)}
+.box h2{font-size:clamp(2.3rem,4.2vw,3.4rem);color:var(--yel);letter-spacing:.05em;line-height:1.05;text-transform:uppercase}
+html[lang="ar"] .box h2{line-height:1.3}
+.box .dood{width:86px;height:64px;margin:0 auto .2rem;display:block}
+.burst{display:inline-grid;place-items:center;width:5.6rem;height:5.6rem;margin:.5rem auto .4rem;border:3px solid var(--pink);border-radius:50%;transform:rotate(8deg);box-shadow:0 0 0 5px var(--slate),0 0 0 7px rgba(244,170,163,.6)}
+.burst .p{font-size:2.3rem;color:var(--pink)}
+.days{text-align:start;display:grid;gap:.15rem;margin-top:.5rem}
+.days li{display:grid;grid-template-columns:5.2em 1fr;gap:.6rem;align-items:baseline;border-bottom:2px dotted rgba(242,239,230,.3);padding:.22rem 0}
+.days b{color:var(--blue);font-weight:700}
+.days span span{font-size:1.35rem}
+html[lang="ar"] .days span span{font-size:1.05rem}
+html[lang="ar"] .days li{grid-template-columns:5.6em 1fr}
+.formule{transform:rotate(.7deg)}
+.formule h2{color:var(--blue);font-size:clamp(2rem,3.4vw,2.6rem)}
+.formule ul{margin-top:.6rem;text-align:start}
+.formule li{display:flex;align-items:baseline;gap:.5rem;padding:.25rem 0;font-size:1.35rem}
+html[lang="ar"] .formule li{font-size:1.05rem}
+.formule li::after{content:"";order:1;flex:1;border-bottom:3px dotted var(--chalk);opacity:.45;transform:translateY(-.22em)}
+.note{color:var(--dim);font-size:1.15rem;margin-top:.5rem}
+html[lang="ar"] .note{font-size:.95rem}
+
+/* hanging slates */
+.tags{max-width:1180px;margin:1.2rem auto 0;display:grid;gap:.6rem 2.4rem;justify-items:center}
+.tag{width:min(100%,340px);position:relative;padding-top:58px}
+.tag:nth-child(1){transform:rotate(-2deg)}.tag:nth-child(3){transform:rotate(1.6deg)}
+.str{position:absolute;inset-block-start:0;inset-inline-start:50%;width:150px;height:60px;margin-inline-start:-75px;fill:none;stroke:#7b6a50;stroke-width:2}
+.tag>div{background:var(--dust),var(--slate);border:10px solid;border-image:var(--wood) 10;padding:1rem 1.1rem 1.2rem;box-shadow:0 14px 20px -8px rgba(40,25,10,.6),inset 0 0 18px rgba(0,0,0,.6);text-align:center}
+.tag h2{font-size:1.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--yel);margin-bottom:.3rem}
+html[lang="ar"] .tag h2{font-size:1.9rem;line-height:1.3}
+.tag dl{display:grid;grid-template-columns:1fr auto;gap:0 .8rem;text-align:start}
+.tag dd{direction:ltr;unicode-bidi:isolate;font-family:Caveat,cursive;font-size:21px;font-weight:700;line-height:1.5}
+.tag small{display:block;color:var(--dim);font-size:.9em;margin-top:.35rem}
+.key{display:flex;justify-content:center;flex-wrap:wrap;gap:.2rem 1rem;margin-top:.4rem}
+.key .veg,.key .hrt{margin-inline:0 .3em}
+
+@media (prefers-reduced-motion:no-preference){
+  .steam{animation:steam 3.4s ease-in-out infinite}
+  @keyframes steam{50%{transform:translateY(-4px);opacity:.5}}
+  .burst{animation:wob 5s ease-in-out infinite}
+  @keyframes wob{50%{transform:rotate(-4deg) scale(1.04)}}
+}
+@media (min-width:720px){
+  .top{grid-template-columns:auto minmax(0,1fr) auto;align-items:center;column-gap:1rem}
+  .top .dood{display:block}
+  .top>div{display:grid;justify-items:center;gap:.4rem}
+  .cols{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:3.4rem}
+  .mid{grid-column:1/-1;grid-row:1;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:3.4rem}
+  .tags{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+}
+@media (min-width:1180px){
+  .cols{grid-template-columns:minmax(0,1fr) minmax(0,1.22fr) minmax(0,1fr);column-gap:clamp(3rem,5vw,5.4rem)}
+  body{font-size:23px}
+  html[lang="ar"] body{font-size:18.5px}
+  .mid{grid-column:2;grid-row:1;grid-template-columns:minmax(0,1fr)}
+  .cols>.col:nth-child(2){grid-column:1;grid-row:1}
+  .cols>.col:nth-child(3){grid-column:3;grid-row:1}
+  .mid::before,.cols>.col:nth-child(3)::before{content:"";position:absolute;inset-block:0;inset-inline-start:calc(clamp(3rem,5vw,5.4rem)/-2);width:3px;border-radius:3px;background:var(--chalk);opacity:.5;filter:url(#chalk)}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="chalk" x="-4%" y="-8%" width="108%" height="116%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" result="d"/><feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="1" seed="9"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.6 2.15" result="h"/><feComposite in="d" in2="h" operator="in"/></filter>
+  <symbol id="h" viewBox="0 0 20 18"><path d="M10 17C2 11 0 7 1 4c2-5 8-4 9 0 1-4 7-5 9 0 1 3-1 7-9 13z"/></symbol>
+  <symbol id="sw" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12c40-9 80 8 120-2s60-8 82 0c14 5 22-6 12-8s-14 12 4 12c26 0 46-10 74-6"/></symbol>
+</defs></svg>
+<div class="wall">
+<div class="plq">
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html" aria-label="All menus · كل القوائم"><svg viewBox="0 0 16 16" aria-hidden="true"><rect width="6" height="6"/><rect x="10" width="6" height="6"/><rect y="10" width="6" height="6"/><rect x="10" y="10" width="6" height="6"/></svg></a>
+</div>
+
+<div class="frame">
+<main class="board">
+  <header class="top">
+    <svg class="dood ck" viewBox="0 0 200 150" aria-hidden="true"><path d="M22 128C10 116 120 18 150 14c16-2 22 8 18 20-8 26-120 112-146 94z"/><path d="M52 92l14 14M76 70l15 15M101 50l15 14M126 32l14 13"/><path d="M40 60C28 44 96 6 128 22M30 40l-10-6M48 26l-6-10M72 16l-2-11" stroke="#f6d977"/></svg>
+    <div>
+      <p class="since ck"><span lang="en">~ since 1962 ~</span><span lang="ar">~ منذ ١٩٦٢ ~</span></p>
+      <h1 class="bl ck"><span lang="en">Chez Craie</span><span lang="ar">شي كريه</span></h1>
+      <svg class="swash ck" aria-hidden="true"><use href="#sw"/></svg>
+      <p class="kind bl"><span lang="en">French Bistro</span><span lang="ar">بيسترو فرنسي</span></p>
+      <p class="tagl"><span lang="en">Grandmother's cooking, chalked up fresh every morning.</span><span lang="ar">طبخ الجدّات، يُكتب بالطبشور طازجًا كل صباح.</span></p>
+      <p class="intro"><span lang="en">The board changes with the market. If a dish is rubbed out, the last plate has just left the kitchen — ask Odile what took its place.</span><span lang="ar">هذا اللوح يتغيّر مع السوق. وإن وجدت طبقًا ممسوحًا فلأن آخر صحن منه غادر المطبخ للتوّ؛ اسأل أوديل عمّا حلّ مكانه.</span></p>
+    </div>
+    <svg class="dood ck" viewBox="0 0 200 150" aria-hidden="true"><path d="M44 70h92v22c0 26-20 42-46 42S44 118 44 92z"/><path d="M136 78c30-6 32 36 0 32"/><path d="M26 140h128"/><g class="steam" stroke="#a6d5ea"><path d="M68 54c-10-12 10-18 0-32M92 54c-10-12 10-18 0-32M116 54c-10-12 10-18 0-32"/></g><path d="M168 30l4 10 10 2-8 7 2 11-8-6-9 6 3-11-8-7 10-2z" stroke="#f6d977"/></svg>
+  </header>
+
+  <div class="cols">
+    <div class="col mid">
+      <section class="box jour">
+        <svg class="dood ck" viewBox="0 0 86 64" aria-hidden="true"><path d="M10 50c0-22 14-36 33-36s33 14 33 36z"/><path d="M4 50h78M4 56h78"/><circle cx="43" cy="9" r="4"/><path d="M24 40c2-9 8-15 16-17" stroke="#f6d977"/></svg>
+        <h2 class="bl ck"><span lang="en">Plat du Jour</span><span lang="ar">طبق اليوم</span></h2>
+        <p><span lang="en">One dish a day, cooked once, until the pot is empty.</span><span lang="ar">طبق واحد كل يوم، يُطهى مرة واحدة، حتى يفرغ القِدر.</span></p>
+        <div class="burst ck"><span class="p">16</span></div>
+        <ul class="days">
+          <li><b><span lang="en">Monday</span><span lang="ar">الاثنين</span></b><span><span lang="en">Blanquette de veau, rice pilaf</span><span lang="ar">بلانكيت العجل بالكريمة مع الأرزّ</span></span></li>
+          <li><b><span lang="en">Tuesday</span><span lang="ar">الثلاثاء</span></b><span><span lang="en">Hachis parmentier, green salad</span><span lang="ar">هاشي بارمنتييه مع سلطة خضراء</span></span></li>
+          <li><b><span lang="en">Wednesday</span><span lang="ar">الأربعاء</span></b><span><span lang="en">Duck confit, sautéed potatoes</span><span lang="ar">كونفي البطّ مع بطاطا سوتيه</span></span></li>
+          <li><b><span lang="en">Thursday</span><span lang="ar">الخميس</span></b><span><span lang="en">Pot-au-feu with marrow bone</span><span lang="ar">بوتوفو مع عظم النخاع</span></span></li>
+          <li><b><span lang="en">Friday</span><span lang="ar">الجمعة</span></b><span><span lang="en">Brandade of salt cod</span><span lang="ar">براندات سمك القدّ المملّح</span></span></li>
+          <li><b><span lang="en">Week-end</span><span lang="ar">نهاية الأسبوع</span></b><span><span lang="en">Seven-hour leg of lamb, flageolets</span><span lang="ar">فخذ ضأن مطهو سبع ساعات مع الفاصولياء</span></span></li>
+        </ul>
+      </section>
+
+      <section class="sec">
+        <h2 class="bl ck"><span lang="en">Les Plats</span><span lang="ar">الأطباق الرئيسية</span></h2>
+        <svg class="swash ck" aria-hidden="true"><use href="#sw"/></svg>
+        <ul class="items">
+          <li><div class="row"><h3><span lang="en">Steak frites</span><span lang="ar">ستيك مع البطاطا المقلية</span><svg class="hrt"><use href="#h"/></svg></h3><span class="p">24</span></div><p><span lang="en">250 g entrecôte, shallot butter, hand-cut fries and a jug of pepper sauce.</span><span lang="ar">أنتركوت ٢٥٠ غ مع زبدة الكرّاث الأندلسي وبطاطا مقطّعة باليد وإبريق من صلصة الفلفل.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Daube de bœuf</span><span lang="ar">دوب اللحم البقري</span></h3><span class="p">21</span></div><p><span lang="en">Beef cheek braised six hours with carrots, olives and orange peel.</span><span lang="ar">خدّ البقر مطهو ست ساعات على نار هادئة مع الجزر والزيتون وقشر البرتقال.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Poulet rôti</span><span lang="ar">دجاج الأحد المشوي</span></h3><span class="p">19</span></div><p><span lang="en">Half a farm chicken, tarragon jus, buttery mashed potato.</span><span lang="ar">نصف دجاجة بلدية مع مرق الطرخون وبطاطا مهروسة بالزبدة.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Sole meunière</span><span lang="ar">سمك موسى بالزبدة</span><svg class="hrt"><use href="#h"/></svg></h3><span class="p">26</span></div><p><span lang="en">Whole sole in brown butter, lemon and capers, filleted at the table.</span><span lang="ar">سمكة موسى كاملة بالزبدة البنّية والليمون والقبّار، تُنزع أشواكها أمامك.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Moules à la crème</span><span lang="ar">بلح البحر بالكريمة</span></h3><span class="p">18</span></div><p><span lang="en">A pot of mussels with shallots, cream and parsley; fries on the side.</span><span lang="ar">قِدر من بلح البحر مع الكرّاث الأندلسي والكريمة والبقدونس، وبجانبه بطاطا مقلية.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Croque-monsieur</span><span lang="ar">كروك مسيو</span></h3><span class="p">13</span></div><p><span lang="en">Smoked turkey and Gruyère under blistered béchamel, green salad.</span><span lang="ar">ديك رومي مدخّن وجبنة غرويير تحت بشاميل محمّر، مع سلطة خضراء.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Ratatouille</span><span lang="ar">راتاتوي</span><i class="veg">V</i></h3><span class="p">15</span></div><p><span lang="en">Slow-stewed summer vegetables over soft polenta with basil oil.</span><span lang="ar">خضار الصيف مطهوّة على مهل فوق بولنتا طريّة مع زيت الريحان.</span></p></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col">
+      <section class="sec">
+        <h2 class="bl ck"><span lang="en">Les Entrées</span><span lang="ar">المقبّلات</span></h2>
+        <svg class="swash ck" aria-hidden="true"><use href="#sw"/></svg>
+        <ul class="items">
+          <li><div class="row"><h3><span lang="en">Soupe à l'oignon</span><span lang="ar">حساء البصل الفرنسي</span><svg class="hrt"><use href="#h"/></svg></h3><span class="p">9</span></div><p><span lang="en">Onions cooked to jam in beef broth, under a raft of molten Comté.</span><span lang="ar">بصل يُطهى حتى يصير كالمربّى في مرق اللحم، تحت طبقة من جبنة كونتيه الذائبة.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Chèvre chaud</span><span lang="ar">جبنة الماعز الدافئة</span><i class="veg">V</i></h3><span class="p">11</span></div><p><span lang="en">Warm goat's cheese on toast, honey, walnuts, bitter leaves.</span><span lang="ar">جبنة ماعز دافئة على خبز محمّص مع العسل والجوز وأوراق خضراء مُرّة.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Œufs mayonnaise</span><span lang="ar">بيض بالمايونيز</span><i class="veg">V</i></h3><span class="p">6</span></div><p><span lang="en">The bistro classic: three halves, house mayonnaise, chives.</span><span lang="ar">كلاسيكية البيسترو: ثلاثة أنصاف بيض مع مايونيز البيت والثوم المعمّر.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Rillettes de saumon</span><span lang="ar">رييت السلمون</span></h3><span class="p">10</span></div><p><span lang="en">Potted salmon with lemon and dill, toasted baguette, cornichons.</span><span lang="ar">سلمون مهروس بالليمون والشبت مع خبز الباغيت المحمّص ومخلّل الخيار الصغير.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Poireaux vinaigrette</span><span lang="ar">كرّاث بصلصة الخلّ</span><i class="veg">V</i></h3><span class="p">8</span></div><p><span lang="en">Tender leeks, mustard dressing, chopped egg and hazelnuts.</span><span lang="ar">كرّاث طريّ مع صلصة الخردل والبيض المفروم والبندق.</span></p></li>
+        </ul>
+      </section>
+      <section class="sec">
+        <h2 class="bl ck"><span lang="en">À Boire</span><span lang="ar">المشروبات</span></h2>
+        <svg class="swash ck" aria-hidden="true"><use href="#sw"/></svg>
+        <p><span lang="en">No wine list here — just what the terrace has always drunk.</span><span lang="ar">لا كحول عندنا، بل ما اعتاد روّاد الرصيف أن يشربوه.</span></p>
+        <ul class="items">
+          <li><div class="row"><h3><span lang="en">Citron pressé</span><span lang="ar">ليمون معصور</span></h3><span class="p">5</span></div><p><span lang="en">Fresh lemon, a carafe of water and sugar to mix as you like.</span><span lang="ar">عصير ليمون طازج مع إبريق ماء وسكّر تمزجه على ذوقك.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Diabolo menthe</span><span lang="ar">ديابولو النعناع</span></h3><span class="p">4.5</span></div><p><span lang="en">Mint syrup and lemonade, green as a Métro sign.</span><span lang="ar">شراب النعناع مع الليموناضة الغازية، أخضر كلافتات المترو.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Raisin pétillant</span><span lang="ar">عصير العنب الفوّار</span></h3><span class="p">6</span></div><p><span lang="en">Sparkling white grape juice, served cold in a coupe.</span><span lang="ar">عصير عنب أبيض فوّار يُقدَّم باردًا في كأس عريضة.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Café crème</span><span lang="ar">قهوة بالكريمة</span></h3><span class="p">4</span></div><p><span lang="en">Or a plain espresso at the counter for 2.50.</span><span lang="ar">أو إسبريسو سادة عند الكاونتر بـ ٢٫٥٠.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Chocolat chaud</span><span lang="ar">شوكولاتة ساخنة</span></h3><span class="p">5.5</span></div><p><span lang="en">The old-fashioned way: melted dark chocolate, thick enough to stand a spoon.</span><span lang="ar">على الطريقة القديمة: شوكولاتة داكنة مذابة، كثيفة حتى تقف فيها الملعقة.</span></p></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col">
+      <section class="sec">
+        <h2 class="bl ck"><span lang="en">Fromages &amp; Desserts</span><span lang="ar">الأجبان والحلويات</span></h2>
+        <svg class="swash ck" aria-hidden="true"><use href="#sw"/></svg>
+        <ul class="items">
+          <li><div class="row"><h3><span lang="en">Assiette de fromages</span><span lang="ar">طبق الأجبان</span><i class="veg">V</i></h3><span class="p">12</span></div><p><span lang="en">Comté, Brie de Meaux and a blue, with fig jam and walnut bread.</span><span lang="ar">كونتيه وبري دو مو وجبنة زرقاء، مع مربّى التين وخبز الجوز.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Crème brûlée</span><span lang="ar">كريم بروليه</span><svg class="hrt"><use href="#h"/></svg></h3><span class="p">8</span></div><p><span lang="en">Vanilla custard under burnt sugar. Crack it yourself.</span><span lang="ar">كاسترد الفانيليا تحت قشرة سكّر محروق؛ اكسرها بملعقتك.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Tarte Tatin</span><span lang="ar">تارت تاتان</span></h3><span class="p">9</span></div><p><span lang="en">Upside-down caramelised apples, warm, with crème fraîche.</span><span lang="ar">تفّاح مكرمل مقلوب يُقدَّم دافئًا مع الكريمة الطازجة.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Mousse au chocolat</span><span lang="ar">موس الشوكولاتة</span></h3><span class="p">8</span></div><p><span lang="en">Served from the big bowl — take as much as you dare.</span><span lang="ar">تُغرف من الوعاء الكبير؛ خذ منها قدر ما تجرؤ.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Profiteroles</span><span lang="ar">بروفيترول</span></h3><span class="p">9</span></div><p><span lang="en">Choux buns, vanilla ice cream, hot chocolate sauce poured at the table.</span><span lang="ar">كرات الشو المحشوّة بمثلّجات الفانيليا، تُسكب عليها صلصة الشوكولاتة الساخنة أمامك.</span></p></li>
+          <li><div class="row"><h3><span lang="en">Île flottante</span><span lang="ar">الجزيرة العائمة</span></h3><span class="p">7</span></div><p><span lang="en">Poached meringue adrift on vanilla custard, caramel and almonds.</span><span lang="ar">مارينغ مسلوق يطفو على كريمة الفانيليا مع الكراميل واللوز.</span></p></li>
+        </ul>
+      </section>
+      <section class="box formule">
+        <h2 class="bl ck"><span lang="en">Formule Midi</span><span lang="ar">عرض الغداء</span></h2>
+        <p><span lang="en">Weekdays, noon to three</span><span lang="ar">أيام الأسبوع، من ١٢ إلى ٣</span></p>
+        <ul>
+          <li><span lang="en">Starter + plat du jour</span><span lang="ar">مقبّلة + طبق اليوم</span><span class="p">22</span></li>
+          <li><span lang="en">Plat du jour + dessert</span><span lang="ar">طبق اليوم + حلوى</span><span class="p">22</span></li>
+          <li><span lang="en">All three + coffee</span><span lang="ar">الثلاثة معًا + قهوة</span><span class="p">27</span></li>
+        </ul>
+        <p class="note"><span lang="en">Bread and a carafe of water come without asking.</span><span lang="ar">الخبز وإبريق الماء يأتيان دون أن تطلب.</span></p>
+      </section>
+    </div>
+  </div>
+</main>
+<div class="ledge" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+</div>
+
+<footer class="tags">
+  <div class="tag"><svg class="str" viewBox="0 0 150 60" aria-hidden="true"><path d="M12 60 75 6l63 54"/><circle cx="75" cy="6" r="4" fill="#7b6a50"/></svg><div>
+    <h2 class="bl ck"><span lang="en">Hours</span><span lang="ar">الأوقات</span></h2>
+    <dl><dt><span lang="en">Tuesday – Saturday</span><span lang="ar">الثلاثاء – السبت</span></dt><dd>12:00 – 23:00</dd><dt><span lang="en">Sunday lunch</span><span lang="ar">غداء الأحد</span></dt><dd>12:00 – 16:00</dd><dt><span lang="en">Monday</span><span lang="ar">الاثنين</span></dt><dd><span lang="en">closed</span><span lang="ar" style="font-family:inherit">مغلق</span></dd></dl></div></div>
+  <div class="tag"><svg class="str" viewBox="0 0 150 60" aria-hidden="true"><path d="M12 60 75 6l63 54"/><circle cx="75" cy="6" r="4" fill="#7b6a50"/></svg><div>
+    <h2 class="bl ck"><span lang="en">Find us</span><span lang="ar">العنوان</span></h2>
+    <p><span lang="en">14 rue des Ardoises<br>69004 Lyon, Croix-Rousse</span><span lang="ar">١٤ شارع الأردواز<br>حيّ كروا روس، ليون ٦٩٠٠٤</span></p>
+    <small><span lang="en">Tables can't be booked on the terrace. Come early.</span><span lang="ar">لا حجز لطاولات الرصيف، فبكّر بالمجيء.</span></small></div></div>
+  <div class="tag"><svg class="str" viewBox="0 0 150 60" aria-hidden="true"><path d="M12 60 75 6l63 54"/><circle cx="75" cy="6" r="4" fill="#7b6a50"/></svg><div>
+    <h2 class="bl ck"><span lang="en">Small print</span><span lang="ar">ملاحظات</span></h2>
+    <p><span lang="en">No pork, no alcohol in any dish. Ask about gluten, nuts, dairy, egg, fish and shellfish. Prices in euros, service included.</span><span lang="ar">لا لحم خنزير ولا كحول في أي طبق. اسألنا عن الغلوتين والمكسّرات والألبان والبيض والسمك والمحار. الأسعار باليورو وتشمل الخدمة.</span></p>
+    <div class="key"><span><svg class="hrt"><use href="#h"/></svg><span lang="en">house favourite</span><span lang="ar">المفضّل لدينا</span></span><span><i class="veg">V</i><span lang="en">vegetarian</span><span lang="ar">نباتي</span></span></div></div></div>
+</footer>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

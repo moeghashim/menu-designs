@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>BLOK Burger · بلوك برغر</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="BLOK Burger — smash burgers, stacked loud. بلوك برغر — برغر سماش يُهرس عند الطلب.">
+<meta name="theme-color" content="#ffe14a">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;700&family=Lalezar&family=Alexandria:wght@400;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--k:#111;--yl:#ffe14a;--pk:#ff5fa8;--bl:#3b5bff;--gr:#49d17a;--rd:#ff4127;--wh:#fffdf5;--b:4px solid var(--k);--sx:8px;
+--disp:'Archivo Black','Lalezar',Impact,sans-serif;--body:'Space Grotesk','Alexandria',system-ui,sans-serif}
+html[lang="ar"]{--disp:'Lalezar','Archivo Black',sans-serif;--body:'Alexandria','Space Grotesk',sans-serif;--sx:-8px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:500 17px/1.45 var(--body);color:var(--k);background:var(--wh);overflow-x:clip}
+html[lang="ar"] body{font-weight:400;font-size:17.5px;line-height:1.75}
+a{color:inherit}ul{list-style:none;padding:0}
+h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-height:.92}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{line-height:1.2}
+/* top bar */
+.bar{display:grid;grid-template-columns:auto 1fr auto auto;border-bottom:var(--b);background:var(--wh);position:sticky;top:0;z-index:20}
+.bar>*{display:grid;place-items:center;padding:10px 18px;border-inline-end:var(--b);text-decoration:none;font-weight:700}
+.bar>*:last-child{border-inline-end:0}
+.logo{font:400 26px/1 var(--disp);background:var(--k);color:var(--yl);letter-spacing:.02em}
+html[lang="ar"] .logo{font-size:30px;letter-spacing:0;padding-block:6px}
+.bar nav{display:flex;justify-content:start;gap:0;padding:0;overflow:hidden}
+.bar nav a{align-self:stretch;display:grid;place-items:center;padding:0 clamp(10px,1.6vw,22px);border-inline-end:var(--b);text-decoration:none;font-size:15px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+html[lang="ar"] .bar nav a{letter-spacing:0;font-size:16px}
+.bar nav a:hover,.home-link:hover{background:var(--yl)}
+.home-link{font-size:14px}
+#langToggle{font:700 15px/1 'Alexandria','Space Grotesk',sans-serif;background:var(--pk);border:0;border-inline-start:0;cursor:pointer;color:var(--k)}
+#langToggle:hover{background:var(--k);color:var(--pk)}
+html[lang="en"] .to-en,html[lang="ar"] .to-ar{display:none}
+/* hero */
+.hero{overflow-x:clip;display:grid;border-bottom:var(--b);background:var(--yl);position:relative}
+.h-l{padding:clamp(22px,4vw,56px);position:relative;display:flex;flex-direction:column;justify-content:center}
+.kick{align-self:start;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:14px;background:var(--k);color:var(--wh);padding:7px 12px;transform:rotate(-2deg)}
+html[lang="ar"] .kick{letter-spacing:0;font-size:16px}
+h1{margin:clamp(16px,2vw,28px) 0}
+.blok{display:flex;gap:clamp(5px,.8vw,12px);direction:ltr}
+.blok b{flex:1;display:grid;place-items:center;font:400 clamp(64px,13vw,210px)/1 'Archivo Black',Impact,sans-serif;aspect-ratio:.82;border:var(--b);border-width:clamp(4px,.5vw,7px);box-shadow:var(--sx) 8px 0 var(--k);background:var(--wh)}
+.blok b:nth-child(1){background:var(--pk);transform:rotate(-3deg)}.blok b:nth-child(2){transform:translateY(8%)}.blok b:nth-child(3){background:var(--k);color:var(--yl);transform:rotate(2deg)}.blok b:nth-child(4){background:var(--bl);color:var(--wh);transform:translateY(-6%) rotate(-1.5deg)}
+.blok-ar{display:inline-block;font:400 clamp(110px,21vw,330px)/1.05 'Lalezar',sans-serif;background:var(--pk);border:var(--b);border-width:clamp(4px,.5vw,7px);box-shadow:var(--sx) 8px 0 var(--k);padding:0 .22em .04em;transform:rotate(-2deg)}
+.burger{display:block;font:400 clamp(44px,8.6vw,138px)/.9 var(--disp);letter-spacing:.14em;margin-top:.22em;-webkit-text-stroke:0}
+html[lang="ar"] .burger{letter-spacing:0;font-size:clamp(64px,10vw,150px);line-height:1.1;margin-top:.1em}
+.lede{font-size:clamp(18px,1.6vw,22px);font-weight:700;max-width:36ch;background:var(--wh);border:var(--b);padding:14px 18px;box-shadow:var(--sx) 8px 0 var(--k)}
+html[lang="ar"] .lede{font-weight:400}
+.h-r{position:relative;background:var(--pk);border-top:var(--b);padding:clamp(34px,5vw,70px) clamp(16px,3vw,44px);display:grid;place-items:center;
+background-image:radial-gradient(var(--k) 1.6px,transparent 1.8px);background-size:18px 18px}
+.anat{width:min(100%,520px);display:grid;gap:5px}
+.anat li{display:grid;grid-template-columns:58% 1fr;align-items:center;gap:0}
+.anat i{display:block;border:var(--b);height:26px;border-radius:8px;box-shadow:var(--sx) 6px 0 var(--k)}
+.anat span{display:flex;align-items:center;gap:8px;font:700 clamp(12.5px,1.1vw,15px)/1.15 var(--body);text-transform:uppercase;letter-spacing:.03em;padding-inline-start:10px}
+html[lang="ar"] .anat span{letter-spacing:0;font-size:clamp(14px,1.2vw,16.5px)}
+.anat span::before{content:"";flex:0 0 clamp(14px,2vw,34px);height:4px;background:var(--k)}
+.anat span>span{background:var(--wh);border:3px solid var(--k);padding:4px 8px;display:block}.anat span>span::before{display:none}
+.bunT i{height:clamp(70px,8vw,104px);border-radius:140px 140px 10px 10px;background:radial-gradient(ellipse 7px 4px at 30% 35%,var(--wh) 98%,transparent),radial-gradient(ellipse 7px 4px at 52% 22%,var(--wh) 98%,transparent),radial-gradient(ellipse 7px 4px at 70% 42%,var(--wh) 98%,transparent),radial-gradient(ellipse 7px 4px at 44% 55%,var(--wh) 98%,transparent),radial-gradient(ellipse 7px 4px at 18% 62%,var(--wh) 98%,transparent),radial-gradient(ellipse 7px 4px at 82% 66%,var(--wh) 98%,transparent),#ff9d2e}
+.let i{background:var(--gr);height:22px;margin-inline:-5%;border-radius:14px 4px 14px 4px}
+.tom i{background:var(--rd);height:20px;margin-inline:4%}
+.chz i{background:var(--yl);height:16px;margin-inline:-3%;border-radius:2px;position:relative}
+.chz i::after{content:"";position:absolute;inset-inline-start:14%;top:100%;width:26px;height:26px;background:var(--yl);border:var(--b);border-top:0;border-radius:0 0 30px 30px}
+.chz+.pat+.chz i::after{inset-inline-start:66%;height:18px}
+.pat i{background:#6a3a1f;height:clamp(30px,3.4vw,42px);border-radius:16px;background-image:radial-gradient(#3d1f0f 2px,transparent 2.4px);background-size:14px 12px}
+.bunB i{height:clamp(40px,4.6vw,58px);border-radius:10px 10px 44px 44px;background:linear-gradient(var(--pk) 0 26%,#ff9d2e 26%)}
+.burst{position:absolute;display:grid;place-items:center;text-align:center;width:clamp(96px,11vw,150px);aspect-ratio:1;font:400 clamp(13px,1.35vw,19px)/1 var(--disp);text-transform:uppercase;background:var(--k);color:var(--yl);padding:14px;
+clip-path:polygon(50% 0,61% 12%,75% 7%,79% 21%,93% 25%,88% 39%,100% 50%,88% 61%,93% 75%,79% 79%,75% 93%,61% 88%,50% 100%,39% 88%,25% 93%,21% 79%,7% 75%,12% 61%,0 50%,12% 39%,7% 25%,21% 21%,25% 7%,39% 12%);animation:spin 18s linear infinite}
+html[lang="ar"] .burst{line-height:1.2;font-size:clamp(15px,1.5vw,21px)}
+.burst span{animation:spin 18s linear infinite reverse;display:block}
+.b1{top:-28px;inset-inline-end:4%}.b2{bottom:-30px;inset-inline-start:5%;background:var(--bl);color:var(--wh);z-index:3}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* ticker */
+.tick{background:var(--k);color:var(--yl);border-bottom:var(--b);overflow:hidden;white-space:nowrap}
+.tick div{display:inline-flex;align-items:center;gap:26px;padding:12px 13px;font:400 clamp(20px,2.2vw,30px)/1 var(--disp);text-transform:uppercase;animation:tick 26s linear infinite;--to:-50%}
+html[lang="ar"] .tick div{--to:50%;line-height:1.3}
+.tick b{color:var(--pk);font-size:.6em}
+@keyframes tick{to{transform:translateX(var(--to))}}
+/* sections */
+.sec{display:grid;border-bottom:var(--b);scroll-margin-top:52px}
+.shead{padding:clamp(22px,3vw,44px);border-bottom:var(--b);position:relative;overflow:hidden}
+.shead .big{font:400 clamp(90px,12vw,190px)/.8 'Archivo Black',sans-serif;color:transparent;-webkit-text-stroke:4px var(--k);display:block;margin-bottom:14px}
+.shead h2{font-size:clamp(40px,3.9vw,60px);overflow-wrap:anywhere}
+html[lang="ar"] .shead h2{font-size:clamp(50px,4.8vw,76px)}
+.shead p{margin-top:14px;font-weight:700;max-width:30ch}
+html[lang="ar"] .shead p{font-weight:400}
+.sbody{padding:clamp(20px,3vw,44px)}
+.s1{background:var(--wh)}.s1 .shead{background:var(--yl)}
+.s2{background:var(--bl)}.s2 .shead{background:var(--k);color:var(--wh)}.s2 .shead .big{-webkit-text-stroke-color:var(--gr)}
+.s3 .shead{background:var(--pk)}.s3{background:var(--wh)}
+.s4{background:var(--yl)}.s4 .shead{background:var(--wh)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:clamp(20px,2.4vw,32px)}
+.card{background:var(--wh);border:var(--b);box-shadow:var(--sx) 8px 0 var(--k);padding:18px;display:flex;flex-direction:column;gap:10px;transition:transform .15s,box-shadow .15s;position:relative}
+.card:hover{transform:translate(calc(var(--sx)*-.5),-4px);box-shadow:calc(var(--sx)*1.5) 12px 0 var(--k)}
+.card:nth-child(3n+2){background:var(--yl)}.card:nth-child(3n){background:#ffd3e6}
+.s1 .card:nth-child(3n+2){background:#ffd3e6}.s1 .card:nth-child(3n){background:#d9e0ff}
+.top{display:flex;justify-content:space-between;align-items:start;min-height:38px}
+.num{font:400 20px/1 'Archivo Black',sans-serif;border:3px solid var(--k);padding:6px 8px;background:var(--wh)}
+.stk{font:700 13px/1 var(--body);font-style:normal;text-transform:uppercase;letter-spacing:.06em;padding:8px 11px;border:3px solid var(--k);border-radius:99px;transform:rotate(4deg);box-shadow:3px 3px 0 var(--k)}
+html[lang="ar"] .stk{letter-spacing:0;font-size:14.5px;transform:rotate(-4deg)}
+.stk.yl{background:var(--yl)}.stk.rd{background:var(--rd);color:var(--wh)}.stk.bl{background:var(--bl);color:var(--wh)}.stk.gr{background:var(--gr)}.stk.pk{background:var(--pk)}
+.card h3{font-size:clamp(28px,2.5vw,36px)}
+html[lang="ar"] .card h3{font-size:clamp(32px,2.8vw,40px)}
+.card p{flex:1}
+.bot{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:var(--b);margin:6px -18px -18px;padding:0;}
+.pr{white-space:nowrap;font-weight:700;font-size:14px}
+.pr b{font:400 30px/1 'Archivo Black',sans-serif}
+.bot .pr{background:var(--k);color:var(--yl);padding:10px 16px}
+.heat{display:flex;align-items:center;gap:4px;font:700 12px/1 var(--body);text-transform:uppercase;letter-spacing:.08em;padding-inline-end:14px}
+html[lang="ar"] .heat{letter-spacing:0;font-size:14px}
+.heat span{margin-inline-end:4px}
+.heat i{width:13px;height:13px;border:3px solid var(--k);background:var(--wh)}.heat i.on{background:var(--rd)}
+.rows li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;align-items:center;padding:16px 4px;border-bottom:var(--b);transition:background .15s,padding .15s}
+.rows li:first-child{border-top:var(--b)}
+.rows li:hover{background:var(--yl);padding-inline:16px}
+.rows h3{font-size:clamp(26px,2.8vw,42px)}
+.rows p{grid-column:1}
+.rows .pr{grid-column:2;grid-row:1/3;border:var(--b);padding:8px 14px;background:var(--wh);box-shadow:var(--sx) 6px 0 var(--k);transform:rotate(-2deg)}
+.rows li:nth-child(even) .pr{transform:rotate(2deg);background:var(--pk)}
+.meal{margin-top:28px;background:var(--k);color:var(--wh);padding:18px 22px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;box-shadow:var(--sx) 8px 0 var(--pk)}
+.meal b{font:400 clamp(26px,2.6vw,38px)/1.1 var(--disp);color:var(--yl);text-transform:uppercase}
+.cups{display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));gap:26px 18px}
+.cup{display:flex;flex-direction:column;gap:8px}
+.glass{height:clamp(150px,15vw,210px);margin-inline:12%;border:var(--b);border-top-width:8px;background:linear-gradient(0deg,var(--f) var(--lv),var(--wh) var(--lv));clip-path:polygon(0 0,100% 0,88% 100%,12% 100%);position:relative;transition:transform .2s}
+.cup:hover .glass{transform:rotate(-4deg) translateY(-6px)}
+.cup{position:relative}
+.cup::before{content:"";position:absolute;top:-22px;inset-inline-start:52%;width:9px;height:70px;background:repeating-linear-gradient(180deg,var(--rd) 0 8px,var(--wh) 8px 16px);border:3px solid var(--k);transform:rotate(12deg);z-index:1}
+.cups{padding-top:22px}
+.glass s{position:absolute;inset:auto 0 0;height:8px;background:var(--k)}
+.cup{min-width:0}.cup h3{font-size:clamp(18px,1.5vw,22px);margin-top:6px;overflow-wrap:anywhere}html[lang="ar"] .cup h3{font-size:27px}
+.cup p{font-size:15px;flex:1}html[lang="ar"] .cup p{font-size:16px}
+.cup .pr{align-self:start;background:var(--k);color:var(--yl);padding:6px 12px}
+.cup .pr b{font-size:24px}
+/* sauces */
+.sauce{background:var(--k);color:var(--wh);border-bottom:var(--b);padding:clamp(26px,4vw,56px) clamp(20px,3vw,44px);display:grid;gap:24px 50px;align-items:center}
+.sauce h2{font-size:clamp(40px,5vw,76px);color:var(--yl)}
+.sauce h2 small{display:block;font:700 16px/1.4 var(--body);text-transform:none;color:var(--wh);margin-top:12px}
+.dips{display:flex;flex-wrap:wrap;gap:12px}
+.dips li{display:flex;align-items:center;gap:10px;font-weight:700;border:3px solid var(--wh);border-radius:99px;padding:9px 16px 9px 10px;transition:transform .15s}
+html[dir="rtl"] .dips li{padding:9px 10px 9px 16px}
+.dips li:hover{transform:rotate(-3deg) scale(1.05);background:var(--wh);color:var(--k)}
+.dips i{width:26px;height:26px;border-radius:50%;background:var(--c);border:3px solid var(--wh)}
+/* footer */
+footer{display:grid;background:var(--pk)}
+footer>div{padding:clamp(22px,3vw,40px);border-bottom:var(--b)}
+footer h4{font:400 28px/1 var(--disp);text-transform:uppercase;margin-bottom:10px}
+html[lang="ar"] footer h4{font-size:32px;line-height:1.3}
+.f2{background:var(--yl)}.f3{background:var(--wh)}
+.fine{grid-column:1/-1;background:var(--k);color:var(--wh);font-size:15px;border:0!important}
+html[lang="ar"] .fine{font-size:16px}
+@media (min-width:960px){
+ .hero{grid-template-columns:1.25fr 1fr}.h-r{border-top:0;border-inline-start:var(--b)}
+ .sec{grid-template-columns:minmax(300px,1.25fr) 3fr}
+ .sec:nth-of-type(even){grid-template-columns:3fr minmax(300px,1.25fr)}
+ .sec:nth-of-type(even) .shead{order:2;border-inline:var(--b) 0}
+ .shead{border-bottom:0;border-inline-end:var(--b)}
+ .shead>*{position:relative}
+ .shead-in{position:sticky;top:76px}
+ .sauce{grid-template-columns:1fr 1.6fr}
+ footer{grid-template-columns:repeat(3,1fr)}footer>div+div{border-inline-start:var(--b)}
+}
+@media (max-width:959px){
+ .bar{grid-template-columns:1fr auto auto}.bar nav{grid-column:1/-1;grid-row:2;border-top:var(--b);border-inline-end:0;display:grid;grid-template-columns:repeat(4,1fr)}
+ .bar nav a{padding:9px 2px;font-size:12.5px;letter-spacing:0}.bar nav a:last-child{border-inline-end:0}
+ html[lang="ar"] .bar nav a{font-size:14px}
+ .logo{justify-content:start;place-items:center start}
+ .bar{position:static}
+ .shead{display:grid;grid-template-columns:auto 1fr;gap:0 16px;align-items:end}.shead .big{font-size:84px;margin:0;-webkit-text-stroke-width:3px}.shead p{grid-column:1/-1}
+ .b1{top:-40px;inset-inline-end:8px}.b2{bottom:-34px}
+ .anat li{grid-template-columns:52% 1fr}
+ .cups{grid-template-columns:1fr 1fr}.blok b{font-size:19vw}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="bar">
+ <span class="logo"><span lang="en">BLOK</span><span lang="ar">بلوك</span></span>
+ <nav aria-label="Menu"><a href="#smash"><span lang="en">Smash</span><span lang="ar">سماش</span></a><a href="#notbeef"><span lang="en">Not beef</span><span lang="ar">غير البقر</span></a><a href="#sides"><span lang="en">Sides</span><span lang="ar">جوانب</span></a><a href="#shakes"><span lang="en">Shakes</span><span lang="ar">شيك</span></a></nav>
+ <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+ <button id="langToggle" type="button"><span class="to-ar">العربية</span><span class="to-en">English</span></button>
+</div>
+<header class="hero">
+ <div class="h-l">
+  <span class="kick"><span lang="en">Smash burgers · Est. yesterday, basically</span><span lang="ar">برغر سماش · تأسّس البارحة تقريبًا</span></span>
+  <h1><span lang="en"><span class="blok"><b>B</b><b>L</b><b>O</b><b>K</b></span><span class="burger">Burger</span></span><span lang="ar"><span class="blok-ar">بلوك</span><span class="burger">برغر</span></span></h1>
+  <p class="lede"><span lang="en">A ball of fresh beef. A screaming-hot griddle. One heavy press. That’s the whole secret, and we refuse to make it complicated.</span><span lang="ar">كرة من اللحم البقري الطازج، صاج ملتهب، وضغطة واحدة ثقيلة. هذا هو السرّ كلّه، ونرفض أن نعقّده.</span></p>
+ </div>
+ <div class="h-r">
+  <span class="burst b1"><span><span lang="en">100% halal beef</span><span lang="ar">لحم حلال ١٠٠٪</span></span></span>
+  <ul class="anat" aria-label="Anatomy of a BLOK"><li class="bunT"><i></i><span><span lang="en">Toasted potato bun</span><span lang="ar">خبز بطاطا محمّص</span></span></li><li class="let"><i></i><span><span lang="en">Crunch</span><span lang="ar">قرمشة</span></span></li><li class="tom"><i></i><span><span lang="en">Beef tomato</span><span lang="ar">طماطم</span></span></li><li class="chz"><i></i><span><span lang="en">Cheese melts here</span><span lang="ar">هنا تذوب الجبنة</span></span></li><li class="pat"><i></i><span><span lang="en">Smashed patty No. 1</span><span lang="ar">قطعة اللحم الأولى</span></span></li><li class="chz"><i></i><span><span lang="en">More cheese</span><span lang="ar">جبنة أخرى</span></span></li><li class="pat"><i></i><span><span lang="en">Smashed patty No. 2</span><span lang="ar">قطعة اللحم الثانية</span></span></li><li class="bunB"><i></i><span><span lang="en">BLOK sauce + bun</span><span lang="ar">صلصة بلوك + خبز</span></span></li></ul>
+  <span class="burst b2"><span><span lang="en">Smashed to order</span><span lang="ar">يُهرس عند الطلب</span></span></span>
+ </div>
+</header>
+<div class="tick" aria-hidden="true"><div><span><span lang="en">Smash</span><span lang="ar">اهرس</span></span><b>■</b><span><span lang="en">Sear</span><span lang="ar">حمِّر</span></span><b>■</b><span><span lang="en">Stack</span><span lang="ar">ابنِ</span></span><b>■</b><span><span lang="en">Repeat</span><span lang="ar">كرِّر</span></span><b>■</b><span><span lang="en">No frozen beef</span><span lang="ar">لا لحم مجمّد</span></span><b>■</b><span><span lang="en">100% halal</span><span lang="ar">حلال ١٠٠٪</span></span><b>■</b><span><span lang="en">Smashed to order</span><span lang="ar">يُهرس عند الطلب</span></span><b>■</b><span><span lang="en">Smash</span><span lang="ar">اهرس</span></span><b>■</b><span><span lang="en">Sear</span><span lang="ar">حمِّر</span></span><b>■</b><span><span lang="en">Stack</span><span lang="ar">ابنِ</span></span><b>■</b><span><span lang="en">Repeat</span><span lang="ar">كرِّر</span></span><b>■</b><span><span lang="en">No frozen beef</span><span lang="ar">لا لحم مجمّد</span></span><b>■</b><span><span lang="en">100% halal</span><span lang="ar">حلال ١٠٠٪</span></span><b>■</b><span><span lang="en">Smashed to order</span><span lang="ar">يُهرس عند الطلب</span></span><b>■</b></div></div>
+<main>
+<section class="sec s1" id="smash"><header class="shead"><div class="shead-in"><span class="big">1</span><h2><span lang="en">Smash burgers</span><span lang="ar">برغر سماش</span></h2><p><span lang="en">Fresh never-frozen beef, pressed thin, edges laced crisp. All served on a toasted potato bun.</span><span lang="ar">لحم طازج لم يُجمَّد قطّ، يُضغط رقيقًا حتى تتقرمش أطرافه. يُقدَّم كلّه في خبز بطاطا محمّص.</span></p></div></header>
+ <div class="sbody"><ul class="cards"><li class="card"><div class="top"><span class="num">01</span><em class="stk yl"><span lang="en">Best seller</span><span lang="ar">الأكثر مبيعًا</span></em></div><h3><span lang="en">The OG BLOK</span><span lang="ar">بلوك الأصلي</span></h3><p><span lang="en">Two smashed beef patties, American cheese, pickles, BLOK sauce, toasted potato bun.</span><span lang="ar">قطعتا لحم بقري مهروستان على الصاج، جبنة أمريكية، مخلّل، صلصة بلوك وخبز بطاطا محمّص.</span></p><div class="bot"><span class="pr"><b>32</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></div></li><li class="card"><div class="top"><span class="num">02</span></div><h3><span lang="en">Triple Threat</span><span lang="ar">التهديد الثلاثي</span></h3><p><span lang="en">Three patties, three cheeses, grilled onions. Bring a friend or a nap.</span><span lang="ar">ثلاث قطع لحم وثلاثة أنواع جبنة وبصل مشوي. أحضِر صديقًا أو استعدّ لقيلولة.</span></p><div class="bot"><span class="pr"><b>45</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></div></li><li class="card"><div class="top"><span class="num">03</span><em class="stk rd"><span lang="en">Hot</span><span lang="ar">حارّ</span></em></div><h3><span lang="en">Jalapeño Riot</span><span lang="ar">شغب الهالابينو</span></h3><p><span lang="en">Pepper jack, fresh jalapeños, chipotle mayo and a fistful of crispy onions.</span><span lang="ar">جبنة بيبر جاك، هالابينو طازج، مايونيز شيبوتلي وحفنة بصل مقرمش.</span></p><div class="bot"><span class="pr"><b>36</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><span class="heat" title="heat"><span lang="en">Heat</span><span lang="ar">الحرارة</span><i class="on"></i><i class="on"></i><i class="on"></i></span></div></li><li class="card"><div class="top"><span class="num">04</span></div><h3><span lang="en">Truffle Shuffle</span><span lang="ar">ترافل شافل</span></h3><p><span lang="en">Swiss cheese, truffle mayo, seared mushrooms, peppery rocket.</span><span lang="ar">جبنة سويسرية، مايونيز الكمأة، فطر محمّر وجرجير لاذع.</span></p><div class="bot"><span class="pr"><b>42</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></div></li><li class="card"><div class="top"><span class="num">05</span></div><h3><span lang="en">Beef Bacon Jam</span><span lang="ar">مربّى البيكون البقري</span></h3><p><span lang="en">Crisp beef bacon, sticky onion jam, sharp cheddar, smoky BBQ.</span><span lang="ar">بيكون بقري مقرمش، مربّى بصل دبِق، شيدر حادّ وصلصة باربكيو مدخّنة.</span></p><div class="bot"><span class="pr"><b>39</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><span class="heat" title="heat"><span lang="en">Heat</span><span lang="ar">الحرارة</span><i class="on"></i><i></i><i></i></span></div></li><li class="card"><div class="top"><span class="num">06</span><em class="stk bl"><span lang="en">New</span><span lang="ar">جديد</span></em></div><h3><span lang="en">Breakfast BLOK</span><span lang="ar">بلوك الفطور</span></h3><p><span lang="en">Single smash, fried egg, turkey rashers, hash brown. Served all day, obviously.</span><span lang="ar">قطعة لحم واحدة، بيضة مقلية، شرائح ديك رومي وهاش براون. يُقدَّم طوال اليوم طبعًا.</span></p><div class="bot"><span class="pr"><b>34</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></div></li></ul></div></section>
+<section class="sec s2" id="notbeef"><header class="shead"><div class="shead-in"><span class="big">2</span><h2><span lang="en">Not beef</span><span lang="ar">غير البقر</span></h2><p><span lang="en">Same griddle, same attitude. For the chicken people and the plant people.</span><span lang="ar">الصاج نفسه والمزاج نفسه، لمحبّي الدجاج ومحبّي النبات.</span></p></div></header>
+ <div class="sbody"><ul class="cards"><li class="card"><div class="top"><span class="num">07</span></div><h3><span lang="en">Nashville Cluck</span><span lang="ar">ناشفيل كلَك</span></h3><p><span lang="en">Hot fried chicken thigh, cooling slaw, pickles, a drizzle of honey.</span><span lang="ar">فخذ دجاج مقلي حارّ، سلطة كول سلو باردة، مخلّل وخيط من العسل.</span></p><div class="bot"><span class="pr"><b>33</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><span class="heat" title="heat"><span lang="en">Heat</span><span lang="ar">الحرارة</span><i class="on"></i><i class="on"></i><i></i></span></div></li><li class="card"><div class="top"><span class="num">08</span><em class="stk gr"><span lang="en">Veggie</span><span lang="ar">نباتي</span></em></div><h3><span lang="en">Halloumi Stack</span><span lang="ar">برج الحلّوم</span></h3><p><span lang="en">Griddled halloumi, harissa mayo, beef tomato, crunchy lettuce.</span><span lang="ar">حلّوم مشوي على الصاج، مايونيز الهريسة، طماطم وخسّ مقرمش.</span></p><div class="bot"><span class="pr"><b>29</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><span class="heat" title="heat"><span lang="en">Heat</span><span lang="ar">الحرارة</span><i class="on"></i><i></i><i></i></span></div></li><li class="card"><div class="top"><span class="num">09</span><em class="stk gr"><span lang="en">Vegan</span><span lang="ar">نباتي صِرف</span></em></div><h3><span lang="en">Shroom Smash</span><span lang="ar">سماش الفطر</span></h3><p><span lang="en">Smashed portobello and black-bean patty, vegan cheese, BLOK sauce.</span><span lang="ar">قرص مهروس من فطر البورتوبيلو والفاصولياء السوداء، جبنة نباتية وصلصة بلوك.</span></p><div class="bot"><span class="pr"><b>31</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></div></li></ul></div></section>
+<section class="sec s3" id="sides"><header class="shead"><div class="shead-in"><span class="big">3</span><h2><span lang="en">Sides</span><span lang="ar">جوانب</span></h2><p><span lang="en">A burger alone is a sad burger.</span><span lang="ar">برغر وحيد برغر حزين.</span></p></div></header>
+ <div class="sbody"><ul class="rows"><li><h3><span lang="en">Smash Fries</span><span lang="ar">بطاطا سماش</span></h3><p><span lang="en">Skin-on, double-fried, salted like we mean it.</span><span lang="ar">بقشرتها، مقلية مرّتين ومملّحة بلا تردّد.</span></p><span class="pr"><b>12</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li><li><h3><span lang="en">Loaded BLOK Fries</span><span lang="ar">بطاطا بلوك المحمّلة</span></h3><p><span lang="en">Cheese sauce, beef crumble, pickled jalapeño, BLOK sauce.</span><span lang="ar">صلصة جبنة، فتات لحم بقري، هالابينو مخلّل وصلصة بلوك.</span></p><span class="pr"><b>22</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li><li><h3><span lang="en">Onion Rings</span><span lang="ar">حلقات البصل</span></h3><p><span lang="en">Beer-free batter, thick cut, loud crunch.</span><span lang="ar">عجينة خفيفة وشرائح سميكة وقرمشة مسموعة.</span></p><span class="pr"><b>14</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li><li><h3><span lang="en">Mac &amp; Cheese Bites</span><span lang="ar">لقيمات المعكرونة بالجبنة</span></h3><p><span lang="en">Six crumbed cubes of molten cheddar mac.</span><span lang="ar">ستّة مكعّبات مقرمشة من معكرونة الشيدر الذائبة.</span></p><span class="pr"><b>18</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li><li><h3><span lang="en">Frickles</span><span lang="ar">مخلّل مقلي</span></h3><p><span lang="en">Fried pickle spears with garlic aioli.</span><span lang="ar">أصابع مخلّل مقلية مع أيولي الثوم.</span></p><span class="pr"><b>15</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li></ul>
+ <p class="meal"><b><span lang="en">Make it a BLOK meal</span><span lang="ar">اجعلها وجبة بلوك</span></b><span><span lang="en">Add smash fries and any fizz to a burger for</span><span lang="ar">أضِف بطاطا سماش ومشروبًا غازيًّا إلى أيّ برغر مقابل</span> <span class="pr"><b>+15</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></span></p></div></section>
+<section class="sec s4" id="shakes"><header class="shead"><div class="shead-in"><span class="big">4</span><h2><span lang="en">Shakes &amp; fizz</span><span lang="ar">شيك وفوّار</span></h2><p><span lang="en">Spun to order with real ice cream. Brain freeze is on the house.</span><span lang="ar">تُخفق عند الطلب بآيس كريم حقيقي. وصداع البرد على حسابنا.</span></p></div></header>
+ <div class="sbody"><ul class="cups"><li class="cup" style="--f:#fff3c9;--lv:78%"><div class="glass" aria-hidden="true"><s></s></div><h3><span lang="en">Vanilla Malt</span><span lang="ar">فانيلا مولت</span></h3><p><span lang="en">Thick enough to stand a straw in.</span><span lang="ar">سميك إلى حدّ تقف فيه المصّاصة.</span></p><span class="pr"><b>19</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li><li class="cup" style="--f:#d98a3d;--lv:84%"><div class="glass" aria-hidden="true"><s></s></div><h3><span lang="en">Lotus Crunch</span><span lang="ar">لوتس كرانش</span></h3><p><span lang="en">Biscoff spread, biscuit rubble.</span><span lang="ar">زبدة اللوتس وفتات البسكويت.</span></p><span class="pr"><b>22</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li><li class="cup" style="--f:#f0b24b;--lv:70%"><div class="glass" aria-hidden="true"><s></s></div><h3><span lang="en">Salted Caramel</span><span lang="ar">كراميل مملّح</span></h3><p><span lang="en">Burnt caramel, pretzel crown.</span><span lang="ar">كراميل محروق وتاج من البريتزل.</span></p><span class="pr"><b>22</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li><li class="cup" style="--f:#ff7fb6;--lv:88%"><div class="glass" aria-hidden="true"><s></s></div><h3><span lang="en">Berry Riot</span><span lang="ar">شغب الفراولة</span></h3><p><span lang="en">Real berries, pink to the brim.</span><span lang="ar">فراولة حقيقية ولون ورديّ حتى الحافّة.</span></p><span class="pr"><b>20</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li><li class="cup" style="--f:#ffc2dc;--lv:64%"><div class="glass" aria-hidden="true"><s></s></div><h3><span lang="en">Pink Lemonade</span><span lang="ar">ليموناضة وردية</span></h3><p><span lang="en">Fizzy, sharp, ice-cold.</span><span lang="ar">فوّارة، حامضة، مثلّجة.</span></p><span class="pr"><b>12</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li><li class="cup" style="--f:#5a3320;--lv:74%"><div class="glass" aria-hidden="true"><s></s></div><h3><span lang="en">Cola Float</span><span lang="ar">كولا فلوت</span></h3><p><span lang="en">Cola with a vanilla iceberg.</span><span lang="ar">كولا يطفو فوقها جبل فانيلا.</span></p><span class="pr"><b>16</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li></ul></div></section>
+</main>
+<section class="sauce"><h2><span lang="en">Dips</span><span lang="ar">صلصات</span><small><span lang="en">Made in-house every morning.</span><span lang="ar">تُحضَّر عندنا كلّ صباح.</span> <span class="pr"><b>3</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span> <span lang="en">each</span><span lang="ar">للواحدة</span></small></h2>
+ <ul class="dips"><li><i style="--c:#ff5fa8"></i><span lang="en">BLOK Sauce</span><span lang="ar">صلصة بلوك</span></li><li><i style="--c:#ff7a3d"></i><span lang="en">Chipotle Mayo</span><span lang="ar">مايونيز شيبوتلي</span></li><li><i style="--c:#fff"></i><span lang="en">Garlic Aioli</span><span lang="ar">أيولي الثوم</span></li><li><i style="--c:#7a3b1d"></i><span lang="en">Smoky BBQ</span><span lang="ar">باربكيو مدخّن</span></li><li><i style="--c:#ffe14a"></i><span lang="en">Honey Mustard</span><span lang="ar">خردل بالعسل</span></li><li><i style="--c:#ffb52e"></i><span lang="en">Cheese Sauce</span><span lang="ar">صلصة الجبنة</span></li></ul></section>
+<footer>
+ <div><h4><span lang="en">Find us</span><span lang="ar">موقعنا</span></h4><p><span lang="en">Unit 9, The Yard, Prince Turki Street, Al Khobar</span><span lang="ar">الوحدة ٩، ذا يارد، شارع الأمير تركي، الخبر</span></p></div>
+ <div class="f2"><h4><span lang="en">Open</span><span lang="ar">ساعات العمل</span></h4><p><span lang="en">Sat–Wed 12 pm – 1 am<br>Thu–Fri 12 pm – 3 am</span><span lang="ar">السبت–الأربعاء ١٢ ظهرًا – ١ فجرًا<br>الخميس–الجمعة ١٢ ظهرًا – ٣ فجرًا</span></p></div>
+ <div class="f3"><h4><span lang="en">Order</span><span lang="ar">اطلب</span></h4><p><span dir="ltr">+966 13 555 0192</span><br><span lang="en">Pick-up in 12 minutes, or we owe you fries.</span><span lang="ar">جاهز للاستلام خلال ١٢ دقيقة، وإلّا فالبطاطا علينا.</span></p></div>
+ <div class="fine"><span lang="en">Allergens: our kitchen handles gluten, dairy, egg, sesame, soy and mustard. Gluten-free buns on request (+4 SAR). All beef and chicken are halal. Prices in Saudi riyals, VAT included.</span><span lang="ar">مسبّبات الحساسية: يتعامل مطبخنا مع الغلوتين ومشتقّات الحليب والبيض والسمسم والصويا والخردل. خبز خالٍ من الغلوتين عند الطلب (+٤ ر.س). جميع لحوم البقر والدجاج حلال. الأسعار بالريال السعودي وتشمل ضريبة القيمة المضافة.</span></div>
+</footer>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body></html>

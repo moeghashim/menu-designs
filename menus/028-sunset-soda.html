@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Sunset Soda · صودا الغروب</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sunset Soda — thick shakes, soda floats and neon zero-proof sodas served in an endless 1984 sunset. صودا الغروب — ميلك شيك وفلوت وصودا نيون في غروبٍ لا ينتهي.">
+<meta name="theme-color" content="#12063a">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,800;1,900&family=Handjet:wght@400;600&family=Lalezar&family=Mr+Dafoe&family=VT323&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--night:#12063a;--deep:#0b0326;--pink:#ff2bd6;--cyan:#5ff4ff;--violet:#7a5cff;--sun:#ffd166;--lav:#d6c8ff;
+ --chrome:linear-gradient(180deg,#fff 0%,#b9e6ff 26%,#4a52d8 47%,#170848 50%,#ff4fc3 53%,#ffc4ec 78%,#fff 100%)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"VT323","Courier New",monospace;font-size:1.3rem;line-height:1.25;color:var(--lav);background:var(--deep);overflow-x:clip}
+html[lang="ar"] body{font-family:"Handjet","Tahoma",sans-serif;font-size:1.3rem;line-height:1.5;font-weight:400}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.px{font-family:"VT323",monospace}
+
+/* taskbar */
+.task{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:.4rem;padding:.35rem clamp(.5rem,2vw,1.2rem);background:#1b0c4d;border-bottom:2px solid var(--cyan);box-shadow:0 2px 0 var(--pink)}
+.task a,.task button,.task .clk{font:inherit;font-size:1.15rem;line-height:1;min-height:36px;padding:.2rem .7rem;display:inline-flex;align-items:center;gap:.4rem;color:#fff;background:#2a1570;border:2px solid;border-color:#b9a8ff #0a0220 #0a0220 #b9a8ff;cursor:pointer;white-space:nowrap}
+.task a:hover,.task button:hover,.task a:focus-visible,.task button:focus-visible{background:var(--pink);outline:none}
+.task .home-link{background:linear-gradient(90deg,var(--pink),var(--violet));font-weight:600}
+.task .home-link svg{width:16px;height:16px}
+.task .sp{margin-inline-start:auto}
+#langToggle{background:var(--cyan);color:#12063a;border-color:#fff #0a4a55 #0a4a55 #fff}
+#langToggle [lang="ar"]{font-family:"Handjet",sans-serif;font-weight:600}
+#langToggle [lang="en"]{font-family:"VT323",monospace}
+.task .clk{background:#0b0326;border-color:#0a0220 #b9a8ff #b9a8ff #0a0220;color:var(--cyan);cursor:default}
+
+/* sky */
+.sky{position:relative;min-height:min(94vh,860px);overflow:hidden;display:grid;place-items:center;text-align:center;
+  background:linear-gradient(180deg,#0d0433 0%,#2a0b6b 28%,#8a1c8f 50%,#ff4f8b 60%,#ff9a56 64.5%,#0b0326 64.6%)}
+.stars{position:absolute;inset:0 0 40% 0;background:
+  radial-gradient(1.5px 1.5px at 12% 18%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 28% 42%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 44% 12%,#ffd 50%,transparent 51%),radial-gradient(1px 1px at 63% 30%,#fff 50%,transparent 51%),radial-gradient(2px 2px at 78% 14%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 90% 38%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 6% 52%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 54% 48%,#fff 50%,transparent 51%);opacity:.8}
+.sunw{position:absolute;inset-inline:0;bottom:35.5%;display:flex;justify-content:center}
+.sunw svg{width:clamp(320px,40vw,560px);height:auto;display:block;filter:drop-shadow(0 0 50px rgba(255,90,170,.65))}
+.palm{position:absolute;bottom:35.5%;width:clamp(120px,19vw,300px);height:auto;inset-inline-start:clamp(-30px,2vw,60px)}
+.palm.b{inset-inline-start:auto;inset-inline-end:clamp(-30px,2vw,60px);transform:scaleX(-1);width:clamp(100px,15vw,240px)}
+[dir="rtl"] .palm{transform:scaleX(-1)} [dir="rtl"] .palm.b{transform:none}
+.floor{position:absolute;inset-inline:-60%;top:64.5%;height:70%;transform:perspective(340px) rotateX(63deg);transform-origin:50% 0;
+  background:linear-gradient(var(--pink) 2px,transparent 2px) 0 0/100% 56px,linear-gradient(90deg,var(--cyan) 2px,transparent 2px) 50% 0/56px 100%,#12063a}
+.sky::after{content:"";position:absolute;inset-inline:0;top:64.5%;height:9%;background:linear-gradient(#ff9a56cc,transparent);pointer-events:none}
+.sky .hz{position:absolute;inset-inline:0;top:64.5%;height:3px;margin-top:-1px;background:#fff;box-shadow:0 0 18px 4px var(--pink)}
+.ttl{position:relative;z-index:2;padding:0 1rem;margin-top:-16vh}
+.est{font-family:"VT323",monospace;font-size:1.25rem;letter-spacing:.42em;color:#fff;text-shadow:0 0 4px #2a0b6b,0 0 14px #2a0b6b,0 2px 0 #7a1c8f}
+html[lang="ar"] .est{font-family:"Handjet",sans-serif;font-weight:600;font-size:1.4rem}
+h1{font-family:"Exo 2","Arial Black",sans-serif;font-style:italic;font-weight:900;text-transform:uppercase;font-size:clamp(3.3rem,12.5vw,10.5rem);line-height:.86;letter-spacing:-.02em;
+  background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(4px 4px 0 var(--pink)) drop-shadow(-3px -2px 0 #19d3ff);padding:.08em .12em .12em}
+html[lang="ar"] h1{font-family:"Lalezar","Tahoma",sans-serif;font-style:normal;font-weight:400;text-transform:none;font-size:clamp(3.8rem,11vw,8.4rem);line-height:.98;padding:.1em .15em .2em}
+h1 span{display:block}
+.script{font-family:"Mr Dafoe",cursive;font-size:clamp(1.9rem,4.6vw,3.6rem);color:#fff;text-shadow:0 0 6px #fff,0 0 18px var(--pink),0 0 40px var(--pink);transform:rotate(-5deg);margin-top:-.25em;line-height:1.1}
+html[lang="ar"] .script{font-family:"Lalezar",sans-serif;font-size:clamp(1.6rem,3.8vw,2.8rem);margin-top:.1em;transform:rotate(-3deg)}
+.scroll{position:absolute;z-index:2;bottom:1.2rem;inset-inline:0;text-align:center;color:var(--cyan);font-size:1.15rem;letter-spacing:.2em;text-shadow:0 0 10px var(--cyan)}
+
+/* desktop of windows */
+.desk{position:relative;max-width:1340px;margin-inline:auto;padding:clamp(2rem,5vw,4rem) clamp(.8rem,3vw,2rem) 4rem;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(1.4rem,3vw,2.6rem);align-items:start}
+.desk::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(40rem 30rem at 10% 20%,rgba(255,43,214,.22),transparent 70%),radial-gradient(44rem 34rem at 95% 55%,rgba(95,244,255,.16),transparent 70%),radial-gradient(40rem 30rem at 20% 95%,rgba(122,92,255,.28),transparent 70%),linear-gradient(rgba(122,92,255,.14) 1px,transparent 1px) 0 0/100% 40px,linear-gradient(90deg,rgba(122,92,255,.14) 1px,transparent 1px) 0 0/40px 100%}
+.col{display:flex;flex-direction:column;gap:clamp(1.6rem,3vw,2.8rem);min-width:0}
+.col.b{padding-top:clamp(0rem,6vw,6.5rem)}
+.win{background:rgba(20,8,58,.92);border:2px solid var(--cyan);box-shadow:8px 8px 0 var(--pink),0 0 46px rgba(95,244,255,.18);scroll-margin-top:4.2rem;min-width:0}
+.win.alt{border-color:var(--pink);box-shadow:8px 8px 0 var(--cyan),0 0 46px rgba(255,43,214,.2)}
+.col.a .win:nth-child(even){margin-inline-start:clamp(0rem,2.5vw,2.4rem)}
+.col.b .win:nth-child(odd){margin-inline-end:clamp(0rem,2.5vw,2.4rem)}
+.tb{display:flex;align-items:center;gap:.6rem;padding:.3rem .6rem;background:linear-gradient(90deg,var(--pink),var(--violet) 55%,#19c8ff);color:#fff;font-size:1.3rem;text-shadow:1px 1px 0 #2a0b6b}
+[dir="rtl"] .tb{background:linear-gradient(270deg,var(--pink),var(--violet) 55%,#19c8ff)}
+.tb b{font-weight:400;margin-inline-end:auto;unicode-bidi:plaintext}
+.tb i{display:block;width:18px;height:18px;border:2px solid #fff;position:relative;flex:none}
+.tb i:nth-of-type(1)::after{content:"";position:absolute;inset:auto 2px 2px 2px;height:2px;background:#fff}
+.tb i:nth-of-type(3){background:linear-gradient(45deg,transparent 44%,#fff 44% 56%,transparent 56%),linear-gradient(-45deg,transparent 44%,#fff 44% 56%,transparent 56%)}
+.wb{padding:clamp(1rem,2.4vw,1.6rem)}
+h2{font-family:"Exo 2","Arial Black",sans-serif;font-style:italic;font-weight:900;text-transform:uppercase;font-size:clamp(2rem,4.4vw,3.2rem);line-height:1;background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(2px 2px 0 var(--pink));padding:.05em .1em .1em 0;display:inline-block}
+html[lang="ar"] h2{font-family:"Lalezar",sans-serif;font-style:normal;font-weight:400;text-transform:none;line-height:1.35;padding:.05em .1em .15em}
+.sub{color:var(--cyan);font-size:1.15rem;margin-block:.1rem .7rem}
+.it{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:.2rem 1rem;align-items:start;padding:.85rem 0;border-top:2px dashed rgba(122,92,255,.55)}
+.gl{grid-row:1/3;width:30px;height:46px;margin-top:10px;position:relative;border:2px solid #fff;border-top:0;border-radius:2px 2px 9px 9px;background:linear-gradient(var(--a,#fff) 0 28%,var(--b,#f0f) 28% 100%);box-shadow:0 0 14px var(--b,#f0f)}
+.gl::before{content:"";position:absolute;width:3px;height:26px;background:#fff;top:-14px;inset-inline-start:15px;transform:rotate(14deg)}
+.gl::after{content:"";position:absolute;top:-7px;inset-inline-start:2px;width:11px;height:11px;border-radius:50%;background:var(--c,#ff3b6b)}
+.it h3{font-family:"Exo 2","Arial Black",sans-serif;font-style:italic;font-weight:800;font-size:1.32rem;line-height:1.15;color:#fff;text-shadow:0 0 12px rgba(255,43,214,.9)}
+html[lang="ar"] .it h3{font-family:"Lalezar",sans-serif;font-style:normal;font-weight:400;font-size:1.5rem;line-height:1.35}
+.it p{grid-column:2/4;color:var(--lav);font-size:1.25rem}
+html[lang="ar"] .it p{font-size:1.28rem}
+.pr{font-family:"VT323",monospace;font-size:1.9rem;line-height:1;color:var(--sun);text-shadow:0 0 12px rgba(255,170,60,.8);unicode-bidi:isolate;direction:ltr}
+.tag{display:inline-block;font:400 1rem/1 "VT323",monospace;color:#12063a;background:var(--cyan);padding:.1rem .4rem;margin-inline-start:.4rem;vertical-align:middle;text-shadow:none;font-style:normal}
+html[lang="ar"] .tag{font-family:"Handjet",sans-serif;font-weight:600;font-size:1.05rem}
+.tag.h{background:var(--sun)} .tag.s{background:var(--pink);color:#fff}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:1.6rem}
+
+/* readme */
+.readme p{font-size:1.32rem;color:#fff}
+.readme p+p{margin-top:.6rem;color:var(--lav)}
+.readme .cur{display:inline-block;width:.6em;height:1em;background:var(--cyan);vertical-align:-.12em;animation:cur 1s steps(2) infinite}
+@keyframes cur{50%{opacity:0}}
+
+/* cassette */
+.tape{margin:0;padding:1rem;background:linear-gradient(135deg,#ff2bd6,#7a5cff 50%,#19c8ff);color:#fff}
+.tape .lab{background:#fdf6ff;color:#1b0c4d;padding:.6rem .9rem .7rem;border-radius:4px;background-image:repeating-linear-gradient(#fdf6ff 0 1.55em,#c9b8ff 1.55em calc(1.55em + 1px))}
+.tape .lab strong{display:block;font-family:"Mr Dafoe",cursive;font-weight:400;font-size:2.1rem;line-height:1.2;color:#e4109f}
+html[lang="ar"] .tape .lab strong{font-family:"Lalezar",sans-serif;font-size:1.9rem}
+.tape .reels{display:flex;align-items:center;justify-content:center;gap:1.4rem;background:#12063a;border-radius:40px;margin:.8rem auto 0;padding:.5rem 1rem;max-width:22rem}
+.tape .reel{width:48px;height:48px;border-radius:50%;border:5px dashed #fff;background:#12063a;flex:none}
+.tape .win2{flex:1;height:26px;background:linear-gradient(90deg,#3a1d08 0 55%,#7a4a1c 55%);border:2px solid #fff}
+.tape .deal{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:.8rem;font-size:1.3rem;text-shadow:1px 1px 0 #2a0b6b}
+.tape .deal b{font:400 2.6rem/1 "VT323",monospace;color:var(--sun);text-shadow:2px 2px 0 #2a0b6b;unicode-bidi:isolate;direction:ltr}
+
+/* dialog */
+.dlg .wb{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center}
+.dlg .ico{width:54px;height:54px;border-radius:50%;background:var(--sun);color:#12063a;display:grid;place-items:center;font:400 3rem/1 "VT323",monospace;box-shadow:0 0 20px var(--sun)}
+.dlg p{color:#fff;font-size:1.35rem}
+.dlg .bt{grid-column:1/-1;display:flex;gap:.8rem;justify-content:center}
+.dlg .bt span{min-width:6.5rem;text-align:center;padding:.25rem 1rem;background:#2a1570;color:#fff;border:2px solid;border-color:#b9a8ff #0a0220 #0a0220 #b9a8ff}
+.dlg .bt span:first-child{outline:2px dotted var(--cyan);outline-offset:-6px}
+
+/* plugins */
+.plug ul{display:flex;flex-wrap:wrap;gap:.5rem}
+.plug li{border:2px solid var(--pink);padding:.2rem .6rem;color:#fff;display:flex;gap:.6rem;align-items:baseline;background:rgba(255,43,214,.12)}
+.plug li b{font:400 1.3rem/1 "VT323",monospace;color:var(--sun);unicode-bidi:isolate;direction:ltr}
+
+/* footer horizon */
+footer{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--deep) 0,#2a0b6b 40%,#b3206f 78%,#ff9a56 100%);padding:3rem clamp(1rem,3vw,2rem) 0;text-align:center}
+.info{position:relative;z-index:2;max-width:1100px;margin:0 auto 2.5rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;text-align:start}
+.info div{background:rgba(11,3,38,.72);border:2px solid var(--cyan);padding:1rem 1.1rem}
+.info h3{font-weight:400;color:var(--cyan);font-size:1.25rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.3rem}
+html[lang="ar"] .info h3{font-family:"Lalezar",sans-serif;font-size:1.5rem}
+.info p{color:#fff;font-size:1.25rem}
+.info b{font-weight:400;color:var(--sun);unicode-bidi:isolate;direction:ltr;display:inline-block}
+.bye{position:relative;z-index:2;font-family:"Mr Dafoe",cursive;font-size:clamp(2rem,5vw,3.4rem);color:#fff;text-shadow:0 0 8px #fff,0 0 24px var(--pink);transform:rotate(-4deg);margin-bottom:1.2rem}
+html[lang="ar"] .bye{font-family:"Lalezar",sans-serif;font-size:clamp(1.8rem,4.4vw,3rem)}
+.f2{position:relative;height:150px;overflow:hidden;margin-inline:calc(-1 * clamp(1rem,3vw,2rem));background:#0b0326;border-top:3px solid #fff;box-shadow:0 0 18px 4px var(--pink)}
+.f2 .floor{top:0;height:260%}
+
+@media (max-width:900px){
+  .desk{grid-template-columns:1fr}
+  .col.b{padding-top:0}
+  .info{grid-template-columns:1fr}
+  .task .sec{display:none}
+}
+@media (max-width:560px){
+  .two{grid-template-columns:1fr}
+  .win,.win.alt{box-shadow:5px 5px 0 var(--pink)}
+  .win.alt{box-shadow:5px 5px 0 var(--cyan)}
+  .task .clk{display:none}
+  .sky{min-height:640px}
+  h1{font-size:4.3rem}
+  html[lang="ar"] h1{font-size:4.8rem}
+  .est{letter-spacing:.2em;font-size:1.1rem}
+  .ttl{margin-top:-150px}
+  .floor{inset-inline:-120%}
+  .it{grid-template-columns:34px minmax(0,1fr) auto;column-gap:.8rem}
+}
+@media (prefers-reduced-motion:no-preference){
+  .floor{animation:roll 1.4s linear infinite}
+  @keyframes roll{to{background-position:0 56px,50% 0,0 0}}
+  h1{animation:glitch 6s steps(1) infinite}
+  @keyframes glitch{0%,91%,100%{filter:drop-shadow(4px 4px 0 var(--pink)) drop-shadow(-3px -2px 0 #19d3ff);transform:none}
+    92%{filter:drop-shadow(-9px 0 0 var(--pink)) drop-shadow(9px 0 0 #19d3ff);transform:skewX(-8deg)}
+    94%{filter:drop-shadow(7px 2px 0 var(--pink)) drop-shadow(-7px -2px 0 #19d3ff);transform:translateX(5px)}
+    96%{filter:drop-shadow(-4px 0 0 var(--pink)) drop-shadow(4px 0 0 #19d3ff);transform:skewX(5deg)}}
+  .tape .reel{animation:spin 4s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .win{transition:transform .25s}
+  .win:hover{transform:translate(-3px,-3px)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.readme .cur{animation:none}}
+</style>
+</head>
+<body>
+<div class="task">
+  <a class="home-link" href="../index.html"><svg viewBox="0 0 16 16" aria-hidden="true"><rect width="7" height="7" fill="#ff5f56"/><rect x="9" width="7" height="7" fill="#5ff4ff"/><rect y="9" width="7" height="7" fill="#ffd166"/><rect x="9" y="9" width="7" height="7" fill="#fff"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <a class="sec" href="#shakes"><span lang="en">Shakes</span><span lang="ar">ميلك شيك</span></a>
+  <a class="sec" href="#floats"><span lang="en">Floats</span><span lang="ar">فلوت</span></a>
+  <a class="sec" href="#sodas"><span lang="en">Sodas</span><span lang="ar">صودا</span></a>
+  <a class="sec" href="#sundaes"><span lang="en">Sundaes</span><span lang="ar">صنداي</span></a>
+  <span class="sp"></span>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <span class="clk px" aria-hidden="true">19:84</span>
+</div>
+
+<header class="sky">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="sunw" aria-hidden="true">
+    <svg viewBox="0 0 400 400">
+      <defs>
+        <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff275"/><stop offset=".45" stop-color="#ff9a3d"/><stop offset=".78" stop-color="#ff2bd6"/><stop offset="1" stop-color="#b012c9"/></linearGradient>
+        <mask id="sm"><rect width="400" height="400" fill="#fff"/><g fill="#000"><rect y="196" width="400" height="5"/><rect y="226" width="400" height="9"/><rect y="258" width="400" height="13"/><rect y="292" width="400" height="18"/><rect y="330" width="400" height="23"/><rect y="371" width="400" height="29"/></g></mask>
+      </defs>
+      <circle cx="200" cy="200" r="198" fill="url(#sg)" mask="url(#sm)"/>
+    </svg>
+  </div>
+  <svg class="palm" viewBox="0 0 200 300" aria-hidden="true" fill="none" stroke="#12052e" stroke-linecap="round"><path d="M96 300C100 220 108 150 126 92" stroke-width="12"/><g stroke-width="9"><path d="M126 92C96 60 60 56 22 78"/><path d="M126 92C104 48 74 26 36 22"/><path d="M126 92C122 50 132 22 152 4"/><path d="M126 92C152 60 178 54 198 62"/><path d="M126 92C158 84 182 96 196 124"/><path d="M126 92C104 86 74 100 58 132"/></g></svg>
+  <svg class="palm b" viewBox="0 0 200 300" aria-hidden="true" fill="none" stroke="#12052e" stroke-linecap="round"><path d="M96 300C100 220 108 150 126 92" stroke-width="12"/><g stroke-width="9"><path d="M126 92C96 60 60 56 22 78"/><path d="M126 92C104 48 74 26 36 22"/><path d="M126 92C122 50 132 22 152 4"/><path d="M126 92C152 60 178 54 198 62"/><path d="M126 92C158 84 182 96 196 124"/><path d="M126 92C104 86 74 100 58 132"/></g></svg>
+  <div class="floor" aria-hidden="true"></div>
+  <div class="hz" aria-hidden="true"></div>
+  <div class="ttl">
+    <p class="est"><span lang="en">SHAKES ▸ FLOATS ▸ EST. 1984</span><span lang="ar">ميلك شيك ◂ فلوت ◂ منذ ١٩٨٤</span></p>
+    <h1><span lang="en">Sunset</span><span lang="en">Soda</span><span lang="ar">صودا</span><span lang="ar">الغروب</span></h1>
+    <p class="script"><span lang="en">where it’s always golden hour</span><span lang="ar">حيث الساعة الذهبية لا تنتهي</span></p>
+  </div>
+  <p class="scroll"><span lang="en">▼ INSERT STRAW ▼</span><span lang="ar">▼ أدخِل الشفّاطة ▼</span></p>
+</header>
+
+<main class="desk">
+  <div class="col a">
+    <section class="win readme">
+      <div class="tb"><b><span lang="en">README.TXT</span><span lang="ar">اقرأني.txt</span></b><i></i><i></i><i></i></div>
+      <div class="wb">
+        <p><span lang="en">&gt; Welcome to the last soda fountain before the horizon. Real ice cream, churned in-house every morning. Syrups we cook ourselves. Glassware straight out of a dream you had in 1984.</span><span lang="ar">&gt; أهلًا بكم في آخر نافورة صودا قبل الأفق. آيس كريم حقيقي نخفقه عندنا كلّ صباح، وشرابات نطبخها بأيدينا، وكؤوس خرجت من حلمٍ رأيتَه عام ١٩٨٤.</span></p>
+        <p><span lang="en">&gt; Everything is alcohol-free. Any shake can be made with oat milk.</span><span lang="ar">&gt; كلّ مشروباتنا خالية من الكحول، وأيّ ميلك شيك يمكن تحضيره بحليب الشوفان.</span> <span class="cur" aria-hidden="true"></span></p>
+      </div>
+    </section>
+
+    <section class="win" id="shakes">
+      <div class="tb"><b><span lang="en">SHAKES.EXE</span><span lang="ar">ميلك_شيك.exe</span></b><i></i><i></i><i></i></div>
+      <div class="wb">
+        <h2><span lang="en">Thick Shakes</span><span lang="ar">ميلك شيك كثيف</span></h2>
+        <p class="sub"><span lang="en">16 oz · spun slow · needs the wide straw</span><span lang="ar">٤٧٠ مل · يُخفق ببطء · يحتاج الشفّاطة العريضة</span></p>
+        <article class="it" style="--a:#fff;--b:#ff7eb6;--c:#ff3b6b"><i class="gl"></i><h3><span lang="en">Miami Vice</span><span lang="ar">ميامي فايس</span></h3><span class="pr">$9</span><p><span lang="en">Strawberry and coconut cream swirled together, never blended.</span><span lang="ar">فراولة وكريمة جوز الهند في دوّامة واحدة من دون مزج.</span></p></article>
+        <article class="it" style="--a:#f3e9ff;--b:#8a4dff;--c:#ffd166"><i class="gl"></i><h3><span lang="en">Purple Rain</span><span class="tag s" lang="en">TOP 1</span><span lang="ar">المطر البنفسجي</span><span class="tag s" lang="ar">الأول</span></h3><span class="pr">$10</span><p><span lang="en">Ube and vanilla bean with toasted coconut and a lilac cloud of cream.</span><span lang="ar">أوبي وحبوب الفانيليا مع جوز الهند المحمّص وغيمة بنفسجية من الكريمة.</span></p></article>
+        <article class="it" style="--a:#fff;--b:#7a4a2a;--c:#fff"><i class="gl"></i><h3><span lang="en">Dial-Up Mocha</span><span lang="ar">موكا الاتصال الهاتفي</span></h3><span class="pr">$9.5</span><p><span lang="en">Cold brew, dark chocolate and malt. Connects slowly, hits hard.</span><span lang="ar">قهوة باردة وشوكولاتة داكنة ومالت. تتّصل ببطء وتضرب بقوّة.</span></p></article>
+        <article class="it" style="--a:#fff;--b:#9ed99a;--c:#ff7eb6"><i class="gl"></i><h3><span lang="en">Pistachio Palm</span><span lang="ar">نخلة الفستق</span></h3><span class="pr">$10.5</span><p><span lang="en">Roasted pistachio, wildflower honey and a whisper of rose.</span><span lang="ar">فستق محمّص وعسل الأزهار البرّية ولمسة من ماء الورد.</span></p></article>
+        <article class="it" style="--a:#fff;--b:#d9d9e6;--c:#222"><i class="gl"></i><h3><span lang="en">Cookies &amp; Static</span><span lang="ar">كوكيز وتشويش</span></h3><span class="pr">$9</span><p><span lang="en">Crushed chocolate cookies, sweet cream and a pinch of sea salt.</span><span lang="ar">بسكويت شوكولاتة مجروش وكريمة حلوة ورشّة ملح بحري.</span></p></article>
+      </div>
+    </section>
+
+    <section class="win alt" id="sodas">
+      <div class="tb"><b><span lang="en">NEON_SODAS.MID</span><span lang="ar">صودا_نيون.mid</span></b><i></i><i></i><i></i></div>
+      <div class="wb">
+        <h2><span lang="en">Neon Sodas</span><span lang="ar">صودا النيون</span></h2>
+        <p class="sub"><span lang="en">Hand-mixed · zero-proof · glows under UV</span><span lang="ar">تُمزج باليد · بلا كحول · تتوهّج تحت الضوء البنفسجي</span></p>
+        <article class="it" style="--a:#eaffd0;--b:#7dff5a;--c:#fff"><i class="gl"></i><h3><span lang="en">Laser Lime</span><span lang="ar">ليزر الليمون</span></h3><span class="pr">$6.5</span><p><span lang="en">Lime, crushed mint and cucumber over pebble ice.</span><span lang="ar">ليمون أخضر ونعناع مهروس وخيار فوق ثلج مجروش.</span></p></article>
+        <article class="it" style="--a:#ffe3f3;--b:#ff5fc8;--c:#fff"><i class="gl"></i><h3><span lang="en">Pink Pixel</span><span lang="ar">بكسل وردي</span></h3><span class="pr">$7</span><p><span lang="en">Lychee, raspberry and rose soda with popping pearls.</span><span lang="ar">ليتشي وتوت أحمر وصودا الورد مع لآلئ تنفجر في الفم.</span></p></article>
+        <article class="it" style="--a:#fff2b0;--b:#ff9a3d;--c:#ff2b2b"><i class="gl"></i><h3><span lang="en">Mango Mirage</span><span class="tag h" lang="en">SPICY RIM</span><span lang="ar">سراب المانجو</span><span class="tag h" lang="ar">حافّة حارّة</span></h3><span class="pr">$7</span><p><span lang="en">Mango and passion fruit with a chilli-salt rim.</span><span lang="ar">مانجو وباشن فروت مع حافّة من الملح والفلفل الحارّ.</span></p></article>
+        <article class="it" style="--a:#ff8ad8;--b:#3a2bd6;--c:#fff"><i class="gl"></i><h3><span lang="en">Midnight Grape</span><span lang="ar">عنب منتصف الليل</span></h3><span class="pr">$7.5</span><p><span lang="en">Concord grape and butterfly pea tea — turns pink when you add the lemon.</span><span lang="ar">عنب كونكورد وشاي زهرة البازلاء الزرقاء، يتحوّل ورديًّا حين تضيف الليمون.</span></p></article>
+      </div>
+    </section>
+
+    <section class="win dlg">
+      <div class="tb"><b><span lang="en">SWEET_TOOTH.DLL</span><span lang="ar">تنبيه_السكّر.dll</span></b><i></i><i></i><i></i></div>
+      <div class="wb">
+        <span class="ico" aria-hidden="true">?</span>
+        <p><span lang="en">Extra whipped cream detected. Add even more?</span><span lang="ar">تمّ رصد كريمة مخفوقة إضافية. هل تريد المزيد؟</span></p>
+        <div class="bt"><span><span lang="en">YES</span><span lang="ar">نعم</span></span><span><span lang="en">ALSO YES</span><span lang="ar">نعم أيضًا</span></span></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="col b">
+    <section class="win alt">
+      <div class="tb"><b><span lang="en">HAPPY_HOUR.MIX — SIDE A</span><span lang="ar">ساعة_السعادة.mix — الوجه أ</span></b><i></i><i></i><i></i></div>
+      <div class="tape">
+        <div class="lab"><strong><span lang="en">Golden Hour Mixtape</span><span lang="ar">شريط الساعة الذهبية</span></strong><span lang="en">Any float + Neon Fries, every day 4–6 pm</span><span lang="ar">أيّ فلوت + بطاطا النيون، يوميًّا من ٤ إلى ٦ مساءً</span></div>
+        <div class="reels" aria-hidden="true"><span class="reel"></span><span class="win2"></span><span class="reel"></span></div>
+        <p class="deal"><span><span lang="en">▶ PLAY BOTH FOR</span><span lang="ar">◀ شغّل الاثنين بـ</span></span><b>$11</b></p>
+      </div>
+    </section>
+
+    <section class="win" id="floats">
+      <div class="tb"><b><span lang="en">FLOATS.WAV</span><span lang="ar">فلوت.wav</span></b><i></i><i></i><i></i></div>
+      <div class="wb">
+        <h2><span lang="en">Soda Floats</span><span lang="ar">فلوت الصودا</span></h2>
+        <p class="sub"><span lang="en">Fountain soda + one fat scoop on top</span><span lang="ar">صودا من النافورة + كرة آيس كريم سخيّة</span></p>
+        <article class="it" style="--a:#fff;--b:#ff5a3d;--c:#ffd166"><i class="gl"></i><h3><span lang="en">Sunset Float</span><span class="tag" lang="en">SIGNATURE</span><span lang="ar">فلوت الغروب</span><span class="tag" lang="ar">توقيعنا</span></h3><span class="pr">$8</span><p><span lang="en">Blood-orange soda, vanilla soft serve and a slow pomegranate sunset.</span><span lang="ar">صودا البرتقال الأحمر مع آيس كريم الفانيليا وغروبٍ بطيء من شراب الرمّان.</span></p></article>
+        <article class="it" style="--a:#fff;--b:#19c8ff;--c:#fff"><i class="gl"></i><h3><span lang="en">Blue Lagoon ’85</span><span lang="ar">البحيرة الزرقاء ٨٥</span></h3><span class="pr">$8</span><p><span lang="en">Blue raspberry soda under a scoop of coconut ice cream.</span><span lang="ar">صودا التوت الأزرق تحت كرة من آيس كريم جوز الهند.</span></p></article>
+        <article class="it" style="--a:#fff8e6;--b:#6b3a1c;--c:#fff"><i class="gl"></i><h3><span lang="en">Root Beer Classic</span><span lang="ar">روت بير الكلاسيكي</span></h3><span class="pr">$7.5</span><p><span lang="en">Draught root beer, double vanilla, frosted mug. No notes.</span><span lang="ar">روت بير من الصنبور مع فانيليا مضاعفة في كوب مثلّج. لا تعليق.</span></p></article>
+        <article class="it" style="--a:#5a2d1c;--b:#b3122f;--c:#ff2b4f"><i class="gl"></i><h3><span lang="en">Cherry Cola Crash</span><span lang="ar">تحطّم الكولا بالكرز</span></h3><span class="pr">$8</span><p><span lang="en">Cherry cola, chocolate ice cream and three maraschino cherries.</span><span lang="ar">كولا بالكرز وآيس كريم الشوكولاتة وثلاث حبّات من كرز الماراسكينو.</span></p></article>
+        <article class="it" style="--a:#fff;--b:#3dff9e;--c:#ff2b4f"><i class="gl"></i><h3><span lang="en">Melon Cream Soda</span><span lang="ar">كريم صودا الشمّام</span></h3><span class="pr">$8.5</span><p><span lang="en">Tokyo kissaten style: emerald melon soda, vanilla scoop, one cherry.</span><span lang="ar">على طريقة مقاهي طوكيو: صودا الشمّام الزمرّدية مع الفانيليا وحبّة كرز.</span></p></article>
+      </div>
+    </section>
+
+    <section class="win alt" id="sundaes">
+      <div class="tb"><b><span lang="en">SUNDAES.ZIP</span><span lang="ar">صنداي.zip</span></b><i></i><i></i><i></i></div>
+      <div class="wb">
+        <h2><span lang="en">Sundaes &amp; Bites</span><span lang="ar">صنداي ولقيمات</span></h2>
+        <p class="sub"><span lang="en">Unzip with a long spoon</span><span lang="ar">يُفكّ الضغط بملعقة طويلة</span></p>
+        <article class="it" style="--a:#ffe680;--b:#ff7eb6;--c:#7a4a2a"><i class="gl"></i><h3><span lang="en">Banana Split-Screen</span><span lang="ar">بنانا سبليت</span></h3><span class="pr">$12</span><p><span lang="en">Three scoops, caramelised banana, hot fudge and sprinkles for two players.</span><span lang="ar">ثلاث كرات مع موز مكرمل وصلصة الشوكولاتة الساخنة ورشّات ملوّنة تكفي لاعبَين.</span></p></article>
+        <article class="it" style="--a:#fff;--b:#3d2416;--c:#ff2b4f"><i class="gl"></i><h3><span lang="en">Hot Fudge Mainframe</span><span lang="ar">هوت فدج</span></h3><span class="pr">$11</span><p><span lang="en">Warm brownie, vanilla, molten fudge and salted peanuts.</span><span lang="ar">براوني دافئ مع الفانيليا والشوكولاتة الذائبة والفول السوداني المملّح.</span></p></article>
+        <article class="it" style="--a:#fff;--b:#ffc36b;--c:#ff3b6b"><i class="gl"></i><h3><span lang="en">Waffle.JPG</span><span lang="ar">وافل.jpg</span></h3><span class="pr">$10.5</span><p><span lang="en">Bubble waffle cone, strawberry ice cream, condensed-milk drizzle.</span><span lang="ar">وافل الفقاعات مع آيس كريم الفراولة وخيوط الحليب المكثّف.</span></p></article>
+        <article class="it" style="--a:#fff;--b:#ff8a2b;--c:#fff"><i class="gl"></i><h3><span lang="en">Neon Fries</span><span lang="ar">بطاطا النيون</span></h3><span class="pr">$6</span><p><span lang="en">Sweet-potato fries, cinnamon sugar and a toasted marshmallow dip.</span><span lang="ar">أصابع البطاطا الحلوة بسكّر القرفة مع غموس المارشميلو المحمّص.</span></p></article>
+      </div>
+    </section>
+
+    <section class="win plug">
+      <div class="tb"><b><span lang="en">PLUG-INS</span><span lang="ar">الإضافات</span></b><i></i><i></i><i></i></div>
+      <div class="wb">
+        <ul>
+          <li><span><span lang="en">Whipped cream tower</span><span lang="ar">برج الكريمة المخفوقة</span></span><b>+$1</b></li>
+          <li><span><span lang="en">Malt powder</span><span lang="ar">مسحوق المالت</span></span><b>+$1</b></li>
+          <li><span><span lang="en">Popping pearls</span><span lang="ar">لآلئ منفجرة</span></span><b>+$1.5</b></li>
+          <li><span><span lang="en">Oat milk</span><span lang="ar">حليب الشوفان</span></span><b>+$1</b></li>
+          <li><span><span lang="en">Extra scoop</span><span lang="ar">كرة إضافية</span></span><b>+$2.5</b></li>
+          <li><span><span lang="en">Rainbow sprinkles</span><span lang="ar">رشّات قوس قزح</span></span><b>$0</b></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="info">
+    <div><h3><span lang="en">Open</span><span lang="ar">أوقات العمل</span></h3><p><span lang="en">Sun – Thu</span><span lang="ar">الأحد – الخميس</span> <b>12:00 – 00:00</b><br><span lang="en">Fri – Sat</span><span lang="ar">الجمعة – السبت</span> <b>12:00 – 02:00</b></p></div>
+    <div><h3><span lang="en">Location</span><span lang="ar">الموقع</span></h3><p><span lang="en">Level 2, Ocean Drive Arcade, 1984 Boardwalk Avenue, Neo Miami</span><span lang="ar">الطابق الثاني، أركيد أوشن درايف، ١٩٨٤ جادّة الممشى الخشبي، نيو ميامي</span><br><b>+1 305 555 0128</b></p></div>
+    <div><h3><span lang="en">Allergens</span><span lang="ar">مسبّبات الحساسية</span></h3><p><span lang="en">We work with milk, nuts, peanuts, gluten and soy. Ask the fountain crew for the full list. Prices in US dollars, tax included.</span><span lang="ar">نستخدم الحليب والمكسّرات والفول السوداني والغلوتين والصويا. اسألوا طاقم النافورة عن القائمة الكاملة. الأسعار بالدولار الأمريكي وتشمل الضريبة.</span></p></div>
+  </div>
+  <p class="bye"><span lang="en">see you at sundown</span><span lang="ar">نراكم عند الغروب</span></p>
+  <div class="f2" aria-hidden="true"><div class="floor"></div></div>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Layali Ramadan · ليالي رمضان</title>
+<meta name="description" content="Layali Ramadan — an Iftar and Suhoor tent that follows the night, from the sunset cannon to the last sip before dawn. ليالي رمضان — خيمة إفطار وسحور ترافق الليل من المغرب حتى الإمساك.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1a0b3d">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=El+Messiri:wght@500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--gold:#f3c969;--gold2:#ffe6a6;--amber:#ffb648;--rose:#d0668a;--ink:#140a33;--city:#170a38;--cream:#f6ecd9;
+  --disp:'Marcellus','El Messiri',Georgia,serif;--body:'Jost','Tajawal','Segoe UI',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--city)}
+body{font-family:var(--body);font-size:16.5px;line-height:1.55;color:var(--cream);overflow-x:clip}
+html[lang="ar"]{--disp:'El Messiri','Marcellus',serif;--body:'Tajawal','Jost',Tahoma,sans-serif}
+html[lang="ar"] body{font-size:18px;line-height:1.75}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+.ctl{position:fixed;z-index:70;top:10px;inset-inline-end:10px;display:flex;gap:6px}
+.ctl>*{height:34px;padding:0 13px;border-radius:99px;border:1px solid var(--gold);background:#1a0b3dcc;color:var(--gold2);font:500 13.5px/1 'Jost','Tajawal',sans-serif;display:inline-flex;align-items:center;gap:6px;text-decoration:none;cursor:pointer;backdrop-filter:blur(6px)}
+.ctl>*:hover,.ctl>*:focus-visible{background:var(--gold);color:var(--ink);outline:none}
+#langToggle [lang="en"]{font-family:'Tajawal',sans-serif;font-size:15px}
+
+/* ================= HERO: sunset over the old town ================= */
+.hero{position:relative;min-height:min(100svh,900px);overflow:hidden;display:grid;place-items:center;text-align:center;isolation:isolate;
+  background:
+    radial-gradient(ellipse 70% 38% at 50% 92%,#ffd08a 0,#f59a5c 30%,#f59a5c00 72%),
+    linear-gradient(180deg,#160a3c 0,#33125f 26%,#6a2a7e 50%,#b8527c 70%,#ec8d5f 88%,#f7b469 100%)}
+.stars,.stars::after{position:absolute;inset:0;content:"";pointer-events:none;
+  background:radial-gradient(circle,#fff 0 1px,#0000 1.6px) 30px 40px/170px 190px,radial-gradient(circle,#ffe6a6 0 1.3px,#0000 2px) 110px 10px/230px 210px,radial-gradient(circle,#fff 0 .8px,#0000 1.3px) 70px 120px/97px 131px}
+.hero .stars{-webkit-mask:linear-gradient(#000 20%,#0000 62%);mask:linear-gradient(#000 20%,#0000 62%)}
+.stars::after{background-position:90px 80px,10px 130px,20px 20px;animation:tw 4s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:.15}to{opacity:1}}
+.moon{position:absolute;top:13%;inset-inline-end:14%;width:clamp(90px,13vw,190px);filter:drop-shadow(0 0 26px #ffe6a688);z-index:1}
+html[dir="rtl"] .moon{transform:scaleX(-1)}
+.lans{position:absolute;inset:0 0 auto 0;height:0;z-index:3}
+.lan{position:absolute;top:0;left:var(--x);width:var(--s,74px);transform-origin:50% 0;animation:swing var(--d,6s) ease-in-out infinite alternate;margin-left:calc(var(--s,74px)/-2)}
+.lan::before{content:"";display:block;width:1.5px;height:var(--l,90px);margin:auto;background:linear-gradient(var(--gold),#f3c96988)}
+.lan svg{display:block;width:100%;filter:drop-shadow(0 0 20px #ffb648aa);animation:glow 3.3s ease-in-out infinite alternate}
+@keyframes swing{from{transform:rotate(-4.5deg)}to{transform:rotate(4.5deg)}}
+@keyframes glow{from{filter:drop-shadow(0 0 10px #ffb64866)}to{filter:drop-shadow(0 0 26px #ffb648cc)}}
+.sky{position:relative;z-index:2;padding:clamp(190px,30vh,290px) 1.2rem clamp(180px,28vh,260px);max-width:54rem}
+.bless{font-family:var(--disp);color:var(--gold2);font-size:clamp(1rem,2vw,1.35rem);letter-spacing:.3em;text-transform:uppercase;display:flex;gap:1rem;align-items:center;justify-content:center}
+.bless::before,.bless::after{content:"";width:9px;height:9px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 0 3px #f3c96933}
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(3.3rem,10.5vw,8.4rem);line-height:1;margin:.12em 0 .05em;color:#fff7e2;text-shadow:0 0 50px #ffcf7a77,0 3px 0 #2a104f}
+html[lang="ar"] h1{font-weight:700;font-size:clamp(3.4rem,11vw,8.8rem);line-height:1.35}
+.hero .cui{font-size:clamp(1rem,1.8vw,1.25rem);letter-spacing:.42em;text-transform:uppercase;color:var(--gold)}
+html[lang="ar"] .hero .cui{font-size:clamp(1.2rem,2.2vw,1.6rem);font-weight:500}
+.hero .tag{font-family:var(--disp);font-size:clamp(1.2rem,2.5vw,1.75rem);margin:1rem auto 0;max-width:27ch;line-height:1.35;color:#fff}
+html[lang="ar"] .hero .tag{line-height:1.7}
+.tonight{display:inline-flex;margin-top:1.4rem;border:1px solid #ffe6a699;border-radius:99px;background:#1a0b3d99;backdrop-filter:blur(4px);overflow:hidden}
+.tonight span{padding:.5rem 1.15rem;display:flex;gap:.5rem;align-items:baseline}
+.tonight span+span{border-inline-start:1px solid #ffe6a666}
+.tonight b{font-family:'Marcellus',serif;font-weight:400;font-size:1.25rem;color:var(--gold2)}
+.skyline{position:absolute;inset:auto 0 -1px 0;width:100%;height:clamp(150px,24vw,290px);z-index:2;display:block}
+
+/* ================= THE NIGHT ================= */
+.night{position:relative;overflow:clip;
+  background:linear-gradient(180deg,var(--city) 0,#1d0d47 8%,#160b3c 30%,#0d0828 55%,#0f1238 76%,#1b2460 90%,#3c3f86 100%)}
+.night>.stars{opacity:.55}
+.intro,.tl{z-index:1}
+.intro{position:relative;max-width:46rem;margin:auto;text-align:center;padding:clamp(2rem,5vw,4rem) 1.4rem 1rem;font-size:1.12rem;color:#eadfca}
+.intro b{color:var(--gold2);font-weight:500}
+.tl{position:relative;max-width:1180px;margin:auto;padding:clamp(1.5rem,4vw,3rem) clamp(.9rem,3vw,2rem) 3rem}
+.tl::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:linear-gradient(#f3c96900,var(--gold) 5%,var(--gold) 92%,#f3c96900)}
+.stop{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 84px minmax(0,1.12fr);align-items:start;margin-bottom:clamp(2.5rem,6vw,5rem);scroll-margin-top:20px}
+.node{grid-column:2;grid-row:1;justify-self:center;width:38px;height:38px;position:relative;margin-top:1.2rem}
+.node::before,.node::after{content:"";position:absolute;inset:4px;background:var(--gold);box-shadow:0 0 22px #ffb648}
+.node::after{transform:rotate(45deg)}
+.node i{position:absolute;inset:13px;border-radius:50%;background:var(--ink);z-index:1}
+.when{grid-column:1;grid-row:1;text-align:end;position:sticky;top:70px;padding-block:.4rem}
+.card{grid-column:3;grid-row:1}
+.stop:nth-child(even) .when{grid-column:3;text-align:start}
+.stop:nth-child(even) .card{grid-column:1}
+.when small{letter-spacing:.3em;text-transform:uppercase;color:var(--rose);font-size:.82rem;font-weight:500;color:#f29bb7}
+html[lang="ar"] .when small{font-size:1.05rem}
+.time{font-family:'Marcellus',serif;font-size:clamp(3.4rem,7vw,6rem);line-height:1;color:var(--gold2);display:inline-flex;align-items:baseline;gap:.5rem;direction:ltr;text-shadow:0 0 34px #ffb64855}
+.time em{font-style:normal;font-size:.26em;letter-spacing:.14em;color:var(--gold);font-family:var(--body)}
+html[lang="ar"] .time em{font-size:.3em}
+.when h2{font-family:var(--disp);font-weight:400;font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.15;color:#fff}
+html[lang="ar"] .when h2{font-weight:600;line-height:1.5}
+.when p{color:#d9cdb8;max-width:34ch;margin-inline-start:auto;margin-top:.4rem}
+.stop:nth-child(even) .when p{margin-inline:0 auto}
+.arc{width:150px;margin-top:.8rem;overflow:visible}
+html[dir="rtl"] .arc{transform:scaleX(-1)}
+
+/* mihrab card */
+.card{position:relative;border:1px solid #f3c969aa;border-radius:150px 150px 10px 10px/120px 120px 10px 10px;padding:4.4rem clamp(1.1rem,2.6vw,2.2rem) 1.3rem;
+  background:linear-gradient(180deg,#ffffff12,#ffffff06 40%,#0000),radial-gradient(ellipse 80% 60% at 50% 0,#ffb64822,#0000 70%);box-shadow:0 20px 50px #0006,inset 0 0 0 5px #0000,inset 0 0 0 6px #f3c96940}
+.card::before{content:"";position:absolute;top:1.25rem;left:50%;width:30px;height:30px;margin-left:-15px;border-radius:50%;box-shadow:inset -8px -3px 0 0 var(--gold);transform:rotate(-30deg)}
+.card li{list-style:none;padding:.85rem 0;border-top:1px solid #f3c96930;display:grid;grid-template-columns:1fr auto;gap:.1rem 1rem;align-items:baseline}
+.card li:first-child{border-top:0}
+.card h3{font-family:var(--disp);font-weight:400;font-size:1.3rem;line-height:1.25;color:#fff5dc}
+html[lang="ar"] .card h3{font-weight:600;font-size:1.32rem;line-height:1.55}
+.card p{grid-column:1/-1;color:#d5c9b6;font-size:1rem;font-weight:300;max-width:46ch}
+html[lang="ar"] .card p{font-weight:400;font-size:1.04rem}
+.pr{font-family:'Marcellus',serif;font-size:1.3rem;color:var(--gold);white-space:nowrap;display:inline-flex;gap:.3em;align-items:baseline}
+.pr small{font-family:var(--body);font-size:.6em;letter-spacing:.1em;color:#d9b866}
+html[lang="ar"] .pr small{font-size:.72em}
+.pick{display:inline-flex;align-items:center;gap:.35em;font-family:var(--body);font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:linear-gradient(var(--gold2),var(--amber));border-radius:99px;padding:.15em .7em;margin-inline-start:.5em;vertical-align:.25em;white-space:nowrap}
+html[lang="ar"] .pick{font-size:.85rem}
+.pick svg{width:9px;height:14px}
+.gift{margin-top:.7rem;border:1px dashed #f3c96988;border-radius:8px;padding:.6rem .9rem;font-size:.97rem;color:var(--gold2);text-align:center}
+
+/* the iftar table banner */
+.table{position:relative;z-index:1;margin:0 auto clamp(2.5rem,6vw,5rem);max-width:880px;text-align:center;padding:2.2rem clamp(1.2rem,4vw,3rem);border-radius:14px;
+  background:linear-gradient(135deg,#3a1568,#5e2470 55%,#8a3a72);border:1px solid var(--gold);box-shadow:0 0 0 6px var(--ink),0 0 0 7px #f3c96966,0 30px 60px #0008}
+.table h2{font-family:var(--disp);font-weight:400;font-size:clamp(1.9rem,4vw,3rem);color:var(--gold2);line-height:1.2}
+html[lang="ar"] .table h2{font-weight:700;line-height:1.5}
+.table p{max-width:52ch;margin:.5rem auto 0}
+.table .big{font-family:'Marcellus',serif;font-size:clamp(2.6rem,6vw,4rem);color:#fff;line-height:1.1;display:inline-flex;gap:.3em;align-items:baseline;margin-top:.6rem}
+.table .big small{font-family:var(--body);font-size:.3em;letter-spacing:.14em;color:var(--gold2)}
+html[lang="ar"] .table .big small{font-size:.36em}
+.table .l{position:absolute;top:-8px;width:44px;animation:swing 5s ease-in-out infinite alternate;transform-origin:50% 0}
+.table .l.a{inset-inline-start:5%}.table .l.b{inset-inline-end:5%;animation-duration:6.5s}
+
+/* ================= DAWN ================= */
+footer{position:relative;background:linear-gradient(180deg,#3c3f86 0,#7a5a9a 34%,#e39a7a 62%,#f7c98a 78%);overflow:hidden;padding-top:clamp(3rem,7vw,6rem)}
+.dawn{text-align:center;position:relative;z-index:2;padding:0 1.2rem}
+.dawn small{letter-spacing:.3em;text-transform:uppercase;color:#ffe6a6}
+html[lang="ar"] .dawn small{font-size:1.1rem}
+.dawn .time{font-size:clamp(3rem,8vw,5.4rem);display:flex;justify-content:center;color:#fff}
+.dawn p{font-family:var(--disp);font-size:clamp(1.2rem,2.4vw,1.6rem);max-width:30ch;margin:.3rem auto 0;color:#fff}
+footer .skyline{position:relative;inset:auto;margin-top:1.5rem;margin-bottom:-2px}
+.base{background:var(--city);position:relative;z-index:2;padding:1rem clamp(1.1rem,4vw,3rem) 3.5rem}
+.info{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.info h4{font-family:var(--disp);font-weight:400;font-size:1.3rem;color:var(--gold2);margin-bottom:.3rem}
+html[lang="ar"] .info h4{font-weight:600}
+.info p{color:#d9cdb8;font-size:1rem}
+.kareem{text-align:center;font-family:var(--disp);font-size:clamp(2rem,5vw,3.2rem);color:var(--gold);margin-top:2.2rem}
+html[lang="ar"] .kareem{font-weight:700}
+
+@media (max-width:820px){
+  .lan.h{display:none}
+  .moon{top:196px;inset-inline-end:auto;inset-inline-start:calc(50% - 32px);width:64px}
+  .sky{padding-top:282px}
+  .tonight{flex-direction:column;border-radius:16px}
+  .tonight span{justify-content:center}
+  .tonight span+span{border-inline-start:0;border-top:1px solid #ffe6a666}
+  .tl::before{left:auto;inset-inline-start:calc(clamp(.9rem,3vw,2rem) + 16px);margin:0}
+  .stop{grid-template-columns:34px minmax(0,1fr);column-gap:.9rem}
+  .node{grid-column:1;width:34px;height:34px;margin-top:.9rem}
+  .node i{inset:11px}
+  .when,.stop:nth-child(even) .when{grid-column:2;text-align:start;position:static}
+  .when p,.stop:nth-child(even) .when p{margin-inline:0}
+  .card,.stop:nth-child(even) .card{grid-column:2;grid-row:2;margin-top:1rem;border-radius:110px 110px 10px 10px/90px 90px 10px 10px;padding-top:3.8rem}
+  .arc{display:none}
+  .table{margin-inline:0}
+  .table .l{width:32px}
+  .info{grid-template-columns:1fr;gap:1.2rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="lg" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#fffbe0"/><stop offset=".45" stop-color="#ffc65c"/><stop offset="1" stop-color="#e0702f"/></radialGradient>
+    <linearGradient id="gd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8862b"/><stop offset=".5" stop-color="#ffe6a6"/><stop offset="1" stop-color="#b8862b"/></linearGradient>
+  </defs>
+  <symbol id="fanous" viewBox="0 0 60 122">
+    <circle cx="30" cy="7" r="5" fill="none" stroke="url(#gd)" stroke-width="2.5"/>
+    <path d="M17 31Q19 15 30 12 41 15 43 31z" fill="url(#gd)"/><path d="M30 12v19M23.500 17 22 31M36.500 17 38 31" stroke="#8a5f17" stroke-width="1"/>
+    <rect x="13" y="30" width="34" height="6" rx="2" fill="url(#gd)"/>
+    <path d="M15 36 7 60l8 32h30l8-32-8-24z" fill="url(#lg)"/>
+    <path d="M15 36 7 60l8 32M45 36l8 24-8 32" fill="none" stroke="url(#gd)" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M7 60h46" stroke="url(#gd)" stroke-width="2.500"/>
+    <path d="M22 58V48q0-8 8-10 8 2 8 10v10z" fill="var(--glass,#d0668a)" opacity=".8" stroke="#8a5f17"/>
+    <path d="M21 64h18l-3 24H24z" fill="var(--glass,#d0668a)" opacity=".55" stroke="#8a5f17"/>
+    <path d="M30 38v20M30 64v24" stroke="#8a5f17"/>
+    <rect x="13" y="91" width="34" height="6" rx="2" fill="url(#gd)"/>
+    <path d="M19 97h22l-11 13z" fill="url(#gd)"/><path d="M30 110v9" stroke="#f3c969" stroke-width="2"/><circle cx="30" cy="119" r="2.500" fill="#f3c969"/>
+  </symbol>
+  <symbol id="city" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice">
+    <g fill="#170a38">
+      <path d="M0 260V178h46v-22h52v30h30v-52h14v-14h10v14h14v52h44v-34h60v-20h36v54h40v-28h48v28h26V260z"/>
+      <path d="M1440 260V170h-54v-26h-40v38h-36v-58h-12v-16h-10v16h-12v58h-50v-30h-56v-24h-44v54h-36v-24h-52v24h-30V260z"/>
+      <!-- small mosque left -->
+      <path d="M200 186c0-30 30-34 38-52 8 18 38 22 38 52z"/><path d="M236 134v-14" stroke="#170a38" stroke-width="3"/>
+      <!-- grand mosque -->
+      <rect x="560" y="176" width="320" height="84"/>
+      <path d="M612 178c0-70 78-76 108-118 30 42 108 48 108 118z"/>
+      <path d="M720 60V36" stroke="#170a38" stroke-width="4"/>
+      <path d="M500 196c0-38 36-42 46-62 10 20 46 24 46 62zM848 196c0-38 36-42 46-62 10 20 46 24 46 62z"/>
+      <path d="M452 260V70h-8v-9h8V44l12-30 12 30v17h8v9h-8v190zM964 260V70h-8v-9h8V44l12-30 12 30v17h8v9h-8v190z"/>
+      <path d="M452 110h-7v-8h38v8h-7M964 110h-7v-8h38v8h-7"/>
+      <rect x="0" y="214" width="1440" height="46"/>
+      <!-- palms -->
+      <g stroke="#170a38" stroke-width="5" fill="none" stroke-linecap="round"><path d="M370 220q4-40-2-70M1090 220q-4-36 2-62"/><path d="M368 150q-26-16-44 0M368 150q-22-28-44-26M368 150q4-30-14-42M368 150q24-24 44-12M368 150q30-8 42 14M1092 158q-26-16-44 0M1092 158q-22-28-44-26M1092 158q4-30-14-42M1092 158q24-24 44-12M1092 158q30-8 42 14"/></g>
+    </g>
+    <path d="M713 33a8 8 0 1 0 12 7 6.500 6.500 0 1 1-12-7z" fill="#f3c969"/>
+    <g fill="#ffcf7a">
+      <path d="M700 200v-22q0-16 20-22 20 6 20 22v22z" opacity=".9"/>
+      <path d="M640 204v-14q0-8 8-11 8 3 8 11v14zM784 204v-14q0-8 8-11 8 3 8 11v14zM600 204v-10q0-6 6-8 6 2 6 8v10zM828 204v-10q0-6 6-8 6 2 6 8v10z" opacity=".75"/>
+      <rect x="461" y="76" width="6" height="12" rx="3"/><rect x="973" y="76" width="6" height="12" rx="3"/>
+      <path d="M60 190h8v10h-8zM110 176h8v10h-8zM172 196h8v10h-8zM300 172h8v10h-8zM330 192h8v10h-8zM410 188h8v10h-8zM1036 190h8v10h-8zM1130 168h8v10h-8zM1168 190h8v10h-8zM1234 196h8v10h-8zM1352 164h8v10h-8zM1400 186h8v10h-8zM232 172h10v14h-10z" opacity=".7"/>
+    </g>
+  </symbol>
+  <symbol id="arc" viewBox="0 0 150 70"><path d="M8 62A67 67 0 0 1 142 62" fill="none" stroke="#f3c96977" stroke-width="1.500" stroke-dasharray="2 6" stroke-linecap="round"/><path d="M0 62h150" stroke="#f3c969" stroke-width="1"/></symbol>
+</svg>
+
+<div class="ctl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<header class="hero">
+  <div class="stars"></div>
+  <svg class="moon" viewBox="0 0 100 100" aria-hidden="true"><path d="M62 6A46 46 0 1 0 94 62 37 37 0 1 1 62 6z" fill="#ffe9b0"/><path d="M80 14l2.500 6.500L89 23l-6.500 2.500L80 32l-2.500-6.500L71 23l6.500-2.500z" fill="#fff"/></svg>
+  <div class="lans" aria-hidden="true">
+    <div class="lan" style="--x:9%;--l:70px;--s:66px;--d:5.500s;--glass:#3fb8b0"><svg viewBox="0 0 60 122"><use href="#fanous"/></svg></div>
+    <div class="lan h" style="--x:22%;--l:150px;--s:54px;--d:7s;--glass:#d0668a"><svg viewBox="0 0 60 122"><use href="#fanous"/></svg></div>
+    <div class="lan" style="--x:50%;--l:26px;--s:86px;--d:6.200s;--glass:#7a4fd0"><svg viewBox="0 0 60 122"><use href="#fanous"/></svg></div>
+    <div class="lan h" style="--x:70%;--l:120px;--s:50px;--d:5s;--glass:#3fb8b0"><svg viewBox="0 0 60 122"><use href="#fanous"/></svg></div>
+    <div class="lan" style="--x:90%;--l:92px;--s:70px;--d:6.800s;--glass:#d0668a"><svg viewBox="0 0 60 122"><use href="#fanous"/></svg></div>
+  </div>
+  <div class="sky">
+    <p class="bless"><span lang="en">Ramadan Kareem</span><span lang="ar">رمضان كريم</span></p>
+    <h1><span lang="en">Layali Ramadan</span><span lang="ar">ليالي رمضان</span></h1>
+    <p class="cui"><span lang="en">Iftar &amp; Suhoor</span><span lang="ar">إفطار وسحور</span></p>
+    <p class="tag"><span lang="en">One long table that follows the night, from the sunset cannon to the last sip before dawn.</span><span lang="ar">مائدة واحدة طويلة ترافق الليل، من مدفع الإفطار حتى آخر رشفة قبل الفجر.</span></p>
+    <p class="tonight"><span><span lang="en">Iftar tonight</span><span lang="ar">إفطار الليلة</span> <b dir="ltr">6:14</b></span><span><span lang="en">Suhoor until</span><span lang="ar">السحور حتى</span> <b dir="ltr">4:38</b></span></p>
+  </div>
+  <svg class="skyline" aria-hidden="true"><use href="#city"/></svg>
+</header>
+
+<main class="night">
+  <div class="stars"></div>
+  <p class="intro"><span lang="en">Our menu is not arranged by course. It is arranged by <b>the hour</b>. Follow the golden thread down the night: break your fast, gather at the table, return after Taraweeh for sweets, stay for tea and stories, and come back before dawn for Suhoor.</span><span lang="ar">قائمتنا لا تُرتَّب بحسب الأصناف بل بحسب <b>الساعة</b>. اتبع الخيط الذهبي عبر الليل: فُكّ ريقك، ثم اجتمع حول المائدة، وعُد بعد التراويح للحلوى، واسهر مع الشاي والحكايات، ثم ارجع قبيل الفجر للسحور.</span></p>
+
+  <div class="tl">
+    <!-- 1 -->
+    <section class="stop" id="maghrib">
+      <span class="node"><i></i></span>
+      <div class="when"><small><span lang="en">Maghrib · the cannon fires</span><span lang="ar">المغرب · يُطلَق المدفع</span></small><br><span class="time">6:14<em><span lang="en">PM</span><span lang="ar">م</span></em></span><h2><span lang="en">Break the fast</span><span lang="ar">فَكّ الريق</span></h2><p><span lang="en">Begin gently, the way it has always been done: something sweet, something warm.</span><span lang="ar">ابدأ بهدوء كما جرت العادة: شيء حلو وشيء دافئ.</span></p>
+        <svg class="arc" viewBox="0 0 150 70" aria-hidden="true"><use href="#arc"/><circle cx="12" cy="56" r="8" fill="#ffb648"/></svg></div>
+      <ul class="card">
+        <li><h3><span lang="en">Shorbat Adas</span><span lang="ar">شوربة العدس</span><span class="pick"><svg viewBox="0 0 60 122"><use href="#fanous"/></svg><span lang="en">Lantern’s pick</span><span lang="ar">اختيار الفانوس</span></span></h3><span class="pr" dir="ltr">24 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Red lentil soup with cumin, a squeeze of lemon and crisp pita</span><span lang="ar">حساء العدس الأحمر بالكمون مع عصرة ليمون وخبز محمّص</span></p></li>
+        <li><h3><span lang="en">Harira</span><span lang="ar">الحريرة</span></h3><span class="pr" dir="ltr">28 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Moroccan tomato soup with lamb, chickpeas, celery and coriander</span><span lang="ar">حساء مغربي بالطماطم ولحم الضأن والحمّص والكرفس والكزبرة</span></p></li>
+        <li><h3><span lang="en">Cheese Sambousek</span><span lang="ar">سمبوسك بالجبن</span></h3><span class="pr" dir="ltr">26 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Four crisp pastries of akkawi cheese, nigella and mint</span><span lang="ar">أربع فطائر مقرمشة بجبن العكاوي وحبّة البركة والنعناع</span></p></li>
+        <li><h3><span lang="en">Lamb Sambousek</span><span lang="ar">سمبوسك باللحم</span></h3><span class="pr" dir="ltr">29 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Spiced minced lamb with pine nuts and pomegranate molasses</span><span lang="ar">لحم ضأن مفروم متبّل مع الصنوبر ودبس الرمان</span></p></li>
+        <li><h3><span lang="en">Fattoush</span><span lang="ar">فتّوش</span></h3><span class="pr" dir="ltr">27 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Purslane, radish, tomato and sumac under shards of fried bread</span><span lang="ar">بقلة وفجل وطماطم وسمّاق تحت رقائق الخبز المقلي</span></p></li>
+        <p class="gift"><span lang="en">Three Ajwa dates, cold laban and water are waiting on every table, with our compliments.</span><span lang="ar">ثلاث تمرات عجوة ولبن بارد وماء بانتظارك على كل طاولة، ضيافةً منّا.</span></p>
+      </ul>
+    </section>
+
+    <!-- 2 -->
+    <section class="stop" id="iftar">
+      <span class="node"><i></i></span>
+      <div class="when"><small><span lang="en">After the prayer</span><span lang="ar">بعد الصلاة</span></small><br><span class="time">6:45<em><span lang="en">PM</span><span lang="ar">م</span></em></span><h2><span lang="en">The Iftar table</span><span lang="ar">مائدة الإفطار</span></h2><p><span lang="en">Platters to pass from hand to hand. Everything here is meant to be shared.</span><span lang="ar">أطباق تنتقل من يد إلى يد؛ فكل ما هنا صُنع ليُتقاسَم.</span></p>
+        <svg class="arc" viewBox="0 0 150 70" aria-hidden="true"><use href="#arc"/><circle cx="34" cy="24" r="7" fill="#ffe9b0"/></svg></div>
+      <ul class="card">
+        <li><h3><span lang="en">Lamb Ouzi</span><span lang="ar">أوزي اللحم</span><span class="pick"><svg viewBox="0 0 60 122"><use href="#fanous"/></svg><span lang="en">Lantern’s pick</span><span lang="ar">اختيار الفانوس</span></span></h3><span class="pr" dir="ltr">96 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Slow-roasted lamb shoulder on spiced rice with almonds and raisins</span><span lang="ar">كتف ضأن مشوي على مهل فوق أرز مبهّر باللوز والزبيب</span></p></li>
+        <li><h3><span lang="en">Chicken Freekeh</span><span lang="ar">فريكة بالدجاج</span></h3><span class="pr" dir="ltr">68 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Smoked green wheat, roast chicken, toasted pine nuts, yoghurt</span><span lang="ar">قمح أخضر مدخَّن مع دجاج مشوي وصنوبر محمّص ولبن</span></p></li>
+        <li><h3><span lang="en">Mashawi Platter</span><span lang="ar">طبق المشاوي</span></h3><span class="pr" dir="ltr">105 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Kofta, shish taouk and lamb cubes over charcoal, with garlic toum</span><span lang="ar">كفتة وشيش طاووق وأوصال ضأن على الفحم مع الثومية</span></p></li>
+        <li><h3><span lang="en">Samak Harra</span><span lang="ar">سمك حرّة</span></h3><span class="pr" dir="ltr">84 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Baked sea bream in tahini, chilli, coriander and walnuts</span><span lang="ar">سمك دنيس مخبوز بالطحينة والفلفل الحار والكزبرة والجوز</span></p></li>
+        <li><h3><span lang="en">Molokhia</span><span lang="ar">ملوخية</span></h3><span class="pr" dir="ltr">58 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Jute-leaf stew with garlic and coriander, vermicelli rice on the side</span><span lang="ar">ملوخية بتقلية الثوم والكزبرة، ومعها أرز بالشعيرية</span></p></li>
+      </ul>
+    </section>
+
+    <aside class="table">
+      <svg class="l a" viewBox="0 0 60 122" aria-hidden="true"><use href="#fanous"/></svg><svg class="l b" viewBox="0 0 60 122" aria-hidden="true" style="--glass:#3fb8b0"><use href="#fanous"/></svg>
+      <h2><span lang="en">The Whole Table</span><span lang="ar">المائدة الكاملة</span></h2>
+      <p><span lang="en">Dates and laban, soup, three cold mezze, two mains to share, sweets after Taraweeh and Ramadan drinks all night.</span><span lang="ar">تمر ولبن، حساء، ثلاث مقبلات باردة، طبقان رئيسيان للمشاركة، حلوى بعد التراويح ومشروبات رمضان طوال الليل.</span></p>
+      <span class="big" dir="ltr">185 <small><span lang="en">AED per guest</span><span lang="ar">د.إ للشخص</span></small></span>
+      <p style="font-size:.95rem;color:#e7d6c0"><span lang="en">Children under six are our guests. Ages 6 to 12, half price.</span><span lang="ar">الأطفال دون السادسة ضيوفنا. ومن ٦ إلى ١٢ سنة بنصف السعر.</span></p>
+    </aside>
+
+    <!-- 3 -->
+    <section class="stop" id="taraweeh">
+      <span class="node"><i></i></span>
+      <div class="when"><small><span lang="en">After Taraweeh</span><span lang="ar">بعد التراويح</span></small><br><span class="time">9:30<em><span lang="en">PM</span><span lang="ar">م</span></em></span><h2><span lang="en">Something sweet</span><span lang="ar">شيء من الحلو</span></h2><p><span lang="en">The lanterns are lit, the syrup is warm, and the kunafa comes off the fire in rounds.</span><span lang="ar">أُضيئت الفوانيس وسخن القطر، والكنافة تنزل عن النار صينيةً بعد صينية.</span></p>
+        <svg class="arc" viewBox="0 0 150 70" aria-hidden="true"><use href="#arc"/><circle cx="75" cy="-4" r="7" fill="#ffe9b0"/></svg></div>
+      <ul class="card">
+        <li><h3><span lang="en">Kunafa Nabulsiyeh</span><span lang="ar">كنافة نابلسية</span><span class="pick"><svg viewBox="0 0 60 122"><use href="#fanous"/></svg><span lang="en">Lantern’s pick</span><span lang="ar">اختيار الفانوس</span></span></h3><span class="pr" dir="ltr">34 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Stretchy white cheese under crisp golden pastry, orange-blossom syrup</span><span lang="ar">جبن أبيض مطّاط تحت عجينة ذهبية مقرمشة وقطر بماء الزهر</span></p></li>
+        <li><h3><span lang="en">Qatayef Asafiri</span><span lang="ar">قطايف عصافيري</span></h3><span class="pr" dir="ltr">30 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Little folded pancakes filled with ashta cream and pistachio</span><span lang="ar">فطائر صغيرة مطويّة محشوّة بالقشطة ومرشوشة بالفستق</span></p></li>
+        <li><h3><span lang="en">Luqaimat</span><span lang="ar">لقيمات</span></h3><span class="pr" dir="ltr">26 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Hot saffron dumplings drenched in date syrup and sesame</span><span lang="ar">لقيمات ساخنة بالزعفران مغمورة بدبس التمر والسمسم</span></p></li>
+        <li><h3><span lang="en">Umm Ali</span><span lang="ar">أم علي</span></h3><span class="pr" dir="ltr">32 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Baked pastry pudding with milk, coconut, raisins and nuts</span><span lang="ar">حلوى مخبوزة من رقائق العجين بالحليب وجوز الهند والزبيب والمكسرات</span></p></li>
+      </ul>
+    </section>
+
+    <!-- 4 -->
+    <section class="stop" id="sahra">
+      <span class="node"><i></i></span>
+      <div class="when"><small><span lang="en">The night gathering</span><span lang="ar">السهرة</span></small><br><span class="time">11:00<em><span lang="en">PM</span><span lang="ar">م</span></em></span><h2><span lang="en">Sips &amp; stories</span><span lang="ar">رشفات وحكايات</span></h2><p><span lang="en">Backgammon boards come out, the oud player starts, and the glasses never stay empty.</span><span lang="ar">تُفرَش طاولات الزهر ويبدأ عازف العود، ولا تبقى الكؤوس فارغة.</span></p>
+        <svg class="arc" viewBox="0 0 150 70" aria-hidden="true"><use href="#arc"/><circle cx="116" cy="24" r="7" fill="#ffe9b0"/></svg></div>
+      <ul class="card">
+        <li><h3><span lang="en">Qamar al-Din</span><span lang="ar">قمر الدين</span></h3><span class="pr" dir="ltr">18 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Thick apricot nectar, chilled, with a drop of rose water</span><span lang="ar">شراب المشمش الكثيف، بارداً مع قطرة ماء ورد</span></p></li>
+        <li><h3><span lang="en">Jallab</span><span lang="ar">جلّاب</span></h3><span class="pr" dir="ltr">20 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Date and grape molasses over crushed ice with pine nuts and raisins</span><span lang="ar">دبس التمر والعنب فوق ثلج مجروش مع الصنوبر والزبيب</span></p></li>
+        <li><h3><span lang="en">Tamr Hindi</span><span lang="ar">تمر هندي</span></h3><span class="pr" dir="ltr">18 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Sweet-sour tamarind, poured from a height the old way</span><span lang="ar">تمر هندي حلو حامض يُصَبّ من علٍ على الطريقة القديمة</span></p></li>
+        <li><h3><span lang="en">Karkadeh</span><span lang="ar">كركديه</span></h3><span class="pr" dir="ltr">16 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Ruby hibiscus infusion, served iced or hot</span><span lang="ar">منقوع الكركديه الياقوتي، مثلّجاً أو ساخناً</span></p></li>
+        <li><h3><span lang="en">Karak Chai</span><span lang="ar">شاي كرك</span></h3><span class="pr" dir="ltr">14 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Strong tea simmered with cardamom, saffron and evaporated milk</span><span lang="ar">شاي قوي يُغلى مع الهيل والزعفران والحليب المبخّر</span></p></li>
+      </ul>
+    </section>
+
+    <!-- 5 -->
+    <section class="stop" id="suhoor">
+      <span class="node"><i></i></span>
+      <div class="when"><small><span lang="en">The musaharati’s drum</span><span lang="ar">طبلة المسحّراتي</span></small><br><span class="time">2:30<em><span lang="en">AM</span><span lang="ar">ص</span></em></span><h2><span lang="en">Suhoor</span><span lang="ar">السحور</span></h2><p><span lang="en">Slow, sustaining food to carry you through tomorrow’s fast.</span><span lang="ar">طعام مُشبع على مهل، يعينك على صيام الغد.</span></p>
+        <svg class="arc" viewBox="0 0 150 70" aria-hidden="true"><use href="#arc"/><circle cx="138" cy="54" r="7" fill="#ffe9b0"/></svg></div>
+      <ul class="card">
+        <li><h3><span lang="en">Foul Medames</span><span lang="ar">فول مدمّس</span><span class="pick"><svg viewBox="0 0 60 122"><use href="#fanous"/></svg><span lang="en">Lantern’s pick</span><span lang="ar">اختيار الفانوس</span></span></h3><span class="pr" dir="ltr">28 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Fava beans stewed overnight, with cumin, lemon and olive oil</span><span lang="ar">فول مطهوّ طوال الليل بالكمون والليمون وزيت الزيتون</span></p></li>
+        <li><h3><span lang="en">Shakshuka</span><span lang="ar">شكشوكة</span></h3><span class="pr" dir="ltr">34 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Eggs poached in spiced tomato and peppers, straight from the pan</span><span lang="ar">بيض مطهوّ في صلصة الطماطم والفلفل المتبّلة، من المقلاة مباشرة</span></p></li>
+        <li><h3><span lang="en">Labneh &amp; Za’atar Manakish</span><span lang="ar">مناقيش باللبنة والزعتر</span></h3><span class="pr" dir="ltr">26 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Stone-baked flatbread with wild thyme, labneh, cucumber and mint</span><span lang="ar">خبز من فرن الحجر بالزعتر البرّي واللبنة والخيار والنعناع</span></p></li>
+        <li><h3><span lang="en">Halloumi &amp; Eggs</span><span lang="ar">حلّوم وبيض</span></h3><span class="pr" dir="ltr">38 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Grilled halloumi, fried eggs, olives, tomato and warm bread</span><span lang="ar">حلّوم مشوي وبيض مقلي وزيتون وطماطم وخبز ساخن</span></p></li>
+        <li><h3><span lang="en">Dates &amp; Yoghurt Bowl</span><span lang="ar">وعاء التمر واللبن</span></h3><span class="pr" dir="ltr">24 <small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span><p><span lang="en">Thick yoghurt, chopped Medjool, honey, walnuts and oats</span><span lang="ar">لبن كثيف مع تمر مجدول مقطّع وعسل وجوز وشوفان</span></p></li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="dawn"><small><span lang="en">Imsak · the kitchen rests</span><span lang="ar">الإمساك · يستريح المطبخ</span></small><span class="time">4:38<em><span lang="en">AM</span><span lang="ar">ص</span></em></span><p><span lang="en">One last glass of water. See you at sunset.</span><span lang="ar">كأس ماء أخيرة، وموعدنا عند الغروب.</span></p></div>
+  <svg class="skyline" aria-hidden="true"><use href="#city"/></svg>
+  <div class="base">
+    <div class="info">
+      <div><h4><span lang="en">Every night of the holy month</span><span lang="ar">كل ليالي الشهر الفضيل</span></h4><p><span lang="en">From the Maghrib call until Imsak. Times follow the prayer calendar and move by about a minute each day.</span><span lang="ar">من أذان المغرب حتى الإمساك. المواعيد تتبع تقويم الصلاة وتتغيّر نحو دقيقة كل يوم.</span></p></div>
+      <div><h4><span lang="en">The tent</span><span lang="ar">الخيمة</span></h4><p><span lang="en">Al Fanous Courtyard, Old Souk Lane, Al Marfa’a, Sharjah. Reservations and majlis bookings: 06 555 0199.</span><span lang="ar">ساحة الفانوس، زقاق السوق القديم، المرفأ، الشارقة. للحجز وحجز المجالس: <span dir="ltr">06 555 0199</span></span></p></div>
+      <div><h4><span lang="en">Good to know</span><span lang="ar">يهمّك أن تعرف</span></h4><p><span lang="en">All meat is halal. Dishes may contain nuts, sesame, wheat and dairy; please tell your host. Prices in dirhams, inclusive of VAT.</span><span lang="ar">جميع اللحوم حلال. قد تحتوي الأطباق على المكسرات والسمسم والقمح والألبان، فنرجو إخبار المُضيف. الأسعار بالدرهم وتشمل ضريبة القيمة المضافة.</span></p></div>
+    </div>
+    <p class="kareem"><span lang="en">Ramadan Kareem</span><span lang="ar">رمضان كريم</span></p>
+  </div>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

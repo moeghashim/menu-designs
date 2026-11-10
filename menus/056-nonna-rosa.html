@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Nonna Rosa · نونا روزا</title>
+<meta name="description" content="Nonna Rosa — a family trattoria menu: hand-rolled pasta, slow Sunday sauce and sweets from the wood oven. قائمة تراتوريا نونا روزا العائلية.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#c0392b">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Caveat:wght@500;700&family=Markazi+Text:wght@400;600&family=Playpen+Sans+Arabic:wght@400;600&family=Vollkorn:ital,wght@0,400;0,600;1,400&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --red:#bf3324; --red-d:#8f2116; --olive:#5e6b2c; --olive-d:#3f4a1c; --cream:#fbf4e2; --paper:#fdf8ea;
+  --ink:#2c2118; --ink-soft:#5b4a3b; --pen:#c22a1e;
+  --serif:"Vollkorn", Georgia, "Times New Roman", serif;
+  --script:"Yellowtail", "Brush Script MT", cursive;
+  --hand:"Caveat", "Segoe Print", "Comic Sans MS", cursive;
+}
+html[lang="ar"]{
+  --serif:"Markazi Text", "Amiri", "Traditional Arabic", serif;
+  --script:"Aref Ruqaa", "Markazi Text", serif;
+  --hand:"Playpen Sans Arabic", "Aref Ruqaa", cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--ink); font-family:var(--serif); font-size:17px; line-height:1.5;
+  background-color:#f7efdc;
+  background-image:
+    linear-gradient(90deg, rgba(191,51,36,.62) 50%, transparent 50%),
+    linear-gradient(rgba(191,51,36,.62) 50%, transparent 50%);
+  background-size:72px 72px;
+  overflow-x:clip;
+}
+html[lang="ar"] body{font-size:20px; line-height:1.55}
+/* linen weave over the gingham */
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.16) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(90,30,10,.08) 0 1px, transparent 1px 3px);
+}
+svg{display:block}
+.ink:not([fill]){fill:none}
+.ink{stroke:var(--ink); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
+.ink-r{fill:none; stroke:var(--pen); stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round}
+
+/* ---- controls: two little price tags tied to the table edge ---- */
+.tags{position:fixed; top:0; inset-inline-end:14px; z-index:20; display:flex; gap:8px; align-items:flex-start}
+.tags > *{
+  font:600 15px/1 var(--hand); color:var(--ink); background:var(--paper); border:0; cursor:pointer; text-decoration:none;
+  padding:22px 12px 10px; border-radius:0 0 6px 6px; position:relative;
+  box-shadow:0 3px 8px rgba(40,10,0,.35); clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+  min-height:44px; display:grid; place-items:end center;
+}
+.tags > *::before{content:""; position:absolute; top:8px; left:50%; width:8px; height:8px; margin-left:-4px; border-radius:50%; background:#7a1a10; box-shadow:inset 0 1px 2px #0006}
+.tags > *::after{content:""; position:absolute; top:-2px; left:50%; width:2px; height:12px; margin-left:-1px; background:#c9b68f}
+#langToggle{transform:rotate(-3deg); transform-origin:top center; color:var(--red-d); font-size:17px}
+.home-link{transform:rotate(2.5deg); transform-origin:top center}
+.tags > *:hover,.tags > *:focus-visible{background:#fff; outline:2px dashed var(--red); outline-offset:-5px}
+
+/* ---- the placemat ---- */
+.table{position:relative; z-index:1; overflow-x:clip; padding:clamp(52px,6vw,74px) clamp(8px,2.5vw,40px) 60px}
+.sheet{
+  position:relative; max-width:1320px; margin:0 auto; background:var(--paper);
+  padding:clamp(22px,3.4vw,54px) clamp(16px,3vw,52px) clamp(26px,3vw,48px);
+  box-shadow:0 1px 0 #fff inset, 0 2px 3px rgba(60,20,5,.3), 0 18px 40px -12px rgba(60,15,0,.55);
+  background-image:
+    radial-gradient(120% 80% at 10% 0%, #fffdf4 0, transparent 60%),
+    radial-gradient(90% 70% at 100% 100%, #f1e6c9 0, transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  transform:rotate(-.35deg);
+}
+/* scalloped doily edge along the top and bottom of the placemat */
+.sheet::before,.sheet::after{
+  content:""; position:absolute; inset-inline:0; height:12px;
+  background:radial-gradient(circle at 12px 0, transparent 9px, var(--paper) 9.5px) -12px 0/24px 12px repeat-x;
+}
+.sheet::before{top:-11px; transform:scaleY(-1)}
+.sheet::after{bottom:-11px}
+.frame{position:absolute; inset:clamp(8px,1.2vw,18px); border:2px solid var(--red); pointer-events:none; filter:url(#wob); opacity:.85}
+.frame::after{content:""; position:absolute; inset:5px; border:1px solid var(--red)}
+
+/* masthead */
+.mast{position:relative; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:clamp(10px,3vw,40px); padding:clamp(10px,2vw,22px) clamp(6px,2vw,30px) 0}
+.mast .art{width:min(100%,250px)}
+.mast .art.a1{justify-self:end}
+.mast .art.a2{justify-self:start}
+.brand{text-align:center}
+.since{font:600 clamp(12px,1.1vw,14px)/1 var(--serif); letter-spacing:.34em; text-transform:uppercase; color:var(--olive-d)}
+html[lang="ar"] .since{letter-spacing:0; text-transform:none; font-size:clamp(16px,1.5vw,19px)}
+h1{margin:.06em 0 0; font:400 clamp(64px,10.5vw,150px)/.95 var(--script); color:var(--red); text-shadow:2px 3px 0 rgba(143,33,22,.16)}
+html[lang="ar"] h1{font-weight:700; font-size:clamp(60px,9.4vw,136px); line-height:1.25}
+.kind{display:inline-flex; align-items:center; gap:.7em; margin-top:.2em; font:italic 400 clamp(17px,1.8vw,24px)/1.2 var(--serif); color:var(--olive-d)}
+html[lang="ar"] .kind{font-style:normal; font-size:clamp(21px,2.1vw,29px)}
+.kind::before,.kind::after{content:""; width:clamp(18px,4vw,60px); height:2px; background:var(--olive); border-radius:2px; filter:url(#wob)}
+.intro{max-width:44ch; margin:1.1em auto 0; text-align:center; color:var(--ink-soft); font-size:1.02em}
+.branch{width:min(420px,70%); margin:18px auto 0}
+
+/* three folded panels */
+.cols{position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:clamp(18px,2.4vw,34px)}
+.col{padding-inline:clamp(14px,2.2vw,38px); position:relative}
+.col + .col::before{ /* the fold crease */
+  content:""; position:absolute; top:-10px; bottom:-10px; inset-inline-start:-9px; width:18px; pointer-events:none;
+  background:linear-gradient(90deg, transparent 0, rgba(120,90,40,.10) 42%, rgba(120,90,40,.24) 50%, rgba(255,255,255,.85) 52%, transparent 100%);
+}
+.course{margin:0 0 clamp(22px,2.6vw,38px)}
+.course > header{display:flex; align-items:flex-end; gap:12px; margin-bottom:8px; border-bottom:3px double var(--olive); padding-bottom:4px}
+.course > header svg{width:66px; flex:none; margin-bottom:-2px}
+h2{margin:0; font:400 clamp(38px,3.7vw,54px)/1 var(--script); color:var(--red)}
+html[lang="ar"] h2{font-weight:700; font-size:clamp(36px,3.5vw,50px); line-height:1.35}
+.course > header small{display:block; font:italic 400 15px/1.2 var(--serif); color:var(--olive-d); margin-top:2px}
+html[lang="ar"] .course > header small{font-style:normal; font-size:18px}
+ul{list-style:none; margin:0; padding:0}
+.dish{padding:9px 0 8px; position:relative}
+.dish + .dish{border-top:1px dashed rgba(94,107,44,.42)}
+.row{display:flex; align-items:baseline; gap:8px}
+h3{margin:0; font:600 1.1em/1.25 var(--serif); position:relative}
+html[lang="ar"] h3{font-size:1.16em}
+.row::after{content:""; order:2; flex:1; min-width:14px; border-bottom:2px dotted rgba(44,33,24,.4); transform:translateY(-4px)}
+.pr{order:3; font:600 1.1em/1 var(--serif); color:var(--red-d); white-space:nowrap; unicode-bidi:isolate}
+.pr i{font:400 .62em/1 var(--serif); font-style:normal; letter-spacing:.08em; margin-inline-start:.3em; color:var(--ink-soft)}
+html[lang="ar"] .pr i{letter-spacing:0; font-size:.74em}
+.dish p{margin:1px 0 0; color:var(--ink-soft); font-size:.95em; line-height:1.4; max-width:44ch}
+/* Nonna's red-pen marks */
+.fav h3::after{
+  content:""; position:absolute; inset:-5px -12px -7px -10px; border:2.4px solid var(--pen); border-radius:52% 48% 55% 45%/60% 52% 48% 40%;
+  transform:rotate(-2deg); filter:url(#wob); pointer-events:none; opacity:.9;
+}
+.note{display:flex; align-items:flex-start; gap:6px; margin:6px 0 2px; color:var(--pen); font:700 1.22em/1.1 var(--hand); transform:rotate(-2.2deg); transform-origin:0 50%}
+html[dir="rtl"] .note{transform:rotate(2.2deg); transform-origin:100% 50%}
+html[lang="ar"] .note{font-weight:600; font-size:.92em; line-height:1.5}
+.note svg{width:34px; flex:none; margin-top:-8px}
+html[dir="rtl"] .note svg, html[dir="rtl"] .flip{transform:scaleX(-1)}
+.veg{display:inline-block; font:700 .72em/1 var(--hand); color:var(--olive-d); border:1.6px solid var(--olive); border-radius:50%; padding:3px 6px 4px; margin-inline-start:6px; vertical-align:2px; transform:rotate(-6deg)}
+html[lang="ar"] .veg{font-size:.56em; padding:4px 7px}
+
+/* Sunday set — a card stapled to the placemat */
+.sunday{position:relative; margin:6px 0 clamp(22px,2.6vw,36px); padding:18px 18px 16px; background:#f4ead0; transform:rotate(1.1deg); box-shadow:0 2px 0 #e2d4ae, 0 8px 14px -8px rgba(60,20,0,.5)}
+html[dir="rtl"] .sunday{transform:rotate(-1.1deg)}
+.sunday::before{content:""; position:absolute; top:-6px; inset-inline-start:26px; width:30px; height:9px; border:2px solid #8c8c8c; border-bottom:0; border-radius:2px 2px 0 0; transform:rotate(-4deg)}
+.sunday h4{margin:0; font:400 34px/1 var(--script); color:var(--olive-d)}
+html[lang="ar"] .sunday h4{font-weight:700; font-size:32px; line-height:1.4}
+.sunday p{margin:6px 0 0; font-size:.96em; color:var(--ink-soft)}
+.sunday .big{display:flex; align-items:baseline; gap:8px; margin-top:8px; font:700 1.5em/1 var(--hand); color:var(--pen)}
+html[lang="ar"] .sunday .big{font-size:1.05em; font-weight:600}
+.sunday .big b{font:600 1.5em/1 var(--serif)}
+html[lang="ar"] .sunday .big b{font-size:2em}
+
+.buon{display:flex; flex-wrap:wrap; align-items:center; gap:4px 14px; margin-top:4px}
+.buon svg{width:104px; flex:none}
+.buon p{margin:0; font:400 clamp(40px,3.6vw,52px)/1 var(--script); color:var(--olive-d); transform:rotate(-4deg)}
+html[lang="ar"] .buon p{font-weight:700; font-size:clamp(34px,3.2vw,44px); line-height:1.4}
+.buon small{flex-basis:100%; text-align:end; font:700 1.15em/1.2 var(--hand); color:var(--pen)}
+html[lang="ar"] .buon small{font-size:.85em; font-weight:600}
+/* stains */
+.ring{position:absolute; border-radius:50%; pointer-events:none; mix-blend-mode:multiply}
+.ring.r1{width:150px; height:150px; inset-block-start:26%; inset-inline-end:-34px;
+  background:radial-gradient(closest-side, transparent 80%, rgba(122,24,42,.34) 83%, rgba(122,24,42,.2) 89%, transparent 92%), radial-gradient(closest-side, transparent 70%, rgba(122,24,42,.07) 80%, transparent 82%);
+  clip-path:polygon(0 0,100% 0,100% 62%,74% 100%,0 100%)}
+.ring.r2{width:120px; height:120px; inset-block-end:5%; inset-inline-start:30.5%;
+  background:radial-gradient(closest-side, transparent 78%, rgba(96,56,20,.3) 82%, rgba(96,56,20,.16) 90%, transparent 93%); transform:rotate(40deg)}
+.ring.r3{width:132px; height:132px; inset-block-end:4%; inset-inline-start:calc(30.5% + 62px);
+  background:radial-gradient(closest-side, transparent 80%, rgba(96,56,20,.2) 84%, rgba(96,56,20,.1) 90%, transparent 93%); clip-path:polygon(18% 0,100% 0,100% 100%,0 100%,0 30%)}
+.splat{position:absolute; width:74px; inset-block-start:47%; inset-inline-start:63%; opacity:.8; pointer-events:none; mix-blend-mode:multiply}
+
+/* the bill, tucked under the edge of the placemat */
+.conto{
+  position:relative; z-index:2; width:min(100%,560px); margin:-22px auto 0; margin-inline-end:clamp(10px,9vw,150px);
+  background:#fffdf6; padding:26px 26px 30px; font-size:.96em; transform:rotate(2deg);
+  box-shadow:0 14px 26px -12px rgba(60,15,0,.6), 0 1px 2px rgba(60,15,0,.3);
+  background-image:repeating-linear-gradient(transparent 0 31px, rgba(70,110,160,.22) 31px 32px);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),97% 100%,94% calc(100% - 8px),91% 100%,88% calc(100% - 8px),85% 100%,82% calc(100% - 8px),79% 100%,76% calc(100% - 8px),73% 100%,70% calc(100% - 8px),67% 100%,64% calc(100% - 8px),61% 100%,58% calc(100% - 8px),55% 100%,52% calc(100% - 8px),49% 100%,46% calc(100% - 8px),43% 100%,40% calc(100% - 8px),37% 100%,34% calc(100% - 8px),31% 100%,28% calc(100% - 8px),25% 100%,22% calc(100% - 8px),19% 100%,16% calc(100% - 8px),13% 100%,10% calc(100% - 8px),7% 100%,4% calc(100% - 8px),0 100%);
+}
+html[dir="rtl"] .conto{transform:rotate(-2deg)}
+.conto::before{content:""; position:absolute; inset-block:0; inset-inline-start:44px; width:1px; background:rgba(200,50,40,.45)}
+.conto h4{margin:0 0 6px; padding-inline-start:30px; font:400 40px/1 var(--script); color:var(--red)}
+html[lang="ar"] .conto h4{font-weight:700; font-size:36px; line-height:1.5}
+.conto dl{margin:0; padding-inline-start:30px; display:grid; grid-template-columns:auto 1fr; gap:0 14px; line-height:32px}
+.conto dt{font:700 1.18em/32px var(--hand); color:var(--olive-d)}
+html[lang="ar"] .conto dt{font-size:.82em; font-weight:600}
+.conto dd{margin:0}
+.conto .grazie{margin:6px 0 0; padding-inline-start:30px; font:700 1.5em/32px var(--hand); color:var(--pen); transform:rotate(-2deg)}
+html[lang="ar"] .conto .grazie{font-size:1.05em; font-weight:600}
+
+@media (max-width:1040px){
+  .cols{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .col.c3{grid-column:1/-1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:clamp(28px,4.4vw,76px); padding-top:26px; margin-top:6px}
+  .col.c3::before{top:0!important; bottom:auto!important; inset-inline:0!important; width:auto!important; height:18px;
+    background:linear-gradient(transparent 0, rgba(120,90,40,.10) 42%, rgba(120,90,40,.24) 50%, rgba(255,255,255,.85) 52%, transparent 100%)!important}
+  .ring.r2,.ring.r3{inset-inline-start:auto; inset-inline-end:8%}
+  .ring.r3{inset-inline-end:calc(8% - 62px)}
+}
+@media (max-width:700px){
+  body{background-size:52px 52px}
+  .sheet{transform:none}
+  .since{letter-spacing:.16em; font-size:11px}
+  .mast{grid-template-columns:1fr 1fr; padding-top:14px}
+  .brand{grid-column:1/-1; grid-row:1}
+  .mast .art{width:min(100%,150px)}
+  .mast .art.a1{justify-self:center} .mast .art.a2{justify-self:center}
+  .cols,.col.c3{display:block}
+  .col{padding-inline:6px}
+  .col + .col{padding-top:26px; margin-top:4px}
+  .col + .col::before{top:0!important; bottom:auto!important; inset-inline:-10px!important; width:auto!important; height:18px;
+    background:linear-gradient(transparent 0, rgba(120,90,40,.10) 42%, rgba(120,90,40,.24) 50%, rgba(255,255,255,.85) 52%, transparent 100%)!important}
+  .ring.r1{inset-block-start:17%; inset-inline-end:-50px; width:120px; height:120px}
+  .ring.r2{inset-block-end:2%; inset-inline-end:14%; width:96px; height:96px}
+  .ring.r3{inset-block-end:1.2%; inset-inline-end:calc(14% - 50px); width:104px; height:104px}
+  .splat{inset-block-start:58.5%; inset-inline-start:72%; width:56px}
+  .conto{margin-inline:auto; transform:rotate(1deg); padding-inline:18px}
+  .tags > *{padding:20px 10px 9px; font-size:14px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .tags > *{transition:transform .25s}
+  #langToggle:hover{transform:rotate(3deg)} .home-link:hover{transform:rotate(-3deg)}
+}
+@media print{.tags{display:none} body{background:#fff}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+</svg>
+
+<nav class="tags">
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+</nav>
+
+<div class="table">
+<main class="sheet">
+  <div class="frame"></div>
+  <i class="ring r1"></i><i class="ring r2"></i><i class="ring r3"></i>
+  <svg class="splat" viewBox="0 0 80 70" aria-hidden="true"><path fill="#c0392b" d="M30 12c8-6 22-3 26 6 3 7 12 8 12 18 0 9-9 12-14 17-7 7-20 8-28 2-6-5-15-6-16-16-1-9 7-11 10-16 3-4 5-8 10-11z"/><circle cx="70" cy="12" r="4" fill="#c0392b"/><circle cx="8" cy="58" r="3" fill="#c0392b"/><circle cx="62" cy="62" r="2.4" fill="#c0392b"/></svg>
+
+  <header class="mast">
+    <!-- tomatoes on the vine -->
+    <svg class="art a1" viewBox="0 0 250 150" aria-hidden="true" filter="url(#wob)">
+      <path class="ink" d="M12 30c40-14 96-12 150 4 26 8 50 8 78-2"/>
+      <path class="ink" d="M62 24c-2 10-4 16-2 26M150 30c2 10 0 18-2 26M216 36c-2 8-2 12 0 18"/>
+      <path class="ink" d="M60 52c-22-6-42 8-42 32 0 26 20 44 44 44s44-18 42-44c-2-24-22-38-44-32z" fill="#d9483a" fill-opacity=".85"/>
+      <path class="ink" d="M60 52c-8 2-14 8-18 12M60 52c-2 8-2 14 2 20M60 52c8 0 16 4 20 12M60 52c-12-2-20 0-28 6M60 52c10-4 20-2 28 4"/>
+      <path class="ink" d="M148 58c-18-6-36 6-36 28 0 20 16 36 36 36s36-16 36-36c0-22-18-34-36-28z" fill="#d9483a" fill-opacity=".85"/>
+      <path class="ink" d="M148 58c-8 2-12 6-16 12M148 58c0 8 0 12 4 18M148 58c8 0 14 4 18 10M148 58c-10-4-18-2-24 2M148 58c8-4 18-4 24 2"/>
+      <path class="ink" d="M216 56c-12-4-24 4-24 20 0 14 10 24 24 24s24-10 24-24c0-16-12-24-24-20z" fill="#d9483a" fill-opacity=".85"/>
+      <path class="ink" d="M216 56c-6 2-8 4-10 8M216 56c0 6 0 8 2 12M216 56c6 0 10 2 12 6"/>
+      <path class="ink" d="M30 90c2 10 8 18 16 22M124 92c2 8 6 14 12 18" opacity=".6"/>
+    </svg>
+    <div class="brand">
+      <div class="since"><span lang="en">Cucina di famiglia · since 1962</span><span lang="ar">مطبخ العائلة · منذ ١٩٦٢</span></div>
+      <h1><span lang="en">Nonna Rosa</span><span lang="ar">نونا روزا</span></h1>
+      <div class="kind"><span lang="en">Italian Trattoria</span><span lang="ar">تراتوريا إيطالية</span></div>
+    </div>
+    <!-- garlic, basil & rolling pin -->
+    <svg class="art a2 flip" viewBox="0 0 250 150" aria-hidden="true" filter="url(#wob)">
+      <path class="ink" d="M20 118l150-74" stroke-width="16" stroke="#e9d6a8"/>
+      <path class="ink" d="M24 110l142-70M30 126l144-72M24 110c-4 6-2 12 6 16M166 40c6-4 12 0 8 14"/>
+      <path class="ink" d="M24 118l-16 8M172 46l18-10"/>
+      <path class="ink" d="M196 132c-22 0-34-12-34-28 0-18 18-24 28-44 2-6 2-12 2-18 2 0 6 0 8 0 0 6 0 12 2 18 10 20 28 26 28 44 0 16-12 28-34 28z" fill="#fffaf0"/>
+      <path class="ink" d="M192 62c-8 22-10 46-2 68M200 62c8 22 10 46 2 68M180 76c-10 14-12 34-4 50M212 76c10 14 12 34 4 50"/>
+      <path class="ink" d="M84 20c-22 2-36 16-38 34 20 2 36-8 38-34z" fill="#7d8c3a" fill-opacity=".8"/>
+      <path class="ink" d="M84 20c24 0 38 12 42 30-20 4-38-4-42-30z" fill="#7d8c3a" fill-opacity=".8"/>
+      <path class="ink" d="M84 20c-10 10-22 22-36 32M84 20c12 8 26 18 40 28M84 20c0 14-2 30-4 48"/>
+    </svg>
+  </header>
+  <p class="intro" lang="en">Rosa rolled her first tagliatelle on this very table. Three generations later the dough is still cut by hand each morning, the ragù still murmurs on the stove for six hours, and nobody leaves until they have had seconds.</p>
+  <p class="intro" lang="ar">على هذه الطاولة نفسها فردت روزا أول عجينة تالياتيلّي. وبعد ثلاثة أجيال ما زلنا نقطّع العجين باليد كل صباح، وما زال الراغو يغلي على مهل ست ساعات، ولا يغادر أحد قبل أن يطلب صحنًا ثانيًا.</p>
+  <svg class="branch" viewBox="0 0 420 44" aria-hidden="true" filter="url(#wob)">
+    <path class="ink" stroke="#5e6b2c" d="M6 24c60-12 120 10 204 0s150-12 204 0"/>
+    <g fill="#7d8c3a" stroke="#3f4a1c" stroke-width="1.6"><path d="M50 18c6-12 20-14 28-10-6 10-16 14-28 10zM96 24c8 10 22 10 28 4-8-8-18-10-28-4zM150 22c4-12 18-16 26-12-4 10-14 14-26 12zM262 22c-4-12-18-16-26-12 4 10 14 14 26 12zM316 24c-8 10-22 10-28 4 8-8 18-10 28-4zM364 18c-6-12-20-14-28-10 6 10 16 14 28 10z"/></g>
+    <g fill="#2c2118"><ellipse cx="200" cy="30" rx="6" ry="8"/><ellipse cx="216" cy="18" rx="6" ry="8" fill="#5e6b2c"/></g>
+  </svg>
+
+  <div class="cols">
+    <!-- PANEL 1 -->
+    <div class="col c1">
+      <section class="course">
+        <header>
+          <svg viewBox="0 0 66 50" aria-hidden="true" filter="url(#wob)"><path class="ink" d="M6 30c0-10 12-16 27-16s27 6 27 16-12 14-27 14S6 40 6 30z" fill="#e8c58a" fill-opacity=".7"/><path class="ink" d="M16 26c4-4 8-4 10 0M30 22c4-4 10-2 10 2M44 28c2-4 6-4 8 0M22 34c4-2 6-2 10 0M38 34c2-2 6-2 8 0"/><circle cx="24" cy="27" r="3" fill="#d9483a"/><circle cx="40" cy="30" r="3" fill="#d9483a"/><circle cx="33" cy="24" r="2.4" fill="#7d8c3a"/></svg>
+          <div><h2><span lang="en">Antipasti</span><span lang="ar">المقبّلات</span></h2><small lang="en">to begin, with bread still warm</small><small lang="ar">للبداية، والخبز ما زال ساخنًا</small></div>
+        </header>
+        <ul>
+          <li class="dish"><div class="row"><h3><span lang="en">Bruschetta al Pomodoro</span><span lang="ar">بروسكيتا بالطماطم</span><i class="veg"><span lang="en">veg</span><span lang="ar">نباتي</span></i></h3><b class="pr">26<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Charred sourdough rubbed with garlic, vine tomatoes, torn basil, green olive oil.</p><p lang="ar">خبز مخمّر محمّص على الجمر يُفرك بالثوم، مع طماطم العنقود وريحان مقطوف وزيت زيتون أخضر.</p></li>
+          <li class="dish fav"><div class="row"><h3><span lang="en">Burrata della Casa</span><span lang="ar">بوراتا البيت</span></h3><b class="pr">48<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Creamy burrata over roasted peppers, pistachio pesto and a thread of aged balsamic.</p><p lang="ar">جبن بوراتا كريمي فوق فلفل مشوي، مع بيستو الفستق وخيط من البلسميك المعتّق.</p>
+            <div class="note"><svg viewBox="0 0 34 30" aria-hidden="true"><path class="ink-r" d="M30 26C22 24 10 20 6 6M6 6l-3 9M6 6l9 3"/></svg><span lang="en">Nonna's favourite!</span><span lang="ar">المفضّلة عند نونا!</span></div></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Arancini Siciliani</span><span lang="ar">أرانشيني صقلّية</span></h3><b class="pr">34<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Three golden saffron rice balls, beef ragù and molten mozzarella at the heart.</p><p lang="ar">ثلاث كرات ذهبية من أرز الزعفران، في قلبها راغو اللحم وموزاريلا ذائبة.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Bresaola e Rucola</span><span lang="ar">بريزاولا وجرجير</span></h3><b class="pr">44<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Air-dried beef sliced paper-thin, wild rocket, shaved Parmigiano, lemon.</p><p lang="ar">شرائح رقيقة من لحم البقر المجفّف، مع جرجير برّي ورقائق البارميزان وعصرة ليمون.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Minestrone dell'Orto</span><span lang="ar">مينستروني البستان</span><i class="veg"><span lang="en">veg</span><span lang="ar">نباتي</span></i></h3><b class="pr">28<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Garden vegetable soup with borlotti beans, ditalini and a spoon of basil pesto.</p><p lang="ar">حساء خضار الحديقة مع فاصولياء بورلوتي ومعكرونة صغيرة وملعقة من بيستو الريحان.</p></li>
+        </ul>
+      </section>
+
+      <aside class="sunday">
+        <h4><span lang="en">Il Pranzo della Domenica</span><span lang="ar">غداء يوم الأحد</span></h4>
+        <p lang="en">The whole table eats as family: antipasti to share, two pastas from the pot, a roast, and tiramisù in the dish it was made in.</p>
+        <p lang="ar">الطاولة كلها تأكل كعائلة واحدة: مقبّلات للمشاركة، ونوعان من الباستا من القدر مباشرة، وطبق مشوي، وتيراميسو في صحنه.</p>
+        <div class="big"><b class="pr">135<i lang="en">SAR</i><i lang="ar">ر.س</i></b><span lang="en">a head — come hungry</span><span lang="ar">للشخص — تعالَ جائعًا</span></div>
+      </aside>
+      <section class="course">
+        <header>
+          <svg viewBox="0 0 66 50" aria-hidden="true" filter="url(#wob)"><path class="ink" d="M22 46h22l4-18H18z" fill="#b9bfae" fill-opacity=".6"/><path class="ink" d="M24 28l4-10h10l4 10M28 18l2-8h6l2 8M48 32c8 0 8 10 0 10M31 6c-2-2 2-3 0-5"/></svg>
+          <div><h2><span lang="en">Da bere</span><span lang="ar">المشروبات</span></h2><small lang="en">no wine list — just good things</small><small lang="ar">عصائر ومشروبات تليق بالمائدة</small></div>
+        </header>
+        <ul>
+          <li class="dish"><div class="row"><h3><span lang="en">Limonata di Amalfi</span><span lang="ar">ليموناضة أمالفي</span></h3><b class="pr">22<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Cloudy lemonade pressed to order, mint and a pinch of sea salt.</p><p lang="ar">ليموناضة طبيعية تُعصر عند الطلب، مع النعناع ورشّة من ملح البحر.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Aranciata Rossa</span><span lang="ar">برتقال أحمر فوّار</span></h3><b class="pr">24<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Sparkling blood orange with rosemary, served in the carafe.</p><p lang="ar">عصير البرتقال الدموي الفوّار مع إكليل الجبل، يُقدَّم في الإبريق.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Caffè Moka</span><span lang="ar">قهوة الموكا</span></h3><b class="pr">14<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Stovetop espresso brought to the table in its pot, as at home.</p><p lang="ar">إسبريسو يُحضَّر على النار ويصل إلى طاولتك في إبريقه، كما في البيت.</p></li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- PANEL 2 -->
+    <div class="col c2">
+      <section class="course">
+        <header>
+          <svg viewBox="0 0 66 50" aria-hidden="true" filter="url(#wob)"><path class="ink" d="M60 6L30 28"/><path class="ink" d="M30 28c-4-8-16-8-20 0s2 16 12 16 14-8 8-16z" fill="#f0d79a" fill-opacity=".8"/><path class="ink" d="M14 30c4-6 12-6 14 0M12 36c6-4 14-2 18 2M18 42c4-2 8-2 10 0M24 24c2 6 2 12 0 18"/><path class="ink" d="M36 24l-6-8M40 21l-6-8M44 18l-6-8"/></svg>
+          <div><h2><span lang="en">Pasta fatta a mano</span><span lang="ar">باستا مصنوعة باليد</span></h2><small lang="en">rolled, cut and dried this morning</small><small lang="ar">فُردت وقُطّعت وجُفّفت هذا الصباح</small></div>
+        </header>
+        <ul>
+          <li class="dish fav"><div class="row"><h3><span lang="en">Tagliatelle al Ragù</span><span lang="ar">تالياتيلّي بالراغو</span></h3><b class="pr">62<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Egg ribbons in Rosa's six-hour beef and veal ragù, finished with butter and Parmigiano.</p><p lang="ar">شرائط العجين بالبيض في راغو روزا من لحم البقر والعجل المطهو ست ساعات، يُختم بالزبدة والبارميزان.</p>
+            <div class="note"><svg viewBox="0 0 34 30" aria-hidden="true"><path class="ink-r" d="M30 26C22 24 10 20 6 6M6 6l-3 9M6 6l9 3"/></svg><span lang="en">the recipe stays in the family</span><span lang="ar">الوصفة سرّ لا يغادر العائلة</span></div></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Cacio e Pepe</span><span lang="ar">كاتشو إي بيبي</span><i class="veg"><span lang="en">veg</span><span lang="ar">نباتي</span></i></h3><b class="pr">52<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Thick tonnarelli tossed at the table in pecorino and cracked black pepper.</p><p lang="ar">تونّاريلّي سميكة تُقلّب أمامك مع جبن البيكورينو والفلفل الأسود المجروش.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Ravioli di Ricotta</span><span lang="ar">رافيولي الريكوتا</span><i class="veg"><span lang="en">veg</span><span lang="ar">نباتي</span></i></h3><b class="pr">58<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Pillows of ricotta and spinach in brown butter, crisp sage and toasted hazelnut.</p><p lang="ar">وسائد محشوّة بالريكوتا والسبانخ، في زبدة محمّرة مع مريمية مقرمشة وبندق محمّص.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Linguine allo Scoglio</span><span lang="ar">لينغويني ثمار البحر</span></h3><b class="pr">78<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Prawns, mussels and calamari in a garlicky cherry-tomato broth with chilli.</p><p lang="ar">روبيان وبلح البحر وكاليماري في مرق الطماطم الكرزية بالثوم ولمسة من الفلفل الحار.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Gnocchi alla Sorrentina</span><span lang="ar">نيوكي على طريقة سورينتو</span><i class="veg"><span lang="en">veg</span><span lang="ar">نباتي</span></i></h3><b class="pr">54<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Potato dumplings baked in tomato and basil under a blistered mozzarella lid.</p><p lang="ar">كرات البطاطا تُخبز في صلصة الطماطم والريحان تحت غطاء من الموزاريلا المحمّرة.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Lasagna della Nonna</span><span lang="ar">لازانيا الجدّة</span></h3><b class="pr">64<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Seven thin layers, slow ragù, silky béchamel; the corner pieces go first.</p><p lang="ar">سبع طبقات رقيقة مع راغو مطهو على مهل وبشاميل ناعم؛ وقطع الزوايا تنفد أولًا.</p>
+            <div class="note"><svg viewBox="0 0 34 30" aria-hidden="true"><path class="ink-r" d="M17 26C6 18 3 10 9 6c4-2 7 0 8 4 1-4 4-6 8-4 6 4 3 12-8 20z"/></svg><span lang="en">ask for the corner</span><span lang="ar">اطلب قطعة الزاوية</span></div></li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- PANEL 3 -->
+    <div class="col c3">
+      <div>
+      <section class="course">
+        <header>
+          <svg viewBox="0 0 66 50" aria-hidden="true" filter="url(#wob)"><path class="ink" d="M8 30h50c0 10-10 16-25 16S8 40 8 30z" fill="#b9bfae" fill-opacity=".6"/><path class="ink" d="M4 30h58M22 22c-2-4 2-6 0-10M33 22c-2-4 2-6 0-10M44 22c-2-4 2-6 0-10"/></svg>
+          <div><h2><span lang="en">Secondi</span><span lang="ar">الأطباق الرئيسية</span></h2><small lang="en">from the pan and the wood oven</small><small lang="ar">من المقلاة ومن فرن الحطب</small></div>
+        </header>
+        <ul>
+          <li class="dish"><div class="row"><h3><span lang="en">Pollo alla Cacciatora</span><span lang="ar">دجاج الصيّاد</span></h3><b class="pr">76<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Braised chicken thighs, olives, capers, rosemary and sweet peppers over soft polenta.</p><p lang="ar">أفخاذ دجاج مطهوّة ببطء مع الزيتون والكبر وإكليل الجبل والفلفل الحلو فوق بولينتا طرية.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Polpette al Sugo</span><span lang="ar">كرات اللحم بالصلصة</span></h3><b class="pr">68<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Beef meatballs simmered in Sunday tomato sauce, with bread for the scarpetta.</p><p lang="ar">كرات لحم بقري تُطهى في صلصة طماطم يوم الأحد، ومعها خبز لمسح آخر قطرة.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Branzino al Limone</span><span lang="ar">قاروص بالليمون</span></h3><b class="pr">96<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Whole sea bass roasted with Amalfi lemon, fennel and green olives.</p><p lang="ar">سمكة قاروص كاملة تُشوى مع ليمون أمالفي والشمر والزيتون الأخضر.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Melanzane alla Parmigiana</span><span lang="ar">باذنجان بارميجانا</span><i class="veg"><span lang="en">veg</span><span lang="ar">نباتي</span></i></h3><b class="pr">58<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Fried aubergine layered with tomato, basil and three cheeses, baked until it sighs.</p><p lang="ar">شرائح باذنجان مقلية تتراصّ مع الطماطم والريحان وثلاثة أجبان، وتُخبز حتى تلين تمامًا.</p></li>
+        </ul>
+      </section>
+      </div>
+      <div>
+      <section class="course">
+        <header>
+          <svg viewBox="0 0 66 50" aria-hidden="true" filter="url(#wob)"><path class="ink" d="M12 20h42l-4 24H16z" fill="#c9a26b" fill-opacity=".6"/><path class="ink" d="M10 20c2-10 12-14 23-14s21 4 23 14M16 30h34M33 6V2"/><circle cx="33" cy="12" r="2.4" fill="#2c2118"/></svg>
+          <div><h2><span lang="en">Dolci</span><span lang="ar">الحلويات</span></h2><small lang="en">there is always room</small><small lang="ar">للحلو مكان دائمًا</small></div>
+        </header>
+        <ul>
+          <li class="dish fav"><div class="row"><h3><span lang="en">Tiramisù</span><span lang="ar">تيراميسو</span></h3><b class="pr">36<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Espresso-soaked savoiardi, mascarpone cream, bitter cocoa. Scooped, never sliced.</p><p lang="ar">بسكويت سافوياردي مشبّع بالإسبريسو مع كريمة الماسكاربوني وكاكاو مرّ. يُغرف ولا يُقطّع.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Panna Cotta</span><span lang="ar">بانا كوتا</span></h3><b class="pr">30<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Vanilla cream that trembles, with roasted figs and orange-blossom honey.</p><p lang="ar">كريمة فانيلا ترتجف في الصحن، مع تين مشوي وعسل زهر البرتقال.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Cannoli Siciliani</span><span lang="ar">كانولي صقلّية</span></h3><b class="pr">32<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Crisp shells filled to order with sweet ricotta, candied orange and pistachio.</p><p lang="ar">أصابع مقرمشة تُحشى عند الطلب بالريكوتا المحلّاة وقشر البرتقال المسكّر والفستق.</p></li>
+          <li class="dish"><div class="row"><h3><span lang="en">Affogato</span><span lang="ar">أفوغاتو</span></h3><b class="pr">26<i lang="en">SAR</i><i lang="ar">ر.س</i></b></div>
+            <p lang="en">Fior di latte gelato drowned in a hot shot of espresso.</p><p lang="ar">جيلاتو الحليب الطازج يغرق في جرعة إسبريسو ساخنة.</p></li>
+        </ul>
+      </section>
+      <div class="buon">
+        <svg viewBox="0 0 150 120" aria-hidden="true" filter="url(#wob)"><path class="ink" fill="#f2cf4a" fill-opacity=".85" d="M30 66c0-22 20-38 46-38 20 0 34 8 44 22 6 2 12 6 14 10-4 6-10 8-16 8-10 16-26 24-44 24-26 0-44-8-44-26z"/><path class="ink" d="M44 60c2-8 8-14 16-18M40 72c4 6 10 10 18 12" opacity=".6"/><path class="ink" fill="#7d8c3a" fill-opacity=".8" d="M36 44C24 30 26 14 38 6c10 10 12 26-2 38z"/><path class="ink" d="M38 8c0 12 0 24-2 34"/><path class="ink" fill="#7d8c3a" fill-opacity=".8" d="M30 50C14 48 6 38 6 26c14 0 24 8 24 24z"/></svg>
+        <p><span lang="en">Buon appetito!</span><span lang="ar">بالهناء والشفاء!</span></p>
+        <small lang="en">— Rosa, and now her granddaughters</small><small lang="ar">— روزا، وحفيداتها من بعدها</small>
+      </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="conto">
+  <h4><span lang="en">Il conto</span><span lang="ar">الحساب</span></h4>
+  <dl>
+    <dt><span lang="en">Open</span><span lang="ar">الدوام</span></dt><dd><span lang="en">Tue – Sun, 12:30 pm – 11:30 pm</span><span lang="ar">الثلاثاء – الأحد، ١٢:٣٠ ظهرًا – ١١:٣٠ مساءً</span></dd>
+    <dt><span lang="en">Closed</span><span lang="ar">العطلة</span></dt><dd><span lang="en">Mondays — Nonna goes to market</span><span lang="ar">الاثنين — نونا في السوق</span></dd>
+    <dt><span lang="en">Find us</span><span lang="ar">العنوان</span></dt><dd><span lang="en">14 Via dei Limoni, Al Olaya, Riyadh</span><span lang="ar">١٤ درب الليمون، العليا، الرياض</span></dd>
+    <dt><span lang="en">Table</span><span lang="ar">الحجز</span></dt><dd><span dir="ltr">+966 11 555 0162</span></dd>
+    <dt><span lang="en">Note</span><span lang="ar">تنبيه</span></dt><dd><span lang="en">Our kitchen uses wheat, eggs, milk and nuts. Tell us about allergies; gluten-free pasta on request.</span><span lang="ar">مطبخنا يستخدم القمح والبيض والحليب والمكسّرات. أخبرنا عن أي حساسية؛ وتتوفر باستا خالية من الغلوتين عند الطلب.</span></dd>
+  </dl>
+  <p class="grazie"><span lang="en">Grazie — mangia, mangia!</span><span lang="ar">غراتسي — كُل، كُل!</span></p>
+</footer>
+</div>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

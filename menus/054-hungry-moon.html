@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>The Hungry Moon · القمر الجائع</title>
+<meta name="description" content="The Hungry Moon — a mystic café where the menu is a tarot deck: twenty-two cards of potions, plates and sweet fortunes. القمر الجائع — مقهى الأسرار، وقائمته أوراق تاروت.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#120a2a">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Cormorant+SC:wght@500;600;700&family=Aref+Ruqaa:wght@400;700&family=Scheherazade+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --night:#120a2a; --deep:#1a0f3c; --card:#22134f; --gold:#e2c275; --pale:#f7e9b8; --ink:#ece4ff; --mut:#bdb0e0;
+  --foil:linear-gradient(100deg,#b8893a 0,#f8e9b0 22%,#d9b45a 42%,#fff6d0 52%,#c79a45 70%,#f3dfa0 100%);
+  --serif:"Cormorant Garamond",Georgia,serif; --sc:"Cormorant SC","Cormorant Garamond",Georgia,serif;
+  --ar:"Scheherazade New","Noto Naskh Arabic",serif; --ard:"Aref Ruqaa","Scheherazade New",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--serif);font-weight:500;font-size:18px;line-height:1.4;color:var(--ink);background:var(--night)}
+html[lang="ar"] body{font-family:var(--ar);font-size:20px;line-height:1.65}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit;text-decoration:none}
+.wrap{overflow:clip;position:relative;
+  background:
+    radial-gradient(1px 1px at 20px 30px,#fff 50%,transparent 51%) 0 0/170px 170px,
+    radial-gradient(1.4px 1.4px at 90px 120px,#f7e9b8 50%,transparent 51%) 0 0/230px 230px,
+    radial-gradient(1px 1px at 140px 60px,#cbbcff 50%,transparent 51%) 0 0/310px 310px,
+    radial-gradient(90% 50% at 50% 0,#3a1f7a 0,transparent 70%),
+    radial-gradient(70% 30% at 80% 48%,rgba(120,60,170,.35) 0,transparent 70%),
+    radial-gradient(70% 30% at 10% 78%,rgba(60,50,170,.3) 0,transparent 70%),
+    var(--night)}
+svg.defs{position:absolute;width:0;height:0}
+.ln{fill:none;stroke:var(--gold);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.foil{background:var(--foil);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--gold)}
+
+/* controls */
+.ctl{position:absolute;inset-block-start:16px;inset-inline-end:16px;z-index:30;display:flex;gap:8px}
+.ctl a,.ctl button{font:600 14px/1 var(--sc);letter-spacing:.12em;color:var(--pale);background:rgba(18,10,42,.7);border:1px solid var(--gold);border-radius:99px;padding:0 15px;height:38px;display:inline-flex;align-items:center;cursor:pointer}
+.ctl a:hover,.ctl button:hover{background:var(--gold);color:var(--night)}
+html[lang="ar"] .ctl a,.ctl button [lang="ar"]{font:500 17px/1 var(--ar)}
+.ctl button [lang="en"]{font:600 14px/1 var(--sc);letter-spacing:.12em}
+
+/* ---------- hero ---------- */
+.hero{position:relative;max-width:1340px;margin-inline:auto;padding:70px 20px 30px;display:grid;grid-template-columns:minmax(0,1fr);gap:26px;text-align:center}
+.zod{position:absolute;inset-block-start:-60px;inset-inline-end:-140px;width:min(820px,150vw);opacity:.22;pointer-events:none}
+.fan{position:relative;height:clamp(370px,102vw,490px);order:-1}
+.big{position:absolute;inset-block-start:10px;inset-inline-start:50%;width:clamp(180px,50vw,270px);aspect-ratio:5/8;margin-inline-start:calc(clamp(180px,50vw,270px) / -2);
+  border-radius:16px;border:1px solid var(--gold);background:linear-gradient(165deg,#2e1b6b,#1a0f40 55%,#120a2e);
+  box-shadow:0 24px 50px -18px #000,inset 0 0 0 5px #170d38,inset 0 0 0 6px rgba(226,194,117,.7);
+  display:flex;flex-direction:column;align-items:center;padding:16px 12px 14px;transform-origin:50% 120%}
+.big svg{flex:1;width:100%;min-height:0}
+.big .num{font:700 1.05rem/1 var(--sc);letter-spacing:.2em;color:var(--gold)}
+.big .nm{font:600 .95rem/1.1 var(--sc);letter-spacing:.24em;color:var(--pale);border-block-start:1px solid rgba(226,194,117,.6);padding-block-start:8px;width:80%;text-align:center}
+html[lang="ar"] .big .nm{font:700 1.2rem/1.3 var(--ard)}
+.big.l{transform:rotate(-13deg) translateX(-52%) scale(.86)}
+.big.r{transform:rotate(13deg) translateX(52%) scale(.86)}
+.big.c{z-index:2}
+.kick{font:600 .9rem/1.3 var(--sc);letter-spacing:.4em;color:var(--gold)}
+html[lang="ar"] .kick{font:400 1.25rem/1.4 var(--ard)}
+.hero h1{font:700 clamp(3.5rem,10.5vw,7.4rem)/.92 var(--serif);letter-spacing:-.01em;margin-block:14px 6px;padding-block:.06em .2em}
+.hero h1 i{display:block;font:italic 500 .42em/1 var(--serif);letter-spacing:.02em}
+html[lang="ar"] .hero h1{font:700 clamp(3.6rem,12vw,8rem)/1.35 var(--ard);padding-block:.1em .25em;margin-block:0 4px}
+.tag{font:italic 500 clamp(1.3rem,2.4vw,1.8rem)/1.3 var(--serif);color:var(--pale)}
+html[lang="ar"] .tag{font:400 clamp(1.4rem,2.4vw,1.9rem)/1.6 var(--ar)}
+.intro{color:var(--mut);max-width:50ch;margin:12px auto 0;font-size:1.06rem}
+.suits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:520px;margin:24px auto 0}
+.suits a{display:grid;justify-items:center;gap:6px;padding:12px 4px;border:1px solid rgba(226,194,117,.45);border-radius:999px 999px 10px 10px;font:600 .8rem/1.15 var(--sc);letter-spacing:.06em;color:var(--pale);background:rgba(26,15,60,.6)}
+html[lang="ar"] .suits a{font:500 1.05rem/1.3 var(--ar)}
+.suits svg{width:34px;height:34px}
+.suits a:hover{background:rgba(226,194,117,.16);border-color:var(--gold)}
+
+/* phases divider */
+.phases{display:block;width:min(360px,80%);height:auto;margin:10px auto;fill:var(--gold)}
+
+/* ---------- suits ---------- */
+.suit{max-width:1380px;margin-inline:auto;padding:clamp(36px,6vw,70px) clamp(14px,2.5vw,30px) 10px;scroll-margin-top:10px}
+.sh{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:16px;margin-block-end:26px;border-block-end:1px solid rgba(226,194,117,.35);padding-block-end:18px}
+.si{width:74px;height:74px;padding:13px;border:1px solid var(--gold);border-radius:50%;fill:none;stroke:var(--gold);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;box-shadow:0 0 0 5px var(--night),0 0 0 6px rgba(226,194,117,.45)}
+.sn{font:600 .82rem/1 var(--sc);letter-spacing:.34em;color:var(--gold)}
+html[lang="ar"] .sn{font:400 1.05rem/1.3 var(--ard)}
+.sh h2{font:700 clamp(2rem,4.6vw,3.3rem)/1 var(--serif);color:var(--pale);margin-block:4px 2px}
+html[lang="ar"] .sh h2{font:700 clamp(2rem,4.6vw,3.2rem)/1.45 var(--ard)}
+.sh p{font-style:italic;color:var(--mut)}
+html[lang="ar"] .sh p{font-style:normal}
+.rng{display:none;font:600 1.1rem/1 var(--sc);letter-spacing:.2em;color:var(--gold)}
+.spread{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+
+.card{position:relative;display:grid;grid-template-columns:92px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:16px;row-gap:6px;
+  background:linear-gradient(165deg,#2b1964,#1a0f40 58%,#130b30);border:1px solid rgba(226,194,117,.75);border-radius:14px;padding:16px 16px 16px 14px;padding-inline:14px 16px;
+  box-shadow:0 14px 30px -18px #000,inset 0 0 0 4px #170d38,inset 0 0 0 5px rgba(226,194,117,.4);overflow:hidden}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,244,200,.16) 50%,transparent 60%);transform:translateX(-120%);pointer-events:none}
+.num{grid-column:1;grid-row:1;text-align:center;font:700 1.05rem/1 var(--sc);letter-spacing:.16em;color:var(--gold)}
+.art{grid-column:1;grid-row:2;align-self:start;height:118px;border:1px solid rgba(226,194,117,.7);border-radius:999px 999px 8px 8px;display:grid;place-items:center;
+  background:repeating-conic-gradient(from 0deg at 50% 58%,rgba(226,194,117,.16) 0 3deg,transparent 3deg 12deg),radial-gradient(circle at 50% 58%,#3a2380,#1a0f40 75%)}
+.art svg{width:60px;height:60px;fill:none;stroke:var(--pale);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(247,233,184,.55))}
+.tx{grid-column:2;grid-row:1/3;display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:0}
+.arc{font:600 .8rem/1.2 var(--sc);letter-spacing:.26em;color:var(--gold)}
+html[lang="ar"] .arc{font:400 1.05rem/1.3 var(--ard)}
+.card h3{font:700 1.42rem/1.08 var(--serif);color:#fff8e2}
+html[lang="ar"] .card h3{font:700 1.3rem/1.5 var(--ar)}
+.card p{color:var(--mut);font-size:1.02rem;line-height:1.3;margin-block:3px 8px}
+html[lang="ar"] .card p{font-size:1rem;line-height:1.6}
+.pr{margin-block-start:auto;font:600 .82rem/1 var(--sc);letter-spacing:.14em;color:var(--gold);display:inline-flex;align-items:baseline;gap:6px}
+.pr::before{content:"✦";font-size:.8em}
+.pr b{font:700 1.5rem/1 var(--serif);color:var(--pale);letter-spacing:0}
+html[lang="ar"] .pr [lang="ar"]{font:500 1rem/1 var(--ar)}
+.bd{position:absolute;inset-block-end:14px;inset-inline-end:14px;font:700 .68rem/1 var(--sc);letter-spacing:.16em;color:var(--night);background:var(--foil);border-radius:99px;padding:6px 10px}
+.bd.hot{background:#e0563c;color:#fff}
+html[lang="ar"] .bd{font:700 .85rem/1 var(--ar)}
+
+/* ---------- the reading ---------- */
+.reading{max-width:1180px;margin:clamp(50px,7vw,90px) auto 0;padding:clamp(26px,4vw,50px) clamp(16px,3vw,44px);display:grid;grid-template-columns:minmax(0,1fr);gap:30px;text-align:center;
+  border:1px solid var(--gold);border-radius:22px;background:linear-gradient(180deg,rgba(46,27,107,.7),rgba(18,10,46,.85));box-shadow:inset 0 0 0 6px var(--night),inset 0 0 0 7px rgba(226,194,117,.45)}
+.reading h2{font:700 clamp(2.2rem,5vw,3.6rem)/1 var(--serif);margin-block:8px 10px}
+html[lang="ar"] .reading h2{font:700 clamp(2.2rem,5vw,3.4rem)/1.5 var(--ard)}
+.reading p{color:var(--mut);max-width:46ch;margin-inline:auto}
+.reading .cost{margin-block-start:16px;font:600 .9rem/1 var(--sc);letter-spacing:.2em;color:var(--gold)}
+.reading .cost b{font:700 3rem/1 var(--serif);letter-spacing:0;color:var(--pale);margin-inline-end:6px}
+html[lang="ar"] .reading .cost{font:500 1.15rem/1 var(--ar)}
+.backs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,2vw,22px);max-width:560px;margin-inline:auto;width:100%}
+.back{display:grid;gap:10px;justify-items:center;font:600 .8rem/1.2 var(--sc);letter-spacing:.2em;color:var(--pale)}
+html[lang="ar"] .back{font:500 1.05rem/1.4 var(--ar)}
+.back i{display:grid;place-items:center;width:100%;aspect-ratio:5/8;border-radius:12px;border:1px solid var(--gold);
+  background:radial-gradient(circle,#1a0f40 0 26%,transparent 27%),repeating-linear-gradient(45deg,rgba(226,194,117,.55) 0 1px,transparent 1px 11px),repeating-linear-gradient(-45deg,rgba(226,194,117,.55) 0 1px,transparent 1px 11px),#24135a;
+  box-shadow:inset 0 0 0 5px #170d38,inset 0 0 0 6px rgba(226,194,117,.6),0 16px 30px -16px #000}
+.back i svg{width:44%;fill:none;stroke:var(--pale);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.back:nth-child(1) i{transform:rotate(-5deg)}.back:nth-child(3) i{transform:rotate(5deg)}
+.back b{font:700 1.1rem/1 var(--sc);color:var(--gold);display:block;margin-block-end:3px}
+html[lang="ar"] .back b{font:700 1.25rem/1.3 var(--ard)}
+.back small{font:italic 500 .95rem/1.2 var(--serif);letter-spacing:0;color:var(--mut);display:block}
+html[lang="ar"] .back small{font:400 .95rem/1.4 var(--ar)}
+
+footer{max-width:1100px;margin:clamp(40px,6vw,70px) auto 0;padding:0 20px 50px;text-align:center}
+.fg{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;margin-block-start:26px}
+.fg h4{font:600 .9rem/1 var(--sc);letter-spacing:.34em;color:var(--gold);margin-block-end:8px}
+html[lang="ar"] .fg h4{font:700 1.3rem/1.3 var(--ard)}
+.fg p{color:var(--mut);font-size:1.02rem}
+.fine{margin-block-start:26px;font-style:italic;color:#9a8cc6;font-size:.95rem}
+html[lang="ar"] .fine{font-style:normal}
+
+@media (min-width:700px){
+  .spread{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 18px}
+  .card{display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 16px 20px;gap:10px;min-height:440px}
+  .art{width:78%;height:auto;aspect-ratio:1/1.12;align-self:center;flex:none}
+  .art svg{width:54%;height:auto}
+  .tx{align-items:center;flex:1;gap:5px;width:100%}
+  .pr{border-block-start:1px solid rgba(226,194,117,.4);padding-block-start:10px;width:70%;justify-content:center}
+  .bd{inset-block:50px auto;inset-inline-end:10px;transform:rotate(8deg);z-index:2}
+  html[dir="rtl"] .bd{transform:rotate(-8deg)}
+  .card:nth-child(odd){transform:rotate(-.9deg)}
+  .card:nth-child(even){transform:rotate(.9deg) translateY(16px)}
+  .rng{display:block}
+  .sh{grid-template-columns:auto minmax(0,1fr) auto}
+  .fg{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .reading{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;text-align:start}
+  .reading p{margin-inline:0}
+}
+@media (min-width:1000px){
+  .hero{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center;text-align:start;padding:90px 40px 40px;gap:20px}
+  .fan{order:0;height:560px}
+  .big{width:290px;margin-inline-start:-145px;inset-block-start:40px}
+  .intro{margin-inline:0}.suits{margin-inline:0}
+}
+@media (min-width:1180px){
+  .spread{grid-template-columns:repeat(var(--n),minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:no-preference){
+  .foil{animation:foil 7s ease-in-out infinite alternate}
+  @keyframes foil{to{background-position:100% 0}}
+  .zod{animation:spin 240s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .big,.card{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+  .fan:hover .big.l{transform:rotate(-17deg) translateX(-60%) scale(.88)}
+  .fan:hover .big.r{transform:rotate(17deg) translateX(60%) scale(.88)}
+  .card:hover{transform:translateY(-6px) rotate(0);box-shadow:0 26px 40px -20px #000,0 0 30px -6px rgba(226,194,117,.5),inset 0 0 0 4px #170d38,inset 0 0 0 5px rgba(226,194,117,.6)}
+  .card:hover::after{transform:translateX(120%);transition:transform .9s}
+  .tw{animation:tw 3.2s ease-in-out infinite alternate}.tw:nth-child(2n){animation-delay:-1.6s}
+  @keyframes tw{from{opacity:.25}to{opacity:1}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg class="defs" aria-hidden="true"><defs>
+  <path id="sp" d="M0-7l1.6 5.400L7 0 1.6 1.60 0 7l-1.60-5.400L-7 0l5.40-1.600z"/>
+  <g id="a0"><path d="M24 24c0-2 3-2 3 0 0 4-6 4-6 0 0-6 9-6 9 0 0 8-12 8-12 0 0-10 15-10 15 0 0 12-18 12-18 0 0-14 21-14 21 0"/></g>
+  <g id="a1"><path d="M24 14c-3-4-9-4-9 0s6 4 9 0 9-4 9 0-6 4-9 0zM24 22v20M19 28l5-5 5 5M24 4v3"/></g>
+  <g id="a2"><path d="M9 40V14M15 40V14M7 14h10M7 40h10M33 40V14M39 40V14M31 14h10M31 40h10M9 10h6M33 10h6M27 19a7 7 0 1 1-7 9 5.50 5.50 0 0 0 7-9z"/></g>
+  <g id="a3"><path d="M10 34L7 16l9 9 8-13 8 13 9-9-3 18zM10 39h28"/><circle cx="7" cy="14" r="1.60"/><circle cx="24" cy="10" r="1.60"/><circle cx="41" cy="14" r="1.60"/></g>
+  <g id="a4"><path d="M24 43c-8 0-12-6-10-13 1 3 3 4 4 4-2-8 2-14 8-22 0 8 8 12 8 22 0 5-4 9-10 9zM24 43c-3 0-5-3-4-6 2 1 3 0 4-4 3 3 5 5 4 7s-2 3-4 3z"/></g>
+  <g id="a5"><circle cx="13" cy="13" r="5"/><path d="M17 17l19 19M31 31l4-4M27 27l3-3"/><circle cx="35" cy="13" r="5"/><path d="M31 17L12 36M17 31l-4-4M21 27l-3-3"/></g>
+  <g id="a6"><path id="hh" d="M19 34C8 26 6 18 11 14c4-3 7 0 8 3 1-3 4-6 8-3 5 4 3 12-8 20z"/><use href="#hh" x="10" y="-4"/></g>
+  <g id="a7"><path d="M24 43V7M15 16l9-9 9 9M13 30l11-7 11 7M13 39l11-7 11 7"/></g>
+  <g id="a8"><path d="M24 44V22M24 32c-9 0-13-5-13-12 9 0 13 5 13 12zM24 25c0-9 5-13 13-13 0 9-5 13-13 13z"/><circle cx="24" cy="8" r="2"/></g>
+  <g id="a9"><path d="M17 16h14l3 22H14zM19 16c0-7 10-7 10 0M12 38h24M24 4v6M24 21l2 4 4 2-4 2-2 4-2-4-4-2 4-2z"/></g>
+  <g id="a10"><circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="5"/><path d="M24 7v12M24 29v12M7 24h12M29 24h12M12 12l8 8M28 28l8 8M36 12l-8 8M20 28l-8 8"/></g>
+  <g id="a11"><path d="M24 6v36M15 42h18M9 13h30M9 13L4 27h10zM39 13l-5 14h10zM4 27c0 5 10 5 10 0M34 27c0 5 10 5 10 0"/><circle cx="24" cy="6" r="1.60"/></g>
+  <g id="a12"><path d="M24 5c7 0 13 13 13 21a13 13 0 0 1-26 0C11 18 17 5 24 5z"/><circle cx="24" cy="28" r="6"/><path d="M20 12c-2 3-3 6-3 9"/></g>
+  <g id="a13"><path d="M11 22a13 13 0 0 1 26 0c0 5-2 8-5 10v8H16v-8c-3-2-5-5-5-10zM21 40v-4M27 40v-4M24 28l-2 4h4z"/><circle cx="18.50" cy="23" r="3.20"/><circle cx="29.50" cy="23" r="3.20"/></g>
+  <g id="a14"><path d="M13 7h22M13 41h22M16 7c0 11 16 6 16 17s-16 6-16 17M32 7c0 11-16 6-16 17s16 6 16 17M24 24v8"/></g>
+  <g id="a15"><path d="M9 6c-3 13 4 20 15 22 11-2 18-9 15-22-2 9-7 13-15 14C16 19 11 15 9 6zM24 28v7M19 43l5-8 5 8"/></g>
+  <g id="a16"><path d="M16 43V17h16v26M14 17h20M16 17v-5h4v5M22 17v-5h4v5M28 17v-5h4v5M21 43v-8a3 3 0 0 1 6 0v8M11 43h26M22 23h4M38 3l-5 7h5l-5 7"/></g>
+  <g id="a17"><path d="M24 4l3 14 9-7-7 9 15 4-15 4 7 9-9-7-3 14-3-14-9 7 7-9-15-4 15-4-7-9 9 7z"/></g>
+  <g id="a18"><path d="M30 6a18 18 0 1 0 13 27A15 15 0 0 1 30 6z"/><use href="#sp" transform="translate(37 14) scale(.5)"/><path d="M14 26q5-5 10 0q-5 5-10 0z"/></g>
+  <g id="a19"><circle cx="24" cy="24" r="8"/><path d="M24 4v8M24 36v8M4 24h8M36 24h8M10 10l6 6M32 32l6 6M38 10l-6 6M16 32l-6 6"/></g>
+  <g id="a20"><path d="M7 20l24-9v26L7 28zM31 14c7 2 11 6 11 10s-4 8-11 10M7 20v8M13 30v9h5v-7"/></g>
+  <g id="a21"><circle cx="24" cy="24" r="13"/><path d="M24 11c-7 5-7 21 0 26M24 11c7 5 7 21 0 26M11 24h26M13 17h22M13 31h22"/><circle cx="24" cy="24" r="19" stroke-dasharray="1 5"/></g>
+  <g id="cup"><path d="M11 7h26c0 13-5 20-13 20S11 20 11 7zM24 27v10M15 42h18M18 37h12M16 13h16"/></g>
+  <g id="sword"><path d="M24 3l4 7v20h-8V10zM13 30h22M24 30v10M24 10v16"/><circle cx="24" cy="43" r="2.50"/></g>
+  <g id="wand"><path d="M22 45l2-33 2 33zM24 12c-4-2-4-7 0-9 4 2 4 7 0 9zM23 22c-4 0-7-3-7-7 4 0 7 3 7 7zM25 28c4 0 7-3 7-7-4 0-7 3-7 7z"/></g>
+  <g id="coin"><circle cx="24" cy="24" r="19"/><circle cx="24" cy="24" r="15.50"/><path d="M24 10l8 25-21-16h26L16 35z"/></g>
+  <clipPath id="mclip"><circle cx="100" cy="150" r="62"/></clipPath>
+  <mask id="mmask"><rect width="200" height="300" fill="#fff"/><circle cx="150" cy="108" r="22"/><circle cx="160" cy="140" r="14"/><circle cx="130" cy="88" r="12"/></mask>
+</defs></svg>
+
+<div class="wrap">
+<header class="hero" id="top">
+  <div class="ctl">
+    <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button" aria-label="Switch language"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+  <svg class="zod" viewBox="-210 -210 420 420" aria-hidden="true"><g class="ln" stroke-width=".8">
+    <circle r="200"/><circle r="170"/><circle r="120"/><circle r="185" stroke-dasharray="1 9" stroke-width="3"/>
+    <path d="M0-200V-120M0 200V120M-200 0H-120M200 0H120M-100-173.200L-60-103.900M100-173.200L60-103.900M-100 173.200L-60 103.900M100 173.200L60 103.900M-173.20-100L-103.90-60M173.20-100L103.90-60M-173.20 100L-103.90 60M173.20 100L103.90 60"/>
+    <path d="M0-120L104 60H-104zM0 120L-104-60H104z"/></g></svg>
+  <div class="htx">
+    <p class="kick"><span lang="en">Mystic Café · Open till moonset</span><span lang="ar">مقهى الأسرار · مفتوح حتى مغيب القمر</span></p>
+    <h1 class="foil"><span lang="en"><i>The</i>Hungry Moon</span><span lang="ar">القمر الجائع</span></h1>
+    <p class="tag"><span lang="en">Draw a card. Eat your fortune.</span><span lang="ar">اسحب ورقة… وتذوّق طالعك.</span></p>
+    <p class="intro"><span lang="en">Our menu is a deck of twenty-two cards, numbered like the Major Arcana from the Fool to the World. Read it in order, shuffle it, or let the moon choose for you.</span><span lang="ar">قائمتنا اثنتان وعشرون ورقة، مرقّمة مثل أوراق التاروت الكبرى من «المجنون» إلى «العالم». اقرأها بالترتيب، أو اخلطها، أو دع القمر يختار عنك.</span></p>
+    <nav class="suits" aria-label="Suits">
+      <a href="#s1"><svg class="ln" viewBox="0 0 48 48"><use href="#cup"/></svg><span lang="en">Cups</span><span lang="ar">الكؤوس</span></a>
+      <a href="#s2"><svg class="ln" viewBox="0 0 48 48"><use href="#sword"/></svg><span lang="en">Swords</span><span lang="ar">السيوف</span></a>
+      <a href="#s3"><svg class="ln" viewBox="0 0 48 48"><use href="#wand"/></svg><span lang="en">Wands</span><span lang="ar">الصولجانات</span></a>
+      <a href="#s4"><svg class="ln" viewBox="0 0 48 48"><use href="#coin"/></svg><span lang="en">Pentacles</span><span lang="ar">النجوم</span></a>
+    </nav>
+  </div>
+  <div class="fan" aria-hidden="true">
+    <div class="big l"><span class="num">XIX</span>
+      <svg viewBox="0 0 200 300"><g class="ln">
+        <circle cx="100" cy="150" r="78" stroke-linecap="butt" stroke-width="26" stroke-dasharray="3 17.42" opacity=".8"/><circle cx="100" cy="150" r="97" stroke-linecap="butt" stroke-width="10" stroke-dasharray="1 9.16" opacity=".5"/>
+        <circle cx="100" cy="150" r="52" fill="#1c1045"/><circle cx="100" cy="150" r="45" stroke-dasharray="1 5"/>
+        <path d="M78 142q8-8 16 0M106 142q8-8 16 0M84 164q16 12 32 0M100 146v12l-5 3"/>
+        <g fill="#e2c275" stroke="none"><use href="#sp" x="34" y="44" class="tw"/><use href="#sp" x="168" y="52" class="tw"/><use href="#sp" x="30" y="262" class="tw"/><use href="#sp" x="170" y="256" class="tw"/></g>
+      </g></svg><span class="nm"><span lang="en">The Sun</span><span lang="ar">الشمس</span></span></div>
+    <div class="big r"><span class="num">XVII</span>
+      <svg viewBox="0 0 200 300"><g class="ln">
+        <use href="#a17" transform="translate(16 46) scale(3.50)" stroke-width=".5"/><circle cx="100" cy="130" r="14"/>
+        <g fill="#e2c275" stroke="none"><use href="#sp" x="36" y="40" class="tw"/><use href="#sp" x="164" y="48" class="tw"/><use href="#sp" x="30" y="150" class="tw"/><use href="#sp" x="172" y="160" class="tw"/><use href="#sp" x="56" y="224" class="tw"/><use href="#sp" x="146" y="226" class="tw"/><use href="#sp" x="100" y="22" class="tw"/></g>
+        <path d="M30 262q17-10 35 0t35 0 35 0 35 0M30 278q17-10 35 0t35 0 35 0 35 0"/>
+      </g></svg><span class="nm"><span lang="en">The Star</span><span lang="ar">النجمة</span></span></div>
+    <div class="big c"><span class="num">XVIII</span>
+      <svg viewBox="0 0 200 300"><g class="ln">
+        <circle cx="100" cy="150" r="86" stroke-linecap="butt" stroke-width="22" stroke-dasharray="2 11.51" opacity=".75"/>
+        <g mask="url(#mmask)"><circle cx="100" cy="150" r="62" fill="#2a1a66" stroke-width="2"/></g>
+        <g clip-path="url(#mclip)"><circle cx="150" cy="108" r="22"/><circle cx="160" cy="140" r="14"/><circle cx="130" cy="88" r="12"/></g>
+        <path d="M66 152q30-26 60 0q-30 26-60 0z" fill="#170d38"/><circle cx="96" cy="152" r="11"/><circle cx="96" cy="152" r="4" fill="#e2c275"/>
+        <path d="M66 152l-8-3M72 141l-6-6M84 133l-3-8M98 131v-8M112 134l4-7"/>
+        <circle cx="70" cy="186" r="6"/><circle cx="112" cy="194" r="4"/><circle cx="62" cy="118" r="4"/><circle cx="132" cy="176" r="3"/>
+        <g fill="#e2c275" stroke="none"><circle cx="172" cy="122" r="2"/><circle cx="180" cy="140" r="1.50"/><circle cx="170" cy="156" r="2.20"/><circle cx="184" cy="168" r="1.40"/>
+          <use href="#sp" x="30" y="40" class="tw"/><use href="#sp" x="172" y="44" class="tw"/><use href="#sp" x="100" y="26" class="tw" transform="translate(100 26) scale(1.40) translate(-100 -26)"/></g>
+        <path d="M82 246v26M76 246v8a6 6 0 0 0 12 0v-8M82 272v12M118 284v-24M118 260c-8-2-8-16 0-16s8 14 0 16"/>
+      </g></svg><span class="nm"><span lang="en">The Moon</span><span lang="ar">القمر</span></span></div>
+  </div>
+</header>
+
+<svg class="phases" viewBox="-12 -12 204 24" aria-hidden="true">
+  <circle r="8.50" fill="none" stroke="#e2c275"/><path transform="translate(26 0)" d="M0-9a9 9 0 0 1 0 18a5 9 0 0 0 0-18z"/><path transform="translate(52 0)" d="M0-9a9 9 0 0 1 0 18z"/><path transform="translate(78 0)" d="M0-9a9 9 0 0 1 0 18a5 9 0 0 1 0-18z"/>
+  <circle cx="104" r="9"/><path transform="translate(130 0) scale(-1 1)" d="M0-9a9 9 0 0 1 0 18a5 9 0 0 1 0-18z"/><path transform="translate(156 0) scale(-1 1)" d="M0-9a9 9 0 0 1 0 18z"/><path transform="translate(182 0) scale(-1 1)" d="M0-9a9 9 0 0 1 0 18a5 9 0 0 0 0-18z"/>
+</svg>
+
+<main>
+<section class="suit" id="s1"><header class="sh"><svg class="si" viewBox="0 0 48 48" aria-hidden="true"><use href="#cup"/></svg><div><span class="sn"><span lang="en">Spread I</span><span lang="ar">الفَرشة I</span></span><h2><span lang="en">Suit of Cups</span><span lang="ar">بيت الكؤوس</span></h2><p><span lang="en">Warm cups for clear sight</span><span lang="ar">أكواب دافئة لبصيرة صافية</span></p></div><span class="rng">0 — V</span></header><div class="spread" style="--n:6">
+<article class="card"><span class="num">0</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a0"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Fool</span><span lang="ar">المجنون</span></span><h3><span lang="en">Leap-of-Faith Latte</span><span lang="ar">لاتيه القفزة الأولى</span></h3><p><span lang="en">Double espresso, steamed milk and orange-blossom honey, for those who order before they look.</span><span lang="ar">إسبريسو مزدوج وحليب مبخّر وعسل زهر البرتقال، لمن يطلب قبل أن ينظر.</span></p><span class="pr"><b>22</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">I</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a1"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Magician</span><span lang="ar">الساحر</span></span><h3><span lang="en">Colour-Turning Fog</span><span lang="ar">ضباب يبدّل لونه</span></h3><p><span lang="en">Butterfly-pea milk tea that shifts from blue to violet as you stir in the lemon.</span><span lang="ar">شاي بالحليب وزهرة البازلاء الزرقاء، يتحوّل من الأزرق إلى البنفسجي كلّما حرّكت الليمون.</span></p><span class="pr"><b>26</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">II</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a2"/></svg></div><div class="tx"><span class="arc"><span lang="en">The High Priestess</span><span lang="ar">الكاهنة</span></span><h3><span lang="en">Lavender London Fog</span><span lang="ar">ضباب لندن بالخزامى</span></h3><p><span lang="en">Earl Grey, vanilla and steamed oat milk under a veil of dried lavender.</span><span lang="ar">شاي إيرل غراي والفانيليا وحليب الشوفان المبخّر تحت وشاح من الخزامى المجفّفة.</span></p><span class="pr"><b>24</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">III</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a3"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Empress</span><span lang="ar">الإمبراطورة</span></span><h3><span lang="en">Rose &amp; Pistachio Cocoa</span><span lang="ar">كاكاو الورد والفستق</span></h3><p><span lang="en">White hot chocolate, rosewater and crushed pistachio, generous as she is.</span><span lang="ar">شوكولاتة بيضاء ساخنة بماء الورد والفستق المجروش، كريمة مثل صاحبتها.</span></p><span class="pr"><b>28</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">IV</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a4"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Emperor</span><span lang="ar">الإمبراطور</span></span><h3><span lang="en">Dark Throne Cacao</span><span lang="ar">كاكاو العرش الداكن</span></h3><p><span lang="en">72% drinking chocolate with cinnamon, sea salt and a strict pinch of chilli.</span><span lang="ar">شوكولاتة للشرب بنسبة 72٪ مع القرفة وملح البحر ورشّة صارمة من الفلفل الحار.</span></p><span class="pr"><b>28</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">V</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a5"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Hierophant</span><span lang="ar">الحكيم</span></span><h3><span lang="en">Ceremonial Matcha</span><span lang="ar">ماتشا الطقوس</span></h3><p><span lang="en">Stone-ground Uji matcha whisked at your table, served with a date.</span><span lang="ar">ماتشا أوجي مطحونة بالحجر تُخفق أمامك وتُقدَّم مع حبّة تمر.</span></p><span class="pr"><b>30</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+</div></section>
+<section class="suit" id="s2"><header class="sh"><svg class="si" viewBox="0 0 48 48" aria-hidden="true"><use href="#sword"/></svg><div><span class="sn"><span lang="en">Spread II</span><span lang="ar">الفَرشة II</span></span><h2><span lang="en">Suit of Swords</span><span lang="ar">بيت السيوف</span></h2><p><span lang="en">Cold potions, sharp and bright</span><span lang="ar">جرعات باردة، حادّة ومنعشة</span></p></div><span class="rng">VI — X</span></header><div class="spread" style="--n:5">
+<article class="card"><span class="num">VI</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a6"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Lovers</span><span lang="ar">العاشقان</span></span><h3><span lang="en">Two-Straw Rose Soda</span><span lang="ar">صودا الورد بمصّاصتين</span></h3><p><span lang="en">Strawberry and rose shrub over sparkling water. One glass, two straws.</span><span lang="ar">شراب الفراولة والورد فوق المياه الفوّارة. كأس واحدة ومصّاصتان.</span></p><span class="pr"><b>32</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">VII</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a7"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Chariot</span><span lang="ar">العربة</span></span><h3><span lang="en">Cold Brew Tonic</span><span lang="ar">كولد برو بالتونيك</span></h3><p><span lang="en">Eighteen-hour cold brew charged with tonic and pink grapefruit. Forward, fast.</span><span lang="ar">قهوة منقوعة على البارد 18 ساعة مع التونيك والغريب فروت الوردي. إلى الأمام بسرعة.</span></p><span class="pr"><b>27</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">VIII</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a8"/></svg></div><div class="tx"><span class="arc"><span lang="en">Strength</span><span lang="ar">القوة</span></span><h3><span lang="en">Lionheart Tonic</span><span lang="ar">إكسير قلب الأسد</span></h3><p><span lang="en">Pressed ginger, turmeric, lemon and black pepper, topped with soda.</span><span lang="ar">زنجبيل معصور وكركم وليمون وفلفل أسود، مع المياه الغازية.</span></p><span class="pr"><b>25</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">IX</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a9"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Hermit</span><span lang="ar">الناسك</span></span><h3><span lang="en">Smoked Sage Lemonade</span><span lang="ar">ليموناضة المريمية المدخّنة</span></h3><p><span lang="en">Blackberry lemonade under a dome of sage smoke. Best sipped alone.</span><span lang="ar">ليموناضة التوت الأسود تحت قبّة من دخان المريمية. أطيب ما تكون في خلوة.</span></p><span class="pr"><b>29</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">X</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a10"/></svg></div><div class="tx"><span class="arc"><span lang="en">Wheel of Fortune</span><span lang="ar">عجلة الحظ</span></span><h3><span lang="en">The Unknown Potion</span><span lang="ar">الجرعة المجهولة</span></h3><p><span lang="en">Spin the wheel on the counter; we shake whatever mocktail fate decides.</span><span lang="ar">أدِر العجلة عند المنضدة، ونحضّر لك الموكتيل الذي يختاره القدر.</span></p><span class="pr"><b>34</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+</div></section>
+<section class="suit" id="s3"><header class="sh"><svg class="si" viewBox="0 0 48 48" aria-hidden="true"><use href="#wand"/></svg><div><span class="sn"><span lang="en">Spread III</span><span lang="ar">الفَرشة III</span></span><h2><span lang="en">Suit of Wands</span><span lang="ar">بيت الصولجانات</span></h2><p><span lang="en">Plates from the fire</span><span lang="ar">أطباق من النار</span></p></div><span class="rng">XI — XVI</span></header><div class="spread" style="--n:6">
+<article class="card"><span class="num">XI</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a11"/></svg></div><div class="tx"><span class="arc"><span lang="en">Justice</span><span lang="ar">العدالة</span></span><h3><span lang="en">Balanced Toast</span><span lang="ar">خبز الميزان</span></h3><p><span lang="en">Sourdough, labneh and smashed avocado, weighed against za'atar and chilli honey.</span><span lang="ar">خبز العجين المخمّر مع اللبنة والأفوكادو المهروس، يقابلهما الزعتر والعسل الحار.</span></p><span class="pr"><b>38</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">XII</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a12"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Hanged Man</span><span lang="ar">المعلّق</span></span><h3><span lang="en">Upside-Down Eggs</span><span lang="ar">بيض بالمقلوب</span></h3><p><span lang="en">Poached eggs on garlicky hung yoghurt, Aleppo butter poured from above.</span><span lang="ar">بيض مسلوق فوق لبن مصفّى بالثوم، وتُسكب عليه زبدة الفلفل الحلبي من أعلى.</span></p><span class="pr"><b>42</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">XIII</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a13"/></svg></div><div class="tx"><span class="arc"><span lang="en">Death</span><span lang="ar">التحوّل</span></span><h3><span lang="en">Midnight Melt</span><span lang="ar">ذوبان منتصف الليل</span></h3><p><span lang="en">Charcoal brioche, truffled mushrooms and three cheeses. An ending, deliciously.</span><span lang="ar">بريوش الفحم مع الفطر بالكمأة وثلاثة أنواع من الجبن. نهاية… لكنها لذيذة.</span></p><span class="pr"><b>44</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">XIV</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a14"/></svg></div><div class="tx"><span class="arc"><span lang="en">Temperance</span><span lang="ar">الاعتدال</span></span><h3><span lang="en">Half &amp; Half</span><span lang="ar">نصف ونصف</span></h3><p><span lang="en">A cup of roasted tomato soup beside half a grilled halloumi sandwich.</span><span lang="ar">كوب من حساء الطماطم المشوية إلى جانب نصف شطيرة حلّوم مشوي.</span></p><span class="pr"><b>40</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">XV</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a15"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Devil</span><span lang="ar">الشيطان</span></span><h3><span lang="en">Devilled Turkey Melt</span><span lang="ar">ميلت الديك الرومي الحارق</span></h3><p><span lang="en">Turkey pastrami, harissa, pickled chillies and molten cheddar. You were warned.</span><span lang="ar">بسطرمة الديك الرومي مع الهريسة والفلفل المخلّل والشيدر الذائب. وقد أعذر من أنذر.</span></p><span class="pr"><b>46</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span><span class="bd hot"><span lang="en">Burns</span><span lang="ar">حارق</span></span></div></article>
+<article class="card"><span class="num">XVI</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a16"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Tower</span><span lang="ar">البرج</span></span><h3><span lang="en">The Falling Club</span><span lang="ar">الكلوب المتهاوي</span></h3><p><span lang="en">Triple-stacked roast turkey, egg and beef bacon, built to collapse.</span><span lang="ar">ثلاث طبقات من الديك الرومي المشوي والبيض ولحم البقر المقدّد، بُنيت لتنهار.</span></p><span class="pr"><b>48</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+</div></section>
+<section class="suit" id="s4"><header class="sh"><svg class="si" viewBox="0 0 48 48" aria-hidden="true"><use href="#coin"/></svg><div><span class="sn"><span lang="en">Spread IV</span><span lang="ar">الفَرشة IV</span></span><h2><span lang="en">Suit of Pentacles</span><span lang="ar">بيت النجوم الخماسية</span></h2><p><span lang="en">Sweet fortunes</span><span lang="ar">حظوظ حلوة</span></p></div><span class="rng">XVII — XXI</span></header><div class="spread" style="--n:5">
+<article class="card"><span class="num">XVII</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a17"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Star</span><span lang="ar">النجمة</span></span><h3><span lang="en">Star Anise Pear</span><span lang="ar">إجاص اليانسون النجمي</span></h3><p><span lang="en">Pear poached in star anise and saffron, whipped mascarpone, pistachio dust.</span><span lang="ar">إجاص مسلوق باليانسون النجمي والزعفران مع الماسكربوني المخفوق وغبار الفستق.</span></p><span class="pr"><b>34</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">XVIII</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a18"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Moon</span><span lang="ar">القمر</span></span><h3><span lang="en">Black Sesame Crescent</span><span lang="ar">هلال السمسم الأسود</span></h3><p><span lang="en">Our crescent croissant filled with black sesame cream, bitten by nobody yet.</span><span lang="ar">كرواسون على هيئة هلال محشوّ بكريمة السمسم الأسود، لم يقضمه أحد بعد.</span></p><span class="pr"><b>26</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span><span class="bd"><span lang="en">House card</span><span lang="ar">ورقة الدار</span></span></div></article>
+<article class="card"><span class="num">XIX</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a19"/></svg></div><div class="tx"><span class="arc"><span lang="en">The Sun</span><span lang="ar">الشمس</span></span><h3><span lang="en">Saffron Sun Cheesecake</span><span lang="ar">تشيز كيك شمس الزعفران</span></h3><p><span lang="en">Burnt Basque cheesecake with saffron and orange, glowing in the middle.</span><span lang="ar">تشيز كيك باسكي محروق بالزعفران والبرتقال، متوهّج في قلبه.</span></p><span class="pr"><b>36</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">XX</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a20"/></svg></div><div class="tx"><span class="arc"><span lang="en">Judgement</span><span lang="ar">الحساب</span></span><h3><span lang="en">Torched Lemon Tart</span><span lang="ar">تارت الليمون باللهب</span></h3><p><span lang="en">Sharp lemon curd under meringue, set alight at the table.</span><span lang="ar">كريمة ليمون حامضة تحت المرينغ، تُشعل أمامك على الطاولة.</span></p><span class="pr"><b>34</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+<article class="card"><span class="num">XXI</span><div class="art"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a21"/></svg></div><div class="tx"><span class="arc"><span lang="en">The World</span><span lang="ar">العالم</span></span><h3><span lang="en">Seven Spice Date Cake</span><span lang="ar">كعكة التمر بالبهارات السبعة</span></h3><p><span lang="en">Warm date cake, cardamom to clove, with tahini caramel and cream.</span><span lang="ar">كعكة تمر دافئة من الهيل إلى القرنفل، مع كراميل الطحينة والقشطة.</span></p><span class="pr"><b>32</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></div></article>
+</div></section>
+
+<section class="reading" id="reading">
+  <div>
+    <span class="sn"><span lang="en">The Three-Card Reading</span><span lang="ar">قراءة الأوراق الثلاث</span></span>
+    <h2 class="foil"><span lang="en">Past, Present, Future</span><span lang="ar">ماضٍ وحاضر ومستقبل</span></h2>
+    <p><span lang="en">Shuffle the house deck and turn three cards face up: a cup or a potion, a plate, and a sweet. Whatever you draw is what you dine on. No swaps, the cards know.</span><span lang="ar">اخلط أوراق الدار واقلب ثلاثًا منها: كوبًا أو جرعة، ثم طبقًا، ثم حلوى. ما تسحبه هو ما تتناوله. لا تبديل، فالأوراق أدرى.</span></p>
+    <p class="cost"><b>88</b><span lang="en">AED per seeker</span><span lang="ar">د.إ للشخص</span></p>
+  </div>
+  <div class="backs">
+    <div class="back"><i><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a18"/></svg></i><span><b>I</b><span lang="en">Past</span><span lang="ar">الماضي</span><small><span lang="en">Cups or Swords</span><span lang="ar">كؤوس أو سيوف</span></small></span></div>
+    <div class="back"><i><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a18"/></svg></i><span><b>II</b><span lang="en">Present</span><span lang="ar">الحاضر</span><small><span lang="en">Wands</span><span lang="ar">صولجانات</span></small></span></div>
+    <div class="back"><i><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#a18"/></svg></i><span><b>III</b><span lang="en">Future</span><span lang="ar">المستقبل</span><small><span lang="en">Pentacles</span><span lang="ar">نجوم خماسية</span></small></span></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <svg class="phases" viewBox="-12 -12 204 24" aria-hidden="true">
+    <circle r="8.50" fill="none" stroke="#e2c275"/><path transform="translate(26 0)" d="M0-9a9 9 0 0 1 0 18a5 9 0 0 0 0-18z"/><path transform="translate(52 0)" d="M0-9a9 9 0 0 1 0 18z"/><path transform="translate(78 0)" d="M0-9a9 9 0 0 1 0 18a5 9 0 0 1 0-18z"/>
+    <circle cx="104" r="9"/><path transform="translate(130 0) scale(-1 1)" d="M0-9a9 9 0 0 1 0 18a5 9 0 0 1 0-18z"/><path transform="translate(156 0) scale(-1 1)" d="M0-9a9 9 0 0 1 0 18z"/><path transform="translate(182 0) scale(-1 1)" d="M0-9a9 9 0 0 1 0 18a5 9 0 0 0 0-18z"/>
+  </svg>
+  <div class="fg">
+    <div><h4><span lang="en">Hours</span><span lang="ar">الأوقات</span></h4><p><span lang="en">Every night, 4 pm to 2 am<br>Full moon: open until dawn</span><span lang="ar">كل ليلة من ٤ عصرًا حتى ٢ فجرًا<br>ليلة البدر: حتى مطلع الفجر</span></p></div>
+    <div><h4><span lang="en">Find us</span><span lang="ar">العنوان</span></h4><p><span lang="en">The blue door, 9 Lantern Lane, Al Fahidi, Dubai<br>+971 4 555 0118</span><span lang="ar">الباب الأزرق، ٩ زقاق الفوانيس، الفهيدي، دبي<br><span dir="ltr">+971 4 555 0118</span></span></p></div>
+    <div><h4><span lang="en">The small print</span><span lang="ar">تنبيه</span></h4><p><span lang="en">Cards may contain nuts, sesame, dairy, egg and gluten. No alcohol is served. Tell your reader about any allergy.</span><span lang="ar">قد تحتوي الأوراق على المكسّرات والسمسم والألبان والبيض والغلوتين. لا نقدّم الكحول. أخبر قارئ أوراقك عن أي حساسية.</span></p></div>
+  </div>
+  <p class="fine"><span lang="en">Prices in dirhams, VAT included. Fortunes are for delight only.</span><span lang="ar">الأسعار بالدرهم شاملة الضريبة. والطالع للتسلية لا أكثر.</span></p>
+</footer>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

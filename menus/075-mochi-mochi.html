@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Mochi Mochi · موتشي موتشي</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mochi Mochi — a kawaii dessert café: squishy daifuku, wobbly soufflé pancakes, purin and cream sodas, served as a sticker sheet. موتشي موتشي — حلويات كاواي طرية ولطيفة.">
+<meta name="theme-color" content="#ffd6e8">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Baloo+Bhaijaan+2:wght@500;700&family=Fredoka:wght@600;700&family=Marhey:wght@600;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--ink:#5a3352;--line:#7a4b66;--pink:#ff7eb6;--mint:#4fc7ae;--sun:#ffab2e;--lav:#9b8cff;--sky:#4bbcf5;--shadow:rgba(170,110,170,.38)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:500 16.5px/1.4 'Baloo 2','Baloo Bhaijaan 2',system-ui,sans-serif;overflow-x:clip;
+  background:
+   radial-gradient(circle,#fff 0 2.500px,transparent 3px) 0 0/46px 46px,radial-gradient(circle,rgba(255,255,255,.7) 0 1.5px,transparent 2px) 23px 23px/46px 46px,
+   linear-gradient(160deg,#ffd9ea 0%,#e7dcff 45%,#cfeeff 100%)}
+html[lang="ar"] body{font-family:'Baloo Bhaijaan 2','Baloo 2',Tahoma,sans-serif;font-size:17px;line-height:1.55}
+h1,h2,h3,p,ul,figure{margin:0;padding:0} ul{list-style:none} a{color:inherit;text-decoration:none} svg{display:block;overflow:visible}
+.bub{font-family:'Fredoka','Marhey',sans-serif;font-weight:700;-webkit-text-stroke:.2em #fff;paint-order:stroke fill;text-shadow:0 .09em 0 var(--shadow)}
+html[lang="ar"] .bub{font-family:'Marhey','Fredoka',sans-serif}
+
+/* controls */
+.ctl{position:fixed;z-index:60;inset-block-start:10px;inset-inline-end:10px;display:flex;gap:6px}
+.ctl>*{font:700 15px/1 'Baloo 2','Baloo Bhaijaan 2',sans-serif;min-height:40px;padding:0 15px;display:flex;align-items:center;border-radius:999px;cursor:pointer;border:3px solid #fff;color:#fff;box-shadow:0 4px 0 var(--shadow);transition:transform .3s cubic-bezier(.3,2,.5,1)}
+#langToggle{background:var(--lav)}
+.home-link{background:var(--pink)}
+.ctl>*:hover,.ctl>*:focus-visible{transform:scale(1.08) rotate(-3deg);outline:0}
+.ctl>*:active{transform:scale(1.15,.85)}
+
+.wrap{max-width:1320px;margin-inline:auto;padding:64px 12px 40px;display:grid;gap:34px}
+
+/* ---------- sticker sheets ---------- */
+.sheet{position:relative;border-radius:34px;padding:54px 14px 26px;scroll-margin-top:10px;
+  background:linear-gradient(125deg,rgba(255,255,255,.75) 0 18%,rgba(255,255,255,.25) 18% 22%,rgba(255,255,255,.6) 22% 24%,rgba(255,255,255,.3) 24%),var(--bg,#fff3f8);
+  box-shadow:0 0 0 4px #fff,0 22px 44px -18px rgba(150,90,160,.6)}
+.sheet::before{content:"";position:absolute;inset-block-start:16px;inset-inline-start:50%;width:76px;height:18px;margin-inline-start:-38px;border-radius:9px;background:linear-gradient(160deg,#f4cfe6,#d6e4ff);box-shadow:inset 0 2px 3px rgba(120,70,130,.35)}
+.no{position:absolute;inset-block-start:17px;inset-inline-start:22px;font-weight:700;font-size:13px;color:rgba(90,51,82,.6);letter-spacing:.08em}
+html[lang="ar"] .no{letter-spacing:0;font-size:14px}
+.sheet>.spark{position:absolute;width:26px;height:26px;fill:#fff;filter:drop-shadow(0 0 5px var(--sc,#ffb3d1));animation:twinkle 2.4s ease-in-out infinite}
+.spark.s2{animation-delay:-.8s;width:18px;height:18px}.spark.s3{animation-delay:-1.6s;width:34px;height:34px}
+@keyframes twinkle{0%,100%{transform:scale(.6) rotate(0);opacity:.5}50%{transform:scale(1.15) rotate(45deg);opacity:1}}
+
+/* hero sheet */
+.hero{--bg:#fff5fa;display:grid;gap:10px;justify-items:center;text-align:center;padding-block-end:20px}
+h1{font-size:clamp(60px,17.5vw,150px);line-height:.9;display:grid}
+html[lang="ar"] h1{font-size:clamp(50px,14.5vw,128px);line-height:1.5;margin-block:-.2em -.1em}
+h1 i{font-style:normal}
+h1 b{font-weight:inherit;display:inline-block}
+h1 [lang="en"] b:nth-child(5n+1){color:var(--pink);transform:rotate(-7deg)}h1 [lang="en"] b:nth-child(5n+2){color:var(--sun);transform:translateY(.05em) rotate(4deg)}h1 [lang="en"] b:nth-child(5n+3){color:var(--mint);transform:rotate(-3deg)}h1 [lang="en"] b:nth-child(5n+4){color:var(--sky);transform:translateY(.04em) rotate(5deg)}h1 [lang="en"] b:nth-child(5n){color:var(--lav);transform:rotate(-5deg)}
+h1 [lang="ar"] i:first-child{color:var(--pink)}h1 [lang="ar"] i:last-child{color:var(--mint)}
+h1 i{display:block}
+h1 [lang="en"] i:last-child{margin-inline-start:.5em}h1 [lang="ar"] i:last-child{margin-inline-start:.8em}
+.kana{font-weight:700;font-size:15px;letter-spacing:.3em;color:var(--lav);background:#fff;border-radius:999px;padding:3px 16px;box-shadow:0 3px 0 var(--shadow)}
+html[lang="ar"] .kana{letter-spacing:0;font-size:16px}
+.dango{width:min(62vw,270px);margin-block:6px 0}
+.dango .m{transform-box:fill-box;transform-origin:50% 100%;animation:jelly 2.8s ease-in-out infinite}
+.dango g:nth-of-type(2)>.m{animation-delay:-.45s}.dango g:nth-of-type(3)>.m{animation-delay:-.9s}
+@keyframes jelly{0%,100%{transform:scale(1,1)}40%{transform:scale(1.07,.92)}60%{transform:scale(.95,1.06)}80%{transform:scale(1.02,.98)}}
+.eye{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.say{position:relative;background:#fff;border-radius:26px;padding:14px 18px;max-width:46ch;box-shadow:0 5px 0 var(--shadow);font-size:16.5px}
+html[lang="ar"] .say{font-size:17.5px}
+.say::before{content:"";position:absolute;inset-block-start:-11px;inset-inline-start:50%;margin-inline-start:-12px;width:24px;height:24px;background:#fff;border-radius:6px;transform:rotate(45deg)}
+.say strong{color:var(--pink)}
+.tabs{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-block-start:8px}
+.tabs a{font-weight:700;font-size:16px;color:#fff;background:var(--c);border:3px solid #fff;border-radius:999px;padding:6px 17px;min-height:42px;display:flex;align-items:center;box-shadow:0 4px 0 var(--shadow);transition:transform .35s cubic-bezier(.3,2.2,.5,1)}
+.tabs a:nth-child(odd){transform:rotate(-2.5deg)}.tabs a:nth-child(even){transform:rotate(2deg)}
+.tabs a:hover,.tabs a:focus-visible{transform:scale(1.12) rotate(0);outline:0}
+.key{display:flex;gap:6px 16px;flex-wrap:wrap;justify-content:center;font-size:14.5px;font-weight:700;color:rgba(90,51,82,.8);margin-block-start:4px}
+html[lang="ar"] .key{font-size:15.5px}
+.key span{display:flex;align-items:center;gap:6px}
+
+/* section banner */
+.ban{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin-block-end:40px;padding-inline:6px}
+.ban h2{font-size:clamp(40px,8vw,66px);line-height:1;color:var(--tc);transform:rotate(-2deg)}
+html[lang="ar"] .ban h2{font-size:clamp(34px,7vw,56px);line-height:1.5;transform:rotate(2deg)}
+.ban p{font-weight:700;font-size:16px;color:rgba(90,51,82,.82);flex:1;min-width:200px}
+html[lang="ar"] .ban p{font-size:17px}
+
+/* stickers */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:52px 14px}
+.st{position:relative;background:#fff;border-radius:26px;padding:50px 12px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;
+  box-shadow:inset 0 0 0 3px var(--c),0 5px 0 var(--shadow);outline:2px dashed rgba(122,75,102,.28);outline-offset:5px;transform:rotate(var(--r,0deg));transition:transform .4s cubic-bezier(.3,1.9,.5,1)}
+.st:nth-child(odd){--r:-1.3deg}.st:nth-child(even){--r:1.1deg}.st:nth-child(3n){--r:.4deg}
+.st:hover{transform:rotate(0) scale(1.04);z-index:2}
+.ch{position:absolute;inset-block-start:-36px;inset-inline-start:50%;width:92px;height:84px;margin-inline-start:-46px;transform-origin:50% 100%;animation:jelly 3.2s ease-in-out infinite;animation-delay:calc(var(--i,0)*-.37s)}
+[dir="rtl"] .ch{inset-inline-start:auto;left:50%;margin-left:-46px;margin-inline-start:0}
+.st:hover .ch{animation:squish .6s cubic-bezier(.3,1.8,.5,1)}
+@keyframes squish{0%{transform:scale(1)}35%{transform:scale(1.25,.72)}70%{transform:scale(.9,1.14)}100%{transform:scale(1)}}
+.halo{fill:#fff;stroke:#fff;stroke-width:13;stroke-linejoin:round}
+.body{stroke:var(--line);stroke-width:3;stroke-linejoin:round}
+.ol{fill:none;stroke:var(--line);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.st h3{font:700 19px/1.15 'Fredoka','Marhey',sans-serif;color:var(--ink)}
+html[lang="ar"] .st h3{font:700 18px/1.45 'Marhey','Fredoka',sans-serif}
+.st p{font-size:15px;line-height:1.3;margin-block:4px 8px;color:#6b4862;flex:1}
+html[lang="ar"] .st p{font-size:15.5px;line-height:1.5}
+.ft{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.pr{font:700 19px/1 'Fredoka',sans-serif;color:#fff;background:var(--c2,var(--pink));border-radius:999px;padding:5px 12px 4px;unicode-bidi:isolate;direction:ltr;box-shadow:0 3px 0 var(--shadow)}
+.sq{display:inline-flex;gap:3px;direction:ltr}
+.sq i{width:11px;height:9px;border-radius:50% 50% 45% 45%;background:#f1e3ee;border:1.5px solid #dcc3d6}
+.sq[data-s="1"] i:nth-child(-n+1),.sq[data-s="2"] i:nth-child(-n+2),.sq[data-s="3"] i:nth-child(-n+3),.sq[data-s="4"] i:nth-child(-n+4),.sq[data-s="5"] i{background:var(--pink);border-color:#e0559a}
+.badge{position:absolute;inset-block-start:-12px;inset-inline-end:-6px;z-index:1;font:700 13px/1 'Fredoka','Marhey',sans-serif;color:#fff;background:var(--sun);padding:7px 9px;border-radius:50%;border:3px solid #fff;box-shadow:0 3px 0 var(--shadow);transform:rotate(12deg);min-width:44px;min-height:44px;display:grid;place-items:center;text-align:center}
+[dir="rtl"] .badge{transform:rotate(-12deg)}
+.badge.lim{background:var(--lav)}
+
+/* set sticker */
+.set{margin-block-start:44px;background:#fff;border-radius:30px;padding:20px 18px;display:grid;gap:10px;justify-items:center;text-align:center;box-shadow:inset 0 0 0 4px var(--pink),0 6px 0 var(--shadow);outline:2px dashed rgba(122,75,102,.28);outline-offset:6px;position:relative;
+  background-image:radial-gradient(circle,#ffe3ef 0 5px,transparent 6px);background-size:34px 34px}
+.set h3{font-size:clamp(28px,5vw,40px);line-height:1.1;color:var(--pink)}
+html[lang="ar"] .set h3{font-size:clamp(25px,4.6vw,36px);line-height:1.5}
+.set p{max-width:52ch;background:rgba(255,255,255,.85);border-radius:12px;padding-inline:6px}
+.set .pr{font-size:30px;padding:8px 22px 6px;transform:rotate(-3deg)}
+.trio{display:flex;gap:2px}.trio svg{width:64px;height:58px}
+
+/* info sheet */
+.info{--bg:#f1f4ff}
+.cards{display:grid;gap:22px}
+.tagc{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 5px 0 var(--shadow);outline:2px dashed rgba(122,75,102,.28);outline-offset:5px}
+.tagc:nth-child(odd){transform:rotate(-.8deg)}.tagc:nth-child(even){transform:rotate(.9deg)}
+.tagc h3{font:700 20px/1.2 'Fredoka','Marhey',sans-serif;color:#fff;background:var(--c);padding:10px 16px 8px;text-align:center}
+html[lang="ar"] .tagc h3{font:700 19px/1.5 'Marhey','Fredoka',sans-serif}
+.tagc div{padding:12px 16px 14px}
+.tagc dl{margin:0;display:grid;grid-template-columns:1fr auto;gap:3px 12px}
+.tagc dt{font-weight:700}.tagc dd{margin:0;unicode-bidi:isolate;direction:ltr}
+.bye{text-align:center;font-weight:700;color:rgba(90,51,82,.75);font-size:15px;margin-block-start:26px}
+html[lang="ar"] .bye{font-size:16px}
+
+@media (min-width:640px){
+  .wrap{padding-inline:22px;gap:44px}
+  .sheet{padding:62px 30px 36px;border-radius:44px}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:62px 24px}
+  .st{padding:62px 16px 16px}
+  .ch{width:116px;height:106px;margin-inline-start:-58px;inset-block-start:-48px}
+  [dir="rtl"] .ch{margin-left:-58px}
+  .st h3{font-size:21px}html[lang="ar"] .st h3{font-size:20px}
+  .st p{font-size:15.5px}
+  .cards{grid-template-columns:repeat(3,1fr)}
+}
+@media (min-width:1020px){
+  .wrap{padding:40px 40px 60px;gap:56px}
+  .sheet{padding:70px 46px 46px}
+  .sheet:nth-of-type(odd){transform:rotate(-.35deg)}.sheet:nth-of-type(even){transform:rotate(.35deg)}
+  .hero{grid-template-columns:1.25fr .75fr;justify-items:start;text-align:start;align-items:center;column-gap:30px;padding-block-end:40px}
+  .hero>*{grid-column:1}
+  .hero .dango{grid-column:2;grid-row:1/span 6;width:min(100%,340px);justify-self:center}
+  .say::before{inset-inline-start:auto;inset-inline-end:-10px;inset-block-start:50%;margin-block-start:-12px}
+  .tabs,.key{justify-content:flex-start}
+  h1{font-size:clamp(100px,11.5vw,168px)}html[lang="ar"] h1{font-size:clamp(84px,9.6vw,140px)}
+  .grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:70px 28px}
+  .grid.five{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .grid.six{grid-template-columns:repeat(6,minmax(0,1fr));gap:70px 20px}
+  .set{grid-template-columns:auto 1fr auto;text-align:start;justify-items:start;align-items:center;padding:24px 34px;column-gap:26px}
+  .set h3{grid-column:2}.set p{grid-column:2}.set .trio{grid-row:1/span 2}.set .pr{grid-column:3;grid-row:1/span 2}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <path id="b-mochi" d="M60 16c30 0 50 22 50 46 0 24-20 34-50 34S10 86 10 62c0-24 20-46 50-46z"/>
+  <path id="b-tall" d="M60 8c26 0 44 26 44 54 0 22-18 34-44 34S16 84 16 62C16 34 34 8 60 8z"/>
+  <path id="b-pud" d="M38 28h44c6 0 9 3 11 9l13 40c3 11-3 19-14 19H28c-11 0-17-8-14-19l13-40c2-6 5-9 11-9z"/>
+  <path id="b-pudtop" d="M38 28h44c6 0 9 3 11 9l2 6c-7 6-12-3-20 3s-14-3-22 2-13 1-18-3l2-8c2-6 5-9 11-9z"/>
+  <path id="b-fish" d="M10 58c6-22 26-34 48-34 18 0 30 8 38 20l14-12c5 10 5 36 0 46l-14-12c-8 12-20 20-38 20-22 0-42-8-48-28z"/>
+  <path id="b-stack" d="M26 18h68a13 13 0 019 22 13 13 0 010 22 13 13 0 01-9 34H26a13 13 0 01-9-34 13 13 0 010-22 13 13 0 019-22z"/>
+  <path id="b-toast" d="M26 30C14 14 34 6 44 16c8-5 24-5 32 0 10-10 30-2 18 14v54c0 7-4 12-11 12H37c-7 0-11-5-11-12z"/>
+  <path id="b-cup" d="M26 28h68l-8 58c-1 7-5 10-12 10H46c-7 0-11-3-12-10z"/>
+  <path id="b-dome" d="M60 6c26 0 42 20 44 44h6c0 28-20 46-50 46S10 78 10 50h6C18 26 34 6 60 6z"/>
+  <path id="b-bowl" d="M10 50h100c0 28-20 46-50 46S10 78 10 50z"/>
+  <path id="b-sando" d="M22 96c-8 0-12-7-8-14l36-64c4-8 16-8 20 0l36 64c4 7 0 14-8 14z"/>
+  <path id="b-glass" d="M28 14h64c5 0 7 3 6 8L86 70c-2 8-8 12-16 13v5h10c7 0 7 8 0 8H40c-7 0-7-8 0-8h10v-5c-8-1-14-5-16-13L22 22c-1-5 1-8 6-8z"/>
+  <g id="f-smile"><ellipse cx="33" cy="68" rx="7" ry="4.500" fill="#ff9fc0" opacity=".8"/><ellipse cx="87" cy="68" rx="7" ry="4.500" fill="#ff9fc0" opacity=".8"/><g fill="#4a2a42"><circle class="eye" cx="44" cy="58" r="4.800"/><circle class="eye" cx="76" cy="58" r="4.800"/></g><circle cx="45.500" cy="56.500" r="1.600" fill="#fff"/><circle cx="77.500" cy="56.500" r="1.600" fill="#fff"/><path d="M54 65q6 6 12 0" fill="none" stroke="#4a2a42" stroke-width="2.600" stroke-linecap="round"/></g>
+  <g id="f-sleep"><ellipse cx="33" cy="68" rx="7" ry="4.500" fill="#ff9fc0" opacity=".8"/><ellipse cx="87" cy="68" rx="7" ry="4.500" fill="#ff9fc0" opacity=".8"/><path d="M37 58q7 6 14 0M69 58q7 6 14 0M54 66q3 4 6 0q3 4 6 0" fill="none" stroke="#4a2a42" stroke-width="2.600" stroke-linecap="round"/></g>
+  <g id="f-wink"><ellipse cx="33" cy="68" rx="7" ry="4.500" fill="#ff9fc0" opacity=".8"/><ellipse cx="87" cy="68" rx="7" ry="4.500" fill="#ff9fc0" opacity=".8"/><circle cx="44" cy="58" r="4.800" fill="#4a2a42"/><circle cx="45.500" cy="56.500" r="1.600" fill="#fff"/><path d="M70 53l11 5-11 5" fill="none" stroke="#4a2a42" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round"/><path d="M53 64h14q-1 9-7 9t-7-9z" fill="#ff6f91" stroke="#4a2a42" stroke-width="2.200" stroke-linejoin="round"/></g>
+  <g id="f-cat"><ellipse cx="33" cy="68" rx="7" ry="4.500" fill="#ff9fc0" opacity=".8"/><ellipse cx="87" cy="68" rx="7" ry="4.500" fill="#ff9fc0" opacity=".8"/><g fill="#4a2a42"><circle class="eye" cx="44" cy="58" r="4.800"/><circle class="eye" cx="76" cy="58" r="4.800"/></g><circle cx="45.500" cy="56.500" r="1.600" fill="#fff"/><circle cx="77.500" cy="56.500" r="1.600" fill="#fff"/><path d="M52 64q4 6 8 0q4 6 8 0" fill="none" stroke="#4a2a42" stroke-width="2.600" stroke-linecap="round"/></g>
+  <g id="f-wow"><ellipse cx="33" cy="69" rx="7" ry="4.500" fill="#ff9fc0" opacity=".8"/><ellipse cx="87" cy="69" rx="7" ry="4.500" fill="#ff9fc0" opacity=".8"/><g fill="#4a2a42"><circle cx="44" cy="57" r="6"/><circle cx="76" cy="57" r="6"/></g><g fill="#fff"><circle cx="46" cy="55" r="2.200"/><circle cx="78" cy="55" r="2.200"/><circle cx="42" cy="59.500" r="1.100"/><circle cx="74" cy="59.500" r="1.100"/></g><ellipse cx="60" cy="68" rx="3.500" ry="4" fill="#ff6f91" stroke="#4a2a42" stroke-width="2.200"/></g>
+  <g id="t-leaf"><path d="M60 14c-2-10 4-16 14-16 0 10-4 16-14 16zM60 14c-10 0-14-5-14-13 9 0 14 4 14 13z" fill="#7ed39a" stroke="#7a4b66" stroke-width="2.600" stroke-linejoin="round"/></g>
+  <g id="t-berry"><path d="M60 22c-9 0-14-6-14-13 0-6 6-9 14-9s14 3 14 9c0 7-5 13-14 13z" fill="#ff5d7d" stroke="#7a4b66" stroke-width="2.600"/><path d="M52 1l8 5 8-5" fill="none" stroke="#5dbb7a" stroke-width="3.500" stroke-linecap="round"/><g fill="#ffe08a"><circle cx="54" cy="10" r="1.200"/><circle cx="66" cy="10" r="1.200"/><circle cx="60" cy="15" r="1.200"/></g></g>
+  <g id="t-cream"><path d="M44 22c-6-8 2-14 8-12 0-8 16-8 16 0 6-2 14 4 8 12z" fill="#fff" stroke="#7a4b66" stroke-width="2.600" stroke-linejoin="round"/><circle cx="60" cy="3" r="5.500" fill="#ff5d7d" stroke="#7a4b66" stroke-width="2.400"/></g>
+  <g id="t-petal"><path d="M60 16c-8-6-8-14 0-18 8 4 8 12 0 18z" fill="#ffb7d0" stroke="#7a4b66" stroke-width="2.400" stroke-linejoin="round"/><path d="M60 16c-10 0-15-5-13-13 8 0 13 5 13 13zM60 16c10 0 15-5 13-13-8 0-13 5-13 13z" fill="#ffd0e0" stroke="#7a4b66" stroke-width="2.400" stroke-linejoin="round"/></g>
+  <g id="t-straw"><path d="M74 30L86 0" stroke="#7a4b66" stroke-width="9" stroke-linecap="round"/><path d="M74 30L86 0" stroke="var(--sw,#ff7eb6)" stroke-width="4.500" stroke-linecap="round"/></g>
+  <path id="spark" d="M12 0c1 7 4 10 12 12-8 2-11 5-12 12-1-7-4-10-12-12 8-2 11-5 12-12z"/>
+</defs></svg>
+
+<div class="ctl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<div class="wrap">
+
+<header class="sheet hero">
+  <span class="no"><span lang="en">SHEET 0 / 4</span><span lang="ar">الورقة ٠ / ٤</span></span>
+  <svg class="spark" style="inset-block-start:70px;inset-inline-end:9%"><use href="#spark"/></svg><svg class="spark s2" style="inset-block-start:38%;inset-inline-start:6%;--sc:#b9a8ff"><use href="#spark"/></svg><svg class="spark s3" style="inset-block-end:9%;inset-inline-end:5%;--sc:#8fd8ff"><use href="#spark"/></svg>
+  <p class="kana"><span lang="en">KAWAII DESSERT CAFÉ</span><span lang="ar">مقهى حلويات كاواي</span></p>
+  <h1 class="bub"><span lang="en"><i><b>M</b><b>o</b><b>c</b><b>h</b><b>i</b></i><i><b>M</b><b>o</b><b>c</b><b>h</b><b>i</b></i></span><span lang="ar"><i>موتشي</i><i>موتشي</i></span></h1>
+  <svg class="dango" viewBox="0 0 160 300" role="img" aria-label="Three smiling mochi on a stick">
+    <path d="M80 250v44" stroke="#c99a6b" stroke-width="9" stroke-linecap="round"/>
+    <g transform="translate(20 180)"><g class="m"><use href="#b-mochi" class="halo"/><use href="#b-mochi" class="body" fill="#bfe8c9"/><use href="#f-cat"/></g></g>
+    <g transform="translate(20 96)"><g class="m"><use href="#b-mochi" class="halo"/><use href="#b-mochi" class="body" fill="#fffaf3"/><use href="#f-sleep"/></g></g>
+    <g transform="translate(20 12)"><g class="m"><use href="#b-mochi" class="halo"/><use href="#b-mochi" class="body" fill="#ffc2d8"/><use href="#f-smile"/><use href="#t-leaf" y="4"/></g></g>
+  </svg>
+  <p class="say"><span lang="en"><strong>Mochi-mochi</strong> is what you say in Japanese when something is soft, bouncy and a little bit chewy. That is the whole menu. Peel off whatever looks squishiest; we pound the rice fresh at 10 every morning.</span><span lang="ar"><strong>«موتشي موتشي»</strong> كلمة يقولها اليابانيون عن كل ما هو طريّ ومطّاط ويرتدّ تحت الإصبع. وهذه هي قائمتنا كلّها. انزعوا الملصق الذي يبدو أطرى من غيره؛ فنحن ندقّ الأرز طازجًا كل صباح عند العاشرة.</span></p>
+  <nav class="tabs" aria-label="Sections">
+    <a href="#mochi" style="--c:var(--pink)"><span lang="en">Mochi</span><span lang="ar">موتشي</span></a>
+    <a href="#fluffy" style="--c:var(--sun)"><span lang="en">Fluffy</span><span lang="ar">هشّ ومنفوش</span></a>
+    <a href="#wobbly" style="--c:var(--sky)"><span lang="en">Cold &amp; wobbly</span><span lang="ar">بارد ومهتزّ</span></a>
+    <a href="#sips" style="--c:var(--mint)"><span lang="en">Sips</span><span lang="ar">رشفات</span></a>
+    <a href="#info" style="--c:var(--lav)"><span lang="en">Find us</span><span lang="ar">أين نحن</span></a>
+  </nav>
+  <p class="key"><span><i class="sq" data-s="5"><i></i><i></i><i></i><i></i><i></i></i><span lang="en">= squish level</span><span lang="ar">= درجة الطراوة</span></span><span><span lang="en">prices in yen, tax in</span><span lang="ar">الأسعار بالين وتشمل الضريبة</span></span></p>
+</header>
+
+<section class="sheet" id="mochi" style="--bg:#ffe9f1">
+  <span class="no"><span lang="en">SHEET 1 / 4</span><span lang="ar">الورقة ١ / ٤</span></span>
+  <svg class="spark" style="inset-block-start:26px;inset-inline-end:7%"><use href="#spark"/></svg><svg class="spark s2" style="inset-block-end:30%;inset-inline-start:1.5%"><use href="#spark"/></svg>
+  <div class="ban"><h2 class="bub" style="--tc:var(--pink)"><span lang="en">Mochi</span><span lang="ar">موتشي</span></h2><p><span lang="en">Daifuku made this morning. Soft rice cake outside, a surprise in the middle.</span><span lang="ar">دايفوكو صُنع هذا الصباح. كعكة أرز طرية من الخارج، ومفاجأة في القلب.</span></p></div>
+  <ul class="grid six">
+    <li class="st" style="--c:#ffc2d8;--i:1"><em class="badge"><span lang="en">No.1</span><span lang="ar">الأول</span></em><svg class="ch" viewBox="0 0 120 110"><use href="#b-tall" class="halo"/><use href="#b-tall" class="body" fill="#ffd3e2"/><use href="#f-smile" y="6"/><use href="#t-berry"/></svg><h3><span lang="en">Strawberry daifuku</span><span lang="ar">دايفوكو الفراولة</span></h3><p><span lang="en">A whole strawberry hugged by sweet white bean paste.</span><span lang="ar">حبّة فراولة كاملة يحتضنها معجون الفاصولياء البيضاء الحلو.</span></p><div class="ft"><i class="sq" data-s="5"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥420</b></div></li>
+    <li class="st" style="--c:#bfe3b4;--c2:var(--mint);--i:2"><svg class="ch" viewBox="0 0 120 110"><use href="#b-mochi" class="halo"/><use href="#b-mochi" class="body" fill="#cdeabf"/><use href="#f-sleep"/><use href="#t-leaf" y="6"/></svg><h3><span lang="en">Matcha cream</span><span lang="ar">كريمة الماتشا</span></h3><p><span lang="en">Uji green tea mochi with a cloud of whipped matcha cream.</span><span lang="ar">موتشي بشاي أوجي الأخضر وفي داخله غيمة من كريمة الماتشا.</span></p><div class="ft"><i class="sq" data-s="4"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥400</b></div></li>
+    <li class="st" style="--c:#ffd98a;--c2:var(--sun);--i:3"><svg class="ch" viewBox="0 0 120 110"><use href="#b-tall" class="halo"/><use href="#b-tall" class="body" fill="#ffe3a3"/><use href="#f-wink" y="6"/></svg><h3><span lang="en">Mango cloud</span><span lang="ar">غيمة المانجو</span></h3><p><span lang="en">Ripe mango cubes and light cream in a sunny yellow skin.</span><span lang="ar">مكعّبات مانجو ناضجة وكريمة خفيفة داخل قشرة صفراء مشمسة.</span></p><div class="ft"><i class="sq" data-s="5"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥450</b></div></li>
+    <li class="st" style="--c:#cfc8d8;--c2:var(--lav);--i:4"><svg class="ch" viewBox="0 0 120 110"><use href="#b-mochi" class="halo"/><use href="#b-mochi" class="body" fill="#d9d3e0"/><g fill="#5a4a66"><circle cx="40" cy="34" r="1.800"/><circle cx="56" cy="27" r="1.800"/><circle cx="72" cy="31" r="1.800"/><circle cx="86" cy="40" r="1.800"/><circle cx="28" cy="46" r="1.800"/></g><use href="#f-cat"/></svg><h3><span lang="en">Black sesame</span><span lang="ar">السمسم الأسود</span></h3><p><span lang="en">Nutty, toasty sesame paste. The grown-up one of the family.</span><span lang="ar">معجون سمسم محمّص بنكهة المكسّرات. هو الناضج بين إخوته.</span></p><div class="ft"><i class="sq" data-s="3"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥380</b></div></li>
+    <li class="st" style="--c:#ffc9dc;--i:5"><em class="badge lim"><span lang="en">Spring</span><span lang="ar">ربيعي</span></em><svg class="ch" viewBox="0 0 120 110"><use href="#b-tall" class="halo"/><use href="#b-tall" class="body" fill="#ffe1ea"/><use href="#f-smile" y="6"/><use href="#t-petal" y="2"/></svg><h3><span lang="en">Sakura</span><span lang="ar">ساكورا</span></h3><p><span lang="en">Pink mochi, red bean, one salted cherry blossom on top.</span><span lang="ar">موتشي ورديّ بالفاصولياء الحمراء، تعلوه زهرة كرز مملّحة.</span></p><div class="ft"><i class="sq" data-s="4"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥430</b></div></li>
+    <li class="st" style="--c:#d7b79b;--c2:#b98562;--i:6"><svg class="ch" viewBox="0 0 120 110"><use href="#b-mochi" class="halo"/><use href="#b-mochi" class="body" fill="#c99a78"/><use href="#f-wow"/></svg><h3><span lang="en">Choco ganache</span><span lang="ar">غاناش الشوكولاتة</span></h3><p><span lang="en">Cocoa mochi with a melting dark chocolate heart.</span><span lang="ar">موتشي بالكاكاو وقلب من الشوكولاتة الداكنة الذائبة.</span></p><div class="ft"><i class="sq" data-s="4"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥440</b></div></li>
+  </ul>
+  <div class="set">
+    <div class="trio" aria-hidden="true"><svg viewBox="0 0 120 110"><use href="#b-mochi" class="halo"/><use href="#b-mochi" class="body" fill="#ffd3e2"/><use href="#f-smile"/></svg><svg viewBox="0 0 120 110"><use href="#b-mochi" class="halo"/><use href="#b-mochi" class="body" fill="#fffaf3"/><use href="#f-wink"/></svg><svg viewBox="0 0 120 110"><use href="#b-mochi" class="halo"/><use href="#b-mochi" class="body" fill="#cdeabf"/><use href="#f-cat"/></svg></div>
+    <h3 class="bub"><span lang="en">Besties set</span><span lang="ar">طقم الأصحاب</span></h3>
+    <p><span lang="en">Any three mochi and any drink from the Sips sheet. Sharing is optional, we won't tell.</span><span lang="ar">أي ثلاث حبّات موتشي مع أي مشروب من ورقة الرشفات. المشاركة اختيارية، ولن نخبر أحدًا.</span></p>
+    <b class="pr">¥1,500</b>
+  </div>
+</section>
+
+<section class="sheet" id="fluffy" style="--bg:#fff3d9">
+  <span class="no"><span lang="en">SHEET 2 / 4</span><span lang="ar">الورقة ٢ / ٤</span></span>
+  <svg class="spark" style="inset-block-start:30px;inset-inline-end:10%;--sc:#ffc766"><use href="#spark"/></svg><svg class="spark s3" style="inset-block-end:8%;inset-inline-start:2%;--sc:#ffc766"><use href="#spark"/></svg>
+  <div class="ban"><h2 class="bub" style="--tc:var(--sun)"><span lang="en">Fluffy</span><span lang="ar">هشّ ومنفوش</span></h2><p><span lang="en">Warm things that jiggle when the plate lands. Allow 15 minutes; fluff can't be hurried.</span><span lang="ar">أطباق دافئة ترتجف حين يوضع الصحن أمامكم. أمهلونا ١٥ دقيقة؛ فالهشاشة لا تُستعجل.</span></p></div>
+  <ul class="grid">
+    <li class="st" style="--c:#ffd98a;--c2:var(--sun);--i:2"><em class="badge"><span lang="en">Jiggly</span><span lang="ar">يرتجف</span></em><svg class="ch" viewBox="0 0 120 110"><use href="#b-stack" class="halo"/><use href="#b-stack" class="body" fill="#ffd98a"/><path class="ol" d="M20 40h80M20 62h80" opacity=".5"/><use href="#f-smile" y="14"/><path d="M48 18h24v8H48z" fill="#fff6c9" stroke="#7a4b66" stroke-width="2.400" stroke-linejoin="round"/></svg><h3><span lang="en">Soufflé pancakes</span><span lang="ar">بان كيك السوفليه</span></h3><p><span lang="en">Three cloud-thick pancakes, whipped honey butter, maple syrup on the side.</span><span lang="ar">ثلاث فطائر بسماكة الغيم، مع زبدة العسل المخفوقة وشراب القيقب على الجنب.</span></p><div class="ft"><i class="sq" data-s="5"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥1,280</b></div></li>
+    <li class="st" style="--c:#f3c98f;--c2:#d99a4e;--i:4"><svg class="ch" viewBox="0 0 120 110"><use href="#b-toast" class="halo"/><use href="#b-toast" class="body" fill="#ffe2b0"/><path class="ol" d="M32 34c-6-8 2-14 8-10M88 34c6-8-2-14-8-10" opacity=".6"/><use href="#f-cat" y="4"/></svg><h3><span lang="en">Bear honey toast</span><span lang="ar">توست الدبّ بالعسل</span></h3><p><span lang="en">Thick milk bread toasted golden, honey, vanilla ice cream, banana ears.</span><span lang="ar">خبز حليب سميك محمّص حتى يذهّب، مع العسل وآيس كريم الفانيلا وأذنين من الموز.</span></p><div class="ft"><i class="sq" data-s="3"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥1,150</b></div></li>
+    <li class="st" style="--c:#f0c38a;--c2:#d99a4e;--i:6"><svg class="ch" viewBox="0 0 120 110"><use href="#b-fish" class="halo"/><use href="#b-fish" class="body" fill="#f6cf94"/><path class="ol" d="M70 44c6 8 6 22 0 30M80 46c5 7 5 19 0 26" opacity=".5"/><g transform="translate(-14 0)"><use href="#f-smile"/></g></svg><h3><span lang="en">Custard taiyaki</span><span lang="ar">تاياكي الكاسترد</span></h3><p><span lang="en">A crisp fish-shaped waffle full of warm vanilla custard. Head or tail first?</span><span lang="ar">وافل مقرمش على شكل سمكة محشوّ بكاسترد الفانيلا الدافئ. من الرأس أم من الذيل؟</span></p><div class="ft"><i class="sq" data-s="2"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥520</b></div></li>
+    <li class="st" style="--c:#ffc2d8;--i:8"><svg class="ch" viewBox="0 0 120 110"><use href="#b-sando" class="halo"/><use href="#b-sando" class="body" fill="#fffaf3"/><path d="M34 90l26-46 26 46z" fill="#fff" stroke="#f3d9c2" stroke-width="2"/><use href="#f-wink" y="14" transform="translate(12 12) scale(.8)"/><circle cx="60" cy="38" r="7" fill="#ff5d7d" stroke="#7a4b66" stroke-width="2.400"/></svg><h3><span lang="en">Strawberry sando</span><span lang="ar">ساندو الفراولة</span></h3><p><span lang="en">Pillow-soft shokupan, chilled cream and strawberries cut to show their hearts.</span><span lang="ar">خبز شوكوبان بنعومة الوسادة، مع كريمة باردة وفراولة مقطوعة لتُظهر قلوبها.</span></p><div class="ft"><i class="sq" data-s="4"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥780</b></div></li>
+  </ul>
+</section>
+
+<section class="sheet" id="wobbly" style="--bg:#e3f4ff">
+  <span class="no"><span lang="en">SHEET 3 / 4</span><span lang="ar">الورقة ٣ / ٤</span></span>
+  <svg class="spark" style="inset-block-start:28px;inset-inline-end:8%;--sc:#8fd8ff"><use href="#spark"/></svg><svg class="spark s2" style="inset-block-end:12%;inset-inline-end:2%;--sc:#8fd8ff"><use href="#spark"/></svg>
+  <div class="ban"><h2 class="bub" style="--tc:var(--sky)"><span lang="en">Cold &amp; wobbly</span><span lang="ar">بارد ومهتزّ</span></h2><p><span lang="en">Poke gently. They like it.</span><span lang="ar">انكزوها برفق. فهي تحبّ ذلك.</span></p></div>
+  <ul class="grid five">
+    <li class="st" style="--c:#ffe08a;--c2:var(--sun);--i:1"><svg class="ch" viewBox="0 0 120 110"><use href="#b-pud" class="halo"/><use href="#b-pud" class="body" fill="#ffe7a0"/><use href="#b-pudtop" fill="#b9692c" stroke="#7a4b66" stroke-width="3" stroke-linejoin="round"/><use href="#f-smile" y="12"/><use href="#t-cream" y="8"/></svg><h3><span lang="en">Purin</span><span lang="ar">بورين</span></h3><p><span lang="en">Old-school custard pudding with bitter caramel, cream and a cherry.</span><span lang="ar">بودينغ الكاسترد على الطريقة القديمة مع كراميل مائل للمرارة وكريمة وحبّة كرز.</span></p><div class="ft"><i class="sq" data-s="5"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥560</b></div></li>
+    <li class="st" style="--c:#ffc2d8;--i:3"><svg class="ch" viewBox="0 0 120 110"><use href="#b-dome" class="halo"/><use href="#b-dome" class="body" fill="#fff"/><path d="M26 44c2-18 16-32 34-32s32 14 34 32c-8 6-14-4-22 2s-14-4-22 2-16 0-24-4z" fill="#ff9fc0" opacity=".85"/><use href="#b-bowl" fill="#9fdcf5" stroke="#7a4b66" stroke-width="3" stroke-linejoin="round"/><use href="#f-wow" y="12"/></svg><h3><span lang="en">Strawberry kakigori</span><span lang="ar">كاكيغوري الفراولة</span></h3><p><span lang="en">A mountain of feather-shaved ice, fresh strawberry syrup, condensed milk.</span><span lang="ar">جبل من الثلج المبشور كالريش، مع شراب الفراولة الطازج والحليب المكثّف.</span></p><div class="ft"><i class="sq" data-s="1"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥890</b></div></li>
+    <li class="st" style="--c:#c9bcff;--c2:var(--lav);--i:5"><svg class="ch" viewBox="0 0 120 110"><use href="#b-mochi" class="halo"/><use href="#b-mochi" class="body" fill="#ddd4ff"/><use href="#f-sleep"/><path d="M46 20q14-8 28 0" class="ol" stroke="#fff" opacity=".9"/></svg><h3><span lang="en">Mochi ice trio</span><span lang="ar">ثلاثي الموتشي المثلّج</span></h3><p><span lang="en">Three ice-cream mochi: vanilla, matcha and strawberry milk.</span><span lang="ar">ثلاث حبّات موتشي بالآيس كريم: فانيلا وماتشا وحليب الفراولة.</span></p><div class="ft"><i class="sq" data-s="4"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥720</b></div></li>
+    <li class="st" style="--c:#bfe6f7;--c2:var(--sky);--i:7"><em class="badge lim"><span lang="en">20/day</span><span lang="ar">٢٠ يوميًا</span></em><svg class="ch" viewBox="0 0 120 110"><use href="#b-mochi" class="halo"/><use href="#b-mochi" class="body" fill="#e4f6ff"/><path d="M30 44q8-16 26-18" class="ol" stroke="#fff" stroke-width="5"/><use href="#f-smile"/></svg><h3><span lang="en">Raindrop cake</span><span lang="ar">كعكة قطرة المطر</span></h3><p><span lang="en">Crystal-clear and trembling, with roasted soy flour and black sugar syrup.</span><span lang="ar">شفّافة كالبلّور وترتعش، مع دقيق الصويا المحمّص وشراب السكّر الأسود.</span></p><div class="ft"><i class="sq" data-s="5"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥650</b></div></li>
+    <li class="st" style="--c:#ffc2d8;--i:9"><svg class="ch" viewBox="0 0 120 110"><use href="#b-glass" class="halo"/><use href="#b-glass" class="body" fill="#fff"/><path d="M26 22h68l-5 20H31z" fill="#ffc2d8"/><path d="M31 42h58l-5 18H36z" fill="#fff3c9"/><path d="M36 60h48c-3 8-8 11-14 12H50c-6-1-11-4-14-12z" fill="#cdeabf"/><use href="#b-glass" class="ol"/><use href="#f-cat" y="-12" transform="translate(9 9) scale(.85)"/><use href="#t-cream" y="-2"/></svg><h3><span lang="en">Parfait tower</span><span lang="ar">برج البارفيه</span></h3><p><span lang="en">Matcha jelly, cornflakes, custard, strawberries, soft-serve and a tiny mochi.</span><span lang="ar">جيلي الماتشا ورقائق الذرة والكاسترد والفراولة والآيس كريم الطري وحبّة موتشي صغيرة.</span></p><div class="ft"><i class="sq" data-s="3"><i></i><i></i><i></i><i></i><i></i></i><b class="pr">¥1,380</b></div></li>
+  </ul>
+</section>
+
+<section class="sheet" id="sips" style="--bg:#e2f8ef">
+  <span class="no"><span lang="en">SHEET 4 / 4</span><span lang="ar">الورقة ٤ / ٤</span></span>
+  <svg class="spark" style="inset-block-start:28px;inset-inline-end:9%;--sc:#7fe0c6"><use href="#spark"/></svg><svg class="spark s3" style="inset-block-end:10%;inset-inline-start:1.5%;--sc:#7fe0c6"><use href="#spark"/></svg>
+  <div class="ban"><h2 class="bub" style="--tc:var(--mint)"><span lang="en">Sips</span><span lang="ar">رشفات</span></h2><p><span lang="en">All alcohol-free, all very photogenic. Oat or soy milk on request.</span><span lang="ar">كلّها خالية من الكحول، وكلّها تحبّ التصوير. حليب الشوفان أو الصويا عند الطلب.</span></p></div>
+  <ul class="grid five">
+    <li class="st" style="--c:#ffc2d8;--i:2"><svg class="ch" viewBox="0 0 120 110"><use href="#t-straw"/><use href="#b-cup" class="halo"/><use href="#b-cup" class="body" fill="#ffd3e2"/><path d="M26 28h68l-1.500 10h-65z" fill="#fff" stroke="#7a4b66" stroke-width="3" stroke-linejoin="round"/><use href="#f-smile" y="8"/></svg><h3><span lang="en">Strawberry milk</span><span lang="ar">حليب الفراولة</span></h3><p><span lang="en">Crushed fresh strawberries stirred through cold Hokkaido milk.</span><span lang="ar">فراولة طازجة مهروسة تُمزج بحليب هوكايدو البارد.</span></p><div class="ft"><b class="pr">¥580</b></div></li>
+    <li class="st" style="--c:#bfe3b4;--c2:var(--mint);--i:4"><svg class="ch" viewBox="0 0 120 110"><use href="#b-cup" class="halo"/><use href="#b-cup" class="body" fill="#cdeabf"/><path d="M26 28h68l-1.500 10h-65z" fill="#fffaf3" stroke="#7a4b66" stroke-width="3" stroke-linejoin="round"/><use href="#f-cat" y="8"/><path d="M40 26c-4-10 6-14 10-8M80 26c4-10-6-14-10-8" fill="#fffaf3" stroke="#7a4b66" stroke-width="2.600" stroke-linejoin="round"/></svg><h3><span lang="en">Bear matcha latte</span><span lang="ar">لاتيه الماتشا بالدبّ</span></h3><p><span lang="en">Whisked ceremonial matcha, steamed milk, a foam bear who watches you drink.</span><span lang="ar">ماتشا فاخرة مخفوقة وحليب مبخّر، ودبّ من الرغوة يراقبكم وأنتم تشربون.</span></p><div class="ft"><b class="pr">¥620</b></div></li>
+    <li class="st" style="--c:#a8ecc4;--c2:var(--mint);--i:6"><em class="badge"><span lang="en">Retro</span><span lang="ar">أيام زمان</span></em><svg class="ch" viewBox="0 0 120 110"><use href="#t-straw" style="--sw:#ffab2e"/><use href="#b-cup" class="halo"/><use href="#b-cup" class="body" fill="#9be8b7"/><g fill="#fff" opacity=".8"><circle cx="40" cy="80" r="3"/><circle cx="78" cy="84" r="2.500"/><circle cx="84" cy="50" r="2"/></g><use href="#f-wink" y="10"/><use href="#t-cream" y="14"/></svg><h3><span lang="en">Melon cream soda</span><span lang="ar">صودا الشمّام بالكريمة</span></h3><p><span lang="en">Emerald fizz, a scoop of vanilla ice cream floating, a cherry on top.</span><span lang="ar">فوّار بلون الزمرّد تطفو فوقه كرة آيس كريم فانيلا وتعلوه حبّة كرز.</span></p><div class="ft"><b class="pr">¥680</b></div></li>
+    <li class="st" style="--c:#e3c7a6;--c2:#b98562;--i:8"><svg class="ch" viewBox="0 0 120 110"><use href="#t-straw" style="--sw:#7a4b66"/><use href="#b-cup" class="halo"/><use href="#b-cup" class="body" fill="#ecd3b4"/><g fill="#5a3a2c"><circle cx="46" cy="88" r="4"/><circle cx="56" cy="90" r="4"/><circle cx="66" cy="90" r="4"/><circle cx="76" cy="88" r="4"/><circle cx="51" cy="82" r="4"/><circle cx="71" cy="82" r="4"/><circle cx="61" cy="83" r="4"/></g><use href="#f-sleep" y="0"/></svg><h3><span lang="en">Hojicha boba</span><span lang="ar">هوجيتشا بالبوبا</span></h3><p><span lang="en">Roasted green tea with milk and brown-sugar tapioca pearls. Extra chewy.</span><span lang="ar">شاي أخضر محمّص بالحليب مع لآلئ التابيوكا بالسكّر البنّي. مطّاطي جدًّا.</span></p><div class="ft"><b class="pr">¥640</b></div></li>
+    <li class="st" style="--c:#ffe58f;--c2:var(--sun);--i:10"><svg class="ch" viewBox="0 0 120 110"><use href="#t-straw" style="--sw:#4bbcf5"/><use href="#b-cup" class="halo"/><use href="#b-cup" class="body" fill="#fff3b8"/><circle cx="82" cy="34" r="12" fill="#ffd84d" stroke="#7a4b66" stroke-width="2.600"/><g fill="#fff" opacity=".9"><circle cx="38" cy="78" r="2.500"/><circle cx="50" cy="86" r="2"/><circle cx="74" cy="82" r="2.500"/></g><use href="#f-wow" y="8"/></svg><h3><span lang="en">Yuzu sparkle</span><span lang="ar">فوّار اليوزو</span></h3><p><span lang="en">Japanese citrus, honey and soda. Wakes you up after too much mochi.</span><span lang="ar">حمضيات يابانية وعسل وصودا. يوقظكم بعد الإفراط في الموتشي.</span></p><div class="ft"><b class="pr">¥560</b></div></li>
+  </ul>
+</section>
+
+<footer class="sheet info" id="info">
+  <span class="no"><span lang="en">BONUS LABELS</span><span lang="ar">ملصقات إضافية</span></span>
+  <div class="ban"><h2 class="bub" style="--tc:var(--lav)"><span lang="en">Find us</span><span lang="ar">أين نحن</span></h2><p><span lang="en">Stick these somewhere you'll see them.</span><span lang="ar">الصقوها حيث ترونها دائمًا.</span></p></div>
+  <div class="cards">
+    <div class="tagc" style="--c:var(--pink)"><h3><span lang="en">Open hours</span><span lang="ar">ساعات العمل</span></h3><div><dl><dt><span lang="en">Tue – Fri</span><span lang="ar">الثلاثاء – الجمعة</span></dt><dd>11:00 – 20:00</dd><dt><span lang="en">Sat – Sun</span><span lang="ar">السبت – الأحد</span></dt><dd>10:00 – 21:00</dd><dt><span lang="en">Monday</span><span lang="ar">الاثنين</span></dt><dd><span lang="en">nap day</span><span lang="ar">يوم القيلولة</span></dd></dl></div></div>
+    <div class="tagc" style="--c:var(--mint)"><h3><span lang="en">Hello, we live at</span><span lang="ar">مرحبًا، نسكن هنا</span></h3><div><p><span lang="en">2F, 3-14-7 Jingumae, Cat Street, Harajuku, Tokyo. Up the pink stairs.</span><span lang="ar">الطابق الثاني، ٣-١٤-٧ جينغوماي، شارع القطط، هاراجوكو، طوكيو. اصعدوا الدرج الوردي.</span></p><p><span dir="ltr">03-5550-0175</span></p></div></div>
+    <div class="tagc" style="--c:var(--sun)"><h3><span lang="en">Tummy notes</span><span lang="ar">ملاحظات للمعدة</span></h3><div><p><span lang="en">Our sweets contain milk, egg, wheat and soy; some contain sesame or nuts. Mochi is chewy: small bites for small people. No alcohol, no gelatine (we use agar), no pork.</span><span lang="ar">حلوياتنا تحتوي على الحليب والبيض والقمح والصويا، وبعضها على السمسم أو المكسّرات. الموتشي مطّاطي: لقمات صغيرة للصغار. لا كحول ولا جيلاتين (نستعمل الأغار) ولا لحم خنزير.</span></p></div></div>
+  </div>
+  <p class="bye"><span lang="en">Thank you for being soft today.</span><span lang="ar">شكرًا لأنكم كنتم لطفاء اليوم.</span></p>
+</footer>
+
+</div>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

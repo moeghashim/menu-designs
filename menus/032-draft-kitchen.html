@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Draft Kitchen · مطبخ المخطط</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Draft Kitchen — engineered sandwiches, drawn to scale and built to order. مطبخ المخطط: ساندويتشات هندسية تُرسم بمقياس وتُبنى عند الطلب.">
+<meta name="theme-color" content="#0f4f96">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Playpen+Sans+Arabic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--bp:#0f4f96;--bp2:#0b3f7c;--ln:#eaf4ff;--dim:#a9cdf2;--faint:#ffffff26;--hot:#ffb38a;
+  --hand:'Architects Daughter','Playpen Sans Arabic','Comic Sans MS',cursive;--mono:'IBM Plex Mono','IBM Plex Sans Arabic',ui-monospace,Menlo,monospace}
+html[lang="ar"]{--hand:'Playpen Sans Arabic','Architects Daughter','Tahoma',sans-serif;--mono:'IBM Plex Sans Arabic','IBM Plex Mono','Tahoma',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{font-family:var(--mono);font-size:15px;line-height:1.55;color:var(--ln);background-color:var(--bp);
+  background-image:radial-gradient(ellipse at 50% 0,#ffffff14,transparent 60%),
+   linear-gradient(#ffffff2e 1px,transparent 1px),linear-gradient(90deg,#ffffff2e 1px,transparent 1px),
+   linear-gradient(#ffffff12 1px,transparent 1px),linear-gradient(90deg,#ffffff12 1px,transparent 1px);
+  background-size:100% 900px,100px 100px,100px 100px,20px 20px,20px 20px;background-repeat:no-repeat,repeat,repeat,repeat,repeat;
+  padding:clamp(8px,1.6vw,24px)}
+html[lang="ar"] body{font-size:16.5px;line-height:1.8}
+a{color:inherit}
+:focus-visible{outline:2px dashed var(--hot);outline-offset:3px}
+.up{text-transform:uppercase;letter-spacing:.08em}
+html[lang="ar"] .up{letter-spacing:0}
+
+/* sheet frame with zone rulers */
+.sheet{max-width:1480px;margin-inline:auto;border:3px solid var(--ln);position:relative;background:#0f4f9699}
+.ruler{display:flex;border-bottom:1px solid var(--ln);font-size:11px;color:var(--dim)}
+.ruler.b{border-bottom:0;border-top:1px solid var(--ln)}
+.ruler span{flex:1;text-align:center;padding:1px 0;border-inline-start:1px solid var(--ln)}
+.ruler span:first-child{border:0}
+.inner{padding:clamp(12px,2.2vw,34px)}
+
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:clamp(14px,2vw,26px);font-size:12.5px;color:var(--dim)}
+html[lang="ar"] .top{font-size:14px}
+.ctrl{display:flex;gap:8px}
+#langToggle,.home-link{font:500 14px/1 var(--mono);color:var(--ln);background:var(--bp2);border:1.5px solid var(--ln);min-height:40px;padding:0 14px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;text-decoration:none}
+#langToggle::before{content:"REV";font-size:10px;border:1px solid var(--ln);padding:2px 4px;border-radius:50%/60%}
+#langToggle:hover,.home-link:hover{background:var(--ln);color:var(--bp2)}
+.home-link svg{width:14px;height:14px}
+
+/* HERO: general arrangement */
+.ga{display:grid;gap:clamp(18px,3vw,44px);grid-template-columns:1fr}
+.explode{position:relative;display:grid;grid-template-columns:52% 48%;border:1.5px solid var(--ln);padding:14px 10px 34px;background:#0b3f7c66}
+.explode>svg{width:100%;height:auto;display:block}
+html[dir="rtl"] .explode>svg{transform:scaleX(-1)}
+.explode svg *{fill:none;stroke:var(--ln);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.explode .sl path,.explode .sl ellipse{fill:var(--bp)}
+.explode .thin{stroke-width:.9;fill:none!important}
+.explode .axis{stroke-dasharray:14 4 2 4;stroke-width:.9;stroke:var(--dim)}
+.explode .ld{stroke-width:.9;stroke:var(--dim)}
+.explode .dot{fill:var(--ln)}
+.explode .dim,.explode .ext{stroke-width:.9;stroke:var(--hot)}
+.explode .ext{stroke-dasharray:3 4;opacity:.6}
+.explode .arr{stroke:var(--hot)}
+.sl{animation:float 5s ease-in-out infinite alternate}
+.sl:nth-of-type(odd){animation-delay:-2.5s}
+@keyframes float{from{transform:translateY(-2.5px)}to{transform:translateY(2.5px)}}
+.labels{position:relative;list-style:none}
+.labels li{position:absolute;inset-inline:6px 0;top:var(--y);transform:translateY(-50%);display:flex;gap:8px;align-items:center;line-height:1.2}
+.labels b{flex:none;width:24px;height:24px;border:1.5px solid var(--ln);border-radius:50%;display:grid;place-items:center;font:600 12px/1 'IBM Plex Mono',monospace;background:var(--bp)}
+.labels .t{font-family:var(--hand);font-size:14px}
+html[lang="en"] .labels .t{text-transform:uppercase}
+.labels small{display:none;font-size:12px;color:var(--dim);font-family:var(--mono);text-transform:none}
+.dimtxt{position:absolute;font:500 11.5px/1 'IBM Plex Mono',monospace;color:var(--hot);background:var(--bp2);padding:2px 4px;direction:ltr}
+.dimtxt.h{inset-inline-start:0;top:47%;transform:rotate(-90deg)}
+.dimtxt.w{bottom:38px;inset-inline-start:16%}
+.cap{position:absolute;bottom:6px;inset-inline:10px;text-align:end;font-size:11.5px;color:var(--dim)}
+html[lang="ar"] .cap{font-size:13px}
+
+.id h1{font-family:var(--hand);font-weight:400;font-size:clamp(44px,8.4vw,120px);line-height:1.06;position:relative;display:inline-block;padding-inline:4px;
+  background:linear-gradient(var(--faint),var(--faint)) 0 .2em/100% 1px no-repeat,linear-gradient(var(--faint),var(--faint)) 0 .86em/100% 1px no-repeat,
+   linear-gradient(var(--faint),var(--faint)) 0 1.26em/100% 1px no-repeat,linear-gradient(var(--faint),var(--faint)) 0 1.92em/100% 1px no-repeat}
+html[lang="en"] .id h1{text-transform:uppercase}
+html[lang="ar"] .id h1{font-weight:700;line-height:1.5;font-size:clamp(42px,7.6vw,104px);background:none;border-block:1px solid var(--faint)}
+.id h1 span{display:block}
+.tag{font-family:var(--hand);font-size:clamp(18px,2vw,26px);color:var(--hot);margin-top:10px}
+.intro{max-width:52ch;margin-top:14px;font-size:15.5px}
+html[lang="ar"] .intro{font-size:17px}
+.stamp{display:inline-block;margin-top:20px;border:3px double var(--hot);color:var(--hot);padding:8px 16px;font-family:var(--hand);font-size:clamp(15px,1.4vw,19px);line-height:1.25;transform:rotate(-4deg);text-align:center;border-radius:4px}
+html[lang="en"] .stamp{text-transform:uppercase;letter-spacing:.06em}
+
+/* title block */
+.tb{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ln);margin-top:clamp(20px,3vw,34px);background:#0b3f7c66}
+.tb div{padding:7px 10px;border:.75px solid var(--ln);min-width:0}
+.tb .w2{grid-column:span 2}.tb .w4{grid-column:span 4}
+.tb dt,.tb .k{display:block;font-size:10.5px;color:var(--dim)}
+html[lang="ar"] .tb .k{font-size:12.5px}
+.tb .v{font-family:var(--hand);font-size:17px;line-height:1.3}
+html[lang="en"] .tb .v{text-transform:uppercase}
+
+/* drawing index */
+.index{margin-block:clamp(22px,3vw,40px);border:1.5px solid var(--ln);display:grid;grid-template-columns:repeat(2,1fr)}
+.index h2{grid-column:1/-1;font:500 12px/1 var(--mono);padding:8px 10px;border-bottom:1.5px solid var(--ln);color:var(--dim)}
+html[lang="ar"] .index h2{font-size:14px}
+.index a{display:flex;gap:10px;align-items:baseline;padding:11px 10px;text-decoration:none;border:.5px solid #ffffff55;min-height:46px;font-family:var(--hand);font-size:16px}
+html[lang="en"] .index a{text-transform:uppercase}
+.index a i{font:500 12px/1 'IBM Plex Mono',monospace;color:var(--hot);font-style:normal;flex:none}
+.index a:hover{background:var(--ln);color:var(--bp2)}
+
+/* sheets */
+.sh{display:grid;grid-template-columns:1fr;gap:16px 34px;padding-block:clamp(22px,3vw,40px);border-top:1.5px dashed var(--ln)}
+.det{position:relative;border:1.5px solid var(--ln);padding:14px;background:#0b3f7c66;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center}
+.det .no{font:600 13px/1 'IBM Plex Mono',monospace;border:1.5px solid var(--ln);border-radius:50%;width:58px;height:58px;display:grid;place-items:center;position:relative;direction:ltr}
+.det .no::after{content:"";position:absolute;inset-inline:-1px;top:50%;border-top:1.5px solid var(--ln);opacity:0}
+.det h2{font-family:var(--hand);font-weight:400;font-size:clamp(26px,3vw,38px);line-height:1.15}
+html[lang="en"] .det h2{text-transform:uppercase}
+html[lang="ar"] .det h2{font-weight:700;line-height:1.4}
+.det p{grid-column:1/-1;font-size:13.5px;color:var(--dim)}
+html[lang="ar"] .det p{font-size:15px}
+.det svg{grid-column:1/-1;width:100%;max-width:300px;height:auto;justify-self:center;margin-block:6px}
+.det svg *{fill:none;stroke:var(--ln);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.det svg .c{stroke-dasharray:12 3 2 3;stroke-width:.8;stroke:var(--dim)}
+.det svg .d{stroke:var(--hot);stroke-width:.9}
+.det svg .h{stroke-width:.7}
+.det svg{direction:ltr}
+.det svg text{stroke:none;fill:var(--hot);font:500 10px 'IBM Plex Mono',monospace}
+
+.sched{border:1.5px solid var(--ln);align-self:start}
+.hd,.row{display:grid;grid-template-columns:64px minmax(0,1fr) 64px 78px;align-items:stretch}
+.hd{font-size:11px;color:var(--dim);border-bottom:1.5px solid var(--ln);background:#0b3f7c99}
+html[lang="ar"] .hd{font-size:13px}
+.hd>*,.row>*{padding:10px;border-inline-start:.75px solid #ffffff66}
+.hd>*:first-child,.row>*:first-child{border-inline-start:0}
+.row{border-bottom:.75px solid #ffffff66}
+.row:last-child{border-bottom:0}
+.row:hover{background:#ffffff10}
+.mk{display:grid;place-items:center}
+.mk b{font:600 12px/1 'IBM Plex Mono',monospace;border:1.5px solid var(--ln);padding:7px 0;width:46px;text-align:center;clip-path:polygon(18% 0,82% 0,100% 50%,82% 100%,18% 100%,0 50%);background:var(--ln);color:var(--bp2);direction:ltr}
+.row h3{font-family:var(--hand);font-weight:400;font-size:19px;line-height:1.25}
+html[lang="en"] .row h3{text-transform:uppercase}
+html[lang="ar"] .row h3{font-weight:700;font-size:19px;line-height:1.5}
+.row h3 i{font-style:normal;color:var(--hot);font-size:.8em;margin-inline-start:6px;font-family:'IBM Plex Mono',monospace}
+.row p{font-size:14.5px;color:#d5e8fb;margin-top:2px}
+html[lang="ar"] .row p{font-size:16px}
+.ly{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:500 12px/1 'IBM Plex Mono',monospace;color:var(--dim)}
+.ly::before{content:"";width:30px;height:calc(var(--n)*5px - 2px);background:repeating-linear-gradient(var(--ln) 0 3px,transparent 3px 5px)}
+.pr{display:grid;place-items:center;font:600 16px/1 'IBM Plex Mono',monospace;unicode-bidi:isolate;white-space:nowrap}
+
+/* footer blocks */
+.foot{display:grid;grid-template-columns:1fr;gap:18px;padding-top:clamp(22px,3vw,40px);border-top:1.5px dashed var(--ln)}
+.blk{border:1.5px solid var(--ln);background:#0b3f7c66}
+.blk h2{font:500 12px/1 var(--mono);padding:9px 12px;border-bottom:1.5px solid var(--ln);color:var(--dim)}
+html[lang="ar"] .blk h2{font-size:14px}
+.blk ol,.blk ul{list-style:none;padding:10px 12px;counter-reset:n}
+.blk ol li{counter-increment:n;display:grid;grid-template-columns:26px 1fr;padding-block:4px;font-size:14.5px}
+html[lang="ar"] .blk li{font-size:16px}
+.blk ol li::before{content:counter(n) ".";color:var(--hot);font-family:'IBM Plex Mono',monospace}
+.blk ul li{display:grid;grid-template-columns:34px 1fr;padding-block:4px;font-size:14.5px;align-items:center}
+.blk ul li i{font-style:normal;color:var(--hot);font-family:'IBM Plex Mono',monospace}
+.rev{display:grid;grid-template-columns:auto 1fr auto}
+.rev>*{padding:8px 12px;border-bottom:.75px solid #ffffff66;font-size:14.5px}
+html[lang="ar"] .rev>*{font-size:16px}
+.rev>*:nth-last-child(-n+3){border-bottom:0}
+.rev b{color:var(--hot);font-weight:500;font-family:'IBM Plex Mono',monospace}
+.rev .t{direction:ltr;unicode-bidi:isolate;font-family:'IBM Plex Mono',monospace;text-align:end}
+.site{padding:12px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center}
+.site svg{width:64px;height:64px}
+.site svg *{fill:none;stroke:var(--ln);stroke-width:1.4}
+.site svg .f{fill:var(--ln)}
+.site p{font-size:14.5px}
+html[lang="ar"] .site p{font-size:16px}
+.scale{grid-column:1/-1;display:flex;align-items:center;gap:10px;font-size:11.5px;color:var(--dim)}
+.scale i{flex:1;max-width:220px;height:8px;border:1px solid var(--ln);background:repeating-linear-gradient(90deg,var(--ln) 0 25%,transparent 25% 50%)}
+.end{margin-top:22px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--dim)}
+html[lang="ar"] .end{font-size:14px}
+
+@media (min-width:600px){
+  .labels small{display:block}
+  .labels .t{font-size:16px}
+  .index{grid-template-columns:repeat(5,1fr)}
+  .index a{flex-direction:column;gap:6px}
+}
+@media (min-width:980px){
+  .ga{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center}
+  .explode{padding:20px 16px 34px}
+  .labels .t{font-size:18px}
+  .sh{grid-template-columns:300px minmax(0,1fr)}
+  .det{display:block;position:sticky;top:16px;align-self:start}
+  .det .no{margin-bottom:10px}
+  .det svg{display:block;margin:14px auto 10px}
+  .hd,.row{grid-template-columns:76px minmax(0,1fr) 84px 96px}
+  .row>*{padding:12px 14px}
+  .foot{grid-template-columns:1.3fr 1fr 1fr}
+  .foot .blk.wide{grid-column:auto}
+}
+@media (max-width:599px){
+  .hd{display:none}
+  .row{grid-template-columns:54px minmax(0,1fr) auto;grid-template-areas:"mk d pr" "mk d ly"}
+  .row>*{border-inline-start:0;padding:10px 8px}
+  .mk{grid-area:mk;align-items:start;padding-top:14px!important}
+  .row .d{grid-area:d;padding-inline:2px!important}
+  .pr{grid-area:pr;align-items:end;padding-bottom:2px!important}
+  .ly{grid-area:ly;justify-content:flex-start;padding-top:4px!important}
+  .tb{grid-template-columns:repeat(2,1fr)}
+  .tb .w4{grid-column:span 2}
+  .index a:last-of-type{grid-column:1/-1}
+  .ruler span:nth-child(n+5){display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="ruler" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+  <div class="inner">
+    <div class="top">
+      <span class="up"><span lang="en">DWG No. DK-032 · General arrangement</span><span lang="ar">لوحة رقم DK-032 · المسقط العام</span></span>
+      <div class="ctrl">
+        <a class="home-link" href="../index.html"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 1h5v5H1zM8 1h5v5H8zM1 8h5v5H1zM8 8h5v5H8z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+        <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+      </div>
+    </div>
+
+    <header class="ga">
+      <div class="explode">
+        <svg viewBox="0 0 360 600" aria-hidden="true"><path d="M160 6V590" class="axis"/><g class="sl "><path d="M50 470v26L160 536v-26Z"/><path d="M270 470v26L160 536v-26Z"/><path d="M160 430L270 470L160 510L50 470Z"/></g><path d="M70 488l8 4M95 500l8 4M120 511l8 4M190 515l8-4M215 503l8-4M240 492l8-4" class="thin"/><g class="sl "><path d="M56 380v22L160 440v-22Z"/><path d="M264 380v22L160 440v-22Z"/><path d="M160 342L264 380L160 418L56 380Z"/></g><path d="M69 384.8l10 16M82 389.5l10 16M95 394.2l10 16M108 399.0l10 16M121 403.8l10 16M134 408.5l10 16M147 413.2l10 16M251 384.8l-10 16M238 389.5l-10 16M225 394.2l-10 16M212 399.0l-10 16M199 403.8l-10 16M186 408.5l-10 16M173 413.2l-10 16" class="thin"/><g class="sl "><path d="M42 305v5L160 353v-5Z"/><path d="M278 305v5L160 353v-5Z"/><path d="M160 262L278 305L160 348L42 305Z"/></g><path d="M70 322q4 16 8 0M236 326q4 20 9 0M150 352q5 18 10 0" class="thin f"/><g class="sl"><ellipse cx="118" cy="237" rx="40" ry="16"/><ellipse cx="118" cy="232" rx="40" ry="16"/><ellipse cx="118" cy="232" rx="26" ry="9" class="thin"/><path d="M92 232h52M118 223v18" class="thin"/></g><g class="sl"><ellipse cx="200" cy="237" rx="40" ry="16"/><ellipse cx="200" cy="232" rx="40" ry="16"/><ellipse cx="200" cy="232" rx="26" ry="9" class="thin"/><path d="M174 232h52M200 223v18" class="thin"/></g><g class="sl"><ellipse cx="160" cy="257" rx="40" ry="16"/><ellipse cx="160" cy="252" rx="40" ry="16"/><ellipse cx="160" cy="252" rx="26" ry="9" class="thin"/><path d="M134 252h52M160 243v18" class="thin"/></g><g class="sl"><path d="M160 122 C190 118 230 132 262 152 C285 160 262 172 236 170 C250 186 200 196 160 198 C120 196 70 186 84 170 C58 172 35 160 58 152 C90 132 130 118 160 122Z"/><path d="M90 158q20-14 40 0t40 0 40 0 30 2M110 176q25-10 50 0t50 0" class="thin"/><ellipse cx="130" cy="150" rx="18" ry="7" class="thin"/><ellipse cx="196" cy="166" rx="18" ry="7" class="thin"/></g><g class="sl "><path d="M50 70v26L160 136v-26Z"/><path d="M270 70v26L160 136v-26Z"/><path d="M160 30L270 70L160 110L50 70Z"/></g><path d="M110 62l10-4M150 50l10-4M175 78l10-4M135 84l10-4M200 62l10-4" class="thin"/><path d="M160 118v14m-4-5l4 6 4-6" class="thin arr"/><path d="M160 200v14m-4-5l4 6 4-6" class="thin arr"/><path d="M160 270v14m-4-5l4 6 4-6" class="thin arr"/><path d="M160 336v14m-4-5l4 6 4-6" class="thin arr"/><path d="M160 422v14m-4-5l4 6 4-6" class="thin arr"/><circle cx="274" cy="83" r="3.5" class="dot"/><path d="M274 83H356" class="ld"/><circle cx="266" cy="162" r="3.5" class="dot"/><path d="M266 162H356" class="ld"/><circle cx="244" cy="236" r="3.5" class="dot"/><path d="M244 236H356" class="ld"/><circle cx="282" cy="308" r="3.5" class="dot"/><path d="M282 308H356" class="ld"/><circle cx="268" cy="391" r="3.5" class="dot"/><path d="M268 391H356" class="ld"/><circle cx="274" cy="483" r="3.5" class="dot"/><path d="M274 483H356" class="ld"/><path d="M16 30V536M8 30h16M8 536h16M12 34l8-8M12 540l8-8" class="dim"/><path d="M24 30H150M24 536H150" class="ext"/><path d="M50 572H270M50 564v16M270 564v16M46 576l8-8M266 576l8-8" class="dim"/></svg>
+        <ol class="labels">
+          <li style="--y:13.8%"><b>1</b><span><span class="t"><span lang="en">Sourdough lid</span><span lang="ar">غطاء خبز العجين المخمّر</span></span><small><span lang="en">12 mm, griddled in butter</span><span lang="ar">12 مم، محمّص بالزبدة</span></small></span></li>
+          <li style="--y:27%"><b>2</b><span><span class="t"><span lang="en">Rocket + pickled onion</span><span lang="ar">جرجير وبصل مخلّل</span></span><small><span lang="en">loose fill, do not compact</span><span lang="ar">حشوة سائبة، لا تُضغط</span></small></span></li>
+          <li style="--y:39.3%"><b>3</b><span><span class="t"><span lang="en">Vine tomato</span><span lang="ar">طماطم العنقود</span></span><small><span lang="en">3 no. at 6 mm, salted</span><span lang="ar">3 شرائح بسماكة 6 مم، مملّحة</span></small></span></li>
+          <li style="--y:51.3%"><b>4</b><span><span class="t"><span lang="en">Aged cheddar</span><span lang="ar">شيدر معتّق</span></span><small><span lang="en">melt membrane, 8 mm overhang</span><span lang="ar">غشاء ذائب ببروز 8 مم</span></small></span></li>
+          <li style="--y:65.2%"><b>5</b><span><span class="t"><span lang="en">Smoked beef brisket</span><span lang="ar">صدر بقري مدخّن</span></span><small><span lang="en">structural core, 14 h oak</span><span lang="ar">القلب الحامل، 14 ساعة على السنديان</span></small></span></li>
+          <li style="--y:80.5%"><b>6</b><span><span class="t"><span lang="en">Sourdough base</span><span lang="ar">قاعدة العجين المخمّر</span></span><small><span lang="en">mustard damp-proof course</span><span lang="ar">طبقة عازلة من الخردل</span></small></span></li>
+        </ol>
+        <span class="dimtxt h">94 mm</span><span class="dimtxt w">120 × 120</span>
+        <span class="cap up"><span lang="en">Fig. 1 · S-01 exploded axonometric</span><span lang="ar">الشكل 1 · منظور مفكّك للقطعة S-01</span></span>
+      </div>
+
+      <div class="id">
+        <h1><span lang="en">Draft<span>Kitchen</span></span><span lang="ar">مطبخ<span>المخطّط</span></span></h1>
+        <p class="tag"><span lang="en">Engineered sandwiches, built to spec.</span><span lang="ar">ساندويتشات هندسية تُبنى وفق المواصفات.</span></p>
+        <p class="intro"><span lang="en">Every sandwich here starts as a drawing: load paths for the sauce, tolerances for the crust, a bill of materials you can taste. We draft it, then we build it while you wait.</span><span lang="ar">كل ساندويتش عندنا يبدأ برسم: مسارات تحميل للصلصة، وتفاوتات مسموحة للقشرة، وقائمة موادّ تتذوّقها بنفسك. نرسمه أولاً ثم نبنيه أمامك.</span></p>
+        <div class="stamp"><span lang="en">Approved<br>for consumption</span><span lang="ar">معتمَد<br>للأكل</span></div>
+        <div class="tb">
+          <div class="w2"><span class="k up"><span lang="en">Project</span><span lang="ar">المشروع</span></span><span class="v"><span lang="en">Lunch, all phases</span><span lang="ar">الغداء بجميع مراحله</span></span></div>
+          <div><span class="k up"><span lang="en">Scale</span><span lang="ar">المقياس</span></span><span class="v">1 : 1</span></div>
+          <div><span class="k up"><span lang="en">Sheet</span><span lang="ar">اللوحة</span></span><span class="v">1 / 6</span></div>
+          <div><span class="k up"><span lang="en">Drawn</span><span lang="ar">رسم</span></span><span class="v"><span lang="en">Chef N. Haddad</span><span lang="ar">الشيف ن. حدّاد</span></span></div>
+          <div><span class="k up"><span lang="en">Checked</span><span lang="ar">تدقيق</span></span><span class="v"><span lang="en">You</span><span lang="ar">أنت</span></span></div>
+          <div class="w2"><span class="k up"><span lang="en">Units</span><span lang="ar">الوحدات</span></span><span class="v"><span lang="en">Prices in US dollars</span><span lang="ar">الأسعار بالدولار الأمريكي</span></span></div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="index" aria-label="Drawing index">
+      <h2 class="up"><span lang="en">Drawing index</span><span lang="ar">فهرس اللوحات</span></h2>
+      <a href="#a100"><i>A-100</i><span><span lang="en">Signature builds</span><span lang="ar">المنشآت الرئيسية</span></span></a>
+      <a href="#a200"><i>A-200</i><span><span lang="en">Open plan</span><span lang="ar">المسقط المفتوح</span></span></a>
+      <a href="#a300"><i>A-300</i><span><span lang="en">Foundations</span><span lang="ar">الأساسات</span></span></a>
+      <a href="#a400"><i>A-400</i><span><span lang="en">Plumbing</span><span lang="ar">التمديدات</span></span></a>
+      <a href="#a500"><i>A-500</i><span><span lang="en">Finishes</span><span lang="ar">التشطيبات</span></span></a>
+    </nav>
+
+    <main>
+    <section class="sh" id="a100">
+      <div class="det">
+        <span class="no">A-100</span>
+        <h2><span lang="en">Signature builds</span><span lang="ar">المنشآت الرئيسية</span></h2>
+        <svg viewBox="0 0 220 130" aria-hidden="true"><path class="c" d="M110 4v122"/><rect x="40" y="30" width="140" height="14" rx="5"/><path d="M40 52q10-8 20 0t20 0 20 0 20 0 20 0 20 0 20 0"/><rect x="44" y="58" width="132" height="10" rx="2"/><path class="h" d="M50 68l8-10M62 68l8-10M74 68l8-10M86 68l8-10M98 68l8-10M110 68l8-10M122 68l8-10M134 68l8-10M146 68l8-10M158 68l8-10"/><rect x="40" y="74" width="140" height="12" rx="4"/><path d="M40 93q10-7 20 0t20 0 20 0 20 0 20 0 20 0 20 0"/><rect x="40" y="99" width="140" height="14" rx="5"/><path d="M110 12v100M110 12l16 6-16 6"/><path class="d" d="M196 30v83M190 30h12M190 113h12M192 34l8-8M192 117l8-8M40 122h140M40 117v10M180 117v10"/><text x="200" y="76">83</text></svg>
+        <p><span lang="en">Elevation, typ. All builds on bread baked at 05:00 and toasted to order. Add a fried egg, +1.50.</span><span lang="ar">واجهة نموذجية. تُبنى كلها على خبز يُخبز الخامسة فجراً ويُحمّص عند الطلب. أضف بيضة مقلية بـ 1.50.</span></p>
+      </div>
+      <div class="sched">
+        <div class="hd up"><span><span lang="en">Mark</span><span lang="ar">الرمز</span></span><span><span lang="en">Description / specification</span><span lang="ar">الوصف والمواصفات</span></span><span><span lang="en">Layers</span><span lang="ar">طبقات</span></span><span><span lang="en">Cost</span><span lang="ar">الكلفة</span></span></div>
+        <div class="row"><span class="mk"><b>S-01</b></span><div class="d"><h3><span lang="en">The Cantilever</span><span lang="ar">الكابولي</span><i title="Chef's spec">◆</i></h3><p><span lang="en">14-hour oak-smoked beef brisket, aged cheddar, pickled red onion, rocket; the cheese overhangs on purpose.</span><span lang="ar">صدر بقري مدخّن على السنديان 14 ساعة، شيدر معتّق، بصل أحمر مخلّل وجرجير؛ والجبن يبرز عن الحافة عمداً.</span></p></div><span class="ly" style="--n:6">6</span><span class="pr" dir="ltr">$14.50</span></div>
+        <div class="row"><span class="mk"><b>S-02</b></span><div class="d"><h3><span lang="en">Truss Club</span><span lang="ar">كلوب الجمالون</span></h3><p><span lang="en">Triple-deck roast turkey, crisp beef bacon, avocado and tomato, cross-braced with three skewers.</span><span lang="ar">ثلاثة طوابق من الديك الرومي المشوي ولحم البقر المقدّد المقرمش والأفوكادو والطماطم، تثبّتها ثلاثة أسياخ متقاطعة.</span></p></div><span class="ly" style="--n:8">8</span><span class="pr" dir="ltr">$13.00</span></div>
+        <div class="row"><span class="mk"><b>S-03</b></span><div class="d"><h3><span lang="en">The Keystone</span><span lang="ar">حجر العَقد</span><i title="Spicy">▲</i></h3><p><span lang="en">Buttermilk fried chicken thigh locked between slaw and pickles, hot honey, soft potato bun.</span><span lang="ar">فخذ دجاج مقلي باللبن الرائب يستقرّ بين سلطة الملفوف والمخلّل، مع عسل حارّ وخبز بطاطا طريّ.</span></p></div><span class="ly" style="--n:5">5</span><span class="pr" dir="ltr">$12.50</span></div>
+        <div class="row"><span class="mk"><b>S-04</b></span><div class="d"><h3><span lang="en">Suspension Melt</span><span lang="ar">الجسر المعلّق</span><i title="Vegetarian">V</i></h3><p><span lang="en">Four-cheese toastie with caramelised onion; tested to a 40 cm cheese pull.</span><span lang="ar">توست بأربعة أجبان وبصل مكرمل؛ اختُبر على شدّ جبن بطول 40 سم.</span></p></div><span class="ly" style="--n:4">4</span><span class="pr" dir="ltr">$10.00</span></div>
+        <div class="row"><span class="mk"><b>S-05</b></span><div class="d"><h3><span lang="en">Green Roof</span><span lang="ar">السطح الأخضر</span><i title="Vegetarian">V</i></h3><p><span lang="en">Grilled halloumi, charred courgette, rocket and basil pesto on olive-oil focaccia.</span><span lang="ar">حلّوم مشوي وكوسا مشوية وجرجير وبيستو الريحان على فوكاتشا بزيت الزيتون.</span></p></div><span class="ly" style="--n:5">5</span><span class="pr" dir="ltr">$11.00</span></div>
+        <div class="row"><span class="mk"><b>S-06</b></span><div class="d"><h3><span lang="en">Pier &amp; Beam</span><span lang="ar">عمود وعارضة</span></h3><p><span lang="en">Line-caught tuna, capers, celery and a soft-boiled egg spanning two slabs of seeded rye.</span><span lang="ar">تونة مصيدة بالصنّارة مع الكبَر والكرفس وبيضة نصف مسلوقة بين لوحين من خبز الجاودار بالبذور.</span></p></div><span class="ly" style="--n:5">5</span><span class="pr" dir="ltr">$12.00</span></div>
+      </div>
+    </section>
+
+    <section class="sh" id="a200">
+      <div class="det">
+        <span class="no">A-200</span>
+        <h2><span lang="en">Open plan</span><span lang="ar">المسقط المفتوح</span></h2>
+        <svg viewBox="0 0 220 130" aria-hidden="true"><path class="c" d="M110 4v122M10 62h200"/><path d="M36 26h148q12 0 12 12v48q0 12-12 12H36q-12 0-12-12V38q0-12 12-12z"/><circle cx="84" cy="62" r="24"/><circle cx="84" cy="62" r="9"/><path d="M128 44q14-10 28 0t28 0M128 62q14-10 28 0t28 0M128 80q14-10 28 0t28 0" class="h"/><path class="d" d="M24 114h172M24 108v12M196 108v12M20 118l8-8M192 118l8-8"/><text x="100" y="126">172</text></svg>
+        <p><span lang="en">Plan view. Single-storey tartines on thick-cut sourdough: no roof, nothing to hide.</span><span lang="ar">مسقط أفقي. تارتين من طابق واحد على شريحة سميكة من العجين المخمّر: بلا سقف ولا شيء نخفيه.</span></p>
+      </div>
+      <div class="sched">
+        <div class="hd up"><span><span lang="en">Mark</span><span lang="ar">الرمز</span></span><span><span lang="en">Description / specification</span><span lang="ar">الوصف والمواصفات</span></span><span><span lang="en">Layers</span><span lang="ar">طبقات</span></span><span><span lang="en">Cost</span><span lang="ar">الكلفة</span></span></div>
+        <div class="row"><span class="mk"><b>T-01</b></span><div class="d"><h3><span lang="en">Atrium</span><span lang="ar">البهو</span><i title="Vegetarian">V</i></h3><p><span lang="en">Crushed avocado, labneh, dukkah and a poached egg set dead centre.</span><span lang="ar">أفوكادو مهروس ولبنة ودقّة وبيضة مسلوقة بلا قشر في المركز تماماً.</span></p></div><span class="ly" style="--n:4">4</span><span class="pr" dir="ltr">$9.50</span></div>
+        <div class="row"><span class="mk"><b>T-02</b></span><div class="d"><h3><span lang="en">Skylight</span><span lang="ar">المَنوَر</span><i title="Chef's spec">◆</i></h3><p><span lang="en">Smoked salmon, dill cream cheese, cucumber ribbons and lemon zest.</span><span lang="ar">سلمون مدخّن وجبن كريمي بالشبت وشرائط خيار وبشر الليمون.</span></p></div><span class="ly" style="--n:4">4</span><span class="pr" dir="ltr">$12.00</span></div>
+        <div class="row"><span class="mk"><b>T-03</b></span><div class="d"><h3><span lang="en">Mezzanine</span><span lang="ar">الميزانين</span><i title="Vegetarian">V</i></h3><p><span lang="en">Roasted mushrooms and thyme stacked on whipped ricotta, black pepper.</span><span lang="ar">فطر مشوي بالزعتر الأخضر فوق ريكوتا مخفوقة وفلفل أسود.</span></p></div><span class="ly" style="--n:3">3</span><span class="pr" dir="ltr">$9.00</span></div>
+        <div class="row"><span class="mk"><b>T-04</b></span><div class="d"><h3><span lang="en">Courtyard</span><span lang="ar">الفناء</span><i title="Vegetarian">V</i></h3><p><span lang="en">Heirloom tomatoes around a burrata well, basil oil, flaky salt.</span><span lang="ar">طماطم بلدية ملوّنة تحيط ببئر من البوراتا مع زيت الريحان ورقائق الملح.</span></p></div><span class="ly" style="--n:3">3</span><span class="pr" dir="ltr">$11.00</span></div>
+      </div>
+    </section>
+
+    <section class="sh" id="a300">
+      <div class="det">
+        <span class="no">A-300</span>
+        <h2><span lang="en">Foundations</span><span lang="ar">الأساسات</span></h2>
+        <svg viewBox="0 0 220 130" aria-hidden="true"><path d="M60 50h100l-14 70H74z"/><path d="M70 50l-6-36h12l4 36M88 50l-2-44h12l-1 44M106 50l4-38h12l-6 38M126 50l10-32 11 4-9 28M148 50l12-22 9 6-9 16"/><path class="h" d="M70 66h80M73 82h74M76 98h68"/><path class="d" d="M186 6v114M180 6h12M180 120h12M182 10l8-8M182 124l8-8"/><text x="192" y="68">114</text><circle cx="28" cy="34" r="18"/><path class="h" d="M16 34l12-12M18 42l20-20M24 48l16-16"/><path class="c" d="M28 8v52M2 34h52"/></svg>
+        <p><span lang="en">Detail 3. Everything a build stands on. Double-fried in beef dripping unless noted V.</span><span lang="ar">التفصيل 3. كل ما يقوم عليه البناء. تُقلى مرّتين بدهن البقر ما لم يُذكر الرمز V.</span></p>
+      </div>
+      <div class="sched">
+        <div class="hd up"><span><span lang="en">Mark</span><span lang="ar">الرمز</span></span><span><span lang="en">Description / specification</span><span lang="ar">الوصف والمواصفات</span></span><span><span lang="en">Layers</span><span lang="ar">طبقات</span></span><span><span lang="en">Cost</span><span lang="ar">الكلفة</span></span></div>
+        <div class="row"><span class="mk"><b>F-01</b></span><div class="d"><h3><span lang="en">Rebar Fries</span><span lang="ar">بطاطا حديد التسليح</span></h3><p><span lang="en">Skin-on, 10 mm square section, rosemary salt.</span><span lang="ar">بقشرها، بمقطع مربّع 10 مم، مع ملح إكليل الجبل.</span></p></div><span class="ly" style="--n:1">1</span><span class="pr" dir="ltr">$5.00</span></div>
+        <div class="row"><span class="mk"><b>F-02</b></span><div class="d"><h3><span lang="en">Slab Wedges</span><span lang="ar">أوتاد البلاطة</span><i title="Vegetarian">V</i></h3><p><span lang="en">Sweet potato wedges, smoked paprika mayo, lime.</span><span lang="ar">أوتاد بطاطا حلوة مع مايونيز البابريكا المدخّنة والليمون الأخضر.</span></p></div><span class="ly" style="--n:2">2</span><span class="pr" dir="ltr">$6.00</span></div>
+        <div class="row"><span class="mk"><b>F-03</b></span><div class="d"><h3><span lang="en">Aggregate Salad</span><span lang="ar">سلطة الرُّكام</span><i title="Vegetarian">V</i></h3><p><span lang="en">Freekeh, chickpeas, toasted seeds, herbs and preserved lemon, graded fine to coarse.</span><span lang="ar">فريكة وحمّص وبذور محمّصة وأعشاب وليمون مخلّل، بتدرّج من الناعم إلى الخشن.</span></p></div><span class="ly" style="--n:3">3</span><span class="pr" dir="ltr">$7.00</span></div>
+        <div class="row"><span class="mk"><b>F-04</b></span><div class="d"><h3><span lang="en">Mortar</span><span lang="ar">المونة</span><i title="Vegetarian">V</i></h3><p><span lang="en">Roasted tomato soup, thick enough to bond a toastie. For dunking.</span><span lang="ar">حساء طماطم مشوية بقوامٍ يكفي للصق توست. للتغميس.</span></p></div><span class="ly" style="--n:1">1</span><span class="pr" dir="ltr">$5.50</span></div>
+        <div class="row"><span class="mk"><b>F-05</b></span><div class="d"><h3><span lang="en">Gasket Rings</span><span lang="ar">حلقات الإحكام</span><i title="Spicy">▲</i></h3><p><span lang="en">Sparkling-water-battered onion rings, chilli ketchup.</span><span lang="ar">حلقات بصل بعجينة المياه الغازية مع كاتشب حارّ.</span></p></div><span class="ly" style="--n:2">2</span><span class="pr" dir="ltr">$5.00</span></div>
+      </div>
+    </section>
+
+    <section class="sh" id="a400">
+      <div class="det">
+        <span class="no">A-400</span>
+        <h2><span lang="en">Plumbing</span><span lang="ar">التمديدات</span></h2>
+        <svg viewBox="0 0 220 130" aria-hidden="true"><path class="c" d="M96 2v126"/><path d="M62 16h68l-8 104H70z"/><path d="M65 44h62"/><path d="M58 44l-8-5v10z" class="d"/><path class="h" d="M70 60h14v14H70zM100 70h14v14h-14zM82 90h14v14H82z"/><path d="M112 16l14-14h16"/><path d="M130 30h40v24h30M170 54v40h30"/><path d="M196 48l8 6-8 6M196 88l8 6-8 6" class="d"/><path class="d" d="M30 16v104M24 16h12M24 120h12M26 20l8-8M26 124l8-8"/><text x="4" y="72">104</text></svg>
+        <p><span lang="en">Riser diagram. Cold feed and hot feed; all lines pressure-tested, none of them alcoholic.</span><span lang="ar">مخطّط الصواعد. خطّ بارد وخطّ ساخن؛ جميعها مختبَرة تحت الضغط وخالية من الكحول.</span></p>
+      </div>
+      <div class="sched">
+        <div class="hd up"><span><span lang="en">Mark</span><span lang="ar">الرمز</span></span><span><span lang="en">Description / specification</span><span lang="ar">الوصف والمواصفات</span></span><span><span lang="en">Layers</span><span lang="ar">طبقات</span></span><span><span lang="en">Cost</span><span lang="ar">الكلفة</span></span></div>
+        <div class="row"><span class="mk"><b>P-01</b></span><div class="d"><h3><span lang="en">Coolant</span><span lang="ar">سائل التبريد</span></h3><p><span lang="en">Cucumber, mint and lime over crushed ice, topped with soda.</span><span lang="ar">خيار ونعناع وليمون أخضر على ثلج مجروش مع الصودا.</span></p></div><span class="ly" style="--n:3">3</span><span class="pr" dir="ltr">$4.50</span></div>
+        <div class="row"><span class="mk"><b>P-02</b></span><div class="d"><h3><span lang="en">Hydraulic Lemonade</span><span lang="ar">ليموناضة هيدروليكية</span></h3><p><span lang="en">Whole lemons pressed at 2 tonnes, raw ginger, a little honey.</span><span lang="ar">ليمون كامل يُعصر تحت ضغط طنّين، مع زنجبيل طازج وقليل من العسل.</span></p></div><span class="ly" style="--n:2">2</span><span class="pr" dir="ltr">$4.00</span></div>
+        <div class="row"><span class="mk"><b>P-03</b></span><div class="d"><h3><span lang="en">Blueprint Iced Tea</span><span lang="ar">شاي المخطّط الأزرق</span><i title="Chef's spec">◆</i></h3><p><span lang="en">Butterfly-pea tea that turns from cyan to violet when you add the lemon.</span><span lang="ar">شاي زهرة البازلاء الزرقاء يتحوّل من الأزرق إلى البنفسجي حين تضيف الليمون.</span></p></div><span class="ly" style="--n:2">2</span><span class="pr" dir="ltr">$5.00</span></div>
+        <div class="row"><span class="mk"><b>P-04</b></span><div class="d"><h3><span lang="en">Cold Brew, 18 h</span><span lang="ar">قهوة مخمّرة على البارد، 18 ساعة</span></h3><p><span lang="en">Single-origin Ethiopian, slow-steeped; black or with oat milk.</span><span lang="ar">بنّ إثيوبي من منشأ واحد يُنقع ببطء؛ سادة أو بحليب الشوفان.</span></p></div><span class="ly" style="--n:1">1</span><span class="pr" dir="ltr">$4.50</span></div>
+        <div class="row"><span class="mk"><b>P-05</b></span><div class="d"><h3><span lang="en">Flat White</span><span lang="ar">فلات وايت</span></h3><p><span lang="en">Double ristretto, microfoam poured dead level.</span><span lang="ar">ريستريتو مزدوج مع رغوة ناعمة تُصبّ بمستوى أفقي تامّ.</span></p></div><span class="ly" style="--n:2">2</span><span class="pr" dir="ltr">$4.00</span></div>
+      </div>
+    </section>
+
+    <section class="sh" id="a500">
+      <div class="det">
+        <span class="no">A-500</span>
+        <h2><span lang="en">Finishes</span><span lang="ar">التشطيبات</span></h2>
+        <svg viewBox="0 0 220 130" aria-hidden="true"><rect x="50" y="10" width="110" height="110"/><path class="c" d="M105 2v126M40 65h130"/><path class="h" d="M60 22l14-4 6 12-12 8zM92 18l16 4-4 14-14-2zM126 20l20 2 2 14-18 2zM58 52l18-6 8 14-14 10zM98 50l14-2 8 12-10 10-14-6zM134 48l16 6-4 16-16-4zM62 86l16-2 6 14-18 8zM96 84l18 2 2 16-18 4zM130 82l18 4-2 20-16-4z"/><path class="d" d="M180 10v110M174 10h12M174 120h12M176 14l8-8M176 124l8-8"/><text x="186" y="68">110</text></svg>
+        <p><span lang="en">Finishes schedule. Applied last, remembered first. Baked in-house every morning.</span><span lang="ar">جدول التشطيبات. تأتي آخراً وتُذكر أولاً. تُخبز عندنا كل صباح.</span></p>
+      </div>
+      <div class="sched">
+        <div class="hd up"><span><span lang="en">Mark</span><span lang="ar">الرمز</span></span><span><span lang="en">Description / specification</span><span lang="ar">الوصف والمواصفات</span></span><span><span lang="en">Layers</span><span lang="ar">طبقات</span></span><span><span lang="en">Cost</span><span lang="ar">الكلفة</span></span></div>
+        <div class="row"><span class="mk"><b>D-01</b></span><div class="d"><h3><span lang="en">Cornice Cookie</span><span lang="ar">كوكيز الكورنيش</span></h3><p><span lang="en">Brown-butter dough, dark chocolate, sea-salt edge.</span><span lang="ar">عجينة بالزبدة البنّية وشوكولاتة داكنة وحافّة من ملح البحر.</span></p></div><span class="ly" style="--n:1">1</span><span class="pr" dir="ltr">$3.50</span></div>
+        <div class="row"><span class="mk"><b>D-02</b></span><div class="d"><h3><span lang="en">Terrazzo Bar</span><span lang="ar">لوح التيرازو</span><i title="Chef's spec">◆</i></h3><p><span lang="en">White chocolate slab set with pistachio, dried raspberry and candied orange chips.</span><span lang="ar">لوح شوكولاتة بيضاء مرصّع بالفستق والتوت المجفّف وقطع البرتقال المسكّر.</span></p></div><span class="ly" style="--n:2">2</span><span class="pr" dir="ltr">$4.50</span></div>
+        <div class="row"><span class="mk"><b>D-03</b></span><div class="d"><h3><span lang="en">Screed Cheesecake</span><span lang="ar">تشيز كيك البلاطة</span></h3><p><span lang="en">Burnt Basque cheesecake, poured in one lift, no base course.</span><span lang="ar">تشيز كيك باسكي محروق السطح يُصبّ دفعة واحدة وبلا قاعدة.</span></p></div><span class="ly" style="--n:1">1</span><span class="pr" dir="ltr">$6.50</span></div>
+      </div>
+    </section>
+    </main>
+
+    <footer>
+      <div class="foot">
+        <div class="blk"><h2 class="up"><span lang="en">General notes</span><span lang="ar">ملاحظات عامة</span></h2>
+          <ol>
+            <li><span lang="en">Do not scale from this drawing. Order by mark number.</span><span lang="ar">لا تأخذ القياسات من الرسم. اطلب برقم الرمز.</span></li>
+            <li><span lang="en">Our kitchen handles gluten, dairy, eggs, sesame, mustard, fish and tree nuts. Report any allergy before construction starts.</span><span lang="ar">يتعامل مطبخنا مع الغلوتين والألبان والبيض والسمسم والخردل والسمك والمكسّرات. أبلغنا بأيّ حساسية قبل بدء البناء.</span></li>
+            <li><span lang="en">Any build can be respecified on gluten-free bread, +1.00.</span><span lang="ar">يمكن تعديل مواصفات أيّ بناء إلى خبز خالٍ من الغلوتين بإضافة 1.00.</span></li>
+            <li><span lang="en">All meat is halal. No alcohol on site.</span><span lang="ar">جميع اللحوم حلال. لا كحول في الموقع.</span></li>
+          </ol></div>
+        <div class="blk"><h2 class="up"><span lang="en">Legend</span><span lang="ar">مفتاح الرموز</span></h2>
+          <ul>
+            <li><i>◆</i><span><span lang="en">Chef's specification</span><span lang="ar">من مواصفات الشيف</span></span></li>
+            <li><i>▲</i><span><span lang="en">Spicy, handle with care</span><span lang="ar">حارّ، يُتناول بحذر</span></span></li>
+            <li><i>V</i><span><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span></li>
+            <li><i>≡</i><span><span lang="en">Layer count, bread included</span><span lang="ar">عدد الطبقات مع الخبز</span></span></li>
+          </ul></div>
+        <div class="blk"><h2 class="up"><span lang="en">Site hours</span><span lang="ar">ساعات العمل في الموقع</span></h2>
+          <div class="rev">
+            <b>A</b><span><span lang="en">Mon – Thu</span><span lang="ar">الاثنين – الخميس</span></span><span class="t">07:30 – 17:00</span>
+            <b>B</b><span><span lang="en">Friday</span><span lang="ar">الجمعة</span></span><span class="t">07:30 – 21:00</span>
+            <b>C</b><span><span lang="en">Sat – Sun</span><span lang="ar">السبت – الأحد</span></span><span class="t">09:00 – 16:00</span>
+          </div>
+          <div class="site" style="border-top:1.5px solid var(--ln)">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="34" r="24"/><path d="M32 4l9 46-9-8-9 8z"/><path class="f" d="M32 4v38l-9 8z"/></svg>
+            <p><span lang="en">Unit 4, The Drawing Office<br>18 Compass Lane, Dockside<br><span dir="ltr">+1 555 0132</span></span><span lang="ar">الوحدة 4، مبنى مكتب الرسم<br>18 زقاق البوصلة، حيّ الأرصفة<br><span dir="ltr">+1 555 0132</span></span></p>
+            <div class="scale"><span>0</span><i></i><span>1 <span lang="en">sandwich</span><span lang="ar">ساندويتش</span></span></div>
+          </div></div>
+      </div>
+      <div class="end up"><span><span lang="en">© Draft Kitchen · issued for lunch</span><span lang="ar">© مطبخ المخطّط · صدرت للغداء</span></span><span><span lang="en">Rev. C · prices include tax</span><span lang="ar">المراجعة C · الأسعار شاملة الضريبة</span></span></div>
+    </footer>
+  </div>
+  <div class="ruler b" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

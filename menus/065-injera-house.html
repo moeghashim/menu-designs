@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Injera House · بيت الإنجيرا</title>
+<meta name="description" content="Injera House — Ethiopian stews, tibs and coffee ceremony, shared from one round platter. بيت الإنجيرا — مطبخ إثيوبي يُؤكل من صحنٍ واحد مشترك.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2a1a10">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Kufam:wght@500;700;900&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --cream:#f4e8d0; --paper:#ecdcbc; --bark:#2a1a10; --red:#a8321c; --yel:#e6a81e; --grn:#3f6b2f; --clay:#7a4a2a;
+  --hd:"Bricolage Grotesque","Kufam","Trebuchet MS",sans-serif; --bd:"Outfit","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --zig:linear-gradient(135deg,var(--red) 25%,transparent 25%) -14px 0/28px 28px,linear-gradient(225deg,var(--red) 25%,transparent 25%) -14px 0/28px 28px,linear-gradient(315deg,var(--yel) 25%,transparent 25%) 0 0/28px 28px,linear-gradient(45deg,var(--yel) 25%,transparent 25%) 0 0/28px 28px;
+}
+html[lang="ar"]{ --hd:"Kufam","Bricolage Grotesque",sans-serif; --bd:"IBM Plex Sans Arabic","Outfit",sans-serif; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--bd);font-size:16.5px;line-height:1.5;color:var(--bark);background:var(--cream);-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-size:17px;line-height:1.8}
+html[lang="ar"] *{letter-spacing:0 !important}
+.page{overflow:clip;background:
+  repeating-linear-gradient(0deg,rgba(122,74,42,.05) 0 2px,transparent 2px 6px),repeating-linear-gradient(90deg,rgba(122,74,42,.05) 0 2px,transparent 2px 6px),var(--cream)}
+.band{height:28px;background:var(--zig),var(--grn);border-block:5px solid var(--bark)}
+.stripes{height:12px;background:linear-gradient(var(--grn) 0 33.3%,var(--yel) 33.3% 66.6%,var(--red) 66.6%)}
+
+.ctl{position:fixed;inset-block-start:46px;inset-inline-end:14px;z-index:40;display:flex;gap:8px}
+.ctl a,.ctl button{font:600 14px/1 var(--bd);color:var(--cream);background:var(--bark);border:2px solid var(--bark);border-radius:999px;padding:10px 15px;min-height:40px;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;box-shadow:0 0 0 3px var(--cream)}
+.ctl button{background:var(--yel);color:var(--bark);font-weight:700}
+.ctl a i{width:12px;height:12px;border-radius:50%;background:repeating-conic-gradient(var(--yel) 0 30deg,var(--red) 30deg 60deg);display:block}
+.ctl a:hover,.ctl button:hover{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* hero */
+.hero{text-align:center;padding:clamp(60px,6vw,84px) 20px clamp(10px,2vw,24px);max-width:1100px;margin-inline:auto}
+.kick{font-weight:600;letter-spacing:.3em;text-transform:uppercase;font-size:.82rem;color:var(--red)}
+html[lang="ar"] .kick{font-size:1.05rem;font-family:var(--hd)}
+h1{font-family:var(--hd);font-weight:800;font-size:clamp(3.4rem,10.5vw,9rem);line-height:.9;letter-spacing:-.03em;margin-block:8px 14px}
+html[lang="ar"] h1{font-weight:900;line-height:1.3;font-size:clamp(3rem,9vw,7.6rem)}
+h1 em{font-style:normal;color:var(--red)}
+.tag{font-family:var(--hd);font-weight:500;font-size:clamp(1.25rem,2.4vw,1.9rem);line-height:1.2}
+html[lang="ar"] .tag{line-height:1.6}
+.intro{max-width:58ch;margin:12px auto 0;color:#5a4130}
+
+/* the mesob */
+.mesob{position:relative;max-width:1500px;margin-inline:auto;padding:clamp(20px,3vw,40px) clamp(14px,3vw,46px) clamp(40px,6vw,80px)}
+.mh{text-align:center;margin-block-end:clamp(16px,2.4vw,30px)}
+.mh h2,.sh h2{font-family:var(--hd);font-weight:800;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1;letter-spacing:-.02em}
+html[lang="ar"] .mh h2,html[lang="ar"] .sh h2{line-height:1.4;font-weight:900;font-size:clamp(1.8rem,4vw,3rem)}
+.mh p{color:#5a4130;max-width:52ch;margin:6px auto 0}
+.plat{display:grid;grid-template-columns:minmax(0,1fr) min(44vw,620px) minmax(0,1fr);align-items:center;gap:clamp(14px,2.4vw,40px)}
+.wl{list-style:none;display:grid;gap:clamp(18px,2.6vw,38px)}
+.w{display:flex;gap:14px;align-items:flex-start}
+.wl.a .w{flex-direction:row-reverse;text-align:end}
+.wl.a .w:nth-child(1),.wl.a .w:nth-child(4){margin-inline-end:clamp(-90px,-5vw,-30px)}
+.wl.a .w:nth-child(2),.wl.a .w:nth-child(3){margin-inline-end:clamp(6px,1.4vw,26px)}
+.wl.b .w:nth-child(1),.wl.b .w:nth-child(4){margin-inline-start:clamp(-90px,-5vw,-30px)}
+.wl.b .w:nth-child(2),.wl.b .w:nth-child(3){margin-inline-start:clamp(6px,1.4vw,26px)}
+.n{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-content:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.2rem;color:var(--k,#fff);background:var(--c);box-shadow:0 0 0 3px var(--cream),0 0 0 5px var(--c)}
+.w h3{font-family:var(--hd);font-weight:800;font-size:clamp(1.3rem,1.9vw,1.65rem);line-height:1.1;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+html[lang="ar"] .w h3{line-height:1.45;font-weight:700}
+.wl.a .w h3{justify-content:flex-end}
+.pr{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--red);unicode-bidi:isolate;white-space:nowrap}
+.w p{color:#4e392b;font-size:.97rem;max-width:36ch}
+.wl.a .w p{margin-inline-start:auto}
+.meta{display:inline-flex;gap:10px;align-items:center;flex-wrap:wrap;margin-block-start:4px;font-size:.84rem;font-weight:600}
+html[lang="ar"] .meta{font-size:.92rem}
+.tsom{color:var(--grn);border:1.5px solid var(--grn);border-radius:999px;padding:1px 10px}
+.heat{display:inline-flex;gap:3px}
+.heat i{width:9px;height:9px;border-radius:50%;background:var(--red)}
+.heat i.o{background:transparent;box-shadow:inset 0 0 0 1.5px var(--red)}
+.star{color:var(--bark);background:var(--yel);border-radius:999px;padding:1px 10px}
+
+.tray{position:relative;width:100%;aspect-ratio:1;border-radius:50%;background:repeating-conic-gradient(var(--red) 0 5deg,var(--cream) 5deg 10deg);box-shadow:0 0 0 6px var(--bark),0 30px 60px -20px rgba(42,26,16,.6);animation:turn 120s linear infinite}
+html[dir="rtl"] .tray{transform:scaleX(-1);animation:none}
+@keyframes turn{to{transform:rotate(0)}}
+.tray::before{content:"";position:absolute;inset:3.2%;border-radius:50%;background:repeating-conic-gradient(from 5deg,var(--yel) 0 5deg,var(--bark) 5deg 10deg)}
+.tray::after{content:"";position:absolute;inset:6.4%;border-radius:50%;background:repeating-conic-gradient(var(--grn) 0 5deg,var(--cream) 5deg 10deg);box-shadow:inset 0 0 0 4px var(--bark)}
+.inj{position:absolute;inset:10%;z-index:1;border-radius:50% 49% 51% 50%/49% 51% 50% 51%;background:
+  radial-gradient(circle,rgba(104,68,34,.42) 0 1.3px,transparent 1.9px) 0 0/11px 11px,
+  radial-gradient(circle,rgba(104,68,34,.3) 0 1px,transparent 1.6px) 5px 6px/13px 13px,
+  radial-gradient(circle,rgba(255,244,220,.5) 0 1.2px,transparent 1.8px) 2px 8px/17px 17px,
+  radial-gradient(circle at 38% 32%,#ead7b3,#d2b88d 60%,#b99a6b);
+  box-shadow:inset 0 0 40px rgba(90,55,25,.45),0 0 0 5px var(--bark),0 8px 18px rgba(0,0,0,.35)}
+.dl{position:absolute;z-index:2;width:21%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:54% 46% 52% 48%/48% 55% 45% 52%;background:radial-gradient(circle at 35% 30%,var(--c2,var(--c)),var(--c) 70%);box-shadow:inset -6px -8px 14px rgba(0,0,0,.28),inset 5px 5px 10px rgba(255,255,255,.22),0 4px 8px rgba(60,35,15,.4);display:grid;place-content:center}
+.dl b{width:clamp(24px,2.6vw,34px);aspect-ratio:1;border-radius:50%;background:var(--cream);color:var(--bark);display:grid;place-content:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(.85rem,1.3vw,1.1rem);box-shadow:0 2px 4px rgba(0,0,0,.3)}
+html[dir="rtl"] .dl b{transform:scaleX(-1)}
+.dl.c{width:27%}
+.dl.c::before{content:"";position:absolute;top:6%;left:60%;width:27%;height:36%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff,#efe3cb);transform:rotate(28deg);box-shadow:0 2px 4px rgba(0,0,0,.3)}
+.roll{position:absolute;z-index:2;width:17%;height:7%;border-radius:999px;background:repeating-linear-gradient(90deg,#d6bd92 0 5px,#c2a678 5px 7px);box-shadow:0 3px 6px rgba(0,0,0,.3);transform:translate(-50%,-50%) rotate(var(--r))}
+
+.deal{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,26px);max-width:980px;margin:clamp(30px,4vw,54px) auto 0}
+.deal div{display:flex;align-items:center;gap:16px;background:var(--bark);color:var(--cream);border-radius:999px;padding:12px 26px 12px 12px;padding-inline:12px 26px}
+.deal i{flex:none;width:64px;height:64px;border-radius:50%;background:repeating-conic-gradient(var(--yel) 0 15deg,var(--red) 15deg 30deg);display:grid;place-content:center;font-style:normal}
+.deal i b{width:44px;height:44px;border-radius:50%;background:var(--cream);color:var(--bark);display:grid;place-content:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.25rem}
+.deal h3{font-family:var(--hd);font-weight:800;font-size:1.25rem;line-height:1.15}
+html[lang="ar"] .deal h3{font-weight:700;line-height:1.5}
+.deal p{font-size:.93rem;color:#e2d2b6;line-height:1.35}
+.deal .pr{margin-inline-start:auto;color:var(--yel);font-size:1.7rem}
+
+/* sections */
+.sh{text-align:center;max-width:760px;margin:0 auto clamp(22px,3vw,40px);padding-inline:16px}
+.sh .am{display:block;font-weight:600;letter-spacing:.26em;text-transform:uppercase;font-size:.8rem;color:var(--red);margin-block-end:6px}
+html[lang="ar"] .sh .am{font-size:1rem}
+.sh p{color:#5a4130;margin-block-start:6px}
+
+.first{padding:clamp(44px,6vw,84px) clamp(12px,3vw,40px)}
+.lids{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(14px,2vw,30px)}
+.lid{--sz:clamp(266px,21.5vw,310px);position:relative;flex:none;width:var(--sz);height:var(--sz);border-radius:50%;padding:calc(var(--sz)*.105);background:repeating-conic-gradient(var(--a) 0 6deg,var(--b) 6deg 12deg);box-shadow:0 0 0 4px var(--bark),0 18px 30px -14px rgba(42,26,16,.6)}
+.lid::before{content:"";position:absolute;inset:calc(var(--sz)*.035);border-radius:50%;background:repeating-conic-gradient(from 6deg,var(--c) 0 6deg,var(--d) 6deg 12deg)}
+.lid::after{content:"";position:absolute;inset:calc(var(--sz)*.07);border-radius:50%;background:repeating-conic-gradient(var(--a) 0 6deg,var(--cream) 6deg 12deg)}
+.lid .in{position:relative;z-index:1;height:100%;border-radius:50%;background:var(--cream);box-shadow:0 0 0 4px var(--bark);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:calc(var(--sz)*.07)}
+.lid h3{font-family:var(--hd);font-weight:800;font-size:1.4rem;line-height:1.05}
+html[lang="ar"] .lid h3{font-weight:700;line-height:1.4;font-size:1.3rem}
+.lid p{font-size:.92rem;line-height:1.3;color:#4e392b;margin-block:4px 5px}
+html[lang="ar"] .lid p{font-size:.94rem;line-height:1.5}
+.lid .pr{font-size:1.3rem}
+
+/* tibs */
+.tibs{position:relative;background:var(--bark);color:var(--cream);overflow:hidden}
+.tin{display:grid;grid-template-columns:minmax(260px,.8fr) 1.2fr;gap:clamp(20px,4vw,70px);align-items:center;max-width:1400px;margin-inline:auto;padding:clamp(44px,6vw,90px) clamp(14px,4vw,60px)}
+.pan{width:min(120%,620px);margin-inline-start:clamp(-200px,-12vw,-60px);filter:drop-shadow(0 24px 30px rgba(0,0,0,.6))}
+html[dir="rtl"] .pan{transform:scaleX(-1)}
+.pan .st{animation:steam 5s ease-in-out infinite}
+.pan .st:nth-of-type(2){animation-delay:-1.6s}.pan .st:nth-of-type(3){animation-delay:-3.1s}
+@keyframes steam{0%{opacity:0;transform:translateY(8px)}40%{opacity:.7}100%{opacity:0;transform:translateY(-22px)}}
+.tibs .band{position:relative;z-index:2}
+.tibs .sh{text-align:start;margin-inline:0;padding:0}
+.tibs .sh .am{color:var(--yel)}.tibs .sh p{color:#d9c7a8}
+.tl{list-style:none;counter-reset:t}
+.tl li{display:grid;grid-template-columns:auto 1fr auto;gap:4px 18px;align-items:baseline;padding-block:16px;border-block-start:2px dashed rgba(244,232,208,.25)}
+.tl li::before{counter-increment:t;content:counter(t);grid-row:1 / span 2;align-self:center;width:46px;height:46px;border-radius:50%;display:grid;place-content:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--bark);background:repeating-conic-gradient(var(--yel) 0 20deg,#f0c45a 20deg 40deg)}
+.tl h3{font-family:var(--hd);font-weight:800;font-size:clamp(1.35rem,2.2vw,1.8rem);line-height:1.1}
+html[lang="ar"] .tl h3{font-weight:700;line-height:1.5}
+.tl .pr{color:var(--yel);font-size:1.5rem}
+.tl p{grid-column:2 / span 2;color:#d9c7a8;font-size:.98rem;max-width:56ch}
+.tl .heat i{background:#ff6a3d}.tl .heat i.o{background:transparent;box-shadow:inset 0 0 0 1.5px #ff6a3d}
+
+/* buna */
+.buna{padding:clamp(44px,6vw,90px) clamp(14px,4vw,60px)}
+.bin{display:grid;grid-template-columns:1.2fr minmax(280px,.8fr);gap:clamp(20px,4vw,70px);align-items:center;max-width:1300px;margin-inline:auto}
+.buna .sh{text-align:start;margin-inline:0;padding:0}
+.bl{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(18px,3vw,44px)}
+.bl li{padding-block:14px;border-block-start:3px solid var(--bark)}
+.bl li:first-child{grid-column:1/-1;background:var(--paper);border:3px solid var(--bark);border-radius:22px;padding:18px 22px;margin-block-end:18px}
+.bl h3{font-family:var(--hd);font-weight:800;font-size:1.35rem;line-height:1.15;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+html[lang="ar"] .bl h3{font-weight:700;line-height:1.5}
+.bl p{color:#4e392b;font-size:.97rem}
+.cer{position:relative;text-align:center}
+.jeb{width:min(70%,250px);margin-inline:auto;display:block}
+html[dir="rtl"] .jeb{transform:scaleX(-1)}
+.cups{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-block-start:10px}
+.cup{display:flex;flex-direction:column;align-items:center}
+.cup i{width:58px;height:40px;border-radius:6px 6px 28px 28px;background:linear-gradient(#fff,#e9dcc2);border:3px solid var(--bark);position:relative;display:block}
+.cup i::before{content:"";position:absolute;inset:3px 4px auto;height:9px;border-radius:50%;background:var(--kf,#3a2010)}
+.cup i::after{content:"";position:absolute;inset-block-end:-9px;inset-inline:-12px;height:6px;border-radius:50%;background:var(--bark)}
+.cup:nth-child(2){transform:translateY(18px)}
+.cup b{font-family:var(--hd);font-weight:800;margin-block-start:16px;font-size:1.1rem}
+.cup span{font-size:.86rem;color:#5a4130;line-height:1.25}
+html[lang="ar"] .cup span{font-size:.92rem;line-height:1.5}
+
+footer{background:var(--red);color:var(--cream);text-align:center}
+.fin{max-width:1200px;margin-inline:auto;padding:clamp(34px,5vw,64px) 20px 30px}
+.gur{font-family:var(--hd);font-weight:800;font-size:clamp(1.8rem,4.4vw,3.4rem);line-height:1.05;letter-spacing:-.02em}
+html[lang="ar"] .gur{font-weight:900;line-height:1.5}
+.gur em{font-style:normal;color:var(--yel)}
+.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,40px);margin-block:30px 24px;text-align:start}
+.fg h3{font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;color:var(--yel);margin-block-end:6px}
+html[lang="ar"] .fg h3{font-size:1.05rem;font-family:var(--hd)}
+.fg p{font-size:.97rem;color:#f8ebd6}
+.fine{font-size:.88rem;color:#f1d9c2}
+
+@media (max-width:900px){
+  .ctl{inset-block-start:44px}
+  .hero{padding-block-start:96px}
+  .plat{grid-template-columns:1fr;justify-items:center}
+  .tray{order:-1;width:min(92vw,440px);margin-block-end:14px}
+  .wl{width:100%;max-width:560px;gap:20px}
+  .wl.a .w{flex-direction:row;text-align:start}
+  .wl.a .w h3{justify-content:flex-start}
+  .wl.a .w p{margin-inline-start:0}
+  .wl .w:nth-child(n){margin-inline:0 !important}
+  .w h3{justify-content:space-between !important;flex-wrap:nowrap}
+  .w>div{flex:1}
+  .w p{max-width:none}
+  .dl b{width:26px;font-size:.9rem}
+  .deal{grid-template-columns:1fr}
+  .deal div{border-radius:26px}
+  .tin{grid-template-columns:1fr}
+  .pan{width:min(86vw,400px);margin:-150px auto -10px}
+  .tibs .sh,.buna .sh{text-align:center;margin-inline:auto}
+  .tl li{grid-template-columns:auto 1fr auto;gap:2px 12px}
+  .bin{grid-template-columns:1fr}
+  .bl{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="ctl">
+  <a class="home-link" href="../index.html"><i aria-hidden="true"></i><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+<div class="page">
+<div class="band" aria-hidden="true"></div>
+<header class="hero">
+  <p class="kick"><span lang="en">Ethiopian kitchen</span><span lang="ar">مطبخ إثيوبي</span></p>
+  <h1><span lang="en">Injera <em>House</em></span><span lang="ar">بيت <em>الإنجيرا</em></span></h1>
+  <p class="tag"><span lang="en">One platter. Many hands.</span><span lang="ar">صحنٌ واحد وأيدٍ كثيرة.</span></p>
+  <p class="intro"><span lang="en">No plates, no cutlery. Tear a piece of sour, spongy injera, scoop up a stew — and if you love someone at the table, feed them the first bite. We call that gursha.</span><span lang="ar">لا أطباق فردية ولا ملاعق. اقطع قطعة من الإنجيرا الإسفنجية الحامضة واغرف بها من اليخنة، وإن أحببتَ أحدًا على المائدة فأطعِمه اللقمة الأولى بيدك. نسمّي ذلك «غورشا».</span></p>
+</header>
+
+<main>
+<section class="mesob">
+  <header class="mh"><h2><span lang="en">The Mesob</span><span lang="ar">المِسوب</span></h2><p><span lang="en">Wots and stews, spooned onto one shared injera. Find the number on the platter.</span><span lang="ar">يخنات «الوَت» تُغرف فوق إنجيرا واحدة مشتركة. ابحث عن رقم الطبق على الصحن.</span></p></header>
+  <div class="plat">
+    <ul class="wl a">
+      <li class="w" style="--c:#6f1a0e"><span class="n">1</span><div><h3><span lang="en">Doro Wot</span><span lang="ar">دورو وَت</span><span class="pr">$16</span></h3><p><span lang="en">The feast‑day stew: chicken simmered for hours in berbere and spiced butter, with a whole egg.</span><span lang="ar">يخنة الأعياد: دجاج يُطهى ساعاتٍ في البربري والسمن المتبّل، مع بيضة مسلوقة كاملة.</span></p><span class="meta"><span class="star"><span lang="en">house pride</span><span lang="ar">فخر البيت</span></span><span class="heat" aria-hidden="true"><i></i><i></i><i></i></span></span></div></li>
+      <li class="w" style="--c:#c1401f"><span class="n">2</span><div><h3><span lang="en">Misir Wot</span><span lang="ar">مِسِر وَت</span><span class="pr">$11</span></h3><p><span lang="en">Red lentils cooked down with berbere, onion and garlic until velvety.</span><span lang="ar">عدس أحمر يُطهى مع البربري والبصل والثوم حتى يصير مخمليًّا.</span></p><span class="meta"><span class="tsom"><span lang="en">fasting · vegan</span><span lang="ar">صيامي · نباتي</span></span><span class="heat" aria-hidden="true"><i></i><i></i><i class="o"></i></span></span></div></li>
+      <li class="w" style="--c:#e3ab26;--k:#2a1a10"><span class="n">3</span><div><h3><span lang="en">Kik Alicha</span><span lang="ar">كِك أليتشا</span><span class="pr">$10</span></h3><p><span lang="en">Yellow split peas, mild and golden with turmeric and fresh ginger.</span><span lang="ar">بازلاء صفراء مجروشة، لطيفة وذهبية بالكركم والزنجبيل الطازج.</span></p><span class="meta"><span class="tsom"><span lang="en">fasting · vegan</span><span lang="ar">صيامي · نباتي</span></span><span class="heat" aria-hidden="true"><i class="o"></i><i class="o"></i><i class="o"></i></span></span></div></li>
+      <li class="w" style="--c:#3f6b2f"><span class="n">4</span><div><h3><span lang="en">Gomen</span><span lang="ar">غومِن</span><span class="pr">$10</span></h3><p><span lang="en">Collard greens braised slowly with garlic, ginger and green chilli.</span><span lang="ar">أوراق الكرنب الخضراء تُطهى على مهل مع الثوم والزنجبيل والفلفل الأخضر.</span></p><span class="meta"><span class="tsom"><span lang="en">fasting · vegan</span><span lang="ar">صيامي · نباتي</span></span><span class="heat" aria-hidden="true"><i></i><i class="o"></i><i class="o"></i></span></span></div></li>
+    </ul>
+
+    <div class="tray" aria-hidden="true">
+      <div class="inj"></div>
+      <span class="dl c" style="left:50%;top:50%;--c:#6f1a0e;--c2:#a03a1e"><b>1</b></span>
+      <span class="dl" style="left:35.4%;top:22.6%;--c:#c1401f;--c2:#e2693a"><b>2</b></span>
+      <span class="dl" style="left:19.5%;top:44.6%;--c:#e3ab26;--c2:#f6d264"><b>3</b></span>
+      <span class="dl" style="left:27%;top:70.7%;--c:#3f6b2f;--c2:#6c9a4b"><b>4</b></span>
+      <span class="dl" style="left:60.6%;top:20.9%;--c:#c98a3a;--c2:#e6b56a"><b>5</b></span>
+      <span class="dl" style="left:79.5%;top:40.4%;--c:#8f2416;--c2:#bf4a2a"><b>6</b></span>
+      <span class="dl" style="left:75.7%;top:67.3%;--c:#e0b84c;--c2:#f3da8a"><b>7</b></span>
+      <span class="dl" style="left:52.2%;top:80.9%;--c:#efe6d2;--c2:#fffaf0"><b>8</b></span>
+      <span class="roll" style="left:12.5%;top:58%;--r:74deg"></span><span class="roll" style="left:86%;top:55%;--r:-80deg"></span><span class="roll" style="left:47%;top:11.5%;--r:4deg"></span>
+    </div>
+
+    <ul class="wl b">
+      <li class="w" style="--c:#c98a3a;--k:#2a1a10"><span class="n">5</span><div><h3><span lang="en">Shiro</span><span lang="ar">شيرو</span><span class="pr">$10</span></h3><p><span lang="en">Silky chickpea‑flour stew with garlic and berbere, still bubbling in its clay pot.</span><span lang="ar">يخنة ناعمة من طحين الحمّص بالثوم والبربري، تصل وهي تغلي في قِدرها الفخّاري.</span></p><span class="meta"><span class="tsom"><span lang="en">fasting · vegan</span><span lang="ar">صيامي · نباتي</span></span><span class="heat" aria-hidden="true"><i></i><i class="o"></i><i class="o"></i></span></span></div></li>
+      <li class="w" style="--c:#8f2416"><span class="n">6</span><div><h3><span lang="en">Key Wot</span><span lang="ar">قَي وَت</span><span class="pr">$15</span></h3><p><span lang="en">Tender beef in a deep red berbere sauce, finished with cardamom butter.</span><span lang="ar">لحم بقري طريّ في صلصة بربري حمراء قانية، يُختم بسمن الهيل.</span></p><span class="meta"><span class="heat" aria-hidden="true"><i></i><i></i><i></i></span></span></div></li>
+      <li class="w" style="--c:#e0b84c;--k:#2a1a10"><span class="n">7</span><div><h3><span lang="en">Atkilt</span><span lang="ar">أتكِلت</span><span class="pr">$10</span></h3><p><span lang="en">Cabbage, carrot and potato, gently stewed with turmeric and onion.</span><span lang="ar">ملفوف وجزر وبطاطا تُطهى برفق مع الكركم والبصل.</span></p><span class="meta"><span class="tsom"><span lang="en">fasting · vegan</span><span lang="ar">صيامي · نباتي</span></span><span class="heat" aria-hidden="true"><i class="o"></i><i class="o"></i><i class="o"></i></span></span></div></li>
+      <li class="w" style="--c:#efe6d2;--k:#2a1a10"><span class="n">8</span><div><h3><span lang="en">Ayib</span><span lang="ar">أيِب</span><span class="pr">$6</span></h3><p><span lang="en">Fresh crumbled cheese, cool and mild — the fire brigade of the platter.</span><span lang="ar">جبن طازج مفتّت، بارد ولطيف؛ هو رجل الإطفاء في هذا الصحن.</span></p></div></li>
+    </ul>
+  </div>
+
+  <div class="deal">
+    <div><i aria-hidden="true"><b>5</b></i><span><h3><span lang="en">Beyaynetu for two</span><span lang="ar">بَيَينتو لشخصين</span></h3><p><span lang="en">Any five wots on one injera, extra rolls on the side.</span><span lang="ar">خمس يخنات من اختياركم على إنجيرا واحدة، مع لفائف إضافية.</span></p></span><span class="pr">$34</span></div>
+    <div><i aria-hidden="true"><b>8</b></i><span><h3><span lang="en">The full mesob for four</span><span lang="ar">المِسوب الكامل لأربعة</span></h3><p><span lang="en">All eight, plus a pan of tibs and the coffee ceremony.</span><span lang="ar">الأطباق الثمانية كلّها مع مقلاة تِبس ومراسم القهوة.</span></p></span><span class="pr">$78</span></div>
+  </div>
+</section>
+
+<div class="stripes" aria-hidden="true"></div>
+<section class="first">
+  <header class="sh"><span class="am"><span lang="en">Before the platter</span><span lang="ar">قبل الصحن الكبير</span></span><h2><span lang="en">Under the Basket Lid</span><span lang="ar">تحت غطاء السلّة</span></h2><p><span lang="en">Small things to tear and share while the wots finish simmering.</span><span lang="ar">لقيمات صغيرة للمشاركة ريثما تنضج اليخنات على النار.</span></p></header>
+  <ul class="lids">
+    <li class="lid" style="--a:#a8321c;--b:#f4e8d0;--c:#e6a81e;--d:#2a1a10"><div class="in"><h3><span lang="en">Sambusa</span><span lang="ar">سمبوسة</span></h3><p><span lang="en">Three crisp pastry triangles of spiced green lentils and jalapeño.</span><span lang="ar">ثلاث مثلّثات مقرمشة محشوّة بالعدس الأخضر المتبّل والهالبينو.</span></p><span class="pr">$7</span></div></li>
+    <li class="lid" style="--a:#3f6b2f;--b:#e6a81e;--c:#f4e8d0;--d:#a8321c"><div class="in"><h3><span lang="en">Kategna</span><span lang="ar">قاطِنيا</span></h3><p><span lang="en">Injera toasted on the griddle, brushed with berbere and spiced butter.</span><span lang="ar">إنجيرا محمّصة على الصاج تُدهن بالبربري والسمن المتبّل.</span></p><span class="pr">$6</span></div></li>
+    <li class="lid" style="--a:#e6a81e;--b:#2a1a10;--c:#3f6b2f;--d:#f4e8d0"><div class="in"><h3><span lang="en">Azifa</span><span lang="ar">أزيفا</span></h3><p><span lang="en">Cold green‑lentil salad sharpened with mustard, lime and green chilli.</span><span lang="ar">سلطة عدس أخضر باردة بالخردل والليمون الأخضر والفلفل الحار.</span></p><span class="pr">$7</span></div></li>
+    <li class="lid" style="--a:#2a1a10;--b:#e6a81e;--c:#a8321c;--d:#f4e8d0"><div class="in"><h3><span lang="en">Timatim Fitfit</span><span lang="ar">تيماتِم فِتفِت</span></h3><p><span lang="en">Torn injera tossed with tomato, red onion, lemon and olive oil.</span><span lang="ar">إنجيرا مقطّعة تُخلط بالطماطم والبصل الأحمر والليمون وزيت الزيتون.</span></p><span class="pr">$8</span></div></li>
+  </ul>
+</section>
+
+<section class="tibs">
+  <div class="band" aria-hidden="true"></div>
+  <div class="tin">
+    <svg class="pan" viewBox="0 0 400 400" aria-hidden="true">
+      <g fill="none" stroke="#f4e8d0" stroke-width="4" stroke-linecap="round" opacity=".7"><path class="st" d="M150 70q-12-16 0-30t0-30"/><path class="st" d="M200 62q-12-16 0-30t0-30"/><path class="st" d="M250 70q-12-16 0-30t0-30"/></g>
+      <circle cx="200" cy="225" r="170" fill="#16100b"/><circle cx="200" cy="225" r="170" fill="none" stroke="#5b3a22" stroke-width="10"/>
+      <circle cx="200" cy="225" r="140" fill="#24160d"/><circle cx="200" cy="225" r="140" fill="none" stroke="#3a2415" stroke-width="3" stroke-dasharray="6 9"/>
+      <g fill="#8a4a25" stroke="#4d2710" stroke-width="3"><rect x="120" y="170" width="44" height="38" rx="9" transform="rotate(-14 142 189)"/><rect x="186" y="150" width="46" height="40" rx="9" transform="rotate(10 209 170)"/><rect x="246" y="186" width="42" height="38" rx="9" transform="rotate(-22 267 205)"/><rect x="150" y="232" width="46" height="40" rx="9" transform="rotate(18 173 252)"/><rect x="214" y="238" width="44" height="40" rx="9" transform="rotate(-8 236 258)"/><rect x="118" y="268" width="40" height="34" rx="9" transform="rotate(-30 138 285)"/><rect x="250" y="270" width="40" height="36" rx="9" transform="rotate(24 270 288)"/><rect x="190" y="292" width="42" height="34" rx="9" transform="rotate(4 211 309)"/></g>
+      <g fill="none" stroke="#f1e3c8" stroke-width="5" stroke-linecap="round"><path d="M96 228q14-16 30-6"/><path d="M270 150q18 2 22 20"/><path d="M196 214q16-8 28 6"/><path d="M160 318q14 12 30 2"/></g>
+      <g fill="none" stroke="#5f9a3e" stroke-width="5" stroke-linecap="round"><path d="M230 120l34 18M240 116l-2 12M250 122l-3 12"/><path d="M110 150l30-20M118 140l10 8M128 133l9 9"/><path d="M286 240l26 24M292 252l10-6M300 260l10-5"/></g>
+      <g fill="#d93a1e"><path d="M170 130q22-12 40 2q-22 8-40-2z"/><path d="M286 310q-4-24 14-38q6 22-14 38z"/></g>
+    </svg>
+    <div>
+      <header class="sh"><span class="am"><span lang="en">From the hot clay pan</span><span lang="ar">من المقلاة الفخّارية الساخنة</span></span><h2><span lang="en">Tibs &amp; Kitfo</span><span lang="ar">تِبس وكِتفو</span></h2><p><span lang="en">Seared to order and carried to the table still hissing. Each comes with two rolls of injera.</span><span lang="ar">تُحمَّر عند الطلب وتصل إلى الطاولة وهي ما زالت تَئزّ. مع كل طبق لفافتا إنجيرا.</span></p></header>
+      <ul class="tl">
+        <li><h3><span lang="en">Awaze Tibs</span><span lang="ar">أوازي تِبس</span></h3><span class="pr">$17</span><p><span lang="en">Beef cubes flash‑fried with onion, rosemary and fiery awaze paste. <span class="heat" aria-hidden="true"><i></i><i></i><i></i></span></span><span lang="ar">مكعّبات لحم بقري تُقلى سريعًا مع البصل وإكليل الجبل ومعجون الأوازي الحارّ. <span class="heat" aria-hidden="true"><i></i><i></i><i></i></span></span></p></li>
+        <li><h3><span lang="en">Yebeg Tibs</span><span lang="ar">يَبِغ تِبس</span></h3><span class="pr">$19</span><p><span lang="en">Lamb on the bone with garlic, jalapeño and a splash of spiced butter. <span class="heat" aria-hidden="true"><i></i><i class="o"></i><i class="o"></i></span></span><span lang="ar">لحم ضأن بالعظم مع الثوم والهالبينو ورشّة من السمن المتبّل. <span class="heat" aria-hidden="true"><i></i><i class="o"></i><i class="o"></i></span></span></p></li>
+        <li><h3><span lang="en">Kitfo</span><span lang="ar">كِتفو</span></h3><span class="pr">$18</span><p><span lang="en">Hand‑minced beef warmed in mitmita and niter kibbeh, with ayib and gomen. Ask for it leb‑leb or well done. <span class="heat" aria-hidden="true"><i></i><i></i><i class="o"></i></span></span><span lang="ar">لحم بقري مفروم باليد يُدفّأ بالمِتمِتا والسمن المتبّل، مع الأيِب والغومِن. اطلبه نصف استواء أو ناضجًا تمامًا. <span class="heat" aria-hidden="true"><i></i><i></i><i class="o"></i></span></span></p></li>
+        <li><h3><span lang="en">Asa Tibs</span><span lang="ar">أسا تِبس</span></h3><span class="pr">$16</span><p><span lang="en">Whole tilapia scored, fried crisp and dressed with lime and green chilli. <span class="heat" aria-hidden="true"><i></i><i class="o"></i><i class="o"></i></span></span><span lang="ar">سمكة بلطي كاملة تُشقّ وتُقلى حتى تتقرمش، مع الليمون الأخضر والفلفل الحار. <span class="heat" aria-hidden="true"><i></i><i class="o"></i><i class="o"></i></span></span></p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="buna">
+  <div class="bin">
+    <div>
+      <header class="sh"><span class="am"><span lang="en">To finish, slowly</span><span lang="ar">الختام على مهل</span></span><h2><span lang="en">Buna &amp; Cups</span><span lang="ar">البُنّ والأكواب</span></h2><p><span lang="en">Coffee was born in these highlands. We roast the beans in front of you.</span><span lang="ar">في تلك المرتفعات وُلدت القهوة، ونحن نحمّص حبوبها أمامكم.</span></p></header>
+      <ul class="bl">
+        <li><h3><span lang="en">The Coffee Ceremony</span><span lang="ar">مراسم القهوة</span><span class="pr">$12</span></h3><p><span lang="en">For the table: green beans roasted over coals, brewed in the jebena and poured three times, with popcorn and frankincense.</span><span lang="ar">للطاولة كلّها: حبوب خضراء تُحمَّص على الجمر وتُغلى في الجَبَنة وتُصبّ ثلاث مرّات، مع الفشار وبخور اللبان.</span></p></li>
+        <li><h3><span lang="en">Buna, single cup</span><span lang="ar">بُنّ، فنجان واحد</span><span class="pr">$3.5</span></h3><p><span lang="en">Dark, short and aromatic, with a sprig of rue.</span><span lang="ar">داكنة وقصيرة وعطرة، مع غصن من السذاب.</span></p></li>
+        <li><h3><span lang="en">Shai be Qimem</span><span lang="ar">شاي بالقِمِم</span><span class="pr">$3</span></h3><p><span lang="en">Black tea steeped with cardamom, clove and cinnamon bark.</span><span lang="ar">شاي أسود منقوع مع الهيل والقرنفل ولحاء القرفة.</span></p></li>
+        <li><h3><span lang="en">Spris</span><span lang="ar">سبريس</span><span class="pr">$6</span></h3><p><span lang="en">Three thick layers of avocado, mango and papaya juice, with lime.</span><span lang="ar">ثلاث طبقات كثيفة من عصير الأفوكادو والمانجو والبابايا مع الليمون.</span></p></li>
+        <li><h3><span lang="en">Birz</span><span lang="ar">بِرز</span><span class="pr">$5</span></h3><p><span lang="en">Chilled honey water with ginger — sweet, golden, alcohol‑free.</span><span lang="ar">ماء العسل المبرّد بالزنجبيل؛ حلو وذهبي وخالٍ من الكحول.</span></p></li>
+      </ul>
+    </div>
+    <div class="cer">
+      <svg class="jeb" viewBox="0 0 220 260" aria-hidden="true">
+        <path d="M62 152Q30 134 22 84" fill="none" stroke="#2a1a10" stroke-width="13" stroke-linecap="round"/>
+        <path d="M124 64Q182 66 170 142" fill="none" stroke="#2a1a10" stroke-width="11" stroke-linecap="round"/>
+        <path d="M94 118L99 42Q110 34 121 42L126 118Z" fill="#2a1a10"/>
+        <rect x="88" y="28" width="44" height="13" rx="6.5" fill="#2a1a10"/>
+        <path d="M102 28q-4-14 8-20q12 6 8 20z" fill="#e6a81e"/>
+        <ellipse cx="110" cy="172" rx="68" ry="62" fill="#2a1a10"/>
+        <path d="M68 226h84l10 20H58z" fill="#a8321c"/>
+        <path d="M46 160q64 28 128 0" fill="none" stroke="#e6a81e" stroke-width="5" stroke-dasharray="3 9" stroke-linecap="round"/>
+        <path d="M50 180q60 26 120 0" fill="none" stroke="#f4e8d0" stroke-width="3" opacity=".55"/>
+        <ellipse cx="82" cy="146" rx="11" ry="20" fill="#fff" opacity=".13" transform="rotate(28 82 146)"/>
+      </svg>
+      <div class="cups">
+        <div class="cup"><i></i><b><span lang="en">Abol</span><span lang="ar">أبول</span></b><span lang="en">the first pour,<br>the strongest</span><span lang="ar">الصبّة الأولى<br>وهي الأقوى</span></div>
+        <div class="cup"><i style="--kf:#5a3418"></i><b><span lang="en">Tona</span><span lang="ar">تونا</span></b><span lang="en">the second,<br>for talking</span><span lang="ar">الثانية<br>للحديث</span></div>
+        <div class="cup"><i style="--kf:#8a5a30"></i><b><span lang="en">Baraka</span><span lang="ar">بَرَكة</span></b><span lang="en">the third,<br>the blessing</span><span lang="ar">الثالثة<br>وهي البَرَكة</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="band" aria-hidden="true"></div>
+  <div class="fin">
+    <p class="gur"><span lang="en">The bigger the gursha, <em>the bigger the love.</em></span><span lang="ar">كلّما كبرت اللقمة، <em>كبرت المحبّة.</em></span></p>
+    <div class="fg">
+      <div><h3><span lang="en">Hours</span><span lang="ar">أوقات العمل</span></h3><p><span lang="en">Tuesday – Sunday, 12:00 – 23:00<br>Coffee ceremony daily at 16:00 &amp; 20:00</span><span lang="ar">الثلاثاء – الأحد، ١٢:٠٠ – ٢٣:٠٠<br>مراسم القهوة يوميًّا الساعة ٤ عصرًا و٨ مساءً</span></p></div>
+      <div><h3><span lang="en">Find us</span><span lang="ar">العنوان</span></h3><p><span lang="en">27 Basket‑Weavers’ Row<br>Little Addis, Riverside Quarter</span><span lang="ar">٢٧ زقاق ناسجي السلال<br>حيّ أديس الصغيرة، ضفّة النهر</span></p></div>
+      <div><h3><span lang="en">Good to know</span><span lang="ar">للعلم</span></h3><p><span lang="en">Our injera is 100% teff and naturally gluten‑free. Spiced butter contains dairy; kitfo may be served lightly cooked. Fasting dishes are fully vegan.</span><span lang="ar">الإنجيرا عندنا من التِّف الخالص وخالية من الغلوتين طبيعيًّا. السمن المتبّل يحتوي على ألبان، والكِتفو قد يُقدَّم نصف ناضج. الأطباق الصيامية نباتية تمامًا.</span></p></div>
+    </div>
+    <p class="fine"><span lang="en">Prices in US dollars, service included. Wash your hands at the table — we bring the jug.</span><span lang="ar">الأسعار بالدولار الأمريكي وتشمل الخدمة. اغسلوا أيديكم على الطاولة، فنحن نحضر الإبريق.</span></p>
+  </div>
+  <div class="stripes" aria-hidden="true"></div>
+</footer>
+</div>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>

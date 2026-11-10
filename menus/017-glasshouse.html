@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Glasshouse · البيت الزجاجي</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Glasshouse — a plant-based kitchen under glass: small plates, fire-roasted vegetables, terrarium bowls and pressed nectars. البيت الزجاجي: مطبخ نباتي تحت سقف من زجاج.">
+<meta name="theme-color" content="#b9f0d2">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --ink:#06301f; --soft:#1d5540; --deep:#0a6b4a; --lime:#d6f55f;
+  --serif:"Instrument Serif","Alexandria",Georgia,serif;
+  --sans:"Manrope","Alexandria",system-ui,sans-serif;
+  --glass:linear-gradient(140deg,rgba(255,255,255,.66),rgba(255,255,255,.3) 60%,rgba(255,255,255,.42));
+  --edge:1px solid rgba(255,255,255,.8);
+  --lift:0 30px 60px -30px rgba(3,70,45,.45), inset 0 1px 0 rgba(255,255,255,.95), inset 0 -1px 0 rgba(255,255,255,.3);
+}
+html[lang="ar"]{--serif:"Alexandria","Instrument Serif",sans-serif;--sans:"Alexandria","Manrope",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;background:#c9f3d6;position:relative;overflow-x:clip}
+html[lang="ar"] body{font-size:16.5px;line-height:1.85;font-weight:300}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+svg{display:block}
+
+/* ---------- the living backdrop ---------- */
+.air{position:absolute;inset:0;overflow:clip;z-index:0;pointer-events:none;
+  background:
+   radial-gradient(60vw 700px at 85% 0,#eaffb0 0,transparent 70%),
+   radial-gradient(50vw 800px at 0 500px,#7fe3d0 0,transparent 70%),
+   linear-gradient(180deg,#d9f8c4 0,#aeeccf 25%,#c9f5a8 50%,#9be8d6 75%,#d4f7b4 100%)}
+.orb{position:absolute;border-radius:50%;filter:blur(50px);opacity:.85;animation:drift 26s ease-in-out infinite alternate;will-change:transform}
+.orb:nth-child(odd){animation-duration:34s;animation-direction:alternate-reverse}
+@keyframes drift{from{transform:translate3d(-4vw,-30px,0) scale(1)}to{transform:translate3d(5vw,50px,0) scale(1.18)}}
+.leaf{position:absolute;color:#0c8a5f;opacity:.5;filter:blur(3px);animation:sway 14s ease-in-out infinite alternate;transform-origin:0 50%}
+.leaf:nth-of-type(even){color:#07694f;animation-duration:19s}
+.leaf:nth-of-type(3n){color:#58b82e}
+@keyframes sway{from{rotate:-4deg}to{rotate:5deg}}
+
+.page{position:relative;z-index:1;max-width:1320px;margin-inline:auto;padding:clamp(72px,7vw,96px) clamp(16px,3.5vw,48px) 48px}
+.glass{background:var(--glass);-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);border:var(--edge);box-shadow:var(--lift)}
+
+/* ---------- controls + dock ---------- */
+.ctrl{position:fixed;inset-block-start:14px;inset-inline-end:14px;z-index:40;display:flex;align-items:center;gap:4px;padding:4px;border-radius:999px}
+.ctrl a,.ctrl button{font:500 13.5px/1 var(--sans);color:var(--ink);text-decoration:none;background:none;border:0;cursor:pointer;min-height:38px;padding:0 14px;border-radius:999px;display:inline-flex;align-items:center;gap:7px;transition:background .25s}
+.ctrl button{background:var(--ink);color:#effff4}
+.ctrl a:hover{background:rgba(255,255,255,.6)}
+.ctrl svg{width:13px;height:13px}
+.dock{position:fixed;z-index:30;inset-inline-start:22px;inset-block-start:50%;transform:translateY(-50%);border-radius:36px;padding:18px 10px;display:none;flex-direction:column;gap:4px;width:168px;white-space:nowrap}
+.dock .mark{display:grid;place-items:center;margin-block-end:10px}
+.dock .mark svg{width:34px;height:34px;color:var(--deep)}
+.dock a{display:flex;align-items:baseline;gap:9px;text-decoration:none;font-size:14px;font-weight:500;padding:9px 12px;border-radius:999px;transition:background .25s}
+.dock a:hover{background:rgba(255,255,255,.7)}
+.dock a i{font:400 italic 14px "Instrument Serif",serif;color:var(--deep)}
+@media (min-width:1180px){.dock{display:flex}.page{padding-inline-start:214px}}
+
+/* ---------- hero: the façade ---------- */
+.facade{display:grid;grid-template-columns:1fr 1.32fr 1fr;gap:clamp(14px,1.6vw,24px);align-items:end}
+.pane{position:relative;border-radius:999px 999px 30px 30px;overflow:hidden}
+.pane::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(115deg,rgba(255,255,255,.55) 0,rgba(255,255,255,0) 28%,rgba(255,255,255,0) 70%,rgba(255,255,255,.25) 100%)}
+.fan{width:100%;height:auto;color:#fff;flex:none}
+.pane.mid{text-align:center;padding-block-end:clamp(30px,3.4vw,52px);container-type:inline-size;min-height:clamp(520px,47vw,680px);display:flex;flex-direction:column;justify-content:space-between}
+.pane.mid .in{padding-inline:clamp(18px,3vw,48px);margin-block-start:clamp(-70px,-5vw,-30px);position:relative}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--deep)}
+html[lang="ar"] .eyebrow{font-size:15px;font-weight:400}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(58px,8.4vw,132px);font-size:20cqi;line-height:.9;letter-spacing:-.02em;margin-block:.14em .1em}
+h1 em{font-style:italic;color:var(--deep)}
+html[lang="ar"] h1{font-weight:200;font-size:17cqi;line-height:1.2}
+html[lang="ar"] h1 em{display:block}
+html[lang="ar"] h1 em{font-style:normal;font-weight:600}
+.tagline{font-family:var(--serif);font-style:italic;font-size:clamp(21px,2vw,29px);line-height:1.25;color:var(--soft)}
+html[lang="ar"] .tagline{font-style:normal;font-weight:300;font-size:clamp(19px,1.7vw,24px);line-height:1.6}
+.jump{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-block-start:26px;list-style:none}
+.jump a{font-size:14px;font-weight:500;text-decoration:none;padding:9px 15px;border-radius:999px;border:var(--edge);background:rgba(255,255,255,.45);display:block}
+.pane.side{padding:clamp(130px,13vw,200px) clamp(22px,2vw,32px) clamp(26px,2.4vw,36px);min-height:clamp(430px,38vw,540px);display:flex;flex-direction:column;justify-content:flex-end;gap:14px}
+.pane.side::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)) 50% 0/1px 100% no-repeat,linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)) 0 34%/100% 1px no-repeat;opacity:.8;pointer-events:none}
+.pane.side>*{position:relative}
+.pane h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.3vw,34px);line-height:1.05}
+html[lang="ar"] .pane h2{font-weight:400;font-size:clamp(22px,1.9vw,27px);line-height:1.4}
+.climate{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.climate li{background:rgba(255,255,255,.5);border:var(--edge);border-radius:18px;padding:10px 12px;font-size:12.5px;line-height:1.3;color:var(--soft)}
+html[lang="ar"] .climate li{font-size:13.5px;line-height:1.5}
+.climate b{display:block;font:400 30px/1 "Instrument Serif",serif;color:var(--ink);direction:ltr;unicode-bidi:isolate}
+html[dir="rtl"] .climate b{text-align:right}
+.table{border-block-start:1px solid rgba(255,255,255,.9);padding-block-start:12px;font-size:15px}
+.table strong{font-weight:700}
+
+/* ---------- section heads ---------- */
+section{padding-block-start:clamp(72px,9vw,132px);scroll-margin-top:20px}
+.head{display:grid;grid-template-columns:auto 1fr;gap:6px clamp(16px,2.4vw,36px);align-items:end;margin-block-end:clamp(28px,3.4vw,48px)}
+.bay{grid-row:span 2;font:400 italic clamp(70px,9vw,140px)/.8 "Instrument Serif",serif;color:rgba(255,255,255,.9);text-shadow:0 2px 30px rgba(6,90,60,.35);direction:ltr}
+html[dir="rtl"] .bay{text-align:right}
+.head h2{font-family:var(--serif);font-weight:400;font-size:clamp(42px,5.6vw,84px);line-height:.95;letter-spacing:-.015em;align-self:end}
+html[lang="ar"] .head h2{font-weight:200;font-size:clamp(36px,4.6vw,68px);line-height:1.3}
+.head p{color:var(--soft);font-size:clamp(15.5px,1.2vw,18px);max-width:52ch}
+html[lang="ar"] .head p{font-size:clamp(16.5px,1.3vw,19px)}
+.price{font:400 26px/1 "Instrument Serif",serif;white-space:nowrap;direction:ltr;unicode-bidi:isolate;display:inline-flex;align-items:baseline;gap:5px}
+html[dir="rtl"] .price{flex-direction:row-reverse}
+.price small{font:500 11.5px var(--sans);letter-spacing:.1em;color:var(--soft)}
+html[lang="ar"] .price small{font-size:14px}
+.tags{display:inline-flex;gap:5px;flex-wrap:wrap}
+.tags i{font-style:normal;font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:3px 8px;border-radius:999px;background:rgba(255,255,255,.65);border:var(--edge);color:var(--deep);white-space:nowrap}
+html[lang="ar"] .tags i{font-size:13px;font-weight:400}
+.tags i.pick{background:var(--ink);color:var(--lime);border-color:transparent}
+h3{font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.08}
+html[lang="ar"] h3{font-weight:400;font-size:21px;line-height:1.45}
+.d{font-size:15px;color:var(--soft)}
+html[lang="ar"] .d{font-size:16px}
+
+/* ---------- 01 seedlings: a row of arched cloches ---------- */
+.arches{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,1.3vw,20px);align-items:stretch}
+.arch{border-radius:999px 999px 26px 26px;padding:clamp(26px,2.4vw,38px) clamp(16px,1.5vw,22px) 22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;transition:translate .5s cubic-bezier(.2,.8,.2,1)}
+.arch:nth-child(even){margin-block-start:44px}
+.arch:hover{translate:0 -8px}
+.spec{width:clamp(74px,7vw,104px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,#fff,rgba(255,255,255,.25) 70%);border:var(--edge);color:var(--deep);flex:none;box-shadow:0 10px 24px -12px rgba(3,70,45,.5)}
+.spec svg{width:54%;height:54%}
+.arch .d{flex:1}
+.arch .price{margin-block-start:6px;padding-block-start:12px;border-block-start:1px solid rgba(255,255,255,.9);align-self:stretch;justify-content:center}
+
+/* ---------- 02 canopy: glazed wall ---------- */
+.wall{list-style:none;display:grid;grid-template-columns:1.25fr 1fr 1fr;border-radius:34px;overflow:hidden;position:relative}
+.wall li{padding:clamp(22px,2.4vw,36px);display:flex;flex-direction:column;gap:10px;border-inline-start:1px solid rgba(255,255,255,.85);border-block-start:1px solid rgba(255,255,255,.85);position:relative}
+.wall li.big{grid-row:span 2;border-inline-start:0;justify-content:flex-end;min-height:520px;background:linear-gradient(180deg,rgba(255,255,255,0) 20%,rgba(255,255,255,.5))}
+.wall li:nth-child(2),.wall li:nth-child(3),.wall li.big{border-block-start:0}
+.wall li.big h3{font-size:clamp(40px,4.2vw,62px);line-height:.95}
+html[lang="ar"] .wall li.big h3{font-size:clamp(30px,3.2vw,46px);line-height:1.3;font-weight:300}
+.wall li.big .d{font-size:17px;max-width:38ch}
+.wall .d{flex:1}
+.wall .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.cauli{width:clamp(110px,11vw,160px);color:var(--deep);margin-block-end:auto;align-self:flex-end}
+.wall li.big .price{font-size:40px}
+
+/* ---------- 03 terrariums ---------- */
+.domes{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,26px)}
+.dome{aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;padding:13%;position:relative;overflow:hidden}
+.dome::before{content:"";position:absolute;inset-inline:0;inset-block-end:0;height:19%;background:linear-gradient(rgba(10,107,74,.28),rgba(10,107,74,.5));border-block-start:1px solid rgba(255,255,255,.8)}
+.dome::after{content:"";position:absolute;inset:5%;border-radius:50%;background:linear-gradient(125deg,rgba(255,255,255,.7),rgba(255,255,255,0) 32%);pointer-events:none}
+.dome:nth-child(even){translate:0 38px}
+.dome>*{position:relative;z-index:1}
+.dome .sprout{width:30px;height:30px;color:var(--deep)}
+.dome .d{max-width:23ch;line-height:1.4}
+html[lang="ar"] .dome .d{line-height:1.6;font-size:15px}
+.dome .price{margin-block-end:10%}
+
+/* ---------- 04 + 05 ---------- */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,36px);align-items:start;padding-block-start:clamp(72px,9vw,132px)}
+.pair section{padding-block-start:0}
+.pair section:last-child{margin-block-start:clamp(0px,6vw,96px)}
+.pair .head{grid-template-columns:1fr}
+.pair .bay{grid-row:auto;font-size:clamp(60px,6vw,96px)}
+.pair .head h2{font-size:clamp(40px,4.4vw,64px)}
+html[lang="ar"] .pair .head h2{font-size:clamp(34px,3.6vw,52px)}
+.sheet{list-style:none;border-radius:34px;padding:clamp(8px,1vw,14px) clamp(20px,2.4vw,36px)}
+.sheet li{display:grid;grid-template-columns:1fr auto;gap:4px 18px;padding-block:20px;border-block-end:1px solid rgba(255,255,255,.9);align-items:baseline}
+.sheet li:last-child{border:0}
+.sheet .d{grid-column:1}
+.sheet .tags{grid-column:2;grid-row:2;justify-self:end}
+
+/* ---------- footer ---------- */
+footer{margin-block-start:clamp(80px,9vw,140px);border-radius:40px 40px 30px 30px;padding:clamp(26px,3.4vw,52px);display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:clamp(20px,3vw,48px);position:relative;overflow:hidden}
+footer .wm{font-family:var(--serif);font-size:clamp(40px,4.6vw,68px);line-height:.95}
+html[lang="ar"] footer .wm{font-weight:200;line-height:1.3;font-size:clamp(34px,3.8vw,54px)}
+footer .wm em{font-style:italic;color:var(--deep)}
+html[lang="ar"] footer .wm em{font-style:normal;font-weight:600}
+footer h4{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);margin-block-end:8px}
+html[lang="ar"] footer h4{font-size:15px;font-weight:600}
+footer p{font-size:15px;color:var(--soft)}
+html[lang="ar"] footer p{font-size:16px}
+.key{display:flex;flex-direction:column;gap:6px;list-style:none;font-size:15px;color:var(--soft)}
+.key li{display:flex;gap:8px;align-items:center}
+
+@media (max-width:1040px){
+  .facade{grid-template-columns:1fr 1fr}
+  .pane.mid{grid-column:1/-1}
+  .pane.side{border-radius:30px;min-height:0;padding-block-start:28px}
+  .pane.side::before{display:none}
+  .arches{grid-template-columns:repeat(3,1fr)}
+  .arch:nth-child(even){margin-block-start:0}
+  .wall{grid-template-columns:1fr 1fr}
+  .wall li.big{grid-column:1/-1;grid-row:auto;min-height:340px}
+  .wall li:nth-child(2){border-inline-start:0}.wall li:nth-child(3){border-block-start:1px solid rgba(255,255,255,.85)}.wall li:nth-child(4){border-inline-start:0}
+  .wall li:nth-child(2),.wall li:nth-child(3){border-block-start:1px solid rgba(255,255,255,.85)}
+  .domes{grid-template-columns:repeat(2,1fr);max-width:720px;margin-inline:auto}
+  footer{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .facade{grid-template-columns:1fr}
+  .pane.mid{border-radius:200px 200px 30px 30px}
+  .pane.mid .in{margin-block-start:-18px;padding-inline:16px}
+  .pane.mid{order:-1;min-height:0}
+  .head{grid-template-columns:1fr}.bay{grid-row:auto}
+  .arches{grid-template-columns:1fr;gap:12px}
+  .arch{flex-direction:row;flex-wrap:wrap;text-align:start;align-items:center;border-radius:60px 60px 26px 26px;padding:16px 18px 16px;gap:4px 14px}
+  .arch:nth-child(even){border-radius:26px 26px 60px 60px}
+  .arch .spec{width:66px}
+  .arch h3{flex:1;min-width:0}
+  .arch .d{flex:0 0 100%;margin-block-start:8px}
+  .arch .tags{flex:1}
+  .arch .price{align-self:auto;border:0;padding:0;margin:0}
+  .wall{grid-template-columns:1fr;border-radius:28px}
+  .wall li{border-inline-start:0 !important;border-block-start:1px solid rgba(255,255,255,.85) !important}
+  .wall li.big{border-block-start:0 !important;min-height:380px}
+  .domes{grid-template-columns:1fr;gap:0;max-width:340px}
+  .dome{width:94%}
+  .dome:nth-child(even){translate:none;margin-inline-start:auto}
+  .dome+.dome{margin-block-start:-22px}
+  .pair{grid-template-columns:1fr}
+  .pair section:last-child{margin-block-start:72px}
+  .sheet{border-radius:28px}
+  footer{grid-template-columns:1fr;border-radius:28px}
+  .ctrl a span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lf" viewBox="0 0 400 200"><path d="M0 100C70 10 250-20 400 100 250 220 70 190 0 100Z" fill="currentColor"/><path d="M0 100h400M90 100l50-56M90 100l50 56M170 100l56-70M170 100l56 70M256 100l50-56M256 100l50 56" fill="none" stroke="#eaffd0" stroke-width="5" stroke-linecap="round" opacity=".55"/></symbol>
+  <symbol id="fern" viewBox="0 0 400 200"><path d="M0 100h400" stroke="currentColor" stroke-width="8" stroke-linecap="round"/><g fill="currentColor"><ellipse cx="60" cy="62" rx="20" ry="46" transform="rotate(24 60 62)"/><ellipse cx="60" cy="138" rx="20" ry="46" transform="rotate(-24 60 138)"/><ellipse cx="130" cy="58" rx="20" ry="50" transform="rotate(24 130 58)"/><ellipse cx="130" cy="142" rx="20" ry="50" transform="rotate(-24 130 142)"/><ellipse cx="200" cy="62" rx="19" ry="46" transform="rotate(24 200 62)"/><ellipse cx="200" cy="138" rx="19" ry="46" transform="rotate(-24 200 138)"/><ellipse cx="268" cy="68" rx="17" ry="38" transform="rotate(24 268 68)"/><ellipse cx="268" cy="132" rx="17" ry="38" transform="rotate(-24 268 132)"/><ellipse cx="330" cy="78" rx="14" ry="28" transform="rotate(24 330 78)"/><ellipse cx="330" cy="122" rx="14" ry="28" transform="rotate(-24 330 122)"/></g></symbol>
+    <symbol fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" id="i-sprout" viewBox="0 0 32 32"><path d="M16 29V14M16 18C16 11 11 7 4 7c0 7 5 11 12 11ZM16 14c0-6 4-10 12-10 0 7-5 10-12 10Z"/></symbol>
+    <symbol fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" id="i-leek" viewBox="0 0 32 32"><path d="M13 29V15l-6-11M19 29V15l6-11M16 16V3M13 29h6M13 21h6M13 25h6"/></symbol>
+    <symbol fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" id="i-beet" viewBox="0 0 32 32"><path d="M16 14c5 0 8 3 8 7 0 5-5 6-8 9-3-3-8-4-8-9 0-4 3-7 8-7ZM16 14V8M16 10c-1-4-4-6-8-6 0 4 3 7 8 6ZM16 8c1-3 3-5 7-5 0 4-3 6-7 5Z"/></symbol>
+    <symbol fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" id="i-pea" viewBox="0 0 32 32"><path d="M4 10c3 12 14 19 25 15C27 13 15 6 4 10Z"/><circle cx="11" cy="14" r="2.4"/><circle cx="17" cy="18" r="2.4"/><circle cx="23" cy="21.5" r="2.2"/></symbol>
+    <symbol fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" id="i-shroom" viewBox="0 0 32 32"><path d="M3 16C3 9 9 4 16 4s13 5 13 12c-4 2-22 2-26 0ZM13 17.4c0 4-1 7-2 10h10c-1-3-2-6-2-10"/></symbol>
+    <symbol fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" id="i-tom" viewBox="0 0 32 32"><circle cx="16" cy="18" r="10.5"/><path d="M16 9l-4-4M16 9l4-4M16 9V4M16 9l-6 2M16 9l6 2"/></symbol>
+</svg>
+
+<div class="air" aria-hidden="true">
+  <i class="orb" style="width:520px;height:520px;background:#d9ff6a;inset-block-start:1%;inset-inline-start:52%"></i>
+  <i class="orb" style="width:460px;height:460px;background:#2fd6b4;inset-block-start:5%;inset-inline-start:-6%"></i>
+  <i class="orb" style="width:400px;height:400px;background:#12b981;inset-block-start:14%;inset-inline-start:66%"></i>
+  <i class="orb" style="width:520px;height:520px;background:#f4ffc9;inset-block-start:24%;inset-inline-start:8%"></i>
+  <i class="orb" style="width:480px;height:480px;background:#27c9c0;inset-block-start:35%;inset-inline-start:58%"></i>
+  <i class="orb" style="width:440px;height:440px;background:#b7f04a;inset-block-start:46%;inset-inline-start:-4%"></i>
+  <i class="orb" style="width:520px;height:520px;background:#16b88a;inset-block-start:57%;inset-inline-start:48%"></i>
+  <i class="orb" style="width:420px;height:420px;background:#e8ff9a;inset-block-start:68%;inset-inline-start:12%"></i>
+  <i class="orb" style="width:500px;height:500px;background:#34d6c3;inset-block-start:79%;inset-inline-start:60%"></i>
+  <i class="orb" style="width:460px;height:460px;background:#a5ec52;inset-block-start:90%;inset-inline-start:4%"></i>
+  <svg class="leaf" style="width:min(70vw,620px);inset-block-start:150px;inset-inline-start:-8%;transform:rotate(-28deg)"><use href="#lf"/></svg>
+  <svg class="leaf" style="width:min(64vw,560px);inset-block-start:60px;inset-inline-end:-6%;transform:rotate(200deg)"><use href="#fern"/></svg>
+  <svg class="leaf" style="width:min(60vw,520px);inset-block-start:16%;inset-inline-start:30%;transform:rotate(18deg)"><use href="#fern"/></svg>
+  <svg class="leaf" style="width:min(70vw,640px);inset-block-start:27%;inset-inline-end:-10%;transform:rotate(160deg)"><use href="#lf"/></svg>
+  <svg class="leaf" style="width:min(60vw,500px);inset-block-start:38%;inset-inline-start:-6%;transform:rotate(-12deg)"><use href="#lf"/></svg>
+  <svg class="leaf" style="width:min(66vw,600px);inset-block-start:48%;inset-inline-start:40%;transform:rotate(30deg)"><use href="#fern"/></svg>
+  <svg class="leaf" style="width:min(70vw,620px);inset-block-start:60%;inset-inline-start:-10%;transform:rotate(-34deg)"><use href="#fern"/></svg>
+  <svg class="leaf" style="width:min(64vw,560px);inset-block-start:70%;inset-inline-end:-6%;transform:rotate(190deg)"><use href="#lf"/></svg>
+  <svg class="leaf" style="width:min(60vw,540px);inset-block-start:82%;inset-inline-start:20%;transform:rotate(12deg)"><use href="#lf"/></svg>
+  <svg class="leaf" style="width:min(60vw,520px);inset-block-start:92%;inset-inline-end:2%;transform:rotate(170deg)"><use href="#fern"/></svg>
+</div>
+
+<div class="ctrl glass">
+  <a class="home-link" href="../index.html"><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="3" cy="3" r="2.4" fill="currentColor"/><circle cx="11" cy="3" r="2.4" fill="currentColor"/><circle cx="3" cy="11" r="2.4" fill="currentColor"/><circle cx="11" cy="11" r="2.4" fill="currentColor"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<nav class="dock glass">
+  <span class="mark"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 28V15a12 12 0 0 1 24 0v13M2 28h28M16 3v25M4 16h24M9 6.500v21.500M23 6.500v21.500"/></svg></span>
+  <a href="#seedlings"><i>01</i><span lang="en">Seedlings</span><span lang="ar">الشتلات</span></a>
+  <a href="#canopy"><i>02</i><span lang="en">Canopy</span><span lang="ar">الظلّة</span></a>
+  <a href="#terrariums"><i>03</i><span lang="en">Terrariums</span><span lang="ar">الأحواض</span></a>
+  <a href="#nectar"><i>04</i><span lang="en">Nectar</span><span lang="ar">الرحيق</span></a>
+  <a href="#bloom"><i>05</i><span lang="en">Sweet Bloom</span><span lang="ar">الإزهار</span></a>
+</nav>
+
+<div class="page">
+<header class="facade">
+  <div class="pane side glass">
+    <h2><span lang="en">Grown slowly, cooked gently.</span><span lang="ar">يُزرع على مهل ويُطهى برفق.</span></h2>
+    <p class="d"><span lang="en">Everything on this menu began as a seed. We cook only with plants — picked from our rooftop beds and from farms within a morning's drive of Riyadh — and let fire, smoke and time do the rest.</span><span lang="ar">كل ما في هذه القائمة بدأ بذرة. نطهو بالنبات وحده، نقطفه من أحواض سطحنا ومن مزارع لا تبعد عن الرياض أكثر من مسيرة صباح، ثم نترك للنار والدخان والوقت بقية الحكاية.</span></p>
+  </div>
+  <div class="pane mid glass">
+    <svg class="fan" viewBox="0 0 600 300" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M40 300a260 260 0 0 1 520 0M150 300a150 150 0 0 1 300 0M300 300V40M300 300L75 170M300 300L170 75M300 300L525 170M300 300L430 75"/><circle cx="300" cy="300" r="44" fill="rgba(255,255,255,.35)"/></svg>
+    <div class="in">
+      <p class="eyebrow"><span lang="en">Plant-based kitchen · Riyadh</span><span lang="ar">مطبخ نباتي · الرياض</span></p>
+      <h1><span lang="en">Glass<em>house</em></span><span lang="ar">البيت <em>الزجاجي</em></span></h1>
+      <p class="tagline"><span lang="en">A kitchen that eats what the light grows.</span><span lang="ar">مطبخٌ يأكل ممّا يُنبته الضوء.</span></p>
+      <ul class="jump">
+        <li><a href="#seedlings"><span lang="en">Seedlings</span><span lang="ar">الشتلات</span></a></li>
+        <li><a href="#canopy"><span lang="en">Canopy</span><span lang="ar">الظلّة</span></a></li>
+        <li><a href="#terrariums"><span lang="en">Terrariums</span><span lang="ar">الأحواض</span></a></li>
+        <li><a href="#nectar"><span lang="en">Nectar</span><span lang="ar">الرحيق</span></a></li>
+        <li><a href="#bloom"><span lang="en">Sweet Bloom</span><span lang="ar">الإزهار</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pane side glass">
+    <h2><span lang="en">Inside, today</span><span lang="ar">في الداخل اليوم</span></h2>
+    <ul class="climate">
+      <li><b>24°</b><span lang="en">under the glass</span><span lang="ar">تحت الزجاج</span></li>
+      <li><b>62%</b><span lang="en">humidity</span><span lang="ar">رطوبة</span></li>
+      <li><b>31</b><span lang="en">herbs in leaf</span><span lang="ar">عشبة مورقة</span></li>
+      <li><b>0</b><span lang="en">animal products</span><span lang="ar">منتجات حيوانية</span></li>
+    </ul>
+    <p class="table"><strong><span lang="en">The Gardener's Table</span><span lang="ar">مائدة البستاني</span></strong><br><span lang="en">Five courses from this morning's harvest · 185 SAR per guest</span><span lang="ar">خمسة أطباق من قطاف هذا الصباح · 185 ر.س للضيف</span></p>
+  </div>
+</header>
+
+<main>
+<section id="seedlings">
+  <div class="head"><span class="bay">01</span>
+    <h2><span lang="en">Seedlings</span><span lang="ar">الشتلات</span></h2>
+    <p><span lang="en">Small plates to start — made for the middle of the table.</span><span lang="ar">أطباق صغيرة للبداية، مكانها وسط المائدة.</span></p></div>
+  <ul class="arches">
+    <li class="arch glass"><span class="spec"><svg aria-hidden="true"><use href="#i-leek"/></svg></span>
+      <h3><span lang="en">Charred Leek Hearts</span><span lang="ar">قلوب الكرّاث المشوية</span></h3>
+      <p class="d"><span lang="en">Smoked almond cream, chive oil and crisp capers.</span><span lang="ar">كريمة اللوز المدخّن وزيت الثوم المعمّر مع كبر مقرمش.</span></p>
+      <span class="tags"><i><span lang="en">Nuts</span><span lang="ar">مكسرات</span></i><i><span lang="en">GF</span><span lang="ar">بلا غلوتين</span></i></span>
+      <span class="price">38 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li class="arch glass"><span class="spec"><svg aria-hidden="true"><use href="#i-beet"/></svg></span>
+      <h3><span lang="en">Beetroot Carpaccio</span><span lang="ar">كارباتشيو الشمندر</span></h3>
+      <p class="d"><span lang="en">Salt-baked beets, cashew labneh, pomegranate and dill.</span><span lang="ar">شمندر مخبوز في الملح مع لبنة الكاجو وحبّ الرمان والشبت.</span></p>
+      <span class="tags"><i><span lang="en">Nuts</span><span lang="ar">مكسرات</span></i><i><span lang="en">GF</span><span lang="ar">بلا غلوتين</span></i></span>
+      <span class="price">42 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li class="arch glass"><span class="spec"><svg aria-hidden="true"><use href="#i-pea"/></svg></span>
+      <h3><span lang="en">Garden Pea Falafel</span><span lang="ar">فلافل البازلاء الخضراء</span></h3>
+      <p class="d"><span lang="en">Herb-green and crackling, with lemon tahini and pickled turnip.</span><span lang="ar">خضراء بالأعشاب ومقرمشة، مع طحينة بالليمون ومخلّل اللفت.</span></p>
+      <span class="tags"><i><span lang="en">Sesame</span><span lang="ar">سمسم</span></i></span>
+      <span class="price">34 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li class="arch glass"><span class="spec"><svg aria-hidden="true"><use href="#i-shroom"/></svg></span>
+      <h3><span lang="en">Oyster Mushroom Skewers</span><span lang="ar">أسياخ فطر المحار</span></h3>
+      <p class="d"><span lang="en">Shawarma-spiced, kissed by flame, served with whipped toum.</span><span lang="ar">متبّلة ببهارات الشاورما ومشوية على اللهب، مع ثومية مخفوقة.</span></p>
+      <span class="tags"><i><span lang="en">GF</span><span lang="ar">بلا غلوتين</span></i></span>
+      <span class="price">44 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li class="arch glass"><span class="spec"><svg aria-hidden="true"><use href="#i-tom"/></svg></span>
+      <h3><span lang="en">Heirloom Tomato &amp; Peach</span><span lang="ar">طماطم بلدية وخوخ</span></h3>
+      <p class="d"><span lang="en">Torn basil, sumac and cold-pressed olive oil. Nothing else.</span><span lang="ar">ريحان مقطوف وسمّاق وزيت زيتون معصور على البارد. لا شيء غير ذلك.</span></p>
+      <span class="tags"><i><span lang="en">Raw</span><span lang="ar">نيء</span></i><i><span lang="en">GF</span><span lang="ar">بلا غلوتين</span></i></span>
+      <span class="price">40 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+  </ul>
+</section>
+
+<section id="canopy">
+  <div class="head"><span class="bay">02</span>
+    <h2><span lang="en">Canopy</span><span lang="ar">الظلّة</span></h2>
+    <p><span lang="en">Main plates, cooked over embers and in the wood oven.</span><span lang="ar">الأطباق الرئيسية، تُطهى على الجمر وفي فرن الحطب.</span></p></div>
+  <ul class="wall glass">
+    <li class="big">
+      <svg class="cauli" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 62a16 16 0 0 1 6-30 18 18 0 0 1 34-6 16 16 0 0 1 22 18 15 15 0 0 1-2 22"/><path d="M36 50a12 12 0 0 1 20-6M58 38a12 12 0 0 1 20 4M50 62a11 11 0 0 1 20-2"/><path d="M22 60c0 28 16 48 38 48s38-20 38-48c-10 4-18 12-22 24-4-10-10-14-16-14s-12 4-16 14c-4-12-12-20-22-24Z"/></svg>
+      <span class="tags"><i class="pick"><span lang="en">Gardener's pick · for two</span><span lang="ar">اختيار البستاني · لشخصين</span></i></span>
+      <h3><span lang="en">Whole Roasted Cauliflower</span><span lang="ar">قرنبيط كامل مشوي</span></h3>
+      <p class="d"><span lang="en">Roasted whole in the wood oven under a harissa glaze, then dressed with saffron tahini, toasted pine nuts and a fistful of soft herbs.</span><span lang="ar">يُشوى كاملاً في فرن الحطب مطليّاً بالهريسة، ثم يُكسى بطحينة الزعفران والصنوبر المحمّص وحفنة من الأعشاب الطرية.</span></p>
+      <div class="foot"><span class="tags"><i><span lang="en">Nuts</span><span lang="ar">مكسرات</span></i><i><span lang="en">Sesame</span><span lang="ar">سمسم</span></i><i><span lang="en">GF</span><span lang="ar">بلا غلوتين</span></i></span><span class="price">96 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div>
+    </li>
+    <li><h3><span lang="en">Wild Mushroom Freekeh</span><span lang="ar">فريكة بالفطر البرّي</span></h3>
+      <p class="d"><span lang="en">Smoked green wheat simmered in porcini broth, topped with crisp shallots.</span><span lang="ar">قمح أخضر مدخّن يُطهى في مرق فطر البورتشيني ويُتوَّج بالكرّاث المقرمش.</span></p>
+      <div class="foot"><span class="tags"></span><span class="price">72 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></li>
+    <li><h3><span lang="en">Jackfruit Kabsa</span><span lang="ar">كبسة الجاك فروت</span></h3>
+      <p class="d"><span lang="en">Slow-braised jackfruit over spiced basmati with raisins and fried almonds.</span><span lang="ar">جاك فروت مطهو على مهل فوق أرز بسمتي مبهّر، مع الزبيب واللوز المقلي.</span></p>
+      <div class="foot"><span class="tags"><i><span lang="en">Nuts</span><span lang="ar">مكسرات</span></i><i><span lang="en">GF</span><span lang="ar">بلا غلوتين</span></i></span><span class="price">78 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></li>
+    <li><h3><span lang="en">Courgette Blossom Ravioli</span><span lang="ar">رافيولي زهر الكوسا</span></h3>
+      <p class="d"><span lang="en">Filled with cashew ricotta, finished in lemon and olive oil with pea shoots.</span><span lang="ar">محشوّ بريكوتا الكاجو، ويُنهى بالليمون وزيت الزيتون مع براعم البازلاء.</span></p>
+      <div class="foot"><span class="tags"><i><span lang="en">Nuts</span><span lang="ar">مكسرات</span></i></span><span class="price">82 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></li>
+    <li><h3><span lang="en">Aubergine Steak</span><span lang="ar">ستيك الباذنجان</span></h3>
+      <p class="d"><span lang="en">Charred until silky under a miso-date glaze, with sesame and pickled chili.</span><span lang="ar">باذنجان يُشوى حتى يلين تحت طلاء الميسو والتمر، مع السمسم والفلفل المخلّل.</span></p>
+      <div class="foot"><span class="tags"><i><span lang="en">Sesame</span><span lang="ar">سمسم</span></i></span><span class="price">74 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></li>
+  </ul>
+</section>
+
+<section id="terrariums">
+  <div class="head"><span class="bay">03</span>
+    <h2><span lang="en">Terrariums</span><span lang="ar">الأحواض</span></h2>
+    <p><span lang="en">Whole meals layered in a bowl, like a garden under a dome.</span><span lang="ar">وجبات كاملة في وعاء واحد، كحديقة صغيرة تحت قبّة.</span></p></div>
+  <ul class="domes">
+    <li class="dome glass"><svg class="sprout" aria-hidden="true"><use href="#i-sprout"/></svg>
+      <h3><span lang="en">Green Goddess</span><span lang="ar">الخضراء</span></h3>
+      <p class="d"><span lang="en">Quinoa, avocado, edamame, cucumber and a loud herb dressing.</span><span lang="ar">كينوا وأفوكادو وإدامامي وخيار مع صلصة أعشاب زاهية.</span></p>
+      <span class="price">58 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li class="dome glass"><svg class="sprout" aria-hidden="true"><use href="#i-sprout"/></svg>
+      <h3><span lang="en">Golden Root</span><span lang="ar">الجذر الذهبي</span></h3>
+      <p class="d"><span lang="en">Roast sweet potato, turmeric hummus, black lentils, lime.</span><span lang="ar">بطاطا حلوة مشوية وحمّص بالكركم وعدس أسود وليمون.</span></p>
+      <span class="price">54 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li class="dome glass"><svg class="sprout" aria-hidden="true"><use href="#i-sprout"/></svg>
+      <h3><span lang="en">Sea Garden</span><span lang="ar">حديقة البحر</span></h3>
+      <p class="d"><span lang="en">Chilled soba, nori, marinated tofu and ginger-lime dressing.</span><span lang="ar">سوبا باردة ونوري وتوفو متبّل مع صلصة الزنجبيل والليمون.</span></p>
+      <span class="price">62 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li class="dome glass"><svg class="sprout" aria-hidden="true"><use href="#i-sprout"/></svg>
+      <h3><span lang="en">Desert Bloom</span><span lang="ar">زهرة الصحراء</span></h3>
+      <p class="d"><span lang="en">Freekeh, Sukkari dates, roasted carrots and hazelnut dukkah.</span><span lang="ar">فريكة وتمر سكّري وجزر مشوي مع دقّة البندق.</span></p>
+      <span class="price">56 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+  </ul>
+</section>
+
+<div class="pair">
+<section id="nectar">
+  <div class="head"><span class="bay">04</span>
+    <h2><span lang="en">Nectar</span><span lang="ar">الرحيق</span></h2>
+    <p><span lang="en">Pressed, steeped and sparkling — all zero-proof.</span><span lang="ar">معصور ومنقوع وفوّار، وكلّه خالٍ من الكحول.</span></p></div>
+  <ul class="sheet glass">
+    <li><h3><span lang="en">Greenhouse Tonic</span><span lang="ar">تونيك البيت الزجاجي</span></h3><span class="price">28 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+      <p class="d"><span lang="en">Cucumber, bruised basil, lime and dry tonic over clear ice.</span><span lang="ar">خيار وريحان مهروس وليمون أخضر مع تونيك جاف فوق ثلج صافٍ.</span></p></li>
+    <li><h3><span lang="en">Hibiscus Cooler</span><span lang="ar">منعش الكركديه</span></h3><span class="price">26 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+      <p class="d"><span lang="en">Cold-brewed karkadeh with rose and fresh pomegranate.</span><span lang="ar">كركديه منقوع على البارد مع ماء الورد وعصير الرمان الطازج.</span></p></li>
+    <li><h3><span lang="en">The Garden Press</span><span lang="ar">عصرة الحديقة</span></h3><span class="price">30 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+      <p class="d"><span lang="en">Green apple, celery, spinach and a good bite of ginger.</span><span lang="ar">تفاح أخضر وكرفس وسبانخ مع لسعة طيبة من الزنجبيل.</span></p></li>
+    <li><h3><span lang="en">Saffron Oat Latte</span><span lang="ar">لاتيه الشوفان بالزعفران</span></h3><span class="price">27 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+      <p class="d"><span lang="en">House oat milk, saffron threads and a touch of cardamom.</span><span lang="ar">حليب شوفان نحضّره عندنا مع خيوط الزعفران ورشّة هيل.</span></p></li>
+  </ul>
+</section>
+<section id="bloom">
+  <div class="head"><span class="bay">05</span>
+    <h2><span lang="en">Sweet Bloom</span><span lang="ar">الإزهار</span></h2>
+    <p><span lang="en">Desserts without dairy, and without apology.</span><span lang="ar">حلويات بلا ألبان وبلا اعتذار.</span></p></div>
+  <ul class="sheet glass">
+    <li><h3><span lang="en">Pistachio Rose Cheesecake</span><span lang="ar">تشيز كيك الفستق والورد</span></h3><span class="price">44 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+      <p class="d"><span lang="en">Cultured cashew cream on a date-walnut base.</span><span lang="ar">كريمة كاجو مخمّرة فوق قاعدة من التمر والجوز.</span></p><span class="tags"><i><span lang="en">Nuts</span><span lang="ar">مكسرات</span></i></span></li>
+    <li><h3><span lang="en">Chocolate &amp; Olive Oil Mousse</span><span lang="ar">موس الشوكولاتة وزيت الزيتون</span></h3><span class="price">40 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+      <p class="d"><span lang="en">70% cacao whipped with aquafaba, finished with sea salt.</span><span lang="ar">كاكاو ٧٠٪ مخفوق بماء الحمّص، مع رشّة ملح بحري.</span></p><span class="tags"><i><span lang="en">GF</span><span lang="ar">بلا غلوتين</span></i></span></li>
+    <li><h3><span lang="en">Coconut Mahalabia</span><span lang="ar">مهلبية جوز الهند</span></h3><span class="price">36 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+      <p class="d"><span lang="en">Orange blossom, poached apricot and toasted coconut.</span><span lang="ar">ماء الزهر ومشمش مسلوق في القطر وجوز هند محمّص.</span></p><span class="tags"><i><span lang="en">GF</span><span lang="ar">بلا غلوتين</span></i></span></li>
+    <li><h3><span lang="en">Date &amp; Tahini Soft-Serve</span><span lang="ar">آيس كريم التمر والطحينة</span></h3><span class="price">32 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+      <p class="d"><span lang="en">Swirled to order, with sesame brittle.</span><span lang="ar">يُسكب عند الطلب مع قرمشة السمسم.</span></p><span class="tags"><i><span lang="en">Sesame</span><span lang="ar">سمسم</span></i></span></li>
+  </ul>
+</section>
+</div>
+</main>
+
+<footer class="glass">
+  <p class="wm"><span lang="en">Glass<em>house</em></span><span lang="ar">البيت <em>الزجاجي</em></span></p>
+  <div><h4><span lang="en">Hours</span><span lang="ar">أوقات العمل</span></h4><p><span lang="en">Daily 12 noon – 11 p.m.<br>Friday from 1:30 p.m.</span><span lang="ar">يومياً من ١٢ ظهراً حتى ١١ مساءً<br>الجمعة من ١:٣٠ ظهراً</span></p></div>
+  <div><h4><span lang="en">Find us</span><span lang="ar">العنوان</span></h4><p><span lang="en">Rooftop, The Conservatory<br>Prince Turki Road, Al Nakheel, Riyadh</span><span lang="ar">السطح، مبنى المشتل<br>طريق الأمير تركي، حي النخيل، الرياض</span></p></div>
+  <div><h4><span lang="en">Key &amp; allergens</span><span lang="ar">الرموز والحساسية</span></h4>
+    <ul class="key">
+      <li><span class="tags"><i><span lang="en">GF</span><span lang="ar">بلا غلوتين</span></i></span><span lang="en">made without gluten</span><span lang="ar">محضّر من دون غلوتين</span></li>
+      <li><span class="tags"><i><span lang="en">Raw</span><span lang="ar">نيء</span></i></span><span lang="en">never heated above 42°C</span><span lang="ar">لا يُسخَّن فوق ٤٢ درجة</span></li>
+    </ul>
+    <p style="margin-block-start:8px"><span lang="en">Our kitchen handles nuts, sesame and soy. Prices include VAT.</span><span lang="ar">مطبخنا يتعامل مع المكسرات والسمسم والصويا. الأسعار تشمل الضريبة.</span></p></div>
+</footer>
+</div>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

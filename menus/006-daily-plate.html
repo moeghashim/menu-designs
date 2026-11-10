@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>The Daily Plate · الطبق اليومي</title>
+<meta name="description" content="The Daily Plate — an all-day diner whose menu is printed like a broadsheet front page. الطبق اليومي — داينر على مدار اليوم، قائمته مطبوعة كصفحة أولى في جريدة.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ece5d3">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Playfair+Display:ital,wght@0,500;0,800;0,900;1,500;1,800&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --paper:#ece5d3; --paper2:#e3dbc6; --ink:#17140f; --ink2:#3a352b; --soft:#6b6455; --rule:#17140f;
+  --body:"Old Standard TT","Amiri",Georgia,"Times New Roman",serif;
+  --head:"Playfair Display","Amiri",Georgia,serif;
+  --mast:"UnifrakturCook","Old English Text MT","Playfair Display",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:#cfc7b3;color:var(--ink);font-family:var(--body);font-size:clamp(16px,.35vw + 14.6px,18px);line-height:1.5}
+html[lang="ar"]{--body:"Amiri","Noto Naskh Arabic","Geeza Pro","Traditional Arabic",serif;--head:"Amiri","Noto Naskh Arabic",serif;--mast:"Aref Ruqaa","Amiri",serif}
+html[lang="ar"] body{font-size:clamp(17.5px,.4vw + 16px,20px);line-height:1.75}
+html[lang="ar"] *{letter-spacing:0 !important;text-transform:none !important}
+a{color:inherit}
+.sheet{
+  max-width:1380px;margin-inline:auto;background:var(--paper);position:relative;overflow:clip;
+  padding:0 clamp(14px,3vw,44px) 40px;
+  background-image:
+    radial-gradient(circle at 20% 10%,rgba(255,255,255,.35),transparent 40%),
+    radial-gradient(circle at 85% 70%,rgba(120,100,60,.10),transparent 45%),
+    repeating-linear-gradient(0deg,rgba(60,50,30,.035) 0 1px,transparent 1px 3px);
+  box-shadow:0 0 60px rgba(40,30,10,.35);
+}
+/* ---------- sticky folio bar ---------- */
+.folio{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:12px;padding:7px 0;margin-inline:calc(-1 * clamp(14px,3vw,44px));padding-inline:clamp(14px,3vw,44px);
+  font-family:var(--head);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+html[lang="ar"] .folio{font-size:15px}
+.folio nav{display:flex;gap:18px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none;white-space:nowrap}
+.folio nav::-webkit-scrollbar{display:none}
+.folio nav a{text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+.folio nav a:hover{border-bottom-color:var(--ink)}
+.folio nav a b{font-weight:800;margin-inline-end:5px;font-style:italic;letter-spacing:0}
+.ctl{display:flex;gap:6px;flex:none}
+.home-link,#langToggle{font:inherit;letter-spacing:.08em;color:var(--ink);background:none;border:1px solid var(--ink);padding:6px 10px;text-decoration:none;cursor:pointer;line-height:1.2;min-height:32px;display:inline-flex;align-items:center}
+#langToggle{background:var(--ink);color:var(--paper);font-family:"Aref Ruqaa","Playfair Display",serif;letter-spacing:0;text-transform:none;font-size:15px}
+html[lang="ar"] #langToggle{font-family:"Playfair Display",serif;font-size:13px;letter-spacing:.06em !important}
+#langToggle:hover,.home-link:hover{background:var(--ink2);color:var(--paper)}
+:focus-visible{outline:2px dashed var(--ink);outline-offset:2px}
+/* ---------- masthead ---------- */
+.mast{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(10px,2vw,30px);padding:clamp(16px,2.4vw,30px) 0 clamp(8px,1vw,14px)}
+.ear{border:1px solid var(--ink);padding:9px 12px;font-size:13.5px;line-height:1.35;max-width:210px;text-align:center;position:relative}
+.ear::after{content:"";position:absolute;inset:3px;border:1px solid var(--ink);opacity:.35;pointer-events:none}
+.ear strong{display:block;font-family:var(--head);font-weight:900;font-size:15px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+.ear.e2{justify-self:end}
+html[lang="ar"] .ear{font-size:15.5px}html[lang="ar"] .ear strong{font-size:18px}
+.title{text-align:center}
+.title h1{font-family:var(--mast);font-weight:700;font-size:clamp(50px,10.4vw,150px);line-height:.92;letter-spacing:-.01em;text-shadow:0 0 1px rgba(23,20,15,.6)}
+html[lang="ar"] .title h1{font-size:clamp(76px,11vw,160px);line-height:1.25;margin-top:-.12em}
+.title p{font-style:italic;font-size:clamp(14px,1.2vw,18px);margin-top:6px}
+html[lang="ar"] .title p{font-style:normal;margin-top:-4px;font-size:clamp(16px,1.4vw,21px)}
+.dateline{display:flex;justify-content:space-between;gap:10px;border-top:4px double var(--ink);border-bottom:1px solid var(--ink);padding:6px 2px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;flex-wrap:wrap}
+html[lang="ar"] .dateline{font-size:15.5px}
+.dateline span:nth-child(3),.dateline span:nth-child(4){font-weight:700}
+/* ---------- generic bits ---------- */
+.kicker{font-family:var(--head);font-weight:800;font-size:12px;letter-spacing:.22em;text-transform:uppercase;display:inline-block;border-bottom:1px solid var(--ink);padding-bottom:1px;margin-bottom:8px}
+html[lang="ar"] .kicker{font-size:16px;font-weight:700}
+.price{font-family:var(--head);font-weight:800;white-space:nowrap;unicode-bidi:isolate;direction:ltr;display:inline-block}
+.sec{border-top:3px solid var(--ink);margin-top:clamp(26px,3vw,40px);padding-top:3px;scroll-margin-top:56px}
+.sec-head{border-top:1px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:5px 0 4px;border-bottom:1px solid var(--ink);margin-bottom:clamp(14px,1.6vw,22px);font-family:var(--head)}
+.sec-head h2{font-weight:900;font-size:clamp(15px,1.3vw,18px);letter-spacing:.24em;text-transform:uppercase}
+html[lang="ar"] .sec-head h2{font-size:clamp(20px,1.7vw,24px)}
+.sec-head i{font-size:14px;color:var(--ink2);text-align:end}
+html[lang="ar"] .sec-head i{font-style:normal;font-size:16px}
+/* ---------- lead story ---------- */
+.banner{text-align:center;padding:clamp(16px,2.2vw,30px) 0 clamp(10px,1.4vw,18px)}
+.banner h2{font-family:var(--head);font-weight:900;font-size:clamp(34px,7.1vw,104px);line-height:.98;letter-spacing:-.02em;text-transform:uppercase;text-wrap:balance}
+html[lang="ar"] .banner h2{line-height:1.3;font-size:clamp(38px,7vw,100px);font-weight:700}
+.banner .deck{font-family:var(--head);font-style:italic;font-weight:500;font-size:clamp(17px,2vw,27px);line-height:1.25;margin:12px auto 0;max-width:60ch;text-wrap:balance}
+html[lang="ar"] .banner .deck{font-style:normal;line-height:1.6}
+.lead{display:grid;grid-template-columns:1.15fr 1.5fr .9fr;gap:0;border-top:1px solid var(--ink);padding-top:16px}
+.lead>*{padding-inline:clamp(12px,1.6vw,24px)}
+.lead>*:first-child{padding-inline-start:0}.lead>*:last-child{padding-inline-end:0}
+.lead>*+*{border-inline-start:1px solid var(--ink)}
+.story p{text-align:justify;hyphens:auto;margin-bottom:.7em}
+.story .byline{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;border-block:1px solid var(--ink);padding:3px 0;margin-bottom:10px;text-align:start}
+html[lang="ar"] .story .byline{font-size:15px}
+html[lang="en"] .story p.dc::first-letter{font-family:var(--head);font-weight:900;font-size:4.9em;line-height:.74;float:left;padding:.07em .08em 0 0}
+html[lang="ar"] .story p.dc::first-line{font-weight:700;font-size:1.18em}
+.story .jump{font-style:italic;font-size:.9em;text-align:end}
+figure.photo svg{display:block;width:100%;height:auto;border:1px solid var(--ink);background:#f1ebdb}
+figure.photo figcaption{font-size:.84em;line-height:1.35;padding-top:6px;font-style:italic}
+html[lang="ar"] figure.photo figcaption{font-style:normal;line-height:1.6}
+figure.photo figcaption b{font-style:normal;font-family:var(--head);letter-spacing:.08em;text-transform:uppercase;font-size:.86em}
+.rail .box{border:1px solid var(--ink);padding:12px 14px;margin-bottom:14px}
+.rail .box.inv{background:var(--ink);color:var(--paper);border:0}
+.rail h3{font-family:var(--head);font-weight:900;font-size:15px;letter-spacing:.2em;text-transform:uppercase;text-align:center;border-bottom:1px solid currentColor;padding-bottom:5px;margin-bottom:8px}
+html[lang="ar"] .rail h3{font-size:20px}
+.rail ol{list-style:none}
+.rail ol li a{display:flex;align-items:baseline;gap:6px;text-decoration:none;padding:3px 0}
+.rail ol li a::after{content:"";order:1;flex:1;border-bottom:1px dotted currentColor;transform:translateY(-4px)}
+.rail ol li a b{order:2;font-family:var(--head)}
+.wx{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:center}
+.wx svg{width:46px;height:46px}
+.wx strong{font-family:var(--head);font-size:1.5em;line-height:1.1;display:block}
+.wx small{font-size:.85em;grid-column:1/-1;line-height:1.4;opacity:.9}
+/* ---------- A: breakfast (true newspaper columns) ---------- */
+.cols{columns:3;column-gap:clamp(22px,2.8vw,44px);column-rule:1px solid var(--ink)}
+.art{break-inside:avoid;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid rgba(23,20,15,.45)}
+.art h3{font-family:var(--head);font-weight:800;font-size:clamp(21px,1.9vw,28px);line-height:1.08;margin-bottom:5px;text-wrap:balance}
+html[lang="ar"] .art h3{line-height:1.4;font-weight:700;font-size:clamp(23px,2vw,30px)}
+.art.big h3{font-size:clamp(28px,3vw,44px);font-style:italic;font-weight:800}
+html[lang="ar"] .art.big h3{font-style:normal}
+.art p{text-align:justify;hyphens:auto}
+.art .tag{font-family:var(--head);font-size:11.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:2px 7px;display:inline-block;margin-bottom:6px}
+html[lang="ar"] .art .tag{font-size:14.5px;font-weight:700}
+.art .p{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:1.12em}
+.art .p::before{content:"";flex:1;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);height:4px}
+/* ---------- B: counter (feature + list) ---------- */
+.metro{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:0}
+.metro>*{padding-inline:clamp(12px,1.6vw,24px)}
+.metro>*:first-child{padding-inline-start:0}.metro>*:last-child{padding-inline-end:0}
+.metro>*+*{border-inline-start:1px solid var(--ink)}
+.feat h3{font-family:var(--head);font-weight:900;font-size:clamp(34px,4.3vw,64px);line-height:.98;letter-spacing:-.015em;margin-bottom:10px;text-wrap:balance}
+html[lang="ar"] .feat h3{line-height:1.3;font-weight:700}
+.feat p{text-align:justify;hyphens:auto}
+.pull{border-block:3px double var(--ink);margin:14px 0;padding:10px 4px;font-family:var(--head);font-style:italic;font-weight:500;font-size:clamp(20px,1.9vw,27px);line-height:1.2;text-align:center;text-wrap:balance}
+html[lang="ar"] .pull{font-style:normal;line-height:1.55}
+.pull small{display:block;font-style:normal;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-top:6px;font-family:var(--body)}
+html[lang="ar"] .pull small{font-size:15px}
+.feat .p{font-size:1.5em}
+.metro .art:last-child{border-bottom:0;margin-bottom:0}
+/* ---------- C: blue plate listings ---------- */
+.tv{width:100%;border-collapse:collapse}
+.tv tr{border-bottom:1px solid rgba(23,20,15,.5)}
+.tv tr:last-child{border-bottom:0}
+.tv th{font-family:var(--head);font-weight:900;font-size:clamp(20px,2.4vw,34px);text-align:start;padding:10px 0;width:5.2em;vertical-align:top;line-height:1.05;text-transform:uppercase;letter-spacing:.02em}
+html[lang="ar"] .tv th{line-height:1.4;font-weight:700;width:4.6em}
+.tv th small{display:block;font-family:var(--body);font-weight:400;font-size:12px;letter-spacing:.14em;margin-top:3px}
+html[lang="ar"] .tv th small{font-size:14.5px}
+.tv td{padding:10px 14px;vertical-align:top}
+.tv td b{font-family:var(--head);font-weight:800;font-size:1.22em;display:block;line-height:1.2}
+html[lang="ar"] .tv td b{font-weight:700;line-height:1.5}
+.tv td:last-child{text-align:end;padding-inline-end:0;font-size:1.25em;width:3.6em}
+.tv tr.today th,.tv tr.today td{background:var(--ink);color:var(--paper)}
+.tv tr.today th{padding-inline-start:10px}.tv tr.today td:last-child{padding-inline-end:10px}
+.duo{display:grid;grid-template-columns:1.55fr 1fr;gap:0}
+.duo>*:first-child{padding-inline-end:clamp(12px,1.8vw,26px)}
+.duo>*:last-child{padding-inline-start:clamp(12px,1.8vw,26px);border-inline-start:1px solid var(--ink)}
+.duo .sec{margin-top:0}
+/* ---------- markets ---------- */
+.mk{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.mk caption{caption-side:bottom;font-size:.82em;font-style:italic;padding-top:8px;text-align:start}
+html[lang="ar"] .mk caption{font-style:normal}
+.mk th{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;text-align:start;border-bottom:1px solid var(--ink);padding:4px 0;font-weight:700}
+html[lang="ar"] .mk th{font-size:14.5px}
+.mk td{padding:8px 0;border-bottom:1px dotted var(--ink);vertical-align:top}
+.mk td:first-child{font-family:var(--head);font-weight:800;letter-spacing:.06em;padding-inline-end:10px;width:3.4em}
+.mk td small{display:block;color:var(--ink2);font-size:.86em;line-height:1.35}
+html[lang="ar"] .mk td small{line-height:1.55}
+.mk td:nth-child(3){width:1.6em;text-align:center}
+.mk td:last-child,.mk th:last-child{text-align:end}
+.spark{width:100%;height:54px;display:block;margin-bottom:8px;border-bottom:1px solid var(--ink)}
+/* ---------- leisure (desserts) ---------- */
+.leis{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.leis .art{border-bottom:0;margin:0;padding:0 clamp(10px,1.5vw,22px)}
+.leis .art:first-child{padding-inline-start:0}.leis .art:last-child{padding-inline-end:0}
+.leis .art+.art{border-inline-start:1px solid var(--ink)}
+.leis svg{width:100%;height:auto;display:block;margin-bottom:8px;border:1px solid var(--ink);background:#f1ebdb}
+/* ---------- classifieds ---------- */
+.cls{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;grid-auto-flow:dense}
+.ad{border:1px solid var(--ink);padding:12px 12px 10px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:4px;font-size:.92em;line-height:1.35;min-height:128px}
+.ad b{font-family:var(--head);font-weight:900;font-size:1.3em;line-height:1.1;text-transform:uppercase;letter-spacing:.04em}
+html[lang="ar"] .ad b{font-weight:700;line-height:1.4;font-size:1.35em}
+.ad .price{font-size:1.25em}
+.ad.a2{border:3px double var(--ink)}
+.ad.a3{background:var(--ink);color:var(--paper)}
+.ad.a4{border:2px dashed var(--ink)}
+.ad.a5{border-width:5px}
+.ad.a5 b{font-family:var(--mast);text-transform:none;font-size:1.9em;letter-spacing:0;font-weight:700}
+.ad.a6{border-radius:50% / 22%;border-width:2px}
+.ad.w2{grid-column:span 2}
+.ad .tiny{font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+html[lang="ar"] .ad .tiny{font-size:14px}
+.ad.a7{background:repeating-linear-gradient(135deg,transparent 0 6px,rgba(23,20,15,.09) 6px 7px)}
+/* ---------- colophon ---------- */
+.colo{margin-top:clamp(26px,3vw,40px);border-top:4px double var(--ink);padding-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.colo>div{padding-inline:clamp(12px,1.6vw,24px)}
+.colo>div:first-child{padding-inline-start:0}.colo>div:last-child{padding-inline-end:0}
+.colo>div+div{border-inline-start:1px solid var(--ink)}
+.colo h4{font-family:var(--head);font-weight:900;letter-spacing:.2em;text-transform:uppercase;font-size:13px;margin-bottom:6px}
+html[lang="ar"] .colo h4{font-size:18px;font-weight:700}
+.colo p{font-size:.94em}
+.endline{text-align:center;margin-top:22px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;border-top:1px solid var(--ink);padding-top:10px}
+html[lang="ar"] .endline{font-size:15px}
+/* ---------- responsive ---------- */
+@media (max-width:1040px){
+  .lead{grid-template-columns:1fr 1.3fr}
+  .rail{grid-column:1/-1;border-inline-start:0 !important;padding-inline:0 !important;display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;border-top:1px solid var(--ink);padding-top:16px}
+  .rail .box{margin:0}
+  .cols{columns:2}
+  .metro{grid-template-columns:1fr 1fr}
+  .feat{grid-column:1/-1;padding-inline:0 !important;border-bottom:1px solid var(--ink);padding-bottom:16px;margin-bottom:16px}
+  .metro>*:nth-child(2){padding-inline-start:0;border-inline-start:0}
+  .duo{grid-template-columns:1fr}
+  .duo>*:first-child{padding-inline-end:0}
+  .duo>*:last-child{padding-inline-start:0;border-inline-start:0}
+  .duo .sec+.sec,.duo>*:last-child{margin-top:clamp(26px,3vw,40px)}
+  .leis{grid-template-columns:1fr 1fr;row-gap:20px}
+  .leis .art:nth-child(3){padding-inline-start:0;border-inline-start:0}
+  .leis .art:nth-child(2){padding-inline-end:0}
+}
+@media (max-width:680px){
+  .mast{grid-template-columns:1fr 1fr;padding-top:14px}
+  .title{grid-column:1/-1;grid-row:1}
+  .ear{max-width:none;justify-self:stretch !important;padding:7px 8px}
+  .dateline{justify-content:center;gap:2px 14px;font-size:11.5px}
+  .dateline span:nth-child(3),.dateline span:nth-child(4){display:none !important}
+  .lead{grid-template-columns:1fr}
+  .lead>*{padding-inline:0 !important;border-inline-start:0 !important}
+  .lead figure{order:-1;margin-bottom:14px}
+  .rail{grid-template-columns:1fr}
+  .cols{columns:1}
+  .metro{grid-template-columns:1fr}
+  .metro>*{padding-inline:0 !important;border-inline-start:0 !important}
+  .metro>*:nth-child(2) .art:last-child{border-bottom:1px solid rgba(23,20,15,.45);margin-bottom:14px}
+  .tv th{width:3.4em;font-size:19px}
+  .tv th small{display:none !important}
+  .tv td{padding-inline:10px 6px}
+  .tv td:last-child{width:auto}
+  .cls{grid-template-columns:1fr 1fr}
+  .colo{grid-template-columns:1fr}
+  .colo>div{padding-inline:0 !important;border-inline-start:0 !important}
+  .colo>div+div{border-top:1px solid var(--ink);margin-top:12px;padding-top:12px}
+  .folio .home-link{padding-inline:8px}
+  .sec-head i{display:none !important}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.folio{position:static}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="folio">
+  <nav aria-label="Sections">
+    <a href="#a"><b>A</b><span lang="en">Morning</span><span lang="ar">الصباح</span></a>
+    <a href="#b"><b>B</b><span lang="en">Counter</span><span lang="ar">الكاونتر</span></a>
+    <a href="#c"><b>C</b><span lang="en">Blue Plates</span><span lang="ar">طبق اليوم</span></a>
+    <a href="#d"><b>D</b><span lang="en">Markets</span><span lang="ar">البورصة</span></a>
+    <a href="#e"><b>E</b><span lang="en">Leisure</span><span lang="ar">منوّعات</span></a>
+    <a href="#f"><b>F</b><span lang="en">Classifieds</span><span lang="ar">مبوّبة</span></a>
+  </nav>
+  <div class="ctl">
+    <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+</div>
+
+<header>
+  <div class="mast">
+    <div class="ear">
+      <strong lang="en">Bottomless</strong><strong lang="ar">بلا قاع</strong>
+      <span lang="en">Drip coffee refilled until you say when — $3.50</span><span lang="ar">قهوة مقطّرة تُعاد تعبئتها حتى تقول «كفى» — <span dir="ltr">$3.50</span></span>
+    </div>
+    <div class="title">
+      <h1><span lang="en">The Daily Plate</span><span lang="ar">الطبق اليومي</span></h1>
+      <p><span lang="en">“All the food that’s fit to eat” — an all-day diner</span><span lang="ar">«كلّ ما يستحقّ أن يؤكل» — داينر على مدار اليوم</span></p>
+    </div>
+    <div class="ear e2">
+      <strong lang="en">Late Edition</strong><strong lang="ar">الطبعة الأخيرة</strong>
+      <span lang="en">Griddle hot 6 a.m. to 2 a.m. Breakfast never stops.</span><span lang="ar">الصاج ساخن من ٦ صباحًا حتى ٢ فجرًا، والفطور لا يتوقف.</span>
+    </div>
+  </div>
+  <div class="dateline">
+    <span lang="en">Vol. LXXII · No. 24,601</span><span lang="ar">السنة ٧٢ · العدد ٢٤٬٦٠١</span>
+    <span lang="en">Printed fresh every morning</span><span lang="ar">تُطبع طازجة كل صباح</span>
+    <span lang="en">Corner of Fifth &amp; Maple</span><span lang="ar">زاوية الشارع الخامس وشارع القيقب</span>
+    <span lang="en">Price: reasonable</span><span lang="ar">السعر: معقول</span>
+  </div>
+</header>
+
+<main>
+<section class="banner">
+  <h2><span lang="en">Eggs Any Style, Any Hour, Kitchen Confirms</span><span lang="ar">البيض كما تشتهي في أي ساعة… والمطبخ يؤكّد</span></h2>
+  <p class="deck"><span lang="en">Griddle “has not been switched off since 1954,” says night cook; regulars report no complaints, ask for more toast</span><span lang="ar">طاهي المناوبة الليلية: «الصاج لم يُطفأ منذ عام ١٩٥٤»… والزبائن الدائمون بلا شكاوى ويطلبون مزيدًا من الخبز المحمّص</span></p>
+</section>
+
+<section class="lead">
+  <div class="story">
+    <div class="byline"><span lang="en">By our Counter Correspondent</span><span lang="ar">بقلم مراسلنا عند الكاونتر</span></div>
+    <p class="dc" lang="en">Nobody at The Daily Plate has ever been told it is too late for pancakes. The doors open at six, the first pot of coffee is poured before the sign is lit, and from then until two the next morning the griddle answers to one rule only: if it is on this page, you may have it now.</p>
+    <p class="dc" lang="ar">لم يسمع أحدٌ في «الطبق اليومي» يومًا أن الوقت قد فات على البانكيك. تُفتح الأبواب في السادسة، ويُصبّ أول إبريق قهوة قبل أن تُضاء اللافتة، ومنذ تلك اللحظة حتى الثانية فجرًا لا يخضع الصاج إلا لقاعدة واحدة: ما دام مكتوبًا في هذه الصفحة فهو لك الآن.</p>
+    <p lang="en">We bake our own buns, grind chuck daily, squeeze lemons by the crate and keep the pie under glass where you can keep an eye on it. Everything is cooked to order and nothing is in a hurry except the coffee.</p>
+    <p lang="ar">نخبز خبزنا بأيدينا، ونفرم لحم الكتف كل يوم، ونعصر الليمون بالصناديق، ونحفظ الفطيرة تحت الزجاج حيث تراها عيناك. كل شيء يُطهى عند الطلب، ولا شيء هنا على عجلة سوى القهوة.</p>
+    <p class="jump"><span lang="en">Continued in every section below ▸</span><span lang="ar">التتمة في كل الأقسام أدناه ◂</span></p>
+  </div>
+
+  <figure class="photo">
+    <svg viewBox="0 0 600 400" role="img" aria-label="Halftone picture of a breakfast plate">
+      <defs>
+        <pattern id="h1" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="2.5" cy="2.5" r=".8" fill="#17140f"/></pattern>
+        <pattern id="h2" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="2.5" cy="2.5" r="1.45" fill="#17140f"/></pattern>
+        <pattern id="h3" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="2.5" cy="2.5" r="2.1" fill="#17140f"/></pattern>
+        <pattern id="h4" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#17140f"/><circle cx="2.5" cy="2.5" r=".9" fill="#f1ebdb"/></pattern>
+        <radialGradient id="vg" cx="50%" cy="50%" r="65%"><stop offset=".55" stop-color="#17140f" stop-opacity="0"/><stop offset="1" stop-color="#17140f" stop-opacity=".5"/></radialGradient>
+      </defs>
+      <rect width="600" height="400" fill="url(#h2)"/>
+      <path d="M0 0H600V70H0Z" fill="url(#h3)"/>
+      <!-- shadow + plate -->
+      <ellipse cx="300" cy="232" rx="228" ry="150" fill="url(#h4)"/>
+      <ellipse cx="292" cy="218" rx="222" ry="146" fill="#f1ebdb"/>
+      <ellipse cx="292" cy="218" rx="222" ry="146" fill="url(#h1)"/>
+      <ellipse cx="292" cy="216" rx="170" ry="108" fill="#f1ebdb" stroke="#17140f" stroke-width="1"/>
+      <!-- egg -->
+      <path d="M186 214c-14-40 20-74 62-66 30-18 70-4 76 28 26 12 30 52 0 66-10 30-58 36-80 14-30 12-56-12-58-42z" fill="#f1ebdb" stroke="#17140f" stroke-width="2"/>
+      <path d="M200 228c14 26 40 34 58 22 20 18 56 12 64-12-18 14-44 12-58-2-22 12-48 8-64-8z" fill="url(#h1)"/>
+      <circle cx="258" cy="204" r="32" fill="url(#h3)"/><circle cx="258" cy="204" r="32" fill="none" stroke="#17140f" stroke-width="1.5"/>
+      <ellipse cx="247" cy="192" rx="11" ry="6" fill="#f1ebdb" transform="rotate(-30 247 192)"/>
+      <!-- beef bacon -->
+      <path d="M338 160c18-10 30 8 48-2s30 8 48-2l8 22c-18 10-30-8-48 2s-30-8-48 2z" fill="url(#h4)" stroke="#17140f" stroke-width="1.5"/>
+      <path d="M344 196c18-10 30 8 48-2s30 8 48-2l8 22c-18 10-30-8-48 2s-30-8-48 2z" fill="url(#h3)" stroke="#17140f" stroke-width="1.5"/>
+      <!-- toast -->
+      <path d="M318 250l96-8 10 54-112 6z" fill="url(#h2)" stroke="#17140f" stroke-width="2"/>
+      <path d="M330 258l72-6 6 36-82 4z" fill="url(#h1)"/>
+      <!-- parsley / tomato -->
+      <circle cx="210" cy="286" r="20" fill="url(#h3)" stroke="#17140f" stroke-width="1.5"/><circle cx="246" cy="298" r="16" fill="url(#h2)" stroke="#17140f" stroke-width="1.5"/>
+      <!-- fork -->
+      <g transform="translate(40 120) rotate(-8)" fill="#f1ebdb" stroke="#17140f" stroke-width="2"><path d="M0 0v60c0 14 8 20 12 22v130c0 10 14 10 14 0V82c4-2 12-8 12-22V0h-6v52h-6V0h-6v52h-6V0h-6v52H6V0z"/></g>
+      <!-- cup -->
+      <g><ellipse cx="528" cy="72" rx="62" ry="40" fill="#f1ebdb" stroke="#17140f" stroke-width="2"/><ellipse cx="528" cy="72" rx="46" ry="28" fill="url(#h4)"/><path d="M506 62c10-8 26-8 40 0" stroke="#f1ebdb" stroke-width="3" fill="none"/></g>
+      <rect width="600" height="400" fill="url(#vg)"/>
+    </svg>
+    <figcaption><b lang="en">The No. 1, 6:04 a.m.</b><b lang="ar">الطبق رقم ١، الساعة ٦:٠٤ صباحًا</b> <span lang="en">Two eggs sunny side up, beef bacon, buttered sourdough and a grilled tomato: the plate that has opened this diner every day for seventy-two years.</span><span lang="ar">بيضتان بعين الشمس، لحم بقري مقدّد، خبز العجين المخمّر بالزبدة وطماطم مشوية: الطبق الذي يفتتح به هذا الداينر يومه منذ اثنين وسبعين عامًا.</span> <span lang="en">(Staff halftone)</span><span lang="ar">(تصوير القسم الفني)</span></figcaption>
+  </figure>
+
+  <aside class="rail">
+    <div class="box">
+      <h3><span lang="en">Inside Today</span><span lang="ar">في عدد اليوم</span></h3>
+      <ol>
+        <li><a href="#a"><span lang="en">Morning Edition</span><span lang="ar">طبعة الصباح</span><b>A1</b></a></li>
+        <li><a href="#b"><span lang="en">Burgers &amp; Melts</span><span lang="ar">البرغر والساندويتشات</span><b>B1</b></a></li>
+        <li><a href="#c"><span lang="en">Blue Plate Listings</span><span lang="ar">جدول طبق اليوم</span><b>C1</b></a></li>
+        <li><a href="#d"><span lang="en">Beverage Markets</span><span lang="ar">بورصة المشروبات</span><b>D1</b></a></li>
+        <li><a href="#e"><span lang="en">Pie &amp; Leisure</span><span lang="ar">الفطائر والمنوّعات</span><b>E1</b></a></li>
+        <li><a href="#f"><span lang="en">Classified Sides</span><span lang="ar">إعلانات الأطباق الجانبية</span><b>F1</b></a></li>
+      </ol>
+    </div>
+    <div class="box inv">
+      <h3><span lang="en">Forecast</span><span lang="ar">النشرة الجوية</span></h3>
+      <div class="wx">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M8 22h26v8a12 12 0 0 1-12 12h-2A12 12 0 0 1 8 30z"/><path d="M34 25h4a5 5 0 0 1 0 10h-5"/><path d="M14 15c-3-4 3-5 0-9M21 15c-3-4 3-5 0-9M28 15c-3-4 3-5 0-9"/></svg>
+        <div><strong lang="en">Hot, 92°C</strong><strong lang="ar">ساخنة، ٩٢°م</strong></div>
+        <small lang="en">Steady drip through the morning, heavy syrup expected over pancakes by nine. Scattered sprinkles on sundaes after dark.</small>
+        <small lang="ar">تقطير متواصل طوال الصباح، مع هطول غزير لشراب القيقب على البانكيك قرابة التاسعة، ورشّات متفرقة من السكاكر على المثلجات ليلًا.</small>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<!-- A -->
+<section class="sec" id="a">
+  <div class="sec-head"><h2><span lang="en">A · Morning Edition</span><span lang="ar">أ · طبعة الصباح</span></h2><i><span lang="en">Breakfast, served from open to close</span><i lang="ar">الفطور، من الافتتاح إلى الإغلاق</i></i></div>
+  <div class="cols">
+    <article class="art big">
+      <span class="tag"><span lang="en">Front-page favourite</span><span lang="ar">نجم الصفحة الأولى</span></span>
+      <h3><span lang="en">The No. 1 Holds Its Lead for 72nd Year</span><span lang="ar">الطبق رقم ١ في الصدارة للعام الثاني والسبعين</span></h3>
+      <p lang="en">Two farm eggs your way, crisp beef bacon, home fries with charred onion, grilled tomato and two slices of buttered sourdough. Coffee is included; conversation is extra.</p>
+      <p lang="ar">بيضتان من المزرعة كما تحب، لحم بقري مقدّد مقرمش، بطاطا مقلية على الصاج مع بصل محمّر، طماطم مشوية وشريحتا خبز مخمّر بالزبدة. القهوة مشمولة، أما الحديث فعلى حسابك.</p>
+      <div class="p"><span class="price">$14</span></div>
+    </article>
+    <article class="art">
+      <h3><span lang="en">Buttermilk Stack Reaches New Heights</span><span lang="ar">برج البانكيك باللبن يبلغ ارتفاعًا قياسيًا</span></h3>
+      <p lang="en">Three thick griddle cakes, whipped honey butter and a jug of warm maple syrup. Blueberries folded in on request.</p>
+      <p lang="ar">ثلاث فطائر سميكة من الصاج، زبدة مخفوقة بالعسل وإبريق من شراب القيقب الدافئ. نضيف التوت الأزرق إلى العجين عند الطلب.</p>
+      <div class="p"><span class="price">$11</span></div>
+    </article>
+    <article class="art">
+      <h3><span lang="en">Corned Beef Hash Returns, Crispier</span><span lang="ar">هاش اللحم المملّح يعود… وأشدّ قرمشة</span></h3>
+      <p lang="en">House-brined brisket chopped with potato and sweet pepper, pressed hard on the flat-top, crowned with two poached eggs.</p>
+      <p lang="ar">صدر بقري مملّح في مطبخنا ومفروم مع البطاطا والفلفل الحلو، يُضغط على الصاج حتى يتقرمش ويُتوَّج ببيضتين مسلوقتين بلا قشر.</p>
+      <div class="p"><span class="price">$15</span></div>
+    </article>
+    <article class="art">
+      <h3><span lang="en">Western Omelette Folds Under Pressure</span><span lang="ar">الأومليت الغربي ينطوي تحت الضغط</span></h3>
+      <p lang="en">Three eggs, smoked turkey, peppers, onion and sharp cheddar, with rye toast and a dish of our tomato jam.</p>
+      <p lang="ar">ثلاث بيضات مع ديك رومي مدخّن وفلفل وبصل وجبن شيدر حاد، يرافقه خبز الجاودار المحمّص ومربّى الطماطم من صنعنا.</p>
+      <div class="p"><span class="price">$13</span></div>
+    </article>
+    <article class="art">
+      <h3><span lang="en">French Toast Declared “Dangerously Thick”</span><span lang="ar">الخبز الفرنسي «سميك إلى حدّ الخطر»</span></h3>
+      <p lang="en">Brioche soaked overnight in vanilla custard, griddled in brown butter, dusted with cinnamon sugar, with stewed apples.</p>
+      <p lang="ar">خبز بريوش يُنقع ليلة كاملة في كاسترد الفانيلا، يُحمَّر بالزبدة البنية ويُرشّ بسكر القرفة، ويقدَّم مع تفاح مطهو.</p>
+      <div class="p"><span class="price">$12</span></div>
+    </article>
+    <article class="art">
+      <h3><span lang="en">Oatmeal Quietly Wins Over Sceptics</span><span lang="ar">الشوفان يكسب المتشككين بهدوء</span></h3>
+      <p lang="en">Steel-cut oats simmered slow with milk, topped with dates, toasted pecans and a spoon of dark honey.</p>
+      <p lang="ar">شوفان مجروش يُطهى على مهل بالحليب، يعلوه التمر وجوز البيكان المحمّص وملعقة من العسل الداكن.</p>
+      <div class="p"><span class="price">$8</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- B -->
+<section class="sec" id="b">
+  <div class="sec-head"><h2><span lang="en">B · Counter &amp; Metro</span><span lang="ar">ب · أخبار الكاونتر</span></h2><i><span lang="en">Burgers, melts and other breaking news</span><i lang="ar">برغر وساندويتشات وأخبار عاجلة أخرى</i></i></div>
+  <div class="metro">
+    <article class="feat">
+      <span class="kicker"><span lang="en">Editor’s Pick</span><span lang="ar">اختيار رئيس التحرير</span></span>
+      <h3><span lang="en">Double Smash Burger Leaves Witnesses Speechless</span><span lang="ar">برغر «دبل سماش» يترك الشهود بلا كلام</span></h3>
+      <p lang="en">Two patties of chuck ground this morning, smashed thin until the edges lace, with American cheese, griddled onion, pickles and house sauce on a bun we baked ourselves. Fries come along for the ride.</p>
+      <p lang="ar">قرصان من لحم الكتف المفروم هذا الصباح، يُهرسان على الصاج حتى تتخرّم أطرافهما، مع جبن أمريكي وبصل محمّر ومخلل وصلصة البيت في خبز خبزناه بأنفسنا. والبطاطا المقلية ترافقه في الرحلة.</p>
+      <div class="pull"><span lang="en">“I came in for coffee. That was three burgers ago.”</span><span lang="ar">«دخلتُ من أجل فنجان قهوة… كان ذلك قبل ثلاثة برغرات.»</span><small lang="en">— Regular, stool no. 4</small><small lang="ar">— زبون دائم، المقعد رقم ٤</small></div>
+      <div class="art" style="border:0;margin:0;padding:0"><div class="p"><span class="price">$16</span></div></div>
+    </article>
+    <div>
+      <article class="art">
+        <h3><span lang="en">Patty Melt Merger Approved</span><span lang="ar">الموافقة على اندماج «باتي ملت»</span></h3>
+        <p lang="en">Beef patty, Swiss cheese and a tangle of caramelised onion, pressed between buttered rye until it sighs.</p>
+        <p lang="ar">قرص لحم بقري وجبن سويسري وبصل مكرمل، تُضغط كلها بين شريحتي جاودار بالزبدة حتى تتنهّد.</p>
+        <div class="p"><span class="price">$14</span></div>
+      </article>
+      <article class="art">
+        <h3><span lang="en">Turkey Club Stands Three Storeys Tall</span><span lang="ar">كلوب الديك الرومي يرتفع ثلاثة طوابق</span></h3>
+        <p lang="en">Roast turkey carved off the bone, beef bacon, lettuce, tomato and mayo on toasted white, held by four picks.</p>
+        <p lang="ar">ديك رومي مشوي يُقطَّع عن العظم، لحم بقري مقدّد، خس وطماطم ومايونيز في خبز أبيض محمّص تثبّته أربعة أعواد.</p>
+        <div class="p"><span class="price">$15</span></div>
+      </article>
+    </div>
+    <div>
+      <article class="art">
+        <h3><span lang="en">Hot Chicken Sandwich Issues Warning</span><span lang="ar">ساندويتش الدجاج الحار يصدر تحذيرًا</span></h3>
+        <p lang="en">Buttermilk-fried thigh brushed with cayenne oil, cooling slaw and bread-and-butter pickles on a soft potato roll.</p>
+        <p lang="ar">فخذ دجاج مقلي بتتبيلة اللبن ومدهون بزيت الفلفل الحار، مع سلطة ملفوف منعشة ومخلل حلو في خبز البطاطا الطري.</p>
+        <div class="p"><span class="price">$14</span></div>
+      </article>
+      <article class="art">
+        <h3><span lang="en">Grilled Cheese &amp; Tomato Soup: A Lasting Alliance</span><span lang="ar">الجبن المشوي وشوربة الطماطم: تحالف لا ينفصم</span></h3>
+        <p lang="en">Cheddar and mozzarella on thick sourdough, with a mug of roasted tomato soup made for dunking.</p>
+        <p lang="ar">شيدر وموزاريلا في خبز مخمّر سميك، مع كوب من شوربة الطماطم المشوية صُنعت لتغمس فيها.</p>
+        <div class="p"><span class="price">$12</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="duo">
+<!-- C -->
+<section class="sec" id="c">
+  <div class="sec-head"><h2><span lang="en">C · Blue Plate Listings</span><span lang="ar">ج · جدول طبق اليوم</span></h2><i><span lang="en">One plate a day, from 11 a.m. until it’s gone</span><i lang="ar">طبق واحد كل يوم، من ١١ صباحًا حتى ينفد</i></i></div>
+  <table class="tv">
+    <tr><th><span lang="en">Mon</span><span lang="ar">الاثنين</span><small lang="en">Channel 1</small><small lang="ar">القناة ١</small></th><td><b lang="en">Meatloaf &amp; Mash</b><b lang="ar">رغيف اللحم والبطاطا المهروسة</b><span lang="en">Glazed beef meatloaf, buttery mash, onion gravy, peas.</span><span lang="ar">رغيف لحم بقري بطبقة لامعة، بطاطا مهروسة بالزبدة، مرق البصل وبازلاء.</span></td><td><span class="price">$17</span></td></tr>
+    <tr><th><span lang="en">Tue</span><span lang="ar">الثلاثاء</span><small lang="en">Channel 2</small><small lang="ar">القناة ٢</small></th><td><b lang="en">Chicken Pot Pie</b><b lang="ar">فطيرة الدجاج بالقدر</b><span lang="en">Poached chicken, carrot and leek under a flaky lid.</span><span lang="ar">دجاج مسلوق وجزر وكرّاث تحت غطاء من العجين المورّق.</span></td><td><span class="price">$16</span></td></tr>
+    <tr class="today"><th><span lang="en">Wed</span><span lang="ar">الأربعاء</span><small lang="en">Prime time</small><small lang="ar">وقت الذروة</small></th><td><b lang="en">Pot Roast, Slow News Day</b><b lang="ar">روست القدر على مهل</b><span lang="en">Chuck braised six hours with root vegetables; a spoon will do.</span><span lang="ar">لحم كتف مطهو ست ساعات مع الخضار الجذرية؛ الملعقة تكفي لتقطيعه.</span></td><td><span class="price">$19</span></td></tr>
+    <tr><th><span lang="en">Thu</span><span lang="ar">الخميس</span><small lang="en">Channel 4</small><small lang="ar">القناة ٤</small></th><td><b lang="en">Turkey Dinner</b><b lang="ar">عشاء الديك الرومي</b><span lang="en">Roast turkey, sage stuffing, cranberry relish, gravy boat.</span><span lang="ar">ديك رومي مشوي مع حشوة المريمية، صلصة التوت البري وإبريق المرق.</span></td><td><span class="price">$18</span></td></tr>
+    <tr><th><span lang="en">Fri</span><span lang="ar">الجمعة</span><small lang="en">Channel 5</small><small lang="ar">القناة ٥</small></th><td><b lang="en">Fish Fry</b><b lang="ar">السمك المقلي</b><span lang="en">Crisp-battered cod, fries, tartar sauce, lemon, malt vinegar.</span><span lang="ar">سمك القدّ بعجينة مقرمشة، بطاطا مقلية، صلصة التارتار، ليمون وخل الشعير.</span></td><td><span class="price">$18</span></td></tr>
+    <tr><th><span lang="en">Sat</span><span lang="ar">السبت</span><small lang="en">Matinée</small><small lang="ar">عرض النهار</small></th><td><b lang="en">Chicken-Fried Steak</b><b lang="ar">ستيك مقلي على طريقة الدجاج</b><span lang="en">Crumbed beef cutlet, white pepper gravy, biscuit.</span><span lang="ar">شريحة بقر مكسوّة بالبقسماط، مرق أبيض بالفلفل وخبز البسكويت الأمريكي.</span></td><td><span class="price">$19</span></td></tr>
+    <tr><th><span lang="en">Sun</span><span lang="ar">الأحد</span><small lang="en">Omnibus</small><small lang="ar">الحلقة الجامعة</small></th><td><b lang="en">Mac &amp; Cheese Skillet</b><b lang="ar">معكرونة بالجبن في المقلاة</b><span lang="en">Three cheeses, toasted crumbs, served bubbling in cast iron.</span><span lang="ar">ثلاثة أجبان وفتات خبز محمّص، تصلك وهي تغلي في مقلاة الحديد.</span></td><td><span class="price">$15</span></td></tr>
+  </table>
+</section>
+
+<!-- D -->
+<section class="sec" id="d">
+  <div class="sec-head"><h2><span lang="en">D · Markets</span><span lang="ar">د · البورصة</span></h2><i><span lang="en">Closing prices</span><i lang="ar">أسعار الإغلاق</i></i></div>
+  <svg class="spark" viewBox="0 0 300 54" preserveAspectRatio="none" aria-hidden="true"><path d="M0 46 20 40 40 44 60 30 80 34 100 22 120 28 140 16 160 24 180 12 200 20 220 8 240 14 260 6 280 10 300 3" fill="none" stroke="#17140f" stroke-width="1.6" vector-effect="non-scaling-stroke"/><path d="M0 46 20 40 40 44 60 30 80 34 100 22 120 28 140 16 160 24 180 12 200 20 220 8 240 14 260 6 280 10 300 3V54H0Z" fill="#17140f" opacity=".1"/></svg>
+  <table class="mk">
+    <caption><span lang="en">Thirst index up sharply at the lunch bell. Past refills are no guarantee of future refills (they are, actually).</span><span lang="ar">مؤشر العطش يرتفع بحدّة عند جرس الغداء. إعادة التعبئة السابقة لا تضمن إعادة التعبئة لاحقًا (بل تضمنها في الحقيقة).</span></caption>
+    <tr><th><span lang="en">Sym.</span><span lang="ar">الرمز</span></th><th><span lang="en">Issue</span><span lang="ar">السهم</span></th><th></th><th><span lang="en">Last</span><span lang="ar">السعر</span></th></tr>
+    <tr><td>DRIP</td><td><span lang="en">Bottomless Coffee</span><span lang="ar">قهوة بلا حدود</span><small lang="en">Medium roast, endless refills</small><small lang="ar">تحميص متوسط وتعبئة لا تنتهي</small></td><td>▲</td><td><span class="price">$3.50</span></td></tr>
+    <tr><td>MALT</td><td><span lang="en">Vanilla Malt Shake</span><span lang="ar">ميلك شيك الفانيلا بالشعير</span><small lang="en">Hand-spun, with the extra in the tin</small><small lang="ar">يُخفق يدويًا، والزيادة في الكوب المعدني</small></td><td>▲</td><td><span class="price">$7</span></td></tr>
+    <tr><td>CHOC</td><td><span lang="en">Black &amp; White Shake</span><span lang="ar">شيك الأبيض والأسود</span><small lang="en">Vanilla ice cream, dark fudge</small><small lang="ar">آيس كريم فانيلا وصلصة شوكولاتة داكنة</small></td><td>▲</td><td><span class="price">$7</span></td></tr>
+    <tr><td>LMN</td><td><span lang="en">Fresh Lemonade</span><span lang="ar">ليموناضة طازجة</span><small lang="en">Squeezed to order, mint optional</small><small lang="ar">تُعصر عند الطلب، والنعناع اختياري</small></td><td>▬</td><td><span class="price">$5</span></td></tr>
+    <tr><td>FIZZ</td><td><span lang="en">Cherry Phosphate</span><span lang="ar">صودا الكرز الفوّارة</span><small lang="en">Soda-fountain classic, sour cherry syrup</small><small lang="ar">من كلاسيكيات نافورة الصودا بشراب الكرز الحامض</small></td><td>▲</td><td><span class="price">$5</span></td></tr>
+    <tr><td>ICET</td><td><span lang="en">Iced Tea, Half &amp; Half</span><span lang="ar">شاي مثلّج «نصف ونصف»</span><small lang="en">Black tea cut with lemonade</small><small lang="ar">شاي أسود ممزوج بالليموناضة</small></td><td>▼</td><td><span class="price">$4</span></td></tr>
+  </table>
+</section>
+</div>
+
+<!-- E -->
+<section class="sec" id="e">
+  <div class="sec-head"><h2><span lang="en">E · Pie &amp; Leisure</span><span lang="ar">هـ · الفطائر والمنوّعات</span></h2><i><span lang="en">Reviews from under the glass dome</span><i lang="ar">مراجعات من تحت القبّة الزجاجية</i></i></div>
+  <div class="leis">
+    <article class="art">
+      <svg viewBox="0 0 200 90" aria-hidden="true"><rect width="200" height="90" fill="url(#h1)"/><path d="M30 66 100 22l70 44z" fill="#f1ebdb" stroke="#17140f" stroke-width="2"/><path d="M30 66 100 22l70 44z" fill="url(#h1)"/><path d="M30 66h140v8H30z" fill="url(#h3)" stroke="#17140f" stroke-width="1.5"/><path d="M62 52h76M80 40h40" stroke="#17140f" stroke-width="2" stroke-dasharray="6 5"/></svg>
+      <h3><span lang="en">Apple Pie: ★★★★★</span><span lang="ar">فطيرة التفاح: ★★★★★</span></h3>
+      <p lang="en">Tall, tart and latticed, served warm with a slice of cheddar or a scoop of vanilla. Our critic wept.</p>
+      <p lang="ar">عالية، حامضة قليلًا ومشبّكة الوجه، تقدَّم دافئة مع شريحة شيدر أو كرة فانيلا. ناقدنا بكى.</p>
+      <div class="p"><span class="price">$8</span></div>
+    </article>
+    <article class="art">
+      <svg viewBox="0 0 200 90" aria-hidden="true"><rect width="200" height="90" fill="url(#h1)"/><path d="M40 30h120l-12 46H52z" fill="#f1ebdb" stroke="#17140f" stroke-width="2"/><path d="M46 50h108l-6 26H52z" fill="url(#h3)"/><path d="M36 30c10-26 118-26 128 0z" fill="#f1ebdb" stroke="#17140f" stroke-width="2"/><circle cx="100" cy="9" r="6" fill="url(#h4)" stroke="#17140f"/></svg>
+      <h3><span lang="en">Banana Split Reunites After Years Apart</span><span lang="ar">«بنانا سبليت» يلتئم شمله بعد فراق</span></h3>
+      <p lang="en">Three scoops, hot fudge, strawberry and pineapple, whipped cream, toasted peanuts, one cherry each.</p>
+      <p lang="ar">ثلاث كرات آيس كريم، شوكولاتة ساخنة، فراولة وأناناس، كريمة مخفوقة، فول سوداني محمّص وحبة كرز لكل كرة.</p>
+      <div class="p"><span class="price">$10</span></div>
+    </article>
+    <article class="art">
+      <svg viewBox="0 0 200 90" aria-hidden="true"><rect width="200" height="90" fill="url(#h1)"/><rect x="40" y="26" width="120" height="50" fill="#f1ebdb" stroke="#17140f" stroke-width="2"/><rect x="40" y="26" width="120" height="14" fill="url(#h4)"/><rect x="40" y="52" width="120" height="8" fill="url(#h3)"/><rect x="40" y="40" width="120" height="12" fill="url(#h1)"/><rect x="40" y="60" width="120" height="16" fill="url(#h2)"/></svg>
+      <h3><span lang="en">Chocolate Layer Cake Tops Polls</span><span lang="ar">كعكة الشوكولاتة تتصدّر الاستطلاعات</span></h3>
+      <p lang="en">Four dark layers, fudge frosting, a cold glass of milk on the side whether you asked or not.</p>
+      <p lang="ar">أربع طبقات داكنة بكريمة الفدج، ومعها كأس حليب بارد سواء طلبته أم لم تطلبه.</p>
+      <div class="p"><span class="price">$9</span></div>
+    </article>
+    <article class="art">
+      <svg viewBox="0 0 200 90" aria-hidden="true"><rect width="200" height="90" fill="url(#h1)"/><ellipse cx="100" cy="62" rx="74" ry="16" fill="#f1ebdb" stroke="#17140f" stroke-width="2"/><path d="M40 58c0-40 120-40 120 0z" fill="url(#h2)" stroke="#17140f" stroke-width="2"/><path d="M58 40c14-14 70-14 84 0" stroke="#f1ebdb" stroke-width="4" fill="none"/></svg>
+      <h3><span lang="en">Rice Pudding Makes Quiet Comeback</span><span lang="ar">الأرز بالحليب يعود في صمت</span></h3>
+      <p lang="en">Creamy, cool and scented with cinnamon and orange peel. Raisins by popular demand only.</p>
+      <p lang="ar">كريمي بارد معطّر بالقرفة وقشر البرتقال. الزبيب بناءً على طلب الجماهير فقط.</p>
+      <div class="p"><span class="price">$6</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- F -->
+<section class="sec" id="f">
+  <div class="sec-head"><h2><span lang="en">F · Classified Sides</span><span lang="ar">و · إعلانات مبوّبة: الأطباق الجانبية</span></h2><i><span lang="en">Small ads, big appetites</span><i lang="ar">إعلانات صغيرة لشهيّات كبيرة</i></i></div>
+  <div class="cls">
+    <div class="ad a5 w2"><span class="tiny"><span lang="en">Wanted</span><span lang="ar">مطلوب</span></span><b lang="en">Hungry Persons</b><b lang="ar">أشخاص جائعون</b><span lang="en">to adopt a basket of hand-cut fries, twice-fried, sea salt. No experience necessary.</span><span lang="ar">لتبنّي سلة بطاطا مقطّعة يدويًا ومقلية مرتين بملح البحر. لا تُشترط الخبرة.</span><span class="price">$5</span></div>
+    <div class="ad a2"><b lang="en">Onion Rings</b><b lang="ar">حلقات البصل</b><span lang="en">Beer-free batter, loud crunch. Seeks ranch dip for long-term relationship.</span><span lang="ar">بعجينة مقرمشة عالية الصوت. تبحث عن صلصة رانش لعلاقة طويلة الأمد.</span><span class="price">$6</span></div>
+    <div class="ad a3"><span class="tiny"><span lang="en">For sale</span><span lang="ar">للبيع</span></span><b lang="en">Home Fries</b><b lang="ar">بطاطا الصاج</b><span lang="en">One careful owner. Charred onion, paprika.</span><span lang="ar">مالك واحد حريص. بصل محمّر وبابريكا.</span><span class="price">$5</span></div>
+    <div class="ad a4"><b lang="en">Coleslaw</b><b lang="ar">سلطة الملفوف</b><span lang="en">Crisp, creamy, reliable. Available immediately.</span><span lang="ar">مقرمشة، كريمية وموثوقة. متوفرة فورًا.</span><span class="price">$4</span></div>
+    <div class="ad a7"><span class="tiny"><span lang="en">Lost</span><span lang="ar">مفقود</span></span><b lang="en">One Pickle</b><b lang="ar">مخلل واحد</b><span lang="en">Half-sour, last seen beside a patty melt. Replacements at the counter.</span><span lang="ar">نصف حامض، شوهد آخر مرة قرب «باتي ملت». البدائل عند الكاونتر.</span><span class="price">$2</span></div>
+    <div class="ad a6"><b lang="en">Mac &amp; Cheese Cup</b><b lang="ar">كوب معكرونة بالجبن</b><span lang="en">Small but ambitious.</span><span lang="ar">صغير لكنه طموح.</span><span class="price">$6</span></div>
+    <div class="ad"><span class="tiny"><span lang="en">Notice</span><span lang="ar">تنويه</span></span><b lang="en">Side Salad</b><b lang="ar">سلطة جانبية</b><span lang="en">Leaves, cucumber, tomato, lemon dressing. For balance.</span><span lang="ar">خس وخيار وطماطم بتتبيلة الليمون. من باب التوازن.</span><span class="price">$5</span></div>
+    <div class="ad a2 w2"><span class="tiny"><span lang="en">Announcement</span><span lang="ar">إعلان</span></span><b lang="en">Buttermilk Biscuits (2)</b><b lang="ar">بسكويت اللبن الأمريكي (٢)</b><span lang="en">are pleased to announce their engagement to honey butter and sausage-free cream gravy.</span><span lang="ar">يسرّهما إعلان خطوبتهما على زبدة العسل والمرق الأبيض الكريمي.</span><span class="price">$5</span></div>
+    <div class="ad a3"><b lang="en">Extra Egg</b><b lang="ar">بيضة إضافية</b><span lang="en">Any style. Goes with everything.</span><span lang="ar">بأي طريقة. تليق بكل شيء.</span><span class="price">$2</span></div>
+    <div class="ad a4"><b lang="en">Beef Bacon</b><b lang="ar">لحم بقري مقدّد</b><span lang="en">Four crisp rashers. Serious enquiries only.</span><span lang="ar">أربع شرائح مقرمشة. للجادّين فقط.</span><span class="price">$5</span></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="colo">
+    <div><h4><span lang="en">Press Hours</span><span lang="ar">ساعات الطباعة</span></h4><p><span lang="en">Open daily, 6 a.m. – 2 a.m.<br>Breakfast all day. Blue plates from 11 a.m.</span><span lang="ar">يوميًا من ٦ صباحًا حتى ٢ فجرًا.<br>الفطور طوال اليوم، وطبق اليوم من ١١ صباحًا.</span></p></div>
+    <div><h4><span lang="en">Newsroom</span><span lang="ar">غرفة الأخبار</span></h4><p><span lang="en">501 Maple Street, at Fifth Avenue<br>Tips line: 555-0142 · No reservations; stools are first come.</span><span lang="ar">٥٠١ شارع القيقب، عند الجادة الخامسة<br>خط البلاغات: <span dir="ltr">555-0142</span> · لا حجوزات؛ المقاعد لمن يسبق.</span></p></div>
+    <div><h4><span lang="en">Corrections &amp; Allergens</span><span lang="ar">تصويبات ومسبّبات الحساسية</span></h4><p><span lang="en">Our kitchen handles eggs, milk, wheat, nuts and fish. Tell your server and we will set the record straight. No pork or alcohol is used. Prices in US dollars, tax included.</span><span lang="ar">يتعامل مطبخنا مع البيض والحليب والقمح والمكسرات والسمك. أخبر النادل ونصحّح الخبر فورًا. لا نستخدم لحم الخنزير ولا الكحول. الأسعار بالدولار الأمريكي شاملة الضريبة.</span></p></div>
+  </div>
+  <p class="endline"><span lang="en">— 30 — Please recycle this appetite</span><span lang="ar">— انتهى — يُرجى إعادة تدوير هذه الشهيّة</span></p>
+</footer>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

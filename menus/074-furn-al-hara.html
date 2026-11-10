@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Furn Al-Hara · فرن الحارة</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Furn Al-Hara — the neighbourhood oven: za'atar, cheese and lahm bi ajeen manakish baked on stone in ninety seconds. فرن الحارة — مناقيش على الحجر من فرن الحيّ.">
+<meta name="theme-color" content="#24110b">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Lilita+One&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--brick:#24110b;--fire:#ff8a1e;--glow:#ffd166;--za:#55692a;--za2:#3d4d1c;--flour:#f5eddc;--dough:#ecd3a2;--crust:#c58a45;--ink:#2b1a10;--mute:#6d5a48}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--flour);color:var(--ink);font:500 16.5px/1.5 'Tajawal',system-ui,sans-serif;overflow-x:clip}
+html[lang="ar"] body{font-size:17.5px;line-height:1.65}
+h1,h2,h3,p,ul,figure{margin:0;padding:0} ul{list-style:none} a{color:inherit;text-decoration:none} svg{display:block}
+.disp{font-family:'Lilita One','Lalezar',sans-serif;font-weight:400}
+html[lang="ar"] .disp{font-family:'Lalezar','Lilita One',sans-serif}
+
+/* controls: enamel shop-sign */
+.ctl{position:fixed;z-index:60;inset-block-start:12px;inset-inline-end:12px;display:flex;gap:6px}
+.ctl>*{font:700 15px/1 'Tajawal',sans-serif;min-height:40px;padding:0 14px;display:flex;align-items:center;border-radius:9px;cursor:pointer;border:2px solid var(--flour);box-shadow:0 0 0 2px var(--za2),0 6px 14px rgba(0,0,0,.35)}
+#langToggle{background:var(--za);color:var(--flour)}
+.home-link{background:var(--flour);color:var(--za2)}
+.ctl>*:hover,.ctl>*:focus-visible{background:var(--fire);color:var(--brick);outline:0}
+
+/* ---------- HERO: the oven wall ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;color:var(--flour);padding:74px 18px 0;display:grid;gap:8px;justify-items:center;text-align:center;
+  background-color:#3a1a10;
+  background-image:radial-gradient(90vmax 70vmax at 50% 78%,rgba(255,140,30,.55),rgba(255,120,20,.12) 45%,rgba(20,8,4,.75) 80%),
+   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Crect width='120' height='60' fill='%231d0d08'/%3E%3Crect x='2' y='2' width='56' height='26' rx='2' fill='%23743322'/%3E%3Crect x='62' y='2' width='56' height='26' rx='2' fill='%2382402a'/%3E%3Crect x='-28' y='32' width='56' height='26' rx='2' fill='%23803a26'/%3E%3Crect x='32' y='32' width='56' height='26' rx='2' fill='%236a2c1d'/%3E%3Crect x='92' y='32' width='56' height='26' rx='2' fill='%23803a26'/%3E%3C/svg%3E")}
+.since{font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--glow)}
+html[lang="ar"] .since{letter-spacing:0;text-transform:none;font-size:16.5px}
+h1{font-size:clamp(58px,15.5vw,150px);line-height:.92;color:var(--flour);text-shadow:0 4px 0 #8a3a16,0 0 60px rgba(255,150,40,.7)}
+html[lang="ar"] h1{font-size:clamp(68px,18vw,170px);line-height:1.12;margin-block-start:-.08em}
+.tagline{font-size:clamp(18px,2.4vw,24px);font-weight:700;color:var(--glow);max-width:26ch}
+.intro{max-width:46ch;color:#f1dcc4;margin-block-start:6px}
+.stats{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-block-start:12px}
+.stats li{border:1.5px solid rgba(255,209,102,.6);border-radius:999px;padding:4px 14px;font-weight:700;font-size:14.5px;color:var(--glow);background:rgba(36,17,11,.5)}
+html[lang="ar"] .stats li{font-size:15.5px}
+.stats b{color:#fff;font-size:1.1em;unicode-bidi:isolate}
+.oven{width:min(100%,560px);margin-block-start:10px;justify-self:center}
+.oven .fl{transform-box:fill-box;transform-origin:50% 100%;animation:flick 1.7s ease-in-out infinite alternate}
+.oven .fl:nth-of-type(2n){animation-duration:1.2s;animation-delay:-.6s}
+.oven .fl:nth-of-type(3n){animation-duration:2.1s;animation-delay:-1s}
+@keyframes flick{from{transform:scaleY(.86) skewX(-3deg)}to{transform:scaleY(1.12) skewX(3deg)}}
+.oven .em{animation:rise 4s linear infinite;opacity:0}
+.oven .em:nth-of-type(2){animation-delay:-1.3s}.oven .em:nth-of-type(3){animation-delay:-2.2s}.oven .em:nth-of-type(4){animation-delay:-3.1s}.oven .em:nth-of-type(5){animation-delay:-.7s}
+@keyframes rise{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translate(14px,-230px);opacity:0}}
+.oven .peel{animation:slide 5s ease-in-out infinite alternate}
+@keyframes slide{from{transform:translate(0,0)}to{transform:translate(-10px,-16px)}}
+.board{background:#22302a;border:9px solid #7a4a22;border-radius:6px;box-shadow:inset 0 0 0 2px #4d2d12,0 14px 30px rgba(0,0,0,.5);padding:16px 18px;text-align:start;width:min(100%,360px);color:#f2efe4;margin-block:8px 26px;transform:rotate(-1.2deg)}
+[dir="rtl"] .board{transform:rotate(1.2deg)}
+.board h2{font-size:25px;color:var(--glow);line-height:1.2;margin-block-end:6px}
+html[lang="ar"] .board h2{font-size:28px}
+.board li{display:flex;justify-content:space-between;gap:10px;border-bottom:1.5px dashed rgba(242,239,228,.3);padding:6px 0}
+.board li:last-child{border:0}
+.board li b{color:var(--glow);white-space:nowrap;unicode-bidi:isolate}
+
+/* dough-ball nav on the hearth shelf */
+.shelf{grid-column:1/-1;justify-self:stretch;margin-inline:-18px;background:linear-gradient(#5b4638,#3b2a20);border-top:5px solid #7d6654;padding:12px 10px 14px;display:flex;justify-content:center;gap:8px 10px;flex-wrap:wrap}
+.shelf a{display:flex;align-items:center;justify-content:center;text-align:center;min-width:92px;min-height:54px;padding:6px 16px;border-radius:50%/60%;font-weight:800;font-size:15px;color:var(--ink);line-height:1.1;
+  background:radial-gradient(ellipse at 35% 25%,#fffaf0,#efd9ae 60%,#d9b579);box-shadow:0 6px 0 -2px rgba(0,0,0,.35),inset 0 -5px 8px rgba(160,110,50,.35);transition:transform .25s cubic-bezier(.3,1.7,.5,1)}
+.shelf a:hover,.shelf a:focus-visible{transform:translateY(-4px) scale(1.05);outline:0;background:radial-gradient(ellipse at 35% 25%,#fff,#ffe3a1 60%,#f0b65a)}
+
+/* ---------- COUNTER ---------- */
+.counter{position:relative;padding:10px 16px 50px;
+  background:
+   radial-gradient(circle at 12% 6%,rgba(255,255,255,.95) 0 60px,transparent 150px),radial-gradient(circle at 88% 22%,rgba(255,255,255,.9) 0 80px,transparent 190px),radial-gradient(circle at 30% 52%,rgba(255,255,255,.9) 0 70px,transparent 200px),radial-gradient(circle at 80% 78%,rgba(255,255,255,.95) 0 60px,transparent 170px),
+   radial-gradient(rgba(255,255,255,.9) 0 1.5px,transparent 2px) 0 0/23px 29px,radial-gradient(rgba(120,90,50,.16) 0 1px,transparent 1.5px) 11px 7px/31px 37px,
+   linear-gradient(#ead9bb,#e6d3b2)}
+.sec{max-width:1240px;margin-inline:auto;padding-block-start:44px;scroll-margin-top:10px}
+.sign{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-block-end:26px}
+.sign h2{font-size:clamp(30px,5.4vw,46px);line-height:1.05;color:var(--flour);background:var(--za);padding:.2em .6em .16em;border-radius:12px;border:3px solid var(--flour);box-shadow:0 0 0 3px var(--za2),0 8px 16px -6px rgba(40,30,10,.5);transform:rotate(-1.5deg)}
+html[lang="ar"] .sign h2{font-size:clamp(34px,6vw,52px);line-height:1.25;padding:.1em .6em 0;transform:rotate(1.5deg)}
+.sign p{color:var(--mute);font-weight:700;flex:1;min-width:200px}
+
+.grid{display:grid;gap:26px}
+.it{display:grid;grid-template-columns:118px 1fr;gap:16px;align-items:center}
+.it:nth-child(even){grid-template-columns:1fr 118px}
+.it:nth-child(even) .br{order:2}
+.br{position:relative;--s:118px;width:var(--s);height:var(--s);transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.it:hover .br{transform:rotate(14deg) scale(1.04)}
+.it h3{font-size:22px;line-height:1.15;color:var(--ink)}
+html[lang="ar"] .it h3{font-size:25px;line-height:1.3}
+.it p{color:#5a4735;font-size:15.5px;line-height:1.4;margin-block-start:3px}
+html[lang="ar"] .it p{font-size:16.5px;line-height:1.55}
+.tag{display:inline-block;margin-block-start:6px;font-size:12.5px;font-weight:800;border-radius:999px;padding:2px 10px;background:var(--fire);color:var(--brick)}
+html[lang="ar"] .tag{font-size:13.5px}
+.tag.g{background:var(--za);color:var(--flour)}
+.pr{position:absolute;inset-block-end:-6px;inset-inline-end:-8px;width:50px;height:50px;border-radius:50%;background:var(--brick);color:var(--flour);display:grid;place-content:center;justify-items:center;text-align:center;border:2px dashed var(--glow);box-shadow:0 0 0 3px var(--brick),0 5px 10px rgba(40,20,10,.4);transform:rotate(-8deg);line-height:1}
+.pr span{font:400 22px/.9 'Lilita One',sans-serif;color:var(--glow)}
+.pr small{font-size:10px;font-weight:800;margin-block-start:1px}
+html[lang="ar"] .pr small{font-size:11.5px}
+
+/* ---- breads, drawn in CSS ---- */
+.bread{position:absolute;inset:0;border-radius:50% 47% 52% 48%/48% 52% 47% 51%;
+  background:radial-gradient(circle at 78% 20%,#9a5a22 0 3%,transparent 4.500%),radial-gradient(circle at 14% 62%,#a3642a 0 3.500%,transparent 5%),radial-gradient(circle at 60% 94%,#9a5a22 0 2.500%,transparent 4%),radial-gradient(circle at 32% 26%,#f6dfb0,#e3b972 62%,#c58a45 100%);
+  box-shadow:0 12px 16px -8px rgba(70,35,10,.55),inset 0 -4px 8px rgba(140,80,20,.4)}
+.bread::before,.bread::after{content:"";position:absolute;border-radius:50%}
+.bread::before{inset:9%;background:var(--top);box-shadow:inset 0 0 10px rgba(60,30,0,.28)}
+.bread::after{inset:13%;background:var(--bits);transform:rotate(24deg)}
+.z{--top:radial-gradient(circle at 35% 30%,#8b9a45,#5f6f28 65%,#465218);
+  --bits:radial-gradient(#f4e6b8 0 1.4px,transparent 2px) 0 0/13px 15px,radial-gradient(#2f370f 0 1.2px,transparent 1.8px) 6px 4px/9px 11px,radial-gradient(#b3432a 0 1px,transparent 1.6px) 3px 9px/17px 19px}
+.c{--top:radial-gradient(circle at 30% 28%,#fffbe6,#fae7a6 55%,#eec164);
+  --bits:radial-gradient(circle at 24% 34%,rgba(196,120,40,.9) 0 7%,transparent 10%),radial-gradient(circle at 66% 22%,rgba(196,120,40,.8) 0 5%,transparent 8%),radial-gradient(circle at 72% 68%,rgba(196,120,40,.9) 0 8%,transparent 11%),radial-gradient(circle at 36% 76%,rgba(196,120,40,.7) 0 5%,transparent 8%),radial-gradient(#231a12 0 1.1px,transparent 1.7px) 0 0/15px 13px}
+.h{--top:linear-gradient(100deg,#fbe9ab 0 48%,#c9a85a 48% 52%,#5f6f28 52%);
+  --bits:radial-gradient(circle at 22% 40%,rgba(196,120,40,.9) 0 7%,transparent 10%),radial-gradient(circle at 34% 72%,rgba(196,120,40,.8) 0 6%,transparent 9%),linear-gradient(90deg,transparent 54%,#000 54%) ,radial-gradient(#f4e6b8 0 1.4px,transparent 2px) 0 0/13px 15px}
+.h::after{-webkit-mask:linear-gradient(#000,#000);background:radial-gradient(circle at 22% 40%,rgba(196,120,40,.9) 0 7%,transparent 10%),radial-gradient(circle at 34% 72%,rgba(196,120,40,.8) 0 6%,transparent 9%),linear-gradient(100deg,transparent 54%,rgba(0,0,0,0) 54%),radial-gradient(#f4e6b8 0 1.4px,transparent 2px) 60% 0/13px 15px;clip-path:none}
+.v{--top:radial-gradient(circle at 35% 30%,#8b9a45,#5f6f28 65%,#465218);
+  --bits:radial-gradient(circle at 28% 30%,#e24a33 0 9%,#b82f1e 10% 11%,transparent 12%),radial-gradient(circle at 70% 36%,#d9efb4 0 7%,#7fae4a 8% 10%,transparent 11%),radial-gradient(circle at 44% 66%,#d9efb4 0 7%,#7fae4a 8% 10%,transparent 11%),radial-gradient(circle at 74% 72%,#e24a33 0 9%,#b82f1e 10% 11%,transparent 12%),radial-gradient(circle at 50% 22%,transparent 0 2%,#1b1712 3% 5%,transparent 6%),radial-gradient(circle at 20% 62%,transparent 0 2%,#1b1712 3% 5%,transparent 6%),radial-gradient(circle at 56% 46%,transparent 0 2%,#1b1712 3% 5%,transparent 6%)}
+.k{--top:radial-gradient(circle at 35% 30%,#f0c184,#d99b52 65%,#b9772f);
+  --bits:radial-gradient(#b3361f 0 2px,transparent 2.600px) 0 0/19px 17px,radial-gradient(#fff3d6 0 1.6px,transparent 2.200px) 8px 6px/14px 16px,radial-gradient(#7c8f3a 0 1.4px,transparent 2px) 3px 11px/21px 23px}
+.m{--top:radial-gradient(circle at 35% 30%,#d2512f,#a52c18 65%,#7f1c0d);
+  --bits:radial-gradient(#e7c391 0 2.400px,transparent 3px) 0 0/22px 19px,radial-gradient(#f4e6b8 0 1.2px,transparent 1.8px) 9px 7px/12px 14px,radial-gradient(#4d5a1c 0 1.4px,transparent 2px) 4px 12px/25px 27px}
+.l{--top:radial-gradient(circle at 35% 30%,#a8623a,#84452a 60%,#63301c);
+  --bits:radial-gradient(#d84b2e 0 2.400px,transparent 3px) 0 0/18px 20px,radial-gradient(#6f8f33 0 1.6px,transparent 2.200px) 7px 9px/15px 13px,radial-gradient(#f0d9a0 0 1.800px,transparent 2.400px) 12px 3px/27px 23px,radial-gradient(#3f1d10 0 1.4px,transparent 2px) 2px 5px/11px 9px}
+.sf{--top:radial-gradient(circle at 35% 30%,#f2f2ee,#c9c9c4 70%,#a4a49e);
+  --bits:radial-gradient(circle,#84452a 0 22%,#e3b972 24% 44%,transparent 46%) 0 0/50% 50%}
+.sf::after{inset:17%;border-radius:0}
+.s{--top:radial-gradient(circle at 30% 28%,#fffbe6,#fae7a6 55%,#eec164);
+  --bits:radial-gradient(circle at 26% 30%,#c0341f 0 8%,#8f2413 9% 10%,transparent 11%),radial-gradient(circle at 66% 24%,#c0341f 0 8%,#8f2413 9% 10%,transparent 11%),radial-gradient(circle at 48% 54%,#c0341f 0 8%,#8f2413 9% 10%,transparent 11%),radial-gradient(circle at 24% 74%,#c0341f 0 8%,#8f2413 9% 10%,transparent 11%),radial-gradient(circle at 76% 70%,#c0341f 0 8%,#8f2413 9% 10%,transparent 11%)}
+.t{--top:radial-gradient(circle at 30% 28%,#fffdf3,#f6edd2 60%,#e6d3a0);
+  --bits:radial-gradient(circle at 28% 30%,#e9a24a 0 8%,#b76a22 9% 11%,transparent 12%),radial-gradient(circle at 68% 30%,#e9a24a 0 9%,#b76a22 10% 12%,transparent 13%),radial-gradient(circle at 46% 62%,#e9a24a 0 9%,#b76a22 10% 12%,transparent 13%),radial-gradient(circle at 76% 70%,#e9a24a 0 7%,#b76a22 8% 10%,transparent 11%),radial-gradient(circle at 22% 68%,#9dbb4f 0 5%,#6f8f33 6% 7%,transparent 8%),radial-gradient(circle at 52% 26%,#9dbb4f 0 4%,#6f8f33 5% 6%,transparent 7%)}
+.e{--top:radial-gradient(circle at 30% 28%,#fffdf6,#f7f0dc 60%,#eadcb4);
+  --bits:radial-gradient(circle at 34% 40%,#ffb300 0 12%,#f09400 13% 15%,transparent 16%),radial-gradient(circle at 68% 62%,#ffb300 0 12%,#f09400 13% 15%,transparent 16%),radial-gradient(#84452a 0 2px,transparent 2.600px) 0 0/17px 15px}
+.sp{border-radius:0;background:none;box-shadow:none;filter:drop-shadow(0 10px 8px rgba(70,35,10,.45))}
+.sp::before{inset:2% 0 6%;border-radius:0;box-shadow:none;clip-path:polygon(50% 0,100% 92%,88% 100%,12% 100%,0 92%);background:radial-gradient(circle at 50% 62%,#f3d9a4,#e0b56e 55%,#c58a45)}
+.sp::after{inset:2% 0 6%;border-radius:0;clip-path:polygon(50% 8%,53% 60%,90% 92%,86% 96%,50% 68%,14% 96%,10% 92%,47% 60%);background:#8a5a22}
+.po{--top:radial-gradient(circle at 35% 30%,#f7e2a2,#e7c15e 65%,#c99a35);
+  --bits:radial-gradient(#fff6d6 0 3px,transparent 3.600px) 0 0/21px 19px,radial-gradient(#b3432a 0 1.3px,transparent 1.9px) 5px 8px/13px 15px,radial-gradient(#6f8f33 0 1.5px,transparent 2.100px) 11px 3px/24px 22px}
+.ch{--top:radial-gradient(circle at 35% 30%,#6b3d22,#4a2815 65%,#2f180b);
+  --bits:radial-gradient(circle at 28% 32%,#fbe9a8 0 9%,#e2c463 10% 11%,transparent 12%),radial-gradient(circle at 66% 26%,#fbe9a8 0 9%,#e2c463 10% 11%,transparent 12%),radial-gradient(circle at 50% 56%,#fbe9a8 0 9%,#e2c463 10% 11%,transparent 12%),radial-gradient(circle at 24% 72%,#fbe9a8 0 9%,#e2c463 10% 11%,transparent 12%),radial-gradient(circle at 76% 70%,#fbe9a8 0 9%,#e2c463 10% 11%,transparent 12%),radial-gradient(#e8d8c0 0 1.2px,transparent 1.8px) 0 0/10px 12px}
+.kn{--top:radial-gradient(circle at 35% 30%,#ffb548,#f08a1c 65%,#c8640c);
+  --bits:radial-gradient(circle at 50% 50%,#7fae4a 0 16%,transparent 18%),repeating-conic-gradient(rgba(255,230,160,.5) 0 4deg,transparent 4deg 9deg)}
+.q{--top:radial-gradient(circle at 35% 30%,#fff,#fbf4e4 65%,#ead9b8);
+  --bits:repeating-linear-gradient(55deg,transparent 0 9px,rgba(226,150,20,.85) 9px 12px),radial-gradient(#7fae4a 0 1.8px,transparent 2.400px) 0 0/16px 14px}
+/* drinks seen from above */
+.cup{position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle,transparent 0 52%,#2f6f8f 53% 55%,transparent 56%),radial-gradient(circle at 35% 30%,#fff,#eee7da 70%,#cfc5b2);box-shadow:0 10px 14px -8px rgba(70,35,10,.5)}
+.cup::before{content:"";position:absolute;inset:22%;border-radius:50%;background:var(--liq);box-shadow:0 0 0 4px rgba(255,255,255,.75),0 0 0 5px rgba(120,110,90,.4),inset 0 3px 8px rgba(0,0,0,.25)}
+.cup::after{content:"";position:absolute;inset:30%;border-radius:50%;background:var(--fl)}
+.ay{--liq:radial-gradient(circle at 40% 35%,#fff,#eef0ea);--fl:radial-gradient(#6f8f33 0 1.5px,transparent 2.200px) 0 0/11px 9px}
+.te{--liq:radial-gradient(circle at 40% 35%,#d9822b,#9c4a12);--fl:radial-gradient(ellipse at 40% 45%,#5d8f2f 0 22%,transparent 24%),radial-gradient(ellipse at 62% 58%,#74a53c 0 16%,transparent 18%)}
+.ja{--liq:radial-gradient(circle at 40% 35%,#6b2a3a,#3c1220);--fl:radial-gradient(#f4e2b4 0 2.200px,transparent 2.800px) 0 0/12px 13px}
+.oj{--liq:radial-gradient(circle at 40% 35%,#ffc24d,#f58a07);--fl:radial-gradient(rgba(255,255,255,.6) 0 1.4px,transparent 2px) 0 0/10px 11px}
+
+/* box deal + extras */
+.deal{margin-block-start:40px;display:grid;gap:18px;border-radius:18px;padding:22px 20px;background:var(--za);color:var(--flour);border:3px solid var(--flour);box-shadow:0 0 0 3px var(--za2),0 18px 30px -16px rgba(40,30,10,.6);position:relative;overflow:hidden}
+.deal::before{content:"";position:absolute;inset-block-start:-70px;inset-inline-end:-50px;width:210px;height:210px;border-radius:50%;background:radial-gradient(#f4e6b8 0 1.4px,transparent 2px) 0 0/13px 15px,#5f6f28;opacity:.5}
+.deal>*{position:relative}
+.deal h3{font-size:clamp(28px,5vw,40px);line-height:1.1;color:var(--glow)}
+html[lang="ar"] .deal h3{font-size:clamp(32px,5.5vw,46px);line-height:1.3}
+.deal .big{font:400 56px/1 'Lilita One',sans-serif;color:#fff;unicode-bidi:isolate}
+.deal .big small{font:800 16px 'Tajawal',sans-serif}
+.extras{display:flex;flex-wrap:wrap;gap:8px}
+.extras li{background:rgba(245,237,220,.14);border:1.5px solid rgba(245,237,220,.45);border-radius:999px;padding:4px 13px;font-weight:700;font-size:15px}
+.extras b{color:var(--glow);unicode-bidi:isolate}
+
+/* ---------- footer ---------- */
+.foot{background:var(--brick);color:#f1dcc4;padding:40px 18px 34px;border-top:8px solid #7d6654;
+  background-image:radial-gradient(70vmax 40vmax at 50% 0,rgba(255,140,30,.3),transparent 70%)}
+.foot .in{max-width:1240px;margin-inline:auto;display:grid;gap:26px}
+.foot h2{font-size:26px;color:var(--glow);margin-block-end:6px}
+html[lang="ar"] .foot h2{font-size:30px}
+.foot dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 16px}
+.foot dt{font-weight:800;color:#fff}.foot dd{margin:0;unicode-bidi:plaintext}
+.fine{grid-column:1/-1;border-top:1.5px dashed rgba(255,209,102,.4);padding-block-start:16px;font-size:14.5px;color:#cdb39a}
+html[lang="ar"] .fine{font-size:15.5px}
+
+@media (min-width:760px){
+  .hero{padding-inline:32px}
+  .shelf{margin-inline:-32px}
+  .counter{padding-inline:32px}
+  .grid{grid-template-columns:repeat(3,1fr);gap:44px 30px}
+  .it,.it:nth-child(even){grid-template-columns:1fr;justify-items:center;text-align:center;align-content:start;gap:16px}
+  .it:nth-child(even) .br{order:0}
+  .it:nth-child(3n+2){margin-block-start:46px}
+  .br{--s:clamp(170px,19vw,230px)}
+  .pr{width:66px;height:66px;inset-block-end:2px;inset-inline-end:-4px}
+  .pr span{font-size:29px}.pr small{font-size:11.5px}
+  .it h3{font-size:25px}html[lang="ar"] .it h3{font-size:29px}
+  .it p{max-width:30ch;font-size:16px}
+  .deal{grid-template-columns:1.2fr auto;align-items:center;padding:30px 34px}
+  .deal .extras{grid-column:1/-1}
+  .foot .in{grid-template-columns:1fr 1fr 1.2fr}
+}
+@media (min-width:1100px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(420px,560px) minmax(0,1fr);align-items:center;column-gap:30px;padding-block-start:60px;text-align:start;justify-items:start}
+  .hero .txt{display:grid;gap:10px;justify-items:start}
+  h1{font-size:clamp(60px,6.5vw,124px)}html[lang="ar"] h1{font-size:clamp(70px,7.6vw,150px)}
+  .stats{justify-content:flex-start}
+  .oven{grid-column:2;margin:0;align-self:end}
+  .board{justify-self:end;margin:0}
+  .grid{grid-template-columns:repeat(4,1fr)}
+  .it:nth-child(3n+2){margin-block-start:0}
+  .it:nth-child(even){margin-block-start:50px}
+}
+@media (max-width:1099px){.hero .txt{display:grid;gap:8px;justify-items:center}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.oven *{animation:none!important}.oven .em{opacity:.8}.br,.shelf a{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="ctl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<header class="hero">
+  <div class="txt">
+    <p class="since"><span lang="en">The neighbourhood oven · lit in 1974</span><span lang="ar">فرن الحيّ · أُوقدت ناره سنة ١٩٧٤</span></p>
+    <h1 class="disp"><span lang="en">Furn Al‑Hara</span><span lang="ar">فرن الحارة</span></h1>
+    <p class="tagline"><span lang="en">Dough at dawn, za'atar by sunrise, gone by noon.</span><span lang="ar">عجينٌ عند الفجر، زعترٌ مع الشروق، ولا يبقى شيء عند الظهر.</span></p>
+    <p class="intro"><span lang="en">One stone oven, one long wooden peel and three generations of the Haddad family. Tell Abu Samir what you want on top; ninety seconds later it lands on the counter, blistered and too hot to hold.</span><span lang="ar">فرن حجري واحد، ومِطرحة خشبية طويلة، وثلاثة أجيال من آل حدّاد. قولوا لأبي سمير ماذا تريدون على الرغيف؛ وبعد تسعين ثانية يحطّ أمامكم منتفخًا ساخنًا لا تقوى اليد على حمله.</span></p>
+    <ul class="stats">
+      <li><b>400°</b> <span lang="en">stone floor</span><span lang="ar">حرارة البلاط</span></li>
+      <li><b>90</b> <span lang="en">seconds a loaf</span><span lang="ar">ثانية للرغيف</span></li>
+      <li><b>48</b> <span lang="en">hour dough</span><span lang="ar">ساعة تخمير</span></li>
+    </ul>
+  </div>
+
+  <svg class="oven" viewBox="0 0 600 500" role="img" aria-label="Brick oven">
+    <defs>
+      <radialGradient id="fire" cx="50%" cy="88%" r="75%"><stop offset="0" stop-color="#fff6c2"/><stop offset=".28" stop-color="#ffc233"/><stop offset=".58" stop-color="#f0641a"/><stop offset=".85" stop-color="#7a1c08"/><stop offset="1" stop-color="#2a0b04"/></radialGradient>
+      <radialGradient id="halo" cx="50%" cy="70%" r="60%"><stop offset="0" stop-color="#ffb347" stop-opacity=".9"/><stop offset="1" stop-color="#ff8a1e" stop-opacity="0"/></radialGradient>
+      <linearGradient id="wood" x1="0" x2="1"><stop offset="0" stop-color="#d9a765"/><stop offset="1" stop-color="#a8713a"/></linearGradient>
+    </defs>
+    <ellipse cx="300" cy="330" rx="300" ry="250" fill="url(#halo)"/>
+    <!-- arch stones -->
+    <path d="M96 440V270a204 204 0 01408 0v170" fill="none" stroke="#1d0d08" stroke-width="70"/>
+    <path d="M96 440V270a204 204 0 01408 0v170" fill="none" stroke="#a04a2c" stroke-width="60" stroke-dasharray="46 5"/>
+    <path d="M96 440V270a204 204 0 01408 0v170" fill="none" stroke="#ffb347" stroke-opacity=".28" stroke-width="60" stroke-dasharray="46 5"/>
+    <path d="M276 34h48l8 66h-64z" fill="#c9683a" stroke="#1d0d08" stroke-width="4"/>
+    <!-- mouth -->
+    <path d="M128 440V270a172 172 0 01344 0v170z" fill="url(#fire)"/>
+    <g fill="#ffd45e">
+      <path class="fl" d="M180 440c-14-50 18-70 10-112 30 26 44 70 26 112z" fill="#ff9a2e"/>
+      <path class="fl" d="M236 440c-22-70 26-96 12-160 44 40 62 104 36 160z"/>
+      <path class="fl" d="M330 440c-18-60 30-80 16-140 40 34 56 92 30 140z" fill="#ffb53a"/>
+      <path class="fl" d="M392 440c-14-46 18-64 10-104 30 24 44 66 26 104z" fill="#ff9a2e"/>
+      <path class="fl" d="M286 440c-10-36 14-50 8-84 22 20 32 56 18 84z" fill="#fff3b8"/>
+    </g>
+    <g fill="#ffe08a"><circle class="em" cx="210" cy="300" r="3"/><circle class="em" cx="300" cy="260" r="2.500"/><circle class="em" cx="372" cy="310" r="3"/><circle class="em" cx="260" cy="330" r="2"/><circle class="em" cx="340" cy="280" r="2"/></g>
+    <!-- oven floor + breads -->
+    <path d="M128 440c40-30 304-30 344 0z" fill="#3a2118"/>
+    <g><ellipse cx="216" cy="424" rx="46" ry="12" fill="#e3b972"/><ellipse cx="216" cy="423" rx="36" ry="8" fill="#5f6f28"/></g>
+    <!-- hearth slab -->
+    <rect x="40" y="438" width="520" height="30" rx="5" fill="#6a5445"/><rect x="40" y="438" width="520" height="8" rx="4" fill="#8e7765"/>
+    <!-- peel with a manousheh -->
+    <g class="peel"><path d="M590 500L420 430" stroke="url(#wood)" stroke-width="16" stroke-linecap="round"/><ellipse cx="386" cy="420" rx="78" ry="22" fill="url(#wood)" stroke="#7a4f24" stroke-width="2" transform="rotate(8 386 420)"/><ellipse cx="382" cy="414" rx="60" ry="15" fill="#ecd3a2" transform="rotate(8 382 414)"/><ellipse cx="382" cy="413" rx="48" ry="10.500" fill="#fae7a6" transform="rotate(8 382 413)"/><g fill="#c98a3a"><circle cx="362" cy="409" r="4"/><circle cx="396" cy="417" r="5"/><circle cx="380" cy="411" r="2.500"/></g></g>
+  </svg>
+
+  <aside class="board">
+    <h2 class="disp"><span lang="en">Off the peel now</span><span lang="ar">خارجٌ من الفرن الآن</span></h2>
+    <ul>
+      <li><span lang="en">Za'atar</span><span lang="ar">زعتر</span><b><span lang="en">every 4 min</span><span lang="ar">كل ٤ دقائق</span></b></li>
+      <li><span lang="en">Akkawi cheese</span><span lang="ar">جبنة عكّاوي</span><b><span lang="en">every 6 min</span><span lang="ar">كل ٦ دقائق</span></b></li>
+      <li><span lang="en">Lahm bi ajeen</span><span lang="ar">لحم بعجين</span><b><span lang="en">from 7:00</span><span lang="ar">من ٧:٠٠</span></b></li>
+      <li><span lang="en">Doors open</span><span lang="ar">نفتح الباب</span><b dir="ltr">5:30 – 14:00</b></li>
+    </ul>
+  </aside>
+
+  <nav class="shelf" aria-label="Sections">
+    <a href="#manakish"><span lang="en">Manakish</span><span lang="ar">مناقيش</span></a>
+    <a href="#meat"><span lang="en">With meat</span><span lang="ar">باللحم</span></a>
+    <a href="#pies"><span lang="en">Pies</span><span lang="ar">فطائر</span></a>
+    <a href="#sweet"><span lang="en">Sweet</span><span lang="ar">حلو</span></a>
+    <a href="#drinks"><span lang="en">Drinks</span><span lang="ar">مشروبات</span></a>
+  </nav>
+</header>
+
+<main class="counter">
+
+  <section class="sec" id="manakish">
+    <div class="sign"><h2 class="disp"><span lang="en">Manakish</span><span lang="ar">مناقيش</span></h2><p><span lang="en">The classics. Folded in paper to walk with, or flat on the counter with tea.</span><span lang="ar">الأصناف التي لا تتبدّل. مطويّة في ورقة لتأكلوها ماشين، أو مفرودة على الطاولة مع الشاي.</span></p></div>
+    <ul class="grid">
+      <li class="it"><div class="br"><i class="bread z"></i><b class="pr"><span>6</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Za'atar</span><span lang="ar">زعتر</span></h3><p><span lang="en">Wild thyme from the hills, sumac, toasted sesame and a reckless pour of olive oil.</span><span lang="ar">زعتر برّي من الجبل، سمّاق وسمسم محمّص، وزيت زيتون بلا حساب.</span></p><span class="tag g"><span lang="en">vegan · best seller</span><span lang="ar">نباتي · الأكثر طلبًا</span></span></div></li>
+      <li class="it"><div class="br"><i class="bread v"></i><b class="pr"><span>9</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Za'atar with the garden</span><span lang="ar">زعتر وخضرة</span></h3><p><span lang="en">The same, crowned after baking with tomato, cucumber, mint and black olives.</span><span lang="ar">الزعتر نفسه، تعلوه بعد الخَبز طماطم وخيار ونعناع وزيتون أسود.</span></p><span class="tag g"><span lang="en">vegan</span><span lang="ar">نباتي</span></span></div></li>
+      <li class="it"><div class="br"><i class="bread c"></i><b class="pr"><span>10</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Akkawi cheese</span><span lang="ar">جبنة عكّاوي</span></h3><p><span lang="en">Soaked white cheese that melts into stretchy pools, flecked with nigella seeds.</span><span lang="ar">جبنة بيضاء منقوعة تذوب وتمطّ، منثور عليها حبّة البركة.</span></p></div></li>
+      <li class="it"><div class="br"><i class="bread h"></i><b class="pr"><span>10</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Half &amp; half</span><span lang="ar">نصّ ونصّ</span></h3><p><span lang="en">For the undecided: one side cheese, one side za'atar. Fold it and get both in a bite.</span><span lang="ar">للمحتارين: نصف جبنة ونصف زعتر. اطووا الرغيف لتجتمع النكهتان في لقمة.</span></p><span class="tag"><span lang="en">Abu Samir's breakfast</span><span lang="ar">فطور أبي سمير</span></span></div></li>
+      <li class="it"><div class="br"><i class="bread k"></i><b class="pr"><span>9</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Kishk</span><span lang="ar">كشك</span></h3><p><span lang="en">Fermented yoghurt and bulgur, tangy and deep, with tomato, onion and sesame.</span><span lang="ar">لبن مخمّر مع البرغل، حامض وعميق النكهة، مع الطماطم والبصل والسمسم.</span></p></div></li>
+      <li class="it"><div class="br"><i class="bread m"></i><b class="pr"><span>9</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Muhammara</span><span lang="ar">محمّرة</span></h3><p><span lang="en">Roasted red pepper and walnut paste with pomegranate molasses. Sweet, then warm.</span><span lang="ar">معجون الفلفل الأحمر المشوي والجوز مع دبس الرمان. حلو في أوّله، دافئ في آخره.</span></p><span class="tag g"><span lang="en">vegan · a little heat</span><span lang="ar">نباتي · حرارة خفيفة</span></span></div></li>
+      <li class="it"><div class="br"><i class="bread po"></i><b class="pr"><span>8</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Potato &amp; onion</span><span lang="ar">بطاطا وبصل</span></h3><p><span lang="en">Crushed potato, sweet onion, chilli flakes and coriander, the way workers order it.</span><span lang="ar">بطاطا مهروسة وبصل حلو ورقائق فلفل وكزبرة، كما يطلبها العمّال.</span></p><span class="tag g"><span lang="en">vegan</span><span lang="ar">نباتي</span></span></div></li>
+      <li class="it"><div class="br"><i class="bread e"></i><b class="pr"><span>11</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Eggs on the stone</span><span lang="ar">بيض على الحجر</span></h3><p><span lang="en">Two eggs cracked onto the dough and baked just set, with a little beef confit.</span><span lang="ar">بيضتان تُكسران على العجين وتُخبزان حتى تتماسكا، مع قليل من قاورما اللحم البقري.</span></p></div></li>
+    </ul>
+  </section>
+
+  <section class="sec" id="meat">
+    <div class="sign"><h2 class="disp"><span lang="en">With meat</span><span lang="ar">باللحم</span></h2><p><span lang="en">Halal beef and lamb, minced by us each morning. Squeeze the lemon.</span><span lang="ar">لحم بقر وضأن حلال نفرمه بأنفسنا كل صباح. ولا تنسوا عصرة الليمون.</span></p></div>
+    <ul class="grid">
+      <li class="it"><div class="br"><i class="bread l"></i><b class="pr"><span>12</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Lahm bi ajeen</span><span lang="ar">لحم بعجين</span></h3><p><span lang="en">Paper-thin dough, spiced minced lamb, tomato and parsley, pine nuts on top.</span><span lang="ar">عجينة برقّة الورق، لحم ضأن مفروم متبّل، طماطم وبقدونس، وفوقه الصنوبر.</span></p><span class="tag"><span lang="en">best seller</span><span lang="ar">الأكثر طلبًا</span></span></div></li>
+      <li class="it"><div class="br"><i class="bread sf"></i><b class="pr"><span>14</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Baalbek sfiha</span><span lang="ar">صفيحة بعلبكية</span></h3><p><span lang="en">Four little open squares, pinched at the corners, juicy with lamb and pomegranate.</span><span lang="ar">أربع مربّعات صغيرة مفتوحة مقروصة الزوايا، غنيّة بعصارة الضأن ودبس الرمان.</span></p></div></li>
+      <li class="it"><div class="br"><i class="bread s"></i><b class="pr"><span>13</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Sujuk &amp; cheese</span><span lang="ar">سجق وجبنة</span></h3><p><span lang="en">Garlicky beef sausage coins sizzling into melted akkawi. Asks for pickles.</span><span lang="ar">دوائر سجق بقري بالثوم تئزّ فوق العكّاوي الذائب. ينادي على المخلّل.</span></p><span class="tag"><span lang="en">spicy</span><span lang="ar">حارّ</span></span></div></li>
+      <li class="it"><div class="br"><i class="bread t"></i><b class="pr"><span>14</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Chicken tawook</span><span lang="ar">طاووق دجاج</span></h3><p><span lang="en">Lemon-garlic chicken, toum spread edge to edge, cucumber pickles after the oven.</span><span lang="ar">دجاج متبّل بالليمون والثوم، وثومية مفرودة حتى الأطراف، ومخلّل خيار بعد الفرن.</span></p></div></li>
+    </ul>
+  </section>
+
+  <section class="sec" id="pies">
+    <div class="sign"><h2 class="disp"><span lang="en">Pies &amp; fatayer</span><span lang="ar">فطائر</span></h2><p><span lang="en">Sealed, portable, three to a portion. Good cold, which is rare here.</span><span lang="ar">مغلقة وسهلة الحمل، ثلاث حبّات في الحصّة. طيّبة حتى وهي باردة، وهذا نادر عندنا.</span></p></div>
+    <ul class="grid">
+      <li class="it"><div class="br"><i class="bread sp"></i><b class="pr"><span>8</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Spinach fatayer</span><span lang="ar">فطاير سبانخ</span></h3><p><span lang="en">Triangles packed with spinach, onion, sumac and lemon. Sour in the right way.</span><span lang="ar">مثلّثات محشوّة بالسبانخ والبصل والسمّاق والليمون. حموضتها في محلّها.</span></p><span class="tag g"><span lang="en">vegan</span><span lang="ar">نباتي</span></span></div></li>
+      <li class="it"><div class="br"><i class="bread c"></i><b class="pr"><span>9</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Cheese boats</span><span lang="ar">فطاير جبنة</span></h3><p><span lang="en">Open-topped little boats of akkawi and parsley with a sesame rim.</span><span lang="ar">قوارب صغيرة مفتوحة من العكّاوي والبقدونس بحافّة من السمسم.</span></p></div></li>
+      <li class="it"><div class="br"><i class="bread q"></i><b class="pr"><span>9</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Labneh &amp; mint</span><span lang="ar">لبنة ونعناع</span></h3><p><span lang="en">Strained yoghurt spread thick on hot bread, dried mint, olive oil in stripes.</span><span lang="ar">لبنة مصفّاة مفرودة بسخاء على خبز ساخن، مع نعناع يابس وخطوط من زيت الزيتون.</span></p></div></li>
+    </ul>
+  </section>
+
+  <section class="sec" id="sweet">
+    <div class="sign"><h2 class="disp"><span lang="en">Sweet</span><span lang="ar">حلو</span></h2><p><span lang="en">Same dough, different mood.</span><span lang="ar">العجينة نفسها، بمزاج آخر.</span></p></div>
+    <ul class="grid">
+      <li class="it"><div class="br"><i class="bread ch"></i><b class="pr"><span>12</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Chocolate, halawa &amp; banana</span><span lang="ar">شوكولاتة وحلاوة وموز</span></h3><p><span lang="en">Melted chocolate, crumbled sesame halawa and banana coins. Children queue for it.</span><span lang="ar">شوكولاتة ذائبة وحلاوة طحينية مفتّتة ودوائر موز. يصطفّ الأولاد من أجلها.</span></p><span class="tag"><span lang="en">kids' favourite</span><span lang="ar">حبيبة الصغار</span></span></div></li>
+      <li class="it"><div class="br"><i class="bread kn"></i><b class="pr"><span>13</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Knafeh in ka'ak</span><span lang="ar">كنافة بالكعكة</span></h3><p><span lang="en">Warm cheese knafeh tucked into a sesame bread purse, orange-blossom syrup, pistachio.</span><span lang="ar">كنافة بالجبن دافئة داخل كعكة بالسمسم، مع قطر ماء الزهر والفستق.</span></p></div></li>
+      <li class="it"><div class="br"><i class="bread q"></i><b class="pr"><span>12</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Qashta &amp; honey</span><span lang="ar">قشطة وعسل</span></h3><p><span lang="en">Clotted cream on hot bread, mountain honey in ribbons, crushed pistachio.</span><span lang="ar">قشطة على خبز ساخن، وخيوط من عسل الجبل، وفستق مجروش.</span></p></div></li>
+    </ul>
+  </section>
+
+  <section class="sec" id="drinks">
+    <div class="sign"><h2 class="disp"><span lang="en">Drinks</span><span lang="ar">مشروبات</span></h2><p><span lang="en">Tea is the rule. The rest are exceptions.</span><span lang="ar">الشاي هو القاعدة، وما عداه استثناء.</span></p></div>
+    <ul class="grid">
+      <li class="it"><div class="br"><i class="cup te"></i><b class="pr"><span>3</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Tea with mint</span><span lang="ar">شاي بالنعناع</span></h3><p><span lang="en">Strong, sweet, in a small glass. Refills are on the house.</span><span lang="ar">ثقيل وحلو في كأس صغيرة. وإعادة الملء على حسابنا.</span></p><span class="tag g"><span lang="en">free refills</span><span lang="ar">يُعاد ملؤه مجانًا</span></span></div></li>
+      <li class="it"><div class="br"><i class="cup ay"></i><b class="pr"><span>4</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Ayran</span><span lang="ar">عيران</span></h3><p><span lang="en">Cold salted yoghurt with dried mint; made for lahm bi ajeen.</span><span lang="ar">لبن بارد مملّح مع نعناع يابس؛ خُلق للحم بعجين.</span></p></div></li>
+      <li class="it"><div class="br"><i class="cup ja"></i><b class="pr"><span>7</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Jallab</span><span lang="ar">جلّاب</span></h3><p><span lang="en">Date and grape molasses with rose water over crushed ice, pine nuts floating.</span><span lang="ar">دبس التمر والعنب مع ماء الورد فوق ثلج مجروش، ويطفو عليه الصنوبر.</span></p></div></li>
+      <li class="it"><div class="br"><i class="cup oj"></i><b class="pr"><span>8</span><small lang="en">QAR</small><small lang="ar">ر.ق</small></b></div><div><h3 class="disp"><span lang="en">Orange juice</span><span lang="ar">عصير برتقال</span></h3><p><span lang="en">Squeezed when you order, pulp and all.</span><span lang="ar">يُعصر لحظة الطلب، بلبّه كاملًا.</span></p></div></li>
+    </ul>
+  </section>
+
+  <section class="sec">
+    <div class="deal">
+      <div><h3 class="disp"><span lang="en">The Friday dozen</span><span lang="ar">دزّينة الجمعة</span></h3><p><span lang="en">Twelve mini manakish in a box, any mix of za'atar, cheese, kishk and lahm bi ajeen, with a bag of mint, tomato and olives. Order the night before for the family breakfast.</span><span lang="ar">اثنتا عشرة منقوشة صغيرة في علبة، من الزعتر والجبنة والكشك واللحم بعجين كما تشاؤون، ومعها كيس نعناع وطماطم وزيتون. اطلبوها من الليلة السابقة لفطور العائلة.</span></p></div>
+      <span class="big">45 <small><span lang="en">QAR</span><span lang="ar">ر.ق</span></small></span>
+      <ul class="extras">
+        <li><span lang="en">Extra cheese</span><span lang="ar">جبنة إضافية</span> <b>+3</b></li>
+        <li><span lang="en">Add vegetables</span><span lang="ar">إضافة خضرة</span> <b>+2</b></li>
+        <li><span lang="en">Wholewheat dough</span><span lang="ar">عجينة قمح كامل</span> <b>+1</b></li>
+        <li><span lang="en">Thin &amp; crispy</span><span lang="ar">رقيقة ومقرمشة</span> <b>+0</b></li>
+        <li><span lang="en">Chilli paste</span><span lang="ar">شطّة</span> <b>+0</b></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot"><div class="in">
+  <div><h2 class="disp"><span lang="en">When the fire is lit</span><span lang="ar">متى تشتعل النار</span></h2>
+    <dl><dt><span lang="en">Sat – Thu</span><span lang="ar">السبت – الخميس</span></dt><dd dir="ltr">5:30 – 14:00</dd><dt><span lang="en">Friday</span><span lang="ar">الجمعة</span></dt><dd dir="ltr">5:30 – 11:00</dd><dt><span lang="en">Ramadan</span><span lang="ar">رمضان</span></dt><dd><span lang="en">sunset till suhoor</span><span lang="ar">من المغرب حتى السحور</span></dd></dl></div>
+  <div><h2 class="disp"><span lang="en">Find the oven</span><span lang="ar">أين الفرن</span></h2>
+    <p><span lang="en">Sikkat Al-Khabbazin 9, Old Al-Najada, Doha. Follow the smell from the mosque corner.</span><span lang="ar">سكّة الخبّازين ٩، النجادة القديمة، الدوحة. اتبعوا الرائحة من زاوية المسجد.</span></p>
+    <p><span dir="ltr">+974 4455 0174</span></p></div>
+  <div><h2 class="disp"><span lang="en">Good to know</span><span lang="ar">يهمّكم أن تعرفوا</span></h2>
+    <p><span lang="en">Everything contains wheat. Sesame is in the air and on most breads; many toppings contain milk, and some contain nuts (walnut, pine nut, pistachio) or egg. Ask at the counter and we'll bake yours first on a clean stone.</span><span lang="ar">كل ما نخبزه يحتوي على القمح. السمسم في الهواء وعلى أغلب الأرغفة؛ كثير من الإضافات فيه حليب، وبعضها فيه مكسّرات (جوز وصنوبر وفستق) أو بيض. اسألوا عند الطاولة ونخبز رغيفكم أوّلًا على حجر نظيف.</span></p></div>
+  <p class="fine"><span lang="en">All meat is halal. Prices in Qatari riyals. Cash and cards; no reservations, the queue moves fast.</span><span lang="ar">جميع اللحوم حلال. الأسعار بالريال القطري. نقبل النقد والبطاقات؛ لا حجوزات، فالطابور يمشي سريعًا.</span></p>
+</div></footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

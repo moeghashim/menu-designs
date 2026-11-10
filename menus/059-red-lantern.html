@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Red Lantern House · بيت الفانوس الأحمر</title>
+<meta name="description" content="Red Lantern House — a Sichuan kitchen under swaying lanterns: cold plates, wok and fire, noodles, cooling sweets and a banquet for four. بيت الفانوس الأحمر: مطبخ سيتشوان تحت الفوانيس.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#120706">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Marcellus&family=Mulish:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --ink:#120706; --lacquer:#1d0b0a; --ox:#5d0709; --red:#c8161a; --hot:#f0391f; --gold:#e3b24c; --pale:#f6dfa4; --cream:#f4e8d4; --dim:#cdb89a;
+  --disp:"Marcellus", "Trajan Pro", Georgia, serif; --body:"Mulish", "Segoe UI", system-ui, sans-serif;
+  --lattice:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cpath d='M0 22h10V10h24v24H10V22M34 22h10M22 0v10M22 34v10M17 17h10v10H17z' fill='none' stroke='%23e3b24c' stroke-width='2'/%3E%3C/svg%3E");
+}
+html[lang="ar"]{ --disp:"El Messiri", "Tajawal", serif; --body:"Tajawal", "Segoe UI", Tahoma, sans-serif; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--ink); color:var(--cream); font-family:var(--body); font-size:16px; line-height:1.5}
+html[lang="ar"] body{font-size:17.5px; line-height:1.6}
+svg{display:block}
+ul,ol{list-style:none; margin:0; padding:0}
+h1,h2,h3,p{margin:0}
+.page{position:relative; overflow:clip;
+  background:
+    radial-gradient(60% 520px at 50% 330px, rgba(200,22,26,.42), transparent 70%),
+    radial-gradient(40% 400px at 0% 1500px, rgba(200,22,26,.16), transparent 70%),
+    radial-gradient(40% 400px at 100% 2600px, rgba(200,22,26,.16), transparent 70%),
+    var(--ink)}
+
+/* controls */
+.ctl{position:fixed; top:8px; inset-inline-end:10px; z-index:40; display:flex; gap:6px}
+.ctl > *{font:600 13.5px/1 var(--body); color:var(--pale); background:rgba(18,7,6,.82); border:1px solid var(--gold); border-radius:3px; min-height:38px; padding:0 13px; display:grid; place-items:center; cursor:pointer; text-decoration:none; -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px)}
+html[lang="ar"] .ctl > *{font-size:15px; font-weight:500}
+#langToggle{background:var(--red); color:#fff; border-color:var(--red)}
+.ctl > *:hover,.ctl > *:focus-visible{background:var(--gold); color:var(--ink); outline:0}
+
+/* ============ HERO ============ */
+.hero{position:relative; padding:54px 16px clamp(40px,6vw,80px); text-align:center}
+.beam{position:absolute; top:44px; inset-inline:0; height:14px; background:linear-gradient(#3b1410, #1d0b0a); border-block:2px solid var(--gold)}
+.beam::after{content:""; position:absolute; inset:14px 0 auto; height:22px; background:var(--lattice) center/22px 22px repeat-x; opacity:.55}
+.hang{position:relative; z-index:2; display:flex; justify-content:space-between; align-items:flex-start; max-width:1240px; margin:0 auto; padding-inline:clamp(0px,3vw,40px); height:0}
+.lan{--s:60px; display:flex; flex-direction:column; align-items:center; width:clamp(60px,9.5vw,118px); color:var(--pale); text-decoration:none; transform-origin:50% 0}
+.lan::before{content:""; width:2px; height:var(--s); background:linear-gradient(var(--gold), #8a6420)}
+.lan svg{width:100%; filter:drop-shadow(0 0 18px rgba(240,57,31,.75))}
+.lan b{margin-top:-2px; padding:5px 8px 6px; min-width:92%; font:400 clamp(12.5px,1.25vw,17px)/1.1 var(--disp); letter-spacing:.06em; text-align:center; background:var(--ox); border:1px solid var(--gold); border-top:0; color:var(--pale)}
+html[lang="ar"] .lan b{letter-spacing:0; font-weight:500; font-size:clamp(14px,1.4vw,19px); line-height:1.25}
+.lan b::after{content:""; display:block; width:2px; height:22px; margin:6px auto -28px; background:var(--red); box-shadow:-4px 0 0 var(--red), 4px 0 0 var(--red), -2px 6px 0 var(--gold), 2px 6px 0 var(--gold)}
+.lan:hover b,.lan:focus-visible b{background:var(--gold); color:var(--ink)}
+.lan:focus-visible{outline:0}
+.lan:nth-child(1),.lan:nth-child(5){--s:clamp(40px,12vw,190px)}
+.lan:nth-child(2),.lan:nth-child(4){--s:clamp(22px,6vw,90px)}
+.lan:nth-child(3){--s:10px}
+
+.gatewrap{position:relative; margin:clamp(180px,24vw,250px) auto 0; width:min(84vw,560px)}
+.gatewrap::before{content:""; position:absolute; top:50%; left:50%; width:100vw; height:88px; transform:translate(-50%,-50%); background:var(--lattice) center/44px 44px; opacity:.4; border-block:2px solid var(--gold)}
+.gate{position:relative; aspect-ratio:1; display:grid; place-content:center; justify-items:center; padding:13%}
+.gate > svg{position:absolute; inset:0; width:100%; height:100%}
+.gate > *:not(svg){position:relative}
+.kick{font:600 clamp(11px,1.1vw,14px)/1 var(--body); letter-spacing:.38em; text-transform:uppercase; color:var(--gold)}
+html[lang="ar"] .kick{letter-spacing:0; text-transform:none; font:500 clamp(16px,1.7vw,21px)/1.2 var(--disp)}
+h1{font:400 clamp(38px,7.4vw,82px)/.98 var(--disp); color:#fff3d6; margin:.22em 0 .2em; text-shadow:0 0 34px rgba(255,150,60,.55), 0 3px 0 rgba(60,0,0,.7)}
+html[lang="ar"] h1{font-weight:700; font-size:clamp(36px,6.8vw,74px); line-height:1.22}
+.tag{font:400 clamp(15px,1.7vw,21px)/1.3 var(--disp); color:var(--pale); max-width:19ch}
+html[lang="ar"] .tag{font-weight:500; font-size:clamp(17px,1.9vw,23px); line-height:1.45}
+.seal{margin-top:12px; width:clamp(34px,4vw,46px); aspect-ratio:1; background:var(--gold); color:var(--ox); display:grid; place-items:center; border-radius:4px; box-shadow:inset 0 0 0 2px var(--ox), inset 0 0 0 4px var(--gold)}
+.seal svg{width:62%}
+.intro{max-width:60ch; margin:clamp(26px,3.4vw,44px) auto 0; color:var(--cream); font-size:clamp(16px,1.3vw,18.5px)}
+html[lang="ar"] .intro{font-size:clamp(17.5px,1.45vw,20px)}
+
+/* mala meter */
+.meter{max-width:1180px; margin:clamp(30px,4vw,52px) auto 0; text-align:start}
+.meter h2{font:400 clamp(20px,2.2vw,28px)/1.2 var(--disp); color:var(--gold); text-align:center; margin-bottom:14px; display:flex; align-items:center; gap:16px}
+html[lang="ar"] .meter h2{font-weight:700}
+.meter h2::before,.meter h2::after{content:""; flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--gold))}
+.meter h2::after{transform:scaleX(-1)}
+.meter ol{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); border:1px solid var(--gold)}
+.meter li{padding:12px 14px 14px; background:linear-gradient(rgba(200,22,26,calc(var(--n) * .17)), rgba(93,7,9,calc(var(--n) * .16)))}
+.meter li + li{border-inline-start:1px solid rgba(227,178,76,.45)}
+.meter li b{display:block; font:400 1.16em/1.2 var(--disp); color:#fff3d6; margin:6px 0 2px}
+html[lang="ar"] .meter li b{font-weight:700}
+.meter li > span[lang]{font-size:.9em; color:var(--dim); line-height:1.35; display:block}
+
+/* chilli scale */
+.heat{display:inline-flex; gap:2px; vertical-align:middle}
+.heat i{width:13px; height:17px; opacity:.2; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 17'%3E%3Cpath d='M7 1c1 1 1 2 .5 3' fill='none' stroke='%237fb44a' stroke-width='1.6' stroke-linecap='round'/%3E%3Cpath d='M3.5 4.500c2-1.2 5-1 6.2.300 1.5 4-1 9.5-6.7 11.700C6 12 3.5 9.5 3.5 4.500z' fill='%23ff3b1f'/%3E%3C/svg%3E") center/contain no-repeat; filter:grayscale(1) brightness(1.6)}
+.h1 i:nth-child(-n+1),.h2 i:nth-child(-n+2),.h3 i:nth-child(-n+3),.h4 i:nth-child(-n+4),.h5 i{opacity:1; filter:none}
+
+/* ============ SECTIONS ============ */
+.hall{max-width:1300px; margin:0 auto; padding:0 clamp(10px,2.6vw,36px)}
+.room{display:grid; grid-template-columns:minmax(200px,270px) minmax(0,1fr); gap:clamp(18px,3vw,46px); align-items:start; padding-top:clamp(40px,6vw,84px); scroll-margin-top:10px}
+.room:nth-of-type(even){grid-template-columns:minmax(0,1fr) minmax(200px,270px)}
+.room:nth-of-type(even) .side{order:2}
+.side{position:sticky; top:0; text-align:center; display:flex; flex-direction:column; align-items:center}
+.big{position:relative; width:min(100%,210px); transform-origin:50% 0; display:flex; flex-direction:column; align-items:center}
+.big::before{content:""; width:2px; height:46px; background:linear-gradient(var(--gold), #8a6420)}
+.big svg.b{width:100%; filter:drop-shadow(0 0 30px rgba(240,57,31,.7))}
+.big svg.t{width:26px; margin-top:-2px}
+.big .no{position:absolute; top:46px; left:0; right:0; aspect-ratio:100/122; display:grid; place-content:center; font:400 clamp(54px,6vw,78px)/1 "Marcellus", var(--disp); color:var(--pale); text-shadow:0 2px 0 rgba(80,0,0,.6)}
+.side h2{font:400 clamp(30px,3.2vw,44px)/1.05 var(--disp); color:#fff3d6; margin-top:10px}
+html[lang="ar"] .side h2{font-weight:700; line-height:1.3}
+.side p{color:var(--dim); margin-top:8px; font-size:.97em; max-width:30ch}
+
+.window{position:relative; padding:clamp(10px,1.7vw,22px); background:var(--lattice) 0 0/44px 44px, linear-gradient(#3a0b0b, #240808); border:2px solid var(--gold); box-shadow:0 30px 60px -30px #000}
+.pane{background:linear-gradient(rgba(18,7,6,.96), rgba(29,11,10,.96)); border:1px solid var(--gold); padding:clamp(14px,2.2vw,30px) clamp(14px,2.4vw,34px); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:clamp(24px,3.4vw,54px)}
+.dish{padding:14px 0 13px; border-bottom:1px solid rgba(227,178,76,.24); break-inside:avoid}
+.top{display:flex; align-items:baseline; gap:10px}
+.dish h3{font:400 1.32em/1.2 var(--disp); color:#fff3d6}
+html[lang="ar"] .dish h3{font-weight:700; font-size:1.24em; line-height:1.35}
+.top::after{content:""; order:2; flex:1; min-width:12px; border-bottom:1px dotted rgba(227,178,76,.6); transform:translateY(-4px)}
+.pr{order:3; font:400 1.3em/1 "Marcellus", var(--disp); color:var(--gold); white-space:nowrap; unicode-bidi:isolate}
+.pr i{font:600 .52em/1 var(--body); font-style:normal; letter-spacing:.1em; margin-inline-start:.35em; color:var(--dim)}
+html[lang="ar"] .pr i{letter-spacing:0; font-size:.62em; font-weight:500}
+.meta{display:flex; align-items:center; gap:10px; margin-top:5px; min-height:20px; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--dim)}
+html[lang="ar"] .meta{letter-spacing:0; text-transform:none; font-size:14px; font-weight:500}
+.chop{display:inline-block; padding:3px 7px 3px; background:var(--red); color:#fff; border-radius:2px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.45); transform:rotate(-2deg)}
+.cool{color:#9fd8d0}
+.dish p{margin-top:5px; color:var(--cream); opacity:.88; font-size:.96em; line-height:1.45}
+
+/* banquet: the round table */
+.banq{margin-top:clamp(50px,7vw,96px); display:grid; grid-template-columns:minmax(260px,430px) minmax(0,1fr); gap:clamp(20px,4vw,60px); align-items:center; padding:clamp(16px,3vw,40px); border:2px solid var(--gold); background:var(--lattice) 0 0/44px 44px, linear-gradient(#3a0b0b, #240808); position:relative; scroll-margin-top:10px}
+.banq::before{content:""; position:absolute; inset:clamp(8px,1.4vw,18px); background:linear-gradient(rgba(18,7,6,.97), rgba(40,10,10,.95)); border:1px solid var(--gold)}
+.banq > *{position:relative}
+.table{width:100%; max-width:430px; margin-inline:auto}
+@media (prefers-reduced-motion:no-preference){ .susan{transform-origin:200px 200px; animation:spin 60s linear infinite} @keyframes spin{to{transform:rotate(360deg)}} }
+.banq h2{font:400 clamp(30px,3.6vw,50px)/1.05 var(--disp); color:#fff3d6}
+html[lang="ar"] .banq h2{font-weight:700; line-height:1.3}
+.banq .lede{color:var(--dim); margin-top:8px; max-width:56ch}
+.courses{margin-top:16px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 26px; counter-reset:c}
+.courses li{counter-increment:c; display:grid; grid-template-columns:34px minmax(0,1fr); gap:10px; align-items:start}
+.courses li::before{content:counter(c); width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font:400 18px/1 "Marcellus", serif; color:var(--ink); background:var(--gold)}
+.courses b{display:block; font:400 1.12em/1.25 var(--disp); color:#fff3d6}
+html[lang="ar"] .courses b{font-weight:700}
+.courses span{font-size:.92em; color:var(--dim); line-height:1.35; display:block}
+.total{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 16px; margin-top:20px; padding-top:16px; border-top:1px solid rgba(227,178,76,.4)}
+.total .pr{font-size:clamp(40px,4.6vw,60px); order:0}
+.total span{color:var(--pale)}
+
+/* footer */
+.foot{max-width:1300px; margin:clamp(50px,7vw,96px) auto 0; padding:0 clamp(10px,2.6vw,36px) 50px; text-align:center}
+.foot .row{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-block:2px solid var(--gold); position:relative}
+.foot .row::before,.foot .row::after{content:""; position:absolute; inset-inline:0; height:22px; background:var(--lattice) center/22px 22px repeat-x; opacity:.5}
+.foot .row::before{top:-26px} .foot .row::after{bottom:-26px}
+.foot .row > div{padding:22px 18px}
+.foot .row > div + div{border-inline-start:1px solid rgba(227,178,76,.4)}
+.foot h3{font:400 1.3em/1.2 var(--disp); color:var(--gold); margin-bottom:6px}
+html[lang="ar"] .foot h3{font-weight:700}
+.foot p{color:var(--cream); font-size:.96em}
+.bye{margin-top:54px; font:400 clamp(20px,2.4vw,30px)/1.3 var(--disp); color:var(--pale)}
+html[lang="ar"] .bye{font-weight:500}
+
+@media (prefers-reduced-motion:no-preference){
+  .lan,.big{animation:sway 5.5s ease-in-out infinite alternate}
+  .lan:nth-child(2){animation-duration:4.6s; animation-delay:-2s}.lan:nth-child(3){animation-duration:6.4s; animation-delay:-1s}.lan:nth-child(4){animation-duration:5s; animation-delay:-3s}.lan:nth-child(5){animation-duration:6s; animation-delay:-4s}
+  @keyframes sway{from{transform:rotate(-2.6deg)}to{transform:rotate(2.6deg)}}
+  .lan svg,.big svg.b{animation:glow 3.2s ease-in-out infinite alternate}
+  @keyframes glow{to{filter:drop-shadow(0 0 34px rgba(255,110,50,.95))}}
+}
+@media (max-width:900px){
+  .pane{grid-template-columns:1fr}
+  .room,.room:nth-of-type(even){grid-template-columns:1fr}
+  .room:nth-of-type(even) .side{order:0}
+  .side{position:relative; flex-direction:row; text-align:start; gap:18px; align-items:flex-end; padding-inline:6px}
+  .big{width:112px; flex:none}
+  .big::before{height:26px} .big .no{top:26px; font-size:44px}
+  .big svg.t{width:18px}
+  .side > div{padding-bottom:26px}
+  .banq{grid-template-columns:1fr; padding:28px 24px}
+  .table{max-width:300px}
+  .meter ol{grid-template-columns:1fr}
+  .meter li{display:grid; grid-template-columns:86px minmax(0,1fr); gap:0 12px; align-items:center; padding:9px 12px}
+  .meter li .heat{grid-row:span 2}
+  .meter li b{margin:0}
+  .meter li + li{border-inline-start:0; border-top:1px solid rgba(227,178,76,.45)}
+  .foot .row{grid-template-columns:1fr}
+  .foot .row > div + div{border-inline-start:0; border-top:1px solid rgba(227,178,76,.4)}
+}
+@media (max-width:560px){
+  .courses{grid-template-columns:1fr}
+  .hero{padding-inline:8px}
+  .lan b{padding:4px 2px 5px}
+  .ctl > *{min-height:34px; padding:0 11px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <radialGradient id="lg" cx="50%" cy="46%" r="62%"><stop offset="0" stop-color="#ff7a45"/><stop offset=".45" stop-color="#dc2a1e"/><stop offset="1" stop-color="#7d0b0e"/></radialGradient>
+  <linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#9a6f22"/><stop offset=".5" stop-color="#f6dfa4"/><stop offset="1" stop-color="#9a6f22"/></linearGradient>
+  <symbol id="lan" viewBox="0 0 100 122">
+    <rect x="30" y="2" width="40" height="11" rx="2" fill="url(#gg)"/>
+    <ellipse cx="50" cy="61" rx="46" ry="49" fill="url(#lg)"/>
+    <g fill="none" stroke="#f6dfa4" stroke-opacity=".5" stroke-width="1.6"><path d="M50 12v98M50 12c-18 14-18 84 0 98M50 12c18 14 18 84 0 98M50 12C14 26 14 96 50 110M50 12c36 14 36 84 0 98"/></g>
+    <rect x="32" y="109" width="36" height="11" rx="2" fill="url(#gg)"/>
+  </symbol>
+  <symbol id="tas" viewBox="0 0 26 84">
+    <path d="M13 0v18" stroke="#e3b24c" stroke-width="2"/><circle cx="13" cy="22" r="6" fill="#e3b24c"/>
+    <path d="M5 30h16l3 52H2z" fill="#c8161a"/><path d="M7 32l-2 50M11 32l-.500 50M15 32l.500 50M19 32l2 50" stroke="#7d0b0e" stroke-width="1.2"/><path d="M5 30h16v6H5z" fill="#e3b24c"/>
+  </symbol>
+</defs></svg>
+
+<nav class="ctl">
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+</nav>
+
+<div class="page">
+<header class="hero">
+  <div class="beam"></div>
+  <nav class="hang">
+    <a class="lan" href="#cold"><svg viewBox="0 0 100 122" aria-hidden="true"><use href="#lan"/></svg><b><span lang="en">Cold</span><span lang="ar">بوارد</span></b></a>
+    <a class="lan" href="#wok"><svg viewBox="0 0 100 122" aria-hidden="true"><use href="#lan"/></svg><b><span lang="en">Wok</span><span lang="ar">ووك</span></b></a>
+    <a class="lan" href="#noodles"><svg viewBox="0 0 100 122" aria-hidden="true"><use href="#lan"/></svg><b><span lang="en">Noodles</span><span lang="ar">نودلز</span></b></a>
+    <a class="lan" href="#sweets"><svg viewBox="0 0 100 122" aria-hidden="true"><use href="#lan"/></svg><b><span lang="en">Sweets</span><span lang="ar">حلويات</span></b></a>
+    <a class="lan" href="#banquet"><svg viewBox="0 0 100 122" aria-hidden="true"><use href="#lan"/></svg><b><span lang="en">Banquet</span><span lang="ar">وليمة</span></b></a>
+  </nav>
+  <div class="gatewrap">
+    <div class="gate">
+      <svg viewBox="0 0 400 400" aria-hidden="true">
+        <defs><radialGradient id="gt" cx="50%" cy="40%" r="70%"><stop offset="0" stop-color="#a51418"/><stop offset=".7" stop-color="#5d0709"/><stop offset="1" stop-color="#3a0506"/></radialGradient></defs>
+        <circle cx="200" cy="200" r="197" fill="#120706" stroke="#e3b24c" stroke-width="4"/>
+        <circle cx="200" cy="200" r="181" fill="none" stroke="#e3b24c" stroke-opacity=".8" stroke-width="18" stroke-dasharray="3 12.8"/>
+        <circle cx="200" cy="200" r="181" fill="none" stroke="#e3b24c" stroke-opacity=".55" stroke-width="2"/>
+        <circle cx="200" cy="200" r="165" fill="url(#gt)" stroke="#e3b24c" stroke-width="3"/>
+        <circle cx="200" cy="200" r="156" fill="none" stroke="#e3b24c" stroke-opacity=".4"/>
+      </svg>
+      <div class="kick"><span lang="en">Sichuan Kitchen</span><span lang="ar">مطبخ سيتشوان</span></div>
+      <h1><span lang="en">Red Lantern House</span><span lang="ar">بيت الفانوس الأحمر</span></h1>
+      <p class="tag"><span lang="en">Numbing, fragrant, fearless.</span><span lang="ar">خدَرٌ وعطرٌ وجرأة.</span></p>
+      <div class="seal"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13 2c1.5 1.5 1.5 3 1 4.5 4 .500 6.5 3 5.5 7.5-1 5-6 8-13 8 5-3 6.5-6 6-9-.400-2.5-2-3.5-1.5-6.500L8 5c2.5 0 4 .500 5 1.2.300-1.2 0-2.6 0-4.200z"/></svg></div>
+    </div>
+  </div>
+  <p class="intro" lang="en">Behind the round gate, the woks never cool. We cook the food of Chengdu and Chongqing the way it is eaten there: facing-heaven chillies, green Sichuan peppercorn that makes the lips hum, and broad-bean paste aged three years in clay.</p>
+  <p class="intro" lang="ar">خلف البوابة المستديرة لا تبرد المقالي أبدًا. نطهو أطباق تشنغدو وتشونغتشينغ كما تؤكل هناك: فلفل «مواجه السماء»، وفلفل سيتشوان الأخضر الذي يجعل الشفاه ترتعش، ومعجون الفول المعتّق ثلاث سنوات في الفخار.</p>
+
+  <section class="meter">
+    <h2><span lang="en">The Mala Meter</span><span lang="ar">مقياس «المالا»</span></h2>
+    <ol>
+      <li style="--n:1"><span class="heat h1" aria-label="1/5"><i></i><i></i><i></i><i></i><i></i></span><b><span lang="en">Fragrant</span><span lang="ar">عطِر</span></b><span lang="en">All aroma, a wink of warmth.</span><span lang="ar">عطر خالص ولمحة دفء.</span></li>
+      <li style="--n:2"><span class="heat h2" aria-label="2/5"><i></i><i></i><i></i><i></i><i></i></span><b><span lang="en">Warm</span><span lang="ar">دافئ</span></b><span lang="en">A gentle glow that builds.</span><span lang="ar">وهج لطيف يتصاعد بهدوء.</span></li>
+      <li style="--n:3"><span class="heat h3" aria-label="3/5"><i></i><i></i><i></i><i></i><i></i></span><b><span lang="en">Hot</span><span lang="ar">حار</span></b><span lang="en">Proper Chengdu heat.</span><span lang="ar">حرارة تشنغدو الأصلية.</span></li>
+      <li style="--n:4"><span class="heat h4" aria-label="4/5"><i></i><i></i><i></i><i></i><i></i></span><b><span lang="en">Numbing</span><span lang="ar">مخدِّر</span></b><span lang="en">Lips tingle, forehead shines.</span><span lang="ar">الشفاه تنمّل والجبين يلمع.</span></li>
+      <li style="--n:5"><span class="heat h5" aria-label="5/5"><i></i><i></i><i></i><i></i><i></i></span><b><span lang="en">Dragon</span><span lang="ar">تنّين</span></b><span lang="en">Order rice. Tell a friend.</span><span lang="ar">اطلب أرزًا، وأخبر صديقًا.</span></li>
+    </ol>
+  </section>
+</header>
+
+<main class="hall">
+  <!-- 1 -->
+  <section class="room" id="cold">
+    <div class="side">
+      <div class="big"><svg class="b" viewBox="0 0 100 122" aria-hidden="true"><use href="#lan"/></svg><span class="no">1</span><svg class="t" viewBox="0 0 26 84" aria-hidden="true"><use href="#tas"/></svg></div>
+      <div><h2><span lang="en">Cold Plates</span><span lang="ar">الأطباق الباردة</span></h2>
+      <p lang="en">Bright, sharp, slick with red oil. They arrive first and wake everything up.</p><p lang="ar">نضِرة وحادّة ولامعة بالزيت الأحمر. تصل أولًا لتوقظ الشهيّة.</p></div>
+    </div>
+    <div class="window"><ul class="pane">
+      <li class="dish"><div class="top"><h3><span lang="en">Smacked Cucumber</span><span lang="ar">خيار مهروس</span></h3><b class="pr">24<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h1" aria-label="1/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Cracked cucumber, raw garlic, aged black vinegar and a spoon of chilli oil.</p><p lang="ar">خيار مكسور مع ثوم نيء وخل أسود معتّق وملعقة من زيت الفلفل.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Mouth-Watering Chicken</span><span lang="ar">الدجاج المُسيل للّعاب</span></h3><b class="pr">38<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h3" aria-label="3/5"><i></i><i></i><i></i><i></i><i></i></span><span class="chop"><span lang="en">Signature</span><span lang="ar">توقيع البيت</span></span></div>
+        <p lang="en">Cold poached chicken under red oil, roasted peanuts, sesame and spring onion.</p><p lang="ar">دجاج مسلوق بارد يغمره الزيت الأحمر مع فول سوداني محمّص وسمسم وبصل أخضر.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Red-Oil Wontons</span><span lang="ar">ونتون بالزيت الأحمر</span></h3><b class="pr">34<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h3" aria-label="3/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Silky chicken and ginger dumplings in sweet soy, garlic and chilli oil.</p><p lang="ar">زلابية حريرية بالدجاج والزنجبيل في صويا حلوة وثوم وزيت الفلفل.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Wood-Ear Salad</span><span lang="ar">سلطة فطر أذن الخشب</span></h3><b class="pr">26<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h2" aria-label="2/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Crunchy black fungus, pickled chillies, coriander and rice vinegar.</p><p lang="ar">فطر أسود مقرمش مع فلفل مخلّل وكزبرة وخل الأرز.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Sliced Beef in Chilli Oil</span><span lang="ar">شرائح لحم بزيت الفلفل</span></h3><b class="pr">42<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h4" aria-label="4/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Braised beef shank shaved thin, celery, crushed peanuts, numbing dressing.</p><p lang="ar">ساق بقري مطهوّ ومقطّع رقيقًا مع كرفس وفول سوداني مجروش وتتبيلة مخدِّرة.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Tiger-Skin Peppers</span><span lang="ar">فلفل «جلد النمر»</span></h3><b class="pr">28<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h2" aria-label="2/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Green peppers blistered in a dry wok, black bean, garlic and vinegar.</p><p lang="ar">فلفل أخضر يُحمَّص في مقلاة جافة حتى يتبقّع، مع فاصولياء سوداء وثوم وخل.</p></li>
+    </ul></div>
+  </section>
+
+  <!-- 2 -->
+  <section class="room" id="wok">
+    <div class="side">
+      <div class="big"><svg class="b" viewBox="0 0 100 122" aria-hidden="true"><use href="#lan"/></svg><span class="no">2</span><svg class="t" viewBox="0 0 26 84" aria-hidden="true"><use href="#tas"/></svg></div>
+      <div><h2><span lang="en">Wok &amp; Fire</span><span lang="ar">الووك والنار</span></h2>
+      <p lang="en">Cooked in seconds over a roaring flame. Share them, with rice in the middle.</p><p lang="ar">تُطهى في ثوانٍ فوق لهب هادر. تقاسموها، والأرز في وسط المائدة.</p></div>
+    </div>
+    <div class="window"><ul class="pane">
+      <li class="dish"><div class="top"><h3><span lang="en">Mapo Tofu</span><span lang="ar">مابو توفو</span></h3><b class="pr">46<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h4" aria-label="4/5"><i></i><i></i><i></i><i></i><i></i></span><span class="chop"><span lang="en">Signature</span><span lang="ar">توقيع البيت</span></span></div>
+        <p lang="en">Trembling tofu, minced beef, three-year bean paste, a snowfall of ground peppercorn.</p><p lang="ar">توفو مرتجف مع لحم بقري مفروم ومعجون الفول المعتّق ورشّة سخيّة من فلفل سيتشوان المطحون.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Kung Pao Chicken</span><span lang="ar">دجاج كونغ باو</span></h3><b class="pr">52<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h3" aria-label="3/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Diced thigh, scorched dried chillies, peanuts and a sweet-sour black vinegar glaze.</p><p lang="ar">مكعبات فخذ الدجاج مع فلفل مجفّف محمّص وفول سوداني وصلصة حلوة حامضة بالخل الأسود.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Firecracker Chicken</span><span lang="ar">دجاج المفرقعات</span></h3><b class="pr">58<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h5" aria-label="5/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Chongqing style: crisp nuggets buried in a mountain of chillies. Dig for the treasure.</p><p lang="ar">على طريقة تشونغتشينغ: قطع مقرمشة مدفونة تحت جبل من الفلفل. نقِّب عن الكنز.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Water-Boiled Beef</span><span lang="ar">لحم بقري «مسلوق بالماء»</span></h3><b class="pr">68<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h5" aria-label="5/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Velvet beef in a crimson broth, finished at the table with smoking oil.</p><p lang="ar">لحم بقري مخملي في مرق قرمزي، يُختم أمامك بزيت يتصاعد دخانه.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Fish-Fragrant Aubergine</span><span lang="ar">باذنجان «بعطر السمك»</span></h3><b class="pr">40<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h2" aria-label="2/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">No fish at all: melting aubergine in pickled chilli, ginger, garlic and sweet vinegar.</p><p lang="ar">لا سمك فيه إطلاقًا: باذنجان يذوب في الفلفل المخلّل والزنجبيل والثوم والخل الحلو.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Dry-Fried Green Beans</span><span lang="ar">فاصولياء خضراء مقلية جافة</span></h3><b class="pr">38<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h2" aria-label="2/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Blistered beans, minced beef, preserved mustard greens, dried chilli.</p><p lang="ar">فاصولياء محمّصة مع لحم بقري مفروم وخردل مخلّل وفلفل مجفّف.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Cumin Lamb</span><span lang="ar">لحم ضأن بالكمّون</span></h3><b class="pr">64<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h3" aria-label="3/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Wok-seared lamb, toasted cumin, chilli flakes, onion and coriander stems.</p><p lang="ar">لحم ضأن يُشوَّح في الووك مع كمّون محمّص ورقائق الفلفل وبصل وسيقان الكزبرة.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Sour-Greens Fish</span><span lang="ar">سمك بالخردل المخلّل</span></h3><b class="pr">74<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h3" aria-label="3/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Sea bass slices poached in a tangy golden broth of pickled mustard greens.</p><p lang="ar">شرائح القاروص تُسلق في مرق ذهبي لاذع من أوراق الخردل المخلّلة.</p></li>
+    </ul></div>
+  </section>
+
+  <!-- 3 -->
+  <section class="room" id="noodles">
+    <div class="side">
+      <div class="big"><svg class="b" viewBox="0 0 100 122" aria-hidden="true"><use href="#lan"/></svg><span class="no">3</span><svg class="t" viewBox="0 0 26 84" aria-hidden="true"><use href="#tas"/></svg></div>
+      <div><h2><span lang="en">Noodles &amp; Rice</span><span lang="ar">النودلز والأرز</span></h2>
+      <p lang="en">Street-stall bowls, tossed at the last moment. Slurping is a compliment.</p><p lang="ar">أطباق أكشاك الشارع، تُقلَّب في اللحظة الأخيرة. والارتشاف بصوت مسموع مديحٌ للطاهي.</p></div>
+    </div>
+    <div class="window"><ul class="pane">
+      <li class="dish"><div class="top"><h3><span lang="en">Dan Dan Noodles</span><span lang="ar">نودلز دان دان</span></h3><b class="pr">36<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h3" aria-label="3/5"><i></i><i></i><i></i><i></i><i></i></span><span class="chop"><span lang="en">Signature</span><span lang="ar">توقيع البيت</span></span></div>
+        <p lang="en">Wheat noodles, crisp minced beef, sesame paste, preserved greens, chilli oil.</p><p lang="ar">نودلز القمح مع لحم بقري مفروم مقرمش ومعجون السمسم وخضار مخلّلة وزيت الفلفل.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Chongqing Street Noodles</span><span lang="ar">نودلز شوارع تشونغتشينغ</span></h3><b class="pr">34<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h4" aria-label="4/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Thin noodles in a fierce numbing broth with peanuts and yellow peas.</p><p lang="ar">نودلز رفيعة في مرق مخدِّر عنيف مع فول سوداني وبازلاء صفراء.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Cold Sesame Noodles</span><span lang="ar">نودلز باردة بالسمسم</span></h3><b class="pr">30<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="heat h1" aria-label="1/5"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <p lang="en">Chilled noodles, cucumber threads, bean sprouts and roasted sesame dressing.</p><p lang="ar">نودلز مبرّدة مع خيوط الخيار وبراعم الفول وصلصة السمسم المحمّص.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Golden Egg Fried Rice</span><span lang="ar">أرز مقلي ذهبي بالبيض</span></h3><b class="pr">28<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="cool"><span lang="en">No heat · calms the fire</span><span lang="ar">بلا حرارة · يهدّئ النار</span></span></div>
+        <p lang="en">Every grain coated in yolk, spring onion and a breath of the wok.</p><p lang="ar">كل حبّة مغلّفة بصفار البيض مع بصل أخضر ونَفَس من لهب الووك.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Steamed Jasmine Rice</span><span lang="ar">أرز الياسمين على البخار</span></h3><b class="pr">8<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="cool"><span lang="en">No heat · your best friend</span><span lang="ar">بلا حرارة · صديقك الأوفى</span></span></div>
+        <p lang="en">A bamboo steamer of fragrant rice. You will want two.</p><p lang="ar">سلة خيزران من الأرز العطِر. ستطلب اثنتين.</p></li>
+    </ul></div>
+  </section>
+
+  <!-- 4 -->
+  <section class="room" id="sweets">
+    <div class="side">
+      <div class="big"><svg class="b" viewBox="0 0 100 122" aria-hidden="true"><use href="#lan"/></svg><span class="no">4</span><svg class="t" viewBox="0 0 26 84" aria-hidden="true"><use href="#tas"/></svg></div>
+      <div><h2><span lang="en">Sweets &amp; Tea</span><span lang="ar">الحلويات والشاي</span></h2>
+      <p lang="en">Cool, soothing things to put the fire out, and tea to linger over.</p><p lang="ar">أشياء باردة ومهدّئة تطفئ النار، وشاي يطيل السهرة.</p></div>
+    </div>
+    <div class="window"><ul class="pane">
+      <li class="dish"><div class="top"><h3><span lang="en">Bing Fen Ice Jelly</span><span lang="ar">هلام الثلج «بينغ فِن»</span></h3><b class="pr">22<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="cool"><span lang="en">Fire extinguisher</span><span lang="ar">مطفأة الحريق</span></span></div>
+        <p lang="en">Clear chilled jelly, brown-sugar syrup, hawthorn, raisins and sesame.</p><p lang="ar">هلام شفاف مبرّد مع شراب السكر الأسمر والزعرور والزبيب والسمسم.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Brown-Sugar Rice Cakes</span><span lang="ar">كعك الأرز بالسكر الأسمر</span></h3><b class="pr">26<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="chop"><span lang="en">Signature</span><span lang="ar">توقيع البيت</span></span></div>
+        <p lang="en">Crisp-fried sticky rice batons, dark syrup and roasted soybean flour.</p><p lang="ar">أصابع أرز لزج مقلية ومقرمشة مع شراب داكن ودقيق فول الصويا المحمّص.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Black Sesame Tangyuan</span><span lang="ar">تانغ يوان بالسمسم الأسود</span></h3><b class="pr">24<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="cool"><span lang="en">Served warm</span><span lang="ar">يُقدَّم دافئًا</span></span></div>
+        <p lang="en">Soft rice dumplings with molten sesame hearts in ginger syrup.</p><p lang="ar">كرات أرز طرية قلبها سمسم ذائب، في شراب الزنجبيل.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Sour Plum Cooler</span><span lang="ar">شراب البرقوق الحامض</span></h3><b class="pr">16<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="cool"><span lang="en">Iced</span><span lang="ar">مثلّج</span></span></div>
+        <p lang="en">Smoked plum, hawthorn and osmanthus, brewed in-house and served over ice.</p><p lang="ar">برقوق مدخّن وزعرور وزهر الأوسمانثوس، يُحضَّر عندنا ويُقدَّم مع الثلج.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Jasmine Pearl Tea</span><span lang="ar">شاي لآلئ الياسمين</span></h3><b class="pr">18<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="cool"><span lang="en">Pot for two</span><span lang="ar">إبريق لشخصين</span></span></div>
+        <p lang="en">Hand-rolled green tea pearls that unfurl in the pot. Refilled without asking.</p><p lang="ar">لآلئ شاي أخضر ملفوفة باليد تتفتّح في الإبريق. نعيد ملأه دون أن تطلب.</p></li>
+      <li class="dish"><div class="top"><h3><span lang="en">Chrysanthemum &amp; Goji</span><span lang="ar">الأقحوان وتوت الغوجي</span></h3><b class="pr">18<i lang="en">QAR</i><i lang="ar">ر.ق</i></b></div><div class="meta"><span class="cool"><span lang="en">Pot for two</span><span lang="ar">إبريق لشخصين</span></span></div>
+        <p lang="en">A golden floral infusion with rock sugar, cooling by tradition.</p><p lang="ar">منقوع زهري ذهبي مع سكر النبات، مبرِّد للجسم بحسب التقاليد.</p></li>
+    </ul></div>
+  </section>
+
+  <!-- banquet -->
+  <section class="banq" id="banquet">
+    <svg class="table" viewBox="0 0 400 400" aria-hidden="true">
+      <circle cx="200" cy="200" r="196" fill="#3a0b0b" stroke="#e3b24c" stroke-width="4"/>
+      <circle cx="200" cy="200" r="176" fill="none" stroke="#e3b24c" stroke-opacity=".5" stroke-dasharray="2 9" stroke-width="6"/>
+      <g class="susan">
+        <circle cx="200" cy="200" r="150" fill="#5d0709" stroke="#e3b24c" stroke-width="2"/>
+        <g fill="#f4e8d4" stroke="#e3b24c" stroke-width="3"><circle cx="200" cy="92" r="34"/><circle cx="293.5" cy="146" r="34"/><circle cx="293.5" cy="254" r="34"/><circle cx="200" cy="308" r="34"/><circle cx="106.5" cy="254" r="34"/><circle cx="106.5" cy="146" r="34"/></g>
+        <g fill="#c8161a"><circle cx="200" cy="92" r="20"/><circle cx="293.5" cy="146" r="20" fill="#e3912c"/><circle cx="293.5" cy="254" r="20"/><circle cx="200" cy="308" r="20" fill="#7fa24a"/><circle cx="106.5" cy="254" r="20" fill="#e3912c"/><circle cx="106.5" cy="146" r="20" fill="#f6dfa4"/></g>
+        <g font-family="Marcellus, serif" font-size="22" text-anchor="middle" fill="#fff"><text x="200" y="100">1</text><text x="293.5" y="154">2</text><text x="293.5" y="262">3</text><text x="200" y="316">4</text><text x="106.5" y="262">5</text><text x="106.5" y="154" fill="#5d0709">6</text></g>
+      </g>
+      <circle cx="200" cy="200" r="44" fill="#120706" stroke="#e3b24c" stroke-width="3"/>
+      <path fill="#e3b24c" d="M178 196c0-12 10-18 22-18s22 6 22 18v10c0 8-8 14-22 14s-22-6-22-14zM222 192l14-8v6l-12 12zM166 190c-8 0-8 16 4 18l8-4c-8 0-10-10-4-10zM194 172h12v6h-12z"/>
+    </svg>
+    <div>
+      <div class="kick"><span lang="en">For the whole table</span><span lang="ar">للطاولة كلها</span></div>
+      <h2><span lang="en">The Lantern Banquet</span><span lang="ar">وليمة الفانوس</span></h2>
+      <p class="lede" lang="en">Six dishes on the turning table, rice and tea for everyone. The kitchen sets the heat; you set the pace.</p>
+      <p class="lede" lang="ar">ستة أطباق على الطاولة الدوّارة، مع الأرز والشاي للجميع. المطبخ يحدّد الحرارة، وأنتم تحدّدون الإيقاع.</p>
+      <ol class="courses">
+        <li><div><b><span lang="en">Mouth-Watering Chicken</span><span lang="ar">الدجاج المُسيل للّعاب</span></b><span lang="en">with smacked cucumber</span><span lang="ar">مع الخيار المهروس</span></div></li>
+        <li><div><b><span lang="en">Kung Pao Chicken</span><span lang="ar">دجاج كونغ باو</span></b><span lang="en">peanuts, dried chillies</span><span lang="ar">فول سوداني وفلفل مجفّف</span></div></li>
+        <li><div><b><span lang="en">Mapo Tofu</span><span lang="ar">مابو توفو</span></b><span lang="en">the house signature</span><span lang="ar">توقيع البيت</span></div></li>
+        <li><div><b><span lang="en">Dry-Fried Green Beans</span><span lang="ar">فاصولياء خضراء مقلية جافة</span></b><span lang="en">for a breath of green</span><span lang="ar">لمسة خضراء منعشة</span></div></li>
+        <li><div><b><span lang="en">Sour-Greens Fish</span><span lang="ar">سمك بالخردل المخلّل</span></b><span lang="en">a whole pot to share</span><span lang="ar">قدر كامل للمشاركة</span></div></li>
+        <li><div><b><span lang="en">Brown-Sugar Rice Cakes</span><span lang="ar">كعك الأرز بالسكر الأسمر</span></b><span lang="en">and ice jelly to finish</span><span lang="ar">وهلام الثلج للختام</span></div></li>
+      </ol>
+      <div class="total"><b class="pr">388<i lang="en">QAR</i><i lang="ar">ر.ق</i></b><span lang="en">for four guests · each extra guest 90 QAR</span><span lang="ar">لأربعة ضيوف · كل ضيف إضافي ٩٠ ر.ق</span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="row">
+    <div><h3><span lang="en">Lanterns lit</span><span lang="ar">الفوانيس مضاءة</span></h3><p lang="en">Daily, 12 noon – 3:30 pm<br>and 6 pm – 12 midnight</p><p lang="ar">يوميًا من ١٢ ظهرًا إلى ٣:٣٠ عصرًا<br>ومن ٦ مساءً حتى منتصف الليل</p></div>
+    <div><h3><span lang="en">Find the gate</span><span lang="ar">أين البوابة</span></h3><p lang="en">9 Al Jasra Lane, Msheireb, Doha<br><span dir="ltr">+974 4455 0159</span></p><p lang="ar">٩ زقاق الجسرة، مشيرب، الدوحة<br><span dir="ltr">+974 4455 0159</span></p></div>
+    <div><h3><span lang="en">Before you order</span><span lang="ar">قبل أن تطلب</span></h3><p lang="en">All meat is halal; no alcohol is used. Dishes contain peanuts, sesame, soy and wheat. Any dish can be cooked one chilli milder.</p><p lang="ar">جميع اللحوم حلال ولا نستخدم الكحول. تحتوي الأطباق على الفول السوداني والسمسم والصويا والقمح. يمكن تخفيف أي طبق درجة واحدة.</p></div>
+  </div>
+  <p class="bye"><span lang="en">Eat slowly. The lanterns burn all night.</span><span lang="ar">كُل على مهل، فالفوانيس تضيء حتى الصباح.</span></p>
+</footer>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>KAPOW Wings · كابوو وينغز</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="KAPOW Wings — a comic-book menu of crispy chicken wings, eight sauces from mild to supernova, sidekicks and shakes. قائمة كابوو وينغز لأجنحة الدجاج المقرمشة.">
+<meta name="theme-color" content="#ffd400">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Changa:wght@500;700&family=Comic+Neue:wght@700&family=Marhey:wght@700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --k:#111018; --paper:#fbf4de; --y:#ffd400; --r:#e8222e; --c:#18b4f0; --o:#ff8a1c; --w:#fff;
+  --disp:"Bangers","Marhey",Impact,"Arial Black",sans-serif;
+  --body:"Comic Neue","Changa","Comic Sans MS","Trebuchet MS",sans-serif;
+  --g:12px; --s:34px; --dir:1;
+  --burst:polygon(50.0% 0.1%,59.6% 14.0%,73.8% 8.7%,75.4% 24.6%,93.0% 25.2%,85.8% 40.4%,97.5% 50.0%,87.4% 60.0%,93.8% 75.3%,75.9% 75.9%,74.4% 92.2%,59.9% 86.9%,50.0% 100%,40.9% 83.9%,25.0% 93.3%,24.7% 75.3%,5.8% 75.5%,15.7% 59.2%,0% 50.0%,14.3% 40.4%,8.4% 26.0%,25.2% 25.2%,23.7% 4.4%,39.9% 12.2%);
+  --dots:radial-gradient(circle,rgba(17,16,24,.55) 0 1.7px,transparent 2px);
+}
+html[dir="rtl"]{--dir:-1}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:700 1rem/1.3 var(--body);color:var(--k);background:var(--paper);
+  background-image:radial-gradient(circle,rgba(17,16,24,.07) 0 1.2px,transparent 1.6px);background-size:7px 7px}
+html[lang="en"] body{text-transform:uppercase}
+html[lang="ar"] body{font:500 1.04rem/1.55 "Changa","Comic Neue",Tahoma,sans-serif}
+html[lang="ar"] *{letter-spacing:0!important}
+a{color:inherit}
+.book{max-width:1320px;margin-inline:auto;padding:clamp(10px,2vw,28px);overflow-x:clip}
+
+/* controls: narrator caption boxes */
+.ctl{position:fixed;top:8px;inset-inline-end:8px;z-index:30;display:flex;gap:6px}
+.ctl>*{font:700 .86rem/1 var(--body);color:var(--k);background:var(--w);border:3px solid var(--k);box-shadow:3px 3px 0 var(--k);padding:0 10px;min-height:42px;display:inline-flex;align-items:center;cursor:pointer;text-decoration:none;text-transform:inherit}
+#langToggle{background:var(--y);font-family:"Changa","Comic Neue",sans-serif}
+.ctl>*:hover,.ctl>*:focus-visible{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--k);outline:none}
+
+/* shared comic parts */
+.strip{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g);position:relative;margin-top:var(--g)}
+.panel{background:var(--k);padding:5px;position:relative;min-width:0;transform:scaleX(var(--dir));
+  clip-path:polygon(var(--tl,0px) 0,calc(100% - var(--tr,0px)) 0,calc(100% - var(--br,0px)) 100%,var(--bl,0px) 100%)}
+.panel>.in{height:100%;background-color:var(--bg,#fff);background-image:var(--art,none),var(--dots);background-size:auto,9px 9px;
+  clip-path:polygon(var(--tl,0px) 0,calc(100% - var(--tr,0px)) 0,calc(100% - var(--br,0px)) 100%,var(--bl,0px) 100%)}
+.panel .c{transform:scaleX(var(--dir));height:100%;display:flex;flex-direction:column;gap:14px;padding:clamp(16px,1.6vw,24px);
+  padding-inline:calc(clamp(16px,1.6vw,24px) + max(var(--tl,0px),var(--bl,0px))) calc(clamp(16px,1.6vw,24px) + max(var(--tr,0px),var(--br,0px)))}
+html[dir="rtl"] .panel .c{padding-inline:calc(clamp(16px,1.6vw,24px) + max(var(--tr,0px),var(--br,0px))) calc(clamp(16px,1.6vw,24px) + max(var(--tl,0px),var(--bl,0px)))}
+.cap{align-self:flex-start;background:var(--y);border:3px solid var(--k);box-shadow:4px 4px 0 var(--k);padding:.18em .5em .1em;font:400 clamp(1.5rem,2.3vw,2.1rem)/1.05 var(--disp);letter-spacing:.03em;transform:rotate(calc(-1.5deg*var(--dir)))}
+html[lang="ar"] .cap{font:700 clamp(1.5rem,2.3vw,2.1rem)/1.3 "Marhey",sans-serif;padding:.05em .5em .1em}
+.bub{position:relative;background:var(--w);border:3px solid var(--k);border-radius:22px;padding:12px 16px;font-size:.95rem;line-height:1.3;max-width:34ch;margin-bottom:14px}
+html[lang="ar"] .bub{font-size:1rem;line-height:1.55}
+.bub::before,.bub::after{content:"";position:absolute;top:100%;inset-inline-start:30px;border:solid transparent;border-top-color:var(--k);border-width:18px 12px 0 2px}
+.bub::after{border-top-color:var(--w);margin-top:-7px;margin-inline-start:3.5px;border-width:14px 8px 0 1px}
+html[dir="rtl"] .bub::before{border-width:18px 2px 0 12px}html[dir="rtl"] .bub::after{border-width:14px 1px 0 8px}
+.bub.shout{border-radius:6px;border-width:4px;background:var(--w);box-shadow:0 0 0 3px var(--y),0 0 0 6px var(--k)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;flex-wrap:wrap}
+.price{display:grid;place-items:center;width:5.1rem;height:5.1rem;flex:none;background:var(--k);clip-path:var(--burst);position:relative;font:400 1.7rem/1 var(--disp);color:var(--w);unicode-bidi:isolate;direction:ltr;transform:rotate(calc(8deg*var(--dir)))}
+.price::before{content:"";position:absolute;inset:5px;background:var(--r);clip-path:var(--burst);z-index:-1}
+.price{isolation:isolate}
+.heat{display:flex;align-items:center;gap:1px;background:var(--w);border:3px solid var(--k);padding:3px 7px 3px 5px;border-radius:99px}
+.heat svg{width:25px;height:25px;fill:#ddd6c4;stroke:var(--k);stroke-width:5;stroke-linejoin:round}
+.heat svg.on{fill:var(--r)}
+.heat svg.on:nth-of-type(n+4){fill:#7a0d6e}
+.heat b{font:400 1rem/1 var(--disp);letter-spacing:.04em;margin-inline-start:6px;white-space:nowrap}
+html[lang="ar"] .heat b{font:700 1rem/1.2 "Marhey",sans-serif}
+.sfx.flow{position:static;flex:1;display:grid;place-items:center;transform:rotate(calc(-9deg*var(--dir)));color:#fff;min-height:90px}
+.sfx{position:absolute;z-index:5;pointer-events:none;font:400 clamp(2rem,4.2vw,4rem)/1 var(--disp);color:var(--y);-webkit-text-stroke:7px var(--k);paint-order:stroke fill;text-shadow:5px 5px 0 var(--r);letter-spacing:.03em;white-space:nowrap}
+html[lang="ar"] .sfx{font-family:"Marhey",sans-serif;font-weight:700;-webkit-text-stroke-width:6px;font-size:clamp(1.7rem,3.4vw,3.2rem)}
+
+/* COVER */
+.mast{display:grid;grid-template-columns:auto 1fr;gap:var(--g);align-items:stretch}
+.corner{border:5px solid var(--k);background:var(--w);padding:8px 12px;text-align:center;font-size:.8rem;line-height:1.15;display:grid;align-content:center;min-width:86px}
+.corner b{font:400 2.4rem/1 var(--disp);display:block}
+.logo{background:var(--r);border:5px solid var(--k);padding:.1em .3em .04em;display:flex;align-items:center;flex-wrap:wrap;gap:0 .3em;overflow:hidden;position:relative;
+  background-image:var(--dots);background-size:8px 8px}
+.logo h1{font:400 clamp(2.5rem,8.6vw,7.4rem)/1 var(--disp);color:var(--y);letter-spacing:.03em;-webkit-text-stroke:clamp(5px,.9vw,10px) var(--k);paint-order:stroke fill;text-shadow:.05em .05em 0 var(--k)}
+html[lang="ar"] .logo h1{font:700 clamp(2.5rem,8.4vw,7rem)/1.25 "Marhey",sans-serif}
+.logo p{font-size:clamp(.85rem,1.2vw,1.05rem);color:var(--w);max-width:16ch;padding-block:6px;text-shadow:2px 2px 0 var(--k)}
+.cover .splash{grid-column:span 8;--br:var(--s);min-height:clamp(380px,44vw,560px)}
+.cover .splash>.in{--bg:var(--y);--art:repeating-conic-gradient(from 4deg at 46% 52%,rgba(255,255,255,.55) 0 5deg,transparent 5deg 12deg)}
+.splash .c{position:relative;align-items:center;justify-content:center;padding:0!important}
+.boom{position:relative;width:min(96%,640px);aspect-ratio:1.2;display:grid;place-items:center;animation:pop 2.6s ease-in-out infinite}
+.boom svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.boom span{position:relative;font:400 clamp(4.2rem,14vw,10.5rem)/1 var(--disp);color:var(--r);-webkit-text-stroke:clamp(8px,1.3vw,16px) var(--k);paint-order:stroke fill;text-shadow:.06em .06em 0 var(--k);transform:rotate(-8deg);letter-spacing:.03em}
+html[lang="ar"] .boom span{font-family:"Marhey",sans-serif;font-weight:700;font-size:clamp(4.4rem,14vw,10.5rem);transform:rotate(8deg)}
+@keyframes pop{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+.wing{position:absolute;width:clamp(86px,13vw,170px);filter:drop-shadow(5px 6px 0 rgba(17,16,24,.9))}
+.wing.a{top:6%;inset-inline-start:5%;transform:rotate(-24deg);animation:fly 3s ease-in-out infinite}
+.wing.b{bottom:7%;inset-inline-end:9%;transform:rotate(152deg) scale(.8);animation:fly 3.4s -1s ease-in-out infinite}
+.wing.d{top:9%;inset-inline-end:12%;transform:rotate(28deg) scale(.55);animation:fly 2.8s -2s ease-in-out infinite}
+@keyframes fly{50%{translate:0 -9px}}
+.cover .tell{grid-column:span 4;--tl:var(--s);margin-inline-start:calc(-1*var(--s))}
+.cover .tell>.in{--bg:var(--c)}
+.narr{background:#fff7c2;border:3px solid var(--k);padding:10px 12px;font-size:.95rem;box-shadow:4px 4px 0 var(--k)}
+html[lang="ar"] .narr{font-size:1rem}
+.steps{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--g)}
+.steps .panel>.in,.white>.in,.end .panel>.in{--bg:#fff;--dots:radial-gradient(circle,rgba(17,16,24,.16) 0 1.5px,transparent 2px)}
+.steps .c{flex-direction:row;align-items:center;gap:14px}
+.steps i{font:400 3.4rem/1 var(--disp);color:var(--c);-webkit-text-stroke:5px var(--k);paint-order:stroke fill;font-style:normal;flex:none}
+.steps p{font-size:1rem}
+.steps p b{display:block;font:400 1.5rem/1.1 var(--disp);letter-spacing:.03em}
+html[lang="ar"] .steps p b{font:700 1.5rem/1.3 "Marhey",sans-serif}
+.steps .panel:nth-child(1){--br:22px}
+.steps .panel:nth-child(2){--tl:22px;--tr:22px;margin-inline:-22px}
+.steps .panel:nth-child(3){--bl:22px}
+
+/* chapters */
+.page{margin-top:clamp(40px,6vw,84px);scroll-margin-top:60px}
+.chap{display:flex;align-items:flex-end;flex-wrap:wrap;gap:10px 18px;margin-bottom:6px}
+.chap .no{background:var(--k);color:var(--y);font:400 1.15rem/1 var(--disp);letter-spacing:.08em;padding:.5em .7em .4em;transform:rotate(calc(-3deg*var(--dir)))}
+html[lang="ar"] .chap .no{font:700 1.15rem/1.2 "Marhey",sans-serif}
+.chap h2{font:400 clamp(2.6rem,7vw,5.4rem)/.95 var(--disp);letter-spacing:.03em;color:var(--w);-webkit-text-stroke:clamp(6px,.8vw,9px) var(--k);paint-order:stroke fill;text-shadow:.07em .07em 0 var(--hc,var(--r))}
+html[lang="ar"] .chap h2{font:700 clamp(2.5rem,6.6vw,5rem)/1.3 "Marhey",sans-serif;-webkit-text-stroke-width:clamp(4px,.5vw,6px);color:var(--y)}
+.chap p{flex:1 1 24ch;max-width:52ch;font-size:1rem;padding-bottom:.5em}
+.w3{grid-column:span 3}.w4{grid-column:span 4}.w5{grid-column:span 5}.w6{grid-column:span 6}.w7{grid-column:span 7}.w12{grid-column:1/-1}
+/* slanted gutters: A = this panel's far edge leans, B = near edge leans to match the previous one */
+.zr{--br:var(--s)}.zl{--tl:var(--s);margin-inline-start:calc(-1*var(--s))}
+.yr{--tr:var(--s)}.yl{--bl:var(--s);margin-inline-start:calc(-1*var(--s))}
+.h1>.in{--bg:#fff6b8}.h2>.in{--bg:#ffd400}.h3>.in{--bg:#ff9d1f}.h4>.in{--bg:#f2452f}
+.h5>.in{--bg:#1c0f33;--art:repeating-conic-gradient(from 0deg at 72% 46%,rgba(232,34,46,.9) 0 6deg,transparent 6deg 14deg);--dots:radial-gradient(circle,rgba(255,212,0,.35) 0 1.7px,transparent 2px)}
+.h4>.in{--art:repeating-conic-gradient(from 0deg at 80% 30%,rgba(255,212,0,.5) 0 5deg,transparent 5deg 13deg)}
+.blue>.in{--bg:var(--c)}.white>.in{--bg:#fff}.pink>.in{--bg:#ff7fb2}.green>.in{--bg:#7fd858}.yel>.in{--bg:var(--y)}.org>.in{--bg:var(--o)}
+.flav .panel{min-height:290px}
+.big .cap{font-size:clamp(2rem,3.6vw,3.4rem)}
+.big .bub{font-size:1.05rem}
+.warn{align-self:flex-start;background:var(--y);color:var(--k);border:3px dashed var(--k);padding:6px 10px;font-size:.9rem;transform:rotate(calc(2deg*var(--dir)))}
+
+/* base strip */
+.base .c{gap:10px}.flav .base .panel{min-height:0}
+.base ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.base li{background:#fff;border:3px solid var(--k);padding:10px 12px;box-shadow:4px 4px 0 var(--k);font-size:.95rem}
+.base li b{display:block;font:400 1.45rem/1.1 var(--disp);letter-spacing:.03em}
+html[lang="ar"] .base li b{font:700 1.4rem/1.3 "Marhey",sans-serif}
+.base li em{font-style:normal;color:var(--r);unicode-bidi:isolate}
+
+/* team-ups */
+.team .panel{min-height:400px}
+.team ul{list-style:none;padding:0;display:grid;gap:6px;font-size:1rem}
+.team li{background:#fff;border:3px solid var(--k);padding:6px 10px;display:flex;gap:8px;align-items:baseline}
+.team li::before{content:"";width:.7em;height:.7em;background:var(--r);clip-path:var(--burst);flex:none;transform:scale(1.5)}
+.team .price{width:6.6rem;height:6.6rem;font-size:2.2rem;margin-inline-start:auto}
+.team .for{font:400 1.2rem/1 var(--disp);letter-spacing:.05em;background:var(--k);color:#fff;padding:.4em .6em .3em;align-self:flex-start}
+html[lang="ar"] .team .for{font:700 1.1rem/1.3 "Marhey",sans-serif}
+
+/* cool-down: one panoramic panel */
+.pano .c{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.pano>.in{--bg:#bfeaff;--art:linear-gradient(transparent 62%,#18b4f0 62% 64%,#7fd3f7 64%)}
+.drink{display:flex;flex-direction:column;gap:10px}
+.drink svg{width:74px;height:104px;align-self:center;margin-top:auto}
+.drink .row{margin-top:0;justify-content:center}
+
+/* back cover */
+.end{margin-top:clamp(40px,6vw,84px)}
+.end .panel>.in{--bg:#fff}
+.end h3{font:400 1.7rem/1 var(--disp);letter-spacing:.04em;color:var(--r)}
+html[lang="ar"] .end h3{font:700 1.7rem/1.3 "Marhey",sans-serif}
+.end p{font-size:1rem}
+.end .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.end .fin{text-align:center;font:400 clamp(2.4rem,7vw,5rem)/1 var(--disp);letter-spacing:.04em;padding:clamp(28px,4vw,50px) 0 30px;color:var(--y);-webkit-text-stroke:8px var(--k);paint-order:stroke fill;text-shadow:5px 5px 0 var(--r)}
+html[lang="ar"] .end .fin{font-family:"Marhey",sans-serif;font-weight:700}
+
+@media (max-width:899px){
+  :root{--s:0px}
+  .strip{grid-template-columns:minmax(0,1fr);gap:10px;max-width:640px;margin-inline:auto}
+  .strip>.panel,.steps{grid-column:1/-1!important;margin-inline:0!important}
+  .strip>.panel{--tl:0px;--tr:0px;--bl:0px;--br:0px;margin-top:-8px}
+  .strip>.panel:first-child{margin-top:0}
+  .strip>.panel,.strip>.panel>.in{clip-path:polygon(0 var(--a,0px),100% var(--b,0px),100% calc(100% - var(--e,0px)),0 calc(100% - var(--d,0px)))}
+  .strip>.panel:nth-of-type(odd){--a:18px;--d:18px}.strip>.panel:nth-of-type(even){--b:18px;--e:18px}
+  .strip>.panel:first-child{--a:0px;--b:0px}
+  .strip>.panel .c{padding-block:30px 34px}
+  .steps{grid-template-columns:minmax(0,1fr);gap:8px}
+  .steps .panel{--tl:0px!important;--tr:0px!important;--bl:0px!important;--br:0px!important;margin:0!important}
+  .steps .c{padding-block:12px}
+  .flav .panel,.team .panel{min-height:0}
+  .base ul{grid-template-columns:minmax(0,1fr)}
+  .pano .c{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mast{max-width:640px;margin-inline:auto;padding-top:52px}
+  .chap,.fin{max-width:640px;margin-inline:auto}
+  .sfx{font-size:clamp(1.9rem,9vw,3rem)}
+  .cover .splash{min-height:330px}
+}
+@media (max-width:420px){.corner{min-width:0;padding:6px 8px}.corner b{font-size:1.8rem}.logo p{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="x" viewBox="-6 -6 112 118"><polygon points="50.0,1.1 60.9,23.6 85.6,14.4 75.9,39.3 100.6,50.0 73.3,59.7 81.1,81.1 59.1,71.9 50.0,106.0 40.2,73.7 18.0,82.0 24.5,60.6 -0.1,50.0 23.8,39.2 18.2,18.2 39.7,25.2"/></symbol>
+  <symbol id="wing" viewBox="0 0 130 86"><g stroke="#111018" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><rect x="72" y="35" width="40" height="14" rx="7" fill="#fff7e0"/><circle cx="113" cy="34" r="8.500" fill="#fff7e0"/><circle cx="113" cy="50" r="8.500" fill="#fff7e0"/><path d="M84 42C85 66 64 80 40 78 16 76 4 58 6 40 8 20 28 6 50 8 70 10 83 22 84 42Z" fill="#f08a24"/><path d="M22 34c4-9 12-14 22-15M18 50c1 5 4 9 8 12" fill="none" stroke="#ffd08a" stroke-width="5"/><path d="M52 58c7 1 13-2 17-8M56 34l5 4M40 46l6 2" fill="none" stroke="#a8480e" stroke-width="4"/></g></symbol>
+</defs></svg>
+<div class="ctl">
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+</div>
+
+<div class="book">
+<header class="cover">
+  <div class="mast">
+    <div class="corner"><span lang="en">Issue</span><span lang="ar">العدد</span><b>23</b><span lang="en">Still crispy</span><span lang="ar">ما زال مقرمشاً</span></div>
+    <div class="logo"><h1><span lang="en">KAPOW Wings</span><span lang="ar">كابوو وينغز</span></h1><p><span lang="en">The crunch heard round the city!</span><span lang="ar">قرمشة يسمعها كل أهل المدينة!</span></p></div>
+  </div>
+  <div class="strip">
+    <div class="panel splash"><div class="in"><div class="c">
+      <svg class="wing a" viewBox="0 0 130 86" aria-hidden="true"><use href="#wing"/></svg>
+      <svg class="wing b" viewBox="0 0 130 86" aria-hidden="true"><use href="#wing"/></svg>
+      <svg class="wing d" viewBox="0 0 130 86" aria-hidden="true"><use href="#wing"/></svg>
+      <div class="boom"><svg viewBox="-4 -6 110 106" preserveAspectRatio="none" aria-hidden="true"><polygon transform="translate(3 3)" fill="#111018" points="50.0,-1.2 56.6,12.5 65.7,6.8 65.0,24.1 78.9,15.5 78.1,26.4 88.6,27.7 80.3,39.0 102.6,40.7 82.4,50.0 100.0,58.8 85.2,62.8 98.2,77.8 76.2,72.0 79.6,85.3 66.8,79.0 66.5,95.3 56.1,84.3 50.0,95.4 43.5,86.6 35.2,90.8 31.6,81.9 22.9,82.3 25.4,70.6 8.3,74.1 17.7,61.8 0.4,58.8 14.4,50.0 -1.7,40.9 19.3,38.8 3.3,23.0 27.6,31.2 22.6,17.4 33.5,21.4 31.4,-1.1 44.8,20.7"/><polygon fill="#fff" stroke="#111018" stroke-width="2.200" stroke-linejoin="round" points="50.0,-1.2 56.6,12.5 65.7,6.8 65.0,24.1 78.9,15.5 78.1,26.4 88.6,27.7 80.3,39.0 102.6,40.7 82.4,50.0 100.0,58.8 85.2,62.8 98.2,77.8 76.2,72.0 79.6,85.3 66.8,79.0 66.5,95.3 56.1,84.3 50.0,95.4 43.5,86.6 35.2,90.8 31.6,81.9 22.9,82.3 25.4,70.6 8.3,74.1 17.7,61.8 0.4,58.8 14.4,50.0 -1.7,40.9 19.3,38.8 3.3,23.0 27.6,31.2 22.6,17.4 33.5,21.4 31.4,-1.1 44.8,20.7"/></svg><span><span lang="en">KAPOW!</span><span lang="ar">كابوو!</span></span></div>
+    </div></div></div>
+    <div class="panel tell"><div class="in"><div class="c">
+      <p class="narr"><span lang="en">In a city starving for crunch, one fryer answered the call…</span><span lang="ar">في مدينةٍ تتضوّر شوقاً للقرمشة، لبّت مقلاةٌ واحدة النداء…</span></p>
+      <p class="bub"><span lang="en">Fresh wings, never frozen! Brined overnight, fried twice, tossed in sauce to order!</span><span lang="ar">أجنحة طازجة لم تعرف التجميد! تُنقع ليلةً كاملة، وتُقلى مرتين، وتُقلَّب بالصلصة عند الطلب!</span></p>
+      <p class="bub shout"><span lang="en">And every bird is halal, hero.</span><span lang="ar">وكل دجاجنا حلال يا بطل.</span></p>
+      <span class="sfx flow" aria-hidden="true"><span lang="en">Sizzle!</span><span lang="ar">تشششش!</span></span>
+      <p class="narr"><span lang="en">Turn the page. Pick a flavour. Choose your fate.</span><span lang="ar">اقلب الصفحة، اختر النكهة، وقرّر مصيرك.</span></p>
+    </div></div></div>
+    <div class="steps">
+      <div class="panel"><div class="in"><div class="c"><i>1</i><p><b><span lang="en">Pick a flavour</span><span lang="ar">اختر النكهة</span></b><span lang="en">Eight of them, mild to supernova.</span><span lang="ar">ثمانٍ، من الهادئة إلى السوبرنوفا.</span></p></div></div></div>
+      <div class="panel"><div class="in"><div class="c"><i>2</i><p><b><span lang="en">Pick your form</span><span lang="ar">اختر الهيئة</span></b><span lang="en">Bone-in, boneless or cauliflower.</span><span lang="ar">بالعظم، بلا عظم، أو قرنبيط.</span></p></div></div></div>
+      <div class="panel"><div class="in"><div class="c"><i>3</i><p><b><span lang="en">Call a sidekick</span><span lang="ar">نادِ المساعد</span></b><span lang="en">No hero eats alone.</span><span lang="ar">فلا بطل يأكل وحده.</span></p></div></div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page flav" id="flavours">
+  <div class="chap"><span class="no"><span lang="en">Chapter 1</span><span lang="ar">الفصل الأول</span></span><h2><span lang="en">The Flavours</span><span lang="ar">النكهات</span></h2><p><span lang="en">Six wings per order. The explosions tell you how much trouble you are in.</span><span lang="ar">ستّ قطع في كل طلب، وعدد الانفجارات يخبرك بحجم الورطة التي تنتظرك.</span></p></div>
+  <div class="strip">
+    <article class="panel h1 w4 zr"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Honey Butter</span><span lang="ar">عسل وزبدة</span></h3><p class="bub"><span lang="en">Golden, glossy and gentle. Wildflower honey, browned butter, sea salt.</span><span lang="ar">ذهبية لامعة ولطيفة: عسل الزهور البرية وزبدة محمّرة وملح البحر.</span></p><div class="row"><span class="heat"><svg class="on"><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><b><span lang="en">Pff</span><span lang="ar">بِف</span></b></span><span class="price">$9</span></div></div></div></article>
+    <article class="panel h1 w3 zl yr"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Garlic Parm</span><span lang="ar">ثوم وبارميزان</span></h3><p class="bub"><span lang="en">Roasted garlic butter under a snowstorm of parmesan.</span><span lang="ar">زبدة الثوم المشوي تحت عاصفة ثلجية من البارميزان.</span></p><div class="row"><span class="heat"><svg class="on"><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><b><span lang="en">Pff</span><span lang="ar">بِف</span></b></span><span class="price">$9.5</span></div></div></div></article>
+    <article class="panel h2 w5 yl"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Smoky BBQ</span><span lang="ar">باربكيو مدخّن</span></h3><p class="bub"><span lang="en">Hickory smoke, molasses and a slow tomato tang. Sticky fingers guaranteed.</span><span lang="ar">دخان الهيكوري والدبس ونكهة طماطم مطبوخة على مهل. الأصابع اللزجة مضمونة.</span></p><div class="row"><span class="heat"><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><b><span lang="en">Zing</span><span lang="ar">زِنغ</span></b></span><span class="price">$9.5</span></div></div></div></article>
+    <span class="sfx" style="top:-28px;inset-inline-end:3%;transform:rotate(calc(9deg*var(--dir)))"><span lang="en">Crunch!</span><span lang="ar">قَرْش!</span></span>
+  </div>
+  <div class="strip">
+    <article class="panel h2 w5 yr"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Lemon Pepper Zap</span><span lang="ar">ليمون وفلفل أسود</span></h3><p class="bub"><span lang="en">Dry-rubbed with cracked pepper and lemon zest. Bright, sharp, electric.</span><span lang="ar">تتبيلة جافة من الفلفل المجروش وقشر الليمون: لاذعة ومنعشة كالصعقة.</span></p><div class="row"><span class="heat"><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><b><span lang="en">Zing</span><span lang="ar">زِنغ</span></b></span><span class="price">$9</span></div></div></div></article>
+    <article class="panel h3 w4 yl zr"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Classic Buffalo</span><span lang="ar">بافلو الكلاسيكية</span></h3><p class="bub"><span lang="en">The origin story: cayenne, butter, vinegar. Blue cheese dip on the side.</span><span lang="ar">حكاية البداية: فلفل كايين وزبدة وخلّ، مع صلصة الجبن الأزرق جانباً.</span></p><div class="row"><span class="heat"><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><b><span lang="en">Pow</span><span lang="ar">طَخ</span></b></span><span class="price">$9.5</span></div></div></div></article>
+    <article class="panel h3 w3 zl"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Mango Habanero</span><span lang="ar">مانجو وهابانيرو</span></h3><p class="bub"><span lang="en">Sweet first. Then the habanero remembers you.</span><span lang="ar">حلوة في البداية، ثم يتذكّرك الهابانيرو.</span></p><div class="row"><span class="heat"><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg><use href="#x"/></svg><b><span lang="en">Bam</span><span lang="ar">بوم</span></b></span><span class="price">$10</span></div></div></div></article>
+  </div>
+  <div class="strip">
+    <article class="panel h4 w5 zr"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Nashville Hot</span><span lang="ar">ناشفيل الحارّة</span></h3><p class="bub"><span lang="en">Dunked in fiery cayenne oil, served on white bread with pickles to save you.</span><span lang="ar">تُغطَّس في زيت الكايين الملتهب وتُقدَّم على خبز أبيض مع مخلّل ينقذك.</span></p><div class="row"><span class="heat"><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg><use href="#x"/></svg><b><span lang="en">Bam</span><span lang="ar">بوم</span></b></span><span class="price">$10.5</span></div></div></div></article>
+    <article class="panel h5 w7 zl big"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Supernova</span><span lang="ar">سوبرنوفا</span></h3><p class="bub shout"><span lang="en">Ghost pepper, Carolina reaper and absolutely no mercy. Finish six and your name goes on the wall.</span><span lang="ar">فلفل الشبح وكارولينا ريبر، ولا رحمة على الإطلاق. أنهِ ستّ قطع ويُكتب اسمك على الجدار.</span></p><p class="warn"><span lang="en">Warning: milkshake strongly advised</span><span lang="ar">تحذير: ننصح بشدّة بطلب ميلك شيك</span></p><div class="row"><span class="heat"><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><b><span lang="en">Ka-boom</span><span lang="ar">كابووم</span></b></span><span class="price">$11</span></div></div></div></article>
+    <span class="sfx" style="top:-34px;inset-inline-start:36%;transform:rotate(calc(-7deg*var(--dir)));color:#fff"><span lang="en">Ka-boom!</span><span lang="ar">كابووم!</span></span>
+  </div>
+  <div class="strip base">
+    <div class="panel white w12"><div class="in"><div class="c">
+      <p class="narr" style="align-self:flex-start"><span lang="en">Meanwhile… every flavour takes three forms:</span><span lang="ar">في هذه الأثناء… لكل نكهة ثلاث هيئات:</span></p>
+      <ul>
+        <li><b><span lang="en">Bone-in</span><span lang="ar">بالعظم</span></b><span lang="en">Drums and flats, the classic.</span><span lang="ar">أفخاذ وأجنحة، الأصل الكلاسيكي.</span> <em><span lang="en">As priced</span><span lang="ar">بالسعر المذكور</span></em></li>
+        <li><b><span lang="en">Boneless</span><span lang="ar">بلا عظم</span></b><span lang="en">Crispy breast bites, all crunch.</span><span lang="ar">قطع صدر مقرمشة، قرمشة خالصة.</span> <em>+$1</em></li>
+        <li><b><span lang="en">Cauliflower</span><span lang="ar">قرنبيط</span></b><span lang="en">Battered florets for plant-powered heroes.</span><span lang="ar">زهرات مقلية لأبطال الطاقة النباتية.</span> <em><span lang="en">As priced</span><span lang="ar">بالسعر المذكور</span></em></li>
+      </ul>
+      <p><span lang="en">Double up to twelve wings for +$7.</span><span lang="ar">ضاعِف الطلب إلى اثنتي عشرة قطعة بإضافة 7$.</span></p>
+    </div></div></div>
+  </div>
+</section>
+
+<section class="page" id="sidekicks">
+  <div class="chap" style="--hc:var(--c)"><span class="no"><span lang="en">Chapter 2</span><span lang="ar">الفصل الثاني</span></span><h2><span lang="en">The Sidekicks</span><span lang="ar">المساعدون</span></h2><p><span lang="en">Loyal, crispy and always ready to share the spotlight.</span><span lang="ar">أوفياء ومقرمشون ومستعدّون دائماً لاقتسام الأضواء.</span></p></div>
+  <div class="strip">
+    <article class="panel blue w6 yr big"><div class="in"><div class="c"><h3 class="cap"><span lang="en">KAPOW Fries</span><span lang="ar">بطاطا كابوو</span></h3><p class="bub"><span lang="en">Fries buried under cheese sauce, crispy turkey bacon, jalapeños and a zigzag of buffalo ranch.</span><span lang="ar">بطاطا مقلية مدفونة تحت صلصة الجبن ولحم الديك الرومي المقدَّد المقرمش والهالابينو وخطوط متعرّجة من رانش البافلو.</span></p><div class="row"><span class="heat"><svg class="on"><use href="#x"/></svg><svg class="on"><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><b><span lang="en">Zing</span><span lang="ar">زِنغ</span></b></span><span class="price">$8</span></div></div></div></article>
+    <article class="panel yel w3 yl zr"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Curly Fries</span><span lang="ar">بطاطا لولبية</span></h3><p class="bub"><span lang="en">Spiral-cut, paprika-dusted, impossible to stop.</span><span lang="ar">مقطّعة حلزونياً ومرشوشة بالبابريكا، ولا يمكن التوقف عنها.</span></p><div class="row"><span class="price">$4.5</span></div></div></div></article>
+    <article class="panel green w3 zl"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Cool Slaw</span><span lang="ar">سلطة الكولسلو</span></h3><p class="bub"><span lang="en">Crunchy cabbage, apple and lime. Puts out fires.</span><span lang="ar">ملفوف مقرمش مع التفاح والليمون. تُطفئ الحرائق.</span></p><div class="row"><span class="price">$3.5</span></div></div></div></article>
+  </div>
+  <div class="strip">
+    <article class="panel org w3 zr"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Mac Bites</span><span lang="ar">كرات المعكرونة</span></h3><p class="bub"><span lang="en">Fried nuggets of three-cheese macaroni.</span><span lang="ar">لقيمات مقلية من معكرونة بثلاثة أجبان.</span></p><div class="row"><span class="price">$6</span></div></div></div></article>
+    <article class="panel pink w4 zl yr"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Corn Ribs</span><span lang="ar">أضلاع الذرة</span></h3><p class="bub"><span lang="en">Charred corn quarters, chilli butter, lime, a shower of feta.</span><span lang="ar">أرباع ذرة مشوية مع زبدة الفلفل الحار والليمون ورشّة فيتا.</span></p><div class="row"><span class="heat"><svg class="on"><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><svg><use href="#x"/></svg><b><span lang="en">Pff</span><span lang="ar">بِف</span></b></span><span class="price">$5.5</span></div></div></div></article>
+    <article class="panel white w5 yl"><div class="in"><div class="c"><h3 class="cap"><span lang="en">Sticks &amp; Dip</span><span lang="ar">أعواد وغموس</span></h3><p class="bub"><span lang="en">Celery and carrot batons with blue cheese or ranch. The traditional peace treaty.</span><span lang="ar">أعواد كرفس وجزر مع صلصة الجبن الأزرق أو الرانش. معاهدة السلام التقليدية.</span></p><div class="row"><span class="price">$3</span></div></div></div></article>
+    <span class="sfx" style="top:-30px;inset-inline-end:8%;transform:rotate(calc(-6deg*var(--dir)));color:var(--c)"><span lang="en">Dip!</span><span lang="ar">غَمْس!</span></span>
+  </div>
+</section>
+
+<section class="page team" id="teamups">
+  <div class="chap" style="--hc:#7a0d6e"><span class="no"><span lang="en">Chapter 3</span><span lang="ar">الفصل الثالث</span></span><h2><span lang="en">Team-Ups</span><span lang="ar">تحالفات الأبطال</span></h2><p><span lang="en">Wings assemble! Combos for every size of squad.</span><span lang="ar">يا أجنحة اتّحدي! وجبات مجمّعة لكل فريق مهما كان حجمه.</span></p></div>
+  <div class="strip">
+    <article class="panel yel w4 zr"><div class="in"><div class="c"><span class="for"><span lang="en">For one</span><span lang="ar">لشخص واحد</span></span><h3 class="cap"><span lang="en">Solo Mission</span><span lang="ar">مهمة فردية</span></h3><ul><li><span lang="en">6 wings, one flavour</span><span lang="ar">٦ أجنحة بنكهة واحدة</span></li><li><span lang="en">Curly fries</span><span lang="ar">بطاطا لولبية</span></li><li><span lang="en">Any soda</span><span lang="ar">مشروب غازي من اختيارك</span></li></ul><div class="row"><span class="price">$13</span></div></div></div></article>
+    <article class="panel org w4 zl zr"><div class="in"><div class="c"><span class="for"><span lang="en">For two</span><span lang="ar">لشخصين</span></span><h3 class="cap"><span lang="en">Dynamic Duo</span><span lang="ar">الثنائي الخارق</span></h3><ul><li><span lang="en">12 wings, two flavours</span><span lang="ar">١٢ جناحاً بنكهتين</span></li><li><span lang="en">Two sidekicks</span><span lang="ar">طبقان جانبيان</span></li><li><span lang="en">Two drinks, two dips</span><span lang="ar">مشروبان وغموسان</span></li></ul><div class="row"><span class="price">$26</span></div></div></div></article>
+    <article class="panel h4 w4 zl"><div class="in"><div class="c"><span class="for"><span lang="en">For five</span><span lang="ar">لخمسة أشخاص</span></span><h3 class="cap"><span lang="en">The Whole League</span><span lang="ar">الرابطة كاملة</span></h3><ul><li><span lang="en">30 wings, four flavours</span><span lang="ar">٣٠ جناحاً بأربع نكهات</span></li><li><span lang="en">KAPOW fries + three sidekicks</span><span lang="ar">بطاطا كابوو وثلاثة أطباق جانبية</span></li><li><span lang="en">A jug of lemonade</span><span lang="ar">إبريق ليموناضة</span></li></ul><div class="row"><span class="price">$58</span></div></div></div></article>
+    <span class="sfx" style="bottom:-20px;inset-inline-start:2%;transform:rotate(calc(-8deg*var(--dir)))"><span lang="en">Assemble!</span><span lang="ar">اتّحدوا!</span></span>
+  </div>
+</section>
+
+<section class="page" id="cooldown">
+  <div class="chap" style="--hc:var(--c)"><span class="no"><span lang="en">Epilogue</span><span lang="ar">الخاتمة</span></span><h2><span lang="en">The Cool-Down</span><span lang="ar">التبريد</span></h2><p><span lang="en">Later, at the soda fountain, our hero recovers…</span><span lang="ar">لاحقاً، عند نافورة المشروبات، يستعيد بطلنا أنفاسه…</span></p></div>
+  <div class="strip">
+    <div class="panel pano w12"><div class="in"><div class="c">
+      <article class="drink"><h3 class="cap"><span lang="en">Vanilla Malt Shake</span><span lang="ar">ميلك شيك الفانيلا</span></h3><p class="bub"><span lang="en">Thick, cold, the official antidote to Supernova.</span><span lang="ar">كثيف وبارد، وهو الترياق الرسمي للسوبرنوفا.</span></p><svg viewBox="0 0 74 104" aria-hidden="true"><g stroke="#111018" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M46 6l-8 26" fill="none" stroke="#e8222e" stroke-width="6"/><path d="M14 32h46l-7 62H21z" fill="#fff7e0"/><path d="M12 32c0-12 10-18 25-18s25 6 25 18z" fill="#fff"/><path d="M18 60h38" fill="none"/></g></svg><div class="row"><span class="price">$6</span></div></article>
+      <article class="drink"><h3 class="cap"><span lang="en">Blue Razz Slush</span><span lang="ar">سلاش التوت الأزرق</span></h3><p class="bub"><span lang="en">Electric-blue raspberry ice. Brain freeze included.</span><span lang="ar">ثلج مجروش بتوت أزرق كهربائي، وتجمّد الدماغ هدية.</span></p><svg viewBox="0 0 74 104" aria-hidden="true"><g stroke="#111018" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M44 4l-6 30" fill="none" stroke="#ffd400" stroke-width="6"/><path d="M14 34h46l-7 60H21z" fill="#18b4f0"/><path d="M10 34c4-16 14-20 27-20s23 4 27 20z" fill="#9fe0ff"/></g></svg><div class="row"><span class="price">$4.5</span></div></article>
+      <article class="drink"><h3 class="cap"><span lang="en">Fresh Lemonade</span><span lang="ar">ليموناضة طازجة</span></h3><p class="bub"><span lang="en">Squeezed this morning with mint and a pinch of salt.</span><span lang="ar">معصورة هذا الصباح مع النعناع ورشّة ملح.</span></p><svg viewBox="0 0 74 104" aria-hidden="true"><g stroke="#111018" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M16 22h42l-5 72H21z" fill="#fff38a"/><circle cx="54" cy="22" r="13" fill="#ffd400"/><path d="M54 9v26M41 22h26" fill="none" stroke-width="3"/><path d="M34 8l-4 40" fill="none" stroke="#7fd858" stroke-width="6"/></g></svg><div class="row"><span class="price">$4</span></div></article>
+      <article class="drink"><h3 class="cap"><span lang="en">Cola Float</span><span lang="ar">كولا بالآيس كريم</span></h3><p class="bub"><span lang="en">Ice-cold cola, a scoop of vanilla, a fizzing volcano.</span><span lang="ar">كولا مثلّجة مع كرة آيس كريم فانيلا: بركان من الفوران.</span></p><svg viewBox="0 0 74 104" aria-hidden="true"><g stroke="#111018" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M48 4l-8 30" fill="none" stroke="#e8222e" stroke-width="6"/><path d="M16 34h42l-5 60H21z" fill="#5a2a12"/><circle cx="30" cy="30" r="14" fill="#fff7e0"/><circle cx="48" cy="34" r="9" fill="#fff"/></g></svg><div class="row"><span class="price">$5.5</span></div></article>
+    </div></div></div>
+  </div>
+</section>
+</main>
+
+<footer class="end">
+  <div class="strip">
+    <div class="panel w4 zr"><div class="in"><div class="c"><h3><span lang="en">Opening hours</span><span lang="ar">ساعات العمل</span></h3><p><span lang="en">Every day, 11 am to 1 am.<br>Fridays and Saturdays until 3 am.</span><span lang="ar">يومياً من ١١ صباحاً حتى ١ بعد منتصف الليل.<br>الجمعة والسبت حتى ٣ فجراً.</span></p></div></div></div>
+    <div class="panel w4 zl zr"><div class="in"><div class="c"><h3><span lang="en">Secret headquarters</span><span lang="ar">المقرّ السرّي</span></h3><p><span lang="en">23 Fryer Lane, corner of Crunch Street, Metro City</span><span lang="ar">٢٣ زقاق المقلاة، عند تقاطع شارع القرمشة، مترو سيتي</span><br><span class="ltr">+1 555 0123</span></p></div></div></div>
+    <div class="panel w4 zl"><div class="in"><div class="c"><h3><span lang="en">Fine print</span><span lang="ar">تنبيهات</span></h3><p><span lang="en">All chicken is halal. We fry in sunflower oil; sauces may contain milk, egg, soy, wheat and mustard. Tell us your kryptonite.</span><span lang="ar">كل دجاجنا حلال. نقلي بزيت دوّار الشمس، وقد تحتوي الصلصات على الحليب والبيض والصويا والقمح والخردل. أخبرنا بنقطة ضعفك.</span></p></div></div></div>
+  </div>
+  <p class="fin"><span lang="en">To be continued…</span><span lang="ar">يتبع…</span></p>
+</footer>
+</div>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>

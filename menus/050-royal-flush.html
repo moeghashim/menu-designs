@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Royal Flush Kitchen · مطبخ الفلوش الملكي</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Royal Flush Kitchen — tapas and sharing plates dealt as playing cards on green felt. Four suits, four hands; turn any card over for the tell.">
+<meta name="theme-color" content="#0b4a31">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr';d.className='js'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Playfair+Display:ital,wght@0,600;0,800;1,700&family=Karla:wght@400;500;700&family=El+Messiri:wght@500;700&family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--felt:#0e5a3b;--felt2:#0a432c;--gold:#e6bd5c;--gold2:#b8862b;--card:#fbf7ec;--red:#c2202c;--blk:#17181d;--wood:#3a1d0e;--back:#8d1622;
+  --disp:"Limelight","Playfair Display",Georgia,serif;--serif:"Playfair Display",Georgia,serif}
+html[lang="ar"]{--disp:"El Messiri","Almarai",sans-serif;--serif:"El Messiri","Almarai",sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 16px/1.5 "Karla","Helvetica Neue",Arial,sans-serif;color:#f4ecd8;background:#1c0d06;
+  background-image:repeating-linear-gradient(94deg,rgba(255,200,140,.05) 0 2px,transparent 2px 11px),repeating-linear-gradient(86deg,rgba(0,0,0,.25) 0 1px,transparent 1px 17px),linear-gradient(#2b150a,#170a04)}
+html[lang="ar"] body{font-family:"Almarai","Segoe UI",Tahoma,sans-serif;font-size:16.5px;line-height:1.75}
+html[lang="ar"] *{letter-spacing:0 !important}
+h1,h2,h3,h4,p,ul{margin:0;padding:0}li{list-style:none}
+svg{display:block}
+.pr{white-space:nowrap;unicode-bidi:isolate;font-weight:700}
+
+.ctl{position:fixed;inset-block-start:10px;inset-inline-end:10px;z-index:60;display:flex;gap:6px}
+.ctl a,.ctl button{font:700 12px/1 "Karla",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--blk);background:var(--card);border:0;border-radius:7px;padding:10px 12px;cursor:pointer;text-decoration:none;
+  box-shadow:0 0 0 2px var(--card),0 0 0 3px var(--red),0 6px 14px rgba(0,0,0,.5)}
+.ctl button{color:var(--red)}
+.ctl [lang="ar"]{font:800 13px/1 "Almarai",sans-serif}
+.ctl a:hover,.ctl button:hover{transform:translateY(-2px) rotate(-2deg)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+
+/* table */
+.table{position:relative;margin:clamp(8px,1.6vw,26px);border-radius:clamp(26px,6vw,110px);padding:clamp(70px,7vw,100px) clamp(12px,3.6vw,64px) clamp(40px,5vw,70px);overflow:hidden;
+  background:radial-gradient(90% 50% at 50% 0,#17805a 0,var(--felt) 45%,var(--felt2) 100%);
+  box-shadow:0 0 0 clamp(7px,1.1vw,16px) #4a2511,0 0 0 clamp(9px,1.3vw,19px) #1a0b04,inset 0 0 0 2px rgba(0,0,0,.35),inset 0 0 90px rgba(0,0,0,.55)}
+.table::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
+.table::after{content:"";position:absolute;inset:clamp(10px,1.6vw,24px);border:2px dashed rgba(230,189,92,.4);border-radius:clamp(18px,5vw,90px);pointer-events:none}
+.table>*{position:relative;z-index:1}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:center;max-width:1280px;margin:0 auto clamp(40px,6vw,80px)}
+.est{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);display:flex;gap:10px;align-items:center}
+html[lang="ar"] .est{font-size:14.5px}
+.est svg{width:13px;height:13px;fill:var(--gold)}
+h1{font:400 clamp(50px,7.6vw,112px)/.95 var(--disp);color:var(--gold);margin-block:14px 16px;text-shadow:0 2px 0 #7a5417,0 5px 0 rgba(0,0,0,.35),0 0 40px rgba(230,189,92,.25)}
+html[lang="ar"] h1{font-weight:700;line-height:1.25;font-size:clamp(48px,7vw,100px)}
+h1 em{font-style:normal;display:block;font-size:.42em;letter-spacing:.3em;color:#f4ecd8;text-shadow:none;margin-block-start:.35em;font-family:"Karla",sans-serif;font-weight:500;text-transform:uppercase}
+html[lang="ar"] h1 em{font-family:"Almarai",sans-serif;font-weight:700;font-size:.34em}
+.lead{max-width:50ch;font-size:clamp(16px,1.3vw,18px);color:#e3dcc8}
+.how{margin-block-start:22px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.how p{font-size:.92em;color:var(--gold);flex:1 1 200px}
+#flipAll{font:700 12.5px/1 "Karla",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--blk);background:var(--gold);border:0;border-radius:99px;padding:13px 18px;cursor:pointer;box-shadow:0 3px 0 var(--gold2),0 8px 16px rgba(0,0,0,.35)}
+html[lang="ar"] #flipAll{font:800 14px/1 "Almarai",sans-serif}
+#flipAll:hover{transform:translateY(-1px)}#flipAll:active{transform:translateY(2px);box-shadow:0 1px 0 var(--gold2)}
+
+.deal{display:grid;justify-items:center;gap:6px}
+.fan{position:relative;width:min(100%,520px);height:clamp(210px,24vw,310px);direction:ltr}
+.mini{position:absolute;left:50%;bottom:0;width:clamp(104px,12.5vw,158px);aspect-ratio:5/7;margin-left:calc(clamp(104px,12.5vw,158px)/-2);background:var(--card);border-radius:10px;color:var(--blk);
+  box-shadow:0 0 0 1px rgba(0,0,0,.25),-6px 10px 18px rgba(0,0,0,.4);transform-origin:50% 135%;transform:rotate(var(--a));padding:8px 10px;font:800 clamp(20px,2.3vw,30px)/1 var(--serif);transition:transform .5s cubic-bezier(.2,.9,.3,1.2)}
+.fan:hover .mini{transform:rotate(calc(var(--a)*1.25)) translateY(-8px)}
+.mini svg{width:.62em;height:.62em;fill:currentColor;margin-block-start:3px}
+.mini>svg.big{position:absolute;inset:0;margin:auto;width:46%;height:46%;opacity:.95}
+.mini i{position:absolute;right:10px;bottom:8px;transform:rotate(180deg);font-style:normal}
+.plaque{text-align:center;background:linear-gradient(160deg,#f3d889,#c9973a 55%,#eccf7c);color:#3a2408;border-radius:10px;padding:16px clamp(16px,2.6vw,34px) 16px;max-width:520px;width:100%;
+  box-shadow:inset 0 0 0 2px #fff3c4,inset 0 0 0 4px #9a6f1e,0 14px 26px rgba(0,0,0,.45);margin-block-start:-18px;position:relative;z-index:2}
+.plaque small{font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;font-weight:700}
+html[lang="ar"] .plaque small{font-size:14px}
+.plaque h2{font:400 clamp(26px,2.8vw,38px)/1.1 var(--disp);margin-block:4px 6px}
+html[lang="ar"] .plaque h2{font-weight:700;line-height:1.4}
+.plaque p{font-size:.93em;line-height:1.4}
+.plaque ul{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 14px;margin-block:10px;font-size:.86em;font-weight:700}
+.plaque li b{font-family:var(--serif);font-size:1.15em;margin-inline-end:.3em;color:#7a1019}
+.plaque .pr{display:inline-block;background:#3a2408;color:#f3d889;border-radius:99px;padding:5px 18px;font-size:1.05em}
+
+/* suit header */
+.hand{max-width:1280px;margin:0 auto clamp(46px,6vw,84px);scroll-margin-top:20px}
+.sh{display:flex;align-items:center;gap:clamp(12px,2vw,24px);margin-block-end:clamp(20px,3vw,36px)}
+.sh::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--gold),transparent)}
+html[dir="rtl"] .sh::after{background:linear-gradient(270deg,var(--gold),transparent)}
+.pip{flex:none;width:clamp(58px,6vw,78px);aspect-ratio:1;border-radius:50%;background:var(--card);display:grid;place-items:center;box-shadow:0 0 0 3px var(--felt2),0 0 0 5px var(--gold),0 8px 16px rgba(0,0,0,.35)}
+.pip svg{width:52%;height:52%}
+.sh h2{font:400 clamp(28px,3.6vw,48px)/1.05 var(--disp);color:var(--gold)}
+html[lang="ar"] .sh h2{font-weight:700;line-height:1.35}
+.sh p{font-size:.9em;letter-spacing:.2em;text-transform:uppercase;color:#d9e8dc}
+html[lang="ar"] .sh p{font-size:1em}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.4vw,20px)}
+.card{perspective:1200px;cursor:pointer;border-radius:14px;transition:transform .35s cubic-bezier(.2,.8,.3,1.2);transform:translateY(var(--y,0)) rotate(var(--r,0deg));-webkit-tap-highlight-color:transparent}
+.card:hover,.card:focus-visible{transform:translateY(-10px) rotate(0deg);z-index:3}
+.in{display:grid;height:100%;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,.1,.2,1)}
+.card.flip .in{transform:rotateY(180deg)}
+html:not(.js) .card:focus .in{transform:rotateY(180deg)}
+.f{grid-area:1/1;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:14px;background:var(--card);color:var(--blk);min-height:clamp(300px,25vw,348px);position:relative;
+  box-shadow:0 0 0 1px rgba(0,0,0,.3),0 10px 20px rgba(0,0,0,.4);display:flex;flex-direction:column;overflow:hidden}
+.r .f{color:var(--red)}
+.front{padding:52px 16px 50px;text-align:center;justify-content:center;align-items:center;gap:8px}
+.front>svg.wm{position:absolute;inset:0;margin:auto;width:70%;height:70%;fill:currentColor;opacity:.07}
+.ix{position:absolute;inset-block-start:9px;inset-inline-start:11px;font:800 24px/1 "Playfair Display",Georgia,serif;display:grid;justify-items:center;gap:2px;direction:ltr}
+.ix svg{width:15px;height:15px;fill:currentColor}
+.ix.b{inset:auto;inset-block-end:9px;inset-inline-end:11px;transform:rotate(180deg)}
+.front h3{font:700 italic clamp(20px,1.75vw,24px)/1.15 "Playfair Display",Georgia,serif;position:relative}
+html[lang="ar"] .front h3{font:700 clamp(20px,1.7vw,23px)/1.4 "El Messiri",sans-serif}
+.front p{font-size:14.5px;line-height:1.35;color:#3d3a36;position:relative;max-width:24ch}
+html[lang="ar"] .front p{font-size:15px;line-height:1.6}
+.front .pr{position:relative;font:700 15px/1 "Karla",sans-serif;border:1.5px solid currentColor;border-radius:99px;padding:6px 14px 5px;margin-block-start:4px}
+html[lang="ar"] .front .pr{font-family:"Almarai",sans-serif}
+.turn{position:absolute;bottom:12px;left:13px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8a857a;display:flex;gap:4px;align-items:center}
+html[lang="ar"] .turn{font-size:12px}
+.turn::before{content:"";width:11px;height:11px;border:1.5px solid currentColor;border-radius:50%;border-inline-end-color:transparent}
+.back{transform:rotateY(180deg);padding:9px;background:var(--back);
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.16) 0 2px,transparent 2px 10px),repeating-linear-gradient(-45deg,rgba(255,255,255,.16) 0 2px,transparent 2px 10px)}
+.b .back{background-color:#1d2a4f}
+.back>div{flex:1;background:var(--card);border-radius:8px;padding:16px 14px;color:var(--blk);display:flex;flex-direction:column;gap:3px;text-align:start;box-shadow:0 0 0 2px var(--card),0 0 0 3px rgba(0,0,0,.35)}
+.back h4{font:700 10.5px/1.3 "Karla",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-block-start:8px}
+.back h4:first-child{margin-block-start:0}
+html[lang="ar"] .back h4{font:800 13px/1.5 "Almarai",sans-serif}
+.back p{font-size:14.5px;line-height:1.38}
+html[lang="ar"] .back p{font-size:15px;line-height:1.6}
+.back .tg{margin-block-start:auto;padding-block-start:8px;font-size:12px;font-weight:700;letter-spacing:.06em;color:#5a564e;border-block-start:1px dashed #b9b2a0}
+html[lang="ar"] .back .tg{font-size:13px}
+/* joker: starts face-down */
+.joker .front{background:var(--back);color:#fff;padding:9px;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.16) 0 2px,transparent 2px 10px),repeating-linear-gradient(-45deg,rgba(255,255,255,.16) 0 2px,transparent 2px 10px)}
+.joker .front>div{flex:1;align-self:stretch;border:2px solid rgba(255,255,255,.75);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px;background:rgba(0,0,0,.18)}
+.joker .front h3{color:var(--gold)}
+.joker .front p{color:#f6e9d2}
+.joker .front .pr{color:var(--gold)}
+.joker .front svg{width:44px;height:44px;fill:var(--gold)}
+.joker .back{background:var(--card);padding:0}
+.joker .back>div{box-shadow:none;padding:22px 16px;justify-content:center;text-align:center;align-items:center}
+.joker .back b{font:800 34px/1 "Playfair Display",serif;color:var(--red);letter-spacing:.04em}
+
+@media (min-width:1101px){
+  .cards .card:nth-child(1){--r:-3.4deg;--y:16px}.cards .card:nth-child(2){--r:-1.7deg;--y:4px}.cards .card:nth-child(4){--r:1.7deg;--y:4px}.cards .card:nth-child(5){--r:3.4deg;--y:16px}
+}
+
+/* chips */
+.chips{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(12px,1.8vw,26px)}
+.chipit{text-align:center;display:flex;flex-direction:column;align-items:center}
+.chip{--c:#c2202c;width:clamp(96px,9.4vw,128px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;position:relative;margin-block-end:14px;
+  background:repeating-conic-gradient(var(--c) 0 22.5deg,#f6efe0 22.5deg 45deg);box-shadow:0 6px 0 rgba(0,0,0,.35),0 7px 0 var(--c),0 12px 0 rgba(0,0,0,.35),0 13px 0 var(--c),0 22px 22px rgba(0,0,0,.4);transition:transform .4s}
+.chipit:hover .chip{transform:translateY(-6px) rotate(40deg)}
+.chip::before{content:"";position:absolute;inset:13%;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 2px rgba(255,255,255,.75),inset 0 0 0 5px var(--c),inset 0 0 0 6px rgba(255,255,255,.35)}
+.chip span{position:relative;color:#fff;font:800 clamp(22px,2.2vw,30px)/1 "Playfair Display",serif;direction:ltr}
+.chip span small{display:block;font:700 9.5px/1 "Karla",sans-serif;letter-spacing:.18em;margin-block-start:3px;opacity:.9}
+.chipit h3{font:700 italic clamp(19px,1.6vw,22px)/1.2 "Playfair Display",serif;color:var(--gold)}
+html[lang="ar"] .chipit h3{font:700 20px/1.4 "El Messiri",sans-serif}
+.chipit p{font-size:.92em;color:#dfe9df;max-width:24ch;margin-block-start:4px}
+
+/* house rules */
+.rules{max-width:1080px;margin:0 auto;background:var(--card);color:var(--blk);border-radius:16px;padding:clamp(20px,3vw,38px);display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));gap:clamp(16px,2.6vw,38px);align-items:start;
+  box-shadow:0 0 0 1px rgba(0,0,0,.3),0 18px 30px rgba(0,0,0,.45);position:relative}
+.rules::before{content:"";position:absolute;inset:8px;border:1.5px solid var(--red);border-radius:10px;pointer-events:none}
+.rules .ace{font:800 clamp(50px,5vw,72px)/.9 "Playfair Display",serif;color:var(--red);display:grid;justify-items:center;gap:4px;direction:ltr}
+.rules .ace svg{width:.5em;height:.5em;fill:currentColor}
+.rules h2{font:700 12px/1.3 "Karla",sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--red);margin-block-end:8px}
+html[lang="ar"] .rules h2{font:800 15px/1.5 "Almarai",sans-serif}
+.rules p{font-size:.95em}
+.rules p+p{margin-block-start:6px}
+.sign{text-align:center;margin-block-start:clamp(26px,4vw,44px);font:400 clamp(20px,2.6vw,32px)/1.2 var(--disp);color:var(--gold)}
+html[lang="ar"] .sign{font-weight:700;line-height:1.5}
+.sign small{display:block;font:400 12.5px/1.5 "Karla",sans-serif;letter-spacing:.14em;color:#cfe0d2;margin-block-start:8px}
+html[lang="ar"] .sign small{font:400 14px/1.6 "Almarai",sans-serif}
+
+@media (max-width:1100px){
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .chips{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:34px}
+  .rules{grid-template-columns:repeat(3,minmax(0,1fr))}.rules .ace{display:none}
+}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr}
+  .deal{order:-1;margin-block-end:6px}
+  .cards{grid-template-columns:1fr;gap:14px}
+  .f{min-height:212px}
+  .front{padding:20px 58px 22px}
+  .front p{max-width:30ch;font-size:15.5px}html[lang="ar"] .front p{font-size:16px}
+  .back p{font-size:15.5px}html[lang="ar"] .back p{font-size:16px}
+  .front>svg.wm{width:42%;height:80%}
+  .card:hover,.card:focus-visible{transform:none}
+  .chips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rules{grid-template-columns:1fr}
+  .sh p{letter-spacing:.1em}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01s !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<div class="ctl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="sp" viewBox="0 0 24 24"><path d="M12 2C8 7 3 10 3 14.5 3 17 5 19 7.5 19c1.5 0 2.8-.7 3.7-1.8C11 19.500 10 21 8.500 22h7c-1.500-1-2.500-2.500-2.700-4.800.9 1.100 2.200 1.800 3.700 1.800 2.500 0 4.500-2 4.500-4.500C21 10 16 7 12 2Z"/></symbol>
+  <symbol id="he" viewBox="0 0 24 24"><path d="M12 21C5 15 2 11.500 2 7.800 2 5 4.200 3 6.800 3 8.900 3 10.900 4.200 12 6c1.100-1.800 3.100-3 5.200-3C19.800 3 22 5 22 7.800 22 11.500 19 15 12 21Z"/></symbol>
+  <symbol id="di" viewBox="0 0 24 24"><path d="M12 2l8 10-8 10L4 12Z"/></symbol>
+  <symbol id="cl" viewBox="0 0 24 24"><circle cx="12" cy="6.500" r="4.500"/><circle cx="6.500" cy="13.500" r="4.500"/><circle cx="17.500" cy="13.500" r="4.500"/><path d="M12 10c.2 6 1.200 10 3.500 12h-7c2.300-2 3.300-6 3.500-12Z"/></symbol>
+  <symbol id="jk" viewBox="0 0 24 24"><path d="M3 9l3.500 8h11L21 9l-5 4-4-8-4 8zM6.500 19h11v2h-11z"/><circle cx="3" cy="8" r="1.600"/><circle cx="21" cy="8" r="1.600"/><circle cx="12" cy="4" r="1.600"/></symbol>
+</defs></svg>
+
+<main class="table">
+  <header class="hero">
+    <div>
+      <p class="est"><svg aria-hidden="true"><use href="#sp"/></svg><span lang="en">Tapas &amp; sharing · dealt nightly</span><span lang="ar">تاباس وأطباق مشاركة · تُوزَّع كلّ ليلة</span><svg aria-hidden="true"><use href="#he"/></svg></p>
+      <h1><span lang="en">Royal Flush <em>Kitchen</em></span><span lang="ar">الفلوش الملكي <em>مطبخ وأطباق مشاركة</em></span></h1>
+      <p class="lead"><span lang="en">Pull up a chair; the table is the menu. Every dish is a card, every suit a hand: spades from the sea, hearts from the fire, diamonds from the garden, clubs for something sweet. Three or four cards a head makes a winning night.</span><span lang="ar">اسحب كرسياً، فالطاولة هي القائمة. كلّ طبق ورقة وكلّ نقش يدٌ كاملة: البستوني من البحر، والقلوب من النار، والديناري من البستان، والسباتي للحلو. ثلاث أو أربع أوراق للشخص تكفي لسهرة رابحة.</span></p>
+      <div class="how">
+        <p><span lang="en">Tap any card to turn it over and read the tell.</span><span lang="ar">المس أيّ ورقة لتقلبها وتكشف سرّها.</span></p>
+        <button id="flipAll" type="button"><span lang="en">Turn every card</span><span lang="ar">اقلب كلّ الأوراق</span></button>
+      </div>
+    </div>
+    <div class="deal">
+      <div class="fan" aria-hidden="true">
+        <div class="mini" style="--a:-30deg">10<svg><use href="#sp"/></svg><svg class="big"><use href="#sp"/></svg><i>10</i></div>
+        <div class="mini" style="--a:-15deg">J<svg><use href="#sp"/></svg><svg class="big"><use href="#sp"/></svg><i>J</i></div>
+        <div class="mini" style="--a:0deg">Q<svg><use href="#sp"/></svg><svg class="big"><use href="#sp"/></svg><i>Q</i></div>
+        <div class="mini" style="--a:15deg">K<svg><use href="#sp"/></svg><svg class="big"><use href="#sp"/></svg><i>K</i></div>
+        <div class="mini" style="--a:30deg">A<svg><use href="#sp"/></svg><svg class="big"><use href="#sp"/></svg><i>A</i></div>
+      </div>
+      <div class="plaque">
+        <small><span lang="en">The house hand · for two</span><span lang="ar">يد البيت · لشخصين</span></small>
+        <h2><span lang="en">The Royal Flush</span><span lang="ar">الفلوش الملكي</span></h2>
+        <p><span lang="en">Five plates dealt by the chef, in sequence, no peeking.</span><span lang="ar">خمسة أطباق يوزّعها الشيف بالتتابع، ودون استراق النظر.</span></p>
+        <ul>
+          <li><b>10</b><span lang="en">bread</span><span lang="ar">خبز</span></li><li><b>J</b><span lang="en">garden</span><span lang="ar">بستان</span></li><li><b>Q</b><span lang="en">sea</span><span lang="ar">بحر</span></li><li><b>K</b><span lang="en">fire</span><span lang="ar">نار</span></li><li><b>A</b><span lang="en">sweet</span><span lang="ar">حلو</span></li>
+        </ul>
+        <span class="pr"><span lang="en">QAR 240</span><span lang="ar">٢٤٠ ر.ق</span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- SPADES -->
+  <section class="hand" id="spades">
+    <div class="sh"><span class="pip"><svg fill="#17181d" aria-hidden="true"><use href="#sp"/></svg></span><div><h2><span lang="en">Spades</span><span lang="ar">البستوني</span></h2><p><span lang="en">from the sea</span><span lang="ar">من البحر</span></p></div></div>
+    <ul class="cards">
+      <li class="card b" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#sp"/></svg><span class="ix"><b>A</b><svg><use href="#sp"/></svg></span><span class="ix b"><b>A</b><svg><use href="#sp"/></svg></span>
+          <h3><span lang="en">Grilled Octopus</span><span lang="ar">أخطبوط مشوي</span></h3><p><span lang="en">Charred tentacle, smoked paprika oil, crushed potatoes.</span><span lang="ar">ذراع أخطبوط متفحّم، زيت البابريكا المدخّنة وبطاطا مهروسة.</span></p><span class="pr"><span lang="en">QAR 68</span><span lang="ar">٦٨ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Simmered two hours with a bay-leaf court bouillon, then seared hard on the plancha.</span><span lang="ar">يُسلق ساعتين في مرق عطري ثم يُحمَّر بقوّة على الصاج.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Verde Spritz</span><span lang="ar">فيردي سبريتز</span></p><p class="tg"><span lang="en">Gluten-free · shares 2</span><span lang="ar">خالٍ من الغلوتين · يكفي ٢</span></p></div></div>
+      </div></li>
+      <li class="card b" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#sp"/></svg><span class="ix"><b>K</b><svg><use href="#sp"/></svg></span><span class="ix b"><b>K</b><svg><use href="#sp"/></svg></span>
+          <h3><span lang="en">Gambas al Ajillo</span><span lang="ar">غامباس بالثوم</span></h3><p><span lang="en">Prawns still sizzling in garlic and chilli oil.</span><span lang="ar">روبيان ما زال يئزّ في زيت الثوم والفلفل الحار.</span></p><span class="pr"><span lang="en">QAR 58</span><span lang="ar">٥٨ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Six wild red prawns, guindilla chilli, a splash of lemon. Bread comes with it; use it.</span><span lang="ar">ستّ حبّات روبيان أحمر برّي، فلفل غينديّا ورشّة ليمون. يأتي معه الخبز، فاستعمله.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Lucky Seven</span><span lang="ar">السبعة المحظوظة</span></p><p class="tg"><span lang="en">Shellfish · medium heat</span><span lang="ar">قشريات · حرارة متوسّطة</span></p></div></div>
+      </div></li>
+      <li class="card b" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#sp"/></svg><span class="ix"><b>Q</b><svg><use href="#sp"/></svg></span><span class="ix b"><b>Q</b><svg><use href="#sp"/></svg></span>
+          <h3><span lang="en">Sea Bass Ceviche</span><span lang="ar">سيفيتشي القاروص</span></h3><p><span lang="en">Citrus tiger's milk, red onion, crisp corn.</span><span lang="ar">حليب النمر الحمضي، بصل أحمر وذرة مقرمشة.</span></p><span class="pr"><span lang="en">QAR 52</span><span lang="ar">٥٢ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Cured for four minutes only, to order, in lime, bitter orange and coriander stem.</span><span lang="ar">يُنقَع أربع دقائق فقط عند الطلب في الليمون الأخضر والنارنج وسيقان الكزبرة.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Blue Chip</span><span lang="ar">الفيشة الزرقاء</span></p><p class="tg"><span lang="en">Gluten-free · dairy-free</span><span lang="ar">خالٍ من الغلوتين والألبان</span></p></div></div>
+      </div></li>
+      <li class="card b" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#sp"/></svg><span class="ix"><b>J</b><svg><use href="#sp"/></svg></span><span class="ix b"><b>J</b><svg><use href="#sp"/></svg></span>
+          <h3><span lang="en">Salt-Cod Croquetas</span><span lang="ar">كروكيت القدّ المملّح</span></h3><p><span lang="en">Four to a plate, with saffron aioli.</span><span lang="ar">أربع حبّات في الطبق مع أيولي الزعفران.</span></p><span class="pr"><span lang="en">QAR 38</span><span lang="ar">٣٨ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">The béchamel rests overnight so the centre stays molten when the shell cracks.</span><span lang="ar">ترتاح البشاميل ليلة كاملة ليبقى القلب سائلاً حين تتكسّر القشرة.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">High Roller</span><span lang="ar">الرهان العالي</span></p><p class="tg"><span lang="en">Fish · milk · gluten</span><span lang="ar">سمك · حليب · غلوتين</span></p></div></div>
+      </div></li>
+      <li class="card b" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#sp"/></svg><span class="ix"><b>10</b><svg><use href="#sp"/></svg></span><span class="ix b"><b>10</b><svg><use href="#sp"/></svg></span>
+          <h3><span lang="en">Boquerones</span><span lang="ar">بوكيرونيس</span></h3><p><span lang="en">White anchovies in vinegar, parsley, grilled toast.</span><span lang="ar">أنشوفة بيضاء بالخلّ والبقدونس مع خبز محمّص.</span></p><span class="pr"><span lang="en">QAR 32</span><span lang="ar">٣٢ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Marinated in-house for a day in cider vinegar, garlic and good olive oil.</span><span lang="ar">تُتبَّل عندنا يوماً كاملاً في خلّ التفّاح والثوم وزيت زيتون ممتاز.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Verde Spritz</span><span lang="ar">فيردي سبريتز</span></p><p class="tg"><span lang="en">Fish · gluten (toast)</span><span lang="ar">سمك · غلوتين (الخبز)</span></p></div></div>
+      </div></li>
+    </ul>
+  </section>
+
+  <!-- HEARTS -->
+  <section class="hand" id="hearts">
+    <div class="sh"><span class="pip"><svg fill="#c2202c" aria-hidden="true"><use href="#he"/></svg></span><div><h2><span lang="en">Hearts</span><span lang="ar">القلوب</span></h2><p><span lang="en">from the fire</span><span lang="ar">من النار</span></p></div></div>
+    <ul class="cards">
+      <li class="card r" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#he"/></svg><span class="ix"><b>A</b><svg><use href="#he"/></svg></span><span class="ix b"><b>A</b><svg><use href="#he"/></svg></span>
+          <h3><span lang="en">Wagyu Pinchos</span><span lang="ar">بينتشوس الواغيو</span></h3><p><span lang="en">Skewered wagyu rump, chimichurri, flaky salt.</span><span lang="ar">أسياخ من لحم الواغيو مع تشيميتشوري وملح رقائقي.</span></p><span class="pr"><span lang="en">QAR 78</span><span lang="ar">٧٨ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Ninety seconds a side over holm-oak charcoal. Served pink unless you say otherwise.</span><span lang="ar">تسعون ثانية لكلّ جانب على فحم السنديان. تُقدَّم ورديّة ما لم تطلب غير ذلك.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Sangría Zero</span><span lang="ar">سانغريا زيرو</span></p><p class="tg"><span lang="en">Halal · gluten-free</span><span lang="ar">حلال · خالٍ من الغلوتين</span></p></div></div>
+      </div></li>
+      <li class="card r" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#he"/></svg><span class="ix"><b>K</b><svg><use href="#he"/></svg></span><span class="ix b"><b>K</b><svg><use href="#he"/></svg></span>
+          <h3><span lang="en">Lamb Cutlets</span><span lang="ar">ريش الخروف</span></h3><p><span lang="en">Three chops a la plancha with mint salsa verde.</span><span lang="ar">ثلاث ريش على الصاج مع صلصة خضراء بالنعناع.</span></p><span class="pr"><span lang="en">QAR 72</span><span lang="ar">٧٢ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Milk-fed lamb rubbed with rosemary, garlic and lemon peel the night before.</span><span lang="ar">خروف رضيع يُدلَّك بإكليل الجبل والثوم وقشر الليمون في الليلة السابقة.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Blackjack</span><span lang="ar">بلاك جاك</span></p><p class="tg"><span lang="en">Halal · gluten-free</span><span lang="ar">حلال · خالٍ من الغلوتين</span></p></div></div>
+      </div></li>
+      <li class="card r" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#he"/></svg><span class="ix"><b>Q</b><svg><use href="#he"/></svg></span><span class="ix b"><b>Q</b><svg><use href="#he"/></svg></span>
+          <h3><span lang="en">Beef-Cheek Brioche</span><span lang="ar">بريوش خدّ البقر</span></h3><p><span lang="en">Braised cheek, pickled shallot, two little buns.</span><span lang="ar">خدّ بقري مطهوّ ببطء، كرّاث مخلّل ورغيفان صغيران.</span></p><span class="pr"><span lang="en">QAR 54</span><span lang="ar">٥٤ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Eight hours in pomegranate molasses and veal stock until it yields to a spoon.</span><span lang="ar">ثماني ساعات في دبس الرمّان ومرق العجل حتى يلين تحت الملعقة.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Sangría Zero</span><span lang="ar">سانغريا زيرو</span></p><p class="tg"><span lang="en">Halal · gluten · milk · egg</span><span lang="ar">حلال · غلوتين · حليب · بيض</span></p></div></div>
+      </div></li>
+      <li class="card r" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#he"/></svg><span class="ix"><b>J</b><svg><use href="#he"/></svg></span><span class="ix b"><b>J</b><svg><use href="#he"/></svg></span>
+          <h3><span lang="en">Pinchos Morunos</span><span lang="ar">بينتشوس مورونوس</span></h3><p><span lang="en">Chicken thigh, cumin and paprika, lemon yoghurt.</span><span lang="ar">فخذ دجاج بالكمّون والبابريكا مع لبن بالليمون.</span></p><span class="pr"><span lang="en">QAR 44</span><span lang="ar">٤٤ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">An Andalusian skewer with Moorish roots: ras el hanout, saffron and oregano.</span><span lang="ar">سيخ أندلسي بجذور مغاربية: رأس الحانوت والزعفران والأوريغانو.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">High Roller</span><span lang="ar">الرهان العالي</span></p><p class="tg"><span lang="en">Halal · milk · mild heat</span><span lang="ar">حلال · حليب · حرارة خفيفة</span></p></div></div>
+      </div></li>
+      <li class="card r" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#he"/></svg><span class="ix"><b>10</b><svg><use href="#he"/></svg></span><span class="ix b"><b>10</b><svg><use href="#he"/></svg></span>
+          <h3><span lang="en">Honeyed Beef Chorizo</span><span lang="ar">تشوريزو بقري بالعسل</span></h3><p><span lang="en">Glazed with honey and pressed apple, bay leaf.</span><span lang="ar">ملمَّع بالعسل وعصير التفّاح مع ورق الغار.</span></p><span class="pr"><span lang="en">QAR 40</span><span lang="ar">٤٠ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Our own beef chorizo, cured with pimentón de la Vera. No pork in this house.</span><span lang="ar">تشوريزو بقري من صنعنا، مقدَّد ببابريكا لا فيرا. لا لحم خنزير في هذا البيت.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Lucky Seven</span><span lang="ar">السبعة المحظوظة</span></p><p class="tg"><span lang="en">Halal · gluten-free</span><span lang="ar">حلال · خالٍ من الغلوتين</span></p></div></div>
+      </div></li>
+    </ul>
+  </section>
+
+  <!-- DIAMONDS -->
+  <section class="hand" id="diamonds">
+    <div class="sh"><span class="pip"><svg fill="#c2202c" aria-hidden="true"><use href="#di"/></svg></span><div><h2><span lang="en">Diamonds</span><span lang="ar">الديناري</span></h2><p><span lang="en">from the garden</span><span lang="ar">من البستان</span></p></div></div>
+    <ul class="cards">
+      <li class="card r" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#di"/></svg><span class="ix"><b>A</b><svg><use href="#di"/></svg></span><span class="ix b"><b>A</b><svg><use href="#di"/></svg></span>
+          <h3><span lang="en">Burrata &amp; Peppers</span><span lang="ar">بوراتا وفلفل مشوي</span></h3><p><span lang="en">Fire-roasted peppers, basil oil, toasted pine nuts.</span><span lang="ar">فلفل مشويّ على اللهب، زيت الريحان وصنوبر محمّص.</span></p><span class="pr"><span lang="en">QAR 56</span><span lang="ar">٥٦ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">The peppers are peeled warm and dressed with aged vinegar and their own juices.</span><span lang="ar">يُقشَّر الفلفل وهو دافئ ويُتبَّل بخلّ معتّق وعصارته.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Verde Spritz</span><span lang="ar">فيردي سبريتز</span></p><p class="tg"><span lang="en">Vegetarian · milk · nuts</span><span lang="ar">نباتي · حليب · مكسّرات</span></p></div></div>
+      </div></li>
+      <li class="card r" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#di"/></svg><span class="ix"><b>K</b><svg><use href="#di"/></svg></span><span class="ix b"><b>K</b><svg><use href="#di"/></svg></span>
+          <h3><span lang="en">Truffle Mushroom Croquetas</span><span lang="ar">كروكيت الفطر والكمأة</span></h3><p><span lang="en">Wild mushroom béchamel, black truffle, parmesan snow.</span><span lang="ar">بشاميل الفطر البرّي، كمأة سوداء وندف البارميزان.</span></p><span class="pr"><span lang="en">QAR 36</span><span lang="ar">٣٦ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Porcini powder in the crumb doubles the mushroom before you reach the middle.</span><span lang="ar">مسحوق البورتشيني في القشرة يضاعف نكهة الفطر قبل أن تبلغ القلب.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Blackjack</span><span lang="ar">بلاك جاك</span></p><p class="tg"><span lang="en">Vegetarian · milk · gluten</span><span lang="ar">نباتي · حليب · غلوتين</span></p></div></div>
+      </div></li>
+      <li class="card r" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#di"/></svg><span class="ix"><b>Q</b><svg><use href="#di"/></svg></span><span class="ix b"><b>Q</b><svg><use href="#di"/></svg></span>
+          <h3><span lang="en">Patatas Bravas</span><span lang="ar">باتاتاس برافاس</span></h3><p><span lang="en">Crisp potatoes, fierce tomato sauce, garlic aioli.</span><span lang="ar">بطاطا مقرمشة، صلصة طماطم لاذعة وأيولي الثوم.</span></p><span class="pr"><span lang="en">QAR 30</span><span lang="ar">٣٠ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Confit first, fried second. The sauce carries smoked chilli and a little grape vinegar.</span><span lang="ar">تُطهى في الزيت أوّلاً ثم تُقلى. في الصلصة فلفل مدخّن وقليل من خلّ العنب.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Sangría Zero</span><span lang="ar">سانغريا زيرو</span></p><p class="tg"><span lang="en">Vegetarian · egg · hot</span><span lang="ar">نباتي · بيض · حارّ</span></p></div></div>
+      </div></li>
+      <li class="card r" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#di"/></svg><span class="ix"><b>J</b><svg><use href="#di"/></svg></span><span class="ix b"><b>J</b><svg><use href="#di"/></svg></span>
+          <h3><span lang="en">Padrón Peppers</span><span lang="ar">فلفل بادرون</span></h3><p><span lang="en">Blistered in olive oil, sea salt. One in ten bites back.</span><span lang="ar">يُحمَّر في زيت الزيتون مع ملح البحر. واحدة من كلّ عشر تلسع.</span></p><span class="pr"><span lang="en">QAR 28</span><span lang="ar">٢٨ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">A game of chance on a plate. We cannot tell you which one; neither can the chef.</span><span lang="ar">لعبة حظّ في طبق. لا نستطيع أن ندلّك على الحارّة، ولا الشيف يستطيع.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Blue Chip</span><span lang="ar">الفيشة الزرقاء</span></p><p class="tg"><span lang="en">Vegan · gluten-free</span><span lang="ar">نباتي صرف · خالٍ من الغلوتين</span></p></div></div>
+      </div></li>
+      <li class="card r" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#di"/></svg><span class="ix"><b>10</b><svg><use href="#di"/></svg></span><span class="ix b"><b>10</b><svg><use href="#di"/></svg></span>
+          <h3><span lang="en">Pan con Tomate</span><span lang="ar">خبز بالطماطم</span></h3><p><span lang="en">Grilled bread rubbed with tomato, garlic and olive oil.</span><span lang="ar">خبز مشويّ يُفرك بالطماطم والثوم وزيت الزيتون.</span></p><span class="pr"><span lang="en">QAR 22</span><span lang="ar">٢٢ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">The opening bet of every Catalan table. Hanging tomatoes, sourdough, arbequina oil.</span><span lang="ar">الرهان الافتتاحي على كلّ مائدة كتالونية. طماطم معلّقة وخبز مخمَّر وزيت أربيكينا.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Everything</span><span lang="ar">كلّ شيء</span></p><p class="tg"><span lang="en">Vegan · gluten</span><span lang="ar">نباتي صرف · غلوتين</span></p></div></div>
+      </div></li>
+    </ul>
+  </section>
+
+  <!-- CLUBS -->
+  <section class="hand" id="clubs">
+    <div class="sh"><span class="pip"><svg fill="#17181d" aria-hidden="true"><use href="#cl"/></svg></span><div><h2><span lang="en">Clubs</span><span lang="ar">السباتي</span></h2><p><span lang="en">the sweet hand · and a wild card</span><span lang="ar">يد الحلو · وورقة جامحة</span></p></div></div>
+    <ul class="cards">
+      <li class="card b" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#cl"/></svg><span class="ix"><b>A</b><svg><use href="#cl"/></svg></span><span class="ix b"><b>A</b><svg><use href="#cl"/></svg></span>
+          <h3><span lang="en">Burnt Basque Cheesecake</span><span lang="ar">تشيز كيك الباسك المحروق</span></h3><p><span lang="en">Scorched top, soft centre, sour cherries.</span><span lang="ar">سطح محروق وقلب طريّ مع كرز حامض.</span></p><span class="pr"><span lang="en">QAR 38</span><span lang="ar">٣٨ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Baked at a reckless 240°C and served at room temperature, never cold.</span><span lang="ar">يُخبز بحرارة متهوّرة تبلغ ٢٤٠ درجة ويُقدَّم بحرارة الغرفة لا بارداً.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Blackjack</span><span lang="ar">بلاك جاك</span></p><p class="tg"><span lang="en">Milk · egg · gluten</span><span lang="ar">حليب · بيض · غلوتين</span></p></div></div>
+      </div></li>
+      <li class="card b" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#cl"/></svg><span class="ix"><b>K</b><svg><use href="#cl"/></svg></span><span class="ix b"><b>K</b><svg><use href="#cl"/></svg></span>
+          <h3><span lang="en">Churros &amp; Chocolate</span><span lang="ar">تشوروس وشوكولاتة</span></h3><p><span lang="en">Cinnamon sugar, dark chocolate with orange.</span><span lang="ar">سكّر بالقرفة وشوكولاتة داكنة بالبرتقال.</span></p><span class="pr"><span lang="en">QAR 32</span><span lang="ar">٣٢ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Piped and fried to order; the chocolate is thick enough to stand a churro in.</span><span lang="ar">تُشكَّل وتُقلى عند الطلب، والشوكولاتة كثيفة بما يكفي ليقف فيها عود التشوروس.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">High Roller</span><span lang="ar">الرهان العالي</span></p><p class="tg"><span lang="en">Gluten · milk · shares 2</span><span lang="ar">غلوتين · حليب · يكفي ٢</span></p></div></div>
+      </div></li>
+      <li class="card b" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#cl"/></svg><span class="ix"><b>Q</b><svg><use href="#cl"/></svg></span><span class="ix b"><b>Q</b><svg><use href="#cl"/></svg></span>
+          <h3><span lang="en">Crema Catalana</span><span lang="ar">كريما كتالانا</span></h3><p><span lang="en">Citrus custard, torched to a glass lid at the table.</span><span lang="ar">كاسترد بالحمضيات يُحرق سطحه كالزجاج أمامك.</span></p><span class="pr"><span lang="en">QAR 30</span><span lang="ar">٣٠ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Infused with lemon peel, orange peel and a stick of cinnamon. Crack it with the spoon.</span><span lang="ar">منقوع بقشر الليمون والبرتقال وعود قرفة. اكسره بالملعقة.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Lucky Seven</span><span lang="ar">السبعة المحظوظة</span></p><p class="tg"><span lang="en">Milk · egg · gluten-free</span><span lang="ar">حليب · بيض · خالٍ من الغلوتين</span></p></div></div>
+      </div></li>
+      <li class="card b" tabindex="0" role="button"><div class="in">
+        <div class="f front"><svg class="wm" aria-hidden="true"><use href="#cl"/></svg><span class="ix"><b>J</b><svg><use href="#cl"/></svg></span><span class="ix b"><b>J</b><svg><use href="#cl"/></svg></span>
+          <h3><span lang="en">Tarta de Santiago</span><span lang="ar">تارتا دي سانتياغو</span></h3><p><span lang="en">Flourless almond cake, citrus cream.</span><span lang="ar">كعكة لوز بلا طحين مع كريمة الحمضيات.</span></p><span class="pr"><span lang="en">QAR 30</span><span lang="ar">٣٠ ر.ق</span></span><span class="turn"><span lang="en">turn</span><span lang="ar">اقلب</span></span></div>
+        <div class="f back"><div><h4><span lang="en">The tell</span><span lang="ar">السرّ</span></h4><p><span lang="en">Marcona almonds, eggs, sugar, lemon. Nothing else, as in Galicia since the 1500s.</span><span lang="ar">لوز ماركونا وبيض وسكّر وليمون لا غير، كما في غاليسيا منذ القرن السادس عشر.</span></p><h4><span lang="en">Pairs with</span><span lang="ar">يناسبه</span></h4><p><span lang="en">Blue Chip</span><span lang="ar">الفيشة الزرقاء</span></p><p class="tg"><span lang="en">Nuts · egg · gluten-free</span><span lang="ar">مكسّرات · بيض · خالٍ من الغلوتين</span></p></div></div>
+      </div></li>
+      <li class="card joker" tabindex="0" role="button"><div class="in">
+        <div class="f front"><div><svg aria-hidden="true"><use href="#jk"/></svg><h3><span lang="en">The Joker</span><span lang="ar">الجوكر</span></h3><p><span lang="en">Dealer's choice, dealt face-down.</span><span lang="ar">اختيار الموزِّع، تُوزَّع مقلوبة.</span></p><span class="pr"><span lang="en">QAR 45</span><span lang="ar">٤٥ ر.ق</span></span></div></div>
+        <div class="f back"><div><b>JOKER</b><h4><span lang="en">Dealer's choice</span><span lang="ar">اختيار الموزِّع</span></h4><p><span lang="en">One off-menu plate, sweet or savoury, sent blind from the kitchen. Tell us your allergies; the rest is the chef's bluff.</span><span lang="ar">طبق واحد من خارج القائمة، حلو أو مالح، يُرسَل من المطبخ دون إعلان. أخبرنا بما تتحسّس منه، والباقي خدعة الشيف.</span></p></div></div>
+      </div></li>
+    </ul>
+  </section>
+
+  <!-- CHIPS -->
+  <section class="hand" id="chips">
+    <div class="sh"><span class="pip"><svg fill="#b8862b" aria-hidden="true"><use href="#jk"/></svg></span><div><h2><span lang="en">Cash in your chips</span><span lang="ar">اصرف فيشاتك</span></h2><p><span lang="en">the bar · all zero-proof</span><span lang="ar">البار · كلّه بلا كحول</span></p></div></div>
+    <ul class="chips">
+      <li class="chipit"><div class="chip" style="--c:#c2202c"><span>26<small>QAR</small></span></div><h3><span lang="en">Sangría Zero</span><span lang="ar">سانغريا زيرو</span></h3><p><span lang="en">Hibiscus, red grape, orange and a cinnamon stick.</span><span lang="ar">كركديه وعنب أحمر وبرتقال وعود قرفة.</span></p></li>
+      <li class="chipit"><div class="chip" style="--c:#1f7a4c"><span>24<small>QAR</small></span></div><h3><span lang="en">Verde Spritz</span><span lang="ar">فيردي سبريتز</span></h3><p><span lang="en">Green apple, cucumber, basil and tonic.</span><span lang="ar">تفّاح أخضر وخيار وريحان وتونيك.</span></p></li>
+      <li class="chipit"><div class="chip" style="--c:#17181d"><span>22<small>QAR</small></span></div><h3><span lang="en">Blackjack</span><span lang="ar">بلاك جاك</span></h3><p><span lang="en">Cold brew over tonic with burnt orange.</span><span lang="ar">قهوة باردة فوق التونيك مع برتقال محروق.</span></p></li>
+      <li class="chipit"><div class="chip" style="--c:#b8862b"><span>28<small>QAR</small></span></div><h3><span lang="en">High Roller</span><span lang="ar">الرهان العالي</span></h3><p><span lang="en">Saffron, wild honey, lemon and soda.</span><span lang="ar">زعفران وعسل برّي وليمون وصودا.</span></p></li>
+      <li class="chipit"><div class="chip" style="--c:#1f3f8f"><span>24<small>QAR</small></span></div><h3><span lang="en">Blue Chip</span><span lang="ar">الفيشة الزرقاء</span></h3><p><span lang="en">Blueberry shrub, lavender and lime.</span><span lang="ar">شراب التوت الأزرق الحامض مع الخزامى والليمون الأخضر.</span></p></li>
+      <li class="chipit"><div class="chip" style="--c:#6b2a8f"><span>20<small>QAR</small></span></div><h3><span lang="en">Lucky Seven</span><span lang="ar">السبعة المحظوظة</span></h3><p><span lang="en">Lemonade pressed from seven citrus fruits.</span><span lang="ar">ليموناضة معصورة من سبعة أنواع حمضيات.</span></p></li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="rules">
+      <div class="ace" aria-hidden="true">A<svg><use href="#he"/></svg></div>
+      <div><h2><span lang="en">The table is open</span><span lang="ar">الطاولة مفتوحة</span></h2><p><span lang="en">Sunday to Wednesday, 6 pm – midnight.</span><span lang="ar">من الأحد إلى الأربعاء، ٦ مساءً – منتصف الليل.</span></p><p><span lang="en">Thursday to Saturday, 6 pm – 2 am. Last hand dealt 45 minutes before close.</span><span lang="ar">من الخميس إلى السبت، ٦ مساءً – ٢ فجراً. آخر توزيعة قبل الإغلاق بـ٤٥ دقيقة.</span></p></div>
+      <div><h2><span lang="en">Find a seat</span><span lang="ar">احجز مقعدك</span></h2><p><span lang="en">52 Card Sharp Lane, The Old Arcade, West Bay.</span><span lang="ar">٥٢ زقاق اللاعب الماهر، الرواق القديم، الخليج الغربي.</span></p><p><span dir="ltr">+974 5550 0521</span></p></div>
+      <div><h2><span lang="en">House rules</span><span lang="ar">قوانين البيت</span></h2><p><span lang="en">Allergens are printed on the back of every card; show your hand to your server. All meat is halal. No alcohol, no pork, no real gambling: the only thing at stake is dessert. Prices in Qatari riyals, service included.</span><span lang="ar">مسبّبات الحساسية مطبوعة على ظهر كلّ ورقة، فاكشف أوراقك للنادل. جميع اللحوم حلال. لا كحول ولا لحم خنزير ولا قمار حقيقي: الرهان الوحيد هو الحلوى. الأسعار بالريال القطري شاملة الخدمة.</span></p></div>
+    </div>
+    <p class="sign"><span lang="en">The house always feeds.</span><span lang="ar">البيت يُطعِم دائماً.</span><small><span lang="en">Royal Flush Kitchen · Tapas &amp; Sharing</span><span lang="ar">مطبخ الفلوش الملكي · تاباس وأطباق مشاركة</span></small></p>
+  </footer>
+</main>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  function tog(c,on){c.classList.toggle('flip',on);c.setAttribute('aria-pressed',c.classList.contains('flip'))}
+  cards.forEach(function(c){c.setAttribute('aria-pressed','false');
+    c.addEventListener('click',function(){tog(c)});
+    c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog(c)}});});
+  var all=false;document.getElementById('flipAll').addEventListener('click',function(){all=!all;cards.forEach(function(c,i){setTimeout(function(){tog(c,all)},i*45)})});
+})();
+</script>
+</body>
+</html>

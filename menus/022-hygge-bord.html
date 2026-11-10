@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Hygge Bord · هيغه بورد</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Hygge Bord — a quiet New Nordic table: rye, cured fish, garden roots and juice pairings. قائمة هيغه بورد للمطبخ الإسكندنافي الحديث.">
+<meta name="theme-color" content="#f3eee4">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --birch:#f3eee4; --oat:#e8e0d1; --rule:#cfc6b4; --ink:#2c2a25; --soft:#6f685b; --ember:#a3542c;
+  --serif:"Cormorant","Amiri","Iowan Old Style",Georgia,serif;
+  --sans:"Jost","IBM Plex Sans Arabic","Helvetica Neue",Arial,sans-serif;
+  --m:clamp(20px,5.2vw,88px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;background:var(--birch)}
+body{font:300 1rem/1.6 var(--sans);color:var(--ink);background:var(--birch);-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-family:"IBM Plex Sans Arabic","Jost",Tahoma,sans-serif;line-height:1.85}
+html[lang="ar"] *{letter-spacing:0!important}
+a{color:inherit;text-decoration:none}
+.page{overflow-x:clip;position:relative}
+/* three faint ledger lines run the whole height on wide screens: the page is a ruled table */
+@media (min-width:960px){
+  .page::before{content:"";position:absolute;inset-block:0;inset-inline:var(--m);pointer-events:none;
+    background:linear-gradient(var(--rule),var(--rule)) 33.333% 0/1px 100% no-repeat,linear-gradient(var(--rule),var(--rule)) 66.666% 0/1px 100% no-repeat;opacity:.55}
+  html[dir="rtl"] .page::before{transform:scaleX(-1)}
+}
+.lab{font:400 .72rem/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
+html[lang="ar"] .lab{font:400 .86rem/1.5 "IBM Plex Sans Arabic",sans-serif;text-transform:none}
+
+/* top strip */
+.top{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:clamp(16px,2.2vw,30px) var(--m);position:relative;z-index:2}
+.top .mid{display:none}
+.ctl{display:flex;gap:clamp(14px,2vw,28px);align-items:center}
+#langToggle,.home-link{font:400 .8rem/1 var(--sans);color:var(--ink);background:none;border:0;border-bottom:1px solid var(--ink);padding:10px 0 6px;cursor:pointer;letter-spacing:.14em;text-transform:uppercase;min-height:40px;display:inline-flex;align-items:center}
+#langToggle{font-family:"IBM Plex Sans Arabic","Jost",sans-serif;letter-spacing:0}
+html[lang="ar"] .home-link{font-size:.9rem}
+#langToggle:hover,.home-link:hover,#langToggle:focus-visible,.home-link:focus-visible{color:var(--ember);border-color:var(--ember);outline:none}
+
+/* hero */
+.hero{position:relative;min-height:min(88svh,980px);display:flex;flex-direction:column}
+.still{margin-top:auto;padding-top:clamp(50px,9vw,120px);overflow:hidden}
+.still svg{display:block;width:150%;margin-inline-start:-25%;height:auto}
+.still path{fill:none;stroke:var(--ink);stroke-width:1.1;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+.under{display:grid;gap:26px;padding:clamp(22px,3vw,44px) var(--m) clamp(48px,7vw,110px)}
+h1{font:300 clamp(4rem,13.2vw,12.5rem)/.86 var(--serif);letter-spacing:-.035em;margin-inline-start:-.04em}
+html[lang="ar"] h1{font:400 clamp(3.9rem,12.5vw,11.5rem)/1.25 "Amiri",serif}
+.lede{max-width:34ch;font-size:1rem;color:var(--soft)}
+.lede strong{font:italic 400 1.45rem/1.25 var(--serif);color:var(--ink);display:block;margin-bottom:.6em}
+html[lang="ar"] .lede strong{font:400 1.4rem/1.6 "Amiri",serif}
+.where{display:flex;flex-direction:column;gap:4px}
+
+/* index */
+.index{border-block:1px solid var(--rule);display:grid;grid-template-columns:repeat(2,1fr);margin-inline:var(--m);background:var(--birch);position:relative}
+.index a{padding:16px 0;display:flex;gap:12px;align-items:baseline;border-bottom:1px solid var(--rule);min-height:48px;transition:color .3s}
+.index a:nth-last-child(-n+1){border-bottom:0}
+.index a i{font:italic 300 1.05rem/1 var(--serif);color:var(--soft);min-width:1.6em;font-style:italic}
+.index a span{font:400 .8rem/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+html[lang="ar"] .index a span{font:400 .98rem/1.4 "IBM Plex Sans Arabic",sans-serif}
+.index a:hover,.index a:focus-visible{color:var(--ember);outline:none}
+
+/* sections */
+.sec{padding:clamp(72px,11vw,190px) var(--m) 0;position:relative;scroll-margin-top:0}
+.sec-h{margin-bottom:clamp(28px,4vw,56px);background:var(--birch);position:relative}
+.sec-h .num{font:300 clamp(3.4rem,7vw,6.5rem)/.9 var(--serif);color:var(--ink);display:block;letter-spacing:.02em}
+.sec-h h2{font:italic 300 clamp(1.9rem,3vw,2.6rem)/1.1 var(--serif);margin:.5em 0 .3em}
+html[lang="ar"] .sec-h h2{font:400 clamp(1.8rem,2.8vw,2.4rem)/1.5 "Amiri",serif}
+.sec-h p{color:var(--soft);max-width:30ch;font-size:.97rem}
+.list{list-style:none;padding:0;position:relative;background:var(--birch)}
+.dish{display:grid;grid-template-columns:1fr auto;gap:4px 18px;padding:22px 0 24px;border-top:1px solid var(--rule)}
+.dish:last-child{border-bottom:1px solid var(--rule)}
+.dish h3{font:400 clamp(1.45rem,2vw,1.8rem)/1.15 var(--serif);letter-spacing:-.005em}
+html[lang="ar"] .dish h3{font:400 clamp(1.35rem,1.8vw,1.6rem)/1.5 "Amiri",serif}
+.dish h3 small{display:block;font:400 .68rem/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin-top:7px;direction:ltr;unicode-bidi:isolate;text-align:start}
+html[dir="rtl"] .dish h3 small{text-align:right}
+.dish p{grid-column:1/-1;color:var(--soft);font-size:.97rem;max-width:44ch}
+html[lang="ar"] .dish p{font-size:1.02rem}
+.price{font:400 1rem/1.6 var(--sans);font-variant-numeric:tabular-nums;white-space:nowrap;unicode-bidi:isolate;grid-row:1;grid-column:2;padding-top:.25em}
+.price small{font-size:.74em;letter-spacing:.12em;color:var(--soft);margin-inline-start:.25em}
+.mk{display:inline-block;width:.42em;height:.42em;border:1px solid var(--ember);border-radius:50%;margin-inline-start:.5em;vertical-align:.32em}
+.mk.k{background:var(--ember)}
+
+/* aftensbord: the evening table as one line with seven settings */
+.table{margin:clamp(80px,12vw,200px) var(--m) 0;padding:clamp(34px,5vw,72px) 0;border-block:1px solid var(--ink);position:relative;background:var(--birch);display:grid;gap:clamp(28px,4vw,56px)}
+.table h2{font:300 clamp(2.6rem,6.4vw,5.6rem)/.95 var(--serif);letter-spacing:-.02em;margin-top:.25em}
+html[lang="ar"] .table h2{font:400 clamp(2.5rem,6vw,5.2rem)/1.4 "Amiri",serif}
+.table .txt p:last-child{color:var(--soft);max-width:36ch;margin-top:1em;font-size:.98rem}
+.seven{list-style:none;padding:0;display:grid;gap:0;counter-reset:s}
+.seven li{counter-increment:s;display:flex;align-items:center;gap:16px;padding:9px 0;position:relative;font-size:1rem}
+.seven li::before{content:counter(s);flex:none;width:34px;height:34px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font:400 .8rem/1 var(--sans);background:var(--birch);position:relative;z-index:1}
+.seven li::after{content:"";position:absolute;inset-inline-start:17px;top:0;bottom:0;border-inline-start:1px solid var(--ink)}
+.seven li:first-child::after{top:50%}.seven li:last-child::after{bottom:50%}
+.fees{display:grid;gap:10px;align-content:end}
+.fees div{display:flex;justify-content:space-between;gap:20px;align-items:baseline;border-top:1px solid var(--rule);padding-top:10px}
+.fees b{font:400 1.5rem/1 var(--serif);white-space:nowrap;unicode-bidi:isolate}
+html[lang="ar"] .fees b{font-family:"Amiri",serif}
+.fees b small{font:400 .5em var(--sans);letter-spacing:.12em;color:var(--soft)}
+
+.key{padding:26px var(--m) 0;display:flex;flex-wrap:wrap;gap:8px 30px;color:var(--soft);font-size:.92rem;position:relative}
+.key .mk{margin-inline:0 .6em}
+
+footer{margin-top:clamp(90px,12vw,200px);padding:0 var(--m) clamp(30px,4vw,60px);position:relative}
+.foot{display:grid;gap:34px;border-top:1px solid var(--ink);padding-top:clamp(26px,3vw,44px);background:var(--birch)}
+.foot h3{margin-bottom:12px}
+.foot p{font-size:.97rem;max-width:34ch}
+.foot .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.tak{font:italic 300 clamp(5rem,22vw,20rem)/.8 var(--serif);letter-spacing:-.04em;margin-top:clamp(50px,8vw,120px);color:var(--ink);background:var(--birch);position:relative;padding-bottom:.12em}
+html[lang="ar"] .tak{font:400 clamp(4.6rem,20vw,17rem)/1.3 "Amiri",serif;padding-bottom:0}
+.tak span span{color:var(--ember)}
+
+@media (min-width:640px){
+  .index{grid-template-columns:repeat(5,1fr)}
+  .index a{border-bottom:0;padding-inline-start:14px;border-inline-start:1px solid var(--rule)}
+  .index a:first-child{border-inline-start:0;padding-inline-start:0}
+  .foot{grid-template-columns:repeat(3,1fr)}
+  .still svg{width:100%;margin:0}
+}
+@media (min-width:960px){
+  .top{grid-template-columns:1fr 1fr 1fr}
+  .top .mid{display:block;padding-inline-start:16px}
+  .ctl{justify-content:flex-end}
+  .under{grid-template-columns:2fr 1fr;align-items:end}
+  .under .lede{padding-inline-start:16px}
+  .where{position:absolute;inset-inline-start:calc(var(--m) + (100% - 2*var(--m))*.33333 + 16px);top:clamp(96px,11vw,150px);max-width:24ch}
+  .sec{display:grid;grid-template-columns:1fr 2fr;align-items:start}
+  .sec-h{position:sticky;top:40px;padding-inline-end:30px;margin-bottom:0}
+  .list{margin-inline-start:0}
+  .dish{grid-template-columns:1fr 1fr;gap:0;padding:26px 0 30px}
+  .dish>*{padding-inline-start:16px}
+  .dish h3{grid-column:1;padding-inline-end:20px}
+  .dish .r{grid-column:2;display:grid;grid-template-columns:1fr auto;gap:0 20px;align-items:start}
+  .dish p{grid-column:1;grid-row:1}
+  .price{grid-column:2;grid-row:1;padding-top:0}
+  .table{grid-template-columns:1fr 1fr 1fr;gap:0;align-items:stretch}
+  .table>*{padding-inline-start:16px}.table>.txt{padding-inline:0 30px}
+  .seven{align-content:center}
+  .key{padding-inline-start:calc(var(--m) + (100% - 2*var(--m))*.33333 + 16px)}
+  .foot>div{padding-inline-start:16px}.foot>div:first-child{padding-inline-start:0}
+}
+@media (max-width:639px){.hero{min-height:0}.still{padding-top:56px}}
+@media (max-width:959px){
+  .dish .r{display:contents}
+  .where{order:3}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="hero">
+  <div class="top">
+    <span class="lab"><span lang="en">New Nordic kitchen</span><span lang="ar">المطبخ الإسكندنافي الحديث</span></span>
+    <span class="lab mid"><span lang="en">Late autumn — table no. 22</span><span lang="ar">أواخر الخريف — المائدة رقم ٢٢</span></span>
+    <div class="ctl">
+      <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+      <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    </div>
+  </div>
+  <div class="still" aria-hidden="true">
+    <svg viewBox="0 0 1000 262" role="presentation"><path d="M0 250H200V150H215C215 150 203 128 215 106C227 128 215 150 215 150H230V250H318C300 244 284 222 282 196C310 206 340 207 362 206C352 180 376 160 362 135C355 120 370 112 374 128C380 152 360 178 370 206C395 206 425 204 448 196C446 222 430 244 412 250H520V205C520 192 531 190 531 178V160C531 120 545 80 580 48C600 30 618 40 600 56C590 64 580 60 580 48C570 62 562 78 557 92C575 78 596 84 588 100C580 112 562 104 557 92C550 112 543 135 541 160V178C541 190 552 192 552 205V250H690C672 240 680 224 705 226C728 228 734 240 724 246C750 240 790 236 830 240C845 242 850 250 870 250H1000"/></svg>
+  </div>
+  <div class="under">
+    <h1><span lang="en">Hygge Bord</span><span lang="ar">هيغه بورد</span></h1>
+    <p class="lede"><strong><span lang="en">A long table, a low candle, nothing extra.</span><span lang="ar">مائدة طويلة، شمعة خافتة، ولا شيء زائد.</span></strong><span lang="en">We cook what the cold coast and the kitchen garden hand us this week: rye, roots, cured fish and berries, served slowly and without ceremony.</span><span lang="ar">نطهو ما يجود به الساحل البارد وحديقة المطبخ هذا الأسبوع: خبز الجاودار والجذور والسمك المقدَّد والتوت، ونقدّمه على مهل ومن دون تكلّف.</span></p>
+    <p class="where lab"><span>55.6761° N</span><span>12.5683° E</span></p>
+  </div>
+</header>
+
+<nav class="index" aria-label="Sections">
+  <a href="#brod"><i>I</i><span><span lang="en">Bread</span><span lang="ar">الخبز</span></span></a>
+  <a href="#have"><i>II</i><span><span lang="en">Garden</span><span lang="ar">الحديقة</span></span></a>
+  <a href="#hav"><i>III</i><span><span lang="en">Sea &amp; field</span><span lang="ar">البحر والحقل</span></span></a>
+  <a href="#sodt"><i>IV</i><span><span lang="en">Sweet</span><span lang="ar">الحلو</span></span></a>
+  <a href="#glas"><i>V</i><span><span lang="en">Glass</span><span lang="ar">الكأس</span></span></a>
+</nav>
+
+<main>
+<section class="sec" id="brod">
+  <div class="sec-h"><span class="num">I</span><span class="lab"><span lang="en">To begin</span><span lang="ar">للبداية</span></span><h2><span lang="en">Bread &amp; smørrebrød</span><span lang="ar">الخبز والسمّوربرود</span></h2><p><span lang="en">Dark rye baked each morning, eaten open-faced with a knife and fork.</span><span lang="ar">خبز جاودار داكن يُخبز كل صباح، ويؤكل مكشوفاً بالسكين والشوكة.</span></p></div>
+  <ul class="list">
+    <li class="dish"><h3><span lang="en">Rye &amp; browned butter</span><span lang="ar">خبز الجاودار والزبدة المحمّرة</span><small>Rugbrød</small></h3><div class="r"><p><span lang="en">Three-day sourdough rye, whipped browned butter, flakes of sea salt.</span><span lang="ar">خبز جاودار مخمَّر ثلاثة أيام، زبدة محمّرة مخفوقة ورقائق ملح البحر.</span></p><span class="price">45<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Cured salmon<i class="mk k"></i></span><span lang="ar">سلمون مقدَّد<i class="mk k"></i></span><small>Gravad laks</small></h3><div class="r"><p><span lang="en">Salt, sugar and dill for two days; sweet mustard, pickled cucumber, rye crisp.</span><span lang="ar">يومان في الملح والسكّر والشبت، مع خردل حلو وخيار مخلّل ورقاقة جاودار.</span></p><span class="price">115<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Hand-peeled shrimp</span><span lang="ar">روبيان مقشّر باليد</span><small>Rejemad</small></h3><div class="r"><p><span lang="en">Fjord shrimp piled on buttered rye, soft egg, lemon, garden cress.</span><span lang="ar">روبيان المضايق فوق جاودار مدهون بالزبدة، مع بيضة طرية وليمون ورشاد.</span></p><span class="price">135<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Beetroot tartare<i class="mk"></i></span><span lang="ar">تارتار الشمندر<i class="mk"></i></span><small>Rødbedetatar</small></h3><div class="r"><p><span lang="en">Salt-baked beetroot, horseradish cream, toasted hazelnut, rye crumbs.</span><span lang="ar">شمندر مخبوز في الملح، كريمة الفجل الحار، بندق محمّص وفتات الجاودار.</span></p><span class="price">95<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+  </ul>
+</section>
+
+<section class="sec" id="have">
+  <div class="sec-h"><span class="num">II</span><span class="lab"><span lang="en">From the garden</span><span lang="ar">من الحديقة</span></span><h2><span lang="en">Roots, leaves &amp; grain</span><span lang="ar">جذور وأوراق وحبوب</span></h2><p><span lang="en">Vegetables given the time and the fire usually kept for meat.</span><span lang="ar">خضار ننفق عليها من الوقت والنار ما يُدَّخر عادةً للّحم.</span></p></div>
+  <ul class="list">
+    <li class="dish"><h3><span lang="en">New potatoes<i class="mk"></i></span><span lang="ar">بطاطا جديدة<i class="mk"></i></span><small>Nye kartofler</small></h3><div class="r"><p><span lang="en">Warm potatoes, smoked fresh cheese, lovage oil, a dusting of onion ash.</span><span lang="ar">بطاطا دافئة مع جبن طازج مدخَّن وزيت الكاشم ورماد البصل.</span></p><span class="price">105<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Celeriac in a salt crust<i class="mk"></i></span><span lang="ar">كرفس جذري في قشرة الملح<i class="mk"></i></span><small>Saltbagt selleri</small></h3><div class="r"><p><span lang="en">Carved at the table; brown butter, toasted yeast, sour green apple.</span><span lang="ar">يُقطَّع أمامكم، مع زبدة محمّرة وخميرة محمّصة وتفاح أخضر حامض.</span></p><span class="price">125<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Barley porridge<i class="mk k"></i></span><span lang="ar">عصيدة الشعير<i class="mk k"></i></span><small>Byggrød</small></h3><div class="r"><p><span lang="en">Pearl barley, forest mushrooms, aged North Sea cheese, parsley oil.</span><span lang="ar">شعير لؤلؤي مع فطر الغابة وجبن بحر الشمال المعتّق وزيت البقدونس.</span></p><span class="price">145<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Charred pointed cabbage<i class="mk"></i></span><span lang="ar">ملفوف مدبّب مشوي<i class="mk"></i></span><small>Grillet spidskål</small></h3><div class="r"><p><span lang="en">Blackened over birch embers, buttermilk, dill, crisp buckwheat.</span><span lang="ar">يُسفَع على جمر البتولا، مع لبن مخيض وشبت وحنطة سوداء مقرمشة.</span></p><span class="price">115<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+  </ul>
+</section>
+
+<section class="sec" id="hav">
+  <div class="sec-h"><span class="num">III</span><span class="lab"><span lang="en">From sea &amp; field</span><span lang="ar">من البحر والحقل</span></span><h2><span lang="en">The warm plates</span><span lang="ar">الأطباق الساخنة</span></h2><p><span lang="en">Day-boat fish from the west coast; lamb and poultry from two farms we know by name.</span><span lang="ar">سمك قوارب اليوم من الساحل الغربي، ولحم ضأن ودواجن من مزرعتين نعرف أهلهما.</span></p></div>
+  <ul class="list">
+    <li class="dish"><h3><span lang="en">Pan-fried plaice</span><span lang="ar">سمك البلايس المقلي</span><small>Stegt rødspætte</small></h3><div class="r"><p><span lang="en">Whole fish on the bone, brown butter, capers, parsley potatoes.</span><span lang="ar">سمكة كاملة بعظمها، زبدة محمّرة، كَبَر وبطاطا بالبقدونس.</span></p><span class="price">235<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Cod &amp; mussel cream<i class="mk k"></i></span><span lang="ar">القدّ وكريمة بلح البحر<i class="mk k"></i></span><small>Torsk</small></h3><div class="r"><p><span lang="en">Lightly salted cod loin, blue mussel sauce, burnt leek, dill oil.</span><span lang="ar">فيليه قدّ مملّح قليلاً، صلصة بلح البحر الأزرق، كرّاث محروق وزيت الشبت.</span></p><span class="price">245<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Hay-roasted chicken</span><span lang="ar">دجاج مشوي في القشّ</span><small>Høstegt kylling</small></h3><div class="r"><p><span lang="en">Free-range bird roasted in meadow hay, curly kale, grain mustard jus.</span><span lang="ar">دجاج المراعي يُشوى في قشّ المروج، مع كرنب مجعّد ومرق الخردل الحبّي.</span></p><span class="price">225<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Lamb neck &amp; juniper</span><span lang="ar">رقبة الضأن والعرعر</span><small>Lammenakke</small></h3><div class="r"><p><span lang="en">Braised overnight, glazed onions, pickled lingonberries, thyme.</span><span lang="ar">تُطهى على مهل طوال الليل، مع بصل ملمَّع وتوت بري مخلّل وزعتر.</span></p><span class="price">265<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Veal frikadeller</span><span lang="ar">فريكاديلّر العجل</span><small>Frikadeller</small></h3><div class="r"><p><span lang="en">Pan-fried veal dumplings, pickled beetroot, cold potato salad.</span><span lang="ar">كرات لحم العجل المقلية مع شمندر مخلّل وسلطة بطاطا باردة.</span></p><span class="price">185<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+  </ul>
+</section>
+
+<section class="table" aria-labelledby="aft">
+  <div class="txt"><span class="lab"><span lang="en">The evening table</span><span lang="ar">مائدة المساء</span></span><h2 id="aft"><span lang="en">Aftensbord</span><span lang="ar">أفتنسبورد</span></h2><p><span lang="en">Seven small servings chosen by the kitchen, for the whole table, from six o'clock.</span><span lang="ar">سبعة أطباق صغيرة يختارها المطبخ لكل المائدة، ابتداءً من السادسة مساءً.</span></p></div>
+  <ol class="seven">
+    <li><span lang="en">Rye, butter, salt</span><span lang="ar">جاودار، زبدة، ملح</span></li>
+    <li><span lang="en">Something cured</span><span lang="ar">شيء مقدَّد</span></li>
+    <li><span lang="en">A root from the embers</span><span lang="ar">جذر من الجمر</span></li>
+    <li><span lang="en">Grain &amp; mushroom</span><span lang="ar">حبوب وفطر</span></li>
+    <li><span lang="en">The day's fish</span><span lang="ar">سمك اليوم</span></li>
+    <li><span lang="en">Lamb or fowl</span><span lang="ar">ضأن أو طير</span></li>
+    <li><span lang="en">Berries &amp; cream</span><span lang="ar">توت وقشدة</span></li>
+  </ol>
+  <div class="fees">
+    <div><span><span lang="en">Seven servings, per guest</span><span lang="ar">سبعة أطباق، للضيف الواحد</span></span><b>595<small> <span lang="en">kr</span><span lang="ar">كرونة</span></small></b></div>
+    <div><span><span lang="en">Pressed juice pairing</span><span lang="ar">عصائر معصورة مرافقة</span></span><b>+ 245<small> <span lang="en">kr</span><span lang="ar">كرونة</span></small></b></div>
+  </div>
+</section>
+
+<section class="sec" id="sodt">
+  <div class="sec-h"><span class="num">IV</span><span class="lab"><span lang="en">To finish</span><span lang="ar">للختام</span></span><h2><span lang="en">Sweet things</span><span lang="ar">الحلويات</span></h2><p><span lang="en">Not very sweet, in the Danish way.</span><span lang="ar">قليلة الحلاوة، على الطريقة الدنماركية.</span></p></div>
+  <ul class="list">
+    <li class="dish"><h3><span lang="en">Chilled buttermilk soup<i class="mk k"></i></span><span lang="ar">حساء اللبن المخيض البارد<i class="mk k"></i></span><small>Koldskål</small></h3><div class="r"><p><span lang="en">Vanilla and lemon, garden strawberries, crisp little kammerjunker biscuits.</span><span lang="ar">بالفانيلا والليمون، مع فراولة الحديقة وبسكويت كامريونكر الهشّ.</span></p><span class="price">85<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Red berry pudding</span><span lang="ar">مهلبية التوت الأحمر</span><small>Rødgrød med fløde</small></h3><div class="r"><p><span lang="en">Redcurrants and raspberries barely set, a pour of cold cream.</span><span lang="ar">كشمش أحمر وتوت العلّيق بالكاد يتماسكان، مع صبّة قشدة باردة.</span></p><span class="price">85<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Brown cheese ice cream</span><span lang="ar">مثلّجات الجبن البنّي</span><small>Brunost-is</small></h3><div class="r"><p><span lang="en">Caramelised whey cheese, sea buckthorn, oat crumble.</span><span lang="ar">جبن مصل مكرمل مع نبق البحر وفتات الشوفان.</span></p><span class="price">95<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Cardamom knot</span><span lang="ar">عقدة الهيل</span><small>Kardemommesnurre</small></h3><div class="r"><p><span lang="en">Warm from the oven until it runs out, usually by four.</span><span lang="ar">دافئة من الفرن إلى أن تنفد، وغالباً قبل الرابعة.</span></p><span class="price">55<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+  </ul>
+</section>
+
+<section class="sec" id="glas">
+  <div class="sec-h"><span class="num">V</span><span class="lab"><span lang="en">In the glass</span><span lang="ar">في الكأس</span></span><h2><span lang="en">Pressed, steeped, brewed</span><span lang="ar">معصور ومنقوع ومخمَّر</span></h2><p><span lang="en">Everything we pour is free of alcohol.</span><span lang="ar">كل ما نسكبه خالٍ من الكحول.</span></p></div>
+  <ul class="list">
+    <li class="dish"><h3><span lang="en">Elderflower, sparkling</span><span lang="ar">زهر البيلسان الفوّار</span><small>Hyldeblomst</small></h3><div class="r"><p><span lang="en">Our own June cordial with cold soda and a strip of lemon.</span><span lang="ar">شراب من قطاف حزيران نعدّه بأنفسنا، مع صودا باردة وقشرة ليمون.</span></p><span class="price">45<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Sea buckthorn &amp; carrot</span><span lang="ar">نبق البحر والجزر</span><small>Havtorn</small></h3><div class="r"><p><span lang="en">Sharp orange berries pressed with sweet carrot and a little honey.</span><span lang="ar">توت برتقالي لاذع يُعصر مع جزر حلو وقليل من العسل.</span></p><span class="price">55<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Birch &amp; spruce tonic<i class="mk k"></i></span><span lang="ar">تونيك البتولا والتنّوب<i class="mk k"></i></span><small>Birkesaft</small></h3><div class="r"><p><span lang="en">Spring birch sap, young spruce tips, tonic, one large ice cube.</span><span lang="ar">نسغ البتولا الربيعي وبراعم التنّوب الفتيّة مع التونيك ومكعّب ثلج كبير.</span></p><span class="price">60<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+    <li class="dish"><h3><span lang="en">Filter coffee</span><span lang="ar">قهوة مقطّرة</span><small>Filterkaffe</small></h3><div class="r"><p><span lang="en">Light roast, brewed by the pot; refills until you leave.</span><span lang="ar">تحميص فاتح يُحضَّر بالإبريق، ونعيد ملء فنجانكم حتى تغادروا.</span></p><span class="price">40<small><span lang="en">kr</span><span lang="ar">كرونة</span></small></span></div></li>
+  </ul>
+</section>
+<p class="key"><span><i class="mk k"></i><span lang="en">The kitchen's favourite this week</span><span lang="ar">المفضّل لدى المطبخ هذا الأسبوع</span></span><span><i class="mk"></i><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span></p>
+</main>
+
+<footer>
+  <div class="foot">
+    <div><h3 class="lab"><span lang="en">Open</span><span lang="ar">أوقات العمل</span></h3><p><span lang="en">Tuesday to Saturday<br>Lunch 12–15 · Evening 18–22<br>Closed Sunday and Monday</span><span lang="ar">من الثلاثاء إلى السبت<br>الغداء ١٢–٣ · المساء ٦–١٠<br>مغلق يومي الأحد والاثنين</span></p></div>
+    <div><h3 class="lab"><span lang="en">Find us</span><span lang="ar">العنوان</span></h3><p><span lang="en">Birkekajen 22, by the old boat sheds<br>1437 Copenhagen K</span><span lang="ar">رصيف البتولا ٢٢، عند مخازن القوارب القديمة<br>كوبنهاغن ١٤٣٧</span><br><span class="ltr">+45 32 55 01 22</span></p></div>
+    <div><h3 class="lab"><span lang="en">A note</span><span lang="ar">ملاحظة</span></h3><p><span lang="en">No alcohol, no pork. Our dishes may contain gluten, fish, shellfish, milk, egg, nuts and mustard; please tell us what you cannot eat and we will cook around it.</span><span lang="ar">لا كحول ولا لحم خنزير. قد تحتوي أطباقنا على الغلوتين والسمك والقشريات والحليب والبيض والمكسرات والخردل؛ أخبرونا بما لا تأكلونه لنطهو لكم ما يناسبكم.</span></p></div>
+  </div>
+  <p class="tak"><span lang="en">Tak<span>.</span></span><span lang="ar">شكراً<span>.</span></span></p>
+</footer>
+</div>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>

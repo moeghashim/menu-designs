@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Pulp · بَلْب</title>
+<meta name="description" content="Pulp — a loud little juice bar: cold-pressed juices, thick smoothies, shots and bowls. بَلْب — عصائر طازجة تُعصر عند الطلب.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ff7a3d">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Baloo+Bhaijaan+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--cream:#fff3e6;--plum:#2c0b3f;--f:"Baloo 2","Baloo Bhaijaan 2","Arial Rounded MT Bold","Nunito",system-ui,sans-serif}
+html[lang="ar"]{--f:"Baloo Bhaijaan 2","Baloo 2","Tahoma",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);font-weight:500;background:var(--cream);color:var(--plum);font-size:17px;line-height:1.35;-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-size:18px;line-height:1.6}
+html[lang="ar"] *{letter-spacing:0 !important}
+.page{position:relative;overflow:clip}
+a{color:inherit}
+
+@keyframes morph{
+  0%,100%{border-radius:58% 42% 47% 53%/52% 46% 54% 48%}
+  25%{border-radius:44% 56% 60% 40%/58% 40% 60% 42%}
+  50%{border-radius:52% 48% 38% 62%/42% 58% 42% 58%}
+  75%{border-radius:62% 38% 52% 48%/50% 62% 38% 50%}
+}
+@keyframes floaty{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(3%,-4%) scale(1.06)}}
+@keyframes drip{0%{transform:translateY(-30%) scaleY(.6);opacity:0}15%{opacity:1}80%{opacity:1}100%{transform:translateY(160%) scaleY(1.1);opacity:0}}
+
+/* ambient colour pools */
+.pool{position:absolute;border-radius:50%;filter:blur(70px);opacity:.75;pointer-events:none;z-index:0;animation:floaty 16s ease-in-out infinite}
+
+/* controls */
+.ctl{position:fixed;inset-block-start:14px;inset-inline-end:14px;z-index:60;display:flex;gap:8px}
+.ctl a,.ctl button{font:700 15px/1 var(--f);border:0;cursor:pointer;text-decoration:none;padding:11px 16px 9px;min-height:40px;display:inline-flex;align-items:center;gap:7px;color:var(--cream);background:var(--plum);border-radius:999px;box-shadow:0 6px 0 rgba(44,11,63,.18)}
+.ctl button{background:#ff3d7f;border-radius:52% 48% 46% 54%/60% 56% 44% 40%;padding-inline:20px}
+.ctl a i{width:11px;height:11px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#b8f04a;display:block}
+.ctl a:hover,.ctl button:hover{transform:translateY(-2px)}
+
+/* hero */
+.hero{position:relative;min-height:min(100vh,960px);padding:clamp(80px,9vw,120px) clamp(20px,5vw,80px) clamp(50px,5vw,80px);display:flex;flex-direction:column;justify-content:flex-end;z-index:1}
+.big{position:absolute;z-index:-1;inset-block-start:6%;inset-inline-end:4%;width:min(74vh,54vw);aspect-ratio:1;background:radial-gradient(circle at 30% 26%,#ffd23f 0%,#ff9a1f 30%,#ff5a5f 62%,#e0218a 100%);animation:morph 14s ease-in-out infinite;box-shadow:inset -30px -40px 80px rgba(120,0,80,.28),inset 30px 30px 60px rgba(255,255,255,.45),0 50px 90px -30px rgba(255,90,95,.6)}
+.big::before{content:"";position:absolute;inset:12% 46% 58% 16%;border-radius:50%;background:rgba(255,255,255,.55);filter:blur(14px);transform:rotate(-24deg)}
+.sm{position:absolute;z-index:-1;animation:morph 10s ease-in-out infinite reverse;box-shadow:inset -10px -14px 26px rgba(0,0,0,.14),inset 10px 10px 22px rgba(255,255,255,.5)}
+.sm.l{inset-block-start:14%;inset-inline-start:7%;width:clamp(70px,10vw,150px);aspect-ratio:1;background:radial-gradient(circle at 30% 26%,#e9ff8a,#9be22d 60%,#3fae2a)}
+.sm.p{inset-block-start:9%;inset-inline-end:47%;width:clamp(46px,6vw,90px);aspect-ratio:1;background:radial-gradient(circle at 30% 26%,#d9a8ff,#8a3ffc 65%,#5a189a)}
+.drop{position:absolute;z-index:-1;width:22px;height:22px;border-radius:0 50% 50% 50%;transform:rotate(45deg);background:#ff5a5f}
+.dr{position:absolute;z-index:-1;animation:drip 5s ease-in infinite}
+.kick{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;font-weight:800;font-size:1rem;background:var(--plum);color:#ffd23f;padding:8px 18px 6px;border-radius:999px;margin-block-end:6px}
+h1{font-weight:800;font-size:clamp(8.5rem,31vw,29rem);line-height:.74;letter-spacing:-.045em;color:var(--plum);margin-inline-start:-.04em;padding-block:.06em .12em}
+html[lang="ar"] h1{line-height:1.25;font-size:clamp(8rem,27vw,25rem);padding-block:0;margin-block:.1em -.1em}
+h1 b{color:#ff3d7f;font-weight:800}
+.hrow{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,4vw,60px);align-items:end}
+.tag{font-weight:800;font-size:clamp(1.9rem,4.2vw,3.6rem);line-height:1;white-space:nowrap}
+html[lang="ar"] .tag{line-height:1.4}
+.tag em{font-style:normal;color:#ff3d7f;display:block}
+.intro{max-width:46ch;font-size:1.1em;font-weight:500;color:#4b2a5c}
+.hnav{display:flex;flex-wrap:wrap;gap:10px;margin-block-start:26px}
+.hnav a{text-decoration:none;font-weight:800;font-size:1.05rem;padding:10px 20px 8px;border-radius:999px;background:var(--c);color:var(--k,var(--plum));box-shadow:inset -4px -6px 10px rgba(0,0,0,.12),inset 4px 4px 8px rgba(255,255,255,.45);transition:transform .2s}
+.hnav a:hover{transform:scale(1.07) rotate(-2deg)}
+
+/* ticker */
+.tick{position:relative;z-index:2;background:var(--plum);color:var(--cream);transform:rotate(-1.4deg);margin-inline:-3vw;overflow:hidden;padding-block:12px 9px}
+.tick div{display:flex;gap:34px;width:max-content;font-weight:800;font-size:clamp(1.2rem,2.2vw,1.9rem);white-space:nowrap;animation:roll 30s linear infinite}
+.tick span{display:inline-flex;align-items:center;gap:34px}
+.tick span::after{content:"";width:16px;height:16px;border-radius:0 50% 50% 50%;transform:rotate(45deg);background:var(--dc,#ffd23f)}
+@keyframes roll{to{transform:translateX(-50%)}}
+html[dir="rtl"] .tick div{animation-name:rollr}
+@keyframes rollr{to{transform:translateX(50%)}}
+
+/* sizes */
+.sizes{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center;gap:clamp(14px,3vw,40px);flex-wrap:wrap;padding:clamp(60px,8vw,110px) 20px 0;text-align:center}
+.sizes h2{flex-basis:100%;font-weight:800;font-size:clamp(1.6rem,3vw,2.4rem);margin-block-end:8px}
+.sizes h2 small{display:block;font-weight:600;font-size:1rem;color:#6a4a7a}
+.cup{display:grid;place-content:center;width:var(--w);aspect-ratio:1;background:var(--c);animation:morph 11s ease-in-out infinite;box-shadow:inset -10px -14px 22px rgba(0,0,0,.14),inset 8px 8px 18px rgba(255,255,255,.5);font-weight:800;line-height:1.05}
+.cup b{font-size:calc(var(--w)*.34);font-weight:800}
+.cup span{font-size:.9rem;font-weight:700}
+
+/* sections */
+.sec{position:relative;z-index:1;display:grid;grid-template-columns:minmax(250px,.36fr) 1fr;gap:clamp(20px,3vw,60px);padding:clamp(70px,9vw,140px) clamp(18px,4vw,70px) 0;max-width:1560px;margin-inline:auto}
+.sh{position:sticky;inset-block-start:90px;align-self:start}
+.num{display:inline-grid;place-content:center;width:64px;height:64px;font-weight:800;font-size:1.5rem;color:#fff;background:var(--c);border-radius:0 50% 50% 50%;transform:rotate(45deg);margin-block-end:22px;margin-inline-start:10px;box-shadow:inset -6px -6px 12px rgba(0,0,0,.18)}
+.num i{transform:rotate(-45deg);font-style:normal;color:var(--nk,#fff)}
+.sh h2{font-weight:800;font-size:clamp(3.2rem,6.4vw,6.6rem);line-height:.86;letter-spacing:-.035em;color:var(--t,var(--c))}
+html[lang="ar"] .sh h2{line-height:1.25}
+.sh p{font-size:1.1em;margin-block-start:14px;max-width:26ch;color:#4b2a5c}
+.sh .ml{display:inline-block;margin-block-start:16px;font-weight:800;font-size:.95rem;border:3px solid var(--plum);border-radius:999px;padding:5px 14px 3px;transform:rotate(-3deg)}
+
+.blobs{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(6px,1.4vw,22px) clamp(6px,1.4vw,22px)}
+.b{--sz:clamp(244px,19.6vw,330px);flex:none;position:relative;width:var(--sz);height:var(--sz);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:calc(var(--sz)*.1) calc(var(--sz)*.1) calc(var(--sz)*.13);color:var(--ink,var(--plum));
+  background:radial-gradient(circle at 30% 24%,var(--a) 0%,var(--b) 58%,var(--d,var(--b)) 100%);animation:morph 13s ease-in-out infinite;
+  box-shadow:inset -18px -26px 44px rgba(60,0,60,.16),inset 16px 18px 34px rgba(255,255,255,.4),0 30px 44px -26px var(--b);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.b:hover{transform:scale(1.05) rotate(-1.5deg)}
+.b::before{content:"";position:absolute;inset:11% 52% 66% 17%;border-radius:50%;background:rgba(255,255,255,.5);filter:blur(7px);transform:rotate(-28deg);pointer-events:none}
+.b:nth-child(2n){animation-delay:-5s;animation-duration:15s;margin-block-start:clamp(20px,4vw,70px)}
+.b:nth-child(3n){animation-delay:-9s;animation-duration:11s;--sz:clamp(236px,18.4vw,300px)}
+.b:nth-child(5n+1){--sz:clamp(256px,21vw,360px)}
+.b h3{font-weight:800;font-size:clamp(1.5rem,2.1vw,2rem);line-height:.98;letter-spacing:-.01em}
+html[lang="ar"] .b h3{line-height:1.3;font-size:clamp(1.5rem,2vw,1.9rem)}
+.b p{font-size:.94rem;font-weight:600;line-height:1.25;margin-block-start:6px;opacity:.92}
+html[lang="ar"] .b p{font-size:1rem;line-height:1.5}
+.pr{position:absolute;inset-block-end:4%;inset-inline-end:8%;width:66px;height:66px;border-radius:0 50% 50% 50%;transform:rotate(45deg);background:var(--plum);color:#fff;display:grid;place-content:center;box-shadow:0 8px 14px -6px rgba(44,11,63,.6)}
+.pr span{transform:rotate(-45deg);display:block;text-align:center;line-height:.9;font-weight:800;font-size:1.45rem;margin-block-start:6px;margin-inline-start:6px;unicode-bidi:isolate}
+.pr small{display:block;font-size:.62rem;font-weight:700;opacity:.8}
+html[lang="ar"] .pr small{font-size:.74rem}
+.st{font-weight:800;font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;background:#fff;color:var(--plum);padding:4px 11px 2px;border-radius:999px;margin-block-end:8px;transform:rotate(-4deg);box-shadow:0 3px 0 rgba(44,11,63,.2)}
+html[lang="ar"] .st{font-size:.86rem}
+.st.hot{background:var(--plum);color:#ffd23f}
+
+/* shots: little ones */
+.shots .b{--sz:clamp(200px,15vw,230px) !important}
+.shots .b h3{font-size:1.35rem}
+.shots .b p{font-size:.94rem}
+.shots .pr{width:54px;height:54px}.shots .pr span{font-size:1.15rem}
+
+/* boosters */
+.boost{position:relative;z-index:1;margin:clamp(70px,9vw,130px) auto 0;max-width:1100px;padding:0 20px;text-align:center}
+.boost h2{font-weight:800;font-size:clamp(2rem,4.4vw,3.6rem);line-height:1}
+html[lang="ar"] .boost h2{line-height:1.4}
+.boost ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-block-start:24px}
+.boost li{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem;background:#fff;border-radius:999px;padding:9px 10px 7px 20px;padding-inline:20px 10px;box-shadow:0 6px 0 rgba(44,11,63,.1)}
+.boost li b{background:var(--c);color:var(--k,var(--plum));border-radius:999px;padding:3px 12px 1px;font-weight:800;unicode-bidi:isolate}
+
+/* footer */
+.dripsvg{display:block;width:100%;height:clamp(60px,9vw,130px);margin-block-start:clamp(70px,9vw,130px);position:relative;z-index:1;transform:scaleY(-1)}
+footer{position:relative;z-index:1;background:var(--plum);color:var(--cream);padding:clamp(30px,5vw,60px) clamp(20px,5vw,80px) 46px;margin-block-start:-1px}
+.fg{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:clamp(20px,3vw,50px);max-width:1400px;margin-inline:auto;align-items:start}
+.fl{font-weight:800;font-size:clamp(4rem,9vw,8rem);line-height:.8;color:#ffd23f;letter-spacing:-.04em}
+html[lang="ar"] .fl{line-height:1.2}
+footer h3{font-weight:800;font-size:1.25rem;color:#ff7aa8;margin-block-end:6px}
+footer p{font-size:1rem;color:#eadcf2;font-weight:500}
+.fine{max-width:1400px;margin:34px auto 0;font-size:.92rem;color:#c9b3d6;border-block-start:2px dashed #5d3a72;padding-block-start:16px}
+
+@media (max-width:860px){
+  .hero{min-height:0;padding-block-start:clamp(240px,70vw,360px)}
+  .big{width:min(78vw,400px);inset-block-start:58px;inset-inline-end:-8%}
+  .sm.l{inset-block-start:150px;inset-inline-start:5%}
+  .sm.p{inset-block-start:90px;inset-inline-end:auto;inset-inline-start:28%}
+  .hrow{grid-template-columns:1fr}
+  .tag{white-space:normal}
+  .sec{grid-template-columns:1fr;padding-inline:14px}
+  .sh{position:static;padding-inline:6px}
+  .sh p{max-width:34ch}
+  .blobs{flex-direction:column;align-items:stretch;gap:0}
+  .b,.b:nth-child(n){--sz:min(80vw,318px);margin-block-start:-14px;padding:calc(var(--sz)*.12) calc(var(--sz)*.13) calc(var(--sz)*.15)}
+  .b:first-child{margin-block-start:0}
+  .b:nth-child(odd){align-self:flex-start}
+  .b:nth-child(even){align-self:flex-end}
+  .shots .blobs{flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:10px 0}
+  .shots .b,.shots .b:nth-child(n){--sz:min(46vw,200px) !important;margin:0;padding:calc(var(--sz)*.1)}
+  .shots .b:nth-child(even){margin-block-start:44px}
+  .shots .b h3{font-size:1.15rem}
+  .shots .b p{font-size:.86rem;line-height:1.15}
+  html[lang="ar"] .shots .b p{font-size:.9rem;line-height:1.3}
+  .shots .pr{width:46px;height:46px;inset-block-end:-2%;inset-inline-end:2%}.shots .pr span{font-size:1rem;margin:4px 0 0;margin-inline-start:4px}
+  .shots .pr small{display:none}
+  .fg{grid-template-columns:1fr 1fr}
+  .fl{grid-column:1/-1}
+  .fg>div:last-child{grid-column:1/-1}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="ctl">
+  <a class="home-link" href="../index.html"><i aria-hidden="true"></i><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<div class="page">
+<i class="pool" style="width:46vw;height:46vw;background:#ffb347;top:-8vw;inset-inline-start:-14vw"></i>
+<i class="pool" style="width:50vw;height:50vw;background:#ff8fb3;top:120vh;inset-inline-end:-20vw;animation-delay:-6s"></i>
+<i class="pool" style="width:44vw;height:44vw;background:#ffd86b;top:215vh;inset-inline-start:-16vw;animation-delay:-3s"></i>
+<i class="pool" style="width:52vw;height:52vw;background:#ff9ec4;top:38%;inset-inline-end:-18vw;animation-delay:-9s"></i>
+<i class="pool" style="width:50vw;height:50vw;background:#c8f27a;top:55%;inset-inline-start:-18vw;animation-delay:-2s"></i>
+<i class="pool" style="width:44vw;height:44vw;background:#ffe27a;top:70%;inset-inline-end:-14vw;animation-delay:-7s"></i>
+<i class="pool" style="width:50vw;height:50vw;background:#d6b3ff;top:83%;inset-inline-start:-14vw;animation-delay:-5s"></i>
+
+<header class="hero">
+  <i class="big" aria-hidden="true"></i><i class="sm l" aria-hidden="true"></i><i class="sm p" aria-hidden="true"></i>
+  <span class="dr" style="inset-block-start:52%;inset-inline-end:22%" aria-hidden="true"><i class="drop" style="position:static;display:block"></i></span>
+  <span class="dr" style="inset-block-start:60%;inset-inline-end:38%;animation-delay:-2.4s" aria-hidden="true"><i class="drop" style="position:static;display:block;background:#ff9a1f;width:14px;height:14px"></i></span>
+  <p class="kick"><span lang="en">Juice Bar · pressed to order</span><span lang="ar">عصائر طازجة · تُعصر عند الطلب</span></p>
+  <h1><span lang="en">Pulp<b>.</b></span><span lang="ar">بَلْب<b>.</b></span></h1>
+  <div class="hrow">
+    <p class="tag"><span lang="en">All fruit.<em>No filter.</em></span><span lang="ar">فاكهة كاملة.<em>بلا رتوش.</em></span></p>
+    <div>
+      <p class="intro"><span lang="en">We press, blitz and pour while you watch — nothing from concentrate, nothing that’s been sitting in a fridge since Tuesday. Pick a colour. We’ll make it loud.</span><span lang="ar">نعصر ونخلط ونصبّ أمام عينيك؛ لا مركّزات، ولا عبوة منسيّة في الثلّاجة منذ الثلاثاء. اختر لونك، ونحن نجعله صاخبًا.</span></p>
+      <nav class="hnav">
+        <a href="#s1" style="--c:#ff9a1f"><span lang="en">Squeezed</span><span lang="ar">معصور</span></a>
+        <a href="#s2" style="--c:#ff5c93"><span lang="en">Blended</span><span lang="ar">مخفوق</span></a>
+        <a href="#s3" style="--c:#a6e22e"><span lang="en">Greens</span><span lang="ar">أخضر</span></a>
+        <a href="#s4" style="--c:#ffd23f"><span lang="en">Shots</span><span lang="ar">جرعات</span></a>
+        <a href="#s5" style="--c:#8a3ffc;--k:#fff"><span lang="en">Bowls</span><span lang="ar">أوعية</span></a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="tick" aria-hidden="true"><div>
+  <span lang="en">no added sugar</span><span lang="en" style="--dc:#ff5c93">pressed to order</span><span lang="en" style="--dc:#a6e22e">ugly fruit welcome</span><span lang="en" style="--dc:#ff9a1f">pulp stays in</span><span lang="en">no added sugar</span><span lang="en" style="--dc:#ff5c93">pressed to order</span><span lang="en" style="--dc:#a6e22e">ugly fruit welcome</span><span lang="en" style="--dc:#ff9a1f">pulp stays in</span>
+  <span lang="ar">بلا سكّر مضاف</span><span lang="ar" style="--dc:#ff5c93">يُعصر عند الطلب</span><span lang="ar" style="--dc:#a6e22e">نحبّ الفاكهة مهما كان شكلها</span><span lang="ar" style="--dc:#ff9a1f">اللُّبّ يبقى في الكوب</span><span lang="ar">بلا سكّر مضاف</span><span lang="ar" style="--dc:#ff5c93">يُعصر عند الطلب</span><span lang="ar" style="--dc:#a6e22e">نحبّ الفاكهة مهما كان شكلها</span><span lang="ar" style="--dc:#ff9a1f">اللُّبّ يبقى في الكوب</span>
+</div></div>
+
+<section class="sizes">
+  <h2><span lang="en">Pick your puddle</span><span lang="ar">اختر حجم كوبك</span><small><span lang="en">Menu prices are for Small. Go bigger for a few dirhams.</span><small lang="ar" style="display:block">الأسعار للحجم الصغير، وكبّره بدراهم قليلة.</small></small></h2>
+  <div class="cup" style="--w:104px;--c:#ffd23f"><b>S</b><span dir="ltr">350 ml</span></div>
+  <div class="cup" style="--w:140px;--c:#ff9a1f;animation-delay:-4s"><b>M</b><span dir="ltr">500 ml · +4</span></div>
+  <div class="cup" style="--w:184px;--c:#ff5c93;animation-delay:-7s"><b>L</b><span dir="ltr">700 ml · +8</span></div>
+</section>
+
+<section class="sec" id="s1" style="--c:#ff7a1a">
+  <header class="sh">
+    <span class="num"><i>01</i></span>
+    <h2><span lang="en">Squee&shy;zed</span><span lang="ar">معصور</span></h2>
+    <p><span lang="en">Cold-pressed, straight up. Fruit, ice, and nothing we couldn’t pronounce.</span><span lang="ar">معصور على البارد كما هو: فاكهة وثلج، ولا شيء يصعب نطق اسمه.</span></p>
+    <span class="ml"><span lang="en">100% fruit</span><span lang="ar">فاكهة ١٠٠٪</span></span>
+  </header>
+  <ul class="blobs">
+    <li class="b" style="--a:#ffe066;--b:#ff9a1f;--d:#ff6b1a"><h3><span lang="en">Sunrise Squeeze</span><span lang="ar">عصرة الشروق</span></h3><p><span lang="en">Valencia orange, carrot and a proper kick of ginger.</span><span lang="ar">برتقال فالنسيا وجزر ولسعة زنجبيل حقيقية.</span></p><span class="pr"><span>22<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#ffc2d9;--b:#ff7fab;--d:#ff4d8d"><h3><span lang="en">Pink Lemonade</span><span lang="ar">ليموناضة وردية</span></h3><p><span lang="en">Lemon, crushed strawberry, rose water and fizz.</span><span lang="ar">ليمون وفراولة مهروسة وماء ورد وفوران منعش.</span></p><span class="pr"><span>20<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#ff9aa2;--b:#ff4f64;--d:#e11d48;--ink:#fff"><span class="st hot"><span lang="en">Fan fave</span><span lang="ar">الأكثر طلبًا</span></span><h3><span lang="en">Watermelon Crush</span><span lang="ar">بطّيخ مجروش</span></h3><p><span lang="en">Watermelon, mint, lime and a pinch of sea salt.</span><span lang="ar">بطّيخ ونعناع وليمون أخضر ورشّة ملح بحري.</span></p><span class="pr"><span>19<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#f472b6;--b:#c2185b;--d:#8e0f4a;--ink:#fff"><h3><span lang="en">Pom Pom</span><span lang="ar">بوم بوم الرمّان</span></h3><p><span lang="en">Pomegranate, red apple and a splash of hibiscus.</span><span lang="ar">رمّان وتفّاح أحمر ورشفة من الكركديه.</span></p><span class="pr"><span>26<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#f4ffb0;--b:#d4e157;--d:#afc92b"><h3><span lang="en">Sugarcane Zing</span><span lang="ar">قصب بلسعة</span></h3><p><span lang="en">Fresh-pressed sugarcane, lemon and ginger over ice.</span><span lang="ar">قصب سكّر معصور للتوّ مع الليمون والزنجبيل على الثلج.</span></p><span class="pr"><span>18<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+  </ul>
+</section>
+
+<section class="sec" id="s2" style="--c:#ff3d7f">
+  <header class="sh">
+    <span class="num"><i>02</i></span>
+    <h2><span lang="en">Blen&shy;ded</span><span lang="ar">مخفوق</span></h2>
+    <p><span lang="en">Thick enough to stand a straw in. Made with milk, oat, almond or coconut.</span><span lang="ar">ثقيل إلى حدّ أن تقف فيه المصّاصة. بالحليب أو الشوفان أو اللوز أو جوز الهند.</span></p>
+    <span class="ml"><span lang="en">spoon optional</span><span lang="ar">الملعقة اختيارية</span></span>
+  </header>
+  <ul class="blobs">
+    <li class="b" style="--a:#fff07a;--b:#ffc21a;--d:#ff9800"><span class="st hot"><span lang="en">Fan fave</span><span lang="ar">الأكثر طلبًا</span></span><h3><span lang="en">Mango Tango</span><span lang="ar">مانجو تانجو</span></h3><p><span lang="en">Alphonso mango, passion fruit and coconut milk.</span><span lang="ar">مانجو ألفونسو وباشن فروت وحليب جوز الهند.</span></p><span class="pr"><span>27<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#d7a6ff;--b:#9b4dff;--d:#6a1bd1;--ink:#fff"><h3><span lang="en">Berry Loud</span><span lang="ar">توت بصوت عالٍ</span></h3><p><span lang="en">Strawberry, blueberry, banana and oat milk.</span><span lang="ar">فراولة وتوت أزرق وموز وحليب الشوفان.</span></p><span class="pr"><span>26<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#f3d2a2;--b:#d59a57;--d:#a8672a"><h3><span lang="en">Date Shake</span><span lang="ar">مخفوق التمر</span></h3><p><span lang="en">Medjool dates, banana, tahini, cinnamon and cold milk.</span><span lang="ar">تمر مجدول وموز وطحينة وقرفة وحليب بارد.</span></p><span class="pr"><span>25<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#e6ffb3;--b:#a5d94a;--d:#6fae2b"><h3><span lang="en">Avo Cloud</span><span lang="ar">غيمة الأفوكادو</span></h3><p><span lang="en">Avocado, honey and milk under a pistachio crumble.</span><span lang="ar">أفوكادو وعسل وحليب تحت فتات الفستق.</span></p><span class="pr"><span>28<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#ffb3c7;--b:#f06292;--d:#b5477a;--ink:#fff"><span class="st"><span lang="en">New</span><span lang="ar">جديد</span></span><h3><span lang="en">PB &amp; Jam</span><span lang="ar">زبدة فول ومربّى</span></h3><p><span lang="en">Peanut butter, raspberry, banana and almond milk.</span><span lang="ar">زبدة الفول السوداني وتوت العلّيق والموز وحليب اللوز.</span></p><span class="pr"><span>27<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+  </ul>
+</section>
+
+<section class="sec" id="s3" style="--c:#6cc21f;--t:#4d9d12">
+  <header class="sh">
+    <span class="num"><i>03</i></span>
+    <h2><span lang="en">Greens</span><span lang="ar">أخضر</span></h2>
+    <p><span lang="en">Vegetables that taste like a good idea. Bright, sharp, properly cold.</span><span lang="ar">خضارٌ بطعم القرار الصائب: مشرق ولاذع وبارد كما يجب.</span></p>
+    <span class="ml"><span lang="en">vegan · raw</span><span lang="ar">نباتي · نيء</span></span>
+  </header>
+  <ul class="blobs">
+    <li class="b" style="--a:#d9ff8a;--b:#8fd42a;--d:#4ea818"><h3><span lang="en">Green Machine</span><span lang="ar">الماكينة الخضراء</span></h3><p><span lang="en">Kale, green apple, cucumber, celery and lemon.</span><span lang="ar">كيل وتفّاح أخضر وخيار وكرفس وليمون.</span></p><span class="pr"><span>24<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#f6ffb0;--b:#cfe94a;--d:#9ccc2e"><span class="st hot"><span lang="en">Fan fave</span><span lang="ar">الأكثر طلبًا</span></span><h3><span lang="en">Limonana</span><span lang="ar">ليمون بالنعناع</span></h3><p><span lang="en">Whole lemons, a fistful of mint, crushed ice.</span><span lang="ar">ليمون كامل وقبضة نعناع وثلج مجروش.</span></p><span class="pr"><span>18<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#ff8fb8;--b:#c2185b;--d:#7b1146;--ink:#fff"><h3><span lang="en">Beet It</span><span lang="ar">شمندر وبس</span></h3><p><span lang="en">Beetroot, apple, carrot and a squeeze of lime.</span><span lang="ar">شمندر وتفّاح وجزر وعصرة ليمون أخضر.</span></p><span class="pr"><span>23<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#d2fff0;--b:#7fe3c0;--d:#35b894"><h3><span lang="en">Cucumber Cooler</span><span lang="ar">خيار منعش</span></h3><p><span lang="en">Cucumber, pineapple, basil and coconut water.</span><span lang="ar">خيار وأناناس وريحان وماء جوز الهند.</span></p><span class="pr"><span>22<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+  </ul>
+</section>
+
+<section class="sec shots" id="s4" style="--c:#ffc400;--t:#e59a00;--nk:#2c0b3f">
+  <header class="sh">
+    <span class="num"><i>04</i></span>
+    <h2><span lang="en">Shots</span><span lang="ar">جرعات</span></h2>
+    <p><span lang="en">Sixty millilitres of wake‑up. Down in one, face optional.</span><span lang="ar">ستّون ملّيلترًا توقظك. تُشرب دفعةً واحدة، وتعابير الوجه عليك.</span></p>
+    <span class="ml" dir="ltr">60 ml</span>
+  </header>
+  <ul class="blobs">
+    <li class="b" style="--a:#ffb36b;--b:#ff5a1f;--d:#d83a0c;--ink:#fff"><h3><span lang="en">Fire</span><span lang="ar">نار</span></h3><p><span lang="en">Ginger, lemon, cayenne.</span><span lang="ar">زنجبيل وليمون وفلفل حار.</span></p><span class="pr"><span>9<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#fff59d;--b:#ffca28;--d:#ffa000"><h3><span lang="en">Gold</span><span lang="ar">ذهب</span></h3><p><span lang="en">Turmeric, orange, black pepper.</span><span lang="ar">كركم وبرتقال وفلفل أسود.</span></p><span class="pr"><span>9<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#ff9ec4;--b:#e91e63;--d:#ad1457;--ink:#fff"><h3><span lang="en">Glow</span><span lang="ar">توهّج</span></h3><p><span lang="en">Pomegranate, beetroot, lime.</span><span lang="ar">رمّان وشمندر وليمون أخضر.</span></p><span class="pr"><span>10<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#d4ff8f;--b:#7cc92a;--d:#3f9b1a"><h3><span lang="en">Grass</span><span lang="ar">عشب</span></h3><p><span lang="en">Wheatgrass, green apple.</span><span lang="ar">عشبة القمح وتفّاح أخضر.</span></p><span class="pr"><span>10<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+  </ul>
+</section>
+
+<section class="sec" id="s5" style="--c:#8a3ffc">
+  <header class="sh">
+    <span class="num"><i>05</i></span>
+    <h2><span lang="en">Bowls</span><span lang="ar">أوعية</span></h2>
+    <p><span lang="en">For when a drink isn’t breakfast enough. Frozen, thick, piled high.</span><span lang="ar">حين لا يكفي المشروب فطورًا: مثلّجة وكثيفة ومكدّسة بالإضافات.</span></p>
+    <span class="ml"><span lang="en">bring a spoon</span><span lang="ar">أحضر ملعقتك</span></span>
+  </header>
+  <ul class="blobs">
+    <li class="b" style="--a:#c79bff;--b:#7b2ff7;--d:#4a148c;--ink:#fff"><span class="st hot"><span lang="en">Fan fave</span><span lang="ar">الأكثر طلبًا</span></span><h3><span lang="en">Açaí Riot</span><span lang="ar">فوضى الأساي</span></h3><p><span lang="en">Açaí, banana, crunchy granola, strawberry, coconut.</span><span lang="ar">أساي وموز وغرانولا مقرمشة وفراولة وجوز الهند.</span></p><span class="pr"><span>38<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#ffa6d6;--b:#ff3fa4;--d:#d6147f;--ink:#fff"><h3><span lang="en">Dragon Bowl</span><span lang="ar">وعاء التنّين</span></h3><p><span lang="en">Pink pitaya, mango, kiwi, chia and toasted coconut.</span><span lang="ar">بيتايا وردية ومانجو وكيوي وشيا وجوز هند محمّص.</span></p><span class="pr"><span>39<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+    <li class="b" style="--a:#e0b98c;--b:#a56a3a;--d:#6d3f1c;--ink:#fff"><h3><span lang="en">Choco Nana</span><span lang="ar">شوكو موز</span></h3><p><span lang="en">Frozen banana, raw cacao, peanut butter, dates, nibs.</span><span lang="ar">موز مثلّج وكاكاو خام وزبدة فول سوداني وتمر وحبيبات كاكاو.</span></p><span class="pr"><span>36<small lang="en">AED</small><small lang="ar">د.إ</small></span></span></li>
+  </ul>
+</section>
+
+<section class="boost">
+  <h2><span lang="en">Drop something in</span><span lang="ar">أضِف قطرةً من عندك</span></h2>
+  <ul>
+    <li><span lang="en">Chia seeds</span><span lang="ar">بذور الشيا</span><b style="--c:#ffd23f">+3</b></li>
+    <li><span lang="en">Bee pollen</span><span lang="ar">حبوب لقاح النحل</span><b style="--c:#ff9a1f">+4</b></li>
+    <li><span lang="en">Ginger shot</span><span lang="ar">جرعة زنجبيل</span><b style="--c:#ff5c93">+5</b></li>
+    <li><span lang="en">Plant protein</span><span lang="ar">بروتين نباتي</span><b style="--c:#a6e22e">+6</b></li>
+    <li><span lang="en">Sidr honey</span><span lang="ar">عسل السدر</span><b style="--c:#8a3ffc;--k:#fff">+6</b></li>
+    <li><span lang="en">Collagen</span><span lang="ar">كولاجين</span><b style="--c:#7fe3c0">+7</b></li>
+  </ul>
+</section>
+
+<svg class="dripsvg" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path fill="#2c0b3f" d="M0 0H1200V28C1178 28 1176 70 1150 70S1124 28 1096 28C1066 28 1068 104 1034 104S1004 28 972 28C948 28 948 54 926 54S904 28 876 28C842 28 846 88 812 88S782 28 748 28C722 28 722 62 698 62S676 28 646 28C612 28 616 112 580 112S548 28 514 28C490 28 490 50 468 50S446 28 420 28C388 28 390 80 358 80S328 28 296 28C270 28 270 66 244 66S220 28 190 28C158 28 160 98 128 98S98 28 66 28C42 28 42 52 22 52S10 28 0 28Z"/></svg>
+<footer>
+  <div class="fg">
+    <p class="fl"><span lang="en">Pulp.</span><span lang="ar">بَلْب.</span></p>
+    <div><h3><span lang="en">Open</span><span lang="ar">نفتح</span></h3><p><span lang="en">Every day 7:00 – 23:00<br>Fridays until midnight</span><span lang="ar">يوميًّا ٧:٠٠ – ٢٣:٠٠<br>الجمعة حتى منتصف الليل</span></p></div>
+    <div><h3><span lang="en">Find the blob</span><span lang="ar">أين تجدنا</span></h3><p><span lang="en">Kiosk 7, Citrus Walk<br>Al Qudra Park, Dubai</span><span lang="ar">كشك ٧، ممشى الحمضيات<br>حديقة القدرة، دبي</span></p></div>
+    <div><h3><span lang="en">The small print</span><span lang="ar">ملاحظات صغيرة</span></h3><p><span lang="en">We handle nuts, peanuts, sesame, milk and bee products at one counter. Any drink can be made dairy‑free — just say.</span><span lang="ar">نتعامل مع المكسّرات والفول السوداني والسمسم والحليب ومنتجات النحل على منضدة واحدة. يمكن تحضير أي مشروب بلا ألبان، فقط أخبرنا.</span></p></div>
+  </div>
+  <p class="fine"><span lang="en">Prices in AED, VAT included. Bring your own cup and we knock 2 off.</span><span lang="ar">الأسعار بالدرهم الإماراتي شاملة الضريبة. أحضر كوبك الخاص واحصل على خصم درهمين.</span></p>
+</footer>
+</div>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>

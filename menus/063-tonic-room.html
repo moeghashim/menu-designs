@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>The Tonic Room · غرفة التونيك</title>
+<meta name="description" content="The Tonic Room — botanical sodas, tonics, shrubs and cordials compounded daily. غرفة التونيك — مشروبات نباتية فوّارة تُركَّب كل يوم.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#16301f">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Pinyon+Script&family=Rakkas&family=Markazi+Text:wght@500;700&family=Rye&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --paper:#f0e4c8; --paper2:#e6d6b0; --ink:#23180f; --green:#16301f; --green2:#1f4530; --amber:#b5651d; --ox:#8c2f1b; --brass:#c9a253;
+  --fat:"Abril Fatface","Rakkas",Georgia,serif; --rye:"Rye","Rakkas",Georgia,serif; --fell:"IM Fell English","Amiri",Georgia,serif;
+  --sc:"IM Fell English SC","IM Fell English",Georgia,serif; --script:"Pinyon Script","Aref Ruqaa",cursive;
+}
+html[lang="ar"]{ --fat:"Rakkas","Amiri",serif; --rye:"Aref Ruqaa","Amiri",serif; --fell:"Amiri","Noto Naskh Arabic",serif; --sc:"Markazi Text","Amiri",serif; --script:"Aref Ruqaa","Amiri",serif; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fell);font-size:17px;line-height:1.4;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-size:18.5px;line-height:1.65}
+html[lang="ar"] *{letter-spacing:0 !important;font-style:normal !important}
+.page{overflow:clip;background:
+  radial-gradient(circle at 20% 10%,rgba(160,110,40,.14),transparent 40%),radial-gradient(circle at 85% 30%,rgba(120,80,30,.12),transparent 45%),var(--paper)}
+
+/* controls: little paper tags */
+.ctl{position:fixed;inset-block-start:12px;inset-inline-end:12px;z-index:40;display:flex;gap:8px}
+.ctl a,.ctl button{font:400 14px/1 var(--sc);letter-spacing:.08em;color:var(--ink);background:var(--paper);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:2px;padding:9px 12px;min-height:36px;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;box-shadow:3px 4px 0 rgba(35,24,15,.25)}
+.ctl button{background:var(--ink);color:var(--paper);font-family:"Aref Ruqaa","IM Fell English SC",serif;font-size:16px}
+html[lang="ar"] .ctl a{font-size:17px}
+html[lang="ar"] .ctl button{font-family:"IM Fell English SC",serif;font-size:14px;letter-spacing:.08em !important}
+.ctl a:hover,.ctl button:hover{background:var(--ox);color:var(--paper)}
+
+/* the grand label */
+.hero{padding:clamp(66px,7vw,90px) clamp(12px,4vw,60px) clamp(40px,5vw,70px)}
+.label{position:relative;max-width:1180px;margin-inline:auto;border:3px solid var(--ink);padding:10px;background:var(--paper);box-shadow:0 0 0 1px var(--paper),0 0 0 2px var(--ink),8px 12px 0 rgba(35,24,15,.12)}
+.label::before{content:"";position:absolute;inset:5px;pointer-events:none;border:9px solid transparent;border-image:repeating-linear-gradient(45deg,var(--ink) 0 2px,transparent 2px 6px) 9}
+.lin{position:relative;border:1px solid var(--ink);margin:14px;padding:clamp(22px,4vw,48px) clamp(10px,4vw,60px) clamp(22px,3vw,40px);text-align:center;overflow:hidden}
+.lin::before{content:"";position:absolute;inset:0;z-index:0;background:repeating-conic-gradient(from 0deg at 50% 36%,rgba(181,101,29,.2) 0 1.6deg,transparent 1.6deg 6deg);-webkit-mask:radial-gradient(ellipse at 50% 36%,#000 0,transparent 62%);mask:radial-gradient(ellipse at 50% 36%,#000 0,transparent 62%)}
+.lin>*{position:relative;z-index:1}
+.cn{position:absolute;width:clamp(38px,6vw,74px);height:clamp(38px,6vw,74px);z-index:2;color:var(--ink)}
+.cn.a{inset-block-start:6px;inset-inline-start:6px}
+.cn.b{inset-block-start:6px;inset-inline-end:6px;transform:scaleX(-1)}
+.cn.c{inset-block-end:6px;inset-inline-start:6px;transform:scaleY(-1)}
+.cn.d{inset-block-end:6px;inset-inline-end:6px;transform:scale(-1)}
+html[dir="rtl"] .cn.a{transform:scaleX(-1)} html[dir="rtl"] .cn.b{transform:none}
+html[dir="rtl"] .cn.c{transform:scale(-1)} html[dir="rtl"] .cn.d{transform:scaleY(-1)}
+html[lang="ar"] .est{font-size:clamp(1rem,1.5vw,1.2rem)}
+.est{font-family:var(--sc);letter-spacing:.3em;font-size:clamp(.72rem,1.3vw,.95rem);display:flex;justify-content:center;align-items:center;gap:14px}
+.est::before,.est::after{content:"";flex:0 1 110px;height:5px;border-block:1px solid var(--ink)}
+h1{font-weight:400;line-height:.9;margin-block:10px 0;color:var(--ink)}
+h1 .a{display:block;font-family:var(--script);font-size:clamp(2.6rem,6vw,5rem);color:var(--ox);margin-block-end:-.22em;font-style:normal}
+h1 .b{display:block;font-family:var(--rye);font-size:clamp(4.5rem,15vw,12.5rem);font-weight:400;letter-spacing:.02em;line-height:1;text-shadow:3px 3px 0 var(--paper),6px 6px 0 var(--amber)}
+h1 .c{display:block;font-family:var(--fat);font-style:normal;font-size:clamp(2rem,6.6vw,5.4rem);letter-spacing:.42em;margin-inline-end:-.42em;line-height:1}
+html[lang="ar"] h1{line-height:1.25}
+html[lang="ar"] h1 .a{font-size:clamp(3rem,7vw,6rem);font-weight:700;margin-block-end:-.3em}
+html[lang="ar"] h1 .b{font-family:"Rakkas",serif;font-size:clamp(4.6rem,17vw,13.5rem);line-height:1.25;text-shadow:3px 3px 0 var(--paper),6px 6px 0 var(--amber)}
+.rib{display:inline-block;position:relative;margin-block:clamp(14px,2vw,26px) 16px;background:var(--green);color:var(--paper);font-family:var(--sc);letter-spacing:.24em;font-size:clamp(.9rem,2vw,1.35rem);padding:.55em 1.6em .5em}
+html[lang="ar"] .rib{font-weight:700;font-size:clamp(1.05rem,2.2vw,1.5rem)}
+.rib::before,.rib::after{content:"";position:absolute;inset-block:0;width:1.1em;background:var(--green)}
+.rib::before{inset-inline-start:-1.05em;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,45% 50%)}
+.rib::after{inset-inline-end:-1.05em;clip-path:polygon(0 0,100% 0,55% 50%,100% 100%,0 100%)}
+html[dir="rtl"] .rib::before{clip-path:polygon(0 0,100% 0,55% 50%,100% 100%,0 100%)}
+html[dir="rtl"] .rib::after{clip-path:polygon(0 0,100% 0,100% 100%,0 100%,45% 50%)}
+.lede{font-style:italic;font-size:clamp(1.05rem,1.7vw,1.3rem);max-width:54ch;margin-inline:auto;line-height:1.45}
+html[lang="ar"] .lede{line-height:1.8}
+.claims{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(10px,3vw,40px);align-items:center;margin-block-start:clamp(18px,3vw,34px);border-block-start:1px solid var(--ink);padding-block-start:clamp(14px,2vw,24px)}
+.claims p{font-family:var(--sc);letter-spacing:.14em;font-size:clamp(.78rem,1.2vw,.95rem);line-height:1.5}
+html[lang="ar"] .claims p{font-size:clamp(1.1rem,1.5vw,1.25rem);line-height:1.5}
+.claims p:first-child{text-align:end}.claims p:last-child{text-align:start}
+.seal{width:clamp(84px,11vw,128px);aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;background:var(--ox);color:var(--paper);font-family:var(--fat);line-height:1;box-shadow:0 0 0 3px var(--paper),0 0 0 4px var(--ox),0 0 0 8px var(--paper),0 0 0 9px var(--ox);transform:rotate(-8deg)}
+.seal b{font-size:clamp(1.5rem,3vw,2.3rem);font-weight:400}
+.seal span{font-family:var(--sc);font-size:clamp(.56rem,.9vw,.72rem);letter-spacing:.14em;margin-block-start:3px}
+html[lang="ar"] .seal span{font-size:clamp(.85rem,1.1vw,1rem)}
+.eng{position:absolute;inset-block-start:clamp(70px,9vw,110px);width:clamp(70px,9.5vw,130px);color:var(--ink);opacity:.9}
+.eng.l{inset-inline-start:clamp(16px,3.4vw,52px)} .eng.r{inset-inline-end:clamp(16px,3.4vw,52px)}
+
+/* cabinet */
+.cab{background:var(--green);color:var(--paper);position:relative;
+  background-image:linear-gradient(90deg,rgba(0,0,0,.28) 0 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px),radial-gradient(ellipse at 50% 0,rgba(255,220,150,.14),transparent 55%);
+  background-size:72px 100%,72px 100%,100% 900px;background-position:0 0,3px 0,0 0;background-repeat:repeat,repeat,no-repeat;padding-block-end:clamp(40px,6vw,80px)}
+.crown{height:46px;background:linear-gradient(#8a5a2e,#5e3a1a 60%,#3d2410);box-shadow:0 8px 18px rgba(0,0,0,.5);position:relative}
+.crown::after{content:"";position:absolute;inset-inline:0;inset-block-end:6px;height:12px;background:repeating-linear-gradient(90deg,#3d2410 0 14px,#a26d38 14px 28px)}
+.dir{max-width:1240px;margin:0 auto;padding:clamp(26px,4vw,46px) 20px 0;text-align:center;font-family:var(--sc);letter-spacing:.2em;font-size:clamp(.8rem,1.3vw,1rem);color:#d9c79c}
+html[lang="ar"] .dir{font-size:1.25rem}
+.dir b{color:var(--brass);font-weight:400}
+.sec{max-width:1300px;margin-inline:auto;padding:clamp(34px,5vw,64px) clamp(22px,3vw,40px) 0}
+.plq{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(12px,2vw,26px);max-width:860px;margin:0 auto clamp(30px,4vw,48px);padding:14px clamp(16px,3vw,34px);color:#2a1c08;
+  background:linear-gradient(170deg,#e9cc86 0%,#c9a253 38%,#a57d33 70%,#d4b46a 100%);box-shadow:inset 0 0 0 2px #7a5a22,inset 0 0 0 5px #dfc27c,inset 0 0 0 6px #7a5a22,0 10px 22px rgba(0,0,0,.5)}
+.plq::before,.plq::after{content:"";position:absolute;inset-block-start:50%;width:9px;height:9px;margin-block-start:-4.5px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3c9,#6b4c18);box-shadow:0 1px 1px rgba(0,0,0,.5)}
+.plq::before{inset-inline-start:9px}.plq::after{inset-inline-end:9px}
+.plq .no{font-family:var(--fat);font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1;padding-inline:10px 4px}
+.plq h2{font-weight:400;font-size:clamp(1.5rem,3.5vw,2.7rem);line-height:1.05;text-align:center}
+html[lang="ar"] .plq h2{line-height:1.4}
+.plq h2 small{display:block;font-family:var(--fell);font-style:italic;font-size:clamp(.92rem,1.4vw,1.08rem);letter-spacing:0;margin-block-start:4px}
+.plq .ml{font-family:var(--sc);font-size:.8rem;letter-spacing:.12em;text-align:center;line-height:1.2;padding-inline:4px 10px}
+html[lang="ar"] .plq .ml{font-size:1.1rem;font-weight:700}
+.f-rye h2{font-family:var(--rye)}.f-fat h2{font-family:var(--fat)}.f-sc h2{font-family:var(--sc);letter-spacing:.16em}.f-scr h2{font-family:var(--script);font-size:clamp(2.2rem,5vw,3.8rem)}
+html[lang="ar"] .f-scr h2{font-weight:700;font-size:clamp(1.8rem,4vw,3rem)}
+
+.shelf{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(244px,1fr));column-gap:28px;row-gap:46px;align-items:end}
+.bt{display:flex;flex-direction:column;align-items:center;--g1:#4a2206;--g2:#b5651d;--g3:#e7a549}
+.bt.gr{--g1:#0b2014;--g2:#2f6b45;--g3:#69b07f}
+.bt.aq{--g1:#52796c;--g2:#a8cfc0;--g3:#e3f4ec}
+.bt.br{--g1:#1e0f06;--g2:#5a3216;--g3:#96602f}
+.bt::after{content:"";display:block;height:17px;width:calc(100% + 28px);background:linear-gradient(#b07a42 0 3px,#7d5127 3px 12px,#4a2d12 12px);box-shadow:0 14px 16px rgba(0,0,0,.5)}
+.nk{position:relative;width:32%;height:58px;background:linear-gradient(90deg,var(--g1),var(--g2) 22%,var(--g3) 34%,var(--g2) 58%,var(--g1));border-radius:4px 4px 0 0}
+.nk::before{content:"";position:absolute;inset-inline:14%;inset-block-start:-18px;height:20px;border-radius:5px 5px 2px 2px;background:linear-gradient(90deg,#7b5330,#c79a66 40%,#8d6238);box-shadow:inset 0 -3px 0 rgba(0,0,0,.2)}
+.nk::after{content:"";position:absolute;inset-inline:-9%;inset-block-start:0;height:11px;border-radius:5px;background:linear-gradient(90deg,var(--g1),var(--g2) 22%,var(--g3) 34%,var(--g2) 58%,var(--g1))}
+.bd{width:100%;max-width:330px;padding:36px 15px 20px;border-radius:54px 54px 12px 12px;background:linear-gradient(90deg,var(--g1) 0,var(--g2) 9%,var(--g3) 15%,var(--g2) 24%,var(--g2) 76%,var(--g1) 100%);box-shadow:inset 0 10px 18px rgba(255,255,255,.18),inset 0 -14px 20px rgba(0,0,0,.35)}
+.s2 .nk{width:24%;height:44px}.s2 .bd{border-radius:110px 110px 16px 16px/70px 70px 16px 16px;padding-block-start:46px}
+.s3 .nk{width:30%;height:36px}.s3 .bd{border-radius:16px 16px 8px 8px;padding-block-start:24px}
+.jar .nk{width:74%;height:22px;border-radius:6px 6px 0 0;background:linear-gradient(90deg,#6b4c18,#e9cc86 30%,#c9a253 60%,#6b4c18)}
+.jar .nk::before{inset-inline:38%;inset-block-start:-13px;height:14px;border-radius:50% 50% 3px 3px;background:radial-gradient(circle at 40% 30%,#fff3c9,#a57d33 70%)}
+.jar .nk::after{display:none}
+.jar .bd{border-radius:26px 26px 14px 14px;padding-block-start:22px}
+
+.lb{position:relative;background:var(--paper);color:var(--ink);text-align:center;padding:14px 12px 12px;border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-5px;box-shadow:0 2px 6px rgba(0,0,0,.4);background-image:radial-gradient(circle at 80% 90%,rgba(140,90,30,.2),transparent 50%)}
+.l2{border-radius:120px 120px 4px 4px/46px 46px 4px 4px;padding-block-start:20px;outline:0}
+.l2::before{content:"";position:absolute;inset:4px;border:1px solid var(--ink);border-radius:inherit;pointer-events:none}
+.l3{clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px);border:0;outline:0;background-color:var(--paper2);padding:18px 14px 14px}
+.l3::before{content:"";position:absolute;inset:5px;border:1px dashed var(--ink);pointer-events:none}
+.rx{display:inline-flex;align-items:baseline;gap:5px;font-family:var(--sc);font-size:.78rem;letter-spacing:.16em;color:var(--ox)}
+html[lang="ar"] .rx{font-size:1.08rem;font-weight:700}
+.rx b{font-family:"Abril Fatface",serif;font-size:1.2rem;font-weight:400;letter-spacing:0}
+.lb h3{font-weight:400;font-size:1.42rem;line-height:1.05;margin-block:3px 6px;font-family:var(--fat)}
+html[lang="ar"] .lb h3{line-height:1.35;font-size:1.5rem}
+.l2 h3{font-family:var(--rye);font-size:1.26rem;line-height:1.15}
+html[lang="ar"] .l2 h3{font-weight:700;font-size:1.5rem}
+.l3 h3{font-family:var(--sc);font-size:1.3rem;letter-spacing:.08em;line-height:1.15}
+html[lang="ar"] .l3 h3{font-weight:700;font-size:1.6rem}
+.lb h3::after{content:"";display:block;width:54%;margin:7px auto 0;height:4px;border-block:1px solid var(--ink)}
+.ds{font-size:.95rem;line-height:1.3}
+html[lang="ar"] .ds{font-size:1rem;line-height:1.55}
+.fr{font-style:italic;font-size:.92rem;line-height:1.25;color:#5b3a1c;margin-block-start:5px}
+html[lang="ar"] .fr{font-size:.98rem;line-height:1.5}
+.pr{display:inline-block;margin-block-start:8px;font-family:"Abril Fatface",serif;font-size:1.25rem;background:var(--ink);color:var(--paper);padding:2px 12px 1px;unicode-bidi:isolate}
+.star{position:absolute;inset-block-start:-13px;inset-inline-end:-9px;width:54px;height:54px;border-radius:50%;background:var(--ox);color:var(--paper);display:grid;place-content:center;font-family:var(--sc);font-size:.58rem;letter-spacing:.06em;line-height:1.05;transform:rotate(12deg);box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--ox);z-index:2}
+html[lang="ar"] .star{font-size:.8rem;font-weight:700}
+
+/* prescription */
+.rxpad{max-width:1100px;margin:clamp(50px,7vw,90px) auto 0;padding-inline:clamp(14px,3vw,40px);display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(22px,4vw,60px);align-items:center}
+.rxpad .say h2{font-family:var(--rye);font-weight:400;font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.05;color:var(--brass)}
+html[lang="ar"] .rxpad .say h2{font-weight:700;line-height:1.4}
+.rxpad .say p{color:#e5d8b6;margin-block-start:12px;max-width:40ch;font-size:1.08em}
+.slip{position:relative;background:var(--paper);color:var(--ink);padding:26px clamp(18px,3vw,36px) 30px;transform:rotate(-1.6deg);box-shadow:0 22px 40px rgba(0,0,0,.55);background-image:repeating-linear-gradient(transparent 0 37px,rgba(35,24,15,.22) 37px 38px);background-position:0 84px}
+html[dir="rtl"] .slip{transform:rotate(1.6deg)}
+.slip .top{display:flex;justify-content:space-between;align-items:flex-end;border-block-end:3px double var(--ink);padding-block-end:8px;margin-block-end:10px;font-family:var(--sc);letter-spacing:.12em;font-size:.86rem;gap:12px}
+html[lang="ar"] .slip .top{font-size:1.2rem}
+.slip .top b{font-family:"Abril Fatface",serif;font-size:3rem;line-height:.8;font-weight:400;letter-spacing:0}
+.slip .top b sub{font-size:.55em}
+.slip ul{list-style:none;font-family:var(--script);font-size:clamp(1.5rem,2.6vw,1.95rem);line-height:38px;color:#1c2f6b}
+html[lang="ar"] .slip ul{font-size:clamp(1.3rem,2.2vw,1.6rem)}
+.slip .sig{display:flex;justify-content:space-between;align-items:flex-end;margin-block-start:14px;font-family:var(--sc);font-size:.8rem;letter-spacing:.1em;gap:10px}
+html[lang="ar"] .slip .sig{font-size:1.15rem}
+.slip .sig svg{width:130px;height:44px;color:#1c2f6b;display:block}
+.stamp{position:absolute;inset-block-end:92px;inset-inline-end:clamp(14px,3vw,34px);border:3px solid var(--ox);color:var(--ox);border-radius:8px;padding:6px 14px 4px;font-family:"Abril Fatface",serif;font-size:1.9rem;line-height:1;transform:rotate(-11deg);text-align:center;opacity:.88;background:rgba(240,228,200,.7)}
+.stamp small{display:block;font-family:var(--sc);font-size:.64rem;letter-spacing:.14em}
+html[lang="ar"] .stamp small{font-size:.95rem}
+
+/* footer label */
+footer{padding:clamp(34px,5vw,64px) clamp(12px,4vw,60px) 40px}
+.foot{max-width:1180px;margin-inline:auto;border:3px double var(--ink);padding:clamp(18px,3vw,34px);display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.foot>div{padding-inline:clamp(12px,2.4vw,30px);text-align:center}
+.foot>div+div{border-inline-start:1px solid var(--ink)}
+.foot h3{font-family:var(--sc);font-weight:400;letter-spacing:.24em;font-size:1rem;color:var(--ox);margin-block-end:6px}
+html[lang="ar"] .foot h3{font-weight:700;font-size:1.4rem}
+.caution{max-width:1180px;margin:18px auto 0;text-align:center;font-style:italic;font-size:.98rem}
+.caution b{font-family:var(--sc);font-style:normal;letter-spacing:.2em;font-weight:400}
+.colo{text-align:center;font-family:var(--script);font-size:2rem;margin-block-start:18px;color:var(--ox)}
+
+@media (max-width:720px){
+  .eng{display:none}
+  .lin{margin:10px}
+  .claims{grid-template-columns:1fr;justify-items:center}
+  .claims p,.claims p:first-child,.claims p:last-child{text-align:center}
+  .claims .seal{order:-1}
+  .plq{grid-template-columns:auto 1fr;padding-inline:24px 18px}
+  .plq .ml{display:none}
+  .shelf{grid-template-columns:1fr;row-gap:34px}
+  .bd{max-width:none}
+  .nk{width:22%}.s2 .nk{width:18%}.s3 .nk{width:20%}.jar .nk{width:60%}
+  .s2 .bd{border-radius:90px 90px 16px 16px/54px 54px 16px 16px;padding-block-start:38px}
+  .bt::after{width:calc(100% + 44px)}
+  .rxpad{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .foot>div+div{border-inline-start:0;border-block-start:1px solid var(--ink);margin-block-start:14px;padding-block-start:14px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="cnr" viewBox="0 0 80 80"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 76V20Q4 4 20 4H76"/><path d="M12 76V30Q12 12 30 12H76" stroke-width="1"/><path d="M20 20q22-4 24 14q1 12-10 12q-8 0-8-7q0-6 6-6"/><path d="M20 20q-4 22 14 24" stroke-width="1"/><path d="M52 20q10 0 10 8q0 6-6 6M20 52q0 10 8 10q6 0 6-6"/></g><circle cx="20" cy="20" r="3.5" fill="currentColor"/></symbol>
+  <symbol id="engb" viewBox="0 0 100 260"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M38 6h24v14h-24z"/><path d="M34 20h32v10H34z"/><path d="M40 30v34Q40 78 24 90Q12 100 12 118V236Q12 250 26 250H74Q88 250 88 236V118Q88 100 76 90Q60 78 60 64V30"/><path d="M22 128h56v84H22z"/><path d="M27 133h46v74H27z" stroke-width="1"/><path d="M34 150h32M34 162h32M40 174h20M34 190h32" stroke-width="1.4"/><path d="M18 120V232M82 120V236M24 96Q16 104 16 118M44 34V62M56 34V62M30 226h8M30 232h14M30 238h22M62 238h10" stroke-width="1"/></g></symbol>
+</defs></svg>
+
+<div class="ctl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<div class="page">
+<header class="hero">
+  <div class="label">
+    <svg class="cn a" aria-hidden="true"><use href="#cnr"/></svg><svg class="cn b" aria-hidden="true"><use href="#cnr"/></svg><svg class="cn c" aria-hidden="true"><use href="#cnr"/></svg><svg class="cn d" aria-hidden="true"><use href="#cnr"/></svg>
+    <div class="lin">
+      <svg class="eng l" viewBox="0 0 100 260" aria-hidden="true"><use href="#engb"/></svg>
+      <svg class="eng r" viewBox="0 0 100 260" aria-hidden="true"><use href="#engb"/></svg>
+      <p class="est"><span lang="en">Compounded Daily · Since 1892</span><span lang="ar">تُركَّب يوميًّا · منذ ١٨٩٢</span></p>
+      <h1>
+        <span lang="en"><i class="a">The</i><b class="b">Tonic</b><em class="c">Room</em></span>
+        <span lang="ar"><i class="a">غرفة</i><b class="b">التونيك</b></span>
+      </h1>
+      <p class="rib"><span lang="en">Botanical Sodas</span><span lang="ar">مشروبات نباتية</span></p>
+      <p class="lede"><span lang="en">Restorative draughts of root, bark, blossom &amp; peel, charged with soda at the marble counter and dispensed to ladies, gentlemen and the merely thirsty.</span><span lang="ar">جرعاتٌ منعشة من الجذور واللحاء والزهر والقشور، تُشبَّع بالصودا على المنضدة الرخامية وتُصرف للسيدات والسادة ولكلّ عطشان.</span></p>
+      <div class="claims">
+        <p><span lang="en">Free from spirits<br>&amp; artificial colour</span><span lang="ar">خالية من الكحول<br>ومن الألوان الصناعية</span></p>
+        <div class="seal"><b>20</b><span lang="en">genuine<br>remedies</span><span lang="ar">وصفة<br>أصلية</span></div>
+        <p><span lang="en">Each bottle numbered<br>&amp; signed by the chemist</span><span lang="ar">كل قارورة مرقّمة<br>وموقّعة من الصيدلاني</span></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="cab">
+  <div class="crown" aria-hidden="true"></div>
+  <p class="dir"><span lang="en">Directions — <b>choose a number</b>, name it to the dispenser, sip slowly, repeat as required.</span><span lang="ar">طريقة الاستعمال — <b>اختر رقمًا</b>، اذكره للصيدلاني، ارتشف على مهل، وكرّر عند الحاجة.</span></p>
+
+  <section class="sec">
+    <header class="plq f-rye"><span class="no">I</span><h2><span lang="en">Tonics &amp; Bitters</span><span lang="ar">التونيك والمُرّات</span><small><span lang="en">dry, bracing, properly bitter</span><small lang="ar">جافّة، منعشة، ومُرّة كما ينبغي</small></small></h2><span class="ml" dir="ltr">330<br>ml</span></header>
+    <ul class="shelf">
+      <li class="bt s1"><span class="nk"></span><div class="bd"><article class="lb"><span class="star"><span lang="en">Chemist’s<br>choice</span><span lang="ar">اختيار<br>الصيدلاني</span></span><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>01</b></span><h3><span lang="en">Cinchona Classic</span><span lang="ar">الكينا الأصيل</span></h3><p class="ds"><span lang="en">Our house tonic of cinchona bark, lemon peel and a whisper of allspice.</span><span lang="ar">تونيك الدار من لحاء الكينا وقشر الليمون ولمسة خفيفة من البهار الحلو.</span></p><p class="fr"><span lang="en">For afternoon fatigue.</span><span lang="ar">لإرهاق ما بعد الظهيرة.</span></p><span class="pr" dir="ltr">£4.50</span></article></div></li>
+      <li class="bt s2 gr"><span class="nk"></span><div class="bd"><article class="lb l2"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>02</b></span><h3><span lang="en">Grapefruit &amp; Gentian</span><span lang="ar">جريب فروت وجنطيانا</span></h3><p class="ds"><span lang="en">Pink grapefruit sharpened with gentian root and a pinch of sea salt.</span><span lang="ar">جريب فروت وردي يشحذه جذر الجنطيانا ورشّة من ملح البحر.</span></p><p class="fr"><span lang="en">For a jaded palate.</span><span lang="ar">لذائقةٍ أصابها الملل.</span></p><span class="pr" dir="ltr">£4.80</span></article></div></li>
+      <li class="bt s3 aq"><span class="nk"></span><div class="bd"><article class="lb l3"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>03</b></span><h3><span lang="en">Juniper &amp; Cucumber</span><span lang="ar">عرعر وخيار</span></h3><p class="ds"><span lang="en">Crushed juniper berries, cucumber water and cracked black pepper.</span><span lang="ar">حبّات عرعر مهروسة وماء الخيار وفلفل أسود مجروش.</span></p><p class="fr"><span lang="en">For warm evenings.</span><span lang="ar">للأمسيات الدافئة.</span></p><span class="pr" dir="ltr">£4.80</span></article></div></li>
+      <li class="bt s1 br"><span class="nk"></span><div class="bd"><article class="lb"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>04</b></span><h3><span lang="en">Black Lime Tonic</span><span lang="ar">تونيك اللومي الأسود</span></h3><p class="ds"><span lang="en">Sun‑dried loomi steeped overnight, with orange blossom and quinine.</span><span lang="ar">لومي مجفّف بالشمس يُنقع ليلةً كاملة مع ماء الزهر والكينين.</span></p><p class="fr"><span lang="en">For a heavy lunch.</span><span lang="ar">بعد غداءٍ ثقيل.</span></p><span class="pr" dir="ltr">£5.20</span></article></div></li>
+    </ul>
+  </section>
+
+  <section class="sec">
+    <header class="plq f-scr"><span class="no">II</span><h2><span lang="en">Blossoms &amp; Herbs</span><span lang="ar">الأزهار والأعشاب</span><small><span lang="en">fragrant sodas from the garden</span><small lang="ar">مشروبات فوّارة عطرة من الحديقة</small></small></h2><span class="ml" dir="ltr">330<br>ml</span></header>
+    <ul class="shelf">
+      <li class="bt s2 aq"><span class="nk"></span><div class="bd"><article class="lb l2"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>05</b></span><h3><span lang="en">Rose &amp; Cardamom</span><span lang="ar">ورد وهيل</span></h3><p class="ds"><span lang="en">Damask rose petals and green cardamom, lightly sweetened with honey.</span><span lang="ar">بتلات الورد الدمشقي والهيل الأخضر، مع قليل من العسل.</span></p><p class="fr"><span lang="en">For low spirits.</span><span lang="ar">لتعكّر المزاج.</span></p><span class="pr" dir="ltr">£4.80</span></article></div></li>
+      <li class="bt s3"><span class="nk"></span><div class="bd"><article class="lb l3"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>06</b></span><h3><span lang="en">Lavender Lemon Phosphate</span><span lang="ar">فوسفات الخزامى والليمون</span></h3><p class="ds"><span lang="en">An old soda‑fountain sour: lavender syrup, lemon and a tart mineral snap.</span><span lang="ar">حامض من زمن نوافير الصودا: شراب الخزامى والليمون ولذعة معدنية.</span></p><p class="fr"><span lang="en">For restless nerves.</span><span lang="ar">للأعصاب القلقة.</span></p><span class="pr" dir="ltr">£4.80</span></article></div></li>
+      <li class="bt s1 gr"><span class="nk"></span><div class="bd"><article class="lb"><span class="star"><span lang="en">Chemist’s<br>choice</span><span lang="ar">اختيار<br>الصيدلاني</span></span><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>07</b></span><h3><span lang="en">Hibiscus &amp; Pink Pepper</span><span lang="ar">كركديه وفلفل وردي</span></h3><p class="ds"><span lang="en">Ruby hibiscus, pink peppercorn and a twist of orange peel.</span><span lang="ar">كركديه ياقوتي وحبّات الفلفل الوردي وبَرمة من قشر البرتقال.</span></p><p class="fr"><span lang="en">For dull conversation.</span><span lang="ar">للأحاديث المملّة.</span></p><span class="pr" dir="ltr">£5.00</span></article></div></li>
+      <li class="bt s2 br"><span class="nk"></span><div class="bd"><article class="lb l2"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>08</b></span><h3><span lang="en">Elderflower &amp; Apple</span><span lang="ar">زهر البيلسان والتفّاح</span></h3><p class="ds"><span lang="en">Elderflower cordial, pressed green apple and a sprig of garden mint.</span><span lang="ar">شراب زهر البيلسان وعصير التفّاح الأخضر وغصن نعناع من الحديقة.</span></p><p class="fr"><span lang="en">For spring fever.</span><span lang="ar">لحنين الربيع.</span></p><span class="pr" dir="ltr">£4.60</span></article></div></li>
+    </ul>
+  </section>
+
+  <section class="sec">
+    <header class="plq f-fat"><span class="no">III</span><h2><span lang="en">Roots &amp; Barks</span><span lang="ar">الجذور واللحاء</span><small><span lang="en">dark, spiced, slow‑brewed</span><small lang="ar">داكنة، متبّلة، تُخمَّر على مهل</small></small></h2><span class="ml" dir="ltr">330<br>ml</span></header>
+    <ul class="shelf">
+      <li class="bt s3 br"><span class="nk"></span><div class="bd"><article class="lb l3"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>09</b></span><h3><span lang="en">Fiery Ginger Brew</span><span lang="ar">نقيع الزنجبيل اللاذع</span></h3><p class="ds"><span lang="en">Three days’ steeping of fresh ginger, lime and bird’s‑eye chilli.</span><span lang="ar">زنجبيل طازج وليمون أخضر وفلفل حار تُنقع ثلاثة أيام.</span></p><p class="fr"><span lang="en">For a cold coming on.</span><span lang="ar">لبوادر الزكام.</span></p><span class="pr" dir="ltr">£4.80</span></article></div></li>
+      <li class="bt s1"><span class="nk"></span><div class="bd"><article class="lb"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>10</b></span><h3><span lang="en">Sarsaparilla</span><span lang="ar">سارساباريلا</span></h3><p class="ds"><span lang="en">Sarsaparilla root, vanilla pod and wintergreen under a creamy head.</span><span lang="ar">جذر السارساباريلا وقرن الفانيلا والوينترغرين تحت رغوة ناعمة.</span></p><p class="fr"><span lang="en">For homesickness.</span><span lang="ar">للحنين إلى الديار.</span></p><span class="pr" dir="ltr">£5.00</span></article></div></li>
+      <li class="bt s2 gr"><span class="nk"></span><div class="bd"><article class="lb l2"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>11</b></span><h3><span lang="en">Dandelion &amp; Burdock</span><span lang="ar">هندباء وأرقطيون</span></h3><p class="ds"><span lang="en">The hedgerow classic: earthy, liquorice‑sweet, faintly aniseed.</span><span lang="ar">وصفة الأرياف القديمة: ترابية، بحلاوة العرقسوس ونفحة يانسون.</span></p><p class="fr"><span lang="en">For rainy Tuesdays.</span><span lang="ar">لأيام الثلاثاء الماطرة.</span></p><span class="pr" dir="ltr">£4.80</span></article></div></li>
+      <li class="bt s3 aq"><span class="nk"></span><div class="bd"><article class="lb l3"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>12</b></span><h3><span lang="en">Chemist’s Cola</span><span lang="ar">كولا الصيدلاني</span></h3><p class="ds"><span lang="en">Kola nut, cassia, nutmeg, citrus oils and burnt sugar — the 1892 receipt.</span><span lang="ar">جوز الكولا والقرفة وجوزة الطيب وزيوت الحمضيات وسكّر محروق، بوصفة ١٨٩٢.</span></p><p class="fr"><span lang="en">For long ledgers.</span><span lang="ar">لدفاتر الحساب الطويلة.</span></p><span class="pr" dir="ltr">£5.20</span></article></div></li>
+    </ul>
+  </section>
+
+  <section class="sec">
+    <header class="plq f-sc"><span class="no">IV</span><h2><span lang="en">Shrubs &amp; Cordials</span><span lang="ar">الشرابات والمنقوعات</span><small><span lang="en">fruit, vinegar &amp; spice — cold or warmed</span><small lang="ar">فاكهة وخلّ وتوابل، باردة أو دافئة</small></small></h2><span class="ml" dir="ltr">250<br>ml</span></header>
+    <ul class="shelf">
+      <li class="bt s1 gr"><span class="nk"></span><div class="bd"><article class="lb"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>13</b></span><h3><span lang="en">Raspberry &amp; Thyme Shrub</span><span lang="ar">شراب التوت والزعتر</span></h3><p class="ds"><span lang="en">Raspberries macerated in cider vinegar with lemon thyme, lengthened with soda.</span><span lang="ar">توت العلّيق منقوع في خلّ التفّاح مع الزعتر الليموني، ويُمدّ بالصودا.</span></p><p class="fr"><span lang="en">For want of appetite.</span><span lang="ar">لفتح الشهيّة.</span></p><span class="pr" dir="ltr">£4.60</span></article></div></li>
+      <li class="bt s2"><span class="nk"></span><div class="bd"><article class="lb l2"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>14</b></span><h3><span lang="en">Date &amp; Tamarind</span><span lang="ar">تمر وتمر هندي</span></h3><p class="ds"><span lang="en">A dark cordial of Medjool date and sour tamarind, over crushed ice.</span><span lang="ar">شراب داكن من تمر المجدول والتمر الهندي الحامض على ثلج مجروش.</span></p><p class="fr"><span lang="en">For travellers.</span><span lang="ar">للمسافرين.</span></p><span class="pr" dir="ltr">£4.60</span></article></div></li>
+      <li class="bt s3 br"><span class="nk"></span><div class="bd"><article class="lb l3"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>15</b></span><h3><span lang="en">Quince &amp; Bay</span><span lang="ar">سفرجل وورق الغار</span></h3><p class="ds"><span lang="en">Poached quince syrup with bay leaf and a sharp thread of verjuice.</span><span lang="ar">شراب السفرجل المسلوق مع ورق الغار وخيط حادّ من عصير الحصرم.</span></p><p class="fr"><span lang="en">For autumn moods.</span><span lang="ar">لمزاج الخريف.</span></p><span class="pr" dir="ltr">£4.80</span></article></div></li>
+      <li class="bt s1 aq"><span class="nk"></span><div class="bd"><article class="lb"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>16</b></span><h3><span lang="en">Mulled Pomegranate</span><span lang="ar">رمّان دافئ بالتوابل</span></h3><p class="ds"><span lang="en">Served warm: pomegranate, clove, cinnamon bark and orange.</span><span lang="ar">يُقدَّم دافئًا: رمّان وقرنفل ولحاء القرفة وبرتقال.</span></p><p class="fr"><span lang="en">For cold hands.</span><span lang="ar">للأيدي الباردة.</span></p><span class="pr" dir="ltr">£5.00</span></article></div></li>
+    </ul>
+  </section>
+
+  <section class="sec">
+    <header class="plq f-rye"><span class="no">V</span><h2><span lang="en">From the Jars</span><span lang="ar">من المرطبانات</span><small><span lang="en">something to take with your draught</span><small lang="ar">شيءٌ يؤخذ مع الجرعة</small></small></h2><span class="ml"><span lang="en">by the<br>portion</span><span lang="ar">بالحصّة</span></span></header>
+    <ul class="shelf">
+      <li class="bt jar aq"><span class="nk"></span><div class="bd"><article class="lb l3"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>17</b></span><h3><span lang="en">Candied Ginger</span><span lang="ar">زنجبيل مسكّر</span></h3><p class="ds"><span lang="en">Crystallised stem ginger half‑dipped in bitter chocolate.</span><span lang="ar">قطع زنجبيل مبلورة مغموسة حتى نصفها في الشوكولاتة المُرّة.</span></p><span class="pr" dir="ltr">£3.50</span></article></div></li>
+      <li class="bt jar"><span class="nk"></span><div class="bd"><article class="lb"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>18</b></span><h3><span lang="en">Rosemary Almonds</span><span lang="ar">لوز بإكليل الجبل</span></h3><p class="ds"><span lang="en">Warm roasted almonds with rosemary, sea salt and lemon zest.</span><span lang="ar">لوز محمّص دافئ مع إكليل الجبل وملح البحر وبِشر الليمون.</span></p><span class="pr" dir="ltr">£3.80</span></article></div></li>
+      <li class="bt jar gr"><span class="nk"></span><div class="bd"><article class="lb l3"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>19</b></span><h3><span lang="en">Caraway Seed Cake</span><span lang="ar">كعكة الكراوية</span></h3><p class="ds"><span lang="en">A thick slice of buttery Victorian seed cake, baked each morning.</span><span lang="ar">شريحة سميكة من كعكة البذور الفيكتورية بالزبدة، تُخبز كل صباح.</span></p><span class="pr" dir="ltr">£4.20</span></article></div></li>
+      <li class="bt jar br"><span class="nk"></span><div class="bd"><article class="lb"><span class="rx"><span lang="en">R<sub>x</sub> No.</span><span lang="ar">وصفة رقم</span><b>20</b></span><h3><span lang="en">Cheddar &amp; Quince</span><span lang="ar">شيدر ومعجون السفرجل</span></h3><p class="ds"><span lang="en">Mature cheddar and quince paste on oat biscuits.</span><span lang="ar">جبن شيدر معتّق ومعجون السفرجل على بسكويت الشوفان.</span></p><span class="pr" dir="ltr">£5.50</span></article></div></li>
+    </ul>
+  </section>
+
+  <section class="rxpad">
+    <div class="say">
+      <h2><span lang="en">The Full Course of Treatment</span><span lang="ar">العلاج الكامل</span></h2>
+      <p><span lang="en">Undecided? Let the chemist prescribe. A flight of four small measures, one from each shelf, with a sweet from the jars to finish.</span><span lang="ar">محتار؟ دع الصيدلاني يكتب لك الوصفة: أربع جرعات صغيرة، واحدة من كل رفّ، وقطعة حلوة من المرطبانات في الختام.</span></p>
+    </div>
+    <div class="slip">
+      <div class="top"><b>R<sub>x</sub></b><span lang="en">For the bearer · to be taken at once</span><span lang="ar">لحامل الوصفة · تؤخذ فورًا</span></div>
+      <ul>
+        <li><span lang="en">No. 01 — one small measure</span><span lang="ar">رقم ٠١ — جرعة صغيرة</span></li>
+        <li><span lang="en">No. 07 — one small measure</span><span lang="ar">رقم ٠٧ — جرعة صغيرة</span></li>
+        <li><span lang="en">No. 09 — ditto, with caution</span><span lang="ar">رقم ٠٩ — كذلك، مع الحذر</span></li>
+        <li><span lang="en">No. 14 — over ice</span><span lang="ar">رقم ١٤ — على الثلج</span></li>
+        <li><span lang="en">No. 17 — to sweeten the cure</span><span lang="ar">رقم ١٧ — لتحلية الدواء</span></li>
+      </ul>
+      <div class="sig"><span lang="en">Signed, the chemist</span><span lang="ar">توقيع الصيدلاني</span><svg viewBox="0 0 130 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 30c8-18 14-24 18-18s-8 26-2 24 10-22 16-20-2 16 4 16 8-14 14-12-2 12 4 12 14-20 22-18-6 16 2 16 20-8 42-14"/><path d="M30 40h80"/></svg></div>
+      <div class="stamp"><span dir="ltr">£16</span><small lang="en">dispensed</small><small lang="ar">صُرفت</small></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div><h3><span lang="en">Dispensing Hours</span><span lang="ar">ساعات الصرف</span></h3><p><span lang="en">Tuesday to Sunday, 10 till 10<br>Closed Mondays for compounding</span><span lang="ar">من الثلاثاء إلى الأحد، ١٠ صباحًا – ١٠ مساءً<br>نغلق يوم الاثنين للتحضير</span></p></div>
+    <div><h3><span lang="en">The Premises</span><span lang="ar">العنوان</span></h3><p><span lang="en">No. 9 Gentian Passage<br>off Apothecary Row, Old Quarter</span><span lang="ar">رقم ٩، ممرّ الجنطيانا<br>متفرّع من زقاق العطّارين، الحيّ القديم</span></p></div>
+    <div><h3><span lang="en">Dose</span><span lang="ar">الجرعة</span></h3><p><span lang="en">One bottle, taken seated.<br>Any syrup sold by the pint to take home.</span><span lang="ar">قارورة واحدة تؤخذ جلوسًا.<br>وتُباع الشرابات بالقنّينة لمن يريدها للبيت.</span></p></div>
+  </div>
+  <p class="caution"><b lang="en">Caution.</b><b lang="ar">تنبيه.</b> <span lang="en">Tonics contain quinine and are not advised in pregnancy. Nos. 05, 18 &amp; 20 contain honey, nuts or milk — ask the chemist for the full ledger of allergens. No remedy here contains alcohol.</span><span lang="ar">يحتوي التونيك على الكينين ولا يُنصح به للحوامل. الأرقام ٠٥ و١٨ و٢٠ تحتوي على عسل أو مكسّرات أو حليب، فاطلبوا من الصيدلاني سجلّ مسبّبات الحساسية كاملًا. جميع مشروباتنا خالية من الكحول.</span></p>
+  <p class="colo"><span lang="en">To your good health.</span><span lang="ar">بالصحّة والعافية.</span></p>
+</footer>
+</div>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>

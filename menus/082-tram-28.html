@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Tram 28 · ترام ٢٨</title>
+<meta name="description" content="Tram 28 — a Lisbon kitchen that climbs the hill stop by stop: petiscos, charcoal fish, piri-piri and warm custard tarts. ترام ٢٨ — مطبخ برتغالي يصعد التلّة محطةً محطة.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f2b705">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Figtree:wght@400;600;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&family=Rakkas&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --yel:#f2b705; --cus:#f6d776; --blu:#1f4e9c; --nav:#14284b; --pink:#f3b8a8; --mint:#bfe0cf; --sky:#cfe0f5; --cream:#fbf3df; --tile:#fffaf0; --red:#c8402c;
+  --disp:"Fraunces",Georgia,"Times New Roman",serif; --body:"Figtree","Helvetica Neue",Arial,sans-serif; --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  --az:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Crect width='44' height='44' fill='%23fffaf0'/%3E%3Cpath d='M22 5 39 22 22 39 5 22Z' fill='none' stroke='%231f4e9c' stroke-width='2.5'/%3E%3Ccircle cx='22' cy='22' r='5' fill='%231f4e9c'/%3E%3Cg fill='%237fa3df'%3E%3Ccircle r='9'/%3E%3Ccircle cx='44' r='9'/%3E%3Ccircle cy='44' r='9'/%3E%3Ccircle cx='44' cy='44' r='9'/%3E%3C/g%3E%3Cg fill='%23f2b705'%3E%3Ccircle r='3.5'/%3E%3Ccircle cx='44' r='3.5'/%3E%3Ccircle cy='44' r='3.5'/%3E%3Ccircle cx='44' cy='44' r='3.5'/%3E%3C/g%3E%3C/svg%3E");
+}
+html[lang="ar"]{ --disp:"Rakkas","Tajawal",Tahoma,serif; --body:"Tajawal","Segoe UI",Tahoma,sans-serif; --mono:"Tajawal","DM Mono",monospace; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--cream);color:var(--nav);font-family:var(--body);font-size:16px;line-height:1.5;overflow-x:clip;-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-size:17.5px;line-height:1.7}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+ul,ol{list-style:none}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+html[lang="ar"] .mono{font-size:.86rem;font-weight:500}
+
+/* ───── hero: the hill ───── */
+.hill{position:relative;min-height:min(100svh,900px);background:linear-gradient(#f9df8b 0,#fbe9b0 38%,#fdf0cf 70%);overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.hill .top{position:relative;z-index:2;padding:clamp(20px,3vw,40px) clamp(18px,4vw,64px) 0;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start}
+.plaque{display:inline-grid;background:var(--tile);border:3px solid var(--blu);outline:3px solid var(--tile);box-shadow:0 0 0 5px var(--blu),6px 10px 0 5px rgba(20,40,75,.18);padding:14px 26px 12px;text-align:center;margin:8px}
+.plaque small{color:var(--blu)}
+.hill h1{font-family:var(--disp);font-weight:900;font-style:italic;font-size:clamp(4.4rem,13vw,12.5rem);line-height:.86;letter-spacing:-.03em;color:var(--nav);margin-block-start:.12em}
+.hill h1 b{font-style:normal;color:var(--blu);display:inline-block;-webkit-text-stroke:0}
+html[lang="ar"] .hill h1{font-style:normal;font-weight:400;line-height:1;font-size:clamp(6.4rem,17vw,15rem)}
+.hill .lede{max-width:34ch;font-size:clamp(1.05rem,1.5vw,1.3rem);margin-block-start:14px;font-weight:600}
+.ctl{display:flex;gap:8px;align-items:center}
+.home-link,#langToggle{display:inline-flex;align-items:center;gap:8px;height:40px;padding-inline:14px;border:2px solid var(--nav);border-radius:99px;background:var(--tile);color:var(--nav);font:700 .9rem var(--body);text-decoration:none;cursor:pointer;box-shadow:0 3px 0 var(--nav)}
+#langToggle{background:var(--blu);color:#fff;font-family:"Tajawal","Figtree",sans-serif}
+.home-link:hover,#langToggle:hover{transform:translateY(2px);box-shadow:0 1px 0 var(--nav)}
+.home-link i{width:14px;height:14px;background:radial-gradient(circle,var(--nav) 0 2.6px,transparent 3px) 0 0/7px 7px}
+.home-link span{display:none}
+@media (min-width:700px){.home-link span{display:inline}}
+.scene{position:absolute;inset-inline:0;inset-block-end:0;width:100%;height:68%;direction:ltr}
+.tram{animation:ride 22s linear infinite;animation-delay:-9.5s}
+.tram>g{animation:rock 1.1s ease-in-out infinite alternate;transform-origin:125px 0}
+@keyframes ride{from{transform:translate(-300px,521px) rotate(-5.55deg)}to{transform:translate(1500px,346px) rotate(-5.55deg)}}
+@keyframes rock{from{transform:rotate(-.5deg)}to{transform:rotate(.5deg) translateY(-1px)}}
+.hill .day{position:absolute;z-index:3;inset-block-end:clamp(14px,3vw,34px);inset-inline-end:clamp(14px,4vw,64px);transform:rotate(-4deg)}
+[dir="rtl"] .hill .day{transform:rotate(4deg)}
+@media (max-width:699px){.hill{min-height:0;padding-block-end:300px}.scene{height:310px}.hill .top{padding-block-start:66px}.hill .day{position:relative;inset:auto;align-self:start;margin:16px 18px 0}.hill .top{grid-template-columns:1fr}.ctl{position:absolute;inset-block-start:16px;inset-inline-end:16px}.plaque{padding:8px 14px 6px;margin-block-start:8px}}
+
+/* ───── ticket ───── */
+.tk{--c:var(--cus);position:relative;display:grid;grid-template-columns:1fr 96px;background:var(--c);color:var(--nav);border-radius:10px;filter:drop-shadow(0 4px 0 rgba(20,40,75,.16));min-height:132px}
+.tk .main{padding:14px 18px 14px;display:grid;align-content:start;gap:4px;position:relative}
+.tk .main .mono{display:flex;justify-content:space-between;opacity:.7;border-block-end:1.5px solid currentColor;padding-block-end:5px;margin-block-end:4px}
+.tk h3{font-family:var(--disp);font-weight:900;font-size:1.42rem;line-height:1.1;letter-spacing:-.01em}
+html[lang="ar"] .tk h3{font-weight:400;font-size:1.78rem;line-height:1.25}
+.tk p{font-size:.95rem;line-height:1.4;max-width:38ch}
+html[lang="ar"] .tk p{font-size:1.02rem;line-height:1.55}
+.tk .stub{position:relative;border-inline-start:2.5px dashed rgba(20,40,75,.55);display:grid;place-content:center;justify-items:center;text-align:center;gap:2px;padding:8px 4px}
+.tk .stub::before,.tk .stub::after{content:"";position:absolute;inset-inline-start:-10px;width:18px;height:18px;border-radius:50%;background:var(--bg,var(--cream))}
+.tk .stub::before{inset-block-start:-9px}.tk .stub::after{inset-block-end:-9px}
+.tk .pr{font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:1.7rem;line-height:1;unicode-bidi:isolate}
+.tk .pr small{font-size:.6em;vertical-align:.35em}
+.tk .stub i{display:block;width:54px;height:16px;margin-block-start:6px;background:repeating-linear-gradient(90deg,var(--nav) 0 2px,transparent 2px 5px,var(--nav) 5px 6px,transparent 6px 8px,var(--nav) 8px 11px,transparent 11px 13px)}
+.tk .hole{position:absolute;inset-block-end:12px;inset-inline-end:14px;width:12px;height:12px;border-radius:50%;background:var(--bg,var(--cream));box-shadow:inset 0 2px 0 rgba(20,40,75,.25)}
+.stamp{position:absolute;inset-block-end:8px;inset-inline-end:10px;z-index:2;width:74px;height:74px;border-radius:50%;border:2.5px solid var(--red);color:var(--red);display:grid;place-content:center;text-align:center;font:800 .58rem/1.1 var(--body);letter-spacing:.06em;text-transform:uppercase;transform:rotate(-14deg);box-shadow:inset 0 0 0 3px var(--c),inset 0 0 0 4.5px var(--red);background:color-mix(in srgb,var(--c) 70%,transparent);padding:6px}
+[dir="rtl"] .stamp{transform:rotate(14deg)}
+html[lang="ar"] .stamp{font-size:.74rem;font-weight:800}
+.tk.fav .stub i{display:none}.tk.fav .stub{align-content:start;padding-block-start:22px}
+.heat{color:var(--red);font-weight:800;font-family:var(--body);font-size:.8rem;white-space:nowrap}
+
+/* ───── the route ───── */
+.route{display:grid;grid-template-columns:minmax(210px,260px) 1fr}
+.line{position:sticky;top:0;align-self:start;height:100vh;height:100svh;padding:28px 0 28px clamp(18px,2.4vw,36px);padding:28px 0;padding-inline-start:clamp(18px,2.4vw,36px);display:grid;grid-template-rows:auto 1fr auto;gap:18px;z-index:5}
+.line .rd{width:76px;height:76px;border-radius:50%;background:var(--yel);border:4px solid var(--nav);display:grid;place-items:center;font:900 2.1rem "Fraunces",Georgia,serif;box-shadow:0 4px 0 var(--nav)}
+.line ol{position:relative;display:grid;align-content:space-between;padding-block:6px}
+.line ol::before{content:"";position:absolute;inset-block:14px;inset-inline-start:11px;width:6px;background:var(--blu);border-radius:3px}
+.line li a{position:relative;display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:center;text-decoration:none;padding-block:6px}
+.line li a::before{content:"";width:28px;height:28px;border-radius:50%;background:var(--tile);border:5px solid var(--blu);transition:.25s}
+.line li a b{font-family:var(--disp);font-weight:900;font-size:1.2rem;line-height:1.1;display:block}
+html[lang="ar"] .line li a b{font-weight:400;font-size:1.4rem}
+.line li a small{display:block;opacity:.7}
+.line li a:hover::before,.line li a.on::before{background:var(--yel);border-color:var(--nav);transform:scale(1.2)}
+.line .end{opacity:.75}
+.stops{min-width:0;border-inline-start:2px dashed rgba(20,40,75,.25)}
+.stop{--bg:var(--cream);background:var(--bg);position:relative;padding:clamp(28px,4vw,64px) clamp(18px,3.6vw,60px) clamp(40px,5vw,80px)}
+.stop:nth-child(even){--bg:#fff8e6}
+.stop header{display:grid;grid-template-columns:auto 1fr;gap:14px 26px;align-items:center;margin-block-end:clamp(22px,3vw,40px)}
+.stop .num{width:clamp(70px,8vw,112px);aspect-ratio:1;border-radius:50%;background:var(--yel);border:4px solid var(--nav);display:grid;place-content:center;text-align:center;box-shadow:0 5px 0 var(--nav);position:relative}
+.stop .num::after{content:"";position:absolute;inset-block-start:100%;inset-inline-start:calc(50% - 3px);width:6px;height:44px;background:var(--nav);z-index:-1}
+.stop .num b{font:900 clamp(2rem,3.6vw,3.4rem)/.9 "Fraunces",Georgia,serif}
+.stop .num small{font-size:.56rem}
+html[lang="ar"] .stop .num small{font-size:.7rem}
+.stop h2{font-family:var(--disp);font-weight:900;font-style:italic;font-size:clamp(2.4rem,5.4vw,5rem);line-height:.95;letter-spacing:-.02em}
+html[lang="ar"] .stop h2{font-style:normal;font-weight:400;line-height:1.2}
+.stop h2 em{font-style:normal;color:var(--blu)}
+.stop header p{grid-column:2;max-width:52ch;font-size:1.02rem}
+.stop header .mono{color:var(--blu)}
+.tks{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:22px 20px}
+.tks .tk:nth-child(odd){transform:rotate(-.5deg)}.tks .tk:nth-child(3n){transform:rotate(.6deg)}
+.s1 .tk{--c:var(--cus)}.s2 .tk{--c:var(--sky)}.s3 .tk{--c:var(--pink)}.s4 .tk{--c:#f9e3a0}.s5 .tk{--c:var(--mint)}
+.s2 .tk:nth-child(even){--c:#b7cdee}.s3 .tk:nth-child(even){--c:#f0cbb2}.s5 .tk:nth-child(even){--c:#d6ead0}
+.tip{border:2.5px dashed var(--blu);border-radius:10px;padding:16px 20px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-items:center;background:var(--tile);min-height:132px}
+.tip svg{width:54px;height:54px;grid-row:span 2}
+.tip b{font-family:var(--disp);font-weight:900;font-style:italic;font-size:1.25rem;color:var(--blu);align-self:end;line-height:1.1}
+html[lang="ar"] .tip b{font-style:normal;font-weight:400;font-size:1.5rem}
+.tip p{font-size:.95rem;align-self:start;max-width:56ch}
+@media (min-width:740px) and (max-width:900px),(min-width:1060px){.tip.w2{grid-column:span 2}}
+/* sloped rail between stops */
+.grade{position:relative;height:0;z-index:2}
+.grade::before{content:"";position:absolute;inset-inline:-4%;inset-block-start:-12px;height:22px;border-block:4px solid var(--nav);background:repeating-linear-gradient(90deg,transparent 0 22px,#b9a888 22px 30px);transform:rotate(-2.2deg)}
+[dir="rtl"] .grade::before{transform:rotate(2.2deg)}
+.stops{overflow:clip}
+/* azulejo wall in sweets stop */
+.s4{background:var(--az);--bg:var(--tile)}
+.s4 header{background:var(--tile);border:3px solid var(--blu);box-shadow:0 0 0 4px var(--tile),0 0 0 7px var(--blu);padding:18px 22px;margin:7px 7px clamp(26px,3vw,44px);width:fit-content;max-width:calc(100% - 14px)}
+.s4 .tk{filter:drop-shadow(0 5px 0 rgba(20,40,75,.3))}
+.s4 .tk .stub::before,.s4 .tk .stub::after,.s4 .tk .hole{background:#dfe7f3}
+
+/* day pass */
+.pass{display:grid;grid-template-columns:auto 1fr;background:var(--nav);color:var(--cream);border-radius:12px;max-width:400px;filter:drop-shadow(0 6px 0 rgba(20,40,75,.25))}
+.pass .p{background:var(--yel);color:var(--nav);border-start-start-radius:12px;border-end-start-radius:12px;padding:12px 16px;display:grid;place-content:center;font:900 2rem/1 "Fraunces",Georgia,serif;border-inline-end:2.5px dashed var(--nav);unicode-bidi:isolate}
+.pass div{padding:12px 16px}
+.pass b{font-family:var(--disp);font-size:1.25rem;font-weight:900;display:block;line-height:1.15}
+html[lang="ar"] .pass b{font-weight:400;font-size:1.45rem}
+.pass span.d{font-size:.88rem;opacity:.9}
+
+/* ───── terminus ───── */
+.term{background:var(--nav);color:var(--cream);position:relative;padding:0 0 28px}
+.term .band{height:44px;background:var(--az)}
+.term .in{display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:28px 40px;padding:clamp(28px,4vw,56px) clamp(18px,4vw,64px) 0}
+.term h2{font-family:var(--disp);font-weight:900;font-style:italic;font-size:clamp(2.2rem,4vw,3.6rem);line-height:1;color:var(--yel)}
+html[lang="ar"] .term h2{font-style:normal;font-weight:400;line-height:1.25}
+.term h4{color:var(--yel);margin-block-end:6px}
+.term p{font-size:.98rem}
+.term .fine{grid-column:1/-1;border-block-start:1.5px dashed rgba(251,243,223,.4);padding-block-start:16px;font-size:.88rem;opacity:.85}
+@media (max-width:900px){
+  html{scroll-padding-top:70px}
+  .route{grid-template-columns:1fr}
+  .line{position:sticky;top:0;height:auto;grid-template-rows:none;grid-template-columns:auto 1fr;align-items:center;gap:12px;padding:8px 14px;background:var(--cream);border-block-end:3px solid var(--nav)}
+  .line .rd{width:44px;height:44px;font-size:1.25rem;border-width:3px;box-shadow:0 2px 0 var(--nav)}
+  .line .end{display:none}
+  .line ol{display:flex;justify-content:space-between;padding:0}
+  .line ol::before{inset-block:auto;inset-block-start:calc(50% - 10px);inset-inline:10px;width:auto;height:5px}
+  .line li a{grid-template-columns:1fr;justify-items:center;gap:1px;padding:0}
+  .line li a b{display:none}
+  .line li a small{font-size:.6rem;letter-spacing:.02em;opacity:1;font-weight:500}
+  html[lang="ar"] .line li a small{font-size:.74rem}
+  .line li a::before{width:22px;height:22px;border-width:4px}
+  .stops{border:0}
+  .stop header{grid-template-columns:auto 1fr}
+  .stop header p{grid-column:1/-1}
+  .tk{grid-template-columns:1fr 84px}
+  .stamp{inset-inline-end:5px}
+  .term .in{grid-template-columns:1fr 1fr}.term .in>div:first-child{grid-column:1/-1}
+}
+@media (max-width:520px){.term .in{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.tram,.tram>g{animation:none}.tram{transform:translate(560px,437px) rotate(-5.55deg)}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hill">
+  <div class="top">
+    <div>
+      <div class="plaque"><small class="mono"><span lang="en">Portuguese kitchen · Alfama line</span><span lang="ar">مطبخ برتغالي · خطّ ألفاما</span></small></div>
+      <h1><span lang="en">Tram <b>28</b></span><span lang="ar">ترام <b>٢٨</b></span></h1>
+      <p class="lede"><span lang="en">Hop on at the bottom of the hill. Five stops, one long lunch, and a warm custard tart before the terminus.</span><span lang="ar">اصعد من أسفل التلّة. خمس محطات، غداءٌ طويل واحد، وفطيرة كاسترد دافئة قبل آخر الخط.</span></p>
+    </div>
+    <div class="ctl">
+      <a class="home-link" href="../index.html"><i aria-hidden="true"></i><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+      <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+    </div>
+  </div>
+<svg class="scene" viewBox="0 0 1440 540" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+<defs><pattern id="az" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="#eef3fb"/><path d="M13 3 L23 13 L13 23 L3 13Z" fill="none" stroke="#1f4e9c" stroke-width="2"/><circle cx="13" cy="13" r="3" fill="#1f4e9c"/><circle cx="0" cy="0" r="5" fill="#6f95d6"/><circle cx="26" cy="0" r="5" fill="#6f95d6"/><circle cx="0" cy="26" r="5" fill="#6f95d6"/><circle cx="26" cy="26" r="5" fill="#6f95d6"/></pattern>
+<pattern id="cob" width="34" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(-5.55)"><rect width="34" height="18" fill="#d9cdb8"/><path d="M0 9h34M8 0v9M25 0v9M17 9v9" stroke="#bfb199" stroke-width="1.5"/></pattern><symbol id="wa" overflow="visible"><rect x="-4" y="-4" width="30" height="42" fill="#fff8e6"/><rect width="22" height="34" fill="#14284b"/><path d="M11 0v34" stroke="#fff8e6" stroke-width="2"/><path d="M-8 38h38M-8 28h38M-6 28v10M3 28v10M11 28v10M19 28v10M28 28v10" stroke="#14284b" stroke-width="1.6"/></symbol><symbol id="wb" overflow="visible"><rect x="-4" y="-4" width="30" height="42" fill="#fff8e6"/><rect width="22" height="34" fill="#2d6a5a"/><path d="M11 0v34" stroke="#fff8e6" stroke-width="2"/><path d="M-8 38h38M-8 28h38M-6 28v10M3 28v10M11 28v10M19 28v10M28 28v10" stroke="#14284b" stroke-width="1.6"/></symbol><symbol id="wc" overflow="visible"><rect x="-4" y="-4" width="30" height="42" fill="#fff8e6"/><rect width="22" height="34" fill="#8a3b2b"/><path d="M11 0v34" stroke="#fff8e6" stroke-width="2"/><path d="M-8 38h38M-8 28h38M-6 28v10M3 28v10M11 28v10M19 28v10M28 28v10" stroke="#14284b" stroke-width="1.6"/></symbol></defs>
+<circle cx="1180" cy="120" r="64" fill="#fff6d8"/><circle cx="1180" cy="120" r="96" fill="#fff6d8" opacity=".35"/>
+<path d="M0 330 L60 300 L140 318 L220 270 L300 290 L380 250 L470 268 L560 228 L650 246 L760 200 L850 222 L940 186 L1040 204 L1120 170 L1220 190 L1320 150 L1440 168 V540 H0Z" fill="#f0c9a0" opacity=".55"/>
+<g><rect x="-30" y="231" width="120" height="290" fill="#f3b8a8"/>
+<path d="M-36 231 L-20 209 H80 L96 231Z" fill="#c8553d"/><rect x="-36" y="231" width="132" height="7" fill="#fff8e6"/>
+<use href="#wa" x="-11" y="257"/>
+<use href="#wa" x="49" y="257"/>
+<use href="#wa" x="-11" y="313"/>
+<use href="#wc" x="49" y="313"/>
+<path d="M17 471V424a13 13 0 0 1 26 0V471Z" fill="#2d6a5a"/></g>
+<g><rect x="96" y="217" width="138" height="290" fill="#fbf3df"/>
+<path d="M90 217 L106 195 H224 L240 217Z" fill="#c8553d"/><rect x="90" y="217" width="150" height="7" fill="#fff8e6"/>
+<rect x="179" y="173" width="16" height="26" fill="#a8452f"/>
+<use href="#wa" x="108" y="243"/>
+<use href="#wc" x="154" y="243"/>
+<use href="#wa" x="200" y="243"/>
+<use href="#wa" x="108" y="299"/>
+<use href="#wa" x="154" y="299"/>
+<use href="#wa" x="200" y="299"/>
+<path d="M152 457V410a13 13 0 0 1 26 0V457Z" fill="#1f4e9c"/></g>
+<g><rect x="234" y="201" width="165" height="290" fill="url(#az)"/>
+<path d="M228 201 L244 179 H389 L405 201Z" fill="#c8553d"/><rect x="228" y="201" width="177" height="7" fill="#fff8e6"/>
+<use href="#wa" x="250" y="227"/>
+<use href="#wa" x="306" y="227"/>
+<use href="#wc" x="360" y="227"/>
+<use href="#wb" x="250" y="283"/>
+<use href="#wa" x="306" y="283"/>
+<use href="#wa" x="360" y="283"/>
+<path d="M304 441V394a13 13 0 0 1 26 0V441Z" fill="#8a3b2b"/></g>
+<path d="M395 261 q22 16 44 2" stroke="#14284b" stroke-width="1.2" fill="none"/>
+<g><rect x="399" y="187" width="150" height="290" fill="#bfe0cf"/>
+<path d="M393 187 L409 165 H539 L555 187Z" fill="#c8553d"/><rect x="393" y="187" width="162" height="7" fill="#fff8e6"/>
+<use href="#wc" x="413" y="213"/>
+<use href="#wa" x="463" y="213"/>
+<use href="#wa" x="513" y="213"/>
+<use href="#wa" x="413" y="269"/>
+<use href="#wb" x="463" y="269"/>
+<use href="#wb" x="513" y="269"/>
+<path d="M461 427V380a13 13 0 0 1 26 0V427Z" fill="#1f4e9c"/></g>
+<g><rect x="555" y="211" width="150" height="250" fill="#f6d776"/>
+<path d="M549 211 L565 189 H695 L711 211Z" fill="#c8553d"/><rect x="549" y="211" width="162" height="7" fill="#fff8e6"/>
+<rect x="645" y="167" width="16" height="26" fill="#a8452f"/>
+<use href="#wc" x="569" y="237"/>
+<use href="#wa" x="619" y="237"/>
+<use href="#wa" x="669" y="237"/>
+<use href="#wb" x="569" y="293"/>
+<use href="#wa" x="619" y="293"/>
+<use href="#wa" x="669" y="293"/>
+<path d="M617 411V364a13 13 0 0 1 26 0V411Z" fill="#2d6a5a"/></g>
+<g><rect x="705" y="125" width="165" height="320" fill="#e9a48f"/>
+<path d="M699 125 L715 103 H860 L876 125Z" fill="#c8553d"/><rect x="699" y="125" width="177" height="7" fill="#fff8e6"/>
+<use href="#wa" x="722" y="151"/>
+<use href="#wc" x="776" y="151"/>
+<use href="#wb" x="832" y="151"/>
+<use href="#wc" x="722" y="207"/>
+<use href="#wa" x="776" y="207"/>
+<use href="#wa" x="832" y="207"/>
+<use href="#wa" x="722" y="263"/>
+<use href="#wb" x="776" y="263"/>
+<use href="#wa" x="832" y="263"/>
+<path d="M774 395V348a13 13 0 0 1 26 0V395Z" fill="#8a3b2b"/></g>
+<g><rect x="870" y="179" width="165" height="250" fill="#fbf3df"/>
+<path d="M864 179 L880 157 H1025 L1041 179Z" fill="#c8553d"/><rect x="864" y="179" width="177" height="7" fill="#fff8e6"/>
+<use href="#wa" x="886" y="205"/>
+<use href="#wa" x="942" y="205"/>
+<use href="#wa" x="996" y="205"/>
+<use href="#wb" x="886" y="261"/>
+<use href="#wb" x="942" y="261"/>
+<use href="#wc" x="996" y="261"/>
+<path d="M940 379V332a13 13 0 0 1 26 0V379Z" fill="#1f4e9c"/></g>
+<path d="M1031 239 q22 16 44 2" stroke="#14284b" stroke-width="1.2" fill="none"/>
+<g><rect x="1041" y="123" width="165" height="290" fill="url(#az)"/>
+<path d="M1035 123 L1051 101 H1196 L1212 123Z" fill="#c8553d"/><rect x="1035" y="123" width="177" height="7" fill="#fff8e6"/>
+<rect x="1140" y="79" width="16" height="26" fill="#a8452f"/>
+<use href="#wc" x="1058" y="149"/>
+<use href="#wa" x="1112" y="149"/>
+<use href="#wc" x="1168" y="149"/>
+<use href="#wc" x="1058" y="205"/>
+<use href="#wa" x="1112" y="205"/>
+<use href="#wc" x="1168" y="205"/>
+<path d="M1110 363V316a13 13 0 0 1 26 0V363Z" fill="#1f4e9c"/></g>
+<g><rect x="1206" y="77" width="165" height="320" fill="#cfe0f5"/>
+<path d="M1200 77 L1216 55 H1361 L1377 77Z" fill="#c8553d"/><rect x="1200" y="77" width="177" height="7" fill="#fff8e6"/>
+<use href="#wc" x="1222" y="103"/>
+<use href="#wa" x="1278" y="103"/>
+<use href="#wa" x="1332" y="103"/>
+<use href="#wa" x="1222" y="159"/>
+<use href="#wa" x="1278" y="159"/>
+<use href="#wc" x="1332" y="159"/>
+<use href="#wc" x="1222" y="215"/>
+<use href="#wb" x="1278" y="215"/>
+<use href="#wc" x="1332" y="215"/>
+<path d="M1276 347V300a13 13 0 0 1 26 0V347Z" fill="#1f4e9c"/></g>
+<g><rect x="1371" y="110" width="120" height="275" fill="#f3b8a8"/>
+<path d="M1365 110 L1381 88 H1481 L1497 110Z" fill="#c8553d"/><rect x="1365" y="110" width="132" height="7" fill="#fff8e6"/>
+<use href="#wb" x="1390" y="136"/>
+<use href="#wb" x="1450" y="136"/>
+<use href="#wa" x="1390" y="192"/>
+<use href="#wa" x="1450" y="192"/>
+<path d="M1418 335V288a13 13 0 0 1 26 0V335Z" fill="#2d6a5a"/></g>
+<path d="M0 470 L1440 330 V540 H0Z" fill="url(#cob)"/>
+<path d="M0 470 L1440 330" stroke="#fff8e6" stroke-width="5"/>
+<path d="M-10 491 L1450 349" stroke="#14284b" stroke-width="3.5"/>
+<path d="M-10 507 L1450 365" stroke="#14284b" stroke-width="3.5"/>
+<path d="M-10 356 L1450 214" stroke="#14284b" stroke-width="1.5"/>
+<path d="M150 471V327h44" stroke="#14284b" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M640 424V280h44" stroke="#14284b" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M1130 376V232h44" stroke="#14284b" stroke-width="4" fill="none" stroke-linecap="round"/>
+<g class="tram"><g>
+<path d="M118 -96 L150 -137" stroke="#14284b" stroke-width="3"/><path d="M138 -137h26" stroke="#14284b" stroke-width="4" stroke-linecap="round"/>
+<rect x="18" y="-104" width="214" height="12" rx="6" fill="#fff8e6"/>
+<path d="M10 -92 H240 Q250 -92 250 -80 V-24 Q250 -14 240 -14 H10 Q0 -14 0 -24 V-80 Q0 -92 10 -92Z" fill="#f2b705"/>
+<path d="M0 -50 H250 V-24 Q250 -14 240 -14 H10 Q0 -14 0 -24Z" fill="#fff8e6"/>
+<path d="M0 -50H250" stroke="#14284b" stroke-width="2.5"/>
+<g fill="#bfe3f2" stroke="#14284b" stroke-width="2.5"><rect x="10" y="-84" width="26" height="28" rx="3"/><rect x="44" y="-84" width="30" height="28" rx="3"/><rect x="80" y="-84" width="30" height="28" rx="3"/><rect x="116" y="-84" width="30" height="28" rx="3"/><rect x="152" y="-84" width="30" height="28" rx="3"/><rect x="188" y="-84" width="26" height="28" rx="3"/><rect x="220" y="-84" width="22" height="28" rx="3"/></g>
+<rect x="100" y="-44" width="50" height="22" rx="3" fill="#14284b"/><text x="125" y="-27" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="18" fill="#f6c945">28</text>
+<circle cx="244" cy="-32" r="5" fill="#fff" stroke="#14284b" stroke-width="2"/><rect x="246" y="-16" width="10" height="6" fill="#14284b"/><rect x="-6" y="-16" width="10" height="6" fill="#14284b"/>
+<rect x="30" y="-16" width="190" height="8" fill="#14284b"/>
+<g fill="#14284b"><circle cx="62" cy="-7" r="9"/><circle cx="188" cy="-7" r="9"/></g><g fill="#d9cdb8"><circle cx="62" cy="-7" r="3"/><circle cx="188" cy="-7" r="3"/></g>
+</g></g>
+</svg>
+  <div class="pass day">
+    <span class="p" dir="ltr">€26</span>
+    <div><b><span lang="en">Day Pass</span><span lang="ar">تذكرة اليوم</span></b><span class="d"><span lang="en">One petisco, one main, a nata and a coffee. Valid all afternoon.</span><span lang="ar">طبق صغير، طبق رئيسي، فطيرة ناتا وقهوة. صالحة طوال الظهيرة.</span></span></div>
+  </div>
+</header>
+
+<div class="route">
+  <nav class="line" aria-label="Route">
+    <span class="rd" aria-hidden="true">28</span>
+    <ol>
+      <li><a href="#s1"><span><b><span lang="en">Martim Moniz</span><span lang="ar">مارتيم مونيز</span></b><small class="mono"><span lang="en">Petiscos</span><span lang="ar">مقبّلات</span></small></span></a></li>
+      <li><a href="#s2"><span><b><span lang="en">Alfama</span><span lang="ar">ألفاما</span></b><small class="mono"><span lang="en">The sea</span><span lang="ar">البحر</span></small></span></a></li>
+      <li><a href="#s3"><span><b><span lang="en">Graça</span><span lang="ar">غراسا</span></b><small class="mono"><span lang="en">The grill</span><span lang="ar">الشواء</span></small></span></a></li>
+      <li><a href="#s4"><span><b><span lang="en">Chiado</span><span lang="ar">شيادو</span></b><small class="mono"><span lang="en">Sweets</span><span lang="ar">حلويات</span></small></span></a></li>
+      <li><a href="#s5"><span><b><span lang="en">Estrela</span><span lang="ar">إستريلا</span></b><small class="mono"><span lang="en">Drinks</span><span lang="ar">مشروبات</span></small></span></a></li>
+    </ol>
+    <span class="end mono"><span lang="en">↓ Terminus: Prazeres</span><span lang="ar">↓ آخر الخط: برازيريس</span></span>
+  </nav>
+
+  <main class="stops">
+    <section class="stop s1" id="s1">
+      <header>
+        <div class="num"><b>1</b><small class="mono"><span lang="en">Stop</span><span lang="ar">محطة</span></small></div>
+        <div><span class="mono"><span lang="en">Martim Moniz · to share</span><span lang="ar">مارتيم مونيز · للمشاركة</span></span><h2><span lang="en">Petiscos <em>first</em></span><span lang="ar">البداية <em>بالمقبّلات</em></span></h2></div>
+        <p><span lang="en">Little plates for the table while the tram is still filling up. Order three and tear the bread.</span><span lang="ar">أطباق صغيرة تتوسّط الطاولة ريثما يمتلئ الترام. اطلبوا ثلاثة واقتسموا الخبز.</span></p>
+      </header>
+      <div class="tks">
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0101</span><span lang="en">Zone 1</span><span lang="ar">المنطقة ١</span></span><h3><span lang="en">Pastéis de Bacalhau</span><span lang="ar">باستيش دي باكالاو</span></h3><p><span lang="en">Salt-cod fritters, crisp outside and fluffy within, with lemon aioli.</span><span lang="ar">كرات القدّ المملّح المقلية، مقرمشة من الخارج وهشّة من الداخل، مع أيولي الليمون.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>7</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0102</span><span lang="en">Zone 1</span><span lang="ar">المنطقة ١</span></span><h3><span lang="en">Peixinhos da Horta</span><span lang="ar">بيشينيوش دا أورتا</span></h3><p><span lang="en">“Little fish from the garden”: green beans in a light, lacy batter.</span><span lang="ar">«أسماك البستان الصغيرة»: فاصولياء خضراء في عجينة خفيفة مقرمشة.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>6</span><i></i></div></article>
+        <article class="tk fav"><span class="stamp"><span lang="en">Driver’s favourite</span><span lang="ar">المفضّل لدى السائق</span></span><div class="main"><span class="mono"><span>Nº 28-0103</span><span lang="en">Zone 1</span><span lang="ar">المنطقة ١</span></span><h3><span lang="en">Amêijoas à Bulhão Pato</span><span lang="ar">أميجواش بولياو باتو</span></h3><p><span lang="en">Clams opened in garlic, coriander and lemon. Mop up every drop.</span><span lang="ar">محار صغير يتفتّح في الثوم والكزبرة والليمون. لا تتركوا قطرة من المرق.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>13</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0104</span><span lang="en">Zone 1</span><span lang="ar">المنطقة ١</span></span><h3><span lang="en">Pica-Pau de Vaca</span><span lang="ar">بيكا باو باللحم البقري</span></h3><p><span lang="en">Seared beef strips, pickled vegetables, garlic and grain mustard.</span><span lang="ar">شرائح لحم بقري مشوّحة، خضار مخلّلة، ثوم وخردل بالحبوب.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>11</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0105</span><span lang="en">Zone 1</span><span lang="ar">المنطقة ١</span></span><h3><span lang="en">Queijo Fresco &amp; Pão</span><span lang="ar">جبن طازج وخبز</span></h3><p><span lang="en">Fresh cheese, green olive oil, oregano, warm country bread.</span><span lang="ar">جبن أبيض طازج، زيت زيتون أخضر، زعتر برّي، وخبز ريفي دافئ.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>5</span><i></i></div></article>
+        <aside class="tip"><svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="25" fill="#f2b705" stroke="#14284b" stroke-width="3"/><path d="M17 33c2-3 2-6 2-10a8 8 0 0 1 16 0c0 4 0 7 2 10Z" fill="#14284b"/><circle cx="27" cy="37" r="3" fill="#14284b"/><path d="M27 12v3" stroke="#14284b" stroke-width="3" stroke-linecap="round"/></svg><b><span lang="en">Conductor’s tip</span><span lang="ar">نصيحة المحصّل</span></b><p><span lang="en">Three petiscos and a basket of bread make a fine lunch for two.</span><span lang="ar">ثلاثة أطباق صغيرة وسلّة خبز تكفي غداءً طيبًا لشخصين.</span></p></aside>
+      </div>
+    </section>
+    <div class="grade" aria-hidden="true"></div>
+
+    <section class="stop s2" id="s2">
+      <header>
+        <div class="num"><b>2</b><small class="mono"><span lang="en">Stop</span><span lang="ar">محطة</span></small></div>
+        <div><span class="mono"><span lang="en">Alfama · from the Tagus and beyond</span><span lang="ar">ألفاما · من نهر التاجة وما بعده</span></span><h2><span lang="en">Down by <em>the sea</em></span><span lang="ar">على شاطئ <em>البحر</em></span></h2></div>
+        <p><span lang="en">The lanes smell of charcoal here. Fish comes in at dawn and goes on the grill at noon.</span><span lang="ar">هنا تفوح الأزقّة برائحة الفحم. يصل السمك فجرًا ويعتلي الشواية ظهرًا.</span></p>
+      </header>
+      <div class="tks">
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0201</span><span lang="en">Zone 2</span><span lang="ar">المنطقة ٢</span></span><h3><span lang="en">Sardinhas Assadas</span><span lang="ar">سردين مشوي</span></h3><p><span lang="en">Charcoal sardines, roast peppers, coarse salt, cornbread.</span><span lang="ar">سردين على الفحم، فلفل مشوي، ملح خشن، وخبز الذرة.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>14</span><i></i></div></article>
+        <article class="tk fav"><span class="stamp"><span lang="en">Driver’s favourite</span><span lang="ar">المفضّل لدى السائق</span></span><div class="main"><span class="mono"><span>Nº 28-0202</span><span lang="en">Zone 2</span><span lang="ar">المنطقة ٢</span></span><h3><span lang="en">Bacalhau à Brás</span><span lang="ar">باكالاو آ براش</span></h3><p><span lang="en">Shredded cod, straw potatoes and soft egg, black olives, parsley.</span><span lang="ar">قدّ مملّح منسّل، بطاطا قشّية وبيض طري، زيتون أسود وبقدونس.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>16</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0203</span><span lang="en">Zone 2</span><span lang="ar">المنطقة ٢</span></span><h3><span lang="en">Arroz de Marisco</span><span lang="ar">أرز ثمار البحر</span></h3><p><span lang="en">Soupy tomato rice with prawns, mussels and clams, fresh coriander.</span><span lang="ar">أرز بمرق الطماطم مع الروبيان وبلح البحر والمحار، وكزبرة طازجة.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>22</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0204</span><span lang="en">Zone 2</span><span lang="ar">المنطقة ٢</span></span><h3><span lang="en">Polvo à Lagareiro</span><span lang="ar">أخطبوط لاغاريرو</span></h3><p><span lang="en">Roast octopus, smashed potatoes, a river of garlic olive oil.</span><span lang="ar">أخطبوط مشوي في الفرن، بطاطا مهروسة بالقشر، ونهرٌ من زيت الزيتون بالثوم.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>21</span><i></i></div></article>
+        <aside class="tip w2"><svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="25" fill="#f2b705" stroke="#14284b" stroke-width="3"/><path d="M17 33c2-3 2-6 2-10a8 8 0 0 1 16 0c0 4 0 7 2 10Z" fill="#14284b"/><circle cx="27" cy="37" r="3" fill="#14284b"/><path d="M27 12v3" stroke="#14284b" stroke-width="3" stroke-linecap="round"/></svg><b><span lang="en">Conductor’s tip</span><span lang="ar">نصيحة المحصّل</span></b><p><span lang="en">Sardines are at their fattest from June to September. The rest of the year we grill horse mackerel the same way, and nobody complains.</span><span lang="ar">السردين في أسمن حالاته من يونيو إلى سبتمبر. وفي بقية العام نشوي الإسقمري بالطريقة نفسها، ولا أحد يشتكي.</span></p></aside>
+      </div>
+    </section>
+    <div class="grade" aria-hidden="true"></div>
+
+    <section class="stop s3" id="s3">
+      <header>
+        <div class="num"><b>3</b><small class="mono"><span lang="en">Stop</span><span lang="ar">محطة</span></small></div>
+        <div><span class="mono"><span lang="en">Graça · top of the hill</span><span lang="ar">غراسا · أعلى التلّة</span></span><h2><span lang="en">Fire at <em>the lookout</em></span><span lang="ar">نارٌ عند <em>المُطلّ</em></span></h2></div>
+        <p><span lang="en">Where the grill men work with a view. Our piri-piri oil steeps for twenty-eight days, naturally.</span><span lang="ar">حيث يعمل الشوّاؤون أمام أجمل إطلالة. وزيت البيري بيري عندنا يُنقع ثمانية وعشرين يومًا، بطبيعة الحال.</span></p>
+      </header>
+      <div class="tks">
+        <article class="tk fav"><span class="stamp"><span lang="en">Driver’s favourite</span><span lang="ar">المفضّل لدى السائق</span></span><div class="main"><span class="mono"><span>Nº 28-0301</span><span class="heat"><span lang="en">Hot ●●●</span><span lang="ar">حارّ ●●●</span></span></span><h3><span lang="en">Frango Piri-Piri</span><span lang="ar">دجاج بيري بيري</span></h3><p><span lang="en">Half a charcoal chicken basted with chilli, lemon and bay. Fries underneath.</span><span lang="ar">نصف دجاجة على الفحم تُدهن بالفلفل الحار والليمون والغار، فوق بطاطا مقلية.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>15</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0302</span><span lang="en">Zone 3</span><span lang="ar">المنطقة ٣</span></span><h3><span lang="en">Bife à Portuguesa</span><span lang="ar">ستيك على الطريقة البرتغالية</span></h3><p><span lang="en">Rump steak in garlic and bay butter, fried egg on top, hand-cut crisps.</span><span lang="ar">شريحة لحم بقري بزبدة الثوم والغار، تعلوها بيضة مقلية، مع رقائق بطاطا مقطّعة باليد.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>19</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0303</span><span class="heat"><span lang="en">Mild ●</span><span lang="ar">خفيف ●</span></span></span><h3><span lang="en">Prego no Pão</span><span lang="ar">بريغو في الخبز</span></h3><p><span lang="en">Garlic-studded steak in a crusty roll, yellow mustard, nothing else.</span><span lang="ar">شريحة لحم مرصّعة بالثوم في رغيف مقرمش مع خردل أصفر، ولا شيء غير ذلك.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>10</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0304</span><span lang="en">Zone 3</span><span lang="ar">المنطقة ٣</span></span><h3><span lang="en">Caldo Verde</span><span lang="ar">كالدو فيردي</span></h3><p><span lang="en">Silky potato and kale soup with slices of smoked beef chouriço.</span><span lang="ar">حساء مخملي من البطاطا والكرنب الأخضر مع شرائح نقانق بقرية مدخّنة.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>6</span><i></i></div></article>
+        <aside class="tip w2"><svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="25" fill="#f2b705" stroke="#14284b" stroke-width="3"/><path d="M17 33c2-3 2-6 2-10a8 8 0 0 1 16 0c0 4 0 7 2 10Z" fill="#14284b"/><circle cx="27" cy="37" r="3" fill="#14284b"/><path d="M27 12v3" stroke="#14284b" stroke-width="3" stroke-linecap="round"/></svg><b><span lang="en">How hot is hot?</span><span lang="ar">ما مقدار الحرارة؟</span></b><p><span lang="en">One dot is a tickle, three dots is the full climb to Graça on foot. Ask for the bottle of piri-piri oil if you want a fourth.</span><span lang="ar">نقطة واحدة دغدغةٌ خفيفة، وثلاث نقاط كصعود تلّة غراسا مشيًا. اطلبوا قارورة زيت البيري بيري إن أردتم الرابعة.</span></p></aside>
+      </div>
+    </section>
+    <div class="grade" aria-hidden="true"></div>
+
+    <section class="stop s4" id="s4">
+      <header>
+        <div class="num"><b>4</b><small class="mono"><span lang="en">Stop</span><span lang="ar">محطة</span></small></div>
+        <div><span class="mono"><span lang="en">Chiado · the pastry counter</span><span lang="ar">شيادو · واجهة الحلويات</span></span><h2><span lang="en">Custard <em>&amp; cinnamon</em></span><span lang="ar">كاسترد <em>وقرفة</em></span></h2></div>
+        <p><span lang="en">Egg yolks, sugar and patience: the convent recipes, baked every forty minutes.</span><span lang="ar">صفار بيض وسكّر وصبر: وصفات الأديرة القديمة، تُخبز كل أربعين دقيقة.</span></p>
+      </header>
+      <div class="tks">
+        <article class="tk fav"><span class="stamp"><span lang="en">Driver’s favourite</span><span lang="ar">المفضّل لدى السائق</span></span><div class="main"><span class="mono"><span>Nº 28-0401</span><span lang="en">Zone 4</span><span lang="ar">المنطقة ٤</span></span><h3><span lang="en">Pastel de Nata</span><span lang="ar">باستيل دي ناتا</span></h3><p><span lang="en">Blistered custard tart, still warm, with cinnamon and icing sugar to shake.</span><span lang="ar">فطيرة كاسترد بوجهٍ محمّر، دافئة من الفرن، تُرشّ بالقرفة والسكّر الناعم.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>2.5</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0402</span><span lang="en">Zone 4</span><span lang="ar">المنطقة ٤</span></span><h3><span lang="en">Arroz Doce</span><span lang="ar">أرز بالحليب</span></h3><p><span lang="en">Creamy rice pudding, lemon peel, a lattice of cinnamon drawn by hand.</span><span lang="ar">أرز كريمي بالحليب وقشر الليمون، تزيّنه شبكة من القرفة مرسومة باليد.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>5</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0403</span><span lang="en">Zone 4</span><span lang="ar">المنطقة ٤</span></span><h3><span lang="en">Bolo de Bolacha</span><span lang="ar">كعكة البسكويت</span></h3><p><span lang="en">Layers of coffee-dipped Maria biscuits and buttercream, served cold.</span><span lang="ar">طبقات من بسكويت ماريا المغموس بالقهوة وكريمة الزبدة، تُقدَّم باردة.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>5</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0404</span><span lang="en">Zone 4</span><span lang="ar">المنطقة ٤</span></span><h3><span lang="en">Pão de Ló de Ovar</span><span lang="ar">باو دي لو</span></h3><p><span lang="en">Barely set sponge cake with a molten, golden middle.</span><span lang="ar">كعكة إسفنجية بالكاد تتماسك، وقلبها ذهبيّ سائل.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>6</span><i></i></div></article>
+        <aside class="tip w2"><svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="25" fill="#f2b705" stroke="#14284b" stroke-width="3"/><path d="M17 33c2-3 2-6 2-10a8 8 0 0 1 16 0c0 4 0 7 2 10Z" fill="#14284b"/><circle cx="27" cy="37" r="3" fill="#14284b"/><path d="M27 12v3" stroke="#14284b" stroke-width="3" stroke-linecap="round"/></svg><b><span lang="en">Box of six</span><span lang="ar">علبة من ستّ</span></b><p><span lang="en">Take half a dozen natas home in a paper box for <span dir="ltr">€13</span>. They survive the tram ride; they rarely survive the evening.</span><span lang="ar">خذوا ستّ فطائر ناتا إلى البيت في علبة ورقية بـ <span dir="ltr">€13</span>. تصمد في رحلة الترام، لكنها قلّما تصمد حتى المساء.</span></p></aside>
+      </div>
+    </section>
+    <div class="grade" aria-hidden="true"></div>
+
+    <section class="stop s5" id="s5">
+      <header>
+        <div class="num"><b>5</b><small class="mono"><span lang="en">Stop</span><span lang="ar">محطة</span></small></div>
+        <div><span class="mono"><span lang="en">Estrela · the garden kiosk</span><span lang="ar">إستريلا · كشك الحديقة</span></span><h2><span lang="en">Under <em>the jacarandas</em></span><span lang="ar">تحت أشجار <em>الجاكرندا</em></span></h2></div>
+        <p><span lang="en">Coffee the Lisbon way and cold things for the climb. Nothing here contains alcohol.</span><span lang="ar">قهوة على طريقة لشبونة ومشروبات باردة تعين على الصعود. جميعها خالية من الكحول.</span></p>
+      </header>
+      <div class="tks">
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0501</span><span lang="en">Zone 5</span><span lang="ar">المنطقة ٥</span></span><h3><span lang="en">Bica</span><span lang="ar">بيكا</span></h3><p><span lang="en">Lisbon’s short, dark espresso. Drink it standing.</span><span lang="ar">إسبريسو لشبونة القصير الداكن. يُشرب وقوفًا.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>1.5</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0502</span><span lang="en">Zone 5</span><span lang="ar">المنطقة ٥</span></span><h3><span lang="en">Galão</span><span lang="ar">غالاو</span></h3><p><span lang="en">Tall milky coffee in a glass, the breakfast of tram drivers.</span><span lang="ar">قهوة بالحليب في كأس زجاجي طويل، فطور سائقي الترام.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>2.8</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0503</span><span lang="en">Zone 5</span><span lang="ar">المنطقة ٥</span></span><h3><span lang="en">Mazagran</span><span lang="ar">مازاغران</span></h3><p><span lang="en">Iced black coffee with lemon and a sprig of mint.</span><span lang="ar">قهوة سوداء مثلّجة مع الليمون وغصن نعناع.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>3.5</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0504</span><span lang="en">Zone 5</span><span lang="ar">المنطقة ٥</span></span><h3><span lang="en">Limonada de Hortelã</span><span lang="ar">ليمونادة بالنعناع</span></h3><p><span lang="en">Hand-squeezed Algarve lemons, crushed mint, lots of ice.</span><span lang="ar">ليمون الغارف معصور باليد، نعناع مدقوق، وثلج كثير.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>4</span><i></i></div></article>
+        <article class="tk"><div class="main"><span class="mono"><span>Nº 28-0505</span><span lang="en">Zone 5</span><span lang="ar">المنطقة ٥</span></span><h3><span lang="en">Laranjada da Casa</span><span lang="ar">برتقال فوّار من صنع البيت</span></h3><p><span lang="en">Sparkling orange with a little passion fruit, poured from the siphon.</span><span lang="ar">عصير برتقال فوّار مع قليل من الباشن فروت، يُسكب من السيفون.</span></p><span class="hole"></span></div><div class="stub"><span class="pr" dir="ltr"><small>€</small>4</span><i></i></div></article>
+        <aside class="tip"><svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="25" fill="#f2b705" stroke="#14284b" stroke-width="3"/><path d="M17 33c2-3 2-6 2-10a8 8 0 0 1 16 0c0 4 0 7 2 10Z" fill="#14284b"/><circle cx="27" cy="37" r="3" fill="#14284b"/><path d="M27 12v3" stroke="#14284b" stroke-width="3" stroke-linecap="round"/></svg><b><span lang="en">Conductor’s tip</span><span lang="ar">نصيحة المحصّل</span></b><p><span lang="en">A bica and a nata at the counter: the shortest happy journey in Lisbon.</span><span lang="ar">بيكا وفطيرة ناتا عند المنضدة: أقصر رحلة سعيدة في لشبونة.</span></p></aside>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="term">
+  <div class="band" aria-hidden="true"></div>
+  <div class="in">
+    <div><h2><span lang="en">End of the line.</span><span lang="ar">آخر الخط.</span></h2><p><span lang="en">Please keep your ticket; it is good for a second nata.</span><span lang="ar">احتفظ بتذكرتك من فضلك؛ فهي تصلح لفطيرة ناتا ثانية.</span></p></div>
+    <div><h4 class="mono"><span lang="en">Timetable</span><span lang="ar">المواعيد</span></h4><p><span lang="en">Daily 12:00 – 23:00<br>Kitchen rests 16:00 – 18:30</span><span lang="ar">يوميًا ١٢:٠٠ – ٢٣:٠٠<br>يستريح المطبخ ١٦:٠٠ – ١٨:٣٠</span></p></div>
+    <div><h4 class="mono"><span lang="en">Nearest stop</span><span lang="ar">أقرب محطة</span></h4><p><span lang="en">Rua das Escadinhas 28<br>Alfama, Lisbon</span><span lang="ar">شارع إسكادينياش ٢٨<br>ألفاما، لشبونة</span></p></div>
+    <div><h4 class="mono"><span lang="en">Reservations</span><span lang="ar">الحجز</span></h4><p><span lang="en">Walk-ins welcome. Tables of six or more, ring the bell.</span><span lang="ar">أهلًا بكم دون حجز. للمجموعات من ستة فأكثر، اقرعوا الجرس.</span></p></div>
+    <p class="fine"><span lang="en">We cook without pork or alcohol. Dishes may contain fish, shellfish, egg, milk, gluten and mustard; please tell the conductor about allergies. Prices in euros, VAT included.</span><span lang="ar">نطهو من دون لحم خنزير أو كحول. قد تحتوي الأطباق على سمك أو قشريات أو بيض أو حليب أو غلوتين أو خردل؛ يُرجى إبلاغ المحصّل بأي حساسية. الأسعار باليورو شاملةً الضريبة.</span></p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+(function(){if(!('IntersectionObserver' in window))return;var links={};document.querySelectorAll('.line a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){for(var k in links)links[k].classList.toggle('on',k===e.target.id)}})},{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('.stop').forEach(function(s){io.observe(s)})})();
+</script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Mama's Notebook · دفتر أمي</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mama's Notebook — home cooking written down by hand: big-pot rice dishes, stuffed vegetables, soups and puddings. دفتر أمي — طبخ بيتي مكتوب بخط اليد.">
+<meta name="theme-color" content="#c94a44">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Caveat:wght@500;700&family=Kalam:wght@300;400;700&family=Playpen+Sans+Arabic:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --ln:32px; --top:calc(var(--ln)*3); --shift:-5px;
+  --ink:#24399c; --red:#d2403c; --pencil:#5d6070; --paper:#fdfbf2; --rule:#b4cbe6; --hl:#ffe84d; --hl2:#b9f27a; --hl3:#ffb3c7;
+  --gut:74px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:400 17.5px/var(--ln) 'Kalam','Playpen Sans Arabic','Comic Sans MS',cursive;
+  background-color:#f7efe4;
+  background-image:linear-gradient(90deg,rgba(201,74,68,.42) 50%,transparent 50%),linear-gradient(rgba(201,74,68,.42) 50%,transparent 50%);
+  background-size:64px 64px;overflow-x:clip}
+html[lang="ar"] body{font-family:'Playpen Sans Arabic','Kalam','Geeza Pro',Tahoma,sans-serif;font-size:17px;font-weight:300}
+h1,h2,h3,p,ul,ol,figure{margin:0;padding:0}
+ul,ol{list-style:none}
+a{color:inherit}
+
+/* ---------- controls: strip of washi tape ---------- */
+.tape-ctl{position:fixed;z-index:50;inset-block-start:10px;inset-inline-end:10px;display:flex;gap:2px;align-items:stretch;
+  transform:rotate(-1.5deg);filter:drop-shadow(0 2px 3px rgba(60,30,20,.3))}
+[dir="rtl"] .tape-ctl{transform:rotate(1.5deg)}
+.tape-ctl>*{font:700 19px/1 'Caveat','Aref Ruqaa',cursive;color:#5a3a12;padding:9px 14px 10px;border:0;cursor:pointer;text-decoration:none;
+  background:repeating-linear-gradient(45deg,#ffe9a8 0 8px,#ffd97a 8px 16px);min-height:40px;display:flex;align-items:center}
+html[lang="ar"] .tape-ctl>*{font-family:'Aref Ruqaa','Caveat',serif;font-size:17px}
+.tape-ctl .home-link{background:repeating-linear-gradient(45deg,#c9efc0 0 8px,#a9e09d 8px 16px);color:#22512a;
+  clip-path:polygon(0 0,100% 0,100% 100%,0 100%,6px 75%,0 50%,6px 25%)}
+[dir="rtl"] .tape-ctl .home-link{clip-path:polygon(0 0,100% 0,calc(100% - 6px) 25%,100% 50%,calc(100% - 6px) 75%,100% 100%,0 100%)}
+#langToggle{clip-path:polygon(0 0,100% 0,calc(100% - 6px) 25%,100% 50%,calc(100% - 6px) 75%,100% 100%,0 100%)}
+[dir="rtl"] #langToggle{clip-path:polygon(0 0,100% 0,100% 100%,0 100%,6px 75%,0 50%,6px 25%)}
+.tape-ctl>*:hover,.tape-ctl>*:focus-visible{filter:brightness(1.06);outline:2px dashed var(--ink);outline-offset:-5px}
+
+/* ---------- the notebook ---------- */
+.book{max-width:1320px;margin-inline:auto;padding:70px 14px 60px;display:grid;gap:44px}
+.spread{position:relative;display:grid;grid-template-columns:1fr;gap:40px}
+.page{position:relative;min-width:0;border-radius:6px;overflow-x:clip;
+  padding:var(--top) 20px calc(var(--ln)*2);padding-inline-start:calc(var(--gut) - 26px);
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--paper),var(--paper)),linear-gradient(to bottom,transparent calc(var(--ln) - 1.5px),var(--rule) calc(var(--ln) - 1.5px));
+  background-size:100% calc(var(--top) + var(--shift) - 2px),100% var(--ln);
+  background-repeat:no-repeat,repeat;
+  background-position:0 0,0 calc(var(--top) + var(--shift));
+  box-shadow:0 1px 0 #e9e3d2,0 3px 0 #fbf8ee,0 4px 0 #e2dcc9,0 7px 0 #fbf8ee,0 8px 0 #dcd5c0,0 22px 34px -12px rgba(70,30,20,.5)}
+/* red margin line */
+.page::before{content:"";position:absolute;inset-block:0;inset-inline-start:calc(var(--gut) - 40px);width:2px;background:rgba(214,72,66,.62);border-inline-start:1px solid rgba(214,72,66,.25);padding-inline-start:2px;background-clip:content-box}
+/* top spiral (phone: each page is a flip pad) */
+.page::after{content:"";position:absolute;inset-inline:10px;inset-block-start:-13px;height:38px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='38'%3E%3Ccircle cx='13' cy='27' r='5' fill='%233b2c28'/%3E%3Cpath d='M13 28V7' stroke='%23777' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M12 27V7' stroke='%23e8e8ee' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x center/26px 38px}
+.spiral{display:none}
+.pg-head{position:absolute;inset-block-start:calc(var(--ln) + 2px);inset-inline:calc(var(--gut) - 26px) 20px;display:flex;justify-content:space-between;gap:10px;
+  font:500 20px/var(--ln) 'Caveat','Aref Ruqaa',cursive;color:var(--pencil);white-space:nowrap}
+html[lang="ar"] .pg-head{font:400 17.5px/var(--ln) 'Aref Ruqaa',serif}
+.pg-head u{text-decoration:none;border-bottom:1.5px dotted #9aa;padding-inline:6px;color:var(--ink)}
+.pg-no{position:absolute;inset-block-end:10px;inset-inline-end:22px;font:700 22px/1 'Caveat',cursive;color:var(--pencil)}
+.pg-no::before,.pg-no::after{content:" – "}
+
+/* ---------- handwriting bits ---------- */
+h1{font:700 clamp(58px,6.3vw,92px)/calc(var(--ln)*3) 'Caveat',cursive;color:var(--ink);letter-spacing:-.01em;transform:rotate(-2deg);transform-origin:0 100%;white-space:nowrap}
+html[lang="ar"] h1{font:700 clamp(56px,6.3vw,90px)/calc(var(--ln)*3) 'Aref Ruqaa',serif;letter-spacing:0;transform:rotate(2deg);transform-origin:100% 100%}
+h1 i{font-style:normal;background:linear-gradient(transparent 52%,var(--hl) 52% 90%,transparent 90%)}
+.sub{font:700 clamp(25px,5vw,30px)/var(--ln) 'Caveat',cursive;color:var(--red)}
+html[lang="ar"] .sub{font:700 23px/var(--ln) 'Aref Ruqaa',serif}
+h2{position:relative;font:700 clamp(38px,6vw,48px)/calc(var(--ln)*2) 'Caveat',cursive;display:inline-block;padding-inline-end:.3em}
+html[lang="ar"] h2{font:700 clamp(32px,5.4vw,40px)/calc(var(--ln)*2) 'Aref Ruqaa',serif}
+h2::after{content:"";position:absolute;inset-inline:-4px 0;inset-block-end:9px;height:9px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='9'%3E%3Cpath d='M1 5c6-5 10-5 16 0s10 5 16 0 8-4 10-2' fill='none' stroke='%23d2403c' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x 0 0/44px 9px}
+.note{color:var(--pencil);font-size:16.5px}
+html[lang="ar"] .note{font-size:16px}
+.blank{height:var(--ln)}
+.hl{background:linear-gradient(101deg,transparent 1%,var(--hl) 3% 97%,transparent 99%);padding-inline:.25em;margin-inline:-.25em;border-radius:3px 9px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl.g{--hl:var(--hl2)} .hl.p{--hl:var(--hl3)}
+.red{color:var(--red)}
+.doodle{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;display:block}
+
+/* contents list */
+.toc li{display:flex;gap:8px;align-items:baseline}
+.toc a{text-decoration:none;display:flex;flex:1;gap:8px;align-items:baseline;min-height:var(--ln)}
+.toc a::after{content:"";order:1;flex:1;border-bottom:2px dotted #8fa0d8;transform:translateY(-7px)}
+.toc b{order:2;font:700 24px/var(--ln) 'Caveat',cursive;color:var(--red)}
+.toc span{font:700 25px/var(--ln) 'Caveat',cursive}
+html[lang="ar"] .toc span{font:700 20px/var(--ln) 'Aref Ruqaa',serif}
+.toc a:hover span,.toc a:focus-visible span{background:var(--hl)}
+
+/* items */
+.items{margin-block-start:var(--ln)}
+.it{position:relative;display:grid;grid-template-columns:1fr auto;column-gap:10px;margin-block-end:var(--ln)}
+.it:last-child{margin-block-end:0}
+.nm{font:700 27px/var(--ln) 'Caveat',cursive;color:var(--ink)}
+html[lang="ar"] .nm{font:700 21px/var(--ln) 'Aref Ruqaa',serif}
+.pr{font:700 26px/var(--ln) 'Caveat',cursive;color:var(--red);white-space:nowrap;unicode-bidi:isolate;justify-self:end;align-self:start;position:relative}
+.nm .hl,.nm .scrib{margin-inline-start:.2em}
+.pr small{font:400 13px/1 'Kalam','Playpen Sans Arabic',cursive;color:var(--pencil);margin-inline-start:3px}
+.pick .pr::before{content:"";position:absolute;inset:-1px -11px -3px;border:2px solid var(--red);border-radius:52% 46% 55% 44%/60% 48% 62% 50%;transform:rotate(-5deg)}
+.ds{grid-column:1/-1;color:#3d4660}
+.mg{position:absolute;inset-inline-start:calc(-1*var(--gut) + 30px);inset-block-start:2px;width:28px;height:28px;color:var(--red)}
+.mg svg{width:100%;height:100%}
+.mg.blue{color:var(--ink)} .mg.green{color:#3c8a3f}
+.scrib{font:500 21px/var(--ln) 'Caveat',cursive;color:var(--pencil);display:inline-block;transform:rotate(-2deg)}
+html[lang="ar"] .scrib{font:400 18px/var(--ln) 'Aref Ruqaa',serif;transform:rotate(2deg)}
+.scrib.red{color:var(--red)}
+s.oops{text-decoration:none;position:relative;color:var(--pencil);font-weight:400}
+s.oops::after{content:"";position:absolute;inset-inline:-3px;inset-block-start:52%;height:7px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='7'%3E%3Cpath d='M0 5l5-3 5 3 5-3 5 3' fill='none' stroke='%2324399c' stroke-width='1.6'/%3E%3C/svg%3E") repeat-x 0 0/20px 7px}
+
+/* stuck-on things */
+.sticky{position:relative;background:linear-gradient(175deg,#fff394,#ffe95e);color:#4a3d10;padding:var(--ln) 20px calc(var(--ln)/2);margin-block:var(--ln) 0;
+  width:min(100%,330px);transform:rotate(-2.2deg);box-shadow:0 12px 14px -8px rgba(80,60,0,.45);border-end-end-radius:26px 8px}
+[dir="rtl"] .sticky{transform:rotate(2.2deg)}
+.sticky::before{content:"";position:absolute;inset-block-start:-12px;inset-inline-start:50%;width:92px;height:26px;margin-inline-start:-46px;background:rgba(190,215,240,.72);transform:rotate(-3deg);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.sticky h3{font:700 30px/var(--ln) 'Caveat',cursive;color:var(--red)}
+html[lang="ar"] .sticky h3{font:700 23px/var(--ln) 'Aref Ruqaa',serif}
+.sticky .big{font:700 40px/calc(var(--ln)*1.5) 'Caveat',cursive;color:var(--ink);unicode-bidi:isolate;display:inline-block}
+.card{position:relative;background:#fff;border:1px solid #d9d2bf;padding:calc(var(--ln)*.75) 18px calc(var(--ln)/2);margin-block:var(--ln) 0;transform:rotate(1.4deg);
+  background-image:linear-gradient(#f2a6a0 0 0),linear-gradient(to bottom,transparent 31px,#cfe0f0 31px);background-size:100% 2px,100% var(--ln);background-repeat:no-repeat,repeat;background-position:0 var(--ln),0 calc(var(--ln)*.75 + var(--shift));
+  box-shadow:0 14px 18px -10px rgba(70,40,20,.45)}
+[dir="rtl"] .card{transform:rotate(-1.4deg)}
+.card::before,.card::after{content:"";position:absolute;inset-block-start:-11px;width:70px;height:24px;background:rgba(255,179,199,.78);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.card::before{inset-inline-start:-18px;transform:rotate(-38deg)}
+.card::after{inset-inline-end:-18px;transform:rotate(38deg)}
+.card h3{font:700 28px/var(--ln) 'Caveat',cursive;color:var(--ink)}
+html[lang="ar"] .card h3{font:700 22px/var(--ln) 'Aref Ruqaa',serif}
+.card li{padding-inline-start:26px;position:relative}
+.card li::before{content:"";position:absolute;inset-inline-start:2px;inset-block-start:9px;width:13px;height:13px;border:2px solid var(--ink);border-radius:3px 4px 2px 5px}
+.card li.done::after{content:"";position:absolute;inset-inline-start:4px;inset-block-start:2px;width:8px;height:16px;border:solid var(--red);border-width:0 3px 3px 0;transform:rotate(40deg)}
+
+.stain{position:absolute;pointer-events:none;width:170px;height:170px;opacity:.5;mix-blend-mode:multiply}
+.stain.s1{inset-block-end:40px;inset-inline-end:-30px}
+.stain.s2{inset-block-start:38%;inset-inline-end:8%;width:120px;height:120px;opacity:.35;transform:rotate(80deg)}
+.pot{position:absolute;inset-block-start:calc(var(--ln)*2.4);inset-inline-end:14px;width:clamp(84px,22vw,150px);color:var(--ink);transform:rotate(6deg)}
+.pot .steam{animation:steam 3.4s ease-in-out infinite}
+.pot .steam:nth-of-type(2){animation-delay:-1.1s}.pot .steam:nth-of-type(3){animation-delay:-2.2s}
+@keyframes steam{0%,100%{transform:translateY(3px);opacity:.35}50%{transform:translateY(-4px);opacity:1}}
+.corner{position:absolute;color:var(--ink);opacity:.9}
+
+/* timetable */
+.tt{width:100%;border-collapse:collapse;margin-block-start:var(--ln);table-layout:fixed}
+.tt th,.tt td{border:2px solid var(--ink);height:var(--ln);padding:0 6px;text-align:center;font:700 22px/calc(var(--ln) - 2px) 'Caveat',cursive;border-radius:2px}
+html[lang="ar"] .tt th,html[lang="ar"] .tt td{font:400 16px/calc(var(--ln) - 2px) 'Aref Ruqaa',serif}
+.tt th{color:var(--red);background:rgba(255,232,77,.45)}
+.tt td[dir]{font-family:'Caveat',cursive!important;font-size:22px!important;font-weight:700!important}
+.sign{font:700 46px/calc(var(--ln)*2) 'Caveat',cursive;color:var(--ink);transform:rotate(-4deg);display:inline-block}
+html[lang="ar"] .sign{font:700 38px/calc(var(--ln)*2) 'Aref Ruqaa',serif;transform:rotate(4deg)}
+.map{width:min(100%,360px);height:auto;margin-block:var(--ln) 0;color:var(--pencil);aspect-ratio:320/190}
+.hearts{display:inline-block;width:86px;color:var(--red);vertical-align:middle}
+
+/* ---------- tablet/desktop: open notebook, spiral down the middle ---------- */
+@media (min-width:900px){
+  :root{--ln:34px;--gut:96px}
+  body{font-size:18.5px}
+  html[lang="ar"] body{font-size:18px}
+  .book{padding:60px 40px 90px;gap:70px}
+  .spread{grid-template-columns:1fr 1fr;gap:0;filter:drop-shadow(0 30px 30px rgba(70,30,20,.35))}
+  .spread:nth-child(odd){transform:rotate(-.5deg)} .spread:nth-child(even){transform:rotate(.45deg)}
+  .page{padding-inline-end:44px;padding-block-end:calc(var(--ln)*3);box-shadow:none;border-radius:10px 3px 3px 10px}
+  .page:nth-of-type(1){padding-inline-end:58px;border-inline-end:1px solid #e4dcc8;
+    box-shadow:inset -22px 0 26px -20px rgba(80,60,40,.38)}
+  [dir="rtl"] .page:nth-of-type(1){box-shadow:inset 22px 0 26px -20px rgba(80,60,40,.38)}
+  .page:nth-of-type(2){--gut:128px;border-radius:3px 10px 10px 3px;box-shadow:inset 22px 0 26px -20px rgba(80,60,40,.38)}
+  [dir="rtl"] .page:nth-of-type(2){box-shadow:inset -22px 0 26px -20px rgba(80,60,40,.38)}
+  .page::after{display:none}
+  .pg-head{inset-inline-end:58px}
+  .spiral{display:block;position:absolute;z-index:3;inset-block:14px;left:50%;width:74px;margin-left:-37px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='74' height='34'%3E%3Ccircle cx='9' cy='17' r='6' fill='%233b2c28'/%3E%3Ccircle cx='65' cy='17' r='6' fill='%233b2c28'/%3E%3Cpath d='M9 18C20 3 54 3 65 18' fill='none' stroke='%236d6d75' stroke-width='6.5' stroke-linecap='round'/%3E%3Cpath d='M11 15C22 4 52 4 63 15' fill='none' stroke='%23f1f1f6' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") repeat-y center top/74px 34px}
+  .two{columns:2;column-gap:36px}
+  .two .it{break-inside:avoid}
+  .mg{width:34px;height:34px;inset-block-start:0}
+  .stain.s1{width:230px;height:230px;inset-inline-end:30px;inset-block-end:70px}
+  .pot{inset-inline-end:64px;inset-block-start:calc(var(--ln)*3)}
+  .sticky{margin-inline-start:auto;margin-inline-end:12px}
+}
+@media (max-width:899px){
+  .pg-head{inset-block-start:calc(var(--ln)*1.3)}
+  .pot{inset-block-start:calc(var(--ln)*4.3)}
+  .tape-ctl>*{font-size:17px;padding-inline:11px}
+  h1,html[lang="ar"] h1{white-space:normal;line-height:calc(var(--ln)*2);padding-block-start:var(--ln)}
+  h1 span{display:block;max-width:4.2em}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pot .steam{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="tape-ctl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<main class="book">
+
+<!-- ================= SPREAD 1 ================= -->
+<div class="spread">
+  <div class="spiral" aria-hidden="true"></div>
+
+  <header class="page" id="cover">
+    <div class="pg-head"><span><span lang="en">Subject:</span><span lang="ar">المادة:</span> <u><span lang="en">Lunch!</span><span lang="ar">الغداء!</span></u></span><span><span lang="en">Date:</span><span lang="ar">التاريخ:</span> <u><span lang="en">every day</span><span lang="ar">كل يوم</span></u></span></div>
+    <svg class="pot doodle" viewBox="0 0 120 120" aria-hidden="true"><path class="steam" d="M42 34c-6-7 6-10 0-18"/><path class="steam" d="M60 32c-6-8 6-12 0-21"/><path class="steam" d="M78 34c-6-7 6-10 0-18"/><path d="M22 52c12-4 64-4 77 0M24 52c-1 20 1 40 9 50 12 6 44 6 55 0 8-11 10-30 9-50M22 60c-9-2-14 3-13 9 1 5 7 7 14 5M98 60c9-2 14 3 13 9-1 5-7 7-14 5M55 44c2-5 9-5 11 0M34 72l8 6M40 70l7 7M73 88l9-7M80 90l6-6"/></svg>
+    <svg class="stain s1" viewBox="0 0 200 200" aria-hidden="true"><defs><filter id="rough"><feTurbulence baseFrequency=".04" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="9"/></filter></defs><g filter="url(#rough)" fill="none" stroke="#8a5a2b"><circle cx="100" cy="100" r="78" stroke-width="7" stroke-dasharray="330 26 90 14"/><circle cx="100" cy="100" r="72" stroke-width="2" opacity=".6"/><circle cx="108" cy="96" r="70" stroke-width="1.5" opacity=".4"/></g></svg>
+
+    <div class="blank"></div>
+    <h1><span lang="en">Mama's <i>Notebook</i></span><span lang="ar">دفتر <i>أمي</i></span></h1>
+    <p class="sub"><span lang="en">home cooking · nothing fancy · seconds are free</span><span lang="ar">طبخ بيتي · بلا تكلّف · والزيادة على حسابنا</span></p>
+    <div class="blank"></div>
+    <p><span lang="en">Thirty-one years ago Mama Widad started writing her recipes in a school notebook so that none of us could claim we "forgot how". <span class="hl">This is that notebook.</span> We cook from it page by page, in the same dented pots, and we still get told off if the rice is rushed.</span><span lang="ar">قبل إحدى وثلاثين سنة بدأت ماما وداد تكتب وصفاتها في دفتر مدرسي كي لا يتحجّج أحد منّا بأنه «نسي الطريقة». <span class="hl">وهذا هو الدفتر نفسه.</span> نطبخ منه صفحةً صفحة، في القدور القديمة ذاتها، وما زلنا نُوبَّخ إن استعجلنا الأرز.</span></p>
+    <div class="blank"></div>
+    <p class="scrib red"><span lang="en">Contents (don't skip to dessert!)</span><span lang="ar">الفهرس (لا تقفزوا إلى الحلو!)</span></p>
+    <ol class="toc">
+      <li><a href="#start"><span lang="en">To start</span><span lang="ar">البداية</span><b>2</b></a></li>
+      <li><a href="#pots"><span lang="en">From the big pot</span><span lang="ar">من القدر الكبير</span><b>3</b></a></li>
+      <li><a href="#sides"><span lang="en">On the side</span><span lang="ar">على الجنب</span><b>4</b></a></li>
+      <li><a href="#sweet"><span lang="en">Something sweet</span><span lang="ar">شيء حلو</span><b>5</b></a></li>
+      <li><a href="#drink"><span lang="en">To drink</span><span lang="ar">للشرب</span><b>5</b></a></li>
+      <li><a href="#info"><span lang="en">Where &amp; when</span><span lang="ar">أين ومتى</span><b>6</b></a></li>
+    </ol>
+
+    <aside class="sticky">
+      <h3><span lang="en">Lunch tray!</span><span lang="ar">صينية الغداء!</span></h3>
+      <p><span lang="en">soup + any big pot + rice + a sweet + tea. Sun–Thu, noon till it's gone.</span><span lang="ar">شوربة + طبق من القدر الكبير + أرز + حلو + شاي. من الأحد إلى الخميس، من الظهر حتى تنفد.</span></p>
+      <p><span class="big">59 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></p>
+    </aside>
+    <span class="pg-no">1</span>
+  </header>
+
+  <section class="page" id="start">
+    <div class="pg-head"><span><span lang="en">Chapter:</span><span lang="ar">الفصل:</span> <u>1</u></span><span><span lang="en">prices in riyals (SAR)</span><span lang="ar">الأسعار بالريال السعودي</span></span></div>
+    <h2><span lang="en">To start</span><span lang="ar">البداية</span></h2>
+    <p class="note"><span lang="en">Put these in the middle and share. Bread comes by itself, you don't have to ask.</span><span lang="ar">ضعوها في الوسط وتشاركوها. الخبز يأتي وحده، لا حاجة لأن تطلبوه.</span></p>
+    <ul class="items">
+      <li class="it pick"><i class="mg"><svg class="doodle" viewBox="0 0 32 32"><path d="M16 3l3.6 8.4 9 .8-6.8 6 2.1 8.9L16 22.4 8.1 27.1l2.1-8.9-6.8-6 9-.8z"/></svg></i>
+        <div class="nm"><span lang="en">Lentil soup</span><span lang="ar">شوربة العدس</span></div><span class="pr">14 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Red lentils cooked down with cumin and carrot, a squeeze of lemon, crunchy fried bread on top.</span><span lang="ar">عدس أحمر مطبوخ على مهل مع الكمون والجزر، وعصرة ليمون، وفوقه خبز مقلي مقرمش.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Stuffed vine leaves</span><span lang="ar">ورق عنب</span></div><span class="pr">22 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Rolled thin as a pencil, simmered for three hours in lemon and pomegranate molasses. Eight pieces.</span><span lang="ar">ملفوف برفع القلم، يُطهى ثلاث ساعات في الليمون ودبس الرمان. ثماني حبّات.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Fattoush</span><span lang="ar">فتّوش</span></div><span class="pr">18 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Tomato, cucumber, radish and purslane, lots of sumac, toasted bread added at the very last second.</span><span lang="ar">طماطم وخيار وفجل وبقلة، مع كثير من السمّاق، ويُضاف الخبز المحمّص في آخر لحظة.</span></p></li>
+      <li class="it pick"><i class="mg"><svg class="doodle" viewBox="0 0 32 32"><path d="M16 27C4 18 3 10 8.500 7c3.500-1.800 6.300.3 7.500 3 1.200-2.700 4-4.800 7.500-3C29 10 28 18 16 27z"/></svg></i>
+        <div class="nm"><span lang="en">Cheese &amp; mint sambousek</span><span lang="ar">سمبوسك بالجبن والنعناع</span></div><span class="pr">16 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Hand-pinched half-moons, white cheese and dried mint, fried until they blister. Five pieces.</span><span lang="ar">أنصاف أقمار مقروصة باليد، بالجبن الأبيض والنعناع اليابس، تُقلى حتى تنتفخ. خمس حبّات.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Mutabbal</span><span lang="ar">متبّل الباذنجان</span></div><span class="pr">15 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Aubergine charred right on the flame, mashed with tahini and yoghurt. Smoky on purpose.</span><span lang="ar">باذنجان مشوي على اللهب مباشرةً، مهروس مع الطحينة واللبن. طعم الدخان مقصود.</span></p></li>
+    </ul>
+    <p class="scrib" style="margin-block-start:var(--ln)"><span lang="en">★ = the ones the grandchildren fight over</span><span lang="ar">★ = ما يتشاجر عليه الأحفاد</span></p>
+    <span class="pg-no">2</span>
+  </section>
+</div>
+
+<!-- ================= SPREAD 2 ================= -->
+<div class="spread">
+  <div class="spiral" aria-hidden="true"></div>
+
+  <section class="page" id="pots">
+    <div class="pg-head"><span><span lang="en">Chapter:</span><span lang="ar">الفصل:</span> <u>2</u></span><span><span lang="en">all with rice or bread</span><span lang="ar">كلّها مع أرز أو خبز</span></span></div>
+    <svg class="stain s2" viewBox="0 0 200 200" aria-hidden="true"><g filter="url(#rough)" fill="none" stroke="#8a5a2b"><circle cx="100" cy="100" r="78" stroke-width="6" stroke-dasharray="260 40 120 20"/><circle cx="96" cy="104" r="71" stroke-width="2" opacity=".5"/></g></svg>
+    <h2><span lang="en">From the big pot</span><span lang="ar">من القدر الكبير</span></h2>
+    <p class="note"><span lang="en">One pot of each, made in the morning. When it's finished, it's finished — come earlier tomorrow.</span><span lang="ar">قدرٌ واحد من كل صنف يُطبخ في الصباح. وإذا انتهى فقد انتهى — تعالوا أبكر غدًا.</span></p>
+    <ul class="items">
+      <li class="it pick"><i class="mg"><svg class="doodle" viewBox="0 0 32 32"><path d="M16 3l3.6 8.4 9 .8-6.8 6 2.1 8.9L16 22.4 8.1 27.1l2.1-8.9-6.8-6 9-.8z"/></svg></i>
+        <div class="nm"><span lang="en">Chicken kabsa</span><span lang="ar">كبسة دجاج</span></div><span class="pr">38 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Long-grain rice in tomato and dried lime, half a chicken browned under the grill, raisins and almonds.</span><span lang="ar">أرز طويل الحبة بالطماطم واللومي، ونصف دجاجة محمّرة تحت الشواية، مع الزبيب واللوز.</span></p></li>
+      <li class="it pick"><i class="mg"><svg class="doodle" viewBox="0 0 32 32"><path d="M16 27C4 18 3 10 8.500 7c3.500-1.800 6.300.3 7.500 3 1.200-2.700 4-4.800 7.500-3C29 10 28 18 16 27z"/></svg></i>
+        <div class="nm"><span lang="en">Maqluba <span class="scrib red">(upside-down!)</span></span><span lang="ar">مقلوبة <span class="scrib red">(تُقلب أمامكم!)</span></span></div><span class="pr">46 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Lamb, fried aubergine and cauliflower layered under rice, flipped at your table. Clap if it holds.</span><span lang="ar">لحم ضأن وباذنجان وقرنبيط مقلي تحت الأرز، نقلبها على طاولتكم. صفّقوا إن تماسكت.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Molokhia with chicken</span><span lang="ar">ملوخية بالدجاج</span></div><span class="pr">36 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Jute leaves chopped by hand, a sizzle of garlic and coriander poured in at the end. White rice.</span><span lang="ar">ملوخية مفرومة باليد، وتقلية الثوم والكزبرة تُسكب في النهاية. مع أرز أبيض.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Stuffed zucchini</span><span lang="ar">كوسا محشي</span></div><span class="pr">40 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Small zucchini cored and filled with rice and minced beef, cooked in tomato broth with dried mint.</span><span lang="ar">كوسا صغيرة محفورة ومحشوّة بالأرز واللحم البقري المفروم، مطبوخة في مرق الطماطم بالنعناع اليابس.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Okra &amp; beef stew</span><span lang="ar">بامية باللحم</span></div><span class="pr"><s class="oops">42</s> 39 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Baby okra and tender beef in a garlicky tomato sauce. Mop it with bread, nobody is watching.</span><span lang="ar">بامية صغيرة ولحم بقري طري في صلصة طماطم بالثوم. غمّسوا بالخبز، لا أحد يراقب.</span></p></li>
+      <li class="it"><i class="mg blue"><svg class="doodle" viewBox="0 0 32 32"><path d="M3 16c6-8 14-8 19 0-5 8-13 8-19 0zM22 16l7-6v12zM9 14.500v.5"/></svg></i>
+        <div class="nm"><span lang="en">Sayadieh <span class="hl g">Fridays only</span></span><span lang="ar">صيادية <span class="hl g">الجمعة فقط</span></span></div><span class="pr">48 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Hamour fillet on rice browned with caramelised onion, tahini sauce and fried pine nuts.</span><span lang="ar">فيليه هامور فوق أرز محمّر بالبصل المكرمل، مع صلصة الطحينة والصنوبر المقلي.</span></p></li>
+    </ul>
+    <span class="pg-no">3</span>
+  </section>
+
+  <section class="page" id="sides">
+    <div class="pg-head"><span><span lang="en">Chapter:</span><span lang="ar">الفصل:</span> <u>3</u></span><span><span lang="en">small plates, small prices</span><span lang="ar">صحون صغيرة بأسعار صغيرة</span></span></div>
+    <h2><span lang="en">On the side</span><span lang="ar">على الجنب</span></h2>
+    <ul class="items">
+      <li class="it">
+        <div class="nm"><span lang="en">Vermicelli rice</span><span lang="ar">أرز بالشعيرية</span></div><span class="pr">9 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Toasted vermicelli, ghee, a pinch of salt. The reason the pots are dented.</span><span lang="ar">شعيرية محمّصة وسمن ورشّة ملح. هو سبب انبعاج القدور.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Cucumber yoghurt</span><span lang="ar">لبن بالخيار</span></div><span class="pr">8 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Cold yoghurt, grated cucumber, garlic and dried mint.</span><span lang="ar">لبن بارد وخيار مبشور وثوم ونعناع يابس.</span></p></li>
+      <li class="it"><i class="mg"><svg class="doodle" viewBox="0 0 32 32"><path d="M6 20c2-9 9-14 20-15-1 11-6 18-15 20M6 20c-2 2-2 5 0 6s4 0 5-1M11 6c1-2 3-3 5-3"/></svg></i>
+        <div class="nm"><span lang="en">Daqqous <span class="hl p">hot!</span></span><span lang="ar">دقّوس <span class="hl p">حارّ!</span></span></div><span class="pr">5 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Fresh tomato and green chilli sauce for the kabsa. Start with a little.</span><span lang="ar">صلصة الطماطم الطازجة والفلفل الأخضر للكبسة. ابدؤوا بالقليل.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">House pickles</span><span lang="ar">مخلّل البيت</span></div><span class="pr">7 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Turnip dyed pink with beetroot, cucumbers, and stuffed baby aubergine.</span><span lang="ar">لفت ورديّ بالشمندر، وخيار، وباذنجان صغير محشو.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Tannour bread</span><span lang="ar">خبز التنّور</span></div><span class="pr">4 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Two warm rounds, slapped onto the clay oven wall a minute ago.</span><span lang="ar">رغيفان ساخنان خرجا من جدار التنّور قبل دقيقة.</span></p></li>
+    </ul>
+    <aside class="card">
+      <h3><span lang="en">Mama's kitchen rules</span><span lang="ar">قوانين مطبخ ماما</span></h3>
+      <ul>
+        <li class="done"><span lang="en">Wash the rice 3 times. Then once more.</span><span lang="ar">اغسل الأرز ثلاث مرات. ثم مرة أخرى.</span></li>
+        <li class="done"><span lang="en">Never lift the lid to "just check".</span><span lang="ar">لا ترفع الغطاء «لتطمئنّ فقط».</span></li>
+        <li class="done"><span lang="en">Nobody leaves hungry.</span><span lang="ar">لا أحد يخرج جائعًا.</span></li>
+        <li><span lang="en">Buy a new notebook <span class="scrib">(someday)</span></span><span lang="ar">شراء دفتر جديد <span class="scrib">(يومًا ما)</span></span></li>
+      </ul>
+    </aside>
+    <span class="pg-no">4</span>
+  </section>
+</div>
+
+<!-- ================= SPREAD 3 ================= -->
+<div class="spread">
+  <div class="spiral" aria-hidden="true"></div>
+
+  <section class="page" id="sweet">
+    <div class="pg-head"><span><span lang="en">Chapter:</span><span lang="ar">الفصل:</span> <u>4 + 5</u></span><span><span lang="en">leave room!</span><span lang="ar">اتركوا مكانًا!</span></span></div>
+    <h2><span lang="en">Something sweet</span><span lang="ar">شيء حلو</span></h2>
+    <ul class="items">
+      <li class="it pick"><i class="mg"><svg class="doodle" viewBox="0 0 32 32"><path d="M16 3l3.6 8.4 9 .8-6.8 6 2.1 8.9L16 22.4 8.1 27.1l2.1-8.9-6.8-6 9-.8z"/></svg></i>
+        <div class="nm"><span lang="en">Umm Ali</span><span lang="ar">أم علي</span></div><span class="pr">19 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Torn pastry baked in sweet milk with coconut, pistachio and raisins. Arrives bubbling.</span><span lang="ar">رقائق مخبوزة في الحليب المحلّى مع جوز الهند والفستق والزبيب. تصلكم وهي تغلي.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Rice pudding</span><span lang="ar">أرز بالحليب</span></div><span class="pr">14 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Stirred for forty minutes, scented with orange blossom, cinnamon drawn on top.</span><span lang="ar">يُحرَّك أربعين دقيقة، معطّر بماء الزهر، وعلى وجهه رسمة بالقرفة.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Basbousa</span><span lang="ar">بسبوسة</span></div><span class="pr">15 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Semolina cake soaked in syrup, one almond pressed into every square.</span><span lang="ar">كيكة سميد مشرّبة بالقطر، وفي كل مربّع حبّة لوز.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Date maamoul</span><span lang="ar">معمول بالتمر</span></div><span class="pr">12 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Three butter cookies shaped in the old wooden mould, filled with date paste.</span><span lang="ar">ثلاث حبّات بالسمن مشكّلة بالقالب الخشبي القديم ومحشوّة بعجوة التمر.</span></p></li>
+    </ul>
+    <div class="blank" id="drink"></div>
+    <h2><span lang="en">To drink</span><span lang="ar">للشرب</span></h2>
+    <ul class="items">
+      <li class="it"><i class="mg green"><svg class="doodle" viewBox="0 0 32 32"><path d="M16 29V14M16 20c-8 0-10-5-10-10 7 0 10 4 10 10zM16 16c0-7 3-11 10-11 0 6-3 11-10 11z"/></svg></i>
+        <div class="nm"><span lang="en">Mint lemonade</span><span lang="ar">ليمون بالنعناع</span></div><span class="pr">12 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Whole lemons and a fistful of mint, blended with ice.</span><span lang="ar">ليمون كامل وقبضة نعناع، مخفوقان مع الثلج.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Karak tea</span><span lang="ar">شاي كرك</span></div><span class="pr">8 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Strong tea boiled with milk, cardamom and a little saffron.</span><span lang="ar">شاي ثقيل مغليّ بالحليب والهيل وقليل من الزعفران.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Cold hibiscus</span><span lang="ar">كركديه بارد</span></div><span class="pr">11 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Steeped overnight, barely sweetened, ruby red.</span><span lang="ar">يُنقع طوال الليل، قليل السكّر، أحمر كالياقوت.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Salted laban</span><span lang="ar">لبن عيران</span></div><span class="pr">7 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Cold yoghurt drink — the only thing to have with kabsa.</span><span lang="ar">لبن بارد مملّح — لا يليق بالكبسة غيره.</span></p></li>
+      <li class="it">
+        <div class="nm"><span lang="en">Pot of Arabic coffee</span><span lang="ar">دلّة قهوة عربية</span></div><span class="pr">16 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span>
+        <p class="ds"><span lang="en">Light roast with cardamom, served with dates. For the table.</span><span lang="ar">قهوة شقراء بالهيل تُقدَّم مع التمر. تكفي الطاولة.</span></p></li>
+    </ul>
+    <span class="pg-no">5</span>
+  </section>
+
+  <footer class="page" id="info">
+    <div class="pg-head"><span><span lang="en">Last page</span><span lang="ar">الصفحة الأخيرة</span></span><span><span lang="en">(the important one)</span><span lang="ar">(وهي الأهم)</span></span></div>
+    <h2><span lang="en">Where &amp; when</span><span lang="ar">أين ومتى</span></h2>
+    <table class="tt">
+      <tr><th><span lang="en">Day</span><span lang="ar">اليوم</span></th><th><span lang="en">Lunch</span><span lang="ar">الغداء</span></th><th><span lang="en">Dinner</span><span lang="ar">العشاء</span></th></tr>
+      <tr><td><span lang="en">Sun – Thu</span><span lang="ar">الأحد – الخميس</span></td><td dir="ltr">12:00 – 4:00</td><td dir="ltr">7:00 – 11:00</td></tr>
+      <tr><td><span lang="en">Friday</span><span lang="ar">الجمعة</span></td><td dir="ltr">1:30 – 5:00</td><td dir="ltr">7:00 – 12:00</td></tr>
+      <tr><td><span lang="en">Saturday</span><span lang="ar">السبت</span></td><td colspan="2"><span class="red"><span lang="en">Mama rests. So do we.</span><span lang="ar">ماما ترتاح. ونحن كذلك.</span></span></td></tr>
+    </table>
+    <div class="blank"></div>
+    <p><b class="red"><span lang="en">Find us:</span><span lang="ar">العنوان:</span></b> <span lang="en">14 Al-Yasmin Lane, behind the old school, Al-Balad, Jeddah. Look for the blue door.</span><span lang="ar">١٤ زقاق الياسمين، خلف المدرسة القديمة، البلد، جدة. ابحثوا عن الباب الأزرق.</span></p>
+    <p><b class="red"><span lang="en">Call:</span><span lang="ar">الهاتف:</span></b> <span dir="ltr">012 555 0171</span> <span class="note"><span lang="en">(big pots for 10+ need one day's notice)</span><span lang="ar">(قدور العزائم لعشرة فأكثر تُطلب قبل يوم)</span></span></p>
+    <svg class="map doodle" viewBox="0 0 320 190" role="img" aria-hidden="true"><path d="M8 150c60-6 120 4 304-4M10 60c70 6 150-4 300 2M96 8c4 60-4 120 2 176M226 10c-4 50 4 120 0 172"/><path d="M118 74h80v60h-80zM150 74v-14l8-6 8 6v14M130 92h14v12h-14zM172 92h14v12h-14z"/><path d="M244 84h34v52h-34z" fill="#9db8f2" stroke="#24399c"/><circle cx="270" cy="112" r="2"/><path d="M20 176c40 6 150 10 196-18l6 14M222 158l-16 2" stroke="#d2403c"/><path d="M30 20l10 16 10-16M40 36v-22" stroke="#d2403c"/><path d="M262 60l3 7 7 .600-5.300 4.700 1.600 7-6.300-3.700-6.300 3.700 1.600-7-5.300-4.700 7-.600z" stroke="#d2403c"/></svg>
+    <p class="scrib mapcap"><span lang="en">↑ old school in the middle, blue door on the corner</span><span lang="ar">↑ المدرسة القديمة في الوسط، والباب الأزرق عند الزاوية</span></p>
+    <div class="blank"></div>
+    <p><span class="hl p"><b><span lang="en">Allergies?</span><span lang="ar">حساسية؟</span></b></span> <span lang="en">Our kitchen uses nuts, sesame, wheat and dairy every day. Tell us before you order and Mama will sort you out. Everything is halal.</span><span lang="ar">مطبخنا يستعمل المكسّرات والسمسم والقمح والألبان كل يوم. أخبرونا قبل الطلب وماما تتدبّر الأمر. كل ما نقدّمه حلال.</span></p>
+    <p class="note"><span lang="en">Prices include VAT. Seconds of rice are always free.</span><span lang="ar">الأسعار تشمل ضريبة القيمة المضافة. وزيادة الأرز مجانية دائمًا.</span></p>
+    <div class="blank"></div>
+    <p><span class="sign"><span lang="en">with love, Mama</span><span lang="ar">بكل الحب، ماما</span></span>
+      <svg class="hearts doodle" viewBox="0 0 90 34" aria-hidden="true"><path d="M16 28C5 20 4 12 9 9c3-1.600 5.800.300 7 2.800C17.200 9.300 20 7.400 23 9c5 3 4 11-7 19zM46 22c-7-5-8-10-4.500-12 2-1 3.800.200 4.500 1.800.700-1.600 2.500-2.800 4.500-1.800C54 12 53 17 46 22zM72 17c-5-3.500-5.500-7-3-8.500 1.400-.700 2.600.100 3 1.200.400-1.100 1.600-1.900 3-1.200 2.500 1.500 2 5-3 8.500z"/></svg></p>
+    <span class="pg-no">6</span>
+  </footer>
+</div>
+
+</main>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

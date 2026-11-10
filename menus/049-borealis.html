@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Borealis · بورياليس</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Borealis — Arctic fusion served under the northern lights. A menu that travels north by latitude, from the Arctic Circle to the Pole, with every dish marked by its serving temperature.">
+<meta name="theme-color" content="#040a16">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400&family=Alexandria:wght@100;200;300;400&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--sky:#040a16;--deep:#02060d;--ice:#eaf6ff;--mut:#a9c0d6;--g:#5dffb0;--t:#2de2c5;--v:#9b7bff;--m:#e58bff;--line:rgba(190,225,255,.22)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--deep)}
+body{margin:0;color:var(--ice);font:300 17px/1.55 "Jost","Helvetica Neue",Arial,sans-serif;background:var(--deep);-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-family:"Alexandria","Segoe UI",Tahoma,sans-serif;font-size:16.5px;line-height:1.85;font-weight:300}
+html[lang="ar"] *{letter-spacing:0 !important}
+h1,h2,h3,p,ul{margin:0;padding:0;font-weight:inherit}li{list-style:none}a{color:inherit}
+svg{display:block}
+
+.ctl{position:fixed;inset-block-start:12px;inset-inline-end:12px;z-index:50;display:flex;gap:8px}
+.ctl a,.ctl button{font:300 12px/1 "Jost",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--ice);background:rgba(4,10,22,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border:1px solid var(--line);border-radius:99px;padding:10px 14px;cursor:pointer;text-decoration:none;transition:border-color .3s,color .3s,box-shadow .3s}
+.ctl [lang="ar"]{font:300 13px/1 "Alexandria",sans-serif}
+.ctl a:hover,.ctl button:hover{border-color:var(--g);color:var(--g);box-shadow:0 0 18px rgba(93,255,176,.35)}
+:focus-visible{outline:1px solid var(--g);outline-offset:4px}
+
+/* ===== sky ===== */
+.sky{position:relative;min-height:100vh;min-height:100svh;display:grid;place-items:center;overflow:hidden;isolation:isolate;
+  background:radial-gradient(120% 70% at 50% 100%,#0d2a44 0,#07172b 40%,var(--sky) 75%)}
+.stars{position:absolute;inset:0;z-index:-3;
+  background-image:radial-gradient(1.2px 1.2px at 12% 18%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 31% 42%,#cfe 50%,transparent 51%),radial-gradient(1.4px 1.4px at 52% 9%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 71% 31%,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 88% 14%,#dff 50%,transparent 51%),radial-gradient(1px 1px at 8% 61%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 44% 67%,#fff 50%,transparent 51%),radial-gradient(1.3px 1.3px at 63% 55%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 93% 48%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 22% 83%,#fff 50%,transparent 51%);
+  background-size:420px 380px;opacity:.8}
+.stars.b{background-size:270px 310px;background-position:90px 40px;opacity:.45;animation:tw 5s ease-in-out infinite alternate}
+@keyframes tw{to{opacity:.15}}
+.aur{position:absolute;inset:0;z-index:-2;animation:breathe 14s ease-in-out infinite alternate;transform-origin:50% 100%}
+@keyframes breathe{from{transform:scaleY(.94) skewX(-2deg)}to{transform:scaleY(1.06) skewX(3deg)}}
+.rib{position:absolute;left:0;width:200%;filter:blur(5px);mix-blend-mode:screen;animation:flow 46s linear infinite;
+  -webkit-mask-image:repeating-linear-gradient(90deg,#000 0 7px,rgba(0,0,0,.5) 7px 13px,#000 13px 31px,rgba(0,0,0,.65) 31px 36px,#000 36px 58px,rgba(0,0,0,.4) 58px 63px);
+  mask-image:repeating-linear-gradient(90deg,#000 0 7px,rgba(0,0,0,.5) 7px 13px,#000 13px 31px,rgba(0,0,0,.65) 31px 36px,#000 36px 58px,rgba(0,0,0,.4) 58px 63px)}
+.rib.r1{top:-8%;height:50%}
+.rib.r2{top:-10%;height:46%;animation-duration:78s;animation-direction:reverse;opacity:.75}
+.rib.r3{top:2%;height:42%;animation-duration:31s;opacity:.8}
+@keyframes flow{to{transform:translateX(-50%)}}
+.glow{position:absolute;inset:auto 0 0 0;height:46%;z-index:-2;background:radial-gradient(60% 100% at 50% 100%,rgba(93,255,176,.20),transparent 70%)}
+.land{position:absolute;inset:auto 0 0 0;z-index:-1;height:clamp(150px,24vh,260px)}
+.land svg{position:absolute;inset:0;width:100%;height:100%}
+
+.hero{text-align:center;padding:90px 22px clamp(170px,26vh,280px);max-width:980px}
+.coord{font-size:12.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--g);direction:ltr;unicode-bidi:isolate}
+h1{font:100 clamp(52px,12.5vw,176px)/1 "Jost",sans-serif;letter-spacing:.2em;margin:22px 0 14px;padding-inline-start:.2em;text-shadow:0 0 44px rgba(93,255,176,.5);
+  background:linear-gradient(180deg,#fff 30%,#b9ffe2 70%,#c9b6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+html[lang="ar"] h1{font:100 clamp(64px,13vw,170px)/1.35 "Alexandria",sans-serif;padding:0;margin-block:6px 0}
+.sub{font-size:clamp(15px,1.6vw,20px);letter-spacing:.34em;text-transform:uppercase;color:var(--ice)}
+html[lang="ar"] .sub{font-size:clamp(18px,2vw,25px);font-weight:200}
+.rule{width:1px;height:54px;background:linear-gradient(var(--g),transparent);margin:26px auto 22px}
+.lead{max-width:56ch;margin-inline:auto;color:#e2eefa;font-size:clamp(16px,1.35vw,18.5px);position:relative;text-shadow:0 1px 10px #040a16,0 0 2px #040a16}
+.lead::before{content:"";position:absolute;inset:-40px -70px;z-index:-1;background:radial-gradient(closest-side,rgba(4,10,22,.82),rgba(4,10,22,.55) 60%,transparent)}
+.fc{display:inline-flex;gap:0;margin-block-start:30px;border:1px solid var(--line);border-radius:99px;background:rgba(4,10,22,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.fc div{padding:10px clamp(12px,2.4vw,26px);display:flex;flex-direction:column;gap:2px;align-items:center}
+.fc div+div{border-inline-start:1px solid var(--line)}
+.fc b{font:200 clamp(20px,2.2vw,27px)/1 "Jost",sans-serif;color:var(--g);direction:ltr;unicode-bidi:isolate}
+.fc small{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+html[lang="ar"] .fc small{font-size:12.5px}
+
+/* ===== frozen lake ===== */
+.lake{position:relative;background:var(--deep);overflow-x:clip;isolation:isolate}
+.refl{position:sticky;top:0;height:100vh;margin-block-end:-100vh;z-index:-1;pointer-events:none;overflow:hidden}
+.refl i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.34;animation:drift 22s ease-in-out infinite alternate}
+.refl i:nth-child(1){width:60vw;height:44vh;left:-12vw;top:4vh;background:var(--g)}
+.refl i:nth-child(2){width:50vw;height:50vh;right:-14vw;top:36vh;background:var(--v);animation-duration:31s;animation-direction:alternate-reverse}
+.refl i:nth-child(3){width:44vw;height:30vh;left:30vw;bottom:-8vh;background:var(--t);opacity:.2;animation-duration:27s}
+@keyframes drift{to{transform:translate(8vw,6vh) scale(1.15)}}
+.refl::after{content:"";position:absolute;inset:0;background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520'%3E%3Cg fill='none' stroke='%23cfe9ff' stroke-opacity='.09' stroke-width='1'%3E%3Cpath d='M0 120l90 40 70-30 110 70 60-20 190 60M160 130l30 120-60 90 40 180M330 180l-20 110 90 60 120-30M0 380l130-40M400 350l40 170M270 200l-80 50'/%3E%3C/g%3E%3C/svg%3E")}
+.north{max-width:1360px;margin-inline:auto;padding:clamp(40px,6vw,90px) clamp(16px,3.4vw,48px) 40px;display:grid;grid-template-columns:190px minmax(0,1fr);gap:clamp(20px,4vw,70px)}
+
+/* the meridian */
+.rail{position:sticky;top:76px;align-self:start;padding-inline-start:28px;border-inline-start:1px solid var(--line);
+  background:repeating-linear-gradient(180deg,var(--line) 0 1px,transparent 1px 14px) left top/9px 100% no-repeat}
+html[dir="rtl"] .rail{background-position:right top}
+.rail small{display:block;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--mut);padding-block:6px 14px}
+html[lang="ar"] .rail small{font-size:13px}
+.rail a{display:block;text-decoration:none;padding-block:13px;position:relative;color:var(--mut);transition:color .3s}
+.rail a::before{content:"";position:absolute;inset-inline-start:-28px;top:50%;width:18px;height:1px;background:var(--ice)}
+.rail a b{display:block;font:200 25px/1 "Jost",sans-serif;color:var(--ice);direction:ltr;unicode-bidi:isolate;text-align:start;transition:color .3s,text-shadow .3s}
+html[dir="rtl"] .rail a b{text-align:end}
+.rail a span{font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+html[lang="ar"] .rail a span{font-size:13.5px}
+.rail a:hover b{color:var(--g);text-shadow:0 0 16px rgba(93,255,176,.7)}
+
+.lat{padding-block:clamp(30px,4vw,56px) clamp(34px,5vw,70px);border-block-start:1px solid var(--line);scroll-margin-top:20px}
+.lat:first-child{border:0;padding-block-start:0}
+.lh{display:grid;grid-template-columns:auto 1fr;gap:6px clamp(16px,3vw,44px);align-items:end;margin-block-end:clamp(22px,3vw,40px)}
+.deg{font:100 clamp(56px,8.4vw,124px)/.9 "Jost",sans-serif;direction:ltr;unicode-bidi:isolate;letter-spacing:-.02em;
+  background:linear-gradient(120deg,var(--ice) 20%,var(--g) 60%,var(--v));-webkit-background-clip:text;background-clip:text;color:transparent}
+.deg sup{font-size:.34em;vertical-align:top;letter-spacing:.1em;margin-inline-start:.1em;position:relative;top:.35em}
+.lh h2{font:200 clamp(24px,2.8vw,38px)/1.15 "Jost",sans-serif;letter-spacing:.2em;text-transform:uppercase}
+html[lang="ar"] .lh h2{font:200 clamp(26px,2.9vw,38px)/1.5 "Alexandria",sans-serif}
+.lh p{color:var(--mut);font-size:.95em;max-width:52ch}
+.lh .where{font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--g);display:block;margin-block-end:4px}
+html[lang="ar"] .lh .where{font-size:13.5px}
+
+/* items */
+.it h3{font:300 clamp(19px,1.55vw,22px)/1.25 "Jost",sans-serif;letter-spacing:.04em;color:#fff}
+html[lang="ar"] .it h3{font:300 clamp(18.5px,1.5vw,21px)/1.6 "Alexandria",sans-serif}
+.it p{color:#c3d6e8;font-size:.94em;margin-block:4px 12px}
+.it .ft{display:flex;align-items:center;gap:14px;margin-block-start:auto}
+.pr{font:200 clamp(24px,2vw,30px)/1 "Jost",sans-serif;white-space:nowrap;direction:ltr;unicode-bidi:isolate;margin-inline-start:auto;color:var(--ice)}
+.pr small{font-size:.55em;margin-inline-end:.15em;color:var(--mut)}
+.tmp{--p:calc((var(--c) + 20) * 1%);position:relative;flex:0 1 150px;height:22px;display:block}
+.tmp::before{content:"";position:absolute;inset-inline:0;top:15px;height:1px;background:linear-gradient(90deg,#6fc3ff,#eaf6ff 34%,#ffd08a 70%,#ff8a5c)}
+.tmp::after{content:"";position:absolute;top:11px;left:var(--p);width:9px;height:9px;margin-left:-4px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.15),0 0 12px 2px rgba(180,230,255,.9)}
+.tmp.hot::after{box-shadow:0 0 0 3px rgba(255,200,140,.18),0 0 12px 2px rgba(255,170,110,.95);background:#ffe6c7}
+.tmp b{position:absolute;top:-4px;left:var(--p);transform:translateX(-50%);font:300 11px/1 "Jost",sans-serif;letter-spacing:.06em;color:var(--mut);white-space:nowrap;direction:ltr}
+.star{display:inline-block;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--deep);background:linear-gradient(90deg,var(--g),var(--t));padding:3px 9px 2px;border-radius:99px;margin-inline-start:8px;vertical-align:middle;font-weight:400}
+html[lang="ar"] .star{font-size:12px;padding-block:2px 3px}
+
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.g3 .it{display:flex;flex-direction:column;padding:20px clamp(14px,1.8vw,26px) 22px;border-inline-start:1px solid var(--line);border-block-end:1px solid var(--line)}
+.g3 .it:nth-child(3n+1){border-inline-start:0;padding-inline-start:0}
+.g3 .it:nth-last-child(-n+2){border-block-end:0}
+.g3 .it:nth-child(4){grid-column:span 2}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,26px)}
+.g2 .it{display:flex;flex-direction:column;padding:24px clamp(18px,2.2vw,30px);background:linear-gradient(140deg,rgba(190,225,255,.10),rgba(190,225,255,.02) 60%);border:1px solid var(--line);
+  clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px));position:relative}
+.g2 .it::before,.g2 .it::after{content:"";position:absolute;width:37px;height:1px;background:var(--line);transform:rotate(45deg)}
+.g2 .it::before{top:12px;right:-6px}.g2 .it::after{bottom:12px;left:-6px}
+.rows .it{display:grid;grid-template-columns:3.4em minmax(0,1.5fr) 150px auto;gap:6px clamp(14px,2.4vw,36px);align-items:center;padding-block:20px;border-block-end:1px solid var(--line)}
+.rows .it:last-child{border:0}
+.rows .n{font:100 clamp(34px,3.4vw,50px)/1 "Jost",sans-serif;color:var(--t);direction:ltr}
+.rows .it p{margin-block-end:0}
+.rows h3{font-size:clamp(20px,1.9vw,26px)}
+.hexes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.4vw,20px)}
+.hexes .it{aspect-ratio:1/1.13;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:linear-gradient(160deg,rgba(190,225,255,.20),rgba(155,123,255,.10) 55%,rgba(93,255,176,.12));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20% 9% 18%;position:relative}
+.hexes .it::before{content:"";position:absolute;inset:1px;clip-path:inherit;background:rgba(3,8,18,.72);z-index:-1}
+.hexes .it p{font-size:.86em;line-height:1.35;margin-block:5px 8px}
+html[lang="ar"] .hexes .it p{line-height:1.6;font-size:.84em}
+.hexes .ft{flex-direction:column;gap:6px;margin:0}
+.hexes .tmp{flex:0 0 22px;width:110px}
+.hexes .pr{margin:0}
+.flake{width:26px;height:26px;margin-block-end:6px;stroke:var(--g);fill:none;stroke-width:1;stroke-linecap:round;opacity:.9}
+.pour{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:22px;background:rgba(190,225,255,.04)}
+.pour .it{display:flex;flex-direction:column;padding:22px clamp(12px,1.5vw,22px);border-inline-start:1px solid var(--line)}
+.pour .it:first-child{border:0}
+.pour .ft{flex-direction:column;align-items:flex-start;gap:8px}
+.pour .tmp{flex:0 0 22px;width:100%}
+.pour .pr{margin:0}
+
+/* tasting */
+.night{margin-block:0 clamp(34px,5vw,70px);padding:1px;border-radius:26px;background:linear-gradient(110deg,var(--g),var(--t) 30%,var(--v) 70%,var(--m));background-size:200% 100%;animation:shift 9s ease-in-out infinite alternate;box-shadow:0 0 60px -12px rgba(93,255,176,.45)}
+@keyframes shift{to{background-position:100% 0}}
+.night>div{border-radius:25px;background:rgba(3,8,18,.9);padding:clamp(22px,3vw,40px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.6fr) auto;gap:clamp(16px,3vw,44px);align-items:center}
+.night small{font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--g)}
+html[lang="ar"] .night small{font-size:13.5px}
+.night h2{font:100 clamp(34px,4.2vw,60px)/1.05 "Jost",sans-serif;letter-spacing:.06em;margin-block-start:6px}
+html[lang="ar"] .night h2{font:200 clamp(32px,3.8vw,52px)/1.4 "Alexandria",sans-serif}
+.night p{color:#c3d6e8;font-size:.96em}
+.night .pr{font-size:clamp(40px,4.6vw,66px);font-weight:100;text-align:center}
+.night .per{display:block;text-align:center;font-size:12px;letter-spacing:.14em;color:var(--mut);margin-block-start:4px}
+html[lang="ar"] .night .per{font-size:13.5px}
+
+/* far shore */
+.shore{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,var(--deep),#06182c 55%,#0b2a40);padding:clamp(150px,20vw,240px) 22px 44px;text-align:center;margin-block-start:-1px}
+.shore .land{inset:0 0 auto 0;transform:scaleY(-1);height:clamp(110px,14vw,170px);opacity:.9}
+.shore .aur{opacity:.5;top:38%}
+.shore .rib{height:70% !important;top:0 !important}
+.info{max-width:1080px;margin-inline:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,46px);text-align:start}
+.info h2{font:300 12.5px/1.4 "Jost",sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--g);margin-block-end:10px;padding-block-end:10px;border-block-end:1px solid var(--line)}
+html[lang="ar"] .info h2{font:300 15px/1.6 "Alexandria",sans-serif}
+.info p{color:#d3e4f4;font-size:.95em}
+.info p+p{margin-block-start:8px}
+.end{margin-block-start:clamp(34px,5vw,60px);font:100 clamp(26px,4vw,50px)/1.2 "Jost",sans-serif;letter-spacing:.3em;color:var(--ice);padding-inline-start:.3em}
+html[lang="ar"] .end{font:100 clamp(26px,3.6vw,44px)/1.6 "Alexandria",sans-serif;padding:0}
+.end+p{font-size:12.5px;letter-spacing:.14em;color:var(--mut);margin-block-start:8px}
+html[lang="ar"] .end+p{font-size:13.5px}
+
+@media (max-width:1080px){
+  .north{grid-template-columns:minmax(0,1fr)}
+  .rail{position:static;display:flex;border:0;padding:0;background:none;border-block:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+  .rail small{display:none}
+  .rail a{flex:1 0 auto;padding:12px 14px;text-align:center}
+  .rail a::before{display:none}
+  .rail a b,html[dir="rtl"] .rail a b{text-align:center;font-size:21px}
+  .pour{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .pour .it:nth-child(4){border-inline-start:0}
+  .pour .it:nth-child(n+4){border-block-start:1px solid var(--line)}
+  .pour .it:nth-child(5){grid-column:span 2}
+  .hexes{grid-template-columns:repeat(2,minmax(0,1fr));max-width:640px;margin-inline:auto}
+  .night>div{grid-template-columns:1fr 1fr}
+  .night>div>:last-child{grid-column:1/-1}
+}
+@media (max-width:700px){
+  h1,html[lang="ar"] h1{letter-spacing:.12em;padding-inline-start:.12em;font-weight:200;background:none;color:#fff;text-shadow:0 0 18px rgba(4,10,22,.9),0 0 3px rgba(4,10,22,.8)}
+  html[lang="ar"] h1{padding:0}
+  .sub{text-shadow:0 0 12px #040a16,0 0 3px #040a16}
+  .lead::before{inset:-26px -22px;background:radial-gradient(closest-side,rgba(4,10,22,.6),rgba(4,10,22,.35) 65%,transparent)}
+  .rib.r1{height:40%}.rib.r2{height:38%}.rib.r3{height:34%}
+  .sub{letter-spacing:.2em}
+  .fc small{letter-spacing:.1em}
+  .rail a{padding-inline:9px}.rail a span{display:none}
+  .lh{grid-template-columns:1fr}
+  .g3,.g2{grid-template-columns:1fr}
+  .g3 .it{border-inline-start:0;padding-inline:0;border-block-end:1px solid var(--line) !important;grid-column:auto !important}
+  .g3 .it:last-child{border-block-end:0 !important}
+  .rows .it{grid-template-columns:2.6em minmax(0,1fr) auto;align-items:start}
+  .rows .it .tmp{grid-column:2;grid-row:2;width:150px}
+  .rows .it .pr{grid-column:3;grid-row:1}
+  .hexes{grid-template-columns:1fr;gap:12px}
+  .hexes .it{aspect-ratio:auto;clip-path:polygon(9% 0,91% 0,100% 50%,91% 100%,9% 100%,0 50%);padding:24px 15% 22px}
+  .hexes .it p{font-size:15.5px}
+  .pour{grid-template-columns:1fr;border-radius:18px}
+  .pour .it{border-inline-start:0 !important;grid-column:auto !important;border-block-start:1px solid var(--line)}
+  .pour .it:first-child{border-block-start:0}
+  .pour .ft{flex-direction:row;align-items:center}
+  .pour .tmp{flex:0 1 150px}
+  .pour .pr{margin-inline-start:auto}
+  .night>div{grid-template-columns:1fr;text-align:center}
+  .info{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<div class="ctl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9b7bff" stop-opacity="0"/><stop offset=".45" stop-color="#5dffb0" stop-opacity=".35"/><stop offset=".9" stop-color="#7dffc4" stop-opacity=".95"/><stop offset="1" stop-color="#c8ffe6"/></linearGradient>
+  <linearGradient id="av" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e58bff" stop-opacity="0"/><stop offset=".5" stop-color="#9b7bff" stop-opacity=".5"/><stop offset="1" stop-color="#6f8bff" stop-opacity=".85"/></linearGradient>
+  <linearGradient id="at" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2de2c5" stop-opacity="0"/><stop offset=".6" stop-color="#2de2c5" stop-opacity=".4"/><stop offset="1" stop-color="#a8fff0" stop-opacity=".9"/></linearGradient>
+  <symbol id="w1" viewBox="0 0 2400 600" preserveAspectRatio="none"><path d="M0 430C150 330 450 330 600 430S1050 530 1200 430S1650 330 1800 430S2250 530 2400 430V0H0Z"/></symbol>
+  <symbol id="w2" viewBox="0 0 2400 600" preserveAspectRatio="none"><path d="M0 500C100 560 260 420 400 440S640 600 800 520S1060 380 1200 500C1300 560 1460 420 1600 440S1840 600 2000 520S2260 380 2400 500V0H0Z"/></symbol>
+  <symbol id="w3" viewBox="0 0 2400 600" preserveAspectRatio="none"><path d="M0 520C80 440 220 560 300 480S520 380 600 520C680 440 820 560 900 480S1120 380 1200 520C1280 440 1420 560 1500 480S1720 380 1800 520C1880 440 2020 560 2100 480S2320 380 2400 520V140H0Z"/></symbol>
+  <symbol id="land" viewBox="0 0 1600 260" preserveAspectRatio="xMidYMax slice">
+    <path d="M0 260V150L120 96l90 44 130-92 110 78 70-40 150 96 120-70 100 50 160-112 130 90 90-44 120 70 110-56 100 70V260Z" fill="#0b2138"/>
+    <path d="M340 48l-34 46 30-10 22 24 20-30 30 20zM1150 20l-40 62 34-14 26 30 22-36 36 26z" fill="#dbeeff" opacity=".5"/>
+    <path d="M0 170L3 170L9 146L8 146L14 117L21 146L19 146L25 170L29 170L34 149L33 149L39 124L45 149L43 149L48 170L47 170L53 148L52 148L58 120L64 148L63 148L68 170L79 170L83 155L82 155L86 136L91 155L90 155L94 170L120 170L129 134L127 134L137 89L147 134L145 134L154 170L131 170L137 145L136 145L142 115L149 145L148 145L154 170L228 170L238 134L235 134L245 89L255 134L253 134L262 170L279 170L284 148L283 148L289 121L295 148L294 148L300 170L280 170L290 132L287 132L298 85L309 132L306 132L316 170L367 170L375 137L373 137L382 97L391 137L389 137L397 170L436 170L438 160L438 160L441 147L443 160L443 160L445 170L475 170L478 155L477 155L482 137L486 155L485 155L489 170L691 170L698 143L696 143L704 111L711 143L709 143L716 170L715 170L719 153L718 153L723 131L728 153L727 153L731 170L718 170L725 143L723 143L731 109L739 143L737 143L744 170L734 170L738 154L737 154L742 135L746 154L745 154L749 170L740 170L742 161L742 161L744 149L747 161L746 161L749 170L791 170L796 151L794 151L800 128L805 151L804 151L809 170L802 170L808 148L806 148L813 121L819 148L817 148L823 170L813 170L817 157L816 157L819 142L823 157L822 157L825 170L827 170L829 161L828 161L831 149L834 161L833 161L835 170L839 170L843 156L842 156L846 138L850 156L849 156L853 170L884 170L891 142L889 142L897 108L905 142L903 142L910 170L930 170L936 145L935 145L942 115L948 145L947 145L953 170L982 170L985 159L984 159L987 145L990 159L990 159L993 170L1004 170L1007 155L1006 155L1010 138L1014 155L1013 155L1017 170L1022 170L1025 159L1024 159L1027 145L1030 159L1030 159L1033 170L1044 170L1047 159L1046 159L1049 146L1052 159L1052 159L1054 170L1050 170L1057 142L1055 142L1063 107L1071 142L1069 142L1076 170L1107 170L1110 156L1109 156L1113 139L1117 156L1116 156L1120 170L1125 170L1132 146L1130 146L1137 117L1143 146L1142 146L1148 170L1264 170L1270 147L1268 147L1275 118L1281 147L1280 147L1286 170L1294 170L1298 153L1297 153L1302 133L1306 153L1305 153L1309 170L1336 170L1344 137L1342 137L1351 97L1360 137L1358 137L1366 170L1348 170L1351 155L1350 155L1355 136L1359 155L1358 155L1362 170L1472 170L1480 137L1478 137L1487 97L1496 137L1494 137L1503 170L1545 170L1549 153L1548 153L1553 132L1558 153L1556 153L1561 170L1568 170L1575 143L1573 143L1581 109L1589 143L1587 143L1594 170L1593 170L1599 149L1597 149L1603 124L1609 149L1607 149L1613 170L1596 170L1601 147L1600 147L1606 120L1613 147L1611 147L1617 170L1600 170Z" transform="translate(0 78)" fill="#061423"/>
+    <path d="M0 170L51 170L56 150L55 150L60 126L66 150L64 150L69 170L76 170L88 124L85 124L98 67L111 124L107 124L119 170L117 170L124 140L122 140L130 104L139 140L137 140L144 170L116 170L126 129L123 129L135 79L146 129L143 129L154 170L140 170L149 132L147 132L157 86L168 132L165 132L175 170L147 170L155 138L153 138L162 99L171 138L169 138L177 170L214 170L229 112L225 112L241 41L257 112L253 112L268 170L240 170L246 146L245 146L251 117L258 146L256 146L262 170L255 170L263 137L261 137L270 98L279 137L277 137L285 170L267 170L273 146L271 146L278 117L285 146L283 146L289 170L284 170L295 129L292 129L303 79L315 129L312 129L322 170L325 170L332 144L330 144L337 113L345 144L343 144L349 170L336 170L344 141L342 141L350 106L358 141L356 141L363 170L352 170L363 127L360 127L372 73L385 127L382 127L393 170L426 170L433 144L431 144L438 113L445 144L444 144L450 170L461 170L469 137L467 137L476 96L486 137L483 137L492 170L463 170L475 124L471 124L484 69L497 124L494 124L506 170L484 170L488 153L487 153L492 133L497 153L495 153L500 170L625 170L629 156L628 156L632 140L635 156L634 156L638 170L632 170L637 151L635 151L641 128L646 151L645 151L649 170L644 170L653 135L651 135L661 92L670 135L668 135L677 170L674 170L682 140L680 140L688 104L697 140L695 140L702 170L749 170L754 153L752 153L757 132L762 153L761 153L765 170L801 170L806 151L804 151L810 128L815 151L814 151L819 170L807 170L810 155L809 155L814 137L818 155L817 155L821 170L848 170L854 146L853 146L859 117L866 146L864 146L871 170L872 170L875 158L874 158L877 143L881 158L880 158L883 170L902 170L910 138L908 138L917 98L926 138L924 138L932 170L942 170L952 130L949 130L960 81L971 130L969 130L979 170L952 170L963 128L960 128L971 76L983 128L980 128L991 170L989 170L998 134L996 134L1006 90L1016 134L1013 134L1023 170L1057 170L1068 124L1065 124L1078 67L1091 124L1088 124L1100 170L1169 170L1173 156L1172 156L1176 138L1180 156L1179 156L1182 170L1218 170L1224 144L1222 144L1230 113L1237 144L1235 144L1241 170L1261 170L1275 116L1272 116L1287 50L1302 116L1298 116L1312 170L1265 170L1277 124L1274 124L1287 67L1300 124L1296 124L1308 170L1282 170L1290 138L1288 138L1297 99L1306 138L1303 138L1312 170L1281 170L1295 116L1291 116L1306 50L1322 116L1318 116L1332 170L1314 170L1324 129L1321 129L1333 78L1344 129L1342 129L1352 170L1340 170L1353 119L1350 119L1364 57L1378 119L1374 119L1387 170L1361 170L1369 142L1367 142L1375 107L1382 142L1380 142L1388 170L1381 170L1387 146L1385 146L1392 116L1399 146L1397 146L1403 170L1399 170L1408 134L1406 134L1416 90L1426 134L1423 134L1432 170L1409 170L1415 148L1413 148L1419 121L1426 148L1424 148L1430 170L1446 170L1455 136L1453 136L1462 94L1472 136L1470 136L1478 170L1449 170L1464 109L1460 109L1477 34L1494 109L1490 109L1506 170L1477 170L1486 138L1483 138L1493 98L1502 138L1499 138L1508 170L1496 170L1500 153L1499 153L1504 131L1509 153L1508 153L1512 170L1600 170Z" transform="translate(0 90)" fill="#02060d"/>
+  </symbol>
+  <symbol id="flake" viewBox="0 0 26 26"><path d="M13 1v24M2.6 7l20.8 12M2.6 19L23.4 7M13 5l-3-3M13 5l3-3M13 21l-3 3M13 21l3 3M6 9L2 8M6 9L5 5M20 17l4 1M20 17l1 4M6 17l-4 1M6 17l-1 4M20 9l4-1M20 9l1-4"/></symbol>
+</defs></svg>
+
+<header class="sky">
+  <div class="stars"></div><div class="stars b"></div>
+  <div class="aur" aria-hidden="true">
+    <svg class="rib r2"><use href="#w2" fill="url(#av)"/></svg>
+    <svg class="rib r1"><use href="#w1" fill="url(#ag)"/></svg>
+    <svg class="rib r3"><use href="#w3" fill="url(#at)"/></svg>
+  </div>
+  <div class="glow"></div>
+  <div class="land" aria-hidden="true"><svg><use href="#land"/></svg></div>
+  <div class="hero">
+    <p class="coord">69°40′N · 18°56′E</p>
+    <h1><span lang="en">Borealis</span><span lang="ar">بورياليس</span></h1>
+    <p class="sub"><span lang="en">Arctic fusion · under the lights</span><span lang="ar">مأكولات القطب الشمالي · تحت الأضواء</span></p>
+    <div class="rule"></div>
+    <p class="lead"><span lang="en">Cold water, long nights, live fire. We cook the far north — char, skrei, king crab, cloudberries — with the precision of a Tokyo counter, and plate every dish at the temperature it tastes best. Travel the menu northward, one latitude at a time.</span><span lang="ar">مياه باردة وليالٍ طويلة ونار حيّة. نطهو خيرات أقصى الشمال — سمك الشار وقدّ السكراي والسلطعون الملكي وتوت السحاب — بدقّة مطابخ طوكيو، ونقدّم كلّ طبق بالحرارة التي تُبرز مذاقه. سافر في القائمة شمالاً، خطَّ عرضٍ بعد آخر.</span></p>
+    <div class="fc" role="group">
+      <div><b>Kp 5</b><small><span lang="en">Aurora tonight</span><span lang="ar">شفق الليلة</span></small></div>
+      <div><b>−11°</b><small><span lang="en">Outside</span><span lang="ar">في الخارج</span></small></div>
+      <div><b>14:12</b><small><span lang="en">Sunset</span><span lang="ar">الغروب</span></small></div>
+    </div>
+  </div>
+</header>
+
+<main class="lake">
+  <div class="refl" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="north">
+    <nav class="rail" aria-label="Latitudes">
+      <small><span lang="en">Heading north</span><span lang="ar">نحو الشمال</span></small>
+      <a href="#l66"><b>66°N</b><span lang="en">Raw &amp; cured</span><span lang="ar">نيّئ ومقدّد</span></a>
+      <a href="#l69"><b>69°N</b><span lang="en">Embers</span><span lang="ar">الجمر</span></a>
+      <a href="#l71"><b>71°N</b><span lang="en">Sea &amp; tundra</span><span lang="ar">بحر وتندرا</span></a>
+      <a href="#l78"><b>78°N</b><span lang="en">Snow</span><span lang="ar">الثلج</span></a>
+      <a href="#l90"><b>90°N</b><span lang="en">Ice bar</span><span lang="ar">بار الجليد</span></a>
+    </nav>
+
+    <div>
+      <section class="lat" id="l66">
+        <header class="lh"><span class="deg">66°<sup>N</sup></span><div><span class="where"><span lang="en">The Arctic Circle</span><span lang="ar">الدائرة القطبية</span></span><h2><span lang="en">Raw &amp; cured</span><span lang="ar">نيّئ ومقدّد</span></h2><p><span lang="en">Served cold, as the sea delivers it. The dot on each scale shows the plate's temperature.</span><span lang="ar">تُقدَّم باردة كما يهديها البحر. النقطة على كلّ مقياس تبيّن حرارة الطبق.</span></p></div></header>
+        <ul class="g3">
+          <li class="it"><h3><span lang="en">Arctic char crudo</span><span lang="ar">كرودو سمك الشار القطبي</span></h3><p><span lang="en">Sea buckthorn, dill oil and a drift of frozen horseradish snow.</span><span lang="ar">مع النبق البحري وزيت الشبت وندفٍ من ثلج الفجل الحار المجمّد.</span></p><div class="ft"><span class="tmp" style="--c:-2"><b>−2°C</b></span><span class="pr"><small>€</small>16</span></div></li>
+          <li class="it"><h3><span lang="en">Juniper-cured venison</span><span lang="ar">لحم غزال مقدّد بالعرعر</span></h3><p><span lang="en">Shaved thin with lingonberry, pickled shallot and rye crisp.</span><span lang="ar">شرائح رقيقة مع توت اللينغون والكرّاث المخلّل ورقائق الجاودار.</span></p><div class="ft"><span class="tmp" style="--c:4"><b>4°C</b></span><span class="pr"><small>€</small>18</span></div></li>
+          <li class="it"><h3><span lang="en">Hand-dived scallop</span><span lang="ar">أسقلوب صيد الغوّاصين</span></h3><p><span lang="en">Yuzu kosho, brown butter and finger lime, in the shell.</span><span lang="ar">يوزو كوشو وزبدة بنّية ولؤلؤ الليمون، في صدفته.</span></p><div class="ft"><span class="tmp" style="--c:2"><b>2°C</b></span><span class="pr"><small>€</small>19</span></div></li>
+          <li class="it"><h3><span lang="en">King crab, nori waffle</span><span lang="ar">سلطعون ملكي على وافل النوري</span><span class="star"><span lang="en">Polaris</span><span lang="ar">نجم القطب</span></span></h3><p><span lang="en">Barents Sea crab leg picked to order, white miso mayonnaise, trout roe and a crisp seaweed waffle.</span><span lang="ar">ساق سلطعون من بحر بارنتس تُفصَّص عند الطلب، مع مايونيز الميسو الأبيض وبطارخ السلمون المرقّط ووافل مقرمش من الأعشاب البحرية.</span></p><div class="ft"><span class="tmp" style="--c:4"><b>4°C</b></span><span class="pr"><small>€</small>22</span></div></li>
+          <li class="it"><h3><span lang="en">Salt-baked beetroot</span><span lang="ar">شمندر مخبوز في الملح</span></h3><p><span lang="en">Smoked labneh, pickled spruce tips, rye crumb. Vegetarian.</span><span lang="ar">لبنة مدخّنة، براعم تنّوب مخلّلة وفتات الجاودار. طبق نباتي.</span></p><div class="ft"><span class="tmp" style="--c:8"><b>8°C</b></span><span class="pr"><small>€</small>13</span></div></li>
+        </ul>
+      </section>
+
+      <section class="lat" id="l69">
+        <header class="lh"><span class="deg">69°<sup>N</sup></span><div><span class="where"><span lang="en">Tromsø, gateway to the ice</span><span lang="ar">ترومسو، بوّابة الجليد</span></span><h2><span lang="en">From the embers</span><span lang="ar">من الجمر</span></h2><p><span lang="en">Small warm plates off birch charcoal, to thaw the fingers.</span><span lang="ar">أطباق صغيرة دافئة من فحم البتولا، تذيب برد الأصابع.</span></p></div></header>
+        <ul class="g2">
+          <li class="it"><h3><span lang="en">Milk bread &amp; kelp butter</span><span lang="ar">خبز الحليب وزبدة عشب البحر</span></h3><p><span lang="en">Hokkaido-style loaf torn at the table, cultured butter whipped with roasted kelp.</span><span lang="ar">رغيف على طريقة هوكايدو يُقطَّع على الطاولة، مع زبدة مخمّرة مخفوقة بعشب البحر المحمّص.</span></p><div class="ft"><span class="tmp hot" style="--c:38"><b>38°C</b></span><span class="pr"><small>€</small>8</span></div></li>
+          <li class="it"><h3><span lang="en">Charred leek</span><span lang="ar">كرّاث مشويّ على اللهب</span></h3><p><span lang="en">Burnt outside, sweet inside; sesame miso, hazelnut and scorched lemon.</span><span lang="ar">محروق من الخارج وحلو من الداخل، مع ميسو السمسم والبندق والليمون المحمّص.</span></p><div class="ft"><span class="tmp hot" style="--c:55"><b>55°C</b></span><span class="pr"><small>€</small>12</span></div></li>
+          <li class="it"><h3><span lang="en">Cod-cheek karaage</span><span lang="ar">كاراغي خدود القدّ</span></h3><p><span lang="en">Crisp-fried cod cheeks, pine salt, a tartare sauce of pickled sea herbs.</span><span lang="ar">خدود سمك القدّ مقلية مقرمشة، ملح الصنوبر وصلصة تارتار من أعشاب البحر المخلّلة.</span></p><div class="ft"><span class="tmp hot" style="--c:68"><b>68°C</b></span><span class="pr"><small>€</small>15</span></div></li>
+          <li class="it"><h3><span lang="en">Smoked potato gyoza</span><span lang="ar">غيوزا البطاطا المدخّنة</span></h3><p><span lang="en">Pan-seared dumplings in a clear brown-crab broth with chive oil.</span><span lang="ar">زلابية محمّرة في مرق صافٍ من السلطعون البنّي مع زيت الثوم المعمّر.</span></p><div class="ft"><span class="tmp hot" style="--c:72"><b>72°C</b></span><span class="pr"><small>€</small>14</span></div></li>
+        </ul>
+      </section>
+
+      <aside class="night" id="night"><div>
+        <div><small><span lang="en">Tasting menu · seven latitudes</span><span lang="ar">قائمة التذوّق · سبعة خطوط عرض</span></small><h2><span lang="en">The Long Night</span><span lang="ar">الليل الطويل</span></h2></div>
+        <p><span lang="en">Seven courses from 66° to 90° north, chosen by the kitchen and paced to the sky. When the lights appear we dim the room and ring the brass bell. Add a flight of five cold-pressed and smoked zero-proof pairings for €35.</span><span lang="ar">سبعة أطباق من خطّ ٦٦ إلى ٩٠ شمالاً، يختارها المطبخ على إيقاع السماء. حين يظهر الشفق نخفّت الأضواء ونقرع الجرس النحاسي. أضِف خمسة مشروبات مرافقة خالية من الكحول، معصورة على البارد ومدخّنة، مقابل ٣٥ يورو.</span></p>
+        <div><span class="pr"><small>€</small>95</span><span class="per"><span lang="en">per guest</span><span lang="ar">للضيف الواحد</span></span></div>
+      </div></aside>
+
+      <section class="lat" id="l71">
+        <header class="lh"><span class="deg">71°<sup>N</sup></span><div><span class="where"><span lang="en">North Cape, where the road ends</span><span lang="ar">الرأس الشمالي، حيث ينتهي الطريق</span></span><h2><span lang="en">Sea &amp; tundra</span><span lang="ar">بحر وتندرا</span></h2><p><span lang="en">The main journey. Halal meats; fish landed the same morning.</span><span lang="ar">الرحلة الرئيسية. لحوم حلال وأسماك تُنزَل من القوارب صباح اليوم نفسه.</span></p></div></header>
+        <ul class="rows">
+          <li class="it"><span class="n">01</span><div><h3><span lang="en">Skrei cod, white miso</span><span lang="ar">قدّ السكراي بالميسو الأبيض</span></h3><p><span lang="en">Winter cod from Lofoten, miso beurre blanc, pickled kohlrabi, trout roe.</span><span lang="ar">قدّ شتوي من لوفوتن، صلصة زبدة بالميسو، كرنب ساقي مخلّل وبطارخ السلمون المرقّط.</span></p></div><span class="tmp hot" style="--c:58"><b>58°C</b></span><span class="pr"><small>€</small>32</span></li>
+          <li class="it"><span class="n">02</span><div><h3><span lang="en">Venison loin, blackcurrant teriyaki</span><span lang="ar">خاصرة الغزال بترياكي الكشمش الأسود</span><span class="star"><span lang="en">Polaris</span><span lang="ar">نجم القطب</span></span></h3><p><span lang="en">Seared over juniper wood, celeriac baked in hay, a glaze of blackcurrant and soy.</span><span lang="ar">تُحمَّر على حطب العرعر، مع كرفس جذري مخبوز في القشّ ولمعة من الكشمش الأسود والصويا.</span></p></div><span class="tmp hot" style="--c:56"><b>56°C</b></span><span class="pr"><small>€</small>38</span></li>
+          <li class="it"><span class="n">03</span><div><h3><span lang="en">Whole turbot for two</span><span lang="ar">سمكة ترس كاملة لشخصين</span></h3><p><span lang="en">Grilled on the bone, carved at the table, brown-butter ponzu and charred lemon.</span><span lang="ar">تُشوى بعظمها وتُقطَّع على الطاولة، مع بونزو الزبدة البنّية وليمون محمّص.</span></p></div><span class="tmp hot" style="--c:60"><b>60°C</b></span><span class="pr"><small>€</small>68</span></li>
+          <li class="it"><span class="n">04</span><div><h3><span lang="en">Twelve-hour lamb shoulder</span><span lang="ar">كتف خروف مطهوّ اثنتي عشرة ساعة</span></h3><p><span lang="en">Lacquered with fermented plum, on a barley risotto with wild garlic.</span><span lang="ar">مطليّ بالبرقوق المخمّر، فوق ريزوتو الشعير بالثوم البرّي.</span></p></div><span class="tmp hot" style="--c:64"><b>64°C</b></span><span class="pr"><small>€</small>34</span></li>
+          <li class="it"><span class="n">05</span><div><h3><span lang="en">Forest mushroom donabe</span><span lang="ar">دونابي فطر الغابة</span></h3><p><span lang="en">Clay-pot rice with chanterelles and spruce oil, a cured egg yolk on top. Vegetarian.</span><span lang="ar">أرز في قدر فخّاري مع فطر الشانتريل وزيت التنّوب، يعلوه صفار بيض مقدّد. طبق نباتي.</span></p></div><span class="tmp hot" style="--c:74"><b>74°C</b></span><span class="pr"><small>€</small>26</span></li>
+        </ul>
+      </section>
+
+      <section class="lat" id="l78">
+        <header class="lh"><span class="deg">78°<sup>N</sup></span><div><span class="where"><span lang="en">Svalbard, land of cold coasts</span><span lang="ar">سفالبارد، أرض السواحل الباردة</span></span><h2><span lang="en">Snow</span><span lang="ar">الثلج</span></h2><p><span lang="en">Four crystals to finish. No two alike.</span><span lang="ar">أربع بلّورات للختام، لا تتشابه اثنتان منها.</span></p></div></header>
+        <ul class="hexes">
+          <li class="it"><svg class="flake" aria-hidden="true"><use href="#flake"/></svg><h3><span lang="en">Cloudberry &amp; white chocolate</span><span lang="ar">توت السحاب والشوكولاتة البيضاء</span></h3><p><span lang="en">Frozen mousse, brown-cheese caramel</span><span lang="ar">موس مجمّد وكراميل الجبن البنّي</span></p><div class="ft"><span class="tmp" style="--c:-6"><b>−6°C</b></span><span class="pr"><small>€</small>12</span></div></li>
+          <li class="it"><svg class="flake" aria-hidden="true"><use href="#flake"/></svg><h3><span lang="en">Spruce-tip ice cream</span><span lang="ar">مثلّجات براعم التنّوب</span></h3><p><span lang="en">Burnt honey, birch syrup, sea salt</span><span lang="ar">عسل محروق، شراب البتولا وملح بحري</span></p><div class="ft"><span class="tmp" style="--c:-12"><b>−12°C</b></span><span class="pr"><small>€</small>10</span></div></li>
+          <li class="it"><svg class="flake" aria-hidden="true"><use href="#flake"/></svg><h3><span lang="en">Cardamom bun pudding</span><span lang="ar">بودنغ كعك الهيل</span></h3><p><span lang="en">Baked warm, cold vanilla skyr</span><span lang="ar">يُخبز دافئاً مع سكير الفانيلا البارد</span></p><div class="ft"><span class="tmp hot" style="--c:52"><b>52°C</b></span><span class="pr"><small>€</small>11</span></div></li>
+          <li class="it"><svg class="flake" aria-hidden="true"><use href="#flake"/></svg><h3><span lang="en">Blueberry kakigōri</span><span lang="ar">كاكيغوري التوت الأزرق</span></h3><p><span lang="en">Shaved ice, wild blueberry, liquorice cream</span><span lang="ar">ثلج مبشور، توت أزرق برّي وكريمة العرقسوس</span></p><div class="ft"><span class="tmp" style="--c:-8"><b>−8°C</b></span><span class="pr"><small>€</small>9</span></div></li>
+        </ul>
+      </section>
+
+      <section class="lat" id="l90">
+        <header class="lh"><span class="deg">90°<sup>N</sup></span><div><span class="where"><span lang="en">The Pole</span><span lang="ar">القطب</span></span><h2><span lang="en">Ice bar · zero proof</span><span lang="ar">بار الجليد · بلا كحول</span></h2><p><span lang="en">Poured over ice cut from a single clear block. Nothing here contains alcohol.</span><span lang="ar">تُسكب فوق جليد يُقطَع من كتلة واحدة صافية. لا شيء هنا يحتوي على الكحول.</span></p></div></header>
+        <ul class="pour">
+          <li class="it"><h3><span lang="en">Northern Light</span><span lang="ar">الضوء الشمالي</span></h3><p><span lang="en">Sea buckthorn, yuzu and tonic; it glows green under the bar lamp.</span><span lang="ar">نبق بحري ويوزو وتونيك، يتوهّج بالأخضر تحت مصباح البار.</span></p><div class="ft"><span class="tmp" style="--c:2"><b>2°C</b></span><span class="pr"><small>€</small>9</span></div></li>
+          <li class="it"><h3><span lang="en">Polar Night</span><span lang="ar">الليل القطبي</span></h3><p><span lang="en">Blackcurrant, juniper and lime, black as January at noon.</span><span lang="ar">كشمش أسود وعرعر وليمون أخضر، بسواد ظهيرة يناير.</span></p><div class="ft"><span class="tmp" style="--c:3"><b>3°C</b></span><span class="pr"><small>€</small>9</span></div></li>
+          <li class="it"><h3><span lang="en">Midnight Sun</span><span lang="ar">شمس منتصف الليل</span></h3><p><span lang="en">Cloudberry shrub, fresh ginger, soda and a twist of orange.</span><span lang="ar">شراب توت السحاب الحامض، زنجبيل طازج، صودا وقشرة برتقال.</span></p><div class="ft"><span class="tmp" style="--c:3"><b>3°C</b></span><span class="pr"><small>€</small>8</span></div></li>
+          <li class="it"><h3><span lang="en">Birch-smoked hōjicha</span><span lang="ar">هوجيتشا مدخّن بالبتولا</span></h3><p><span lang="en">Roasted green tea by the pot, smoked over birch bark.</span><span lang="ar">شاي أخضر محمّص في إبريق، مدخّن على لحاء البتولا.</span></p><div class="ft"><span class="tmp hot" style="--c:78"><b>78°C</b></span><span class="pr"><small>€</small>6</span></div></li>
+          <li class="it"><h3><span lang="en">Glacier water</span><span lang="ar">ماء الأنهار الجليدية</span></h3><p><span lang="en">Still or sparkling, bottled at the source.</span><span lang="ar">عادي أو فوّار، معبّأ عند المنبع.</span></p><div class="ft"><span class="tmp" style="--c:4"><b>4°C</b></span><span class="pr"><small>€</small>4</span></div></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <footer class="shore">
+    <div class="land" aria-hidden="true"><svg><use href="#land"/></svg></div>
+    <div class="aur" aria-hidden="true"><svg class="rib r1"><use href="#w2" fill="url(#ag)"/></svg><svg class="rib r3"><use href="#w3" fill="url(#av)"/></svg></div>
+    <div class="info">
+      <div><h2><span lang="en">Hours</span><span lang="ar">ساعات العمل</span></h2><p><span lang="en">Polar-night season, October to March: nightly 17:00 – 01:00.</span><span lang="ar">موسم الليل القطبي، من أكتوبر إلى مارس: كلّ ليلة من ١٧:٠٠ حتى ٠١:٠٠.</span></p><p><span lang="en">Midnight-sun season: Wednesday to Sunday, 18:00 – 23:00.</span><span lang="ar">موسم شمس منتصف الليل: من الأربعاء إلى الأحد، ١٨:٠٠ – ٢٣:٠٠.</span></p></div>
+      <div><h2><span lang="en">Find the lights</span><span lang="ar">اتبع الأضواء</span></h2><p><span lang="en">Nordlysveien 49, Kvitøy Harbour — the glass house at the end of the pier.</span><span lang="ar">نوردليسفاين ٤٩، ميناء كفيتوي — البيت الزجاجي عند نهاية الرصيف.</span></p><p><span dir="ltr">+47 555 01 049</span> · <span dir="ltr">bord@borealis.example</span></p></div>
+      <div><h2><span lang="en">Good to know</span><span lang="ar">للعلم</span></h2><p><span lang="en">Dishes may contain fish, shellfish, milk, egg, soy, sesame, gluten and tree nuts; tell your host about allergies. All meat is halal. No alcohol is served. Prices in euros, service included.</span><span lang="ar">قد تحتوي الأطباق على السمك والقشريات والحليب والبيض والصويا والسمسم والغلوتين والمكسّرات؛ أخبر مضيفك بأيّ حساسية. جميع اللحوم حلال ولا تُقدَّم الكحول. الأسعار باليورو شاملة الخدمة.</span></p></div>
+    </div>
+    <p class="end"><span lang="en">Look up.</span><span lang="ar">ارفع بصرك.</span></p>
+    <p><span lang="en">Borealis · Arctic fusion · since the winter of 2021</span><span lang="ar">بورياليس · مأكولات القطب الشمالي · منذ شتاء ٢٠٢١</span></p>
+  </footer>
+</main>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

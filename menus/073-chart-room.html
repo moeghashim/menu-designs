@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>The Chart Room · غرفة الخرائط</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The Chart Room — harbourside fish &amp; chips plotted like a nautical chart, with prices given as soundings. غرفة الخرائط — سمك وبطاطا على هيئة خريطة بحرية.">
+<meta name="theme-color" content="#cfe2ea">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--ink:#22303a;--sea:#f6f0df;--b1:#e4eef0;--b2:#cfe2ea;--b3:#b9d5e0;--land:#eddba8;--green:#c3d09c;--mag:#a8246b;--line:rgba(52,110,140,.55)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#d9cfb6;color:var(--ink);font:400 17px/1.5 'IM Fell English','Amiri',Georgia,serif;overflow-x:clip}
+html[lang="ar"] body{font-family:'Amiri','IM Fell English','Traditional Arabic',serif;font-size:18.5px;line-height:1.7}
+h1,h2,h3,p,ul,ol,figure,table{margin:0;padding:0} ul,ol{list-style:none} a{color:inherit}
+svg{display:block}
+.sc{font-family:'IM Fell English SC','Amiri',serif;letter-spacing:.14em}
+html[lang="ar"] .sc{font-family:'Amiri',serif;letter-spacing:0;font-weight:700}
+
+/* ---------- correction stamp (controls) ---------- */
+.stamp{position:fixed;z-index:60;inset-block-start:22px;inset-inline-end:22px;display:flex;background:var(--sea);border:1.5px solid var(--mag);outline:1px solid var(--mag);outline-offset:2px;color:var(--mag);box-shadow:0 3px 10px rgba(30,40,50,.2)}
+.stamp>*{font:400 15px/1 'IM Fell English SC','Amiri',serif;letter-spacing:.08em;color:inherit;background:none;border:0;padding:0 12px;min-height:38px;display:flex;align-items:center;cursor:pointer;text-decoration:none}
+html[lang="ar"] .stamp>*{font:700 15.5px/1 'Amiri',serif;letter-spacing:0}
+#langToggle [lang="ar"]{font-family:'IM Fell English SC',serif;letter-spacing:.08em;font-weight:400}
+#langToggle [lang="en"]{font-family:'Amiri',serif;letter-spacing:0;font-weight:700;font-size:16px}
+.stamp>*+*{border-inline-start:1px dashed var(--mag)}
+.stamp>*:hover,.stamp>*:focus-visible{background:var(--mag);color:var(--sea);outline:0}
+
+/* ---------- the sheet: graduated border ---------- */
+.sheet{position:relative;margin:8px;padding:9px;border:1.5px solid var(--ink);background-color:var(--sea);
+  background-image:repeating-linear-gradient(90deg,var(--ink) 0 34px,transparent 34px 68px),repeating-linear-gradient(90deg,transparent 0 34px,var(--ink) 34px 68px),repeating-linear-gradient(0deg,var(--ink) 0 34px,transparent 34px 68px),repeating-linear-gradient(0deg,transparent 0 34px,var(--ink) 34px 68px);
+  background-size:100% 4px,100% 4px,4px 100%,4px 100%;background-position:0 2px,0 calc(100% - 2px),2px 0,calc(100% - 2px) 0;background-repeat:no-repeat}
+.chart{position:relative;border:1.5px solid var(--ink);overflow:clip}
+
+/* ---------- hero: the title sheet ---------- */
+.hero{position:relative;display:grid;gap:26px;padding:74px 16px 34px;isolation:isolate;overflow:hidden;border-bottom:1.5px solid var(--ink)}
+.hero-art{position:absolute;z-index:-1;inset:0;width:100%;height:100%}
+[dir="rtl"] .hero-art{transform:scaleX(-1)}
+.hero-art text{font:italic 17px 'IM Fell English',Georgia,serif;fill:#3c5564;transform-box:fill-box;transform-origin:center}
+[dir="rtl"] .hero-art text{transform:scaleX(-1)}
+.hero-art .mg{fill:var(--mag)}
+.cart{position:relative;justify-self:center;width:min(100%,520px);text-align:center;background:rgba(246,240,223,.93);border:1.5px solid var(--ink);outline:1px solid var(--ink);outline-offset:4px;padding:22px 18px 20px;box-shadow:0 0 0 12px rgba(246,240,223,.5)}
+.cart .over{font-size:13.5px}
+html[lang="ar"] .cart .over{font-size:17px}
+h1{font:400 clamp(40px,10.5vw,76px)/1 'IM Fell English SC',serif;letter-spacing:.05em;margin-block:8px 6px}
+html[lang="ar"] h1{font:700 clamp(44px,11vw,80px)/1.25 'Amiri',serif;letter-spacing:0;margin-block:0 2px}
+.cart .kind{font:italic 400 clamp(21px,3.4vw,28px)/1.2 'IM Fell English',serif}
+html[lang="ar"] .cart .kind{font:italic 700 clamp(23px,3.6vw,30px)/1.5 'Amiri',serif}
+.cart .snd-note{margin-block:12px 10px;color:var(--mag);font-size:14px}
+html[lang="ar"] .cart .snd-note{font-size:18px}
+.cart .intro{font-size:16.5px;text-wrap:pretty}
+html[lang="ar"] .cart .intro{font-size:18.5px}
+.scale{margin:16px auto 0;width:min(260px,80%);font-size:13px;display:grid;gap:3px}
+.scale i{height:7px;border:1px solid var(--ink);background:repeating-linear-gradient(90deg,var(--ink) 0 12.5%,transparent 12.5% 25%)}
+.scale span{display:flex;justify-content:space-between;font-style:italic}
+html[lang="ar"] .scale{font-size:15.5px}
+.rule{display:flex;align-items:center;gap:10px;margin-block:10px}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:var(--ink)}
+.rule i{width:7px;height:7px;transform:rotate(45deg);background:var(--ink)}
+
+.rose-wrap{justify-self:center;display:grid;justify-items:center;gap:6px}
+.rose{width:min(74vw,330px);height:auto;filter:drop-shadow(0 0 14px rgba(246,240,223,.9))}
+.rose .needle{transform-origin:200px 200px;animation:sway 7s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-7deg)}to{transform:rotate(-3deg)}}
+.var{color:var(--mag);font-style:italic;font-size:15px;text-align:center;background:rgba(246,240,223,.8);padding-inline:8px}
+html[lang="ar"] .var{font-size:17px}
+
+.bunting{direction:ltr;display:flex;justify-content:center;gap:7px;margin-block-start:14px;position:relative;padding-block-start:7px}
+.bunting::before{content:"";position:absolute;inset-inline:8%;inset-block-start:0;height:8px;border-top:1.5px solid var(--ink);border-radius:50%/100% 100% 0 0;transform:scaleY(-1)}
+.flag{width:34px;height:25px;border:1px solid var(--ink);flex:none;--bl:#27508c;--rd:#c8373a;--yl:#efc637}
+.fC{background:linear-gradient(var(--bl) 20%,#fff 20% 40%,var(--rd) 40% 60%,#fff 60% 80%,var(--bl) 80%)}
+.fH{background:linear-gradient(90deg,#fff 50%,var(--rd) 50%)}
+.fI{background:radial-gradient(circle,#111 0 27%,var(--yl) 29%)}
+.fP{background:linear-gradient(#fff,#fff) center/38% 40% no-repeat,var(--bl)}
+.fS{background:linear-gradient(var(--bl),var(--bl)) center/38% 40% no-repeat,#fff}
+.bunting .flag:nth-child(odd){transform:rotate(-3deg) translateY(2px)}
+.bunting .flag:nth-child(even){transform:rotate(3deg) translateY(4px)}
+
+/* index of plans */
+.index{position:relative;display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1.5px solid var(--ink);background:var(--land)}
+.index a{display:flex;flex-direction:column;align-items:center;gap:1px;text-decoration:none;padding:10px 4px;min-height:60px;justify-content:center;text-align:center;border-inline-end:1px solid var(--ink);border-bottom:1px solid var(--ink);line-height:1.15}
+.index a b{font:400 21px/1 'IM Fell English SC',serif;color:var(--mag)}
+.index a span{font-style:italic;font-size:15.5px}
+html[lang="ar"] .index a span{font-size:17.5px;font-weight:700}
+.index a:hover,.index a:focus-visible{background:var(--sea);outline:0}
+
+/* ---------- plans (insets) ---------- */
+.plans{display:grid;gap:14px;padding:14px 10px}
+.plan{position:relative;isolation:isolate;overflow:hidden;border:1.5px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;padding:26px 20px 26px;background:var(--sea);scroll-margin-top:12px}
+.plan::before{content:"";position:absolute;z-index:-1;inset:-70px;filter:url(#wobble);
+  background:repeating-radial-gradient(circle at var(--cx,90%) var(--cy,0%),transparent 0 78px,var(--line) 78px 79.5px),radial-gradient(circle at var(--cx,90%) var(--cy,0%),var(--b3) 0 158px,var(--b2) 158px 316px,var(--b1) 316px 474px,transparent 474px)}
+.plan header{display:grid;justify-items:center;text-align:center;margin-block-end:14px}
+.plan header small{font-size:14px;color:var(--mag)}
+html[lang="ar"] .plan header small{font-size:17px}
+.plan h2{font:400 clamp(30px,5vw,40px)/1.1 'IM Fell English SC',serif;letter-spacing:.07em}
+html[lang="ar"] .plan h2{font:700 clamp(31px,5vw,42px)/1.35 'Amiri',serif;letter-spacing:0}
+.plan header p{font-style:italic;font-size:16.5px;max-width:44ch}
+html[lang="ar"] .plan header p{font-size:18px}
+
+.course{position:relative}
+.wp{position:relative;display:grid;grid-template-columns:1fr auto;column-gap:12px;padding-block:9px 13px;padding-inline-start:36px}
+/* dashed course line + waypoint mark */
+.wp::before{content:"";position:absolute;inset-block:0;inset-inline-start:10px;border-inline-start:1.5px dashed var(--ink)}
+.wp:first-child::before{inset-block-start:20px}
+.wp:last-child::before{inset-block-end:calc(100% - 20px)}
+.wp::after{content:"";position:absolute;inset-inline-start:3px;inset-block-start:13px;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--ink);background:radial-gradient(circle,var(--ink) 0 2px,var(--sea) 2.500px)}
+.wp.pick::after{border-color:var(--mag);background:radial-gradient(circle,var(--mag) 0 3.500px,var(--sea) 4px);box-shadow:0 0 0 4px rgba(168,36,107,.18)}
+.wp h3{font:italic 400 22px/1.2 'IM Fell English',serif}
+html[lang="ar"] .wp h3{font:700 22px/1.45 'Amiri',serif}
+.wp p{grid-column:1;font-size:16.5px;line-height:1.4;margin-block-start:2px;text-wrap:pretty}
+html[lang="ar"] .wp p{font-size:18px;line-height:1.6}
+.snd{grid-column:2;grid-row:1/span 3;align-self:start;font:italic 400 30px/1 'IM Fell English',serif;white-space:nowrap;unicode-bidi:isolate;direction:ltr;padding-block-start:1px}
+.snd small{font-size:.55em;vertical-align:.1em;margin-inline-end:1px}
+.snd sub{font-size:.55em;vertical-align:-.28em;margin-inline-start:1px;line-height:0}
+.lt{grid-column:1;display:inline-flex;align-items:center;gap:6px;margin-block-start:4px;font-style:italic;font-size:14.5px;color:var(--mag)}
+html[lang="ar"] .lt{font-size:16.5px}
+.lt::before{content:"";width:9px;height:17px;background:var(--mag);border-radius:50% 50% 50% 50%/78% 78% 22% 22%;transform:rotate(28deg);flex:none}
+.lt.v{color:#3d6a35}
+.lt.v::before{width:11px;height:13px;border-radius:2px 2px 6px 6px;background:#4b8a42;transform:none}
+
+.share{margin-block-start:14px;border:1.5px dashed var(--mag);padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;background:rgba(246,240,223,.82)}
+.share h3{font:400 20px/1.2 'IM Fell English SC',serif;letter-spacing:.06em;color:var(--mag)}
+html[lang="ar"] .share h3{font:700 21px/1.4 'Amiri',serif;letter-spacing:0}
+.share p{grid-column:1;font-size:16px;line-height:1.4}
+html[lang="ar"] .share p{font-size:17.5px;line-height:1.6}
+.share .snd{color:var(--mag)}
+
+/* ---------- footer ---------- */
+.rope{height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='14'%3E%3Crect width='22' height='14' fill='%23d8c08a'/%3E%3Cpath d='M-4 14C2 12 6 2 12 0M7 14C13 12 17 2 23 0M18 14C24 12 28 2 34 0' fill='none' stroke='%2322303a' stroke-width='1.3'/%3E%3Cpath d='M0 .700h22M0 13.300h22' stroke='%2322303a' stroke-width='1.4'/%3E%3C/svg%3E") repeat-x 0 0/22px 14px}
+.foot{background:var(--land);display:grid;gap:22px;padding:24px 18px 30px}
+.foot h2{font:400 22px/1.2 'IM Fell English SC',serif;letter-spacing:.1em;margin-block-end:8px}
+html[lang="ar"] .foot h2{font:700 23px/1.4 'Amiri',serif;letter-spacing:0}
+.tides{width:100%;border-collapse:collapse;font-size:16px;background:rgba(246,240,223,.6)}
+html[lang="ar"] .tides{font-size:17.5px}
+.tides th,.tides td{border:1px solid var(--ink);padding:5px 8px;text-align:center}
+.tides th{font-weight:400;font-style:italic;background:rgba(34,48,58,.08)}
+html[lang="ar"] .tides th{font-weight:700}
+.tides td:first-child{text-align:start}
+.caution{color:var(--mag)}
+.caution p+p{margin-block-start:8px}
+.pos{display:grid;gap:6px;align-content:start}
+.pos .ll{font:italic 400 24px/1.2 'IM Fell English',serif;direction:ltr;unicode-bidi:isolate}
+[dir="rtl"] .pos .ll{text-align:end}
+.pos .bunting{justify-content:flex-start;margin-block-start:10px}
+.pos .bunting::before{inset-inline:0 auto;width:210px}
+.colophon{font-style:italic;font-size:14.5px;text-align:center;padding:10px 14px;border-top:1px solid var(--ink);background:var(--land)}
+html[lang="ar"] .colophon{font-size:16.5px}
+
+@media (min-width:700px){
+  .sheet{margin:14px;padding:12px}
+  .index{grid-template-columns:repeat(6,1fr)}
+  .index a{border-bottom:0}
+  .index a:last-child{border-inline-end:0}
+  .plans{padding:22px;gap:22px}
+  .plan{padding:34px 34px 34px}
+  .foot{grid-template-columns:1.1fr 1.2fr .9fr;gap:34px;padding:34px}
+}
+@media (min-width:1000px){
+  .hero{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;padding:70px 5vw 60px;min-height:min(860px,92vh)}
+  .cart{padding:34px 40px 30px;justify-self:start;margin-inline-start:1.5vw;width:min(100%,560px)}
+  .rose{width:min(34vw,470px)}
+  .rose-wrap{margin-inline-start:6vw}
+  .plans{grid-template-columns:repeat(12,minmax(0,1fr));padding:30px;gap:26px}
+  #pA{grid-column:span 7} #pB{grid-column:span 5;grid-row:span 2} #pC{grid-column:span 7}
+  #pD,#pE,#pF{grid-column:span 4}
+  #pA .course,#pC .course{columns:2;column-gap:34px}
+  #pA .wp,#pC .wp{break-inside:avoid}
+  #pA .wp::before,#pC .wp::before{inset-block:0!important}
+  #pA,#pC{display:flex;flex-direction:column;justify-content:center}#pA .wp,#pC .wp{padding-block:13px 17px}
+  #pB{display:flex;flex-direction:column}#pB .share{margin-block-start:auto}
+}
+@media (max-width:420px){
+  .stamp{inset-block-start:17px;inset-inline-end:17px}
+  .cart .over{letter-spacing:.06em;font-size:12.5px}
+  .wp h3{font-size:20.5px}.snd{font-size:27px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rose .needle{animation:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="wobble" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".006" numOctaves="2" seed="11"/><feDisplacementMap in="SourceGraphic" scale="90" xChannelSelector="R" yChannelSelector="G"/></filter>
+  <g id="pt"><path d="M0-150L13-13 0 0z" fill="#22303a"/><path d="M0-150L-13-13 0 0z" fill="#f6f0df" stroke="#22303a" stroke-width="1"/></g>
+</defs></svg>
+
+<div class="stamp">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<div class="sheet"><div class="chart">
+
+<header class="hero">
+  <svg class="hero-art" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <rect width="1200" height="760" fill="#f6f0df"/>
+    <g fill="none" stroke-linejoin="round">
+      <g id="coast">
+        <defs><path id="cl" d="M-40-40H300C360 40 280 110 330 190C390 280 290 330 320 430C350 520 230 560 280 650C305 700 270 760 290 820H-40Z"/><path id="bk" d="M930 590c40-30 110-20 130 20s-30 70-80 60-90-50-50-80z"/></defs>
+        <use href="#cl" stroke="#5f8ea6" stroke-width="703"/>
+        <use href="#cl" stroke="#f6f0df" stroke-width="700"/>
+        <use href="#cl" stroke="#5f8ea6" stroke-width="483"/><use href="#cl" stroke="#e4eef0" stroke-width="480"/>
+        <use href="#cl" stroke="#5f8ea6" stroke-width="303"/><use href="#cl" stroke="#cfe2ea" stroke-width="300"/>
+        <use href="#cl" stroke="#5f8ea6" stroke-width="153"/><use href="#cl" stroke="#b9d5e0" stroke-width="150"/>
+        <use href="#cl" stroke="#22303a" stroke-width="44"/><use href="#cl" stroke="#c3d09c" stroke-width="41"/>
+        <use href="#cl" fill="#eddba8" stroke="#22303a" stroke-width="1.6"/>
+      </g>
+      <g id="bank">
+        <use href="#bk" stroke="#5f8ea6" stroke-width="123"/>
+        <use href="#bk" stroke="#e4eef0" stroke-width="120"/><use href="#bk" stroke="#5f8ea6" stroke-width="63"/><use href="#bk" stroke="#cfe2ea" stroke-width="60"/>
+        <use href="#bk" fill="#b9d5e0" stroke="#5f8ea6" stroke-width="1.5"/>
+      </g>
+      <g stroke="#22303a" stroke-opacity=".28" stroke-width="1"><path d="M860 290L0 120M860 290L0 620M860 290L420 760M860 290L1200 40M860 290L1200 520M860 290L640 0M860 290L1080 760"/></g>
+      <path d="M352 520C470 560 600 610 760 600S1010 480 1200 470" stroke="#a8246b" stroke-width="1.6" stroke-dasharray="9 7"/>
+    </g>
+    <g><circle cx="338" cy="190" r="5" fill="#22303a"/><path d="M338 176l3 9h9l-7 6 3 9-8-6-8 6 3-9-7-6h9z" fill="#22303a"/><path d="M350 196c26 6 50 26 58 52-22-12-44-26-58-52z" fill="#a8246b" opacity=".85"/></g>
+    <g fill="#4b8a42" stroke="#22303a" stroke-width="1.2"><path d="M560 470l9-22 9 22z"/><path d="M1010 420l9-22 9 22z" fill="#c8373a"/></g>
+    <g text-anchor="middle">
+      <text x="430" y="90">4<tspan dy="5" font-size="11">2</tspan></text><text x="520" y="150">9<tspan dy="5" font-size="11">5</tspan></text><text x="455" y="250">6</text><text x="560" y="330">12</text><text x="470" y="400">7<tspan dy="5" font-size="11">5</tspan></text><text x="420" y="620">5</text><text x="520" y="700">11</text>
+      <text x="650" y="80">15</text><text x="700" y="200">18<tspan dy="5" font-size="11">5</tspan></text><text x="640" y="440">14</text><text x="700" y="560">16</text><text x="640" y="690">19</text><text x="800" y="120">22</text><text x="790" y="470">21</text>
+      <text x="960" y="90">27</text><text x="1090" y="160">31</text><text x="1120" y="330">29</text><text x="1050" y="470">17</text><text x="990" y="640">3<tspan dy="5" font-size="11">5</tspan></text><text x="1130" y="700">24</text><text x="860" y="700">13</text><text x="1150" y="560">26</text>
+      <text x="375" y="330">2</text><text x="345" y="570">1<tspan dy="5" font-size="11">5</tspan></text><text x="380" y="40">3</text>
+    </g>
+  </svg>
+
+  <div class="cart">
+    <p class="over sc"><span lang="en">Cornwall · South Coast · Sheet 073</span><span lang="ar">كورنوال · الساحل الجنوبي · اللوحة ٠٧٣</span></p>
+    <h1><span lang="en">The Chart Room</span><span lang="ar">غرفة الخرائط</span></h1>
+    <p class="kind"><span lang="en">Fish &amp; Chips, fried to order</span><span lang="ar">سمك وبطاطا، يُقلى عند الطلب</span></p>
+    <div class="rule"><i></i></div>
+    <p class="intro"><span lang="en">Surveyed nightly by the crew since 1987. Every fish on this sheet was landed at Port Wenna quay this morning, dipped in a batter we decline to discuss, and fried in clean rapeseed oil. Navigate with appetite.</span><span lang="ar">يمسحها الطاقم كل ليلة منذ عام ١٩٨٧. كل سمكة على هذه اللوحة أُنزلت هذا الصباح على رصيف ميناء وِنّا، وغُمست في عجينة لا نبوح بسرّها، ثم قُليت في زيت بذور اللفت النظيف. أبحروا بشهيّة مفتوحة.</span></p>
+    <p class="snd-note sc"><span lang="en">Soundings in pounds sterling</span><span lang="ar">الأعماق مقيسة بالجنيه الإسترليني</span></p>
+    <div class="scale"><i></i><span><span lang="en">0</span><span lang="ar">٠</span><span lang="en">one portion ≈ one hungry sailor</span><span lang="ar">الحصّة ≈ بحّار جائع</span><span lang="en">1</span><span lang="ar">١</span></span></div>
+    <div class="bunting" aria-hidden="true"><i class="flag fC"></i><i class="flag fH"></i><i class="flag fI"></i><i class="flag fP"></i><i class="flag fS"></i></div>
+  </div>
+
+  <div class="rose-wrap">
+    <svg class="rose" viewBox="0 0 400 400" aria-hidden="true">
+      <circle cx="200" cy="200" r="190" fill="rgba(246,240,223,.8)" stroke="#22303a" stroke-width="1.5"/>
+      <circle cx="200" cy="200" r="183" fill="none" stroke="#22303a" stroke-width="12" stroke-dasharray="1.2 5.188"/>
+      <circle cx="200" cy="200" r="180" fill="none" stroke="#22303a" stroke-width="18" stroke-dasharray="2 29.940"/>
+      <circle cx="200" cy="200" r="170" fill="none" stroke="#22303a" stroke-width="1"/>
+      <g class="needle"><circle cx="200" cy="200" r="128" fill="none" stroke="#a8246b" stroke-width="8" stroke-dasharray="1 10.170"/><circle cx="200" cy="200" r="123" fill="none" stroke="#a8246b" stroke-width="1"/><path d="M200 66l7 16h-14z" fill="#a8246b"/></g>
+      <g transform="translate(200 200)">
+        <g transform="rotate(22.500) scale(.5)"><use href="#pt"/><use href="#pt" transform="rotate(45)"/><use href="#pt" transform="rotate(90)"/><use href="#pt" transform="rotate(135)"/><use href="#pt" transform="rotate(180)"/><use href="#pt" transform="rotate(225)"/><use href="#pt" transform="rotate(270)"/><use href="#pt" transform="rotate(315)"/></g>
+        <g transform="rotate(45) scale(.74)"><use href="#pt"/><use href="#pt" transform="rotate(90)"/><use href="#pt" transform="rotate(180)"/><use href="#pt" transform="rotate(270)"/></g>
+        <use href="#pt"/><use href="#pt" transform="rotate(90)"/><use href="#pt" transform="rotate(180)"/><use href="#pt" transform="rotate(270)"/>
+        <circle r="7" fill="#f6f0df" stroke="#22303a" stroke-width="1.5"/><circle r="2" fill="#22303a"/>
+        <path d="M0-176c-9 8-9 17 0 24 9-7 9-16 0-24zM-13-158c0 7 5 10 13 10s13-3 13-10" fill="#22303a" stroke="#22303a" stroke-width="1.5"/>
+      </g>
+    </svg>
+    <p class="var"><span lang="en">Var. 4°15′W — decreasing as you eat</span><span lang="ar">الانحراف المغناطيسي ٤°١٥′ غربًا — يتناقص كلّما أكلتم</span></p>
+  </div>
+</header>
+
+<nav class="index" aria-label="Index of plans">
+  <a href="#pA"><b>A</b><span lang="en">The Shallows</span><span lang="ar">المياه الضحلة</span></a>
+  <a href="#pB"><b>B</b><span lang="en">The Deep</span><span lang="ar">الأعماق</span></a>
+  <a href="#pC"><b>C</b><span lang="en">Landfall</span><span lang="ar">اليابسة</span></a>
+  <a href="#pD"><b>D</b><span lang="en">Shoals</span><span lang="ar">الشِّعاب</span></a>
+  <a href="#pE"><b>E</b><span lang="en">Safe Harbour</span><span lang="ar">المرفأ الآمن</span></a>
+  <a href="#pF"><b>F</b><span lang="en">Fresh Water</span><span lang="ar">الماء العذب</span></a>
+</nav>
+
+<main class="plans">
+
+  <section class="plan" id="pA" style="--cx:8%;--cy:6%">
+    <header><small class="sc"><span lang="en">Plan A · Starters</span><span lang="ar">المخطّط أ · المقبّلات</span></small><h2><span lang="en">The Shallows</span><span lang="ar">المياه الضحلة</span></h2><p><span lang="en">Small craft only. Wade in before the main passage.</span><span lang="ar">للقوارب الصغيرة فقط. خوضوا فيها قبل العبور الكبير.</span></p></header>
+    <ol class="course">
+      <li class="wp"><h3><span lang="en">Crisp whitebait</span><span lang="ar">سمك البَلَم المقرمش</span></h3><p><span lang="en">A paper cone of tiny fried fish, lemon mayonnaise, sea salt.</span><span lang="ar">قرطاس من السمك الصغير المقلي مع مايونيز الليمون وملح البحر.</span></p><span class="snd"><small>£</small>7<sub>50</sub></span></li>
+      <li class="wp pick"><h3><span lang="en">Cullen skink</span><span lang="ar">حساء الحدّوق المدخّن</span></h3><p><span lang="en">Smoked haddock, potato and leek chowder with buttered brown bread.</span><span lang="ar">حساء كريمي من الحدّوق المدخّن والبطاطا والكرّاث مع خبز أسمر بالزبدة.</span></p><em class="lt"><span lang="en">Skipper's pick</span><span lang="ar">اختيار الربّان</span></em><span class="snd"><small>£</small>8<sub>50</sub></span></li>
+      <li class="wp"><h3><span lang="en">Salt &amp; pepper squid</span><span lang="ar">حبّار بالملح والفلفل</span></h3><p><span lang="en">Tender rings in a peppery crust, charred lime, garlic dip.</span><span lang="ar">حلقات طرية بقشرة مفلفلة، مع ليمون أخضر مشوي وغموس الثوم.</span></p><span class="snd"><small>£</small>9<sub>50</sub></span></li>
+      <li class="wp"><h3><span lang="en">Prawn cocktail</span><span lang="ar">كوكتيل الروبيان</span></h3><p><span lang="en">Cold-water prawns, Marie Rose sauce, little gem, a dusting of paprika.</span><span lang="ar">روبيان المياه الباردة مع صلصة ماري روز وخسّ صغير ورشّة بابريكا.</span></p><span class="snd"><small>£</small>9</span></li>
+      <li class="wp"><h3><span lang="en">Smoked mackerel pâté</span><span lang="ar">باتيه الإسقمري المدخّن</span></h3><p><span lang="en">Whipped with horseradish and lemon, pickled cucumber, hot toast.</span><span lang="ar">مخفوق مع الفجل الحارّ والليمون، ومعه خيار مخلّل وخبز محمّص ساخن.</span></p><span class="snd"><small>£</small>8</span></li>
+    </ol>
+  </section>
+
+  <section class="plan" id="pB" style="--cx:92%;--cy:12%">
+    <header><small class="sc"><span lang="en">Plan B · Fish &amp; Chips</span><span lang="ar">المخطّط ب · السمك والبطاطا</span></small><h2><span lang="en">The Deep</span><span lang="ar">الأعماق</span></h2><p><span lang="en">The main passage. Every fish comes with hand-cut chips, tartare sauce and a wedge of lemon.</span><span lang="ar">العبور الرئيسي. تُقدَّم كل سمكة مع بطاطا مقطّعة باليد وصلصة التارتار وشريحة ليمون.</span></p></header>
+    <ol class="course">
+      <li class="wp pick"><h3><span lang="en">Line-caught cod</span><span lang="ar">سمك القدّ بالصنّارة</span></h3><p><span lang="en">Thick white flakes under a shattering golden batter. The reason we opened.</span><span lang="ar">رقائق بيضاء سميكة تحت عجينة ذهبية تتكسّر عند أول قضمة. من أجله فتحنا المحلّ.</span></p><em class="lt"><span lang="en">Skipper's pick</span><span lang="ar">اختيار الربّان</span></em><span class="snd"><small>£</small>15<sub>50</sub></span></li>
+      <li class="wp"><h3><span lang="en">Haddock</span><span lang="ar">سمك الحدّوق</span></h3><p><span lang="en">Sweeter and finer than cod; the northern favourite, skin left on.</span><span lang="ar">أحلى وأنعم من القدّ؛ المفضّل عند أهل الشمال، ويُقلى بجلده.</span></p><span class="snd"><small>£</small>15</span></li>
+      <li class="wp"><h3><span lang="en">Plaice on the bone</span><span lang="ar">سمك موسى بعظمه</span></h3><p><span lang="en">A whole flatfish in a lighter batter, delicate and buttery.</span><span lang="ar">سمكة مفلطحة كاملة بعجينة أخفّ، رقيقة الطعم وزبدية القوام.</span></p><span class="snd"><small>£</small>14<sub>50</sub></span></li>
+      <li class="wp pick"><h3><span lang="en">Today's landing</span><span lang="ar">صيد اليوم</span></h3><p><span lang="en">Whatever the dayboats brought in: hake, pollock or gurnard. Ask at the hatch.</span><span lang="ar">ما عادت به قوارب النهار: نازلّي أو بولوك أو سمك الغرنار. اسألوا عند النافذة.</span></p><em class="lt"><span lang="en">Changes with the tide</span><span lang="ar">يتغيّر مع المدّ</span></em><span class="snd"><small>£</small>16</span></li>
+      <li class="wp"><h3><span lang="en">Wholetail scampi</span><span lang="ar">سكامبي بذيول كاملة</span></h3><p><span lang="en">Breaded langoustine tails, a dozen or so, with extra tartare.</span><span lang="ar">ذيول جراد البحر الصغير بالبقسماط، نحو اثنتي عشرة حبّة، مع تارتار إضافي.</span></p><span class="snd"><small>£</small>14</span></li>
+      <li class="wp"><h3><span lang="en">Grilled lemon sole</span><span lang="ar">سمك الصول المشوي بالليمون</span></h3><p><span lang="en">No batter: brown butter, capers and parsley. New potatoes if you'd rather.</span><span lang="ar">بلا عجينة: زبدة محمّرة وكبّار وبقدونس. ومع بطاطا مسلوقة صغيرة إن شئتم.</span></p><span class="snd"><small>£</small>17</span></li>
+      <li class="wp"><h3><span lang="en">Battered halloumi</span><span lang="ar">حلّوم بالعجينة المقرمشة</span></h3><p><span lang="en">Two thick slabs in the same batter, with mushy peas and chips.</span><span lang="ar">شريحتان سميكتان بالعجينة نفسها، مع البازلاء المهروسة والبطاطا.</span></p><em class="lt v"><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></em><span class="snd"><small>£</small>12<sub>50</sub></span></li>
+    </ol>
+    <aside class="share"><h3><span lang="en">The Admiral's Platter — for two</span><span lang="ar">طبق الأدميرال — لشخصين</span></h3><span class="snd"><small>£</small>34</span><p><span lang="en">Cod, haddock, scampi and squid, a mountain of chips, mushy peas, curry sauce and a pot of tea each.</span><span lang="ar">قدّ وحدّوق وسكامبي وحبّار، مع جبل من البطاطا والبازلاء المهروسة وصلصة الكاري وإبريق شاي لكل شخص.</span></p></aside>
+  </section>
+
+  <section class="plan" id="pC" style="--cx:100%;--cy:100%">
+    <header><small class="sc"><span lang="en">Plan C · Not fish</span><span lang="ar">المخطّط ج · لغير السمك</span></small><h2><span lang="en">Landfall</span><span lang="ar">اليابسة</span></h2><p><span lang="en">For those who prefer dry land. All with chips.</span><span lang="ar">لمن يفضّلون البرّ. كلّها مع البطاطا.</span></p></header>
+    <ol class="course">
+      <li class="wp"><h3><span lang="en">Steak &amp; onion pie</span><span lang="ar">فطيرة اللحم البقري والبصل</span></h3><p><span lang="en">Slow-braised beef in a shortcrust lid, proper gravy poured at the table.</span><span lang="ar">لحم بقري مطهوّ ببطء تحت غطاء من العجين الهشّ، ومرق يُسكب أمامكم.</span></p><span class="snd"><small>£</small>13<sub>50</sub></span></li>
+      <li class="wp"><h3><span lang="en">Buttermilk chicken goujons</span><span lang="ar">أصابع الدجاج باللبن الرائب</span></h3><p><span lang="en">Crunchy strips of chicken breast with a lemon and garlic dip.</span><span lang="ar">شرائح صدر دجاج مقرمشة مع غموس الليمون والثوم.</span></p><span class="snd"><small>£</small>12</span></li>
+      <li class="wp"><h3><span lang="en">Battered turkey sausage</span><span lang="ar">نقانق الديك الرومي بالعجينة</span></h3><p><span lang="en">The chip-shop classic, made with herby turkey. Ask for curry sauce.</span><span lang="ar">كلاسيكية محلات السمك والبطاطا، بلحم الديك الرومي والأعشاب. اطلبوا معها صلصة الكاري.</span></p><span class="snd"><small>£</small>9<sub>50</sub></span></li>
+    </ol>
+  </section>
+
+  <section class="plan" id="pD" style="--cx:0%;--cy:100%">
+    <header><small class="sc"><span lang="en">Plan D · Sides</span><span lang="ar">المخطّط د · الأطباق الجانبية</span></small><h2><span lang="en">Shoals</span><span lang="ar">الشِّعاب</span></h2></header>
+    <ol class="course">
+      <li class="wp pick"><h3><span lang="en">Hand-cut chips</span><span lang="ar">بطاطا مقطّعة باليد</span></h3><p><span lang="en">Maris Piper, twice fried, salt and malt vinegar.</span><span lang="ar">بطاطا ماريس بايبر تُقلى مرتين، مع الملح وخل الشعير.</span></p><span class="snd"><small>£</small>4</span></li>
+      <li class="wp"><h3><span lang="en">Mushy peas</span><span lang="ar">بازلاء مهروسة</span></h3><p><span lang="en">Marrowfat peas with butter and mint.</span><span lang="ar">بازلاء مجفّفة مطبوخة بالزبدة والنعناع.</span></p><span class="snd"><small>£</small>2<sub>50</sub></span></li>
+      <li class="wp"><h3><span lang="en">Chip-shop curry sauce</span><span lang="ar">صلصة الكاري</span></h3><p><span lang="en">Mild, fruity, made for dunking.</span><span lang="ar">خفيفة بنكهة الفاكهة، صُنعت للتغميس.</span></p><span class="snd"><small>£</small>2</span></li>
+      <li class="wp"><h3><span lang="en">Pickled onion &amp; gherkin</span><span lang="ar">بصل وخيار مخلّل</span></h3><p><span lang="en">One of each, sharp enough to wake you.</span><span lang="ar">حبّة من كلٍّ منهما، بحموضة توقظ النائم.</span></p><span class="snd"><small>£</small>1<sub>50</sub></span></li>
+      <li class="wp"><h3><span lang="en">Bread &amp; butter</span><span lang="ar">خبز وزبدة</span></h3><p><span lang="en">Two soft white slices, for the chip butty.</span><span lang="ar">شريحتان من الخبز الأبيض الطري لشطيرة البطاطا.</span></p><span class="snd"><small>£</small>2</span></li>
+    </ol>
+  </section>
+
+  <section class="plan" id="pE" style="--cx:50%;--cy:110%">
+    <header><small class="sc"><span lang="en">Plan E · Puddings</span><span lang="ar">المخطّط هـ · الحلويات</span></small><h2><span lang="en">Safe Harbour</span><span lang="ar">المرفأ الآمن</span></h2></header>
+    <ol class="course">
+      <li class="wp pick"><h3><span lang="en">Sticky toffee pudding</span><span lang="ar">بودينغ التوفي بالتمر</span></h3><p><span lang="en">Warm date sponge drowned in toffee sauce, clotted cream.</span><span lang="ar">كيكة تمر دافئة غارقة في صلصة التوفي مع قشدة كورنوال.</span></p><em class="lt"><span lang="en">Skipper's pick</span><span lang="ar">اختيار الربّان</span></em><span class="snd"><small>£</small>7</span></li>
+      <li class="wp"><h3><span lang="en">Treacle tart</span><span lang="ar">تارت الدبس الذهبي</span></h3><p><span lang="en">Golden syrup and lemon in a short crust, vanilla ice cream.</span><span lang="ar">دبس ذهبي وليمون في عجينة هشّة مع آيس كريم الفانيلا.</span></p><span class="snd"><small>£</small>7</span></li>
+      <li class="wp"><h3><span lang="en">The "99"</span><span lang="ar">مخروط «٩٩»</span></h3><p><span lang="en">Soft-serve Cornish ice cream in a cone with a chocolate flake.</span><span lang="ar">آيس كريم كورنوال الطري في مخروط مع إصبع شوكولاتة هشّ.</span></p><span class="snd"><small>£</small>4<sub>50</sub></span></li>
+    </ol>
+  </section>
+
+  <section class="plan" id="pF" style="--cx:100%;--cy:0%">
+    <header><small class="sc"><span lang="en">Plan F · Drinks</span><span lang="ar">المخطّط و · المشروبات</span></small><h2><span lang="en">Fresh Water</span><span lang="ar">الماء العذب</span></h2></header>
+    <ol class="course">
+      <li class="wp"><h3><span lang="en">Pot of builder's tea</span><span lang="ar">إبريق شاي ثقيل</span></h3><p><span lang="en">Strong, milky, bottomless if you ask nicely.</span><span lang="ar">قويّ وبالحليب، ونعيد ملأه لمن يطلب بلطف.</span></p><span class="snd"><small>£</small>3</span></li>
+      <li class="wp"><h3><span lang="en">Dandelion &amp; burdock</span><span lang="ar">شراب الهندباء والأرقطيون</span></h3><p><span lang="en">The old northern fizz: dark, herbal, a bit like liquorice.</span><span lang="ar">المشروب الغازي الشمالي القديم: داكن وعشبي، فيه شيء من طعم العرقسوس.</span></p><span class="snd"><small>£</small>3<sub>50</sub></span></li>
+      <li class="wp"><h3><span lang="en">Cloudy lemonade</span><span lang="ar">ليموناضة عَكِرة</span></h3><p><span lang="en">Pressed lemons, barely sweet, over ice.</span><span lang="ar">ليمون معصور قليل السكّر فوق الثلج.</span></p><span class="snd"><small>£</small>3<sub>50</sub></span></li>
+      <li class="wp"><h3><span lang="en">Fiery ginger beer</span><span lang="ar">شراب الزنجبيل اللاذع</span></h3><p><span lang="en">Alcohol-free and properly hot at the back of the throat.</span><span lang="ar">خالٍ من الكحول ويلسع آخر الحلق كما ينبغي.</span></p><span class="snd"><small>£</small>3<sub>50</sub></span></li>
+    </ol>
+  </section>
+</main>
+
+<div class="rope" aria-hidden="true"></div>
+<footer class="foot">
+  <div>
+    <h2><span lang="en">Tide tables</span><span lang="ar">جداول المدّ والجزر</span></h2>
+    <table class="tides">
+      <tr><th><span lang="en">Day</span><span lang="ar">اليوم</span></th><th><span lang="en">High water (open)</span><span lang="ar">المدّ (نفتح)</span></th><th><span lang="en">Low water (close)</span><span lang="ar">الجزر (نغلق)</span></th></tr>
+      <tr><td><span lang="en">Tue – Thu</span><span lang="ar">الثلاثاء – الخميس</span></td><td dir="ltr">12:00</td><td dir="ltr">21:00</td></tr>
+      <tr><td><span lang="en">Fri – Sat</span><span lang="ar">الجمعة – السبت</span></td><td dir="ltr">12:00</td><td dir="ltr">22:30</td></tr>
+      <tr><td><span lang="en">Sunday</span><span lang="ar">الأحد</span></td><td dir="ltr">12:00</td><td dir="ltr">19:00</td></tr>
+      <tr><td><span lang="en">Monday</span><span lang="ar">الاثنين</span></td><td colspan="2"><i><span lang="en">In dry dock</span><span lang="ar">في الحوض الجافّ</span></i></td></tr>
+    </table>
+  </div>
+  <div class="caution">
+    <h2><span lang="en">Cautions</span><span lang="ar">تنبيهات ملاحية</span></h2>
+    <p><span lang="en">Fish may contain small bones despite our best efforts. Our batter contains wheat; fryers are shared between fish, shellfish and the rest. Dishes may contain milk, egg, mustard and celery — hail the crew about any allergy before ordering.</span><span lang="ar">قد يحتوي السمك على أشواك صغيرة مهما حرصنا. عجينتنا تحتوي على القمح، والمقالي مشتركة بين السمك والقشريات وسائر الأصناف. قد تحتوي الأطباق على الحليب والبيض والخردل والكرفس — نادوا الطاقم وأخبروه عن أي حساسية قبل الطلب.</span></p>
+    <p><span lang="en">No pork and no alcohol are carried aboard. Soundings include VAT.</span><span lang="ar">لا لحم خنزير ولا كحول على متن هذه السفينة. الأعماق تشمل ضريبة القيمة المضافة.</span></p>
+  </div>
+  <div class="pos">
+    <h2><span lang="en">Position</span><span lang="ar">الموقع</span></h2>
+    <p class="ll">50°21′.9 N · 4°08′.4 W</p>
+    <p><span lang="en">3 Quay Steps, Port Wenna, Cornwall. Last building before the lifeboat slip.</span><span lang="ar">٣ دَرَج الرصيف، ميناء وِنّا، كورنوال. آخر مبنى قبل منزلق قارب الإنقاذ.</span></p>
+    <p><span lang="en">Hail us:</span><span lang="ar">نادونا:</span> <span dir="ltr">01632 960 073</span></p>
+    <div class="bunting" aria-hidden="true"><i class="flag fC"></i><i class="flag fH"></i><i class="flag fI"></i><i class="flag fP"></i><i class="flag fS"></i></div>
+  </div>
+</footer>
+<p class="colophon"><span lang="en">Not to be used for navigation. To be used for lunch.</span><span lang="ar">لا تُستعمل هذه اللوحة للملاحة. تُستعمل للغداء.</span></p>
+
+</div></div>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

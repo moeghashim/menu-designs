@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Layali Al-Rimal · ليالي الرمال</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Layali Al-Rimal — a Bedouin desert grill under the stars of Wadi Rum: zarb from under the sand, meat from the embers, tea on the fire. ليالي الرمال — مشاوي بدوية تحت نجوم وادي رم.">
+<meta name="theme-color" content="#0a0d24">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Marcellus&family=Mulish:wght@400;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--cream:#f6e6c8;--soft:#dcc9a6;--amber:#f2a541;--brass:#c98b3a;--ember:#e2591f;
+--sadu:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='18'%3E%3Crect width='48' height='18' fill='%238c2a1f'/%3E%3Cpath d='M0 18 12 0l12 18z' fill='%23151010'/%3E%3Cpath d='M24 18 36 0l12 18z' fill='%23f0dfbd'/%3E%3Cpath d='M12 4l4 6-4 6-4-6zM36 4l4 6-4 6-4-6z' fill='%23e08a3c'/%3E%3Cpath d='M0 0h48v1.5H0zM0 16.5h48V18H0z' fill='%23151010'/%3E%3C/svg%3E");
+--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .8 0 0 0 0 .6 0 0 0 .35 -.12'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:#0a0d24}
+body{font-family:Mulish,"Segoe UI",system-ui,sans-serif;color:var(--cream);background:#120d1e;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+html[lang="ar"] body{font-family:Tajawal,"Noto Kufi Arabic",Tahoma,sans-serif;font-size:18px;line-height:1.75}
+html[lang="ar"] *{letter-spacing:0!important}
+ul{list-style:none}
+a{color:inherit}
+.dsp{font-family:Marcellus,"Trajan Pro",Georgia,serif;font-weight:400}
+html[lang="ar"] .dsp{font-family:"Aref Ruqaa","Amiri",serif;font-weight:700}
+
+.ctl{position:fixed;z-index:40;inset-block-start:.7rem;inset-inline-end:.7rem;display:flex;gap:.4rem;padding:.3rem;border-radius:999px;background:rgba(10,13,36,.6);border:1px solid rgba(201,139,58,.5);backdrop-filter:blur(6px)}
+#langToggle,.home-link{font:inherit;font-weight:600;font-size:.9rem;height:36px;border-radius:999px;border:0;display:grid;place-items:center;cursor:pointer;text-decoration:none}
+#langToggle{padding:0 .95rem;background:var(--amber);color:#24120a}
+.home-link{width:36px;color:var(--amber)}
+.home-link svg{width:16px;height:16px;fill:currentColor}
+#langToggle:hover{background:var(--cream)}.home-link:hover{background:rgba(242,165,65,.2)}
+:focus-visible{outline:2px solid var(--cream);outline-offset:2px}
+
+/* ---------- sky ---------- */
+.sky{position:relative;height:clamp(640px,100vh,900px);overflow:hidden;background:linear-gradient(180deg,#060817 0,#0c1030 30%,#221a4a 58%,#4a2a55 62%,#8a4442 70%,#c8632a 78%);display:grid;justify-items:center;align-content:start;text-align:center;padding:clamp(5rem,14vh,9rem) 1.2rem 0}
+.stars,.stars::before,.stars::after{content:"";position:absolute;inset:0 0 30% 0;background-repeat:repeat}
+.stars{background-image:radial-gradient(1.4px 1.4px at 22px 31px,#fff 50%,transparent 51%),radial-gradient(1px 1px at 97px 143px,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 160px 62px,#ffe9c2 50%,transparent 51%),radial-gradient(.9px .9px at 201px 190px,#fff 50%,transparent 51%),radial-gradient(1px 1px at 61px 208px,#cfd8ff 50%,transparent 51%),radial-gradient(.8px .8px at 130px 12px,#fff 50%,transparent 51%);background-size:233px 233px;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent)}
+.stars::before{inset:0;background-image:radial-gradient(1.8px 1.8px at 40px 80px,#fff 50%,transparent 51%),radial-gradient(1.1px 1.1px at 210px 40px,#fff 50%,transparent 51%),radial-gradient(1.3px 1.3px at 300px 230px,#ffe9c2 50%,transparent 51%),radial-gradient(1px 1px at 120px 290px,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 270px 130px,#cfd8ff 50%,transparent 51%);background-size:331px 331px}
+.stars::after{inset:0;background-image:radial-gradient(2.2px 2.2px at 70px 60px,#fff 45%,transparent 50%),radial-gradient(1.2px 1.2px at 350px 300px,#fff 50%,transparent 51%),radial-gradient(1.6px 1.6px at 250px 380px,#fff 50%,transparent 51%),radial-gradient(1px 1px at 400px 120px,#ffe9c2 50%,transparent 51%);background-size:457px 457px}
+.shoot{position:absolute;inset-block-start:16%;inset-inline-start:12%;width:130px;height:1.5px;background:linear-gradient(90deg,transparent,#fff);transform:rotate(18deg);opacity:0}
+html[dir="rtl"] .shoot{background:linear-gradient(270deg,transparent,#fff);transform:rotate(-18deg)}
+.moon{position:absolute;inset-block-start:clamp(4.5rem,12vh,7rem);inset-inline-end:clamp(1.5rem,11vw,12rem);width:clamp(64px,8vw,112px);aspect-ratio:1;border-radius:50%;box-shadow:inset -.34em -.1em 0 0 #fff3d6;font-size:clamp(64px,8vw,112px);transform:rotate(-24deg);filter:drop-shadow(0 0 18px rgba(255,235,190,.75))}
+.sky .kick{position:relative;font-size:.8rem;letter-spacing:.42em;text-transform:uppercase;color:var(--amber);font-weight:600}
+html[lang="ar"] .sky .kick{font-size:1.05rem}
+.sky .kick::before,.sky .kick::after{content:"✦";margin-inline:.9em;font-size:.8em;opacity:.8}
+h1{position:relative;font-size:clamp(2.1rem,9.2vw,6.6rem);letter-spacing:.07em;line-height:1.05;margin:.35em 0 .2em;text-shadow:0 0 50px rgba(242,165,65,.35)}
+html[lang="ar"] h1{font-size:clamp(4.2rem,17vw,10.5rem);line-height:1.15;margin:.05em 0 .1em}
+.sky .tag{position:relative;max-width:30em;font-size:clamp(1.02rem,1.5vw,1.25rem);color:var(--soft)}
+.scene{position:absolute;inset-inline:0;inset-block-end:-1px;width:100%;height:clamp(250px,46%,430px);display:block}
+html[dir="rtl"] .scene{transform:scaleX(-1)}
+.flame{transform-box:fill-box;transform-origin:50% 100%}
+
+/* ---------- dunes ---------- */
+.dune{position:relative;background:var(--d) var(--grain);padding:clamp(2.2rem,6vw,5rem) clamp(1rem,5vw,5rem) clamp(4.5rem,8.5vw,7.5rem)}
+.ridge{position:absolute;inset-inline:0;inset-block-end:calc(100% - 1px);width:100%;height:clamp(46px,8vw,120px);display:block;fill:var(--d);pointer-events:none}
+.d0{--d:#120d1e;padding-top:1rem}.d1{--d:#1b1330}.d2{--d:#241632}.d3{--d:#2c182d}.d4{--d:#361c27}
+.in{max-width:1220px;margin-inline:auto;display:grid;gap:1.8rem;position:relative}
+.lead{max-width:880px;text-align:center;justify-items:center}
+.lead p{font-size:clamp(1.12rem,1.7vw,1.4rem);line-height:1.75;color:var(--cream)}
+.facts{display:grid;gap:.7rem;width:100%;margin-top:.6rem}
+.facts li{border:1px solid rgba(201,139,58,.45);border-radius:999px;padding:.55rem 1.2rem;font-size:.95rem;color:var(--soft)}
+.facts b{color:var(--amber);font-weight:600}
+
+.head{position:relative;padding-inline-start:5.4rem;min-height:7rem}
+.lan{position:absolute;inset-inline-start:0;inset-block-start:-.6rem;width:4rem;height:6.6rem;overflow:visible}
+.lan .glow{transform-box:fill-box;transform-origin:center}
+.head small{font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;color:var(--amber);font-weight:600}
+html[lang="ar"] .head small{font-size:1rem}
+.head h2{font-size:clamp(2.2rem,4.6vw,3.7rem);line-height:1.1;margin:.15em 0 .3em}
+html[lang="ar"] .head h2{font-size:clamp(2.8rem,5.6vw,4.6rem);line-height:1.3;margin:0 0 .1em}
+.head p{color:var(--soft);max-width:26em}
+
+.panel{position:relative;border:1px solid rgba(201,139,58,.6);border-radius:3px 3px 20px 20px;padding:18px clamp(1.1rem,3vw,2.3rem) .6rem;background:radial-gradient(130% 70% at 12% 0,rgba(242,165,65,.3),rgba(110,55,20,.28) 45%,rgba(20,10,8,.55) 100%),#2a1710;box-shadow:0 0 90px -18px rgba(242,165,65,.4),0 24px 40px -22px #000,inset 0 0 70px rgba(0,0,0,.35)}
+html[dir="rtl"] .panel{background:radial-gradient(130% 70% at 88% 0,rgba(242,165,65,.3),rgba(110,55,20,.28) 45%,rgba(20,10,8,.55) 100%),#2a1710}
+.panel::before{content:"";position:absolute;inset:0 0 auto 0;height:18px;background:var(--sadu) 0 0/48px 18px repeat-x;border-radius:2px 2px 0 0}
+.panel li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.1rem 1rem;padding:1.05rem 0;border-top:1px solid rgba(201,139,58,.28)}
+.panel li:first-child{border:0}
+.panel h3{font-size:1.2rem;font-weight:600;line-height:1.35;color:var(--cream)}
+html[lang="ar"] .panel h3{font-size:1.28rem;font-weight:700}
+.panel p{grid-column:1/-1;color:var(--soft);font-size:.99rem;max-width:38em}
+.p{font-family:Marcellus,Georgia,serif;font-size:1.3rem;color:var(--amber);white-space:nowrap;direction:ltr;unicode-bidi:isolate;line-height:1.3}
+.p::after{content:" JD";font-size:.62em;letter-spacing:.1em}
+html[lang="ar"] .p::after{content:" د.أ";font-family:Tajawal,sans-serif;font-size:.7em}
+.hot,.pick{display:inline-block;vertical-align:-.05em;margin-inline-start:.4em}
+.hot{width:.55em;height:.8em;background:var(--ember);clip-path:polygon(50% 0,82% 42%,100% 70%,78% 100%,22% 100%,0 70%,24% 40%);margin-inline-start:.12em}
+h3 .hot:first-of-type{margin-inline-start:.45em}
+.pick{width:.78em;height:.78em;border-radius:50%;box-shadow:inset -.24em -.04em 0 0 var(--amber);transform:rotate(-24deg)}
+html[dir="rtl"] .pick,html[dir="rtl"] .moon{transform:scaleX(-1) rotate(-24deg)}
+
+/* the feast tent */
+.tent{position:relative;max-width:1000px;margin:clamp(2.5rem,6vw,5rem) auto 0;filter:drop-shadow(0 0 60px rgba(242,165,65,.28))}
+.tent .cloth{background:radial-gradient(90% 80% at 50% 100%,rgba(242,165,65,.38),rgba(120,50,20,.25) 55%,transparent 80%),#0c0810;clip-path:polygon(0 100%,0 3.6rem,17% 2.3rem,34% 0,50% 1.7rem,66% 0,83% 2.3rem,100% 3.6rem,100% 100%);padding:6.2rem clamp(1.3rem,6vw,5rem) 2.4rem;text-align:center;position:relative}
+.tent .cloth::before{content:"";position:absolute;inset:4.4rem 0 auto 0;height:18px;background:var(--sadu) 50% 0/48px 18px repeat-x;opacity:.95}
+.tent small{font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;color:var(--amber);font-weight:600}
+html[lang="ar"] .tent small{font-size:1rem}
+.tent h2{font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.15;margin:.2em 0 .35em}
+html[lang="ar"] .tent h2{font-size:clamp(2.6rem,5.4vw,4.2rem);line-height:1.3;margin:0}
+.tent p{max-width:40em;margin-inline:auto;color:var(--soft)}
+.tent .price{display:inline-flex;align-items:baseline;gap:.8rem;margin-top:1.1rem;border-top:1px solid rgba(201,139,58,.5);padding-top:.8rem}
+.tent .p{font-size:2.3rem}
+
+/* camp footer */
+footer{position:relative;--d:#421f1f;background:radial-gradient(60% 420px at 50% 150px,rgba(242,140,50,.5),rgba(226,89,31,.14) 55%,transparent 75%),var(--d) var(--grain);padding:1rem clamp(1rem,5vw,5rem) 0;text-align:center}
+.bonfire{width:170px;height:190px;display:block;margin:-2.5rem auto .4rem;overflow:visible;position:relative}
+footer h2{font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.2}
+html[lang="ar"] footer h2{font-size:clamp(2.6rem,5.2vw,4rem)}
+.seats{max-width:1120px;margin:1.8rem auto 0;display:grid;gap:1.1rem;text-align:start}
+.seats>div{border-top:2px solid var(--brass);padding:1rem .2rem 0}
+.seats h3{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem;font-weight:600}
+html[lang="ar"] .seats h3{font-size:1.05rem}
+.seats p,.seats dl{color:var(--cream);font-size:1rem}
+.seats dl{display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem}
+.seats dd{direction:ltr;unicode-bidi:isolate}
+.key{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:.6rem;color:var(--soft);font-size:.95rem}
+.key i{margin-inline:0 .4em!important}
+.end{margin:2.6rem calc(clamp(1rem,5vw,5rem)*-1) 0;height:18px;background:var(--sadu) 50% 0/48px 18px repeat-x}
+
+@media (prefers-reduced-motion:no-preference){
+  .stars{animation:tw 5s ease-in-out infinite alternate}.stars::before{animation:tw 7s ease-in-out -2s infinite alternate}.stars::after{animation:tw 3.6s ease-in-out -1s infinite alternate}
+  @keyframes tw{from{opacity:1}to{opacity:.35}}
+  .shoot{animation:shoot 11s ease-in 3s infinite}
+  @keyframes shoot{0%{opacity:0;translate:0 0}2%{opacity:1}7%{opacity:0;translate:340px 110px}100%{opacity:0;translate:340px 110px}}
+  html[dir="rtl"] .shoot{animation-name:shootr}
+  @keyframes shootr{0%{opacity:0;translate:0 0}2%{opacity:1}7%{opacity:0;translate:-340px 110px}100%{opacity:0;translate:-340px 110px}}
+  .flame{animation:fl 1.1s ease-in-out infinite alternate}.flame.b{animation-duration:.8s;animation-delay:-.3s}.flame.c{animation-duration:.6s;animation-delay:-.5s}
+  @keyframes fl{from{transform:scale(1,1) skewX(-3deg)}to{transform:scale(.94,1.1) skewX(4deg)}}
+  .glow{animation:gl 2.6s ease-in-out infinite alternate}
+  @keyframes gl{from{opacity:.75;transform:scale(.94)}to{opacity:1;transform:scale(1.06)}}
+}
+@media (max-width:639px){
+  .moon{inset-inline-end:auto;inset-inline-start:1.3rem;inset-block-start:1.1rem;width:50px;font-size:50px}
+  html[lang="en"] h1{font-size:clamp(3rem,14vw,4.2rem)}
+}
+@media (min-width:640px){
+  .facts{grid-template-columns:repeat(3,1fr)}
+  .seats{grid-template-columns:repeat(3,1fr);gap:2.2rem}
+}
+@media (min-width:920px){
+  .sec{grid-template-columns:5fr 7fr;gap:clamp(2.5rem,5vw,5rem);align-items:start}
+  .sec.flip{grid-template-columns:7fr 5fr}
+  .flip .head{order:2}
+  .scene{height:clamp(380px,58%,540px)}
+  .sky{background:linear-gradient(180deg,#060817 0,#0c1030 24%,#221a4a 40%,#4a2a55 51%,#8a4442 59%,#c8632a 67%)}
+  .tent .cloth{clip-path:polygon(0 100%,0 6.4rem,17% 3.8rem,34% 0,50% 2.8rem,66% 0,83% 3.8rem,100% 6.4rem,100% 100%);padding-top:10rem}
+  .tent .cloth::before{inset-block-start:7.6rem}
+  .head{position:sticky;inset-block-start:5rem;padding-inline-start:0;padding-block-start:9.6rem}
+  .lan{width:5.4rem;height:8.8rem;inset-block-start:0}
+  .panel{margin-block-start:1rem}
+  .d3 .panel ul,.d4 .panel ul{columns:2;column-gap:2.6rem}
+  .d3 .panel li,.d4 .panel li{break-inside:avoid}
+  .d3 .panel li:nth-child(4),.d4 .panel li:nth-child(4){border-top:0}
+  .d3 .sec{grid-template-columns:4fr 8fr}.d4 .sec{grid-template-columns:8fr 4fr}
+}
+</style>
+</head>
+<body>
+<div class="ctl">
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html" aria-label="All menus · كل القوائم"><svg viewBox="0 0 16 16" aria-hidden="true"><rect width="6" height="6" rx="1"/><rect x="10" width="6" height="6" rx="1"/><rect y="10" width="6" height="6" rx="1"/><rect x="10" y="10" width="6" height="6" rx="1"/></svg></a>
+</div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <radialGradient id="g1"><stop offset="0" stop-color="#ffd27a" stop-opacity=".95"/><stop offset=".35" stop-color="#f2a541" stop-opacity=".45"/><stop offset="1" stop-color="#f2a541" stop-opacity="0"/></radialGradient>
+  <linearGradient id="rim" x1="0" x2="1"><stop offset="0" stop-color="#e08a3c" stop-opacity="0"/><stop offset=".45" stop-color="#f2a541" stop-opacity=".9"/><stop offset=".75" stop-color="#e08a3c" stop-opacity="0"/></linearGradient>
+  <symbol id="fire" viewBox="-60 -100 120 140" overflow="visible">
+    <path d="M-44 30 38 12l4 10-82 18zM44 30-38 12l-4 10 82 18z" fill="#2a130c"/>
+    <path class="flame" d="M0-92C30-60 46-40 40-10 36 12 18 24 0 24S-38 12-40-12c-2-22 18-32 22-54 10 10 16 16 18-26z" fill="#e2591f"/>
+    <path class="flame b" d="M2-54C18-36 26-22 22-6 19 8 10 16 0 16S-22 6-22-8c0-14 12-20 14-34 6 6 9 2 10-12z" fill="#f6a531"/>
+    <path class="flame c" d="M0-24c8 8 12 16 8 24-3 6-13 6-16 0-3-8 4-14 8-24z" fill="#ffe08a"/>
+  </symbol>
+  <symbol id="lantern" viewBox="0 0 60 100" overflow="visible">
+    <circle class="glow" cx="30" cy="56" r="78" fill="url(#g1)"/>
+    <path d="M30 0v10" stroke="#c98b3a" stroke-width="2"/><circle cx="30" cy="12" r="5" fill="none" stroke="#c98b3a" stroke-width="2.5"/>
+    <path d="M18 30q12-16 24 0z" fill="#c98b3a"/><path d="M14 30h32v5H14zM16 82h28l4 9H12z" fill="#8a5a22"/>
+    <path d="M16 35h28l5 24-5 23H16l-5-23z" fill="#ffd27a" stroke="#8a5a22" stroke-width="2"/>
+    <path d="M30 35v47M21 35l-4 24 4 23M39 35l4 24-4 23" stroke="#8a5a22" stroke-width="1.5" fill="none"/>
+    <path d="M30 50c5 6 6 10 3 14-2 3-6 3-8-1s2-7 5-13z" fill="#e2591f"/>
+  </symbol>
+  <path id="camel" d="M4 44 6 26q-2-8 4-12t10 0q4-10 10-8t8 10q4 2 6-2l2-10q2-4 6-2l4 2v3l-5 1-1 12q-2 8-8 8l2 16h-3l-3-14H18l-2 14h-3l-1-16q-4 2-4 6l-1 10z"/>
+</defs></svg>
+
+<header class="sky">
+  <div class="stars"></div><i class="shoot"></i><i class="moon"></i>
+  <p class="kick"><span lang="en">Bedouin Desert Grill</span><span lang="ar">مشاوي بدوية</span></p>
+  <h1 class="dsp"><span lang="en">Layali <span style="white-space:nowrap">Al-Rimal</span></span><span lang="ar">ليالي الرمال</span></h1>
+  <p class="tag"><span lang="en">Nights of the sands. Fire, patience and an open sky — dinner the way the desert has always cooked it.</span><span lang="ar">نارٌ وصبرٌ وسماء مفتوحة: عشاءٌ كما طبخته الصحراء منذ الأزل.</span></p>
+  <svg class="scene" viewBox="0 0 1440 430" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <path fill="#2c214a" d="M0 190c200-80 380-40 560 0 200 45 340-70 540-50 150 15 260 50 340 30v260H0z"/>
+    <g fill="#191231"><use href="#camel" transform="translate(1010 107) scale(.62)"/><use href="#camel" transform="translate(1056 110) scale(.56)"/><use href="#camel" transform="translate(1098 116) scale(.5)"/><use href="#camel" transform="translate(966 108) scale(.5)"/></g>
+    <path fill="#1e1638" d="M0 280c240-80 420-50 640 10 180 50 360-60 560-50 120 6 200 30 240 20v170H0z"/>
+    <path fill="none" stroke="url(#rim)" stroke-width="2.5" d="M300 232c120-10 220 16 340 58 150 40 300-30 470-48"/>
+    <circle cx="640" cy="316" r="150" fill="url(#g1)"/>
+    <g fill="#08060f"><path d="M730 336l44-62 70 10 62-20 62 20 70-10 44 62z"/><path d="M774 274v62M906 264v72M1038 274v62M730 336l-40 14M1082 336l40 14" stroke="#08060f" stroke-width="3"/></g>
+    <path d="M858 336l12-44h72l12 44z" fill="#f2a541" opacity=".85"/><path d="M880 336l6-30h40l6 30z" fill="#ffd27a"/>
+    <path d="M744 300l100-14 62-20 62 20 100 14" fill="none" stroke="#8c2a1f" stroke-width="5" stroke-dasharray="10 6"/>
+    <use href="#fire" x="610" y="262" width="60" height="70"/>
+    <g fill="#08060f"><circle cx="578" cy="318" r="7"/><path d="M566 340q12-22 24 0zM690 340q13-24 26 0z"/><circle cx="703" cy="316" r="7.5"/></g>
+    <path fill="#120d1e" d="M0 372c300-50 600 20 900-10 250-25 400 10 540-10v80H0z"/>
+  </svg>
+</header>
+
+<section class="dune d0">
+  <div class="in lead">
+    <p><span lang="en">Thirty minutes past Rum village the road gives up and the dunes take over. There we dig the zarb pit at noon, light the acacia wood at dusk and bake bread in the ashes while the tea comes to the boil. Take off your shoes, find a cushion, and let the night do the rest.</span><span lang="ar">بعد قرية رم بنصف ساعة ينتهي الطريق وتبدأ الكثبان. هناك نحفر حفرة الزرب عند الظهيرة، ونشعل حطب السنط مع الغروب، ونخبز الخبز في الرماد ريثما يغلي الشاي. اخلع حذاءك واختر وسادتك، ودَع الليل يكمل الباقي.</span></p>
+    <ul class="facts">
+      <li><b><span lang="en">Sunset</span><span lang="ar">الغروب</span></b> · <span lang="en">fires are lit</span><span lang="ar">نُشعل النيران</span></li>
+      <li><b>19:30</b> · <span lang="en">the zarb is unearthed</span><span lang="ar">نُخرج الزرب من الرمل</span></li>
+      <li><b><span lang="en">Midnight</span><span lang="ar">منتصف الليل</span></b> · <span lang="en">last pot of tea</span><span lang="ar">آخر إبريق شاي</span></li>
+    </ul>
+  </div>
+</section>
+
+<main>
+<section class="dune d1">
+  <svg class="ridge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120V70C240 0 460 20 700 70c240 50 500-40 740-10v60z"/></svg>
+  <div class="in sec">
+    <div class="head"><svg class="lan" aria-hidden="true"><use href="#lantern"/></svg>
+      <small><span lang="en">First fire</span><span lang="ar">النار الأولى</span></small>
+      <h2 class="dsp"><span lang="en">From Under the Sand</span><span lang="ar">من تحت الرمل</span></h2>
+      <p><span lang="en">The zarb: a pit of embers, a three-tier iron rack, a lid, a blanket and a mound of sand. Four hours later the meat falls from the bone.</span><span lang="ar">الزرب: حفرة من الجمر ورفّ حديدي بثلاث طبقات وغطاء وبطانية وكومة رمل. بعد أربع ساعات ينفصل اللحم عن العظم وحده.</span></p></div>
+    <div class="panel"><ul>
+      <li><h3><span lang="en">Lamb Zarb</span><span lang="ar">زرب لحم الضأن</span><i class="pick"></i></h3><span class="p">16.00</span><p><span lang="en">Shoulder and ribs smoked under the sand, on rice that has caught every drop.</span><span lang="ar">كتف وأضلاع تُدخَّن تحت الرمل، فوق أرزّ التقط كل قطرة من مرقها.</span></p></li>
+      <li><h3><span lang="en">Chicken Zarb</span><span lang="ar">زرب الدجاج</span></h3><span class="p">11.50</span><p><span lang="en">Half a bird rubbed with turmeric, dried lime and black pepper.</span><span lang="ar">نصف دجاجة متبّلة بالكركم واللومي والفلفل الأسود.</span></p></li>
+      <li><h3><span lang="en">Zarb Vegetables</span><span lang="ar">خضار الزرب</span></h3><span class="p">6.00</span><p><span lang="en">Whole onions, carrots, potatoes and marrows from the lowest rack, sweet with smoke.</span><span lang="ar">بصل كامل وجزر وبطاطا وكوسا من الرفّ السفلي، حلّاها الدخان.</span></p></li>
+      <li><h3><span lang="en">Mansaf</span><span lang="ar">منسف</span><i class="pick"></i></h3><span class="p">15.00</span><p><span lang="en">Lamb simmered in jameed yoghurt over shrak bread and rice, with toasted almonds.</span><span lang="ar">لحم ضأن مطبوخ بلبن الجميد فوق خبز الشراك والأرزّ، ومزيّن باللوز المحمّص.</span></p></li>
+      <li><h3><span lang="en">Maqluba</span><span lang="ar">مقلوبة</span></h3><span class="p">10.50</span><p><span lang="en">Aubergine, cauliflower, chicken and rice, turned upside-down at your table.</span><span lang="ar">باذنجان وزهرة ودجاج وأرزّ، تُقلب أمامك على المائدة.</span></p></li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="dune d2">
+  <svg class="ridge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120V40c200 50 420 70 680 20S1200 0 1440 60v60z"/></svg>
+  <div class="in sec flip">
+    <div class="head"><svg class="lan" aria-hidden="true"><use href="#lantern"/></svg>
+      <small><span lang="en">Second fire</span><span lang="ar">النار الثانية</span></small>
+      <h2 class="dsp"><span lang="en">From the Embers</span><span lang="ar">من على الجمر</span></h2>
+      <p><span lang="en">Skewers and grates over acacia charcoal. Served on warm bread with grilled tomato, onion and green chilli.</span><span lang="ar">أسياخ وشبكات فوق فحم السنط، تُقدَّم على خبز ساخن مع طماطم وبصل وفلفل أخضر مشوي.</span></p></div>
+    <div class="panel"><ul>
+      <li><h3><span lang="en">Lamb Chops</span><span lang="ar">ريش الضأن</span><i class="pick"></i></h3><span class="p">14.00</span><p><span lang="en">Marinated overnight in sumac, garlic and wild thyme, charred fast and served pink.</span><span lang="ar">تُنقع ليلةً كاملة بالسمّاق والثوم والزعتر البرّي، ثم تُشوى على عجل وتُقدَّم وردية القلب.</span></p></li>
+      <li><h3><span lang="en">Bedouin Kebab</span><span lang="ar">كباب بدوي</span><i class="hot"></i></h3><span class="p">9.50</span><p><span lang="en">Hand-chopped lamb, parsley and onion pressed onto wide iron skewers.</span><span lang="ar">لحم ضأن مفروم بالسكين مع البقدونس والبصل على أسياخ حديدية عريضة.</span></p></li>
+      <li><h3><span lang="en">Shish Tawook</span><span lang="ar">شيش طاووق</span></h3><span class="p">8.50</span><p><span lang="en">Chicken in yoghurt, lemon and paprika, with a pot of whipped garlic.</span><span lang="ar">دجاج متبّل باللبن والليمون والبابريكا، ومعه ثومية مخفوقة.</span></p></li>
+      <li><h3><span lang="en">Arayes</span><span lang="ar">عرايس</span><i class="hot"></i><i class="hot"></i></h3><span class="p">7.00</span><p><span lang="en">Flatbread stuffed with spiced beef and pressed on the grate until it crackles.</span><span lang="ar">خبز محشوّ باللحم البقري المتبّل يُضغط على الشبك حتى يقرمش.</span></p></li>
+      <li><h3><span lang="en">Quail on the Coals</span><span lang="ar">فرّي على الجمر</span></h3><span class="p">11.00</span><p><span lang="en">Two birds, pomegranate molasses and seven spice, eaten with the fingers.</span><span lang="ar">طائران بدبس الرمّان والبهارات السبعة، يؤكلان بالأصابع.</span></p></li>
+    </ul></div>
+  </div>
+  <aside class="tent"><div class="cloth">
+    <small><span lang="en">For the whole circle</span><span lang="ar">للجلسة كلّها</span></small>
+    <h2 class="dsp"><span lang="en">The Night Feast</span><span lang="ar">وليمة الليل</span></h2>
+    <p><span lang="en">Lamb and chicken zarb, a tray from the embers, every mezze, bread from the ashes, sweets, and tea for as long as the fire burns. Minimum four guests.</span><span lang="ar">زرب اللحم والدجاج، وصينية من المشاوي، وكل المقبلات، وخبز الرماد، والحلويات، وشاي لا ينقطع ما دامت النار مشتعلة. لأربعة ضيوف فأكثر.</span></p>
+    <div class="price"><span><span lang="en">per guest</span><span lang="ar">للضيف الواحد</span></span><span class="p">28.00</span></div>
+  </div></aside>
+</section>
+
+<section class="dune d3">
+  <svg class="ridge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120V80C300 10 520 0 800 50s440 40 640-10v80z"/></svg>
+  <div class="in sec">
+    <div class="head"><svg class="lan" aria-hidden="true"><use href="#lantern"/></svg>
+      <small><span lang="en">Around the fire</span><span lang="ar">حول النار</span></small>
+      <h2 class="dsp"><span lang="en">Bread &amp; Mezze</span><span lang="ar">خبز ومقبلات</span></h2>
+      <p><span lang="en">Everything here is meant to be torn, dipped and passed to the left.</span><span lang="ar">كل ما هنا يُقطَّع باليد ويُغمَّس ويُمرَّر إلى الجالس بجانبك.</span></p></div>
+    <div class="panel"><ul>
+      <li><h3><span lang="en">Arbood Bread</span><span lang="ar">خبز العربود</span><i class="pick"></i></h3><span class="p">2.00</span><p><span lang="en">A thick loaf buried in hot ash, dusted off and broken open.</span><span lang="ar">رغيف سميك يُدفن في الرماد الحار، ثم يُنفض ويُكسر باليد.</span></p></li>
+      <li><h3><span lang="en">Shrak</span><span lang="ar">خبز الشراك</span></h3><span class="p">1.50</span><p><span lang="en">Paper-thin bread thrown over the domed saj.</span><span lang="ar">خبز رقيق كالورق يُفرد على الصاج المقبّب.</span></p></li>
+      <li><h3><span lang="en">Galayet Bandora</span><span lang="ar">قلاية بندورة</span><i class="hot"></i><i class="hot"></i></h3><span class="p">4.00</span><p><span lang="en">Tomatoes fried down with green chilli, garlic and olive oil in an iron pan.</span><span lang="ar">طماطم تُقلى على مهل مع الفلفل الأخضر والثوم وزيت الزيتون في مقلاة حديدية.</span></p></li>
+      <li><h3><span lang="en">Hummus with Ghee</span><span lang="ar">حمّص بالسمن البلدي</span></h3><span class="p">3.50</span><p><span lang="en">Warm chickpea purée, sheep's ghee and toasted pine nuts.</span><span lang="ar">حمّص دافئ يعلوه سمن الغنم والصنوبر المحمّص.</span></p></li>
+      <li><h3><span lang="en">Mutabbal</span><span lang="ar">متبّل</span></h3><span class="p">3.50</span><p><span lang="en">Aubergine blackened in the embers, tahini, lemon and pomegranate.</span><span lang="ar">باذنجان مشوي في الجمر مع الطحينة والليمون وحبّ الرمّان.</span></p></li>
+      <li><h3><span lang="en">Fattoush</span><span lang="ar">فتّوش</span></h3><span class="p">4.00</span><p><span lang="en">Crisp bread, purslane, radish and cucumber in sumac dressing.</span><span lang="ar">خبز مقرمش وبقلة وفجل وخيار بتتبيلة السمّاق.</span></p></li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="dune d4">
+  <svg class="ridge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120V50c260-50 480-30 720 20s480 20 720-30v80z"/></svg>
+  <div class="in sec flip">
+    <div class="head"><svg class="lan" aria-hidden="true"><use href="#lantern"/></svg>
+      <small><span lang="en">Last embers</span><span lang="ar">آخر الجمر</span></small>
+      <h2 class="dsp"><span lang="en">Tea &amp; Sweets</span><span lang="ar">شاي وحلويات</span></h2>
+      <p><span lang="en">Poured from a blackened pot, a little too sweet, exactly as it should be.</span><span lang="ar">يُسكب من إبريق سوّدته النار، وسكّره زائد قليلًا، تمامًا كما ينبغي.</span></p></div>
+    <div class="panel"><ul>
+      <li><h3><span lang="en">Fire Tea</span><span lang="ar">شاي على الحطب</span><i class="pick"></i></h3><span class="p">1.50</span><p><span lang="en">Black tea boiled over wood with sage, cardamom and a memory of smoke.</span><span lang="ar">شاي أسود يُغلى على الحطب مع الميرمية والهيل وشيء من ذكرى الدخان.</span></p></li>
+      <li><h3><span lang="en">Bedouin Coffee</span><span lang="ar">قهوة سادة</span></h3><span class="p">2.00</span><p><span lang="en">Lightly roasted, heavy with cardamom, served with Medjool dates.</span><span lang="ar">بنّ محمّص على خفيف مع هيل كثير، وتُقدَّم مع تمر المجهول.</span></p></li>
+      <li><h3><span lang="en">Mint Lemonade</span><span lang="ar">ليمون بالنعناع</span></h3><span class="p">2.50</span><p><span lang="en">Crushed ice, whole lemons and a fistful of fresh mint.</span><span lang="ar">ثلج مجروش وليمون كامل وقبضة من النعناع الطازج.</span></p></li>
+      <li><h3><span lang="en">Knafeh on Embers</span><span lang="ar">كنافة على الجمر</span><i class="pick"></i></h3><span class="p">5.00</span><p><span lang="en">Stretchy white cheese under crisp semolina, soaked in orange-blossom syrup.</span><span lang="ar">جبنة بيضاء مطّاطة تحت قشرة سميد مقرمشة، مشرّبة بقطر ماء الزهر.</span></p></li>
+      <li><h3><span lang="en">Hareeseh</span><span lang="ar">هريسة</span></h3><span class="p">3.50</span><p><span lang="en">Semolina cake with coconut and a single almond on every square.</span><span lang="ar">كعكة السميد بجوز الهند، وعلى كل مربّع حبّة لوز واحدة.</span></p></li>
+      <li><h3><span lang="en">Dates &amp; Tahini</span><span lang="ar">تمر وطحينة</span></h3><span class="p">3.00</span><p><span lang="en">Soft dates to drag through sesame paste and date molasses.</span><span lang="ar">تمر طريّ يُغمَّس بالطحينة ودبس التمر.</span></p></li>
+    </ul></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <svg class="ridge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120V60C280 110 500 20 720 20s440 90 720 40v60z"/></svg>
+  <svg class="bonfire" aria-hidden="true"><use href="#fire"/></svg>
+  <h2 class="dsp"><span lang="en">Stay by the fire</span><span lang="ar">ابقَ قرب النار</span></h2>
+  <div class="seats">
+    <div><h3><span lang="en">Hours</span><span lang="ar">الأوقات</span></h3>
+      <dl><dt><span lang="en">Every night</span><span lang="ar">كل ليلة</span></dt><dd>17:30 – 00:00</dd><dt><span lang="en">Zarb served</span><span lang="ar">تقديم الزرب</span></dt><dd>19:30</dd><dt><span lang="en">Book the zarb by</span><span lang="ar">احجز الزرب قبل</span></dt><dd>14:00</dd></dl></div>
+    <div><h3><span lang="en">Find the camp</span><span lang="ar">الطريق إلى المخيّم</span></h3>
+      <p><span lang="en">Umm Sabatah dunes, 9 km south of Rum village, Wadi Rum, Jordan. Our pickup leaves the visitor centre at 17:00 and 18:30.</span><span lang="ar">كثبان أمّ سباطة، ٩ كم جنوب قرية رم، وادي رم، الأردن. تنطلق سيارتنا من مركز الزوّار عند ٥:٠٠ و٦:٣٠ مساءً.</span></p></div>
+    <div><h3><span lang="en">Good to know</span><span lang="ar">يهمّك أن تعرف</span></h3>
+      <p><span lang="en">Dishes may contain nuts, sesame, wheat and dairy; tell your host about allergies. Prices in Jordanian dinars, service included.</span><span lang="ar">قد تحتوي الأطباق على مكسّرات وسمسم وقمح ومشتقات الحليب؛ أخبر مضيفك بأي حساسية. الأسعار بالدينار الأردني وتشمل الخدمة.</span></p>
+      <div class="key"><span><i class="pick"></i><span lang="en">the camp's pride</span><span lang="ar">فخر المخيّم</span></span><span><i class="hot"></i><span lang="en">heat, per flame</span><span lang="ar">درجة الحرارة</span></span></div></div>
+  </div>
+  <div class="end"></div>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

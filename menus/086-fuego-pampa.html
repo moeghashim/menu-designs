@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Fuego y Pampa · نار وبامبا</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Fuego y Pampa — Argentinian asado cooked over quebracho embers: grass-fed cuts, lamb on the iron cross, chimichurri and mate. نار وبامبا — شواء أرجنتيني على جمر الكيبراتشو.">
+<meta name="theme-color" content="#17100c">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Zilla+Slab:ital,wght@0,400;0,600;0,700;1,400&family=Rakkas&family=Markazi+Text:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --char:#17100c; --hide:#2b1a11; --hide2:#3a2316; --tan:#c88a4e; --tan2:#dba568; --tanDk:#9a5f2e;
+  --rust:#a9441d; --ember:#ff7b1c; --glow:#ffb347; --cream:#f3e2c4; --burn:#2a1206; --thread:#ecd3a4;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 -.12'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  --pores:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='turbulence' baseFrequency='.035 .06' numOctaves='2' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .85 0 0 0 0 .6 0 0 0 .5 -.16'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23p)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--char);color:var(--cream);font-family:"Zilla Slab",Georgia,serif;font-size:17px;line-height:1.5;
+  background-image:var(--grain),radial-gradient(120% 60% at 50% 0,#3a2114 0,#17100c 70%);overflow-x:clip}
+html[lang="ar"] body{font-family:"Markazi Text","Noto Naskh Arabic",Tahoma,serif;font-size:20px;line-height:1.55}
+h1,h2,h3,.rye{font-family:"Rye","Zilla Slab",serif;font-weight:400;letter-spacing:.04em}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3,html[lang="ar"] .rye{font-family:"Rakkas","Markazi Text",serif;letter-spacing:0}
+html[lang="ar"] *{letter-spacing:0!important}
+a{color:inherit}
+.pr{white-space:nowrap;unicode-bidi:isolate;font-family:"Rye",serif;font-size:1.02em}
+html[lang="ar"] .pr{font-family:"Rakkas",serif;font-size:1.05em}
+.pr small{font-family:"Zilla Slab",serif;font-size:.62em;letter-spacing:.08em;opacity:.8;margin-inline-start:.2em}
+html[lang="ar"] .pr small{font-family:"Markazi Text",serif;font-size:.8em}
+
+/* ---------- controls: a stitched leather key-fob ---------- */
+.fob{position:fixed;z-index:30;top:12px;inset-inline-end:12px;display:flex;gap:2px;align-items:center;
+  background:var(--tan) var(--grain);color:var(--burn);border-radius:8px 8px 22px 22px;padding:5px 7px 7px;
+  box-shadow:0 0 0 1px #5c3415,0 6px 16px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.3);outline:1.5px dashed rgba(60,28,8,.55);outline-offset:-5px}
+.fob button,.fob a{font:600 14px/1 "Zilla Slab",serif;color:var(--burn);background:none;border:0;cursor:pointer;padding:9px 10px;text-decoration:none;min-height:36px;display:inline-flex;align-items:center;border-radius:6px}
+.fob button{font-family:"Markazi Text","Zilla Slab",serif;font-size:17px;font-weight:700}
+html[lang="ar"] .fob button{font-family:"Zilla Slab",serif;font-size:14px}
+html[lang="ar"] .fob a{font-family:"Markazi Text",serif;font-size:17px}
+.fob a{border-inline-start:1px solid rgba(60,28,8,.4);border-radius:0}
+.fob button:hover,.fob a:hover{color:#fff3da}
+.fob :focus-visible{outline:2px solid var(--burn);outline-offset:1px}
+
+/* ---------- hero: the branded hide ---------- */
+.hero{position:relative;min-height:min(100svh,880px);display:grid;place-items:center;padding:84px 18px 70px;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:auto 0 0 0;height:55%;z-index:-1;
+  background:radial-gradient(60% 90% at 50% 100%,rgba(255,123,28,.42),rgba(169,68,29,.18) 45%,transparent 72%)}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:14px;background:repeating-linear-gradient(90deg,#ff8a2a 0 9px,#7a2408 9px 20px,#ffb347 20px 26px,#3b1206 26px 40px);filter:blur(5px);opacity:.9}
+.hidewrap{position:relative;width:min(100%,900px);filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.hide{position:relative;background:var(--tan);background-image:var(--pores),var(--grain),radial-gradient(90% 80% at 50% 40%,#e0ac6e 0,#c88a4e 55%,#8f5526 100%);
+  clip-path:polygon(4% 9%,13% 3%,24% 6%,37% 2%,50% 5%,63% 2%,76% 6%,88% 3%,96% 9%,99% 22%,96% 36%,100% 50%,96% 64%,99% 79%,95% 92%,86% 97%,74% 94%,62% 98%,50% 95%,38% 98%,26% 94%,14% 97%,5% 92%,1% 79%,4% 64%,0 50%,4% 36%,1% 22%);
+  padding:clamp(54px,9vw,96px) clamp(30px,8vw,110px);text-align:center;color:var(--burn)}
+.hide .stitch{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.brand{width:clamp(96px,15vw,138px);height:auto;display:block;margin:0 auto 6px}
+.kicker{font-size:.8rem;letter-spacing:.34em;text-transform:uppercase;font-weight:700;color:#5d2c0e}
+html[lang="ar"] .kicker{font-size:1.15rem;text-transform:none}
+h1{font-size:clamp(2.7rem,9.2vw,6.4rem);line-height:.98;margin:.12em 0 .1em;color:#2a1005;
+  text-shadow:0 1px 0 rgba(255,214,160,.55),0 0 14px rgba(120,40,0,.45),0 0 2px #000}
+html[lang="ar"] h1{font-size:clamp(3.4rem,12vw,7.6rem);line-height:1.1}
+h1 i{font-style:normal;color:var(--rust);text-shadow:0 0 16px rgba(255,123,28,.55),0 1px 0 rgba(255,214,160,.5)}
+.tag{font-style:italic;font-size:clamp(1.05rem,2.2vw,1.35rem);color:#4a220b;max-width:34ch;margin:0 auto}
+html[lang="ar"] .tag{font-style:normal;font-size:clamp(1.3rem,2.6vw,1.65rem)}
+.rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:18px auto 14px;color:#5d2c0e}
+.rule::before,.rule::after{content:"";height:0;width:min(22%,120px);border-top:2px dashed currentColor;opacity:.7}
+.rule svg{width:26px;height:26px}
+.intro{max-width:52ch;margin:0 auto;color:#3a1a08;font-size:1.02rem}
+html[lang="ar"] .intro{font-size:1.25rem}
+.sparks{position:absolute;inset:0;z-index:2;pointer-events:none}
+.sparks i{position:absolute;bottom:-10px;width:5px;height:5px;border-radius:50%;background:var(--glow);box-shadow:0 0 8px 2px var(--ember),0 0 18px 6px rgba(255,90,0,.35);
+  animation:rise var(--d,7s) linear var(--w,0s) infinite;opacity:0}
+@keyframes rise{0%{transform:translate3d(0,0,0) scale(1);opacity:0}8%{opacity:1}60%{opacity:.9}100%{transform:translate3d(var(--x,30px),-88vh,0) scale(.2);opacity:0}}
+
+/* ---------- belt navigation ---------- */
+.belt{position:relative;display:flex;justify-content:center;flex-wrap:wrap;gap:0;margin:0 auto;padding:0 14px;max-width:1180px}
+.belt::before{content:"";position:absolute;inset:50% 0 auto;height:0;border-top:2px dashed rgba(236,211,164,.3)}
+.belt a{position:relative;text-decoration:none;font-family:"Rye",serif;font-size:.86rem;letter-spacing:.08em;padding:13px clamp(10px,1.8vw,22px);color:var(--thread);background:var(--hide2) var(--grain);
+  border-block:1px solid #5a3a22;box-shadow:inset 0 0 0 4px var(--hide2),inset 0 0 0 5px rgba(236,211,164,.35)}
+html[lang="ar"] .belt a{font-family:"Rakkas",serif;font-size:1.15rem;padding-block:9px}
+.belt a:first-child{border-start-start-radius:26px;border-end-start-radius:26px;border-inline-start:1px solid #5a3a22}
+.belt a:last-child{border-start-end-radius:26px;border-end-end-radius:26px;border-inline-end:1px solid #5a3a22}
+.belt a:hover{color:var(--glow)}
+
+main{max-width:1240px;margin:0 auto;padding:0 clamp(14px,3vw,34px) 40px}
+section{padding-top:clamp(56px,8vw,96px);scroll-margin-top:10px}
+.shead{display:flex;align-items:center;gap:16px;margin-bottom:26px}
+.iron{flex:none;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-family:"Rye",serif;font-size:1.5rem;color:var(--ember);
+  background:radial-gradient(circle,#2b0f04 0 52%,transparent 53%),radial-gradient(circle,transparent 0 60%,#3a1407 61% 68%,transparent 69%);
+  box-shadow:0 0 22px rgba(255,123,28,.35),inset 0 0 12px rgba(255,123,28,.5);text-shadow:0 0 10px var(--ember)}
+.shead h2{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.05;color:var(--tan2);text-shadow:0 2px 0 #000}
+html[lang="ar"] .shead h2{font-size:clamp(2.1rem,5.4vw,3.5rem);line-height:1.2}
+.shead p{color:#c9ab85;font-style:italic;font-size:.98rem}
+html[lang="ar"] .shead p{font-style:normal;font-size:1.15rem}
+.shead .ln{flex:1;height:0;border-top:2px dashed rgba(236,211,164,.28);min-width:20px}
+
+/* shared item type */
+.it h3{font-family:"Zilla Slab",serif;font-weight:700;font-size:1.16rem;letter-spacing:.01em;line-height:1.2}
+html[lang="ar"] .it h3{font-family:"Markazi Text",serif;font-size:1.5rem;font-weight:700}
+.it p{font-size:.97rem;opacity:.86;margin-top:2px}
+html[lang="ar"] .it p{font-size:1.14rem}
+.it .es{display:block;font-style:italic;font-weight:400;font-size:.82rem;opacity:.75;letter-spacing:.04em}
+
+/* 1 — starters: luggage tags */
+.tags{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.ltag{position:relative;background:var(--tan) var(--grain);background-image:var(--pores),var(--grain),linear-gradient(160deg,#dba568,#b9783e);color:var(--burn);
+  padding:58px 20px 22px;border-radius:14px;clip-path:polygon(22% 0,78% 0,100% 13%,100% 100%,0 100%,0 13%);
+  display:flex;flex-direction:column;gap:6px;min-height:250px}
+.ltag::before{content:"";position:absolute;inset:7px;border:1.5px dashed rgba(60,28,8,.55);border-radius:9px;clip-path:polygon(21% 0,79% 0,100% 12.5%,100% 100%,0 100%,0 12.5%);pointer-events:none}
+.ltag::after{content:"";position:absolute;top:18px;left:50%;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:var(--char);box-shadow:0 0 0 4px #7d7265,0 0 0 5px #2a2018,inset 0 2px 4px #000}
+.ltag:nth-child(odd){transform:rotate(-1.4deg)}.ltag:nth-child(even){transform:rotate(1.2deg)}
+.ltag .pr{margin-top:auto;padding-top:10px;font-size:1.35rem;border-top:1.5px dashed rgba(60,28,8,.45)}
+.ltag .es{color:#5d2c0e}
+
+/* 2 — the cut map */
+.map{display:grid;grid-template-columns:1fr minmax(400px,1.5fr) 1fr;gap:clamp(18px,2.6vw,38px);align-items:center}
+.cuts{display:grid;gap:22px}
+.cut{display:grid;grid-template-columns:46px 1fr;gap:4px 14px;align-items:start}
+.cut .no{grid-row:span 2;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:"Rye",serif;font-size:1.2rem;color:var(--ember);border:2px solid var(--rust);box-shadow:inset 0 0 0 3px var(--char),inset 0 0 0 4px rgba(255,123,28,.5),0 0 14px rgba(255,90,0,.3);text-shadow:0 0 8px var(--ember)}
+.cut .meta{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-top:6px;padding-top:6px;border-top:1.5px dashed rgba(236,211,164,.28);color:var(--tan2)}
+.cut .meta>span:first-child{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#c9ab85}
+html[lang="ar"] .cut .meta>span:first-child{font-size:1.05rem;text-transform:none}
+.steer{position:relative;background:var(--tan);background-image:var(--pores),var(--grain),radial-gradient(80% 80% at 50% 45%,#e0ac6e,#b9783e 75%,#8f5526);border-radius:22px;padding:22px 18px 16px;color:var(--burn);text-align:center;
+  box-shadow:0 0 0 1px #5c3415,0 24px 40px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,235,200,.35),inset 0 -8px 20px rgba(80,35,5,.35)}
+.steer::before{content:"";position:absolute;inset:9px;border:2px dashed rgba(60,28,8,.6);border-radius:15px;pointer-events:none}
+.steer svg{width:100%;height:auto;display:block}
+html[dir="rtl"] .steer svg{transform:scaleX(-1)}
+html[dir="rtl"] .steer svg text{transform:scaleX(-1);transform-box:fill-box;transform-origin:center}
+.steer figcaption{font-family:"Rye",serif;font-size:.9rem;letter-spacing:.14em;margin-top:4px;color:#4a220b}
+html[lang="ar"] .steer figcaption{font-family:"Rakkas",serif;font-size:1.25rem}
+.done{margin-top:34px;display:grid;grid-template-columns:auto repeat(4,1fr);gap:0;align-items:stretch;border:1px solid #5a3a22;border-radius:40px;overflow:hidden;background:var(--hide)}
+.done b{font-family:"Rye",serif;font-weight:400;font-size:.85rem;letter-spacing:.1em;padding:12px 20px;display:grid;place-items:center;color:var(--tan2)}
+html[lang="ar"] .done b{font-family:"Rakkas",serif;font-size:1.15rem}
+.done>span{padding:9px 10px;text-align:center;font-size:.86rem;line-height:1.2;color:#fff2dc;font-weight:600}
+html[lang="ar"] .done>span{font-size:1.05rem}
+.done em{display:block;font-weight:400;font-size:.78rem;opacity:.85}
+.done>span:nth-of-type(1){background:#9d1f1a}.done>span:nth-of-type(2){background:#b3402b}.done>span:nth-of-type(3){background:#a15a3c}.done>span:nth-of-type(4){background:#6f4a36}
+
+/* 3 — al asador: the iron cross */
+.asador{position:relative;display:grid;grid-template-columns:minmax(220px,.8fr) 2fr;gap:0;border-radius:20px;overflow:hidden;background:#0f0906;box-shadow:0 0 0 1px #5a3a22,0 30px 50px rgba(0,0,0,.5)}
+.pit{position:relative;min-height:340px;background:radial-gradient(70% 55% at 50% 100%,#ff8a2a 0,#b83a0c 28%,#3c1205 62%,#0f0906 100%);overflow:hidden}
+.pit svg{position:absolute;inset:0;width:100%;height:100%}
+.pit .sparks i{animation-duration:var(--d,5s)}
+.spit{display:grid;grid-template-columns:repeat(3,1fr)}
+.spit .it{padding:30px 24px 26px;border-inline-start:2px dashed rgba(236,211,164,.22);display:flex;flex-direction:column;gap:6px}
+.spit .hrs{align-self:flex-start;font-family:"Rye",serif;font-size:.78rem;letter-spacing:.1em;color:var(--char);background:var(--ember);padding:4px 10px;border-radius:3px;margin-bottom:6px;box-shadow:0 0 16px rgba(255,123,28,.5)}
+html[lang="ar"] .spit .hrs{font-family:"Rakkas",serif;font-size:1.05rem}
+.spit .pr{margin-top:auto;padding-top:14px;font-size:1.6rem;color:var(--glow)}
+.spit .for{font-size:.85rem;color:#c9ab85;letter-spacing:.08em}
+html[lang="ar"] .spit .for{font-size:1.05rem}
+
+/* 4/5 — patches */
+.patches{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(20px,3vw,40px);align-items:start}
+.patch{position:relative;padding:34px clamp(22px,3vw,38px) 30px;border-radius:18px;background:var(--hide2);background-image:var(--grain),linear-gradient(170deg,#4a2c1a,#2b1a11);
+  box-shadow:0 0 0 1px #6b4528,0 20px 34px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,220,170,.14)}
+.patch::before{content:"";position:absolute;inset:9px;border:2px dashed rgba(236,211,164,.4);border-radius:11px;pointer-events:none}
+.patch.tanp{background:var(--tan);background-image:var(--pores),var(--grain),linear-gradient(170deg,#dba568,#b47338);color:var(--burn);transform:rotate(.7deg)}
+.patch.tanp::before{border-color:rgba(60,28,8,.55)}
+.patch h2{font-size:clamp(1.5rem,3.2vw,2.1rem);margin-bottom:4px;color:var(--tan2)}
+html[lang="ar"] .patch h2{font-size:clamp(1.9rem,4vw,2.6rem)}
+.patch.tanp h2{color:#2a1005;text-shadow:0 1px 0 rgba(255,214,160,.5)}
+.patch>p{font-style:italic;opacity:.8;margin-bottom:14px;font-size:.95rem}
+html[lang="ar"] .patch>p{font-style:normal;font-size:1.12rem}
+.row{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:13px 0;border-top:1.5px dashed rgba(236,211,164,.25);align-items:baseline}
+.tanp .row{border-top-color:rgba(60,28,8,.4)}
+.row p{grid-column:1/-1}
+.rivet{position:absolute;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f4e3b8,#9a7b45 55%,#3d2a12);box-shadow:0 1px 2px #000}
+.rivet.a{top:15px;inset-inline-start:15px}.rivet.b{top:15px;inset-inline-end:15px}.rivet.c{bottom:15px;inset-inline-start:15px}.rivet.d{bottom:15px;inset-inline-end:15px}
+
+/* 6 — drinks strap */
+.strap{display:grid;grid-template-columns:auto repeat(3,1fr);align-items:stretch;background:var(--rust);background-image:var(--grain),linear-gradient(180deg,#b9502a,#84300f);border-radius:12px;color:#fff0d6;
+  box-shadow:0 0 0 1px #4d1b07,0 18px 30px rgba(0,0,0,.45);position:relative}
+.strap::before{content:"";position:absolute;inset:7px;border-block:2px dashed rgba(255,226,180,.55);pointer-events:none}
+.strap .buckle{display:grid;place-items:center;padding:26px 30px;text-align:center}
+.strap h2{font-size:clamp(1.4rem,2.6vw,1.9rem);color:#ffe2b4;text-shadow:0 2px 0 #4d1b07}
+html[lang="ar"] .strap h2{font-size:clamp(1.8rem,3.2vw,2.4rem)}
+.strap .it{padding:28px 22px;border-inline-start:1px solid rgba(60,15,0,.45);display:flex;flex-direction:column;gap:4px}
+.strap .pr{margin-top:auto;padding-top:8px;color:#ffd596;font-size:1.2rem}
+
+/* footer */
+footer{margin-top:clamp(64px,9vw,110px);background:#0d0806;border-top:1px solid #4a2c1a;position:relative}
+footer::before{content:"";position:absolute;inset:8px 0 auto;border-top:2px dashed rgba(236,211,164,.3)}
+.foot{max-width:1240px;margin:0 auto;padding:54px clamp(16px,3vw,34px) 40px;display:grid;grid-template-columns:1.1fr 1fr 1fr 1.2fr;gap:30px}
+.foot h4{font-family:"Rye",serif;font-weight:400;font-size:.9rem;letter-spacing:.14em;color:var(--tan2);margin-bottom:8px}
+html[lang="ar"] .foot h4{font-family:"Rakkas",serif;font-size:1.3rem}
+.foot p{font-size:.95rem;color:#c9ab85}
+html[lang="ar"] .foot p{font-size:1.12rem}
+.foot .big{font-family:"Rye",serif;font-size:1.6rem;color:var(--ember);text-shadow:0 0 14px rgba(255,123,28,.5);line-height:1.1}
+html[lang="ar"] .foot .big{font-family:"Rakkas",serif;font-size:2rem}
+
+@media (max-width:980px){
+  .tags{grid-template-columns:repeat(2,1fr)}
+  .map{grid-template-columns:1fr 1fr}.steer{grid-column:1/-1;grid-row:1;max-width:620px;margin-inline:auto;width:100%}
+  .asador{grid-template-columns:1fr}.pit{min-height:230px}
+  .patches{grid-template-columns:1fr}
+  .strap{grid-template-columns:1fr 1fr 1fr}.strap .buckle{grid-column:1/-1;padding:24px 20px 6px}.strap .it:first-of-type{border-inline-start:0}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16.5px}
+  .hero{padding:78px 8px 60px;min-height:auto}
+  .hide{padding:64px 34px 70px;clip-path:polygon(5% 4%,22% 1.5%,40% 3%,60% 1.5%,80% 3%,95% 4.5%,99% 16%,96% 30%,100% 44%,96% 58%,99% 72%,96% 86%,94% 96%,78% 98.5%,60% 97%,40% 98.5%,20% 97%,5% 96%,1% 86%,4% 72%,0 58%,4% 44%,1% 30%,3% 16%)}
+  .belt{padding:0 10px}.belt a{flex:1 1 30%;text-align:center;border-radius:0!important;border:1px solid #5a3a22;margin:-.5px;padding-inline:6px}
+  .iron{width:52px;height:52px;font-size:1.2rem}.shead{gap:12px}.shead .ln{display:none}
+  .tags{grid-template-columns:1fr;gap:16px}.ltag{min-height:0;transform:none!important;padding:26px 20px 20px 20px;clip-path:polygon(0 0,88% 0,100% 50%,88% 100%,0 100%);padding-inline-end:20%;border-radius:10px}
+  html[dir="rtl"] .ltag{clip-path:polygon(12% 0,100% 0,100% 100%,12% 100%,0 50%)}
+  .ltag::before{clip-path:none;inset:7px;inset-inline-end:14%;border-inline-end:0}
+  .ltag::after{top:50%;margin-top:-11px;left:auto;margin-left:0;inset-inline-end:7%}
+  .map{grid-template-columns:1fr}.steer{padding:16px 10px 12px}
+  .done{grid-template-columns:1fr 1fr;border-radius:16px}.done b{grid-column:1/-1}
+  .spit{grid-template-columns:1fr}.spit .it{border-inline-start:0;border-top:2px dashed rgba(236,211,164,.22);padding:24px 22px}
+  .patch.tanp{transform:none}
+  .strap{grid-template-columns:1fr}.strap .it{border-inline-start:0;border-top:1px solid rgba(60,15,0,.45);padding:20px 24px}
+  .foot{grid-template-columns:1fr;gap:22px;padding-top:44px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sparks i{animation:none;opacity:.8;bottom:var(--y,30%)}}
+</style>
+</head>
+<body>
+<div class="fob">
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+</div>
+
+<header class="hero">
+  <div class="sparks" aria-hidden="true">
+    <i style="left:6%;--d:8s;--w:-1s;--x:40px;--y:20%"></i><i style="left:13%;--d:6s;--w:-4s;--x:-20px;--y:55%"></i><i style="left:21%;--d:9s;--w:-2s;--x:60px;--y:35%"></i><i style="left:29%;--d:7s;--w:-6s;--x:-40px;--y:70%"></i>
+    <i style="left:38%;--d:10s;--w:-3s;--x:20px;--y:12%"></i><i style="left:47%;--d:6.5s;--w:-5s;--x:-30px;--y:44%"></i><i style="left:55%;--d:8.5s;--w:-.5s;--x:50px;--y:80%"></i><i style="left:63%;--d:7.5s;--w:-7s;--x:-55px;--y:28%"></i>
+    <i style="left:71%;--d:9.5s;--w:-2.5s;--x:25px;--y:60%"></i><i style="left:79%;--d:6s;--w:-3.5s;--x:-15px;--y:16%"></i><i style="left:87%;--d:8s;--w:-5.5s;--x:35px;--y:48%"></i><i style="left:94%;--d:7s;--w:-1.5s;--x:-45px;--y:74%"></i>
+    <i style="left:17%;--d:11s;--w:-8s;--x:30px;--y:86%;width:3px;height:3px"></i><i style="left:52%;--d:12s;--w:-9s;--x:-20px;--y:90%;width:3px;height:3px"></i><i style="left:83%;--d:11s;--w:-4.5s;--x:10px;--y:8%;width:3px;height:3px"></i>
+  </div>
+  <div class="hidewrap">
+    <div class="hide">
+      <svg class="brand" viewBox="0 0 140 140" aria-hidden="true">
+        <g fill="none" stroke="#2a1005" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="70" cy="70" r="60" stroke-width="7" opacity=".92"/>
+          <circle cx="70" cy="70" r="49" stroke-width="2" stroke-dasharray="3 6"/>
+          <path d="M34 50c6-14 20-10 20 4M106 50c-6-14-20-10-20 4" stroke-width="7"/>
+          <path d="M46 60h20M46 60v40M46 79h15" stroke-width="8"/>
+          <path d="M78 100V60h10a11 11 0 0 1 0 22H78" stroke-width="8"/>
+          <path d="M70 106c-5 6-3 11 0 14 3-3 5-8 0-14z" stroke-width="3" fill="#a9441d"/>
+        </g>
+      </svg>
+      <p class="kicker"><span lang="en">Parrilla Argentina · Est. 1987</span><span lang="ar">مشواة أرجنتينية · منذ ١٩٨٧</span></p>
+      <h1><span lang="en">Fuego <i>y</i> Pampa</span><span lang="ar">نار <i>و</i>بامبا</span></h1>
+      <p class="tag"><span lang="en">Grass, salt, quebracho smoke — and a great deal of patience.</span><span lang="ar">عشب وملح ودخان خشب الكيبراتشو… وكثير من الصبر.</span></p>
+      <div class="rule" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M13 2c-6 8-7 14 0 22 7-8 6-14 0-22z" fill="#a9441d"/><path d="M13 12c-2 3-2 6 0 9 2-3 2-6 0-9z" fill="#ffb347"/></svg></div>
+      <p class="intro"><span lang="en">Our asador lights the fire at dawn. By the time you sit down, the embers are white, the iron is hot, and the meat — pasture-raised on the open pampa and seasoned with nothing but coarse salt — has been turning slowly for hours.</span><span lang="ar">يشعل معلّم الشواء ناره مع الفجر. وحين تجلس إلى المائدة يكون الجمر قد ابيضّ والحديد قد حمي، واللحم — من مواشٍ ترعى في سهول البامبا المفتوحة ولا يُتبَّل إلا بالملح الخشن — قد أمضى ساعات يدور على مهل.</span></p>
+      <svg class="stitch" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="7,12 14.5,7 24,10 37,6 50,9 63,6 76,10 86.5,7 93,12 95.5,22 92.5,36 96,50 92.5,64 95.5,78 92.5,89 85.5,93 74,90 62,94 50,91 38,94 26,90 14.5,93 7.5,89 4.5,78 7.5,64 4,50 7.5,36 4.5,22" fill="none" stroke="#3c1c08" stroke-width="2" stroke-dasharray="7 6" vector-effect="non-scaling-stroke" opacity=".7"/></svg>
+    </div>
+  </div>
+</header>
+
+<nav class="belt" aria-label="Sections">
+  <a href="#empezar"><span lang="en">To Begin</span><span lang="ar">للبداية</span></a>
+  <a href="#parrilla"><span lang="en">The Grill</span><span lang="ar">المشواة</span></a>
+  <a href="#asador"><span lang="en">Iron Cross</span><span lang="ar">الصليب الحديدي</span></a>
+  <a href="#guarnicion"><span lang="en">Sides</span><span lang="ar">الأطباق الجانبية</span></a>
+  <a href="#postres"><span lang="en">Sweets</span><span lang="ar">الحلويات</span></a>
+  <a href="#bebidas"><span lang="en">Drinks</span><span lang="ar">المشروبات</span></a>
+</nav>
+
+<main>
+<section id="empezar">
+  <div class="shead"><span class="iron" aria-hidden="true">I</span><div><h2><span lang="en">Para Empezar</span><span lang="ar">للبداية</span></h2><p><span lang="en">While the fire does its work</span><span lang="ar">ريثما تُتمّ النار عملها</span></p></div><span class="ln"></span></div>
+  <div class="tags">
+    <article class="ltag it"><h3><span lang="en">Empanadas Mendocinas</span><span lang="ar">إمبانادا مندوزا</span></h3><p><span lang="en">Three clay-oven pastries of knife-cut beef, cumin, green olive and soft egg.</span><span lang="ar">ثلاث فطائر من فرن الطين محشوّة بلحم بقري مفروم بالسكين مع الكمّون والزيتون الأخضر والبيض.</span></p><span class="pr">38<small lang="en">AED</small><small lang="ar">د.إ</small></span></article>
+    <article class="ltag it"><h3><span lang="en">Provoleta</span><span lang="ar">بروفوليتا</span></h3><p><span lang="en">A thick wheel of provolone blistered in an iron skillet, oregano and ají molido.</span><span lang="ar">قرص سميك من جبن البروفولون يُحمَّر في مقلاة حديدية مع الأوريغانو ورقائق الفلفل الأحمر.</span></p><span class="pr">46<small lang="en">AED</small><small lang="ar">د.إ</small></span></article>
+    <article class="ltag it"><h3><span lang="en">Choripán Criollo</span><span lang="ar">تشوريبان كريولو</span></h3><p><span lang="en">Smoky beef chorizo split over the coals, crusty bread, house chimichurri.</span><span lang="ar">نقانق بقرية مدخّنة تُشقّ فوق الجمر وتُقدَّم في خبز مقرمش مع صلصة تشيميتشوري البيت.</span></p><span class="pr">42<small lang="en">AED</small><small lang="ar">د.إ</small></span></article>
+    <article class="ltag it"><h3><span lang="en">Mollejas al Limón</span><span lang="ar">موييخاس بالليمون</span></h3><p><span lang="en">Veal sweetbreads crisped slowly at the cool edge of the grill, lemon and sea salt.</span><span lang="ar">غدد عجل حلوة تُقرمَش على مهل عند طرف المشواة الهادئ، مع الليمون وملح البحر.</span></p><span class="pr">58<small lang="en">AED</small><small lang="ar">د.إ</small></span></article>
+  </div>
+</section>
+
+<section id="parrilla">
+  <div class="shead"><span class="iron" aria-hidden="true">II</span><div><h2><span lang="en">De la Parrilla</span><span lang="ar">من المشواة</span></h2><p><span lang="en">Find your cut on the hide — every number is branded where it comes from</span><span lang="ar">ابحث عن قطعتك على الجلد — كل رقم موسوم في موضعه من الذبيحة</span></p></div><span class="ln"></span></div>
+  <div class="map">
+    <div class="cuts">
+      <article class="cut it"><span class="no">1</span><div><h3><span lang="en">Ojo de Bife <span class="es">Ribeye</span></span><span lang="ar">أوخو دي بيفي <span class="es">ريب آي</span></span></h3><p><span lang="en">The marbled heart of the rib: rich, buttery, forgiving on the fire.</span><span lang="ar">قلب الضلع المرخَّم بالدهن: غنيّ وطريّ ويحتمل لهيب النار.</span></p><div class="meta"><span><span lang="en">400 g</span><span lang="ar">٤٠٠ غ</span></span><span class="pr">185<small lang="en">AED</small><small lang="ar">د.إ</small></span></div></div></article>
+      <article class="cut it"><span class="no">2</span><div><h3><span lang="en">Bife de Chorizo <span class="es">Sirloin strip</span></span><span lang="ar">بيفي دي تشوريزو <span class="es">سيرلوين</span></span></h3><p><span lang="en">Argentina's signature steak, grilled with its ribbon of golden fat.</span><span lang="ar">شريحة الأرجنتين الأشهر، تُشوى مع شريطها الذهبي من الدهن.</span></p><div class="meta"><span><span lang="en">350 g</span><span lang="ar">٣٥٠ غ</span></span><span class="pr">165<small lang="en">AED</small><small lang="ar">د.إ</small></span></div></div></article>
+      <article class="cut it"><span class="no">3</span><div><h3><span lang="en">Lomo <span class="es">Tenderloin</span></span><span lang="ar">لومو <span class="es">فيليه</span></span></h3><p><span lang="en">The leanest, most tender cut; best jugoso, with roasted garlic.</span><span lang="ar">أطرى القطع وأقلّها دهنًا؛ الأفضل أن تُطلب نصف ناضجة مع ثوم مشوي.</span></p><div class="meta"><span><span lang="en">250 g</span><span lang="ar">٢٥٠ غ</span></span><span class="pr">195<small lang="en">AED</small><small lang="ar">د.إ</small></span></div></div></article>
+    </div>
+    <figure class="steer">
+      <svg viewBox="0 0 600 340" role="img" aria-label="Beef cut map">
+        <defs><clipPath id="body"><path id="bp" d="M62 120c-6-26 14-44 44-44 60-2 190-6 262-2 26 2 40-4 62-12 26-9 62-6 82 6 20 12 34 30 38 50 3 14-6 24-20 24-12 0-26 2-34 8-10 8-14 26-24 44-6 10-14 16-22 20l-4 84h-26l-4-74c-40 8-150 8-212-2l-2 76h-28l-6-86c-12-4-26-10-34-24-12 4-22 6-28 26l-8 84H72l2-92c-12-24-8-58-12-86z"/></clipPath></defs>
+        <path d="M62 120c-10 30-22 66-14 110" fill="none" stroke="#2a1005" stroke-width="5" stroke-linecap="round"/>
+        <path d="M48 228c-6 10-4 20 2 26 6-8 6-16-2-26z" fill="#2a1005"/>
+        <use href="#bp" fill="#8f4f22" opacity=".35" transform="translate(4 6)"/>
+        <use href="#bp" fill="#e9bd85"/>
+        <g clip-path="url(#body)">
+          <path d="M290 60h108v72H290z" fill="#a9441d" opacity=".5"/>
+          <path d="M196 60h94v72h-94z" fill="#c9652e" opacity=".42"/>
+          <path d="M196 132h94v26h-94z" fill="#7d2a10" opacity=".5"/>
+          <path d="M290 132h108v44H290z" fill="#d98a3c" opacity=".5"/>
+          <path d="M180 158h110v90H180z" fill="#b9783e" opacity=".55"/>
+          <path d="M290 176h80v70h-80z" fill="#8f3a18" opacity=".42"/>
+          <g fill="none" stroke="#2a1005" stroke-width="2.4" stroke-dasharray="7 5" stroke-linecap="round">
+            <path d="M196 60v98M290 60v190M398 60v190M196 132h202M196 158h94M290 176h108M180 158c4 30 2 60 0 90M370 176v70M448 62c-6 40-4 90 6 130"/>
+          </g>
+        </g>
+        <use href="#bp" fill="none" stroke="#2a1005" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M500 62c4-18 20-26 34-22-2 12-10 22-22 26M470 60c-8-12-22-14-30-8 4 10 12 14 22 14" fill="#f3e2c4" stroke="#2a1005" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="512" cy="96" r="4.5" fill="#2a1005"/><path d="M540 132c4 2 6 6 4 10" stroke="#2a1005" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <g font-family="Rye,serif" font-size="19" text-anchor="middle" fill="#f3e2c4">
+          <g><circle cx="344" cy="98" r="17" fill="#2a1005"/><text x="344" y="105">1</text></g>
+          <g><circle cx="243" cy="98" r="17" fill="#2a1005"/><text x="243" y="105">2</text></g>
+          <g><circle cx="222" cy="145" r="12" fill="#2a1005"/><text x="222" y="151" font-size="14">3</text></g>
+          <g><circle cx="238" cy="198" r="17" fill="#2a1005"/><text x="238" y="205">4</text></g>
+          <g><circle cx="330" cy="208" r="17" fill="#2a1005"/><text x="330" y="215">5</text></g>
+          <g><circle cx="344" cy="154" r="15" fill="#2a1005"/><text x="344" y="161" font-size="17">6</text></g>
+        </g>
+        <g fill="none" stroke="#2a1005" stroke-width="3" opacity=".8"><circle cx="128" cy="130" r="20"/><path d="M118 122h10v18M128 131h8M136 122v18" stroke-linecap="round"/></g>
+      </svg>
+      <figcaption><span lang="en">El Mapa de Cortes</span><span lang="ar">خريطة القطع</span></figcaption>
+    </figure>
+    <div class="cuts">
+      <article class="cut it"><span class="no">4</span><div><h3><span lang="en">Vacío <span class="es">Flank</span></span><span lang="ar">فاسيو <span class="es">الخاصرة</span></span></h3><p><span lang="en">Crisp on the outside, juicy within — the gaucho's own favourite.</span><span lang="ar">مقرمشة من الخارج عصارية من الداخل — القطعة المفضَّلة لدى رعاة الغاوتشو.</span></p><div class="meta"><span><span lang="en">400 g</span><span lang="ar">٤٠٠ غ</span></span><span class="pr">150<small lang="en">AED</small><small lang="ar">د.إ</small></span></div></div></article>
+      <article class="cut it"><span class="no">5</span><div><h3><span lang="en">Entraña <span class="es">Skirt</span></span><span lang="ar">إنترانيا <span class="es">الحجاب</span></span></h3><p><span lang="en">Thin, deeply beefy, seared hard and fast; ask for extra chimichurri.</span><span lang="ar">رقيقة قوية النكهة، تُحمَّر سريعًا على نار عالية؛ اطلب معها مزيدًا من التشيميتشوري.</span></p><div class="meta"><span><span lang="en">300 g</span><span lang="ar">٣٠٠ غ</span></span><span class="pr">158<small lang="en">AED</small><small lang="ar">د.إ</small></span></div></div></article>
+      <article class="cut it"><span class="no">6</span><div><h3><span lang="en">Asado de Tira <span class="es">Short ribs</span></span><span lang="ar">أسادو دي تيرا <span class="es">ريش قصيرة</span></span></h3><p><span lang="en">Cross-cut ribs rendered for ninety minutes until the bone lets go.</span><span lang="ar">أضلاع مقطَّعة عرضيًّا تُترك على النار تسعين دقيقة حتى ينفصل اللحم عن العظم.</span></p><div class="meta"><span><span lang="en">500 g</span><span lang="ar">٥٠٠ غ</span></span><span class="pr">172<small lang="en">AED</small><small lang="ar">د.إ</small></span></div></div></article>
+    </div>
+  </div>
+  <div class="done">
+    <b><span lang="en">How done?</span><span lang="ar">درجة النضج</span></b>
+    <span><span lang="en">Vuelta y vuelta<em>blue-rare</em></span><span lang="ar">قلبة وقلبة<em>شبه نيّئة</em></span></span>
+    <span><span lang="en">Jugoso<em>rare, juicy</em></span><span lang="ar">خوغوسو<em>نصف ناضجة</em></span></span>
+    <span><span lang="en">A punto<em>medium</em></span><span lang="ar">أ بونتو<em>متوسطة</em></span></span>
+    <span><span lang="en">Cocido<em>well done</em></span><span lang="ar">كوسيدو<em>تامة النضج</em></span></span>
+  </div>
+</section>
+
+<section id="asador">
+  <div class="shead"><span class="iron" aria-hidden="true">III</span><div><h2><span lang="en">Al Asador</span><span lang="ar">على الصليب الحديدي</span></h2><p><span lang="en">Whole cuts leaned towards the flames — made for the middle of the table</span><span lang="ar">قطع كاملة تُمال نحو اللهب — تُوضع وسط المائدة للمشاركة</span></p></div><span class="ln"></span></div>
+  <div class="asador">
+    <div class="pit" aria-hidden="true">
+      <svg viewBox="0 0 300 340" preserveAspectRatio="xMidYMax meet">
+        <g stroke="#0a0503" stroke-width="7" stroke-linecap="round" fill="none"><path d="M190 330L128 40M92 92l92-20M112 190l92-20"/></g>
+        <path d="M118 78c30-14 58-12 74 4 14 30 20 68 10 104-22 14-50 16-70 8-16-34-22-78-14-116z" fill="#6b2a10" stroke="#0a0503" stroke-width="4"/>
+        <g stroke="#3c1205" stroke-width="3" fill="none" opacity=".8"><path d="M132 100c20-8 40-8 56 0M134 124c22-8 44-8 60 0M138 148c22-8 44-8 60 0M144 172c20-6 40-6 54 0"/></g>
+        <g fill="#ffb347"><path d="M40 340c-10-40 16-50 10-84 22 20 30 48 22 84zM226 340c-8-30 12-44 6-70 20 18 28 42 22 70z" opacity=".9"/><path d="M84 340c-6-26 10-36 6-58 14 14 20 34 14 58zM258 340c-4-18 8-28 4-44 12 12 16 26 12 44z" fill="#fff0b0"/></g>
+      </svg>
+      <div class="sparks"><i style="left:18%;--d:4s;--w:-1s;--x:20px;--y:40%"></i><i style="left:34%;--d:5s;--w:-3s;--x:-14px;--y:65%"></i><i style="left:62%;--d:4.5s;--w:-2s;--x:18px;--y:30%"></i><i style="left:80%;--d:6s;--w:-4s;--x:-22px;--y:55%"></i><i style="left:48%;--d:5.5s;--w:-.5s;--x:8px;--y:82%"></i></div>
+    </div>
+    <div class="spit">
+      <article class="it"><span class="hrs"><span lang="en">6 hours</span><span lang="ar">٦ ساعات</span></span><h3><span lang="en">Cordero al Asador</span><span lang="ar">خروف على الصليب</span></h3><p><span lang="en">Patagonian lamb splayed on the cross, basted with salmuera of garlic, rosemary and brine.</span><span lang="ar">خروف باتاغوني يُفرد على الصليب ويُدهن بمحلول الملح مع الثوم وإكليل الجبل.</span></p><span class="pr">320<small lang="en">AED</small><small lang="ar">د.إ</small></span><span class="for"><span lang="en">for 2–3</span><span lang="ar">لشخصين إلى ثلاثة</span></span></article>
+      <article class="it"><span class="hrs"><span lang="en">8 hours</span><span lang="ar">٨ ساعات</span></span><h3><span lang="en">Costillar Entero</span><span lang="ar">قفص الأضلاع الكامل</span></h3><p><span lang="en">A whole rack of beef ribs, bone-side to the fire until the crust crackles like parchment.</span><span lang="ar">قفص أضلاع بقري كامل يواجه النار من جهة العظم حتى تتقرمش قشرته كالرِّقّ.</span></p><span class="pr">480<small lang="en">AED</small><small lang="ar">د.إ</small></span><span class="for"><span lang="en">for 4</span><span lang="ar">لأربعة أشخاص</span></span></article>
+      <article class="it"><span class="hrs"><span lang="en">2 hours</span><span lang="ar">ساعتان</span></span><h3><span lang="en">Pollo a la Estaca</span><span lang="ar">دجاج على الوتد</span></h3><p><span lang="en">Butterflied free-range chicken staked beside the embers, lemon, garlic and smoked paprika.</span><span lang="ar">دجاجة بلدية مفتوحة تُثبَّت على وتد بجوار الجمر، مع الليمون والثوم والبابريكا المدخّنة.</span></p><span class="pr">135<small lang="en">AED</small><small lang="ar">د.إ</small></span><span class="for"><span lang="en">for 2</span><span lang="ar">لشخصين</span></span></article>
+    </div>
+  </div>
+</section>
+
+<section class="patches">
+  <div class="patch" id="guarnicion">
+    <i class="rivet a"></i><i class="rivet b"></i><i class="rivet c"></i><i class="rivet d"></i>
+    <h2><span lang="en">Guarniciones</span><span lang="ar">الأطباق الجانبية</span></h2>
+    <p><span lang="en">Chimichurri and salsa criolla are always on the table.</span><span lang="ar">التشيميتشوري وصلصة الكريولا حاضرتان دائمًا على المائدة.</span></p>
+    <div class="row it"><h3><span lang="en">Papas a la Provenzal</span><span lang="ar">بطاطا بروفنسال</span></h3><span class="pr">24<small lang="en">AED</small><small lang="ar">د.إ</small></span><p><span lang="en">Hand-cut fries tossed hot with garlic and parsley.</span><span lang="ar">بطاطا مقطَّعة يدويًّا تُقلَّب ساخنة مع الثوم والبقدونس.</span></p></div>
+    <div class="row it"><h3><span lang="en">Ensalada Criolla</span><span lang="ar">سلطة كريولا</span></h3><span class="pr">22<small lang="en">AED</small><small lang="ar">د.إ</small></span><p><span lang="en">Tomato, sweet onion and green pepper, sharp with red-wine-free vinegar.</span><span lang="ar">طماطم وبصل حلو وفلفل أخضر بتتبيلة خلّ التفاح اللاذعة.</span></p></div>
+    <div class="row it"><h3><span lang="en">Batata al Rescoldo</span><span lang="ar">بطاطا حلوة في الرماد</span></h3><span class="pr">26<small lang="en">AED</small><small lang="ar">د.إ</small></span><p><span lang="en">Sweet potato buried in the ashes, split, with burnt butter and thyme.</span><span lang="ar">بطاطا حلوة تُدفن في الرماد الحارّ ثم تُشقّ وتُسقى بالزبدة المحمَّرة والزعتر.</span></p></div>
+    <div class="row it"><h3><span lang="en">Humita en Cazuela</span><span lang="ar">أوميتا في الفخّار</span></h3><span class="pr">28<small lang="en">AED</small><small lang="ar">د.إ</small></span><p><span lang="en">Creamed fresh corn with basil and a lid of melted cheese.</span><span lang="ar">ذرة طازجة مهروسة بالكريمة والريحان يعلوها جبن ذائب.</span></p></div>
+  </div>
+  <div class="patch tanp" id="postres">
+    <i class="rivet a"></i><i class="rivet b"></i><i class="rivet c"></i><i class="rivet d"></i>
+    <h2><span lang="en">Postres</span><span lang="ar">الحلويات</span></h2>
+    <p><span lang="en">Everything ends in dulce de leche.</span><span lang="ar">كل الطرق تنتهي إلى «دولسي دي ليتشي».</span></p>
+    <div class="row it"><h3><span lang="en">Flan Casero</span><span lang="ar">فلان البيت</span></h3><span class="pr">34<small lang="en">AED</small><small lang="ar">د.إ</small></span><p><span lang="en">Wobbling caramel custard, a spoon of dulce de leche, whipped cream.</span><span lang="ar">كاسترد بالكراميل يهتزّ في الصحن، مع ملعقة من مربّى الحليب والكريمة المخفوقة.</span></p></div>
+    <div class="row it"><h3><span lang="en">Panqueques Quemados</span><span lang="ar">بان كيك محروق السكّر</span></h3><span class="pr">36<small lang="en">AED</small><small lang="ar">د.إ</small></span><p><span lang="en">Crêpes rolled with dulce de leche, sugar branded with a red-hot iron.</span><span lang="ar">فطائر رقيقة محشوّة بمربّى الحليب، يُكوى سكّرها بحديدة محمّاة.</span></p></div>
+    <div class="row it"><h3><span lang="en">Alfajor Helado</span><span lang="ar">ألفاخور مثلَّج</span></h3><span class="pr">32<small lang="en">AED</small><small lang="ar">د.إ</small></span><p><span lang="en">Shortbread sandwich, milk-caramel ice cream, dark chocolate shell.</span><span lang="ar">بسكويت هشّ يحضن مثلّجات الكراميل بالحليب تحت قشرة من الشوكولاتة الداكنة.</span></p></div>
+  </div>
+</section>
+
+<section id="bebidas">
+  <div class="strap">
+    <div class="buckle"><h2><span lang="en">Bebidas</span><span lang="ar">المشروبات</span></h2></div>
+    <article class="it"><h3><span lang="en">Mate Service</span><span lang="ar">خدمة المتّة</span></h3><p><span lang="en">Gourd, bombilla and a flask of hot water — pass it to your right.</span><span lang="ar">قرعة ومصّاصة معدنية وترمس ماء ساخن — ومرِّرها لمن على يمينك.</span></p><span class="pr">28<small lang="en">AED</small><small lang="ar">د.إ</small></span></article>
+    <article class="it"><h3><span lang="en">Limonada de Menta</span><span lang="ar">ليموناضة بالنعناع</span></h3><p><span lang="en">Crushed lemon, mint and fresh ginger over a mountain of ice.</span><span lang="ar">ليمون مهروس ونعناع وزنجبيل طازج فوق جبل من الثلج.</span></p><span class="pr">22<small lang="en">AED</small><small lang="ar">د.إ</small></span></article>
+    <article class="it"><h3><span lang="en">Uva Malbec Sparkler</span><span lang="ar">فوّار عنب مالبك</span></h3><p><span lang="en">Pressed Malbec grape juice, soda and a strip of orange peel. Alcohol-free.</span><span lang="ar">عصير عنب مالبك معصور مع الصودا وقشرة برتقال. خالٍ من الكحول.</span></p><span class="pr">26<small lang="en">AED</small><small lang="ar">د.إ</small></span></article>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div><p class="big"><span lang="en">Fuego y Pampa</span><span lang="ar">نار وبامبا</span></p><p><span lang="en">Argentinian asado, wood and iron.</span><span lang="ar">شواء أرجنتيني بالحطب والحديد.</span></p></div>
+    <div><h4><span lang="en">The fire is lit</span><span lang="ar">النار موقدة</span></h4><p><span lang="en">Daily 12:30 pm – 12:00 am<br>Friday from 1:30 pm</span><span lang="ar">يوميًّا ١٢:٣٠ ظهرًا – ١٢:٠٠ منتصف الليل<br>الجمعة من ١:٣٠ ظهرًا</span></p></div>
+    <div><h4><span lang="en">Find the smoke</span><span lang="ar">اتبع الدخان</span></h4><p><span lang="en">14 Saddlers' Lane, Al Qasr Wharf, Dubai<br>+971 4 555 0186</span><span lang="ar">١٤ زقاق السرّاجين، مرسى القصر، دبي<br><span dir="ltr">+971 4 555 0186</span></span></p></div>
+    <div><h4><span lang="en">Good to know</span><span lang="ar">يهمّك أن تعرف</span></h4><p><span lang="en">All meat is halal and weighed raw. Dishes may contain dairy, egg, gluten and mustard — tell your asador about allergies. Prices include VAT.</span><span lang="ar">جميع اللحوم حلال وتوزن نيّئة. قد تحتوي الأطباق على الألبان والبيض والغلوتين والخردل — أخبر معلّم الشواء عن أي حساسية. الأسعار تشمل ضريبة القيمة المضافة.</span></p></div>
+  </div>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

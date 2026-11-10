@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Seven Days Kitchen · مطبخ سبعة أيام</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Seven Days Kitchen — one soup, one plate and one sweet cooked fresh for every day of the week, laid out like a weekly planner. مطبخ سبعة أيام — أطباق اليوم.">
+<meta name="theme-color" content="#2c4560">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,900&family=Caveat:wght@600;700&family=Zain:wght@400;700;800;900&family=Playpen+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--mat:#2c4560;--paper:#fbf7ea;--ink:#1f2b43;--pen:#2450c4;--red:#e0442f;--hl:#ffe24d;--line:rgba(31,43,67,.22);--soft:#5d6a82}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:64px}
+body{font-family:"DM Sans","Zain",system-ui,sans-serif;font-size:16px;line-height:1.45;color:var(--ink);overflow-x:clip;
+  background:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px) 0 0/100% 48px,linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px) 0 0/48px 100%,
+   linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/100% 12px,linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/12px 100%,var(--mat)}
+html[lang="ar"] body{font-family:"Zain","DM Sans",system-ui,sans-serif;font-size:18px;line-height:1.55}
+html[lang="ar"] *{letter-spacing:0 !important}
+.hand{font-family:"Caveat","Playpen Sans Arabic",cursive;font-weight:700}
+html[lang="ar"] .hand{font-family:"Playpen Sans Arabic","Caveat",cursive;font-weight:600}
+a{color:inherit}
+ul{list-style:none}
+
+/* ── top strip ── */
+.top{position:fixed;top:0;inset-inline:0;z-index:50;height:50px;display:flex;align-items:center;gap:6px;padding-inline:clamp(6px,2vw,26px);background:rgba(34,54,77,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;border-bottom:1px solid rgba(255,255,255,.18)}
+.top .brand{font-weight:900;letter-spacing:.02em;margin-inline-end:auto;display:none;white-space:nowrap}
+.dnav{display:flex;gap:3px;margin-inline-end:auto}
+.dnav a{display:grid;place-items:center;width:30px;height:34px;border-radius:8px;text-decoration:none;font-weight:700;font-size:.9rem;background:rgba(255,255,255,.1)}
+html[lang="ar"] .dnav a{font-size:1.05rem}
+.dnav a.now{background:var(--hl);color:var(--ink)}
+#langToggle{flex:none;height:34px;padding:0 11px;border:0;border-radius:8px 8px 8px 2px;background:var(--hl);color:var(--ink);font:800 1rem "Zain",sans-serif;cursor:pointer}
+html[lang="ar"] #langToggle{font:700 .85rem "DM Sans",sans-serif}
+#langToggle:hover{background:#fff}
+.home-link{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.14)}
+.home-link:hover{background:#fff;color:var(--ink)}
+.home-link svg{width:14px;height:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media (min-width:560px){.top .brand{display:block}.dnav{margin-inline:auto}.dnav a{width:36px}}
+@media (min-width:1180px){.dnav{display:none}}
+
+/* ── the planner sheet ── */
+.desk{padding:86px clamp(8px,2.4vw,40px) 70px}
+.sheet{position:relative;max-width:1420px;margin:0 auto;background:radial-gradient(circle,rgba(31,43,67,.2) 1px,transparent 1.4px) 0 0/20px 20px,var(--paper);border-radius:10px;
+  box-shadow:0 2px 0 #e9e2cd,0 4px 0 #fbf7ea,0 6px 0 #e3dcc6,0 30px 60px rgba(8,16,28,.55);padding:54px clamp(12px,2.6vw,40px) clamp(30px,4vw,50px)}
+.sheet::before{content:"";position:absolute;inset-inline:22px;top:14px;height:14px;background:radial-gradient(circle at 18px 7px,#22364d 6px,transparent 7px) 0 0/36px 14px repeat-x}
+.sheet::after{content:"";position:absolute;inset-inline:22px;top:-16px;height:38px;background:repeating-linear-gradient(90deg,transparent 0 13px,#6f7781 13px,#f1f3f5 16px,#a4abb4 20px,#59616b 23px,transparent 23px 36px);border-radius:6px;filter:drop-shadow(0 3px 2px rgba(0,0,0,.35))}
+
+/* ── header of the page ── */
+.hero{display:grid;gap:26px 40px;padding-bottom:30px}
+.kick{font-size:.76rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+html[lang="ar"] .kick{font-size:1.05rem}
+h1{font-weight:900;font-size:clamp(2.9rem,8.4vw,7rem);line-height:.92;letter-spacing:-.03em;margin:.12em 0 .16em}
+html[lang="ar"] h1{line-height:1.12;font-size:clamp(3rem,8.6vw,7rem)}
+h1 mark{background:linear-gradient(100deg,transparent 0 2%,var(--hl) 3% 97%,transparent 98%) 0 62%/100% 46% no-repeat;color:inherit;padding-inline:.06em}
+.tagline{font-size:clamp(1.7rem,3.4vw,2.6rem);color:var(--pen);line-height:1.05;transform:rotate(-1.6deg);transform-origin:0 0;max-width:22ch}
+html[lang="ar"] .tagline{font-size:clamp(1.3rem,2.6vw,2rem);line-height:1.5;transform:rotate(1.6deg);transform-origin:100% 0}
+.weekof{margin-top:22px;font-weight:700;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.weekof .pill{background:var(--ink);color:var(--paper);padding:3px 12px;border-radius:99px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+html[lang="ar"] .weekof .pill{font-size:1rem}
+.props{display:flex;gap:26px;align-items:flex-start;justify-content:center;flex-wrap:wrap}
+.cal{flex:none;width:150px;background:#fff;border-radius:8px;text-align:center;transform:rotate(3deg);box-shadow:0 2px 0 #ddd,0 4px 0 #fff,0 6px 0 #d2d2d2,0 18px 24px -6px rgba(8,16,28,.4);overflow:hidden}
+.cal .m{background:var(--red);color:#fff;font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.82rem;padding:9px 4px 7px;position:relative}
+html[lang="ar"] .cal .m{font-size:1.05rem;padding:5px 4px}
+.cal .m::before,.cal .m::after{content:"";position:absolute;top:-5px;width:10px;height:14px;border-radius:5px;background:#3a4656}
+.cal .m::before{left:26px}.cal .m::after{right:26px}
+.cal .n{font-weight:900;font-size:5rem;line-height:1;padding-top:8px;font-family:"DM Sans",sans-serif}
+.cal .w{font-weight:700;padding-bottom:12px;color:var(--soft)}
+.note{position:relative;background:var(--c,#ffe873);padding:26px 20px 22px;box-shadow:0 1px 1px rgba(0,0,0,.12),0 16px 18px -10px rgba(8,16,28,.45);font-size:1.4rem;line-height:1.15;color:#23304a}
+html[lang="ar"] .note{font-size:1.08rem;line-height:1.7}
+.note::before{content:"";position:absolute;top:-11px;left:50%;width:92px;height:24px;margin-left:-46px;transform:rotate(-2deg);background:repeating-linear-gradient(45deg,rgba(224,68,47,.5) 0 6px,rgba(255,255,255,.55) 6px 12px);box-shadow:0 1px 2px rgba(0,0,0,.15)}
+.note.intro{width:min(100%,290px);transform:rotate(-2.4deg)}
+.note .sig{display:block;text-align:end;margin-top:6px;color:var(--pen)}
+@media (min-width:900px){.hero{grid-template-columns:1fr auto;align-items:center}.props{flex-wrap:nowrap;gap:34px}}
+@media (min-width:1180px){.cal{width:190px}.cal .n{font-size:6.6rem}.cal .m{font-size:.95rem;padding:11px 4px 9px}.cal .w{font-size:1.15rem}.note.intro{width:340px;font-size:1.65rem;padding:32px 26px 26px}html[lang="ar"] .note.intro{font-size:1.25rem}}
+
+/* ── week grid ── */
+.week{border-top:3px solid var(--ink);position:relative}
+.labels{display:none}
+.day{position:relative;border-bottom:3px solid var(--ink);padding:0 0 6px;scroll-margin-top:60px}
+.dh{position:relative;display:flex;gap:12px;align-items:center;padding:14px 6px 10px}
+.num{position:relative;flex:none;width:50px;height:50px;display:grid;place-items:center;border:2px solid var(--ink);border-radius:50%;background:var(--paper)}
+.num b{font-weight:900;font-size:1.35rem;font-family:"DM Sans",sans-serif}
+.ring{position:absolute;inset:-9px;width:calc(100% + 18px);height:calc(100% + 18px);fill:none;stroke:var(--red);stroke-width:2.4;stroke-linecap:round;display:none;transform:rotate(-8deg)}
+.day.circ .ring,.day.today .ring{display:block}
+.dh h2{font-weight:900;font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.1}
+html[lang="ar"] .dh h2{font-size:1.4rem}
+.th{font-family:"Caveat","Playpen Sans Arabic",cursive;font-weight:700;font-size:1.5rem;color:var(--red);line-height:1;transform:rotate(-2deg);transform-origin:0 50%}
+html[lang="ar"] .th{font-family:"Playpen Sans Arabic",cursive;font-weight:600;font-size:1.05rem;line-height:1.5;transform:rotate(2deg);transform-origin:100% 50%}
+.scrib{font-family:"Caveat","Playpen Sans Arabic",cursive;font-weight:700;color:var(--pen);font-size:1.25rem;line-height:1;display:inline-block}
+html[lang="ar"] .scrib{font-family:"Playpen Sans Arabic",cursive;font-size:.9rem;font-weight:600;line-height:1.5}
+.scrib::before{content:"↑ "}
+.tab{display:none;position:absolute;top:-3px;inset-inline-end:8px;background:var(--red);color:#fff;font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px 6px;border-radius:0 0 8px 8px}
+html[lang="ar"] .tab{font-size:.95rem;padding:2px 12px 4px}
+.day.today{background:linear-gradient(rgba(255,226,77,.3),rgba(255,226,77,.3))}
+.day.today .tab{display:block}
+.day.today .num{background:var(--hl)}
+.dish{display:grid;grid-template-columns:1fr auto;gap:0 12px;padding:10px 8px 12px;border-top:1.5px dashed var(--line);align-items:baseline}
+.lab{grid-column:1/-1;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
+html[lang="ar"] .lab{font-size:.9rem}
+.dish h3{font-family:"Caveat","Playpen Sans Arabic",cursive;font-weight:700;font-size:1.75rem;line-height:1;color:var(--pen)}
+html[lang="ar"] .dish h3{font-family:"Playpen Sans Arabic",cursive;font-weight:700;font-size:1.22rem;line-height:1.5}
+.dish.star .hl{background:linear-gradient(var(--hl),var(--hl)) 0 70%/100% 55% no-repeat;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding-inline:3px}
+.dish p{grid-column:1;font-size:.97rem;color:#3c485f;margin-top:3px}
+html[lang="ar"] .dish p{font-size:1.02rem}
+.pr{grid-column:2;grid-row:2/4;text-align:end;font-size:.68rem;font-weight:700;letter-spacing:.08em;color:var(--soft);white-space:nowrap}
+html[lang="ar"] .pr{font-size:.9rem}
+.pr b{font-family:"Caveat",cursive;font-size:2rem;line-height:.9;color:var(--red);letter-spacing:0;display:inline-block;transform:rotate(-4deg)}
+.pick{display:block;font-family:"Caveat","Playpen Sans Arabic",cursive;font-size:1.05rem;letter-spacing:0;text-transform:none;color:var(--red);font-weight:700;line-height:1.1}
+html[lang="ar"] .pick{font-family:"Playpen Sans Arabic",cursive;font-size:.8rem;font-weight:600}
+@media (min-width:700px) and (max-width:1179px){
+  .week{display:grid;grid-template-columns:1fr 1fr;column-gap:26px}
+  .day:last-child{grid-column:1/-1}
+}
+@media (min-width:1180px){
+  .week{display:grid;grid-template-columns:38px repeat(7,minmax(0,1fr));border-bottom:3px solid var(--ink)}
+  .labels,.day{display:grid;grid-row:1/5;grid-template-rows:subgrid}
+  .labels span{display:grid;place-items:center;border-top:1.5px dashed var(--line)}
+  .labels span:first-child{border:0}
+  .labels i{font-style:normal;writing-mode:vertical-rl;transform:rotate(180deg);font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--soft);white-space:nowrap}
+  html[lang="ar"] .labels i{font-size:.95rem}
+  .day{border-bottom:0;border-inline-start:1.5px solid var(--line);padding:0}
+  .dh{flex-direction:column;align-items:flex-start;gap:8px;padding:26px 10px 12px;min-height:150px}
+  .dh h2{font-size:.82rem}
+  html[lang="ar"] .dh h2{font-size:1.2rem}
+  .th{font-size:1.4rem}
+  .dish{display:flex;flex-direction:column;gap:4px;padding:12px 10px 14px}
+  .lab{display:none}
+  .dish h3{font-size:1.6rem}
+  html[lang="ar"] .dish h3{font-size:1.12rem}
+  .dish p{font-size:.86rem;flex:1}
+  html[lang="ar"] .dish p{font-size:.98rem}
+  .pr{text-align:start;margin-top:4px;display:flex;align-items:baseline;gap:5px;flex-wrap:wrap}
+  .tab{inset-inline:auto;inset-inline-start:10px}
+}
+
+/* ── every day ── */
+.always{margin-top:clamp(40px,5vw,64px)}
+.always>header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.always h2{font-weight:900;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.02em;line-height:1}
+.always>header p{font-size:1.5rem;color:var(--pen)}
+html[lang="ar"] .always>header p{font-size:1.1rem}
+.notes{display:grid;gap:34px 30px}
+.notes .note{transform:rotate(var(--r,-1.5deg))}
+.note h3{font-family:"DM Sans","Zain",sans-serif;font-weight:900;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px}
+html[lang="ar"] .note h3{font-family:"Zain",sans-serif;font-size:1.15rem}
+.note li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:5px 0;border-bottom:1.5px dotted rgba(31,43,67,.35)}
+.note li b{font-family:"Caveat",cursive;font-size:1.6rem;color:var(--red);line-height:1}
+.note li small{display:block;font-family:"DM Sans","Zain",sans-serif;font-weight:500;font-size:.86rem;line-height:1.3;color:#3c485f}
+html[lang="ar"] .note li small{font-family:"Zain",sans-serif;font-size:.98rem}
+.note.todo li{justify-content:flex-start}
+.note.todo li::before{content:"";flex:none;width:18px;height:18px;border:2px solid var(--ink);border-radius:3px;align-self:center;background:linear-gradient(45deg,transparent 44%,var(--red) 44% 56%,transparent 56%),linear-gradient(-45deg,transparent 44%,var(--red) 44% 56%,transparent 56%)}
+.note.todo li>span{flex:1}
+.note .unit{font-family:"DM Sans","Zain",sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.08em;margin-top:8px;display:block;color:#3c485f}
+html[lang="ar"] .note .unit{font-size:.92rem}
+@media (min-width:640px){.notes{grid-template-columns:1fr 1fr}}
+@media (min-width:1180px){.notes{grid-template-columns:repeat(4,1fr)}}
+
+/* ── notes / footer ── */
+.foot{margin-top:clamp(44px,5vw,70px);border-top:3px solid var(--ink);padding-top:22px;display:grid;gap:22px 40px;background:repeating-linear-gradient(transparent 0 33px,rgba(36,80,196,.2) 33px 34px) 0 26px}
+.foot h2{font-weight:900;font-size:.82rem;letter-spacing:.24em;text-transform:uppercase;color:var(--red);grid-column:1/-1}
+html[lang="ar"] .foot h2{font-size:1.2rem}
+.foot h3{font-weight:900;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:2px}
+html[lang="ar"] .foot h3{font-size:1.1rem}
+.foot p.hand{font-size:1.5rem;line-height:34px;color:var(--pen)}
+html[lang="ar"] .foot p.hand{font-size:1.08rem}
+.foot .fine{grid-column:1/-1;font-size:.93rem;color:#3c485f;background:var(--paper);padding:12px 0 0}
+@media (min-width:800px){.foot{grid-template-columns:repeat(3,1fr)}}
+.stain{position:absolute;inset-inline-end:6%;bottom:120px;width:150px;height:150px;border-radius:50%;border:9px solid rgba(140,90,40,.13);box-shadow:inset 0 0 0 2px rgba(140,90,40,.08);pointer-events:none;transform:rotate(20deg);clip-path:polygon(0 0,100% 0,100% 78%,60% 100%,0 100%)}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="top">
+  <span class="brand"><span lang="en">Seven Days Kitchen</span><span lang="ar">مطبخ سبعة أيام</span></span>
+  <nav class="dnav" aria-label="Days"><a href="#sun" data-d="0"><span lang="en">S</span><span lang="ar">ح</span></a><a href="#mon" data-d="1"><span lang="en">M</span><span lang="ar">ن</span></a><a href="#tue" data-d="2"><span lang="en">T</span><span lang="ar">ث</span></a><a href="#wed" data-d="3"><span lang="en">W</span><span lang="ar">ر</span></a><a href="#thu" data-d="4"><span lang="en">T</span><span lang="ar">خ</span></a><a href="#fri" data-d="5"><span lang="en">F</span><span lang="ar">ج</span></a><a href="#sat" data-d="6"><span lang="en">S</span><span lang="ar">س</span></a></nav>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html"><svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect width="6" height="6" rx="1"/><rect x="8" width="6" height="6" rx="1"/><rect y="8" width="6" height="6" rx="1"/><rect x="8" y="8" width="6" height="6" rx="1"/></svg><span class="sr" lang="en">All menus</span><span class="sr" lang="ar">كل القوائم</span></a>
+</div>
+
+<div class="desk"><div class="sheet">
+  <header class="hero">
+    <div>
+      <p class="kick"><span lang="en">Daily specials · Weekly planner</span><span lang="ar">أطباق اليوم · مخطّط الأسبوع</span></p>
+      <h1><span lang="en"><mark>Seven Days</mark> Kitchen</span><span lang="ar">مطبخ <mark>سبعة أيام</mark></span></h1>
+      <p class="tagline hand"><span lang="en">one honest special, every single day</span><span lang="ar">طبق صادق واحد، كل يوم بلا استثناء</span></p>
+      <p class="weekof"><span class="pill"><span lang="en">This week</span><span lang="ar">هذا الأسبوع</span></span><span id="range"><span lang="en">Sunday to Saturday</span><span lang="ar">من الأحد إلى السبت</span></span></p>
+    </div>
+    <div class="props">
+      <div class="cal" aria-hidden="true">
+        <div class="m" id="calM"><span lang="en">Open</span><span lang="ar">مفتوح</span></div>
+        <div class="n" id="calN">7</div>
+        <div class="w" id="calW"><span lang="en">days a week</span><span lang="ar">أيام في الأسبوع</span></div>
+      </div>
+      <div class="note intro hand">
+        <span lang="en">Every morning we cook one soup, one plate and one sweet. Find today in the planner. When it’s gone, it’s gone!</span><span lang="ar">في كل صباح نطهو شوربة واحدة وطبقاً واحداً وحلوى واحدة. ابحثوا عن اليوم في المخطّط، وما ينفد لا يعود!</span>
+        <span class="sig"><span lang="en">— Chef Maryam</span><span lang="ar">— الشيف مريم</span></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="week" id="week">
+<div class="labels" aria-hidden="true"><span></span><span><i><span lang="en">To start</span><span lang="ar">للبداية</span></i></span><span><i><span lang="en">The plate</span><span lang="ar">الطبق</span></i></span><span><i><span lang="en">Sweet</span><span lang="ar">الحلو</span></i></span></div>
+<article class="day" id="sun" data-d="0">
+<header class="dh"><span class="tab"><span lang="en">Today</span><span lang="ar">اليوم</span></span><span class="num"><b>1</b><svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><path d="M24 5C11 3 3 11 4 22c1 12 10 18 20 17 11-1 17-9 16-19C39 9 30 3 15 8"/></svg></span><div><h2><span lang="en">Sunday</span><span lang="ar">الأحد</span></h2><p class="th"><span lang="en">Sunday Roast</span><span lang="ar">مشوي الأحد</span></p></div></header>
+<div class="dish"><span class="lab"><span lang="en">To start</span><span lang="ar">للبداية</span></span><h3><span class="hl"><span lang="en">Roast Pumpkin Soup</span><span lang="ar">شوربة اليقطين المحمَّص</span></span></h3><p><span lang="en">Sage butter and toasted seeds.</span><span lang="ar">زبدة المريمية وبذور محمَّصة.</span></p><span class="pr"><b>18</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+<div class="dish star"><span class="lab"><span lang="en">The plate</span><span lang="ar">الطبق</span></span><h3><span class="hl"><span lang="en">Roast Chicken &amp; Potatoes</span><span lang="ar">دجاج مشوي مع البطاطا</span></span></h3><p><span lang="en">Half a lemon-thyme chicken, crisp potatoes, pan gravy and greens.</span><span lang="ar">نصف دجاجة بالليمون والزعتر، بطاطا مقرمشة، مرق الشواء وخضار.</span></p><span class="pr"><b>48</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span><span class="pick">★ <span lang="en">chef’s pick</span><span lang="ar">اختيار الشيف</span></span></span></div>
+<div class="dish"><span class="lab"><span lang="en">Sweet</span><span lang="ar">الحلو</span></span><h3><span class="hl"><span lang="en">Apple Crumble</span><span lang="ar">كرامبل التفاح</span></span></h3><p><span lang="en">Warm custard poured at the table.</span><span lang="ar">مع كاسترد دافئ يُسكب أمامكم.</span></p><span class="pr"><b>20</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+</article>
+<article class="day" id="mon" data-d="1">
+<header class="dh"><span class="tab"><span lang="en">Today</span><span lang="ar">اليوم</span></span><span class="num"><b>2</b><svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><path d="M24 5C11 3 3 11 4 22c1 12 10 18 20 17 11-1 17-9 16-19C39 9 30 3 15 8"/></svg></span><div><h2><span lang="en">Monday</span><span lang="ar">الإثنين</span></h2><p class="th"><span lang="en">Light Monday</span><span lang="ar">إثنين خفيف</span></p></div></header>
+<div class="dish"><span class="lab"><span lang="en">To start</span><span lang="ar">للبداية</span></span><h3><span class="hl"><span lang="en">Lentil &amp; Lemon Soup</span><span lang="ar">شوربة العدس بالليمون</span></span></h3><p><span lang="en">Red lentils, cumin, crisp bread.</span><span lang="ar">عدس أحمر وكمّون وخبز مقرمش.</span></p><span class="pr"><b>18</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+<div class="dish"><span class="lab"><span lang="en">The plate</span><span lang="ar">الطبق</span></span><h3><span class="hl"><span lang="en">Chicken Freekeh</span><span lang="ar">فريكة بالدجاج</span></span></h3><p><span lang="en">Smoked green wheat, toasted almonds and cool yoghurt.</span><span lang="ar">قمح أخضر مدخَّن ولوز محمَّص ولبن بارد.</span></p><span class="pr"><b>42</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+<div class="dish"><span class="lab"><span lang="en">Sweet</span><span lang="ar">الحلو</span></span><h3><span class="hl"><span lang="en">Orange Blossom Rice Pudding</span><span lang="ar">أرز بالحليب وماء الزهر</span></span></h3><p><span lang="en">With a pistachio crumb.</span><span lang="ar">مع فتات الفستق.</span></p><span class="pr"><b>16</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+</article>
+<article class="day" id="tue" data-d="2">
+<header class="dh"><span class="tab"><span lang="en">Today</span><span lang="ar">اليوم</span></span><span class="num"><b>3</b><svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><path d="M24 5C11 3 3 11 4 22c1 12 10 18 20 17 11-1 17-9 16-19C39 9 30 3 15 8"/></svg></span><div><h2><span lang="en">Tuesday</span><span lang="ar">الثلاثاء</span></h2><p class="th"><span lang="en">Pasta Tuesday</span><span lang="ar">ثلاثاء الباستا</span></p></div></header>
+<div class="dish"><span class="lab"><span lang="en">To start</span><span lang="ar">للبداية</span></span><h3><span class="hl"><span lang="en">Tomato &amp; Basil Soup</span><span lang="ar">شوربة الطماطم والريحان</span></span></h3><p><span lang="en">Slow-roasted tomatoes and a swirl of cream.</span><span lang="ar">طماطم مشوية على مهل ودوّامة من الكريمة.</span></p><span class="pr"><b>18</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+<div class="dish star"><span class="lab"><span lang="en">The plate</span><span lang="ar">الطبق</span></span><h3><span class="hl"><span lang="en">Baked Rigatoni</span><span lang="ar">ريغاتوني بالفرن</span></span></h3><p><span lang="en">Six-hour beef ragù under bubbling mozzarella.</span><span lang="ar">راغو لحم بقري مطهوّ ست ساعات تحت موزاريلا ذائبة.</span></p><span class="pr"><b>44</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span><span class="pick">★ <span lang="en">chef’s pick</span><span lang="ar">اختيار الشيف</span></span></span></div>
+<div class="dish"><span class="lab"><span lang="en">Sweet</span><span lang="ar">الحلو</span></span><h3><span class="hl"><span lang="en">Tiramisu</span><span lang="ar">تيراميسو</span></span></h3><p><span lang="en">Soaked in espresso, no alcohol, plenty of cocoa.</span><span lang="ar">مشبَّع بالإسبريسو، بلا كحول، وكاكاو وفير.</span></p><span class="pr"><b>20</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+</article>
+<article class="day" id="wed" data-d="3">
+<header class="dh"><span class="tab"><span lang="en">Today</span><span lang="ar">اليوم</span></span><span class="num"><b>4</b><svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><path d="M24 5C11 3 3 11 4 22c1 12 10 18 20 17 11-1 17-9 16-19C39 9 30 3 15 8"/></svg></span><div><h2><span lang="en">Wednesday</span><span lang="ar">الأربعاء</span></h2><p class="th"><span lang="en">Curry Wednesday</span><span lang="ar">أربعاء الكاري</span></p></div></header>
+<div class="dish"><span class="lab"><span lang="en">To start</span><span lang="ar">للبداية</span></span><h3><span class="hl"><span lang="en">Spiced Carrot Soup</span><span lang="ar">شوربة الجزر المتبَّلة</span></span></h3><p><span lang="en">Ginger, coconut and coriander.</span><span lang="ar">زنجبيل وجوز هند وكزبرة.</span></p><span class="pr"><b>18</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+<div class="dish"><span class="lab"><span lang="en">The plate</span><span lang="ar">الطبق</span></span><h3><span class="hl"><span lang="en">Butter Chicken</span><span lang="ar">دجاج بالزبدة</span></span></h3><p><span lang="en">Saffron rice and a naan straight off the stone.</span><span lang="ar">مع أرز بالزعفران وخبز نان من الحجر مباشرة.</span></p><span class="pr"><b>46</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+<div class="dish"><span class="lab"><span lang="en">Sweet</span><span lang="ar">الحلو</span></span><h3><span class="hl"><span lang="en">Mango Kulfi</span><span lang="ar">كلفي المانجو</span></span></h3><p><span lang="en">Cardamom and crushed pistachio.</span><span lang="ar">هيل وفستق مجروش.</span></p><span class="pr"><b>18</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+</article>
+<article class="day" id="thu" data-d="4">
+<header class="dh"><span class="tab"><span lang="en">Today</span><span lang="ar">اليوم</span></span><span class="num"><b>5</b><svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><path d="M24 5C11 3 3 11 4 22c1 12 10 18 20 17 11-1 17-9 16-19C39 9 30 3 15 8"/></svg></span><div><h2><span lang="en">Thursday</span><span lang="ar">الخميس</span></h2><p class="th"><span lang="en">Grill Thursday</span><span lang="ar">خميس المشاوي</span></p></div></header>
+<div class="dish"><span class="lab"><span lang="en">To start</span><span lang="ar">للبداية</span></span><h3><span class="hl"><span lang="en">Fattoush</span><span lang="ar">فتّوش</span></span></h3><p><span lang="en">Sumac, pomegranate molasses, crisp bread.</span><span lang="ar">سمّاق ودبس رمّان وخبز مقرمش.</span></p><span class="pr"><b>20</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+<div class="dish star"><span class="lab"><span lang="en">The plate</span><span lang="ar">الطبق</span></span><h3><span class="hl"><span lang="en">Mixed Grill</span><span lang="ar">مشاوي مشكَّلة</span></span></h3><p><span lang="en">Kofta, shish tawook, charred tomato and garlic toum.</span><span lang="ar">كفتة وشيش طاووق وطماطم مشوية وثومية.</span></p><span class="pr"><b>54</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span><span class="pick">★ <span lang="en">chef’s pick</span><span lang="ar">اختيار الشيف</span></span></span></div>
+<div class="dish"><span class="lab"><span lang="en">Sweet</span><span lang="ar">الحلو</span></span><h3><span class="hl"><span lang="en">Kunafa</span><span lang="ar">كنافة</span></span></h3><p><span lang="en">Served warm with cream and syrup.</span><span lang="ar">تُقدَّم دافئة بالقشطة والقَطر.</span></p><span class="pr"><b>22</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+</article>
+<article class="day circ" id="fri" data-d="5">
+<header class="dh"><span class="tab"><span lang="en">Today</span><span lang="ar">اليوم</span></span><span class="num"><b>6</b><svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><path d="M24 5C11 3 3 11 4 22c1 12 10 18 20 17 11-1 17-9 16-19C39 9 30 3 15 8"/></svg></span><div><h2><span lang="en">Friday</span><span lang="ar">الجمعة</span></h2><p class="th"><span lang="en">Family Friday</span><span lang="ar">جمعة العائلة</span></p><span class="scrib"><span lang="en">book a table!</span><span lang="ar">احجزوا طاولة!</span></span></div></header>
+<div class="dish"><span class="lab"><span lang="en">To start</span><span lang="ar">للبداية</span></span><h3><span class="hl"><span lang="en">Harira</span><span lang="ar">حريرة</span></span></h3><p><span lang="en">Chickpeas, lentils, tomato and a squeeze of lemon.</span><span lang="ar">حمّص وعدس وطماطم وعصرة ليمون.</span></p><span class="pr"><b>18</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+<div class="dish star"><span class="lab"><span lang="en">The plate</span><span lang="ar">الطبق</span></span><h3><span class="hl"><span lang="en">Lamb Machboos</span><span lang="ar">مجبوس اللحم</span></span></h3><p><span lang="en">Slow-cooked lamb, spiced rice and dried lime.</span><span lang="ar">لحم ضأن مطهوّ على مهل وأرز متبَّل ولومي.</span></p><span class="pr"><b>58</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span><span class="pick">★ <span lang="en">chef’s pick</span><span lang="ar">اختيار الشيف</span></span></span></div>
+<div class="dish"><span class="lab"><span lang="en">Sweet</span><span lang="ar">الحلو</span></span><h3><span class="hl"><span lang="en">Umm Ali</span><span lang="ar">أم علي</span></span></h3><p><span lang="en">Baked with nuts and raisins.</span><span lang="ar">تُخبز بالمكسرات والزبيب.</span></p><span class="pr"><b>20</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+</article>
+<article class="day" id="sat" data-d="6">
+<header class="dh"><span class="tab"><span lang="en">Today</span><span lang="ar">اليوم</span></span><span class="num"><b>7</b><svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><path d="M24 5C11 3 3 11 4 22c1 12 10 18 20 17 11-1 17-9 16-19C39 9 30 3 15 8"/></svg></span><div><h2><span lang="en">Saturday</span><span lang="ar">السبت</span></h2><p class="th"><span lang="en">Burger Saturday</span><span lang="ar">سبت البرغر</span></p></div></header>
+<div class="dish"><span class="lab"><span lang="en">To start</span><span lang="ar">للبداية</span></span><h3><span class="hl"><span lang="en">Sweetcorn Chowder</span><span lang="ar">شوربة الذرة الكريمية</span></span></h3><p><span lang="en">Smoked paprika and spring onion.</span><span lang="ar">بابريكا مدخَّنة وبصل أخضر.</span></p><span class="pr"><b>18</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+<div class="dish"><span class="lab"><span lang="en">The plate</span><span lang="ar">الطبق</span></span><h3><span class="hl"><span lang="en">Smash Burger</span><span lang="ar">سماش برغر</span></span></h3><p><span lang="en">Double beef, caramelised onion, pickles and fries.</span><span lang="ar">لحم بقري مزدوج وبصل مكرمل ومخلل وبطاطا مقلية.</span></p><span class="pr"><b>44</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+<div class="dish"><span class="lab"><span lang="en">Sweet</span><span lang="ar">الحلو</span></span><h3><span class="hl"><span lang="en">Fudge Brownie</span><span lang="ar">براوني الفدج</span></span></h3><p><span lang="en">Warm, with vanilla ice cream.</span><span lang="ar">دافئ مع آيس كريم الفانيليا.</span></p><span class="pr"><b>20</b> <span lang="en">QAR</span><span lang="ar">ر.ق</span></span></div>
+</article>
+
+  </main>
+
+  <section class="always">
+    <header><h2><span lang="en">Every day</span><span lang="ar">كل يوم</span></h2><p class="hand"><span lang="en">stuck to the page all week</span><span lang="ar">ملصقة على الصفحة طوال الأسبوع</span></p></header>
+    <div class="notes">
+      <div class="note hand" style="--c:#ffe873;--r:-1.6deg">
+        <h3><span lang="en">On the side</span><span lang="ar">إلى جانب الطبق</span></h3>
+        <ul>
+          <li><span><span lang="en">Flatbread &amp; hummus</span><span lang="ar">خبز وحمّص</span><small><span lang="en">Baked to order, olive oil</span><span lang="ar">يُخبز عند الطلب مع زيت الزيتون</span></small></span><b>14</b></li>
+          <li><span><span lang="en">Hand-cut fries</span><span lang="ar">بطاطا مقلية مقطَّعة باليد</span><small><span lang="en">Sea salt, za’atar mayo</span><span lang="ar">ملح بحري ومايونيز بالزعتر</span></small></span><b>12</b></li>
+          <li><span><span lang="en">House salad</span><span lang="ar">سلطة البيت</span><small><span lang="en">Leaves, herbs, lemon dressing</span><span lang="ar">أوراق خضراء وأعشاب وصلصة الليمون</span></small></span><b>16</b></li>
+          <li><span><span lang="en">Pickles &amp; olives</span><span lang="ar">مخللات وزيتون</span><small><span lang="en">From our own jars</span><span lang="ar">من مرطباناتنا</span></small></span><b>10</b></li>
+        </ul>
+        <span class="unit"><span lang="en">PRICES IN QAR</span><span lang="ar">الأسعار بالريال القطري</span></span>
+      </div>
+      <div class="note hand" style="--c:#bfe4ff;--r:1.4deg">
+        <h3><span lang="en">To drink</span><span lang="ar">للشرب</span></h3>
+        <ul>
+          <li><span><span lang="en">Mint lemonade</span><span lang="ar">ليمون بالنعناع</span><small><span lang="en">Crushed ice, fresh mint</span><span lang="ar">ثلج مجروش ونعناع طازج</span></small></span><b>14</b></li>
+          <li><span><span lang="en">Karak tea</span><span lang="ar">شاي كرك</span><small><span lang="en">Cardamom, evaporated milk</span><span lang="ar">هيل وحليب مبخَّر</span></small></span><b>8</b></li>
+          <li><span><span lang="en">Hibiscus iced tea</span><span lang="ar">كركديه مثلَّج</span><small><span lang="en">Lightly sweet, with lime</span><span lang="ar">خفيف الحلاوة مع الليمون الأخضر</span></small></span><b>12</b></li>
+          <li><span><span lang="en">Fresh orange juice</span><span lang="ar">عصير برتقال طازج</span><small><span lang="en">Squeezed when you order</span><span lang="ar">يُعصر عند الطلب</span></small></span><b>16</b></li>
+        </ul>
+        <span class="unit"><span lang="en">PRICES IN QAR</span><span lang="ar">الأسعار بالريال القطري</span></span>
+      </div>
+      <div class="note todo hand" style="--c:#ffbdd0;--r:-.8deg">
+        <h3><span lang="en">This week’s deals</span><span lang="ar">عروض الأسبوع</span></h3>
+        <ul>
+          <li><span><span lang="en">The whole day</span><span lang="ar">اليوم كاملاً</span><small><span lang="en">Soup + plate + sweet</span><span lang="ar">شوربة + طبق + حلوى</span></small></span><b>68</b></li>
+          <li><span><span lang="en">Lunch box to go</span><span lang="ar">علبة الغداء السفري</span><small><span lang="en">Plate + any drink, 12:00–15:00</span><span lang="ar">طبق + أي مشروب، 12:00–15:00</span></small></span><b>48</b></li>
+          <li><span><span lang="en">Little plate</span><span lang="ar">الطبق الصغير</span><small><span lang="en">Half portion for under-tens</span><span lang="ar">نصف حصّة لمن هم دون العاشرة</span></small></span><b>24</b></li>
+        </ul>
+        <span class="unit"><span lang="en">PRICES IN QAR</span><span lang="ar">الأسعار بالريال القطري</span></span>
+      </div>
+      <div class="note hand" style="--c:#c9f0bf;--r:2deg">
+        <h3><span lang="en">Don’t forget</span><span lang="ar">لا تنسوا</span></h3>
+        <span lang="en">No meat today? Ask for the green plate: the day’s special, cooked with vegetables instead. Same care, 6 riyals less.</span><span lang="ar">لا لحم اليوم؟ اطلبوا «الطبق الأخضر»: طبق اليوم نفسه مطهوّاً بالخضار. العناية نفسها، وبستة ريالات أقل.</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <h2><span lang="en">Notes</span><span lang="ar">ملاحظات</span></h2>
+    <div><h3><span lang="en">Hours</span><span lang="ar">أوقات العمل</span></h3><p class="hand"><span lang="en">Every day 11:30 – 22:00</span><span lang="ar">كل يوم 11:30 – 22:00</span></p><p class="hand"><span lang="en">Friday from 13:00</span><span lang="ar">الجمعة من 13:00</span></p></div>
+    <div><h3><span lang="en">Find us</span><span lang="ar">العنوان</span></h3><p class="hand"><span lang="en">80 Al Mirqab Street, Doha</span><span lang="ar">80 شارع المرقاب، الدوحة</span></p><p class="hand"><span dir="ltr">+974 4455 0180</span></p></div>
+    <div><h3><span lang="en">Tomorrow</span><span lang="ar">غداً</span></h3><p class="hand"><span lang="en">Call before 10:00 and we will keep a plate with your name on it.</span><span lang="ar">اتصلوا قبل 10:00 ونحجز لكم طبقاً باسمكم.</span></p></div>
+    <p class="fine"><span lang="en">Allergens: dishes may contain gluten, milk, eggs, nuts and sesame; ask us for today’s allergen sheet. All meat is halal and nothing is cooked with alcohol. Prices in Qatari riyals.</span><span lang="ar">مسبّبات الحساسية: قد تحتوي الأطباق على الغلوتين والحليب والبيض والمكسرات والسمسم؛ اطلبوا منّا ورقة الحساسية الخاصة باليوم. جميع اللحوم حلال ولا يدخل الكحول في أي طبق. الأسعار بالريال القطري.</span></p>
+  </footer>
+  <i class="stain" aria-hidden="true"></i>
+</div></div>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+(function(){
+  try{
+    var now=new Date(),t=now.getDay(),start=new Date(now.getFullYear(),now.getMonth(),now.getDate()-t);
+    function two(en,ar){return '<span lang="en">'+en+'</span><span lang="ar">'+ar+'</span>'}
+    function f(d,o,l){return new Intl.DateTimeFormat(l==='ar'?'ar-u-nu-latn':'en-GB',o).format(d)}
+    [].forEach.call(document.querySelectorAll('.day'),function(el){
+      var i=+el.getAttribute('data-d'),d=new Date(start.getFullYear(),start.getMonth(),start.getDate()+i);
+      el.querySelector('.num b').textContent=d.getDate();
+      if(i===t)el.classList.add('today');
+    });
+    [].forEach.call(document.querySelectorAll('.dnav a'),function(a){if(+a.getAttribute('data-d')===t)a.classList.add('now')});
+    var end=new Date(start.getFullYear(),start.getMonth(),start.getDate()+6),o={day:'numeric',month:'long'};
+    document.getElementById('range').innerHTML=two(f(start,o,'en')+' – '+f(end,o,'en'),f(start,o,'ar')+' – '+f(end,o,'ar'));
+    document.getElementById('calM').innerHTML=two(f(now,{month:'long'},'en'),f(now,{month:'long'},'ar'));
+    document.getElementById('calN').textContent=now.getDate();
+    document.getElementById('calW').innerHTML=two(f(now,{weekday:'long'},'en'),f(now,{weekday:'long'},'ar'));
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

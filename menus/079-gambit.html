@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Gambit Café · مقهى غامبيت</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Gambit Café — a chess café in Riyadh. Coffee, signature drinks named after famous openings, brunch and bakes, with a board on every table. مقهى غامبيت — مقهى الشطرنج.">
+<meta name="theme-color" content="#14281b">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;600&family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--felt:#14281b;--felt2:#1d3a27;--buff:#ead9b0;--sq:#5f8b58;--paper:#f4ebd3;--ink:#1e1b16;--wal:#3b2a1d;--red:#c2412a;--rule:#cfc19c;--hl:#f3df6b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:64px}
+body{background:radial-gradient(ellipse at 30% 0,#24482f 0,var(--felt) 60%) fixed,var(--felt);color:var(--buff);font-family:"Source Serif 4","Noto Naskh Arabic",Georgia,serif;font-size:17px;line-height:1.5;overflow-x:clip}
+html[lang="ar"] body{font-family:"Noto Naskh Arabic","Source Serif 4",serif;font-size:18px;line-height:1.8}
+html[lang="ar"] *{letter-spacing:0 !important}
+.disp{font-family:"Bodoni Moda","Amiri",serif}
+html[lang="ar"] .disp,html[lang="ar"] h2,html[lang="ar"] h3{font-family:"Amiri","Bodoni Moda",serif}
+.mono,.code,.price,.ann,.count,.clock time{font-family:"IBM Plex Mono",monospace}
+a{color:inherit}
+ol,ul{list-style:none}
+.pc{display:block;width:100%;height:100%}
+.pc.w{fill:#fdf6e3;stroke:#2a1f16;stroke-width:1.5;stroke-linejoin:round;paint-order:stroke}
+.pc.b{fill:#2a1f16;stroke:#2a1f16;stroke-width:.8;stroke-linejoin:round}
+
+/* ── top bar ── */
+.top{position:fixed;top:0;inset-inline:0;z-index:50;height:48px;display:flex;align-items:center;gap:8px;padding-inline:clamp(8px,2vw,28px);background:rgba(16,32,22,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid rgba(234,217,176,.25)}
+.top .brand{font-weight:600;font-style:italic;font-size:1.25rem;margin-inline-end:auto;white-space:nowrap;display:none}
+html[lang="ar"] .top .brand{font-style:normal;font-weight:700}
+.top nav{display:flex;gap:2px;margin-inline-end:auto}
+.top nav a{display:flex;align-items:center;gap:6px;text-decoration:none;padding:4px;border-radius:6px;font-size:.84rem}
+.top nav a:hover,.top nav a:focus-visible{background:var(--sq);outline:none}
+.top nav a svg{width:30px;height:30px;flex:none}
+.top nav a span{display:none}
+#langToggle{flex:none;height:32px;padding:0 12px;border-radius:4px;border:1px solid var(--buff);background:var(--buff);color:var(--ink);font:600 .9rem "Noto Naskh Arabic",serif;cursor:pointer}
+html[lang="ar"] #langToggle{font:600 .8rem "IBM Plex Mono",monospace}
+#langToggle:hover{background:var(--hl)}
+.home-link{flex:none;width:32px;height:32px;display:grid;grid-template:1fr 1fr/1fr 1fr;border:1px solid var(--buff);border-radius:4px;overflow:hidden}
+.home-link i:nth-child(1),.home-link i:nth-child(4){background:var(--buff)}
+.home-link:hover i:nth-child(1),.home-link:hover i:nth-child(4){background:var(--hl)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media (min-width:760px){.top .brand{display:block}.top nav{margin-inline:auto}}
+@media (min-width:1180px){.top nav a span{display:inline}.top nav a{padding:4px 10px 4px 4px}.top nav a svg{width:26px;height:26px}}
+
+/* ── layout ── */
+.layout{max-width:1520px;margin:0 auto;padding:68px clamp(12px,3vw,44px) 40px;display:grid;gap:28px}
+@media (min-width:1000px){
+  .layout{grid-template-columns:minmax(360px,41%) 1fr;gap:26px clamp(30px,4vw,64px);align-items:start}
+  .side{grid-column:1;grid-row:1/3;position:sticky;top:68px}
+  .hero{grid-column:2} .sheets{grid-column:2}
+}
+
+/* ── hero ── */
+.hero{padding-top:clamp(6px,2vw,26px)}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:#b9d2a9}
+html[lang="ar"] .eyebrow{font-family:"Noto Naskh Arabic",serif;font-size:1rem}
+h1{font-weight:700;font-size:clamp(3.7rem,9.6vw,8.2rem);line-height:.92;margin:.12em 0 .1em;color:#fbf3dc}
+h1 em{font-style:italic;font-weight:600}
+h1 small{font-size:.46em;font-weight:500;display:inline-block;margin-inline-start:.15em;color:var(--hl)}
+html[lang="ar"] h1{line-height:1.25;font-size:clamp(3.4rem,8.6vw,7.2rem);margin:0}
+.tagline{font-size:clamp(1.4rem,2.6vw,2rem);font-style:italic;color:var(--hl)}
+html[lang="ar"] .tagline{font-style:normal}
+.tagline .mono{display:inline-block;font-style:normal;font-size:.7em;color:#b9d2a9;margin-inline:0 .5em}
+html[dir="rtl"] .tagline .mono{margin-inline:.5em 0}
+.intro{max-width:56ch;margin-top:14px;color:#e6dcbd}
+.kit{display:grid;gap:18px;margin-top:26px}
+@media (min-width:620px){.kit{grid-template-columns:minmax(250px,.9fr) 1.1fr;align-items:stretch}}
+.clock{position:relative;background:linear-gradient(180deg,#5a3f2a,var(--wal) 55%,#2a1d13);border-radius:10px;padding:26px 14px 12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;box-shadow:0 14px 30px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.18)}
+.clock::before,.clock::after{content:"";position:absolute;bottom:100%;width:26%;height:12px;background:linear-gradient(180deg,#d8d2c4,#8e877a);border-radius:5px 5px 0 0}
+.clock::before{inset-inline-start:12%;height:5px} .clock::after{inset-inline-end:12%}
+.face{background:var(--paper);color:var(--ink);border-radius:6px;text-align:center;padding:10px 6px 8px;box-shadow:inset 0 2px 6px rgba(0,0,0,.35)}
+.face span{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-family:"IBM Plex Mono",monospace}
+html[lang="ar"] .face span{font-family:"Noto Naskh Arabic",serif;font-size:.92rem}
+.face time{display:block;font-size:clamp(1.7rem,3vw,2.3rem);font-weight:600;line-height:1.1}
+.face.on time{color:var(--red)}
+.clock p{grid-column:1/-1;font-size:.86rem;text-align:center;color:#e6dcbd}
+.legend{border:1px solid rgba(234,217,176,.35);border-radius:10px;padding:12px 16px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-content:center;font-size:.95rem}
+.legend dt{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--hl);font-size:1.15rem;text-align:center}
+.legend dd b{color:#fbf3dc;font-weight:600}
+
+/* ── board ── */
+.frame{background:linear-gradient(135deg,#4d3725,var(--wal) 50%,#2a1d13);padding:clamp(18px,2.4vw,30px);border-radius:8px;box-shadow:0 24px 50px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.12);position:relative;direction:ltr;max-width:640px;margin-inline:auto}
+.board{display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr);aspect-ratio:1;box-shadow:0 0 0 2px #1d130b}
+.board i{position:relative;display:block;padding:7%}
+.board i.l{background:var(--buff)} .board i.d{background:var(--sq)}
+.board i.last::before{content:"";position:absolute;inset:0;background:rgba(243,223,107,.6)}
+.board i.hot::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 4px var(--red);background:rgba(194,65,42,.28);animation:pulse 1s ease-in-out infinite alternate}
+@keyframes pulse{to{background:rgba(194,65,42,.08)}}
+.board a{display:block;position:relative;transition:transform .2s}
+.board a:hover{transform:translateY(-8%) scale(1.08)}
+.board svg{position:relative;filter:drop-shadow(0 2px 1px rgba(0,0,0,.3))}
+.files,.ranks{position:absolute;display:flex;font:600 clamp(9px,1.1vw,12px) "IBM Plex Mono",monospace;color:#d9c79b;text-transform:lowercase}
+.files{inset-inline:clamp(18px,2.4vw,30px);bottom:0;height:clamp(18px,2.4vw,30px);align-items:center}
+.ranks{inset-block:clamp(18px,2.4vw,30px);left:0;width:clamp(18px,2.4vw,30px);flex-direction:column;justify-content:stretch}
+.files span,.ranks span{flex:1;display:grid;place-items:center}
+.cap{margin-top:14px;font-size:.95rem;color:#d7ccab;display:flex;gap:10px;align-items:baseline;max-width:640px;margin-inline:auto}
+.cap .mono{color:var(--hl);font-weight:600;white-space:nowrap;direction:ltr}
+.blitz{max-width:640px;margin:16px auto 0;background:var(--paper);color:var(--ink);border-radius:6px;padding:14px 18px;display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:center;border-inline-start:8px solid var(--red)}
+.blitz .k{font:600 .74rem "IBM Plex Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--red);grid-column:1/-1}
+html[lang="ar"] .blitz .k{font:600 .95rem "Noto Naskh Arabic",serif}
+.blitz h2{font-size:1.5rem;font-weight:700;line-height:1.15}
+.blitz p{font-size:.95rem;grid-column:1}
+.blitz .price{grid-row:2/4;grid-column:2;font-size:.8rem;text-align:center}
+.blitz .price b{display:block;font-size:2.2rem;line-height:1;color:var(--red)}
+
+/* ── score sheets ── */
+.sheets{display:grid;gap:clamp(26px,3vw,40px);container-type:inline-size}
+.sheet{background:var(--paper);color:var(--ink);border-radius:4px;box-shadow:0 18px 40px rgba(0,0,0,.35);overflow:hidden;scroll-margin-top:64px}
+.sheet::before{content:"";display:block;height:14px;background:conic-gradient(var(--sq) 25%,var(--buff) 0 50%,var(--sq) 0 75%,var(--buff) 0) 0 0/28px 28px}
+.sheet>header{display:grid;grid-template-columns:auto 1fr auto;gap:8px 18px;align-items:center;padding:18px clamp(14px,2.4vw,26px);border-bottom:2px solid var(--ink)}
+.tile{width:clamp(62px,9cqw,92px);aspect-ratio:1;background:var(--sq);padding:8%;box-shadow:inset 0 0 0 3px rgba(0,0,0,.14)}
+.kicker{font:600 .76rem "IBM Plex Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+html[lang="ar"] .kicker{font:600 1rem "Noto Naskh Arabic",serif}
+.sheet h2{font-family:"Bodoni Moda","Amiri",serif;font-size:clamp(2rem,5cqw,3.1rem);font-weight:700;line-height:1.05}
+html[lang="ar"] .sheet h2{line-height:1.3}
+.blurb{font-style:italic;color:#5a5244;font-size:.98rem}
+html[lang="ar"] .blurb{font-style:normal}
+.count{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;text-align:center;color:#5a5244;border:1px solid var(--rule);padding:6px 8px;border-radius:3px;display:none}
+.count b{display:block;font-size:1.5rem;color:var(--ink);line-height:1}
+html[lang="ar"] .count{font-family:"Noto Naskh Arabic",serif;font-size:.85rem}
+html[lang="ar"] .count b{font-family:"IBM Plex Mono",monospace}
+@container (min-width:520px){.count{display:block}}
+.moves{display:grid;counter-reset:mv}
+.moves li{position:relative;display:grid;grid-template-columns:2.3em 3.1em 1fr auto;gap:0 6px;align-items:baseline;padding:13px clamp(12px,2vw,22px) 13px 8px;border-bottom:1px solid var(--rule);transition:background-color .2s}
+html[dir="rtl"] .moves li{padding:13px 8px 13px clamp(12px,2vw,22px)}
+.moves li:nth-child(odd){counter-increment:mv}
+.moves li::before{font:400 .82rem "IBM Plex Mono",monospace;color:#8a7f66;text-align:end;padding-inline-end:4px;direction:ltr}
+.moves li:nth-child(odd)::before{content:counter(mv) "."}
+.moves li:nth-child(even)::before{content:counter(mv) "…"}
+.moves li:hover,.moves li:focus-within{background:rgba(243,223,107,.45)}
+.code{font-weight:600;color:#2f6b3a;font-size:.98rem}
+.moves h3{font-family:"Bodoni Moda","Amiri",serif;font-weight:700;font-size:1.22rem;line-height:1.2}
+html[lang="ar"] .moves h3{font-size:1.32rem;line-height:1.45}
+.ann{color:var(--red);font-weight:600;margin-inline-start:.3em;font-size:1.05rem}
+.price{white-space:nowrap;font-size:.72rem;color:#5a5244;letter-spacing:.06em}
+html[lang="ar"] .price{font-family:"Noto Naskh Arabic",serif;font-size:.92rem}
+.price b{font-family:"IBM Plex Mono",monospace;font-size:1.12rem;color:var(--ink);font-weight:600}
+.moves p{grid-column:3/5;font-size:.96rem;color:#4a4335;line-height:1.4}
+html[lang="ar"] .moves p{line-height:1.65;font-size:1rem}
+.moves li.result{display:none}
+@container (min-width:720px){
+  .moves{grid-template-columns:1fr 1fr}
+  .moves li:nth-child(odd){border-inline-end:1px solid var(--rule)}
+  .moves li:nth-child(even){background-image:linear-gradient(rgba(60,42,29,.045),rgba(60,42,29,.045))}
+  .moves li.result{display:grid;place-items:center;font:italic 600 2rem "Bodoni Moda",serif;color:#b3a682;grid-template-columns:1fr}
+  .moves li.result::before{display:none}
+}
+
+/* ── result (footer) ── */
+.final>header{grid-template-columns:1fr auto}
+.final .res{font:italic 700 clamp(2rem,6cqw,3.2rem) "Bodoni Moda",serif;color:var(--red);direction:ltr}
+.facts{display:grid;gap:0}
+.facts>div{padding:16px clamp(14px,2.4vw,26px);border-bottom:1px solid var(--rule)}
+.facts h3{font:600 .76rem "IBM Plex Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+html[lang="ar"] .facts h3{font:600 1rem "Noto Naskh Arabic",serif}
+@container (min-width:720px){.facts{grid-template-columns:1fr 1fr 1fr}.facts>div+div{border-inline-start:1px solid var(--rule)}.facts>.wide{grid-column:1/-1;border-inline-start:0}}
+.facts .wide{font-size:.94rem;color:#4a4335}
+.sign{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:26px clamp(14px,2.4vw,26px) 22px;font:400 .74rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:#5a5244}
+html[lang="ar"] .sign{font:400 .95rem "Noto Naskh Arabic",serif}
+.sign span{border-top:1px solid var(--ink);padding-top:6px}
+.sign i{display:block;font:italic 600 1.6rem "Bodoni Moda","Amiri",serif;color:#27457a;text-transform:none;letter-spacing:0;margin-bottom:2px;transform:rotate(-3deg);transform-origin:0 100%}
+html[lang="ar"] .sign i{font:700 1.5rem "Amiri",serif;transform:rotate(3deg);transform-origin:100% 100%}
+
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="pP" viewBox="0 0 45 45"><circle cx="22.5" cy="13" r="6"/><path d="M15 20.5h15l-2.500 3.500h-10zM18.500 24h8c0 5 4.500 7 5.500 12h-19c1-5 5.500-7 5.500-12zM10 36.500h25V41H10z"/></symbol>
+  <symbol id="pR" viewBox="0 0 45 45"><path d="M11 6h5v4h4V6h5v4h4V6h5v9l-3 3v11l3 4v3.500H11V33l3-4V18l-3-3zM9 36.500h27V41H9z"/></symbol>
+  <symbol id="pB" viewBox="0 0 45 45"><circle cx="22.5" cy="6.5" r="2.6"/><path fill-rule="evenodd" d="M22.500 10c6 5 9 10 9 15 0 3-2 5-4.500 6l2.500 5.500h-14L18 31c-2.500-1-4.500-3-4.500-6 0-5 3-10 9-15zM24.800 15.500l-4.800 7 1.600 1.100 4.800-7z"/><path d="M10 36.500h25V41H10z"/></symbol>
+  <symbol id="pN" viewBox="0 0 45 45"><path fill-rule="evenodd" d="M13 36.500c0-10 4-13 7-16-3 1.500-5 3.500-7.500 3.500L10 20.500l6-9L19.500 5l2.500 4c8 1 13 8.500 13 17.500v10zM19.300 13.800a1.600 1.600 0 103.200 0 1.600 1.600 0 10-3.200 0z"/><path d="M10 36.500h27V41H10z"/></symbol>
+  <symbol id="pQ" viewBox="0 0 45 45"><circle cx="7.500" cy="13" r="2.500"/><circle cx="15" cy="8.500" r="2.500"/><circle cx="22.500" cy="7" r="2.500"/><circle cx="30" cy="8.500" r="2.500"/><circle cx="37.500" cy="13" r="2.500"/><path d="M7.500 15.500l5 15h20l5-15-7 8.500L30 11l-7.500 11.500L15 11l-.500 13zM12.500 30.500h20l1.500 6h-23zM10 36.500h25V41H10z"/></symbol>
+  <symbol id="pK" viewBox="0 0 45 45"><path d="M21 1.500h3V5h3.500v3H24v5h-3V8h-3.500V5H21z"/><path d="M22.500 13c-3.500 0-6 2.500-6 5.500-3-1.500-8.500 0-8.500 5.500 0 5 4.500 8.500 6 12.500h17c1.500-4 6-7.500 6-12.500 0-5.500-5.500-7-8.500-5.500 0-3-2.500-5.500-6-5.500zM10 36.500h25V41H10z"/></symbol>
+</svg>
+
+<div class="top">
+  <span class="brand disp"><span lang="en">Gambit Café</span><span lang="ar">مقهى غامبيت</span></span>
+  <nav aria-label="Pieces"><a href="#king"><svg class="pc w" viewBox="0 0 45 45" aria-hidden="true"><use href="#pK"/></svg><span lang="en">Classics</span><span lang="ar">الكلاسيكيات</span></a><a href="#queen"><svg class="pc w" viewBox="0 0 45 45" aria-hidden="true"><use href="#pQ"/></svg><span lang="en">Signatures</span><span lang="ar">مشروبات الدار</span></a><a href="#knight"><svg class="pc w" viewBox="0 0 45 45" aria-hidden="true"><use href="#pN"/></svg><span lang="en">Brunch</span><span lang="ar">البرنش</span></a><a href="#rook"><svg class="pc w" viewBox="0 0 45 45" aria-hidden="true"><use href="#pR"/></svg><span lang="en">Toasties</span><span lang="ar">التوستي</span></a><a href="#bishop"><svg class="pc w" viewBox="0 0 45 45" aria-hidden="true"><use href="#pB"/></svg><span lang="en">Bakes</span><span lang="ar">المخبوزات</span></a><a href="#pawn"><svg class="pc w" viewBox="0 0 45 45" aria-hidden="true"><use href="#pP"/></svg><span lang="en">Small bites</span><span lang="ar">لقيمات</span></a></nav>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html"><i></i><i></i><i></i><i></i><span class="sr" lang="en">All menus</span><span class="sr" lang="ar">كل القوائم</span></a>
+</div>
+
+<div class="layout">
+  <header class="hero">
+    <p class="eyebrow"><span lang="en">Chess Café · Al Olaya, Riyadh</span><span lang="ar">مقهى الشطرنج · العليا، الرياض</span></p>
+    <h1 class="disp"><span lang="en"><em>Gambit</em> <small>Café</small></span><span lang="ar">مقهى غامبيت</span></h1>
+    <p class="tagline disp"><span class="mono" dir="ltr">1. ☕ …</span><span lang="en">Your move.</span><span lang="ar">النقلة لكم.</span></p>
+    <p class="intro"><span lang="en">Sixty-four squares on every table and a kitchen that plays the long game. Our menu is written like a scoresheet: pick a piece, read the moves, and hover a line to see it land on the board.</span><span lang="ar">أربعة وستون مربّعاً على كل طاولة، ومطبخ يجيد اللعب على المدى الطويل. قائمتنا مكتوبة على هيئة ورقة تدوين النقلات: اختاروا قطعة، واقرأوا النقلات، ومرّوا على أي سطر لتروا موقعه على الرقعة.</span></p>
+    <div class="kit">
+      <div class="clock">
+        <div class="face on"><span><span lang="en">We open</span><span lang="ar">نفتح</span></span><time>08:00</time></div>
+        <div class="face"><span><span lang="en">Flag falls</span><span lang="ar">يسقط العلم</span></span><time>23:00</time></div>
+        <p><span lang="en">Friday &amp; Saturday the flag falls at 01:00</span><span lang="ar">الجمعة والسبت يسقط العلم عند 01:00</span></p>
+      </div>
+      <dl class="legend">
+        <dt dir="ltr">!</dt><dd><span lang="en"><b>Good move.</b> The staff favourite.</span><span lang="ar"><b>نقلة جيدة.</b> المفضّل لدى فريقنا.</span></dd>
+        <dt dir="ltr">!!</dt><dd><span lang="en"><b>Brilliant.</b> A house signature.</span><span lang="ar"><b>نقلة رائعة.</b> من توقيع الدار.</span></dd>
+        <dt dir="ltr">?!</dt><dd><span lang="en"><b>Dubious, but fun.</b> Bold or spicy.</span><span lang="ar"><b>مريبة لكنها ممتعة.</b> جريء أو حارّ.</span></dd>
+        <dt dir="ltr">#</dt><dd><span lang="en"><b>Checkmate.</b> Ends the game.</span><span lang="ar"><b>كش مات.</b> خاتمة المباراة.</span></dd>
+      </dl>
+    </div>
+  </header>
+
+  <aside class="side">
+    <div class="frame">
+      <div class="board" id="board"><i class="l" data-sq="a8"><svg class="pc b" viewBox="0 0 45 45"><use href="#pR"/></svg></i><i class="d" data-sq="b8"><svg class="pc b" viewBox="0 0 45 45"><use href="#pN"/></svg></i><i class="l" data-sq="c8"><svg class="pc b" viewBox="0 0 45 45"><use href="#pB"/></svg></i><i class="d" data-sq="d8"><svg class="pc b" viewBox="0 0 45 45"><use href="#pQ"/></svg></i><i class="l" data-sq="e8"><svg class="pc b" viewBox="0 0 45 45"><use href="#pK"/></svg></i><i class="d" data-sq="f8"><svg class="pc b" viewBox="0 0 45 45"><use href="#pB"/></svg></i><i class="l" data-sq="g8"><svg class="pc b" viewBox="0 0 45 45"><use href="#pN"/></svg></i><i class="d" data-sq="h8"><svg class="pc b" viewBox="0 0 45 45"><use href="#pR"/></svg></i><i class="d" data-sq="a7"><svg class="pc b" viewBox="0 0 45 45"><use href="#pP"/></svg></i><i class="l" data-sq="b7"><svg class="pc b" viewBox="0 0 45 45"><use href="#pP"/></svg></i><i class="d" data-sq="c7"><svg class="pc b" viewBox="0 0 45 45"><use href="#pP"/></svg></i><i class="l" data-sq="d7"></i><i class="d" data-sq="e7"><svg class="pc b" viewBox="0 0 45 45"><use href="#pP"/></svg></i><i class="l" data-sq="f7"><svg class="pc b" viewBox="0 0 45 45"><use href="#pP"/></svg></i><i class="d" data-sq="g7"><svg class="pc b" viewBox="0 0 45 45"><use href="#pP"/></svg></i><i class="l" data-sq="h7"><svg class="pc b" viewBox="0 0 45 45"><use href="#pP"/></svg></i><i class="l" data-sq="a6"></i><i class="d" data-sq="b6"></i><i class="l" data-sq="c6"></i><i class="d" data-sq="d6"></i><i class="l" data-sq="e6"></i><i class="d" data-sq="f6"></i><i class="l" data-sq="g6"></i><i class="d" data-sq="h6"></i><i class="d" data-sq="a5"></i><i class="l" data-sq="b5"></i><i class="d" data-sq="c5"></i><i class="l" data-sq="d5"><svg class="pc b" viewBox="0 0 45 45"><use href="#pP"/></svg></i><i class="d" data-sq="e5"></i><i class="l" data-sq="f5"></i><i class="d" data-sq="g5"></i><i class="l" data-sq="h5"></i><i class="l" data-sq="a4"></i><i class="d" data-sq="b4"></i><i class="l last" data-sq="c4"><a href="#pawn" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pP"/></svg></a></i><i class="d" data-sq="d4"><a href="#pawn" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pP"/></svg></a></i><i class="l" data-sq="e4"></i><i class="d" data-sq="f4"></i><i class="l" data-sq="g4"></i><i class="d" data-sq="h4"></i><i class="d" data-sq="a3"></i><i class="l" data-sq="b3"></i><i class="d" data-sq="c3"></i><i class="l" data-sq="d3"></i><i class="d" data-sq="e3"></i><i class="l" data-sq="f3"></i><i class="d" data-sq="g3"></i><i class="l" data-sq="h3"></i><i class="l" data-sq="a2"><a href="#pawn" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pP"/></svg></a></i><i class="d" data-sq="b2"><a href="#pawn" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pP"/></svg></a></i><i class="l last" data-sq="c2"></i><i class="d" data-sq="d2"></i><i class="l" data-sq="e2"><a href="#pawn" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pP"/></svg></a></i><i class="d" data-sq="f2"><a href="#pawn" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pP"/></svg></a></i><i class="l" data-sq="g2"><a href="#pawn" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pP"/></svg></a></i><i class="d" data-sq="h2"><a href="#pawn" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pP"/></svg></a></i><i class="d" data-sq="a1"><a href="#rook" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pR"/></svg></a></i><i class="l" data-sq="b1"><a href="#knight" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pN"/></svg></a></i><i class="d" data-sq="c1"><a href="#bishop" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pB"/></svg></a></i><i class="l" data-sq="d1"><a href="#queen" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pQ"/></svg></a></i><i class="d" data-sq="e1"><a href="#king" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pK"/></svg></a></i><i class="l" data-sq="f1"><a href="#bishop" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pB"/></svg></a></i><i class="d" data-sq="g1"><a href="#knight" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pN"/></svg></a></i><i class="l" data-sq="h1"><a href="#rook" tabindex="-1" aria-hidden="true"><svg class="pc w" viewBox="0 0 45 45"><use href="#pR"/></svg></a></i></div>
+      <div class="ranks" aria-hidden="true"><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+      <div class="files" aria-hidden="true"><span>a</span><span>b</span><span>c</span><span>d</span><span>e</span><span>f</span><span>g</span><span>h</span></div>
+    </div>
+    <p class="cap"><span class="mono">1. d4 d5 2. c4</span><span><span lang="en">The Queen’s Gambit. White offers a pawn; we offer breakfast. Tap a white piece to open its page.</span><span lang="ar">مناورة الوزير. الأبيض يعرض بيدقاً، ونحن نعرض الفطور. المسوا أي قطعة بيضاء لفتح صفحتها.</span></span></p>
+    <div class="blitz">
+      <p class="k"><span lang="en">Blitz breakfast · 5+0 · before 10:00</span><span lang="ar">فطور البليتز · 5+0 · قبل 10:00</span></p>
+      <h2 class="disp"><span lang="en">Any classic + any bake</span><span lang="ar">أي كلاسيكية + أي مخبوز</span></h2>
+      <p><span lang="en">On your table in five minutes, or the coffee is on us.</span><span lang="ar">على طاولتكم في خمس دقائق، وإلا فالقهوة على حسابنا.</span></p>
+      <span class="price"><b>26</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span>
+    </div>
+  </aside>
+
+  <main class="sheets">
+<section class="sheet" id="king">
+<header><div class="tile"><svg class="pc w" viewBox="0 0 45 45" aria-hidden="true"><use href="#pK"/></svg></div><div><p class="kicker"><span lang="en">Classics</span><span lang="ar">الكلاسيكيات</span></p><h2><span lang="en">The King</span><span lang="ar">الملك</span></h2><p class="blurb"><span lang="en">One square at a time. Coffee and tea, played straight.</span><span lang="ar">مربّع واحد في كل نقلة. قهوة وشاي بلا تعقيد.</span></p></div><span class="count"><b>6</b> <span lang="en">moves</span><span lang="ar">نقلات</span></span></header>
+<ol class="moves">
+<li data-sq="e1"><span class="code" dir="ltr">Ke1</span><h3><span lang="en">Espresso</span><span lang="ar">إسبريسو</span></h3><span class="price"><b>12</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">A double shot of our house roast: dark chocolate, cherry, a clean finish.</span><span lang="ar">جرعة مزدوجة من تحميصتنا الخاصة: شوكولاتة داكنة وكرز وخاتمة نظيفة.</span></p></li>
+<li data-sq="d2"><span class="code" dir="ltr">Kd2</span><h3><span lang="en">Cortado</span><span lang="ar">كورتادو</span></h3><span class="price"><b>15</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Equal parts espresso and steamed milk. A balanced position.</span><span lang="ar">إسبريسو وحليب مبخَّر بمقدارين متساويين. وضعٌ متوازن.</span></p></li>
+<li data-sq="e2"><span class="code" dir="ltr">Ke2</span><h3><span lang="en">Flat White</span><span lang="ar">فلات وايت</span><b class="ann" dir="ltr">!</b></h3><span class="price"><b>18</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Velvet microfoam over a double ristretto.</span><span lang="ar">رغوة مخملية فوق ريستريتو مزدوج.</span></p></li>
+<li data-sq="f2"><span class="code" dir="ltr">Kf2</span><h3><span lang="en">Filter of the Day</span><span lang="ar">قهوة اليوم المقطَّرة</span></h3><span class="price"><b>20</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Single-origin V60, brewed to order. Ask which bean is on the board.</span><span lang="ar">محصول واحد بطريقة V60 يُحضَّر عند الطلب. اسألوا عن حبوب اليوم.</span></p></li>
+<li data-sq="d1"><span class="code" dir="ltr">Kd1</span><h3><span lang="en">Saudi Coffee &amp; Dates</span><span lang="ar">قهوة سعودية وتمر</span></h3><span class="price"><b>16</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Golden roast with cardamom and saffron, poured from the dallah.</span><span lang="ar">تحميص ذهبي بالهيل والزعفران يُصبّ من الدلّة.</span></p></li>
+<li data-sq="f1"><span class="code" dir="ltr">Kf1</span><h3><span lang="en">Pot of Tea</span><span lang="ar">إبريق شاي</span></h3><span class="price"><b>16</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Loose-leaf black, fresh mint or karak. Enough for a long endgame.</span><span lang="ar">شاي أسود سائب أو بالنعناع الطازج أو كرك. يكفي لنهاية مباراة طويلة.</span></p></li>
+</ol>
+</section>
+<section class="sheet" id="queen">
+<header><div class="tile"><svg class="pc w" viewBox="0 0 45 45" aria-hidden="true"><use href="#pQ"/></svg></div><div><p class="kicker"><span lang="en">Signatures</span><span lang="ar">مشروبات الدار</span></p><h2><span lang="en">The Queen</span><span lang="ar">الوزير</span></h2><p class="blurb"><span lang="en">Goes wherever she likes. House drinks named for famous openings.</span><span lang="ar">يتحرّك حيث يشاء. مشروباتنا الخاصة بأسماء أشهر الافتتاحيات.</span></p></div><span class="count"><b>5</b> <span lang="en">moves</span><span lang="ar">نقلات</span></span></header>
+<ol class="moves">
+<li data-sq="d4"><span class="code" dir="ltr">Qd4</span><h3><span lang="en">Queen’s Gambit</span><span lang="ar">مناورة الوزير</span><b class="ann" dir="ltr">!!</b></h3><span class="price"><b>24</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Espresso under rose and cardamom cream. We give up a pawn of sweetness for position.</span><span lang="ar">إسبريسو تحت كريمة الورد والهيل. نضحّي ببيدق من الحلاوة لكسب الموقع.</span></p></li>
+<li data-sq="h5"><span class="code" dir="ltr">Qh5</span><h3><span lang="en">Scholar’s Mate</span><span lang="ar">مات الراعي</span></h3><span class="price"><b>22</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Four moves over ice: espresso, cold milk, date syrup, sea salt. Over before you notice.</span><span lang="ar">أربع نقلات على الثلج: إسبريسو وحليب بارد ودبس تمر وملح بحري. تنتهي قبل أن تنتبهوا.</span></p></li>
+<li data-sq="b3"><span class="code" dir="ltr">Qb3</span><h3><span lang="en">The Sicilian</span><span lang="ar">الدفاع الصقلّي</span><b class="ann" dir="ltr">?!</b></h3><span class="price"><b>22</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Blood orange, espresso and tonic. Sharp, unbalanced, not for the cautious.</span><span lang="ar">برتقال أحمر وإسبريسو وتونيك. حادّ وغير متوازن، وليس للحذرين.</span></p></li>
+<li data-sq="d2"><span class="code" dir="ltr">Qd2</span><h3><span lang="en">Caro-Kann</span><span lang="ar">كارو-كان</span></h3><span class="price"><b>20</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Dark 70% hot chocolate with orange zest. Solid, dependable, hard to break.</span><span lang="ar">شوكولاتة ساخنة داكنة 70٪ مع بشر البرتقال. متينة وموثوقة وعصيّة على الاختراق.</span></p></li>
+<li data-sq="a4"><span class="code" dir="ltr">Qa4</span><h3><span lang="en">Zugzwang</span><span lang="ar">تسوغتسفانغ</span><b class="ann" dir="ltr">!</b></h3><span class="price"><b>24</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Matcha, pistachio and oat milk. Every other choice now looks worse.</span><span lang="ar">ماتشا وفستق وحليب الشوفان. كل خيار آخر يبدو الآن أسوأ.</span></p></li>
+<li class="result" aria-hidden="true"><span dir="ltr">1 – 0</span></li>
+</ol>
+</section>
+<section class="sheet" id="knight">
+<header><div class="tile"><svg class="pc w" viewBox="0 0 45 45" aria-hidden="true"><use href="#pN"/></svg></div><div><p class="kicker"><span lang="en">Brunch</span><span lang="ar">البرنش</span></p><h2><span lang="en">The Knight</span><span lang="ar">الحصان</span></h2><p class="blurb"><span lang="en">Jumps over everything. Brunch plates, served all day.</span><span lang="ar">يقفز فوق كل شيء. أطباق البرنش تُقدَّم طوال اليوم.</span></p></div><span class="count"><b>4</b> <span lang="en">moves</span><span lang="ar">نقلات</span></span></header>
+<ol class="moves">
+<li data-sq="f3"><span class="code" dir="ltr">Nf3</span><h3><span lang="en">Shakshuka</span><span lang="ar">شكشوكة</span><b class="ann" dir="ltr">!</b></h3><span class="price"><b>38</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Two eggs in spiced tomato and pepper, with warm tamees bread.</span><span lang="ar">بيضتان في صلصة الطماطم والفلفل المتبّلة، مع خبز التميس الدافئ.</span></p></li>
+<li data-sq="c3"><span class="code" dir="ltr">Nc3</span><h3><span lang="en">Turkey &amp; Avocado Sourdough</span><span lang="ar">خبز مخمَّر بالديك الرومي والأفوكادو</span></h3><span class="price"><b>42</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Smoked turkey, crushed avocado, a poached egg and chilli flakes.</span><span lang="ar">ديك رومي مدخَّن وأفوكادو مهروس وبيضة بوشيه ورقائق الفلفل الحار.</span></p></li>
+<li data-sq="e5"><span class="code" dir="ltr">Ne5</span><h3><span lang="en">Halloumi &amp; Za’atar Eggs</span><span lang="ar">بيض بالحلّوم والزعتر</span></h3><span class="price"><b>36</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Fried eggs, grilled halloumi, za’atar and good olive oil.</span><span lang="ar">بيض مقلي وحلّوم مشوي وزعتر وزيت زيتون طيّب.</span></p></li>
+<li data-sq="d5"><span class="code" dir="ltr">Nd5</span><h3><span lang="en">The Knight Fork</span><span lang="ar">شوكة الحصان</span><b class="ann" dir="ltr">!!</b></h3><span class="price"><b>68</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">A board for two: labneh, olives, eggs, cheeses, honey and three breads. Attacks you both at once.</span><span lang="ar">طبق لشخصين: لبنة وزيتون وبيض وأجبان وعسل وثلاثة أنواع من الخبز. يهاجمكما معاً في آنٍ واحد.</span></p></li>
+</ol>
+</section>
+<section class="sheet" id="rook">
+<header><div class="tile"><svg class="pc w" viewBox="0 0 45 45" aria-hidden="true"><use href="#pR"/></svg></div><div><p class="kicker"><span lang="en">Toasties</span><span lang="ar">التوستي</span></p><h2><span lang="en">The Rook</span><span lang="ar">الرخّ</span></h2><p class="blurb"><span lang="en">Straight lines, solid structure. Pressed and toasted.</span><span lang="ar">خطوط مستقيمة وبنية متينة. مضغوط ومحمَّص.</span></p></div><span class="count"><b>4</b> <span lang="en">moves</span><span lang="ar">نقلات</span></span></header>
+<ol class="moves">
+<li data-sq="a1"><span class="code" dir="ltr">Ra1</span><h3><span lang="en">Three-Cheese Toastie</span><span lang="ar">توستي الأجبان الثلاثة</span></h3><span class="price"><b>28</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Cheddar, mozzarella and kashkaval, pressed until it crackles.</span><span lang="ar">شيدر وموزاريلا وقشقوان، يُضغط حتى يقرمش.</span></p></li>
+<li data-sq="h1"><span class="code" dir="ltr">Rh1</span><h3><span lang="en">Pastrami &amp; Pickle</span><span lang="ar">بسطرمة ومخلل</span><b class="ann" dir="ltr">!</b></h3><span class="price"><b>36</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Beef pastrami, mustard and gherkins on rye.</span><span lang="ar">بسطرمة بقرية وخردل وخيار مخلل على خبز الجاودار.</span></p></li>
+<li data-sq="d1"><span class="code" dir="ltr">Rd1</span><h3><span lang="en">Musakhan Melt</span><span lang="ar">ميلت المسخّن</span></h3><span class="price"><b>34</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Sumac chicken, caramelised onion and melted cheese.</span><span lang="ar">دجاج بالسمّاق وبصل مكرمل وجبن ذائب.</span></p></li>
+<li data-sq="e1"><span class="code" dir="ltr">Re1</span><h3><span lang="en">Mushroom &amp; Truffle</span><span lang="ar">فطر وكمأة</span></h3><span class="price"><b>32</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Roasted mushrooms, truffle cream and thyme.</span><span lang="ar">فطر محمَّص وكريمة الكمأة والزعتر.</span></p></li>
+</ol>
+</section>
+<section class="sheet" id="bishop">
+<header><div class="tile"><svg class="pc w" viewBox="0 0 45 45" aria-hidden="true"><use href="#pB"/></svg></div><div><p class="kicker"><span lang="en">Bakes</span><span lang="ar">المخبوزات</span></p><h2><span lang="en">The Bishop</span><span lang="ar">الفيل</span></h2><p class="blurb"><span lang="en">Works the long diagonals. Laminated, baked and sweet.</span><span lang="ar">سيّد الأقطار الطويلة. مورَّق ومخبوز وحلو.</span></p></div><span class="count"><b>5</b> <span lang="en">moves</span><span lang="ar">نقلات</span></span></header>
+<ol class="moves">
+<li data-sq="c4"><span class="code" dir="ltr">Bc4</span><h3><span lang="en">Butter Croissant</span><span lang="ar">كرواسون بالزبدة</span></h3><span class="price"><b>12</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Laminated over three days. Shatters on contact.</span><span lang="ar">يُورَّق على مدى ثلاثة أيام ويتفتّت عند أول لمسة.</span></p></li>
+<li data-sq="b5"><span class="code" dir="ltr">Bb5</span><h3><span lang="en">Pistachio Kunafa Croissant</span><span lang="ar">كرواسون الكنافة بالفستق</span><b class="ann" dir="ltr">!!</b></h3><span class="price"><b>22</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Filled with pistachio cream, crowned with crisp kunafa.</span><span lang="ar">محشوّ بكريمة الفستق ومتوَّج بالكنافة المقرمشة.</span></p></li>
+<li data-sq="g2"><span class="code" dir="ltr">Bg2</span><h3><span lang="en">Date &amp; Tahini Cookie</span><span lang="ar">كوكيز التمر والطحينة</span></h3><span class="price"><b>10</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Chewy middle, sesame edge. A quiet fianchetto.</span><span lang="ar">قلب طريّ وحافة بالسمسم. نقلة هادئة على الجناح.</span></p></li>
+<li data-sq="e2"><span class="code" dir="ltr">Be2</span><h3><span lang="en">Cardamom Bun</span><span lang="ar">كعكة الهيل</span></h3><span class="price"><b>14</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">A Swedish-style knot with pearl sugar.</span><span lang="ar">عقدة على الطريقة السويدية مع سكر اللؤلؤ.</span></p></li>
+<li data-sq="f4"><span class="code" dir="ltr">Bf4</span><h3><span lang="en">Basque Cheesecake</span><span lang="ar">تشيز كيك الباسك</span><b class="ann" dir="ltr">#</b></h3><span class="price"><b>26</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Burnt top, molten centre. Game over.</span><span lang="ar">سطح محروق وقلب سائل. انتهت المباراة.</span></p></li>
+<li class="result" aria-hidden="true"><span dir="ltr">1 – 0</span></li>
+</ol>
+</section>
+<section class="sheet" id="pawn">
+<header><div class="tile"><svg class="pc w" viewBox="0 0 45 45" aria-hidden="true"><use href="#pP"/></svg></div><div><p class="kicker"><span lang="en">Small bites</span><span lang="ar">لقيمات</span></p><h2><span lang="en">The Pawns</span><span lang="ar">البيادق</span></h2><p class="blurb"><span lang="en">Small, but they decide the game. Bites for the table.</span><span lang="ar">صغيرة لكنها تحسم المباراة. لقيمات للطاولة.</span></p></div><span class="count"><b>4</b> <span lang="en">moves</span><span lang="ar">نقلات</span></span></header>
+<ol class="moves">
+<li data-sq="e4"><span class="code" dir="ltr">e4</span><h3><span lang="en">Dates &amp; Mixed Nuts</span><span lang="ar">تمر ومكسرات مشكَّلة</span></h3><span class="price"><b>14</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Sukkari dates, roasted almonds and cashews.</span><span lang="ar">تمر سكّري ولوز وكاجو محمَّص.</span></p></li>
+<li data-sq="d4"><span class="code" dir="ltr">d4</span><h3><span lang="en">Marinated Olives</span><span lang="ar">زيتون متبَّل</span></h3><span class="price"><b>12</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Lemon peel, thyme and a little chilli.</span><span lang="ar">قشر الليمون والزعتر وقليل من الفلفل الحار.</span></p></li>
+<li data-sq="c4"><span class="code" dir="ltr">c4</span><h3><span lang="en">Hummus &amp; Crisps</span><span lang="ar">حمّص ورقائق الخبز</span></h3><span class="price"><b>18</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Whipped hummus, olive oil, pitta crisps.</span><span lang="ar">حمّص مخفوق وزيت زيتون ورقائق خبز عربي.</span></p></li>
+<li data-sq="f4"><span class="code" dir="ltr">f4</span><h3><span lang="en">King’s Gambit Fries</span><span lang="ar">بطاطا مناورة الملك</span><b class="ann" dir="ltr">?!</b></h3><span class="price"><b>16</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><p><span lang="en">Za’atar, chilli and lemon. Risky. Delicious.</span><span lang="ar">زعتر وفلفل حار وليمون. مجازفة لذيذة.</span></p></li>
+</ol>
+</section>
+
+    <footer class="sheet final" id="result">
+      <header><div><p class="kicker"><span lang="en">Result &amp; house rules</span><span lang="ar">النتيجة ونظام الدار</span></p><h2><span lang="en">Everybody wins</span><span lang="ar">الجميع رابحون</span></h2></div><span class="res">½ – ½</span></header>
+      <div class="facts">
+        <div><h3><span lang="en">Time control</span><span lang="ar">التوقيت</span></h3><p><span lang="en">Sunday to Thursday 08:00 – 23:00</span><span lang="ar">من الأحد إلى الخميس 08:00 – 23:00</span></p><p><span lang="en">Friday &amp; Saturday 08:00 – 01:00</span><span lang="ar">الجمعة والسبت 08:00 – 01:00</span></p></div>
+        <div><h3><span lang="en">Venue</span><span lang="ar">المكان</span></h3><p><span lang="en">79 Prince Turki Street, Al Olaya, Riyadh</span><span lang="ar">79 شارع الأمير تركي، العليا، الرياض</span></p><p><span dir="ltr">+966 11 555 0179</span></p></div>
+        <div><h3><span lang="en">House rules</span><span lang="ar">نظام الدار</span></h3><p><span lang="en">Boards and sets are free with any order; clocks on request. Blitz night every Thursday at 20:00. Touch-move applies to the last pastry.</span><span lang="ar">الرقع والقطع مجانية مع أي طلب، والساعات عند الطلب. ليلة البليتز كل خميس الساعة 20:00. وقاعدة «القطعة الملموسة تُلعب» تسري على آخر قطعة حلوى.</span></p></div>
+        <div class="wide"><p><span lang="en">Allergens: our bakes contain gluten, milk and egg; several drinks and dishes contain nuts or sesame. Tell your arbiter (the barista) before you order. All meat is halal. Prices in Saudi riyals, VAT included.</span><span lang="ar">مسبّبات الحساسية: تحتوي مخبوزاتنا على الغلوتين والحليب والبيض، وبعض المشروبات والأطباق على المكسرات أو السمسم. أخبروا الحَكَم (أي الباريستا) قبل الطلب. جميع اللحوم حلال. الأسعار بالريال السعودي شاملة الضريبة.</span></p></div>
+      </div>
+      <div class="sign"><span><i><span lang="en">You</span><span lang="ar">أنتم</span></i><span lang="en">Signature of White</span><span lang="ar">توقيع الأبيض</span></span><span><i><span lang="en">The Kitchen</span><span lang="ar">المطبخ</span></i><span lang="en">Signature of Black</span><span lang="ar">توقيع الأسود</span></span></div>
+    </footer>
+  </main>
+</div>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+(function(){
+  var b=document.getElementById('board');if(!b)return;
+  function sq(el){return b.querySelector('[data-sq="'+el.getAttribute('data-sq')+'"]')}
+  [].forEach.call(document.querySelectorAll('.moves li[data-sq]'),function(li){
+    function on(){var s=sq(li);if(s)s.classList.add('hot')}
+    function off(){var s=sq(li);if(s)s.classList.remove('hot')}
+    li.addEventListener('mouseenter',on);li.addEventListener('mouseleave',off);
+    li.addEventListener('touchstart',function(){[].forEach.call(b.querySelectorAll('.hot'),function(x){x.classList.remove('hot')});on()},{passive:true});
+  });
+})();
+</script>
+</body>
+</html>

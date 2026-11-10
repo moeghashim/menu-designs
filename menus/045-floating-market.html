@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Floating Market · السوق العائم</title>
+<meta name="description" content="Floating Market — Thai canal cooking served boat by boat: charcoal grills, boat noodles, curries, snacks and sweets. السوق العائم: مطبخ تايلندي من قارب إلى قارب.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a6670">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chonburi&family=Lemonada:wght@500;700&family=Mitr:wght@400;500&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--water:#0b7078;--deep:#075059;--lime:#c6f03e;--pink:#ff4f9a;--gold:#ffc928;--cream:#fff8e3;--wood:#9a6230;--bark:#3a2412;
+ --disp:"Chonburi","Georgia",serif;--body:"Mitr","Trebuchet MS",Verdana,sans-serif}
+html[lang="ar"]{--disp:"Lemonada","Tajawal","Tahoma",sans-serif;--body:"Tajawal","Tahoma",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--water)}
+body{font-family:var(--body);font-size:16px;line-height:1.45;color:var(--cream);background:var(--water)}
+html[lang="ar"] body{font-size:17.5px;line-height:1.7}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+.pr{unicode-bidi:isolate;direction:ltr;white-space:nowrap}
+
+.ctl{position:fixed;inset-block-start:12px;inset-inline-end:12px;z-index:60;display:flex;gap:6px}
+.ctl a,.ctl button{font:500 14px/1 var(--body);height:40px;padding:0 14px;border:3px solid var(--bark);background:var(--cream);color:var(--bark);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;border-radius:12px;box-shadow:0 4px 0 var(--bark)}
+.ctl button{background:var(--pink);color:#fff;font-weight:700}
+html[lang="en"] .ctl button{font-family:"Tajawal",sans-serif;font-size:15px}
+.ctl a:hover,.ctl button:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--bark)}
+.ctl svg{width:14px;height:14px}
+.ctl a span{display:none}
+@media(min-width:720px){html[lang="en"] .ctl a span[lang="en"],html[lang="ar"] .ctl a span[lang="ar"]{display:inline}}
+
+/* the canal */
+.canal{position:relative;overflow:clip;background:radial-gradient(ellipse 90% 520px at 50% 300px,#18929a,transparent 70%),linear-gradient(180deg,#0d7c84,var(--water) 30%,var(--deep))}
+.canal::before{content:"";position:absolute;inset:0 -240px;pointer-events:none;animation:flow 16s linear infinite;
+ background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='84'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M0 20q30-12 60 0t60 0 60 0 60 0' stroke='%23c9fff1' stroke-opacity='.2' stroke-width='2.5'/%3E%3Cpath d='M-30 62q30-10 60 0t60 0 60 0 60 0 60 0' stroke='%23032f36' stroke-opacity='.22' stroke-width='2.5'/%3E%3C/g%3E%3C/svg%3E")}
+@keyframes flow{to{transform:translateX(240px)}}
+.canal>*{position:relative}
+.pad{position:absolute;width:58px;aspect-ratio:1;border-radius:50%;background:conic-gradient(from var(--n,30deg),#39a85b 0 318deg,transparent 0);box-shadow:inset 0 0 0 3px #1f7a40,inset 0 0 0 12px rgba(255,255,255,.08);animation:bob 6s ease-in-out infinite alternate;pointer-events:none;z-index:0}
+.pad.f::after{content:"";position:absolute;inset:26%;border-radius:50%;background:radial-gradient(circle,#ffe36e 0 22%,transparent 24%),conic-gradient(#ff7fb6 0 12%,#ffd0e4 0 25%,#ff7fb6 0 37%,#ffd0e4 0 50%,#ff7fb6 0 62%,#ffd0e4 0 75%,#ff7fb6 0 87%,#ffd0e4 0);box-shadow:0 0 0 2px #d43b82}
+@keyframes bob{from{transform:translateY(-5px) rotate(-1deg)}to{transform:translateY(5px) rotate(1deg)}}
+
+/* hero */
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:190px 20px 170px;position:relative}
+.leaf{position:absolute;width:300px;height:120px;border-radius:100% 0 100% 0;background:linear-gradient(175deg,#7bd03a 0 49%,#235e1e 49% 51%,#4eae2e 51%);transform-origin:0 100%;pointer-events:none;box-shadow:0 12px 20px rgba(0,0,0,.25)}
+.lf1{inset-block-start:-70px;inset-inline-start:-90px;transform:rotate(34deg)}
+.lf2{inset-block-start:-120px;inset-inline-start:-40px;transform:rotate(62deg);background:linear-gradient(175deg,#2f8f3a 0 49%,#17481c 49% 51%,#237a30 51%)}
+.lf3{inset-block-end:-60px;inset-inline-end:-150px;transform:rotate(-150deg);transform-origin:50% 50%}
+html[dir="rtl"] .leaf{border-radius:0 100% 0 100%;transform-origin:100% 100%;background:linear-gradient(185deg,#7bd03a 0 49%,#235e1e 49% 51%,#4eae2e 51%)}html[dir="rtl"] .lf1{transform:rotate(-34deg)}html[dir="rtl"] .lf2{transform:rotate(-62deg);background:linear-gradient(185deg,#2f8f3a 0 49%,#17481c 49% 51%,#237a30 51%)}html[dir="rtl"] .lf3{transform:rotate(150deg);transform-origin:50% 50%}
+.thai{font:400 1.25rem "Chonburi",serif;color:var(--lime);letter-spacing:.1em;display:flex;align-items:center;gap:12px;justify-content:center}
+.thai::before,.thai::after{content:"";width:34px;height:3px;background:var(--lime);border-radius:3px}
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(3.5rem,15.5vw,10.5rem);line-height:.92;color:var(--cream);text-shadow:0 .045em 0 var(--pink),0 .09em 0 #a31457,0 .16em .12em rgba(0,40,45,.5);margin:10px 0 22px}
+h1 span span{display:block}
+h1 b{font-weight:400;color:var(--gold);display:block}
+html[lang="ar"] h1{font-weight:700;font-size:clamp(3rem,12.5vw,8rem);line-height:1.45;margin-top:0}
+.tag{font-size:clamp(1.15rem,2.3vw,1.6rem);font-weight:500;max-width:30ch;margin:0 auto 12px;color:#eaffd0}
+.intro{max-width:54ch;margin:0 auto;font-size:1.02rem;color:#dff4ee}
+.piers{list-style:none;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:24px}
+.piers a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:6px 16px;background:var(--cream);color:var(--bark);border:3px solid var(--bark);border-radius:99px;text-decoration:none;font-weight:500;box-shadow:0 4px 0 var(--bark)}
+html[lang="ar"] .piers a{font-weight:700}
+.piers a i{width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:0 0 0 2px var(--bark)}
+.piers a:hover{background:var(--lime)}
+.hc{z-index:2;max-width:980px}
+.sb{position:absolute;width:150px;height:auto;overflow:visible;animation:drift 7s ease-in-out infinite alternate;pointer-events:none;inset-block-start:var(--y);inset-inline-start:var(--x)}
+html[dir="rtl"] .sb{--rot:calc(180deg - var(--r))}
+html[dir="ltr"] .sb{--rot:var(--r)}
+.sb:nth-of-type(2n){animation-duration:9s;animation-delay:-3s}.sb:nth-of-type(3n){animation-duration:11s;animation-delay:-5s}
+.sb .wk{animation:wk 1.6s ease-in-out infinite alternate}
+@keyframes drift{from{transform:rotate(var(--rot)) translateX(-16px)}to{transform:rotate(var(--rot)) translateX(16px)}}
+@keyframes wk{from{opacity:.25}to{opacity:.9}}
+.s3,.s6{display:none}
+@media(min-width:900px){.hero{padding:120px 20px 160px}.sb{width:clamp(200px,19vw,290px)}.s3,.s6{display:block}.sb{inset-block-start:var(--yd);inset-inline-start:var(--xd)}.leaf{width:520px;height:200px}}
+
+/* fleet */
+.fleet{display:grid;gap:150px;padding:10px 12px 150px;max-width:1440px;margin:0 auto}
+.boat{position:relative;animation:bob 8s ease-in-out infinite alternate;scroll-margin-top:60px;--sx:1}
+.boat:nth-child(even){animation-delay:-4s;animation-duration:10s}
+.hull{position:relative;border:9px solid #4a2e17;background:repeating-linear-gradient(90deg,#9a6230 0 26px,#885426 26px 29px);border-radius:50% 50% 46px 46px/150px 150px 46px 46px;padding:96px 12px 18px;display:grid;gap:16px;box-shadow:0 0 0 4px rgba(223,246,238,.25),0 22px 34px rgba(0,30,34,.55),inset 0 0 0 5px #c08a4c}
+.prow{text-align:center;display:grid;gap:4px;justify-items:center;padding-inline:8px}
+.garland{display:flex;gap:5px;margin-bottom:6px}
+.garland i{width:15px;height:15px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 2px var(--bark)}
+.garland i:nth-child(2n){background:var(--gold)}.garland i:nth-child(3){background:#fff;width:20px;height:20px;margin-top:-2px}
+.no{font-weight:500;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime)}
+html[lang="ar"] .no{font-size:1rem;font-weight:700}
+h2{font-family:var(--disp);font-weight:400;font-size:clamp(2rem,7.4vw,2.8rem);line-height:1.02;color:var(--cream);text-shadow:0 3px 0 var(--bark)}
+html[lang="ar"] h2{font-weight:700;font-size:clamp(1.7rem,6vw,2.2rem);line-height:1.55}
+.ven{color:var(--gold);font-weight:500}
+.prow p{font-size:.98rem;max-width:34ch;color:#fff3d8}
+.cargo{display:grid;gap:10px}
+.tray{background:var(--cream);color:var(--bark);border:3px solid var(--bark);border-radius:18px;padding:13px 15px 14px;position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 12px;align-items:start;box-shadow:0 5px 0 rgba(40,20,5,.55);border-inline-start:11px solid var(--ac);transition:transform .25s}
+.tray:hover{transform:translateY(-3px) rotate(-.6deg)}
+.tray h3{font-family:var(--disp);font-weight:400;font-size:1.22rem;line-height:1.15}
+html[lang="ar"] .tray h3{font-weight:700;font-size:1.05rem;line-height:1.7}
+.tray p{grid-column:1/-1;font-size:.96rem;line-height:1.35;color:#4b3320}
+html[lang="ar"] .tray p{line-height:1.6;font-size:1rem}
+.tray .pr{font:400 1.4rem/1.1 "Chonburi",Georgia,serif;color:#b3125a}
+.tray .pr small{font-size:.62em;margin-inline-start:2px}
+.heat{display:inline-flex;gap:2px;margin-inline-start:8px;vertical-align:middle}
+.heat i{width:9px;height:15px;background:#e02b1d;border-radius:60% 40% 60% 40%/20% 20% 80% 80%;transform:rotate(18deg);box-shadow:inset 0 3px 0 #2f8f3a}
+.best{position:absolute;inset-block-start:-13px;inset-inline-end:14px;background:var(--pink);color:#fff;font-weight:500;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px 4px;border-radius:99px;border:2px solid var(--bark);transform:rotate(3deg)}
+html[lang="ar"] .best{font-size:.82rem;font-weight:700}
+.stern{display:flex;gap:14px;justify-content:center;align-items:center;padding-top:4px}
+.hat{width:74px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#8a5a1c 0 6%,transparent 7%),repeating-radial-gradient(circle,#f1d58e 0 4px,#dcb560 4px 7px);box-shadow:0 0 0 3px var(--bark),6px 8px 0 rgba(0,0,0,.28)}
+.wok{width:56px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--pot) 0 52%,#2a2a2a 54% 100%);box-shadow:0 0 0 3px var(--bark),4px 6px 0 rgba(0,0,0,.28)}
+.tail{position:absolute;width:170px;z-index:-1;inset-block-end:-112px;inset-inline-start:calc(50% - 85px);transform:rotate(90deg)}
+.tail .wake path{animation:wk 1.4s ease-in-out infinite alternate}
+.tail .wake path:nth-child(2){animation-delay:.25s}.tail .wake path:nth-child(3){animation-delay:.5s}
+@media(min-width:640px) and (max-width:999px){.fleet{padding-inline:6vw}.cargo{grid-template-columns:1fr 1fr}.hull{padding:110px 22px 22px;border-radius:50% 50% 46px 46px/190px 190px 46px 46px}}
+@media(min-width:1000px){
+ .fleet{gap:74px;padding:20px 3vw 110px}
+ .boat{max-width:1230px;width:100%;margin-inline-end:auto}
+ .boat.flip{margin-inline:auto 0}
+ .boat.wide{max-width:none;margin-inline:0}
+ .hull{grid-template-columns:minmax(0,300px) minmax(0,1fr) 96px;align-items:center;gap:26px;padding:30px 22px;padding-inline-start:104px;background:repeating-linear-gradient(0deg,#9a6230 0 26px,#885426 26px 29px);
+  border-radius:0;border-start-start-radius:360px 50%;border-end-start-radius:360px 50%;border-start-end-radius:96px 50%;border-end-end-radius:96px 50%}
+ .flip .hull{grid-template-columns:96px minmax(0,1fr) minmax(0,300px);padding-inline:22px 104px;border-radius:0;border-start-end-radius:360px 50%;border-end-end-radius:360px 50%;border-start-start-radius:96px 50%;border-end-start-radius:96px 50%}
+ .flip .prow{order:3}.flip .stern{order:-1}
+ .prow{text-align:start;justify-items:start;padding:0}
+ .cargo{grid-template-columns:1fr 1fr;gap:16px 14px}
+ .wide .cargo{grid-template-columns:repeat(3,1fr)}
+ .stern{flex-direction:column}
+ .tail{inset-block:calc(50% - 35px) auto;inset-inline:auto -150px;transform:scaleX(var(--sx))}
+ .flip .tail{inset-inline:-150px auto}
+ html[dir="ltr"] .boat.flip,html[dir="rtl"] .boat:not(.flip){--sx:-1}
+ html[dir="rtl"] .boat.flip{--sx:1}
+ h2{font-size:clamp(2.2rem,3.2vw,3rem)}
+ html[lang="ar"] h2{font-size:clamp(1.8rem,2.5vw,2.3rem)}
+}
+
+/* pier */
+footer{position:relative;background:repeating-linear-gradient(90deg,#c9945a 0 92px,#b07c42 92px 96px);color:#2a1a0c;border-top:12px solid #5a3a1c;padding:40px 20px 34px}
+footer::before{content:"";position:absolute;inset-block-start:-34px;inset-inline:0;height:44px;background:radial-gradient(circle at 22px 22px,#7a4e24 0 17px,#3a2412 18px 21px,transparent 22px) 30px 0/190px 44px repeat-x}
+.pier{max-width:1240px;margin:0 auto;display:grid;gap:24px;position:relative}
+.pier h2{color:#2a1a0c;text-shadow:0 3px 0 rgba(255,255,255,.35);font-size:clamp(2.2rem,6vw,4rem)}
+html[lang="ar"] .pier h2{font-size:clamp(1.9rem,5vw,3.2rem)}
+.pier h4{font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.84rem;background:#2a1a0c;color:var(--gold);display:inline-block;padding:3px 12px;border-radius:99px;margin-bottom:8px}
+html[lang="ar"] .pier h4{font-size:1rem;font-weight:700}
+.pier p{font-weight:500}
+.cols{display:grid;gap:22px}
+.pier small{display:block;border-top:3px dashed #5a3a1c;padding-top:14px;font-size:.92rem;font-weight:500}
+@media(min-width:860px){footer{padding:60px 4vw 40px}.cols{grid-template-columns:repeat(3,1fr);gap:40px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}html{scroll-behavior:auto}.sb{transform:rotate(var(--rot))}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sb" viewBox="-130 -42 304 84"><g class="wk" fill="none" stroke="#dff6ee" stroke-width="3" stroke-linecap="round"><path d="M152-12q8 12 0 24"/><path d="M163-20q13 20 0 40"/></g><path d="M104 0h40" stroke="#3a2412" stroke-width="5" stroke-linecap="round"/><path d="M-126 0Q-70-31 0-28Q70-26 106-13L113 0L106 13Q70 26 0 28Q-70 31-126 0Z" fill="#8a5426" stroke="#3a2412" stroke-width="4"/><path d="M-94 0Q-56-18 0-17Q60-16 94-8V8Q60 16 0 17Q-56 18-94 0Z" fill="#c9924f"/><g stroke="#3a2412" stroke-width="2.5"><circle cx="-58" r="12" fill="var(--a)"/><circle cx="-31" r="14" fill="var(--b)"/><circle cx="-2" r="14.5" fill="var(--c)"/><circle cx="27" r="13" fill="var(--a)"/><circle cx="68" r="17" fill="#f1d58e"/></g><g fill="#3a2412" opacity=".35"><circle cx="-34" cy="-4" r="3"/><circle cx="-27" cy="4" r="3"/><circle cx="-6" cy="-3" r="3.5"/><circle cx="3" cy="4" r="3"/><circle cx="25" cy="2" r="3"/><circle cx="-58" cy="0" r="3"/></g><circle cx="68" r="10" fill="none" stroke="#c99a45" stroke-width="2"/><circle cx="68" r="3" fill="#8a5a1c"/></symbol></svg>
+<div class="ctl">
+  <a class="home-link" href="../index.html" aria-label="All menus"><svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><circle cx="3" cy="3" r="2.6"/><circle cx="11" cy="3" r="2.6"/><circle cx="3" cy="11" r="2.6"/><circle cx="11" cy="11" r="2.6"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<div class="canal">
+<header class="hero">
+  <i class="leaf lf2" aria-hidden="true"></i><i class="leaf lf1" aria-hidden="true"></i><i class="leaf lf3" aria-hidden="true"></i>
+  <svg class="sb s1" style="--x:-6%;--y:92px;--xd:1%;--yd:36%;--r:16deg;--a:#ff4f9a;--b:#ffc928;--c:#c6f03e" aria-hidden="true" viewBox="-130 -42 304 84"><use href="#sb"/></svg>
+  <svg class="sb s2" style="--x:56%;--y:66px;--xd:74%;--yd:13%;--r:164deg;--a:#c6f03e;--b:#ff7a1a;--c:#ff4f9a" aria-hidden="true" viewBox="-130 -42 304 84"><use href="#sb"/></svg>
+  <svg class="sb s3" style="--xd:4%;--yd:63%;--r:-10deg;--a:#ffc928;--b:#e02b1d;--c:#7bd03a" aria-hidden="true" viewBox="-130 -42 304 84"><use href="#sb"/></svg>
+  <svg class="sb s4" style="--x:62%;--y:calc(100% - 126px);--xd:80%;--yd:57%;--r:196deg;--a:#ff7a1a;--b:#c6f03e;--c:#ffc928" aria-hidden="true" viewBox="-130 -42 304 84"><use href="#sb"/></svg>
+  <svg class="sb s5" style="--x:2%;--y:calc(100% - 76px);--xd:12%;--yd:87%;--r:8deg;--a:#7bd03a;--b:#ff4f9a;--c:#fff8e3" aria-hidden="true" viewBox="-130 -42 304 84"><use href="#sb"/></svg>
+  <svg class="sb s6" style="--xd:62%;--yd:85%;--r:172deg;--a:#ff4f9a;--b:#ffc928;--c:#ff7a1a" aria-hidden="true" viewBox="-130 -42 304 84"><use href="#sb"/></svg>
+  <i class="pad f" style="inset-block-start:31%;inset-inline-start:88%;--n:80deg" aria-hidden="true"></i>
+  <i class="pad" style="inset-block-start:94%;inset-inline-start:47%;--n:200deg;width:40px" aria-hidden="true"></i>
+  <div class="hc">
+    <p class="thai" aria-hidden="true">ตลาดน้ำ</p>
+    <h1><span lang="en"><span>Floating</span><b>Market</b></span><span lang="ar"><span>السوق</span><b>العائم</b></span></h1>
+    <p class="tag"><span lang="en">Thai canal cooking, paddled to your table boat by boat.</span><span lang="ar">مطبخ القنوات التايلندية، يصل إلى طاولتك قاربًا بعد قارب.</span></p>
+    <p class="intro"><span lang="en">On the klongs west of Bangkok, breakfast arrives by oar. We borrowed five of those boats, their cooks and their recipes. Wave one over and order straight from the hull.</span><span lang="ar">في القنوات غرب بانكوك يصل الفطور بالمجداف. استعرنا خمسة من تلك القوارب مع طهاتها ووصفاتها. لوّح لأحدها واطلب مباشرة من على متنه.</span></p>
+    <ul class="piers">
+      <li><a href="#grill" style="--c:#ff7a1a"><i></i><span lang="en">Charcoal</span><span lang="ar">الفحم</span></a></li>
+      <li><a href="#noodles" style="--c:#ffc928"><i></i><span lang="en">Noodles</span><span lang="ar">النودلز</span></a></li>
+      <li><a href="#curry" style="--c:#7bd03a"><i></i><span lang="en">Curry</span><span lang="ar">الكاري</span></a></li>
+      <li><a href="#snacks" style="--c:#ff4f9a"><i></i><span lang="en">Snacks</span><span lang="ar">المقبلات</span></a></li>
+      <li><a href="#sweets" style="--c:#fff"><i></i><span lang="en">Sweet &amp; Cool</span><span lang="ar">الحلو والبارد</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="fleet">
+  <i class="pad f" style="inset-block-start:17%;inset-inline-start:4%;--n:140deg" aria-hidden="true"></i>
+  <i class="pad" style="inset-block-start:38.5%;inset-inline-start:90%;--n:20deg;width:46px" aria-hidden="true"></i>
+  <i class="pad f" style="inset-block-start:59.5%;inset-inline-start:7%;--n:260deg;width:66px" aria-hidden="true"></i>
+  <i class="pad" style="inset-block-start:80%;inset-inline-start:86%;--n:300deg" aria-hidden="true"></i>
+<section class="boat " id="grill" style="--ac:#ff7a1a;--pot:#5b2a12"><svg class="tail" viewBox="0 0 170 70" aria-hidden="true"><path d="M0 35h112" stroke="#3a2a1c" stroke-width="5" stroke-linecap="round"/><rect x="0" y="24" width="30" height="22" rx="5" fill="#d63a2a" stroke="#3a2a1c" stroke-width="3"/><ellipse cx="118" cy="35" rx="6" ry="15" fill="#f2c230" stroke="#3a2a1c" stroke-width="3"/><g class="wake" fill="none" stroke="#dff6ee" stroke-width="3" stroke-linecap="round"><path d="M132 20q10 15 0 30"/><path d="M146 12q16 23 0 46"/><path d="M160 4q22 31 0 62"/></g></svg><div class="hull"><header class="prow"><span class="garland" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="no"><span lang="en">Boat</span><span lang="ar">القارب</span> 1</span><h2><span lang="en">Charcoal Boat</span><span lang="ar">قارب الفحم</span></h2><p class="ven"><span lang="en">Auntie Nok's grill</span><span lang="ar">شواية الخالة نوك</span></p><p><span lang="en">Skewers fanned over coconut-husk embers since five this morning.</span><span lang="ar">أسياخ تُهوّى فوق جمر قشور جوز الهند منذ الخامسة فجرًا.</span></p></header><div class="cargo"><article class="tray"><h3><span lang="en">Gai Yang</span><span lang="ar">غاي يانغ</span><span class="heat" role="img" aria-label="heat 1/3"><i></i></span></h3><p><span lang="en">Half a grilled chicken in lemongrass, garlic and white pepper, with tamarind dip.</span><span lang="ar">نصف دجاجة مشوية بعشبة الليمون والثوم والفلفل الأبيض مع صلصة التمر الهندي.</span></p><span class="pr">180<small>฿</small></span><span class="best"><span lang="en">Boat's best</span><span lang="ar">الأطيب على القارب</span></span></article><article class="tray"><h3><span lang="en">Satay Gai</span><span lang="ar">ساتيه الدجاج</span></h3><p><span lang="en">Five turmeric chicken skewers, peanut sauce, cucumber relish.</span><span lang="ar">خمسة أسياخ دجاج بالكركم مع صلصة الفول السوداني ومخلل الخيار.</span></p><span class="pr">120<small>฿</small></span></article><article class="tray"><h3><span lang="en">Suea Rong Hai</span><span lang="ar">سويا رونغ هاي</span><span class="heat" role="img" aria-label="heat 2/3"><i></i><i></i></span></h3><p><span lang="en">"Crying tiger" beef brisket, charred rare, toasted-rice chilli dip.</span><span lang="ar">صدر بقري «النمر الباكي» مشوي نصف استواء مع صلصة الفلفل والأرز المحمّص.</span></p><span class="pr">260<small>฿</small></span></article><article class="tray"><h3><span lang="en">Pla Pao</span><span lang="ar">بلا باو</span><span class="heat" role="img" aria-label="heat 1/3"><i></i></span></h3><p><span lang="en">Whole tilapia in a salt crust, stuffed with pandan, seafood sauce.</span><span lang="ar">سمكة بلطي كاملة بقشرة الملح محشوة بأوراق الباندان مع صلصة المأكولات البحرية.</span></p><span class="pr">290<small>฿</small></span></article></div><div class="stern" aria-hidden="true"><span class="wok"></span><span class="hat"></span></div></div></section>
+<section class="boat flip" id="noodles" style="--ac:#ffc928;--pot:#8a1f10"><svg class="tail" viewBox="0 0 170 70" aria-hidden="true"><path d="M0 35h112" stroke="#3a2a1c" stroke-width="5" stroke-linecap="round"/><rect x="0" y="24" width="30" height="22" rx="5" fill="#d63a2a" stroke="#3a2a1c" stroke-width="3"/><ellipse cx="118" cy="35" rx="6" ry="15" fill="#f2c230" stroke="#3a2a1c" stroke-width="3"/><g class="wake" fill="none" stroke="#dff6ee" stroke-width="3" stroke-linecap="round"><path d="M132 20q10 15 0 30"/><path d="M146 12q16 23 0 46"/><path d="M160 4q22 31 0 62"/></g></svg><div class="hull"><header class="prow"><span class="garland" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="no"><span lang="en">Boat</span><span lang="ar">القارب</span> 2</span><h2><span lang="en">Noodle Boat</span><span lang="ar">قارب النودلز</span></h2><p class="ven"><span lang="en">Uncle Daeng's broth pot</span><span lang="ar">قِدر العم دينغ</span></p><p><span lang="en">The pot has not stopped simmering since 1987. Small bowls, order three.</span><span lang="ar">لم يتوقف القِدر عن الغليان منذ 1987. الأوعية صغيرة، فاطلب ثلاثة.</span></p></header><div class="cargo"><article class="tray"><h3><span lang="en">Kuay Teow Reua</span><span lang="ar">كواي تياو رويا</span><span class="heat" role="img" aria-label="heat 2/3"><i></i><i></i></span></h3><p><span lang="en">The original boat noodles: dark spiced beef broth, rice noodles, morning glory.</span><span lang="ar">نودلز القوارب الأصلية: مرق بقري داكن بالتوابل مع نودلز الأرز والسبانخ المائية.</span></p><span class="pr">70<small>฿</small></span><span class="best"><span lang="en">Boat's best</span><span lang="ar">الأطيب على القارب</span></span></article><article class="tray"><h3><span lang="en">Pad Thai Goong</span><span lang="ar">باد تاي بالروبيان</span></h3><p><span lang="en">Wok-tossed rice noodles, river prawns, tamarind, crushed peanuts, lime.</span><span lang="ar">نودلز الأرز المقلّبة مع روبيان النهر والتمر الهندي والفول السوداني المجروش والليمون.</span></p><span class="pr">160<small>฿</small></span></article><article class="tray"><h3><span lang="en">Pad See Ew</span><span lang="ar">باد سي إيو</span></h3><p><span lang="en">Wide noodles seared with beef, Chinese broccoli and dark soy.</span><span lang="ar">نودلز عريضة محمّرة مع اللحم البقري والبروكلي الصيني والصويا الداكنة.</span></p><span class="pr">150<small>฿</small></span></article><article class="tray"><h3><span lang="en">Khao Soi Gai</span><span lang="ar">خاو سوي بالدجاج</span><span class="heat" role="img" aria-label="heat 2/3"><i></i><i></i></span></h3><p><span lang="en">Northern curry noodles, chicken leg, crisp noodle nest, pickled mustard.</span><span lang="ar">نودلز الكاري الشمالية مع فخذ الدجاج وعشّ من النودلز المقرمشة والخردل المخلل.</span></p><span class="pr">170<small>฿</small></span></article></div><div class="stern" aria-hidden="true"><span class="wok"></span><span class="hat"></span></div></div></section>
+<section class="boat " id="curry" style="--ac:#7bd03a;--pot:#3d7a1e"><svg class="tail" viewBox="0 0 170 70" aria-hidden="true"><path d="M0 35h112" stroke="#3a2a1c" stroke-width="5" stroke-linecap="round"/><rect x="0" y="24" width="30" height="22" rx="5" fill="#d63a2a" stroke="#3a2a1c" stroke-width="3"/><ellipse cx="118" cy="35" rx="6" ry="15" fill="#f2c230" stroke="#3a2a1c" stroke-width="3"/><g class="wake" fill="none" stroke="#dff6ee" stroke-width="3" stroke-linecap="round"><path d="M132 20q10 15 0 30"/><path d="M146 12q16 23 0 46"/><path d="M160 4q22 31 0 62"/></g></svg><div class="hull"><header class="prow"><span class="garland" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="no"><span lang="en">Boat</span><span lang="ar">القارب</span> 3</span><h2><span lang="en">Curry Boat</span><span lang="ar">قارب الكاري</span></h2><p class="ven"><span lang="en">Mae Ploy's clay pots</span><span lang="ar">قدور الأم بلوي الفخارية</span></p><p><span lang="en">Pastes pounded by hand in a granite mortar you can hear from the pier.</span><span lang="ar">معاجين تُدقّ يدويًا في هاون من الغرانيت تسمع صوته من الرصيف.</span></p></header><div class="cargo"><article class="tray"><h3><span lang="en">Gaeng Keow Wan</span><span lang="ar">غينغ كياو وان</span><span class="heat" role="img" aria-label="heat 3/3"><i></i><i></i><i></i></span></h3><p><span lang="en">Green curry, chicken, Thai aubergine, sweet basil, fresh coconut cream.</span><span lang="ar">كاري أخضر بالدجاج والباذنجان التايلندي والريحان الحلو وكريمة جوز الهند الطازجة.</span></p><span class="pr">190<small>฿</small></span></article><article class="tray"><h3><span lang="en">Massaman Nuea</span><span lang="ar">ماسامان باللحم</span><span class="heat" role="img" aria-label="heat 1/3"><i></i></span></h3><p><span lang="en">Slow-braised beef shin, potato, roasted peanuts, cinnamon and cardamom.</span><span lang="ar">موزات بقرية مطهوة ببطء مع البطاطا والفول السوداني المحمّص والقرفة والهيل.</span></p><span class="pr">240<small>฿</small></span><span class="best"><span lang="en">Boat's best</span><span lang="ar">الأطيب على القارب</span></span></article><article class="tray"><h3><span lang="en">Pad Krapow Gai</span><span lang="ar">باد كرابو بالدجاج</span><span class="heat" role="img" aria-label="heat 3/3"><i></i><i></i><i></i></span></h3><p><span lang="en">Minced chicken, holy basil, bird's-eye chilli, crispy fried egg over rice.</span><span lang="ar">دجاج مفروم بالريحان المقدّس وفلفل عين الطائر مع بيضة مقلية مقرمشة فوق الأرز.</span></p><span class="pr">140<small>฿</small></span></article><article class="tray"><h3><span lang="en">Tom Yum Goong</span><span lang="ar">توم يام بالروبيان</span><span class="heat" role="img" aria-label="heat 2/3"><i></i><i></i></span></h3><p><span lang="en">Hot-sour prawn soup, galangal, lemongrass, lime leaf, roasted chilli jam.</span><span lang="ar">حساء الروبيان الحار الحامض بالخولنجان وعشبة الليمون وورق الليمون ومربّى الفلفل المحمّص.</span></p><span class="pr">210<small>฿</small></span></article></div><div class="stern" aria-hidden="true"><span class="wok"></span><span class="hat"></span></div></div></section>
+<section class="boat flip" id="snacks" style="--ac:#ff4f9a;--pot:#c7e28a"><svg class="tail" viewBox="0 0 170 70" aria-hidden="true"><path d="M0 35h112" stroke="#3a2a1c" stroke-width="5" stroke-linecap="round"/><rect x="0" y="24" width="30" height="22" rx="5" fill="#d63a2a" stroke="#3a2a1c" stroke-width="3"/><ellipse cx="118" cy="35" rx="6" ry="15" fill="#f2c230" stroke="#3a2a1c" stroke-width="3"/><g class="wake" fill="none" stroke="#dff6ee" stroke-width="3" stroke-linecap="round"><path d="M132 20q10 15 0 30"/><path d="M146 12q16 23 0 46"/><path d="M160 4q22 31 0 62"/></g></svg><div class="hull"><header class="prow"><span class="garland" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="no"><span lang="en">Boat</span><span lang="ar">القارب</span> 4</span><h2><span lang="en">Snack Boat</span><span lang="ar">قارب المقبلات</span></h2><p class="ven"><span lang="en">Pim's mortar</span><span lang="ar">هاون بيم</span></p><p><span lang="en">Pounded, wrapped and fried to order. Tell Pim how many chillies.</span><span lang="ar">تُدقّ وتُلفّ وتُقلى عند الطلب. أخبر بيم كم حبة فلفل تريد.</span></p></header><div class="cargo"><article class="tray"><h3><span lang="en">Som Tam</span><span lang="ar">سوم تام</span><span class="heat" role="img" aria-label="heat 3/3"><i></i><i></i><i></i></span></h3><p><span lang="en">Green papaya pounded with lime, palm sugar, long beans and peanuts.</span><span lang="ar">بابايا خضراء مدقوقة مع الليمون وسكر النخيل واللوبياء الطويلة والفول السوداني.</span></p><span class="pr">90<small>฿</small></span><span class="best"><span lang="en">Boat's best</span><span lang="ar">الأطيب على القارب</span></span></article><article class="tray"><h3><span lang="en">Miang Kham</span><span lang="ar">ميانغ خام</span></h3><p><span lang="en">Wild betel leaves to wrap ginger, lime, toasted coconut and sweet sauce.</span><span lang="ar">أوراق التنبول البرّية تُلفّ بها قطع الزنجبيل والليمون وجوز الهند المحمّص والصلصة الحلوة.</span></p><span class="pr">110<small>฿</small></span></article><article class="tray"><h3><span lang="en">Tod Mun Pla</span><span lang="ar">تود مون بلا</span><span class="heat" role="img" aria-label="heat 1/3"><i></i></span></h3><p><span lang="en">Red-curry fish cakes, kaffir lime, cucumber-peanut relish.</span><span lang="ar">أقراص السمك بالكاري الأحمر وورق الليمون مع مخلل الخيار والفول السوداني.</span></p><span class="pr">130<small>฿</small></span></article><article class="tray"><h3><span lang="en">Por Pia Tod</span><span lang="ar">بور بيا تود</span></h3><p><span lang="en">Crisp vegetable spring rolls, glass noodles, sweet plum dip.</span><span lang="ar">لفائف خضار مقرمشة بالنودلز الزجاجية مع صلصة البرقوق الحلوة.</span></p><span class="pr">95<small>฿</small></span></article></div><div class="stern" aria-hidden="true"><span class="wok"></span><span class="hat"></span></div></div></section>
+<section class="boat wide" id="sweets" style="--ac:#ffc928;--pot:#f4f1e4"><svg class="tail" viewBox="0 0 170 70" aria-hidden="true"><path d="M0 35h112" stroke="#3a2a1c" stroke-width="5" stroke-linecap="round"/><rect x="0" y="24" width="30" height="22" rx="5" fill="#d63a2a" stroke="#3a2a1c" stroke-width="3"/><ellipse cx="118" cy="35" rx="6" ry="15" fill="#f2c230" stroke="#3a2a1c" stroke-width="3"/><g class="wake" fill="none" stroke="#dff6ee" stroke-width="3" stroke-linecap="round"><path d="M132 20q10 15 0 30"/><path d="M146 12q16 23 0 46"/><path d="M160 4q22 31 0 62"/></g></svg><div class="hull"><header class="prow"><span class="garland" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="no"><span lang="en">Boat</span><span lang="ar">القارب</span> 5</span><h2><span lang="en">Sweet &amp; Cool Boat</span><span lang="ar">قارب الحلو والبارد</span></h2><p class="ven"><span lang="en">Lek's coconut stand</span><span lang="ar">بسطة ليك لجوز الهند</span></p><p><span lang="en">The last boat on the canal and the first to sell out.</span><span lang="ar">آخر قارب في القناة وأول ما ينفد.</span></p></header><div class="cargo"><article class="tray"><h3><span lang="en">Khao Niew Mamuang</span><span lang="ar">خاو نياو مامونغ</span></h3><p><span lang="en">Ripe mango, warm coconut sticky rice, crisp mung beans.</span><span lang="ar">مانجو ناضجة مع أرز دبق دافئ بحليب جوز الهند وحبوب المونغ المقرمشة.</span></p><span class="pr">140<small>฿</small></span><span class="best"><span lang="en">Boat's best</span><span lang="ar">الأطيب على القارب</span></span></article><article class="tray"><h3><span lang="en">Khanom Krok</span><span lang="ar">خانوم كروك</span></h3><p><span lang="en">Little coconut-rice pancakes, crisp outside, custard inside.</span><span lang="ar">فطائر صغيرة من الأرز وجوز الهند، مقرمشة من الخارج وكريمية من الداخل.</span></p><span class="pr">70<small>฿</small></span></article><article class="tray"><h3><span lang="en">I-Tim Kati</span><span lang="ar">آيس كريم جوز الهند</span></h3><p><span lang="en">Coconut ice cream in the shell, peanuts, sweetcorn, palm seeds.</span><span lang="ar">آيس كريم جوز الهند في قشرته مع الفول السوداني والذرة الحلوة وبذور النخيل.</span></p><span class="pr">90<small>฿</small></span></article><article class="tray"><h3><span lang="en">Cha Yen</span><span lang="ar">تشا ين</span></h3><p><span lang="en">Thai iced tea, strong and orange, with a cloud of sweet milk.</span><span lang="ar">شاي تايلندي مثلّج، قوي وبرتقالي، تعلوه غيمة من الحليب المحلّى.</span></p><span class="pr">60<small>฿</small></span></article><article class="tray"><h3><span lang="en">Nam Manao Soda</span><span lang="ar">صودا الليمون</span></h3><p><span lang="en">Fresh lime, a pinch of salt, soda, crushed ice.</span><span lang="ar">ليمون أخضر طازج ورشّة ملح وصودا وثلج مجروش.</span></p><span class="pr">55<small>฿</small></span></article><article class="tray"><h3><span lang="en">Maprao Sot</span><span lang="ar">جوز هند طازج</span></h3><p><span lang="en">Young coconut opened with three strokes of the machete.</span><span lang="ar">جوزة هند غضّة تُفتح بثلاث ضربات من الساطور.</span></p><span class="pr">80<small>฿</small></span></article></div><div class="stern" aria-hidden="true"><span class="wok"></span><span class="hat"></span></div></div></section>
+</main>
+</div>
+
+<footer>
+  <div class="pier">
+    <h2><span lang="en">Tie up at the pier.</span><span lang="ar">اربط قاربك عند الرصيف.</span></h2>
+    <div class="cols">
+      <div><h4><span lang="en">Market hours</span><span lang="ar">ساعات السوق</span></h4><p><span lang="en">Daily 11:00 am – 11:00 pm<br>Boat noodles from 7:00 am on weekends</span><span lang="ar">يوميًا 11:00 صباحًا – 11:00 مساءً<br>نودلز القوارب من 7:00 صباحًا في عطلة نهاية الأسبوع</span></p></div>
+      <div><h4><span lang="en">Find the pier</span><span lang="ar">موقع الرصيف</span></h4><p><span lang="en">45 Khlong Lat Lane, Pier 3, Taling Chan, Bangkok<br><span class="pr">+66 2 555 0145</span></span><span lang="ar">45 زقاق خلونغ لات، الرصيف 3، تالينغ تشان، بانكوك<br><span class="pr">+66 2 555 0145</span></span></p></div>
+      <div><h4><span lang="en">Before you board</span><span lang="ar">قبل الصعود</span></h4><p><span lang="en">No pork or alcohol on any boat. Dishes may contain peanuts, shellfish, fish sauce and egg; ask for "mai phet" if you want it mild.</span><span lang="ar">لا لحم خنزير ولا كحول على أي قارب. قد تحتوي الأطباق على الفول السوداني والقشريات وصلصة السمك والبيض؛ اطلب «ماي بِت» إن أردتها خفيفة الحرارة.</span></p></div>
+    </div>
+    <small><span lang="en">Prices in Thai baht (฿), service included. Chillies shown are an honest warning.</span><span lang="ar">الأسعار بالبات التايلندي (฿) شاملة الخدمة. رموز الفلفل تحذير صادق.</span></small>
+  </div>
+</footer>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>

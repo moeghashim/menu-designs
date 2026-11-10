@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>sudo brew · سودو برو</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="sudo brew — coffee for coders, served as a terminal session. سودو برو — قهوة المبرمجين في جلسة طرفية.">
+<meta name="theme-color" content="#050805">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Handjet:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--bg:#050805;--g:#41ff7f;--g2:#1faa52;--g3:#0f5a2b;--a:#ffb000;--w:#d9ffe4;--r:#ff5a4d;
+--mono:'JetBrains Mono','IBM Plex Sans Arabic',ui-monospace,Menlo,Consolas,monospace;--disp:'JetBrains Mono','Handjet',monospace}
+html[lang="ar"]{--mono:'IBM Plex Sans Arabic','JetBrains Mono',monospace;--disp:'Handjet','JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;background:#010201}
+body{font:400 15.5px/1.6 var(--mono);color:var(--g);background:var(--bg);overflow-x:clip;padding-bottom:44px;text-shadow:0 0 7px rgba(65,255,127,.38)}
+html[lang="ar"] body{font-size:17px;line-height:1.8}
+body::before{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.28) 2px 3px),radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(0,0,0,.55) 100%)}
+body::after{content:"";position:fixed;inset-inline:0;top:0;height:120px;z-index:49;pointer-events:none;background:linear-gradient(transparent,rgba(65,255,127,.05),transparent);animation:sweep 7s linear infinite}
+@keyframes sweep{from{transform:translateY(-120px)}to{transform:translateY(100vh)}}
+a{color:inherit}ul{list-style:none;padding:0}
+.usd{color:var(--a);text-shadow:0 0 7px rgba(255,176,0,.45);font-weight:700;font-family:'JetBrains Mono',monospace;white-space:nowrap}
+.cm{color:var(--g2);text-shadow:none}
+html[lang="ar"] .cm{color:#35c06a}
+/* window chrome */
+.bar{display:flex;align-items:center;gap:8px;padding:9px 14px;background:#0c130d;border-bottom:1px solid var(--g3);color:var(--g2);font-size:12.5px;text-shadow:none;position:sticky;top:0;z-index:20}
+.bar i{width:11px;height:11px;border-radius:50%;border:1px solid var(--g2)}.bar i:first-child{background:var(--r);border-color:var(--r)}.bar i:nth-child(2){background:var(--a);border-color:var(--a)}.bar i:nth-child(3){background:var(--g)}
+.bar span{margin-inline:auto;direction:ltr}
+.tmux{display:grid;max-width:1600px;margin:0 auto}
+.pane{padding:clamp(16px,2.4vw,34px);min-width:0}
+/* side pane */
+.logo{font:700 clamp(8.4px,2.42vw,13.5px)/1.12 'JetBrains Mono',monospace;direction:ltr;text-align:left;white-space:pre;letter-spacing:0;margin:0 0 6px;width:max-content;max-width:100%;overflow:hidden}
+.logo .am{color:var(--a);text-shadow:0 0 10px rgba(255,176,0,.5);display:block;margin-top:.7em}
+.side h1{font:700 clamp(21px,2vw,27px)/1.2 var(--disp);color:var(--w);margin-top:14px}
+html[lang="ar"] .side h1{font-size:clamp(30px,2.6vw,38px)}
+.side h1 small{display:block;font:400 15px/1.6 var(--mono);color:var(--g)}
+html[lang="ar"] .side h1 small{font-size:17px}
+.cupwrap{display:flex;gap:18px;align-items:end;margin-top:6px}
+.cup{font:400 13px/1.15 'JetBrains Mono',monospace;white-space:pre;direction:ltr;text-align:left;color:var(--a);text-shadow:0 0 8px rgba(255,176,0,.45)}
+.cup b{color:var(--g2);font-weight:400;animation:steam 2.4s ease-in-out infinite alternate}
+@keyframes steam{from{opacity:.3}to{opacity:1}}
+.blk{margin-top:22px}
+.nav{display:grid;gap:2px}
+.nav a{display:flex;justify-content:space-between;gap:12px;text-decoration:none;padding:5px 8px;margin-inline:-8px;border-radius:2px;color:var(--w)}
+.nav a>span::before{content:"drwxr-xr-x  ";color:var(--g3);white-space:pre}
+.nav a small{font-size:.92em;color:var(--g2)}
+.nav a:hover,.nav a:focus-visible{background:var(--g);color:var(--bg);text-shadow:none;outline:0}.nav a:hover small,.nav a:hover>span::before{color:var(--bg)}
+.meter{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;font-size:13.5px}
+html[lang="ar"] .meter{font-size:15.5px}
+.meter i{height:12px;background:repeating-linear-gradient(90deg,var(--g) 0 5px,transparent 5px 8px);clip-path:inset(0 calc(100% - var(--v)) 0 0)}
+html[dir="rtl"] .meter i{clip-path:inset(0 0 0 calc(100% - var(--v)))}
+.meter i.am{background:repeating-linear-gradient(90deg,var(--a) 0 5px,transparent 5px 8px)}.meter i.rd{background:repeating-linear-gradient(90deg,var(--r) 0 5px,transparent 5px 8px)}
+/* commands & output */
+.cmd{color:var(--w);margin:clamp(30px,3.4vw,46px) 0 12px;font-family:'JetBrains Mono',monospace;font-size:clamp(13.5px,1.25vw,16px);overflow-wrap:anywhere;scroll-margin-top:56px}
+html[dir="rtl"] .cmd{text-align:right}
+.main>.cmd:first-child,.blk>.cmd{margin-top:0}.cm,.fn{min-width:0;overflow-wrap:anywhere}
+.ps{color:var(--g)}.pw{color:#5fb4ff;text-shadow:0 0 7px rgba(95,180,255,.4)}.cmd b{color:var(--a)}
+.out h2{font:700 clamp(26px,3vw,42px)/1.15 var(--disp);color:var(--w);margin:4px 0 6px}
+html[lang="ar"] .out h2{font-size:clamp(36px,3.8vw,54px);font-weight:700}
+.out h2::before{content:"# ";color:var(--g2)}
+.note{color:var(--g2);text-shadow:none;margin-bottom:10px}
+html[lang="ar"] .note{color:#35c06a}
+.readme p{max-width:72ch;color:var(--w)}.readme p+p{margin-top:10px}
+.readme code{unicode-bidi:isolate;direction:ltr;display:inline-block;color:var(--a);font-family:'JetBrains Mono',monospace}
+.tag{font-style:normal;color:var(--bg);background:var(--a);text-shadow:none;font-size:.78em;padding:1px 7px;margin-inline-start:10px;white-space:nowrap;font-weight:700;font-family:var(--mono)}
+.tbl li{display:grid;gap:0 16px;padding:9px 8px;margin-inline:-8px;border-bottom:1px dashed var(--g3);align-items:baseline}
+.tbl li:hover{background:rgba(65,255,127,.07)}
+.th{color:var(--g2);text-shadow:none;font-size:.85em;border-bottom:1px solid var(--g2)!important}
+html[dir="rtl"] .th span{text-align:right!important}
+.fn{color:var(--w);font-weight:700;font-size:1.08em}
+html[lang="ar"] .fn{font-weight:600;font-size:1.12em}
+.perm,.own,.pid,.hash{color:var(--g2);text-shadow:none;font-family:'JetBrains Mono',monospace;font-size:.92em}
+.ls li{grid-template-columns:10.5ch 7.5ch 6ch 1fr}.ls .cm{grid-column:4}
+.ls .usd,.top .usd{text-align:end}
+.brew li{grid-template-columns:auto 1fr auto}.brew .arrow{color:#5fb4ff;grid-row:1/3;align-self:start}
+.brew .fn{display:flex;flex-wrap:wrap;gap:0 10px;align-items:baseline}
+.brew .org{color:var(--g2);text-shadow:none;grid-column:2;font-size:.92em}.brew .usd{grid-column:3;grid-row:1}.brew .cm{grid-column:2/4}
+.top li{grid-template-columns:5ch 19ch 6ch 1fr}.top .cm{grid-column:4}
+.caf{font-family:'JetBrains Mono',monospace;white-space:pre;color:var(--g2);text-shadow:none;font-size:.92em}.caf i{font-style:normal;color:var(--g);text-shadow:0 0 6px rgba(65,255,127,.5)}
+.caf.hot,.caf.hot i{color:var(--r);text-shadow:0 0 7px rgba(255,90,77,.5);animation:blink 1.1s steps(2) infinite}
+.git li{grid-template-columns:8ch 1fr auto}.git .hash{color:var(--a)}.git .cm{grid-column:2/4}.pfx{color:#5fb4ff;font-family:'JetBrains Mono',monospace}
+.conf li{grid-template-columns:11ch 1ch 6.5ch 1fr;border:0;padding-block:3px}.key{color:#5fb4ff;font-family:'JetBrains Mono',monospace}
+.make{border:1px solid var(--g2);padding:clamp(14px,2vw,24px);position:relative;margin-top:6px}
+.make::before{content:"Makefile";position:absolute;top:-.8em;inset-inline-start:14px;background:var(--bg);padding:0 8px;color:var(--g2);font-size:13px;text-shadow:none}
+.make p{color:var(--w)}
+.prog{direction:ltr;text-align:left;color:var(--g);font-family:'JetBrains Mono',monospace;white-space:pre;overflow:hidden;margin:8px 0}
+html[dir="rtl"] .prog{text-align:right}
+.make .big{font:700 clamp(28px,3.6vw,50px)/1.2 var(--disp);color:var(--w)}
+html[lang="ar"] .make .big{font-size:clamp(36px,4.2vw,60px)}
+.make .big .usd{font-size:1em}
+.man dt{color:var(--w);font-weight:700;margin-top:16px;letter-spacing:.06em}
+html[lang="ar"] .man dt{letter-spacing:0;font:700 24px/1.4 var(--disp)}
+.man dd{margin:0;padding-inline-start:4ch;max-width:76ch}
+.end{margin-top:30px;color:var(--w);font-family:'JetBrains Mono',monospace}
+.cur{display:inline-block;width:.62em;height:1.15em;background:var(--g);vertical-align:text-bottom;box-shadow:0 0 8px var(--g);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+/* status bar */
+.status{position:fixed;inset:auto 0 0;z-index:60;display:flex;align-items:stretch;background:var(--g);color:var(--bg);font:700 13.5px/1 'JetBrains Mono','IBM Plex Sans Arabic',monospace;text-shadow:none;height:36px}
+.status>*{display:flex;align-items:center;padding:0 12px;white-space:nowrap}
+.status .sess{background:var(--bg);color:var(--g);border-block:1px solid var(--g)}
+.status a,.status button{color:inherit;text-decoration:none;font:inherit;background:none;border:0;cursor:pointer;gap:6px}
+.status a:hover,.status button:hover{background:var(--bg);color:var(--g)}
+.status button{background:var(--a)}
+.status .rt{margin-inline-start:auto;font-weight:400}
+html[lang="en"] .to-en,html[lang="ar"] .to-ar{display:none}
+@media (min-width:1000px){
+ .tmux{grid-template-columns:minmax(0,1fr) minmax(360px,31%)}
+ .side{order:2;border-inline-start:1px solid var(--g2);position:sticky;top:38px;align-self:start;height:calc(100vh - 38px - 36px);overflow:auto;scrollbar-width:thin;scrollbar-color:var(--g3) transparent}
+ .main{padding-inline:clamp(24px,3.4vw,56px)}
+}
+@media (max-width:999px){
+ .side{border-bottom:1px solid var(--g2)}.side .desk{display:none}
+ .nav{grid-template-columns:1fr 1fr;gap:2px 20px}.nav a>span::before{content:"./"}.nav a{flex-direction:column;gap:0;padding-block:7px}
+ .ls li{grid-template-columns:1fr auto}.ls .perm,.ls .own,.th .perm,.th .own{display:none}.ls .fn{grid-column:1;grid-row:1}.ls .usd{grid-column:2;grid-row:1}.ls .cm{grid-column:1/3}
+ .top li{grid-template-columns:1fr auto}.top .pid{display:none}.top .fn{grid-column:1;grid-row:1}.top .usd{grid-column:2;grid-row:1}.top .caf{grid-column:1/3;grid-row:2}.top .cm{grid-column:1/3}
+ .th{display:none!important}
+ .git li{grid-template-columns:1fr auto}.git .hash{grid-column:1/3;font-size:.8em}.git .cm{grid-column:1/3}
+ .conf li{grid-template-columns:auto 1ch 1fr}.conf .cm{grid-column:1/4}
+ .man dd{padding-inline-start:2ch}
+ .status .rt,.status .hide-m{display:none}.status>*{padding:0 10px}
+ .bar span{font-size:11px}
+}
+@media (prefers-reduced-motion:reduce){*,body::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>barista@sudo-brew: ~/menu — zsh — tmux</span></div>
+<div class="tmux">
+<aside class="pane side">
+ <pre class="logo" aria-hidden="true">  ██████  ██    ██  ██████      ████
+██        ██    ██  ██    ██  ██    ██
+  ████    ██    ██  ██    ██  ██    ██
+      ██  ██    ██  ██    ██  ██    ██
+██████      ████    ██████      ████<span class="am">██████    ██████    ████████  ██      ██
+██    ██  ██    ██  ██        ██      ██
+██████    ██████    ██████    ██  ██  ██
+██    ██  ██  ██    ██        ████  ████
+██████    ██    ██  ████████  ██      ██</span></pre>
+ <div class="cupwrap"><div><h1><span lang="en">sudo brew</span><span lang="ar">سودو برو</span><small><span lang="en">Coffee for Coders</span><span lang="ar">قهوة المبرمجين</span></small></h1>
+ <p class="cm"><span lang="en"># permission to caffeinate: granted</span><span lang="ar"># صلاحية التزوّد بالكافيين: مُنحت</span></p></div>
+ <pre class="cup desk" aria-hidden="true"><b>     ( (
+      ) )</b>
+   ........
+   |      |]
+   \      /
+    `----'</pre></div>
+ <div class="blk"><p class="cmd" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <b>ls</b> -d */</p><nav class="nav" aria-label="Sections"><a href="#espresso"><span dir="ltr">espresso/</span><small><span lang="en">Espresso bar</span><span lang="ar">ركن الإسبريسو</span></small></a><a href="#filter"><span dir="ltr">filter/</span><small><span lang="en">Slow bar</span><span lang="ar">القهوة المقطّرة</span></small></a><a href="#cold"><span dir="ltr">cold/</span><small><span lang="en">Cold &amp; special</span><span lang="ar">باردة ومميّزة</span></small></a><a href="#bakery"><span dir="ltr">bakery/</span><small><span lang="en">Bakery</span><span lang="ar">المخبوزات</span></small></a><a href="#extras"><span dir="ltr">extras.conf</span><small><span lang="en">Extras</span><span lang="ar">الإضافات</span></small></a><a href="#combo"><span dir="ltr">Makefile</span><small><span lang="en">Combo</span><span lang="ar">العرض</span></small></a><a href="#man"><span dir="ltr">man/</span><small><span lang="en">Hours &amp; info</span><span lang="ar">الأوقات والمعلومات</span></small></a></nav></div>
+ <div class="blk desk"><p class="cmd" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <b>crontab</b> -l</p><p><span dir="ltr" class="usd">0 7 * * 1-5</span> &nbsp;<span lang="en">open 07:00–22:00</span><span lang="ar">نفتح ٠٧:٠٠–٢٢:٠٠</span><br><span dir="ltr" class="usd">0 9 * * 6,0</span> &nbsp;<span lang="en">open 09:00–23:00</span><span lang="ar">نفتح ٠٩:٠٠–٢٣:٠٠</span></p></div>
+ <div class="blk desk"><p class="cmd" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <b>htop</b> --you</p><div class="meter">
+  <span><span lang="en">caffeine</span><span lang="ar">الكافيين</span></span><i style="--v:22%" class="rd"></i><span dir="ltr">22%</span>
+  <span><span lang="en">focus</span><span lang="ar">التركيز</span></span><i style="--v:41%" class="am"></i><span dir="ltr">41%</span>
+  <span><span lang="en">open tabs</span><span lang="ar">الألسنة المفتوحة</span></span><i style="--v:96%"></i><span dir="ltr">96%</span>
+ </div><p class="cm" style="margin-top:8px"><span lang="en"># warning: caffeine low. suggested fix below.</span><span lang="ar"># تحذير: مستوى الكافيين منخفض. الحلّ المقترح في القائمة.</span></p></div>
+ <div class="blk desk"><p class="cmd" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <b>cat</b> wifi.txt</p><p>SSID: <span dir="ltr">sudo-brew-5G</span><br><span lang="en">pass:</span><span lang="ar">كلمة السرّ:</span> <span dir="ltr" class="usd">please&amp;thankyou</span></p></div>
+</aside>
+<main class="pane main">
+ <p class="cmd" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <b>cat</b> README.md</p>
+ <div class="out readme"><h2><span lang="en">Welcome, root.</span><span lang="ar">أهلًا بك أيّها الجذر.</span></h2>
+  <p><span lang="en">We are a small coffee bar for people who talk to computers all day. Beans are roasted in-house every Tuesday, every shot is weighed to a tenth of a gram, and there is a power socket at every single seat. Order at the bar or just shout <code>sudo brew install flat-white</code>.</span><span lang="ar">نحن مقهى صغير لمن يقضون نهارهم في محادثة الحواسيب. نحمّص البنّ عندنا كلّ ثلاثاء، ونزن كلّ جرعة بدقّة عُشر الغرام، وعند كلّ مقعد مقبس كهرباء. اطلب من المنضدة أو اصرخ ببساطة <code dir="ltr">sudo brew install flat-white</code>.</span></p>
+  <p class="cm"><span lang="en"># prices are printed in amber, in US dollars. tabs, not spaces.</span><span lang="ar"># الأسعار مطبوعة بالكهرماني، بالدولار الأمريكي.</span></p></div>
+
+ <div id="espresso"><p class="cmd" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <b>ls</b> -lh ./espresso</p></div>
+ <div class="out"><h2><span lang="en">Espresso bar</span><span lang="ar">ركن الإسبريسو</span></h2><p class="note"><span lang="en">total 6 — the size column is the price</span><span lang="ar">المجموع ٦ — عمود الحجم هو السعر</span></p>
+  <ul class="tbl ls"><li class="th" aria-hidden="true"><span class="perm" dir="ltr">MODE</span><span class="own" dir="ltr">OWNER</span><span dir="ltr" style="text-align:end">SIZE</span><span dir="ltr">NAME</span></li><li><span class="perm" dir="ltr">-rwxr-xr-x</span><span class="own" dir="ltr">barista</span><span class="usd" dir="ltr">$3.00</span><span class="fn"><span lang="en">espresso.sh</span><span lang="ar">إسبريسو.sh</span></span><span class="cm"><span lang="en"># Double shot: 18 g in, 36 g out, 27 seconds. No questions asked.</span><span lang="ar"># جرعة مزدوجة: ١٨ غرامًا تدخل و٣٦ تخرج في ٢٧ ثانية. بلا أسئلة.</span></span></li><li><span class="perm" dir="ltr">-rwxr-xr-x</span><span class="own" dir="ltr">barista</span><span class="usd" dir="ltr">$3.50</span><span class="fn"><span lang="en">americano.sh</span><span lang="ar">أمريكانو.sh</span></span><span class="cm"><span lang="en"># Espresso stretched with hot water, for longer uptime.</span><span lang="ar"># إسبريسو ممدود بالماء الساخن، لوقت تشغيل أطول.</span></span></li><li><span class="perm" dir="ltr">-rwxr-xr-x</span><span class="own" dir="ltr">barista</span><span class="usd" dir="ltr">$4.00</span><span class="fn"><span lang="en">cortado.sh</span><span lang="ar">كورتادو.sh</span></span><span class="cm"><span lang="en"># Equal parts espresso and steamed milk. A balanced binary.</span><span lang="ar"># إسبريسو وحليب مبخَّر بنسبة متساوية. نظام ثنائي متوازن.</span></span></li><li><span class="perm" dir="ltr">-rwxr-xr-x</span><span class="own" dir="ltr">barista</span><span class="usd" dir="ltr">$4.50</span><span class="fn"><span lang="en">flat_white.sh</span><span lang="ar">فلات_وايت.sh</span><em class="tag"><span lang="en">★ maintainer’s pick</span><span lang="ar">★ اختيار المشرف</span></em></span><span class="cm"><span lang="en"># Two ristretto shots under a thin, velvety layer of microfoam.</span><span lang="ar"># جرعتا ريستريتو تحت طبقة رقيقة مخملية من رغوة الحليب.</span></span></li><li><span class="perm" dir="ltr">-rwxr-xr-x</span><span class="own" dir="ltr">barista</span><span class="usd" dir="ltr">$4.50</span><span class="fn"><span lang="en">cappuccino.sh</span><span lang="ar">كابتشينو.sh</span></span><span class="cm"><span lang="en"># A third coffee, a third milk, a third foam. Cleanly partitioned.</span><span lang="ar"># ثلث قهوة وثلث حليب وثلث رغوة. تقسيم نظيف للأقراص.</span></span></li><li><span class="perm" dir="ltr">-rwxr-xr-x</span><span class="own" dir="ltr">barista</span><span class="usd" dir="ltr">$5.00</span><span class="fn"><span lang="en">mocha.sh</span><span lang="ar">موكا.sh</span></span><span class="cm"><span lang="en"># Espresso with 70% dark chocolate. Syntactic sugar, literally.</span><span lang="ar"># إسبريسو مع شوكولاتة داكنة ٧٠٪. تحلية نحوية بالمعنى الحرفي.</span></span></li></ul></div>
+
+ <div id="filter"><p class="cmd" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <b>brew</b> info --slow-bar</p></div>
+ <div class="out"><h2><span lang="en">Slow bar</span><span lang="ar">القهوة المقطّرة</span></h2><p class="note"><span lang="en">single origins, brewed by hand — allow four minutes to compile</span><span lang="ar">محاصيل من مصدر واحد تُحضَّر يدويًّا — امنحها أربع دقائق للتصريف</span></p>
+  <ul class="tbl brew"><li><span class="arrow" dir="ltr">==&gt;</span><span class="fn"><span lang="en">v60</span><span lang="ar">في٦٠</span></span><span class="org"><span lang="en">@ethiopia-guji</span><span lang="ar">@إثيوبيا-غوجي</span></span><span class="usd" dir="ltr">$5.50</span><span class="cm"><span lang="en">Hand-poured over three minutes. Jasmine, peach, zero bitterness.</span><span lang="ar">تُسكب يدويًّا على مدى ثلاث دقائق. ياسمين وخوخ بلا أيّ مرارة.</span></span></li><li><span class="arrow" dir="ltr">==&gt;</span><span class="fn"><span lang="en">aeropress</span><span lang="ar">إيروبرس</span></span><span class="org"><span lang="en">@colombia-huila</span><span lang="ar">@كولومبيا-ويلا</span></span><span class="usd" dir="ltr">$5.00</span><span class="cm"><span lang="en">Pressed, bright and syrupy — red apple and caramel.</span><span lang="ar">مضغوطة، مشرقة وكثيفة القوام — تفّاح أحمر وكراميل.</span></span></li><li><span class="arrow" dir="ltr">==&gt;</span><span class="fn"><span lang="en">chemex --for-two</span><span lang="ar">كيمكس --لشخصين</span></span><span class="org"><span lang="en">@kenya-nyeri</span><span lang="ar">@كينيا-نييري</span></span><span class="usd" dir="ltr">$9.00</span><span class="cm"><span lang="en">A shared carafe for pair programming. Blackcurrant, long finish.</span><span lang="ar">إبريق مشترك للبرمجة الثنائية. كشمش أسود ونهاية طويلة.</span></span></li><li><span class="arrow" dir="ltr">==&gt;</span><span class="fn"><span lang="en">batch-brew</span><span lang="ar">قهوة-الدفعة</span></span><span class="org"><span lang="en">@house-blend</span><span lang="ar">@خلطة-الدار</span></span><span class="usd" dir="ltr">$3.00</span><span class="cm"><span lang="en">A cron job: brewed fresh every 30 minutes. Refills $1.</span><span lang="ar">مهمّة مجدولة: تُحضَّر طازجة كلّ ٣٠ دقيقة. إعادة الملء بدولار واحد.</span></span></li></ul></div>
+
+ <div id="cold"><p class="cmd" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <b>top</b> -o caffeine</p></div>
+ <div class="out"><h2><span lang="en">Cold &amp; special</span><span lang="ar">باردة ومميّزة</span></h2><p class="note"><span lang="en">processes sorted by caffeine load, highest first</span><span lang="ar">العمليات مرتّبة حسب حِمل الكافيين، من الأعلى إلى الأدنى</span></p>
+  <ul class="tbl top"><li class="th" aria-hidden="true"><span dir="ltr">PID</span><span dir="ltr">%CAF</span><span dir="ltr" style="text-align:end">COST</span><span dir="ltr">COMMAND</span></li><li><span class="pid" dir="ltr">1337</span><span class="caf hot" dir="ltr">[<i>||||||||||</i>] 128%</span><span class="usd" dir="ltr">$6.50</span><span class="fn"><span lang="en">kernel_panic</span><span lang="ar">ذعر_النواة</span><em class="tag"><span lang="en">★ house special</span><span lang="ar">★ اختصاص الدار</span></em></span><span class="cm"><span lang="en">Four shots over ice, vanilla, oat milk. Save your work first.</span><span lang="ar">أربع جرعات على الثلج مع الفانيليا وحليب الشوفان. احفظ عملك أوّلًا.</span></span></li><li><span class="pid" dir="ltr">8080</span><span class="caf" dir="ltr">[<i>||||||||| </i>] 92%</span><span class="usd" dir="ltr">$4.50</span><span class="fn"><span lang="en">cold_brew --18h</span><span lang="ar">كولد_برو --18h</span></span><span class="cm"><span lang="en">Steeped eighteen hours, chocolatey, dangerously smooth.</span><span lang="ar">تُنقع ثماني عشرة ساعة، بنكهة الشوكولاتة ونعومة خطِرة.</span></span></li><li><span class="pid" dir="ltr">443</span><span class="caf" dir="ltr">[<i>||||||||| </i>] 88%</span><span class="usd" dir="ltr">$5.50</span><span class="fn"><span lang="en">nitro</span><span lang="ar">نيترو</span></span><span class="cm"><span lang="en">Cold brew on nitrogen tap, with a cascading creamy head.</span><span lang="ar">كولد برو من صنبور النيتروجين برغوة كريمية متدفّقة.</span></span></li><li><span class="pid" dir="ltr">3000</span><span class="caf" dir="ltr">[<i>|||||||   </i>] 70%</span><span class="usd" dir="ltr">$5.00</span><span class="fn"><span lang="en">espresso_tonic</span><span lang="ar">إسبريسو_تونيك</span></span><span class="cm"><span lang="en">Double shot over tonic and orange peel. Bitter, bright, fizzy.</span><span lang="ar">جرعة مزدوجة فوق التونيك وقشر البرتقال. مرّ ومشرق وفوّار.</span></span></li><li><span class="pid" dir="ltr">22</span><span class="caf" dir="ltr">[<i>||||      </i>] 35%</span><span class="usd" dir="ltr">$5.50</span><span class="fn"><span lang="en">iced_matcha</span><span lang="ar">ماتشا_مثلّجة</span></span><span class="cm"><span lang="en">Ceremonial matcha whisked over cold milk. Calm, focused energy.</span><span lang="ar">ماتشا فاخرة تُخفق فوق حليب بارد. طاقة هادئة ومركّزة.</span></span></li><li><span class="pid" dir="ltr">0</span><span class="caf" dir="ltr">[<i>          </i>] 2%</span><span class="usd" dir="ltr">$4.50</span><span class="fn"><span lang="en">hot_chocolate --decaf</span><span lang="ar">شوكولاتة_ساخنة --decaf</span></span><span class="cm"><span lang="en">Process idle. Melted dark chocolate, steamed milk, no caffeine.</span><span lang="ar">العملية خاملة. شوكولاتة داكنة مذابة وحليب مبخَّر بلا كافيين.</span></span></li></ul></div>
+
+ <div id="bakery"><p class="cmd" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <b>git</b> log --oneline ./bakery</p></div>
+ <div class="out"><h2><span lang="en">Bakery</span><span lang="ar">المخبوزات</span></h2><p class="note"><span lang="en">committed fresh every morning — branch: oven/main</span><span lang="ar">تُودَع طازجة كلّ صباح — الفرع: oven/main</span></p>
+  <ul class="tbl git"><li><span class="hash" dir="ltr">a3f9c21</span><span class="fn"><span class="pfx" dir="ltr">fix:</span> <span lang="en">butter croissant</span><span lang="ar">كرواسون بالزبدة</span></span><span class="usd" dir="ltr">$3.50</span><span class="cm"><span lang="en">Resolves issue #1: mornings. Baked at 6 am, gone by 10.</span><span lang="ar">يحلّ المشكلة رقم ١: الصباح. يُخبز عند السادسة وينفد قبل العاشرة.</span></span></li><li><span class="hash" dir="ltr">7be04d8</span><span class="fn"><span class="pfx" dir="ltr">feat:</span> <span lang="en">cinnamon bun</span><span lang="ar">لفافة القرفة</span></span><span class="usd" dir="ltr">$4.00</span><span class="cm"><span lang="en">Adds cardamom glaze. Sticky fingers are a known side effect.</span><span lang="ar">إضافة: تغطية بالهيل. الأصابع الدبِقة أثر جانبي معروف.</span></span></li><li><span class="hash" dir="ltr">c0ffee5</span><span class="fn"><span class="pfx" dir="ltr">refactor:</span> <span lang="en">banana bread</span><span lang="ar">خبز الموز</span></span><span class="usd" dir="ltr">$3.50</span><span class="cm"><span lang="en">Rewritten without dairy or eggs. Walnuts kept. Fully vegan.</span><span lang="ar">أُعيدت كتابته بلا حليب ولا بيض، مع الإبقاء على الجوز. نباتي بالكامل.</span></span></li><li><span class="hash" dir="ltr">1d10t42</span><span class="fn"><span class="pfx" dir="ltr">hotfix:</span> <span lang="en">turkey &amp; cheese toastie</span><span lang="ar">توست الديك الرومي والجبن</span></span><span class="usd" dir="ltr">$6.50</span><span class="cm"><span lang="en">Patches lunch: smoked turkey, cheddar, mustard, sourdough.</span><span lang="ar">ترقيع عاجل للغداء: ديك رومي مدخّن، شيدر وخردل في خبز العجين المخمَّر.</span></span></li><li><span class="hash" dir="ltr">9fa2b6e</span><span class="fn"><span class="pfx" dir="ltr">chore:</span> <span lang="en">sea-salt cookie</span><span lang="ar">كوكيز بملح البحر</span></span><span class="usd" dir="ltr">$3.00</span><span class="cm"><span lang="en">Bumps chocolate from 54% to 70%. No breaking changes.</span><span lang="ar">ترقية الشوكولاتة من ٥٤٪ إلى ٧٠٪. لا تغييرات كاسرة.</span></span></li></ul></div>
+
+ <div id="extras"><p class="cmd" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <b>cat</b> /etc/brew/extras.conf</p></div>
+ <div class="out"><ul class="tbl conf"><li><span class="key" dir="ltr">oat_milk</span><span class="eq">=</span><span class="usd" dir="ltr">$+0.80</span><span class="cm"><span lang="en"># oat, almond or coconut</span><span lang="ar"># شوفان أو لوز أو جوز هند</span></span></li><li><span class="key" dir="ltr">extra_shot</span><span class="eq">=</span><span class="usd" dir="ltr">$+1.00</span><span class="cm"><span lang="en"># when one is not enough</span><span lang="ar"># حين لا تكفي جرعة واحدة</span></span></li><li><span class="key" dir="ltr">syrup</span><span class="eq">=</span><span class="usd" dir="ltr">$+0.60</span><span class="cm"><span lang="en"># vanilla, caramel, hazelnut</span><span lang="ar"># فانيليا أو كراميل أو بندق</span></span></li><li><span class="key" dir="ltr">decaf</span><span class="eq">=</span><span class="usd" dir="ltr">$+0.00</span><span class="cm"><span lang="en"># same taste, no interrupts</span><span lang="ar"># الطعم نفسه بلا مقاطعات</span></span></li><li><span class="key" dir="ltr">own_cup</span><span class="eq">=</span><span class="usd" dir="ltr">$-0.50</span><span class="cm"><span lang="en"># bring your mug, save the planet</span><span lang="ar"># أحضِر كوبك وأنقِذ الكوكب</span></span></li></ul></div>
+
+ <div id="combo"><p class="cmd" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <b>sudo make</b> deploy-friday</p></div>
+ <div class="out"><p class="cm"><span lang="en">[sudo] password for dev: ********</span><span lang="ar">[sudo] كلمة سرّ المستخدم dev: ********</span></p>
+  <div class="make"><p><span lang="en">Linking any espresso drink with any item from the bakery…</span><span lang="ar">جارٍ ربط أيّ مشروب إسبريسو بأيّ صنف من المخبوزات…</span></p>
+  <p class="prog" aria-hidden="true">[########################] 100%</p>
+  <p class="big"><span lang="en">Build succeeded:</span><span lang="ar">نجح البناء:</span> <span class="usd" dir="ltr">$7.00</span></p>
+  <p class="cm"><span lang="en"># coffee + pastry, all day. exit code 0. ship it.</span><span lang="ar"># قهوة + مخبوزة، طوال اليوم. رمز الخروج ٠. انشُر.</span></p></div></div>
+
+ <div id="man"><p class="cmd" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <b>man</b> sudo-brew</p></div>
+ <div class="out"><dl class="man">
+  <dt><span lang="en">NAME</span><span lang="ar">الاسم</span></dt><dd><span lang="en">sudo brew — coffee for coders, since v1.0 (2019)</span><span lang="ar">سودو برو — قهوة المبرمجين، منذ الإصدار ١٫٠ (٢٠١٩)</span></dd>
+  <dt><span lang="en">LOCATION</span><span lang="ar">الموقع</span></dt><dd><span lang="en">127 Localhost Lane, ground floor of The Stack co-working building</span><span lang="ar">١٢٧ زقاق لوكال هوست، الطابق الأرضي من مبنى «ذا ستاك» للعمل المشترك</span></dd>
+  <dt><span lang="en">HOURS</span><span lang="ar">ساعات العمل</span></dt><dd><span lang="en">Mon–Fri 07:00–22:00 · Sat–Sun 09:00–23:00 · kitchen closes one hour earlier</span><span lang="ar">الإثنين–الجمعة ٠٧:٠٠–٢٢:٠٠ · السبت–الأحد ٠٩:٠٠–٢٣:٠٠ · يُغلق المطبخ قبل ذلك بساعة</span></dd>
+  <dt><span lang="en">OPTIONS</span><span lang="ar">الخيارات</span></dt><dd><span lang="en">--to-go, --decaf, --oat. Free Wi-Fi, 42 sockets, one quiet room for stand-ups.</span><span lang="ar"><span dir="ltr">--to-go</span> و<span dir="ltr">--decaf</span> و<span dir="ltr">--oat</span>. واي فاي مجّاني، ٤٢ مقبسًا، وغرفة هادئة للاجتماعات السريعة.</span></dd>
+  <dt><span lang="en">BUGS</span><span lang="ar">العلل المعروفة</span></dt><dd><span lang="en">Allergens: milk, gluten, eggs, nuts and soy are present in this kitchen. Report allergies to the barista before ordering. No alcohol, no pork.</span><span lang="ar">مسبّبات الحساسية: الحليب والغلوتين والبيض والمكسّرات والصويا موجودة في مطبخنا. أبلِغ الباريستا بأيّ حساسية قبل الطلب. لا كحول ولا لحم خنزير.</span></dd>
+  <dt><span lang="en">SEE ALSO</span><span lang="ar">انظر أيضًا</span></dt><dd><span dir="ltr">hello@sudobrew.example · +1 555 0142</span></dd>
+ </dl>
+ <p class="end" dir="ltr"><span class="ps">barista@sudo-brew</span><span class="pw">:~/menu</span>$ <span class="cur"></span></p></div>
+</main>
+</div>
+<div class="status"><span class="sess" dir="ltr">[sudo-brew]</span><span class="hide-m" dir="ltr">0:menu*</span>
+ <a class="home-link" href="../index.html"><span dir="ltr">1:</span><span lang="en">all-menus</span><span lang="ar">كل القوائم</span></a>
+ <button id="langToggle" type="button"><span dir="ltr">2:</span><span class="to-ar">العربية</span><span class="to-en">English</span></button>
+ <span class="rt" dir="ltr">UTF-8 · caffeine 22% · 09:41</span></div>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body></html>

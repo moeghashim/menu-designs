@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Blue Hour · الساعة الزرقاء</title>
+<meta name="description" content="Blue Hour — a jazz supper club. Four sides of supper, two live sets a night. الساعة الزرقاء — نادي عشاء على أنغام الجاز.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f3fd6">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;900&family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --blue:#0f3fd6; --deep:#071a5e; --ink:#0a0a0f; --paper:#efe8d8; --pale:#b9c9f5; --hot:#ff5a1f;
+  --disp:"Archivo","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+}
+html[lang="ar"]{ --disp:"Alexandria","IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif; --body:"IBM Plex Sans Arabic","Alexandria","Segoe UI",Tahoma,sans-serif; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;overflow-x:clip;-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-size:17px;line-height:1.75}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+ul,ol{list-style:none}
+.cred{font-size:.69rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+html[lang="ar"] .cred{font-size:.8rem;font-weight:500}
+
+/* ───── top strip ───── */
+.strip{position:sticky;top:0;z-index:20;display:flex;align-items:stretch;background:var(--paper);border-block-end:3px solid var(--ink);height:48px}
+.strip .cat{display:flex;align-items:center;padding-inline:16px;background:var(--ink);color:var(--paper);font-weight:800;letter-spacing:.08em;font-size:.8rem;white-space:nowrap}
+.strip nav{display:flex;flex:1;min-width:0}
+.strip nav a{flex:1;display:grid;place-items:center;text-decoration:none;font-family:var(--disp);font-weight:900;font-stretch:70%;font-size:1.15rem;border-inline-end:1px solid var(--ink);transition:background .2s,color .2s}
+.strip nav a:hover,.strip nav a:focus-visible{background:var(--blue);color:#fff;outline:0}
+.strip nav a small{display:none;font-family:var(--body);font-weight:600;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;margin-inline-start:.6em}
+.home-link{display:flex;align-items:center;gap:8px;padding-inline:14px;text-decoration:none;border-inline-end:1px solid var(--ink)}
+.home-link i{width:14px;height:14px;background:linear-gradient(var(--ink) 0 0) 0 0/6px 6px,linear-gradient(var(--blue) 0 0) 100% 0/6px 6px,linear-gradient(var(--blue) 0 0) 0 100%/6px 6px,linear-gradient(var(--ink) 0 0) 100% 100%/6px 6px;background-repeat:no-repeat}
+.home-link span{display:none}
+#langToggle{appearance:none;border:0;background:var(--blue);color:#fff;font:700 .95rem "IBM Plex Sans Arabic","Archivo",sans-serif;padding-inline:18px;cursor:pointer;min-width:92px}
+#langToggle:hover{background:var(--hot)}
+@media (min-width:860px){.strip nav a small{display:inline}.home-link span{display:inline}}
+
+/* ───── sleeve front ───── */
+.front{display:grid;grid-template-columns:repeat(12,1fr);border-block-end:3px solid var(--ink);overflow:clip}
+.front .title{grid-column:1/-1;font-family:var(--disp);font-weight:900;font-stretch:66%;line-height:.78;letter-spacing:-.035em;text-transform:uppercase;font-size:clamp(6.2rem,31vw,31rem);white-space:nowrap;margin-inline-start:-.045em;padding-block:.06em .02em;display:flex;gap:.16em}
+.front .title b{color:var(--blue);font-weight:900}
+html[lang="ar"] .front .title{font-size:clamp(3.6rem,18.5vw,19rem);line-height:1.22;font-stretch:100%;padding-block:0 .12em;margin-inline-start:.05em}
+.photo{grid-column:1/9;position:relative;background:var(--blue);min-height:clamp(300px,46vw,640px);overflow:hidden;isolation:isolate}
+.photo svg{position:absolute;inset-block-start:-6%;inset-inline-start:-12%;width:130%;height:118%;transform:rotate(-24deg)}
+[dir="rtl"] .photo svg{transform:scaleX(-1) rotate(-24deg)}
+.photo::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,transparent 0 30%,rgba(7,26,94,.55) 80%);mix-blend-mode:multiply}
+.photo .tag{position:absolute;z-index:2;inset-block-end:0;inset-inline-start:0;background:var(--paper);color:var(--ink);padding:12px 18px 10px;max-width:20rem}
+.photo .tag strong{display:block;font-family:var(--disp);font-weight:900;font-stretch:75%;font-size:1.5rem;line-height:1.05;text-transform:uppercase}
+html[lang="ar"] .photo .tag strong{font-size:1.35rem;line-height:1.4}
+.photo .stereo{position:absolute;z-index:2;inset-block-start:18px;inset-inline-end:18px;color:#fff;border:2px solid #fff;padding:4px 10px;border-radius:99px}
+.side{grid-column:9/-1;display:grid;grid-template-rows:auto 1fr auto;border-inline-start:3px solid var(--ink)}
+.side .hotblk{background:var(--hot);padding:22px 22px 18px;color:var(--ink)}
+.side .hotblk p{font-family:var(--disp);font-weight:900;font-stretch:75%;font-size:clamp(1.5rem,2.6vw,2.5rem);line-height:.98;text-transform:uppercase}
+html[lang="ar"] .side .hotblk p{line-height:1.35;font-size:clamp(1.4rem,2.2vw,2.1rem)}
+.side .pers{padding:22px;display:grid;align-content:center;gap:10px}
+.side .pers li{display:flex;justify-content:space-between;gap:12px;border-block-end:1px solid var(--ink);padding-block-end:8px;font-size:.95rem}
+.side .pers li span:first-child{font-weight:800}
+.side .pers li span:last-child{opacity:.72;text-align:end}
+.keys{height:64px;background:
+  repeating-linear-gradient(90deg,transparent 0 22px,var(--ink) 22px 24px),
+  linear-gradient(var(--paper) 0 0);position:relative;border-block-start:3px solid var(--ink)}
+.keys::before{content:"";position:absolute;inset-block-start:0;inset-inline:0;height:60%;background:repeating-linear-gradient(90deg,transparent 0 16px,var(--ink) 16px 30px,transparent 30px 40px,var(--ink) 40px 54px,transparent 54px 88px,var(--ink) 88px 102px,transparent 102px 112px,var(--ink) 112px 126px,transparent 126px 136px,var(--ink) 136px 150px,transparent 150px 168px)}
+@media (max-width:859px){
+  .front .title{font-size:46vw;line-height:.8}
+  .front .title>span{display:flex;flex-direction:column}
+  html[lang="ar"] .front .title{font-size:36vw;line-height:1.08;padding-block:0 .16em}
+  .photo{grid-column:1/-1;min-height:92vw}
+  .side{grid-column:1/-1;border-inline-start:0;border-block-start:3px solid var(--ink)}
+}
+
+/* ───── liner notes ───── */
+.liner{display:grid;grid-template-columns:repeat(12,1fr);gap:0;border-block-end:3px solid var(--ink)}
+.liner .big{grid-column:1/6;padding:clamp(22px,4vw,56px);background:var(--ink);color:var(--paper);display:grid;align-content:space-between;gap:28px}
+.liner .big h2{font-family:var(--disp);font-weight:900;font-stretch:70%;text-transform:uppercase;font-size:clamp(2.4rem,5.4vw,5.4rem);line-height:.9;letter-spacing:-.02em}
+.liner .big h2 em{font-style:normal;color:var(--pale)}
+html[lang="ar"] .liner .big h2{line-height:1.3;font-size:clamp(2rem,4.2vw,4.2rem)}
+.bars{display:flex;align-items:stretch;gap:5px;height:74px}
+.bars i{flex:1;background:var(--blue);transform-origin:bottom;animation:beat 1.6s ease-in-out infinite alternate}
+.bars i:nth-child(3n){background:var(--paper);animation-duration:1.1s}
+.bars i:nth-child(4n+1){animation-duration:2.1s;background:var(--hot)}
+.bars i:nth-child(odd){animation-delay:-.7s}
+@keyframes beat{from{transform:scaleY(.25)}to{transform:scaleY(1)}}
+.liner .notes{grid-column:6/-1;padding:clamp(22px,4vw,56px);columns:2 16rem;column-gap:36px;column-rule:1px solid var(--ink)}
+.liner .notes p{margin-block-end:1em;font-size:1rem}
+.liner .notes > p:first-of-type::first-letter{font-family:var(--disp);font-weight:900;font-size:3.4em;float:inline-start;line-height:.8;padding-inline-end:.08em;color:var(--blue)}
+html[lang="ar"] .liner .notes > p:first-of-type::first-letter{font-size:1em;float:none;padding:0;color:inherit;font-family:inherit;font-weight:inherit}
+.liner .album{break-inside:avoid;border:3px solid var(--ink);padding:16px 18px;margin-block-start:6px;display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:end}
+.liner .album h3{font-family:var(--disp);font-weight:900;font-stretch:75%;text-transform:uppercase;font-size:1.6rem;line-height:1}
+html[lang="ar"] .liner .album h3{line-height:1.4;font-size:1.4rem}
+.liner .album .p{font-family:var(--disp);font-weight:900;font-size:2.4rem;line-height:.9;color:var(--blue)}
+.liner .album p{grid-column:1/-1;margin:0;font-size:.92rem}
+@media (max-width:859px){.liner .big,.liner .notes{grid-column:1/-1}}
+
+/* ───── shared track bits ───── */
+.set{border-block-end:3px solid var(--ink);overflow:clip;position:relative}
+.trk{display:grid;grid-template-columns:auto 1fr auto;gap:4px 18px;align-items:baseline;padding-block:16px;border-block-end:1px solid currentColor}
+.trk .no{font-family:var(--disp);font-weight:900;font-stretch:66%;font-size:2.3rem;line-height:.8;min-width:1.5em}
+.trk h3{font-family:var(--disp);font-weight:800;font-stretch:88%;font-size:1.22rem;line-height:1.15;text-transform:uppercase;letter-spacing:.01em}
+html[lang="ar"] .trk h3{font-weight:600;font-size:1.2rem;line-height:1.5}
+.trk p{grid-column:2;font-size:.95rem;opacity:.8;max-width:44ch}
+.trk .pr{font-family:var(--disp);font-weight:900;font-stretch:75%;font-size:1.5rem;grid-row:1;grid-column:3;unicode-bidi:isolate}
+.std{display:inline-block;vertical-align:.2em;margin-inline-start:.5em;background:var(--hot);color:var(--ink);font:700 .62rem var(--body);letter-spacing:.12em;text-transform:uppercase;padding:3px 7px 2px}
+html[lang="ar"] .std{font-size:.74rem;vertical-align:.1em}
+.sethead .cred{display:block;margin-block-end:8px}
+.sethead h2{font-family:var(--disp);font-weight:900;font-stretch:64%;text-transform:uppercase;letter-spacing:-.02em;line-height:.82}
+html[lang="ar"] .sethead h2{font-stretch:100%;line-height:1.25}
+
+/* Side A — blue slab with giant cropped letter */
+.setA{display:grid;grid-template-columns:5fr 7fr}
+.setA .slab{background:var(--blue);color:#fff;position:relative;overflow:hidden;min-height:420px;padding:clamp(20px,3vw,40px);display:grid;align-content:end}
+.setA .slab .ltr{position:absolute;inset-block-start:-.2em;inset-inline-end:-.12em;font-family:"Archivo","Arial Narrow",sans-serif;font-weight:900;font-stretch:62%;font-size:clamp(20rem,46vw,46rem);line-height:.8;color:var(--deep);pointer-events:none}
+.setA .sethead{position:relative}
+.setA .sethead h2{font-size:clamp(3.4rem,7.4vw,8rem)}
+.setA .sethead p{margin-block-start:14px;max-width:26ch;font-size:1rem}
+.setA .list{padding:clamp(18px,3.4vw,52px)}
+.setA .trk .no{color:var(--blue)}
+@media (max-width:859px){.setA{grid-template-columns:1fr}.setA .slab{min-height:300px}}
+
+/* Side B — black, type cropped across the top, two columns */
+.setB{background:var(--ink);color:var(--paper)}
+.setB .sethead{position:relative;padding:clamp(18px,3.4vw,52px) clamp(18px,3.4vw,52px) 0}
+.setB .sethead h2{font-size:clamp(4.6rem,19.5vw,21rem);color:var(--blue);white-space:nowrap;margin-inline-start:-.04em}
+html[lang="ar"] .setB .sethead h2{font-size:clamp(3rem,13.5vw,14rem)}
+.setB .ltr{position:absolute;inset-block-start:0;inset-inline-end:0;background:var(--hot);color:var(--ink);font-family:"Archivo",sans-serif;font-weight:900;font-size:clamp(2.4rem,5vw,4.4rem);line-height:1;padding:.2em .35em .12em}
+.setB .list{padding:clamp(8px,2vw,24px) clamp(18px,3.4vw,52px) clamp(24px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr));column-gap:clamp(24px,5vw,80px)}
+.setB .trk .no{color:var(--pale)}
+.setB .trk .pr{color:var(--pale)}
+.setB .trk:first-child{grid-column:1/-1;padding-block:26px;border-block:3px solid var(--paper);margin-block-end:6px}
+.setB .trk:first-child h3{font-size:clamp(1.5rem,3vw,2.6rem);font-weight:900;font-stretch:72%}
+html[lang="ar"] .setB .trk:first-child h3{font-weight:900}
+.setB .trk:first-child .no,.setB .trk:first-child .pr{font-size:clamp(2.4rem,5vw,4.6rem);color:var(--hot)}
+
+/* Side C — blue field, rows of discs */
+.setC{background:var(--blue);color:#fff;display:grid;grid-template-columns:7fr 5fr}
+.setC .list{padding:clamp(18px,3.4vw,52px)}
+.setC .sethead h2{font-size:clamp(3.6rem,9vw,9.5rem);margin-block-end:.15em}
+.setC .trk .no,.setC .trk .pr{color:var(--paper)}
+.setC .discs{position:relative;background:var(--paper);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1.2vw,18px);padding:clamp(18px,3vw,44px);align-content:center;border-inline-start:3px solid var(--ink)}
+.setC .discs i{aspect-ratio:1;border-radius:50%;background:var(--ink)}
+.setC .discs i:nth-child(4n+2){background:var(--blue)}
+.setC .discs i:nth-child(7){background:var(--hot)}
+.setC .discs i:nth-child(5){background:repeating-radial-gradient(circle,var(--ink) 0 3px,#2a2a33 3px 5px);position:relative;animation:spin 6s linear infinite}
+.setC .discs i:nth-child(5)::after{content:"";position:absolute;inset:34%;border-radius:50%;background:conic-gradient(var(--hot) 0 25%,var(--paper) 0 50%,var(--hot) 0 75%,var(--paper) 0)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.setC .discs .cred{grid-column:1/-1;color:var(--ink);margin-block-start:10px}
+@media (max-width:859px){.setC{grid-template-columns:1fr}.setC .discs{grid-template-columns:repeat(6,1fr);border-inline-start:0;border-block-start:3px solid var(--ink);padding:18px}.setC .discs i:nth-child(n+7):not(:nth-child(7)){display:none}.setC .discs i:nth-child(7){display:none}}
+
+/* Side D — colour-block tiles */
+.setD{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(190px,auto)}
+.setD > *{padding:clamp(18px,2.4vw,32px);position:relative;display:grid;align-content:space-between;gap:18px;overflow:hidden}
+.setD .sethead{grid-column:1/6;grid-row:1/3;background:var(--paper);align-content:end;border-inline-end:3px solid var(--ink)}
+.setD .sethead h2{font-size:clamp(3.6rem,9vw,10rem)}
+.setD .sethead h2 b{color:var(--blue)}
+.setD .sethead p{max-width:30ch;margin-block-start:12px}
+.setD .sethead .ltr{position:absolute;inset-block-start:-.16em;inset-inline-end:-.06em;font-family:"Archivo",sans-serif;font-weight:900;font-stretch:62%;font-size:clamp(11rem,22vw,24rem);line-height:.8;color:transparent;-webkit-text-stroke:3px var(--ink)}
+.tile .no{font-family:var(--disp);font-weight:900;font-stretch:66%;font-size:1.5rem}
+.tile h3{font-family:var(--disp);font-weight:900;font-stretch:70%;text-transform:uppercase;font-size:clamp(1.7rem,2.6vw,2.7rem);line-height:.95}
+html[lang="ar"] .tile h3{line-height:1.3;font-size:clamp(1.5rem,2.2vw,2.2rem)}
+.tile p{font-size:.95rem;margin-block-start:6px;max-width:30ch}
+.tile .top{display:flex;justify-content:space-between;align-items:baseline}
+.tile .pr{font-family:var(--disp);font-weight:900;font-size:1.5rem;unicode-bidi:isolate}
+.t1{grid-column:6/10;background:var(--blue);color:#fff}
+.t2{grid-column:10/-1;background:var(--ink);color:var(--paper)}
+.t3{grid-column:6/8;background:var(--hot)}
+.t4{grid-column:8/11;background:var(--pale)}
+.t5{grid-column:11/-1;background:var(--deep);color:#fff}
+.t3 h3,.t5 h3{font-size:clamp(1.4rem,1.9vw,2rem)}
+@media (max-width:1100px){.setD .sethead{grid-column:1/-1;grid-row:auto;border-inline-end:0;border-block-end:3px solid var(--ink);min-height:300px}.t1{grid-column:1/8}.t2{grid-column:8/-1}.t3{grid-column:1/5}.t4{grid-column:5/9}.t5{grid-column:9/-1}}
+@media (max-width:700px){.setD{grid-auto-rows:auto}.t1,.t4{grid-column:1/-1}.t2,.t3,.t5{grid-column:1/-1}.t2{margin-inline-start:22%}.t3{margin-inline-end:22%}.t5{margin-inline-start:22%}.tile{min-height:170px}}
+
+/* ───── label / footer ───── */
+.label{background:var(--ink);color:var(--paper);display:grid;grid-template-columns:5fr 7fr;overflow:clip}
+.vinyl{position:relative;min-height:380px}
+.vinyl .rec{position:absolute;inset-block-start:50%;inset-inline-start:-18%;width:min(118%,620px);aspect-ratio:1;border-radius:50%;transform:translateY(-50%);background:
+  radial-gradient(circle,var(--blue) 0 21%,transparent 21.4%),
+  conic-gradient(from 20deg,rgba(255,255,255,.14),transparent 12% 46%,rgba(255,255,255,.14) 52%,transparent 62%),
+  repeating-radial-gradient(circle,#2b2b36 0 2px,#101016 2px 4px)}
+.vinyl .ctr{position:absolute;inset:0;display:grid;place-content:center;text-align:center;font-family:var(--disp);font-weight:900;font-stretch:70%;text-transform:uppercase;font-size:1.25rem;line-height:1;color:#fff}
+.vinyl .ctr small{display:block;font:600 .56rem var(--body);letter-spacing:.14em;margin-block-start:26px}
+.vinyl .ctr::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--ink);margin:8px auto 0;order:1}
+.vinyl .ctr{grid-auto-flow:row}
+.label .info{padding:clamp(24px,4vw,60px);display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:28px 36px;align-content:center}
+.label .info h4{color:var(--pale);margin-block-end:8px}
+.label .info p{font-size:.98rem}
+.label .info .fine{grid-column:1/-1;border-block-start:1px solid rgba(239,232,216,.4);padding-block-start:16px;font-size:.85rem;opacity:.8}
+@media (max-width:859px){.label{grid-template-columns:1fr}.vinyl{min-height:270px}.vinyl .rec{width:330px;inset-inline-start:auto;inset-inline-end:-70px;inset-block-start:-70px;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <span class="cat">BH 0081</span>
+  <nav aria-label="Sides">
+    <a href="#a">A<small lang="en">First set</small><small lang="ar">الفقرة الأولى</small></a>
+    <a href="#b">B<small lang="en">Second set</small><small lang="ar">الفقرة الثانية</small></a>
+    <a href="#c">C<small lang="en">Encore</small><small lang="ar">الختام</small></a>
+    <a href="#d">D<small lang="en">Nightcaps</small><small lang="ar">مشروبات</small></a>
+  </nav>
+  <a class="home-link cred" href="../index.html"><i aria-hidden="true"></i><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<header class="front">
+  <h1 class="title"><span lang="en">Blue <b>Hour</b></span><span lang="ar">الساعة <b>الزرقاء</b></span></h1>
+  <div class="photo">
+    <svg viewBox="0 0 600 300" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="ht" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="4.5" cy="4.5" r="3.1" fill="#071a5e"/></pattern>
+        <pattern id="ht2" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="4.5" cy="4.5" r="1.7" fill="#071a5e"/></pattern>
+      </defs>
+      <circle cx="470" cy="100" r="230" fill="url(#ht2)" opacity=".55"/>
+      <g fill="#071a5e">
+        <path d="M-40 92 L36 86 L36 114 L-40 108Z"/>
+        <rect x="30" y="93" width="380" height="14"/>
+        <path d="M398 93 C470 91 520 66 590 6 L590 194 C520 134 470 109 398 107Z"/>
+        <rect x="140" y="100" width="250" height="92" rx="46" fill="none" stroke="#071a5e" stroke-width="14"/>
+        <rect x="205" y="52" width="26" height="162" rx="5"/><rect x="247" y="52" width="26" height="162" rx="5"/><rect x="289" y="52" width="26" height="162" rx="5"/>
+        <rect x="213" y="30" width="10" height="24"/><rect x="255" y="22" width="10" height="32"/><rect x="297" y="30" width="10" height="24"/>
+        <ellipse cx="218" cy="28" rx="13" ry="5"/><ellipse cx="260" cy="20" rx="13" ry="5"/><ellipse cx="302" cy="28" rx="13" ry="5"/>
+      </g>
+      <path d="M398 93 C470 91 520 66 590 6 L590 194 C520 134 470 109 398 107Z" fill="url(#ht)" opacity=".0"/>
+      <g fill="#b9c9f5"><rect x="210" y="60" width="5" height="146"/><rect x="252" y="60" width="5" height="146"/><rect x="294" y="60" width="5" height="146"/><path d="M420 97 C480 94 530 70 584 26 L584 40 C534 78 484 100 420 101Z"/><rect x="40" y="95" width="350" height="3"/></g>
+    </svg>
+    <span class="stereo cred"><span lang="en">Live · Stereo</span><span lang="ar">عزف حيّ</span></span>
+    <div class="tag">
+      <span class="cred"><span lang="en">Jazz Supper Club</span><span lang="ar">نادي الجاز</span></span>
+      <strong><span lang="en">Supper in four sides, played slow.</span><span lang="ar">عشاءٌ من أربعة أوجه، يُعزف على مهل.</span></strong>
+    </div>
+  </div>
+  <aside class="side">
+    <div class="hotblk">
+      <span class="cred"><span lang="en">Tonight on the bandstand</span><span lang="ar">الليلة على المنصّة</span></span>
+      <p><span lang="en">Two sets nightly<br>9:00 &amp; 11:30</span><span lang="ar">فقرتان كل ليلة<br>٩:٠٠ و١١:٣٠</span></p>
+    </div>
+    <ul class="pers">
+      <li><span lang="en">Nadia Okoro</span><span lang="ar">نادية أوكورو</span><span lang="en">kitchen, lead</span><span lang="ar">قائدة المطبخ</span></li>
+      <li><span lang="en">Sami Haddad</span><span lang="ar">سامي حدّاد</span><span lang="en">grill &amp; smoke</span><span lang="ar">الشواء والتدخين</span></li>
+      <li><span lang="en">Lou Bertrand</span><span lang="ar">لو برتران</span><span lang="en">pastry</span><span lang="ar">الحلويات</span></li>
+      <li><span lang="en">Idris Vale</span><span lang="ar">إدريس فيل</span><span lang="en">bar, zero-proof</span><span lang="ar">المشروبات الخالية من الكحول</span></li>
+      <li><span lang="en">The Marlowe Quartet</span><span lang="ar">رباعي مارلو</span><span lang="en">piano, bass, drums, horn</span><span lang="ar">بيانو، كونترباص، طبول، بوق</span></li>
+    </ul>
+    <div class="keys" aria-hidden="true"></div>
+  </aside>
+</header>
+
+<section class="liner">
+  <div class="big">
+    <h2><span lang="en">Liner <em>notes</em></span><span lang="ar">كلمة <em>الغلاف</em></span></h2>
+    <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="notes">
+    <p lang="en">Down eleven steps on Lower Marlowe Street there is a room that only gets going when the sky turns the colour of ink. The kitchen cooks the way the quartet plays: a written theme, then room to wander. Smoke, butter, citrus, a little bitterness at the end.</p>
+    <p lang="ar">على عمق إحدى عشرة درجة تحت شارع مارلو السفلي قاعةٌ لا تدبّ فيها الحياة إلا حين تصطبغ السماء بلون الحبر. مطبخنا يطهو كما تعزف الرباعية: لحنٌ مكتوب، ثم فسحةٌ للارتجال. دخانٌ وزبدة وحمضيات، ولمسة مرارةٍ خفيفة في الختام.</p>
+    <p lang="en">The menu is pressed like a double album. Order a side at a time or let the whole record play. Nothing here is poured with alcohol; the bar treats bitters, teas and smoke as its horn section.</p>
+    <p lang="ar">القائمة مضغوطةٌ كألبومٍ مزدوج. اطلب وجهًا في كل مرة، أو دع الأسطوانة تدور حتى آخرها. لا كحول في أي كأس هنا؛ فالمرارة والشاي والدخان هي آلات النفخ عند ساقينا.</p>
+    <div class="album">
+      <h3><span lang="en">The Full Album</span><span lang="ar">الألبوم الكامل</span></h3>
+      <span class="p" dir="ltr">$85</span>
+      <p><span lang="en">One track from each side, chosen by the kitchen, per guest. Includes your seat for both sets.</span><span lang="ar">طبقٌ من كل وجه يختاره المطبخ، للشخص الواحد. يشمل مقعدك للفقرتين.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="set setA" id="a">
+  <div class="slab">
+    <span class="ltr" aria-hidden="true">A</span>
+    <div class="sethead">
+      <span class="cred"><span lang="en">Side A · small plates</span><span lang="ar">الوجه أ · أطباق صغيرة</span></span>
+      <h2><span lang="en">First<br>Set</span><span lang="ar">الفقرة<br>الأولى</span></h2>
+      <p><span lang="en">Short numbers to open the room. Best shared, two or three to a table.</span><span lang="ar">مقطوعاتٌ قصيرة تفتتح السهرة. الأجمل أن تُتقاسم، اثنتان أو ثلاث لكل طاولة.</span></p>
+    </div>
+  </div>
+  <ol class="list">
+    <li class="trk"><span class="no">A1</span><h3><span lang="en">Smoked Beet Carpaccio</span><span lang="ar">كارباتشيو الشمندر المدخّن</span></h3><span class="pr" dir="ltr">$14</span><p><span lang="en">Horseradish labneh, pistachio, burnt orange oil.</span><span lang="ar">لبنة بالفجل الحار، فستق حلبي، وزيت البرتقال المحروق.</span></p></li>
+    <li class="trk"><span class="no">A2</span><h3><span lang="en">Blue Crab Toast</span><span lang="ar">توست السلطعون الأزرق</span></h3><span class="pr" dir="ltr">$19</span><p><span lang="en">Brown-butter brioche, lemon, a fistful of chives.</span><span lang="ar">بريوش بالزبدة البنّية، ليمون، وحفنة من الثوم المعمّر.</span></p></li>
+    <li class="trk"><span class="no">A3</span><h3><span lang="en">Beef Tartare “Kind of Blue”</span><span lang="ar">تارتار اللحم «كايند أوف بلو»</span><span class="std"><span lang="en">House standard</span><span lang="ar">من كلاسيكياتنا</span></span></h3><span class="pr" dir="ltr">$21</span><p><span lang="en">Hand-cut fillet, juniper, pickled blueberries, rye crisps.</span><span lang="ar">فيليه مفروم باليد، عرعر، توت أزرق مخلّل، ورقائق الجاودار.</span></p></li>
+    <li class="trk"><span class="no">A4</span><h3><span lang="en">Charred Leeks Vinaigrette</span><span lang="ar">كرّاث مشوي بالخلّ</span></h3><span class="pr" dir="ltr">$13</span><p><span lang="en">Soft egg, capers, hazelnut crumb, tarragon.</span><span lang="ar">بيضة طرية، كبَر، فتات البندق، وطرخون.</span></p></li>
+    <li class="trk"><span class="no">A5</span><h3><span lang="en">Half-Dozen Oysters</span><span lang="ar">نصف دزينة محار</span></h3><span class="pr" dir="ltr">$24</span><p><span lang="en">On crushed ice with green-apple mignonette.</span><span lang="ar">على ثلج مجروش مع صلصة التفاح الأخضر والكراث.</span></p></li>
+  </ol>
+</section>
+
+<section class="set setB" id="b">
+  <div class="sethead">
+    <span class="cred"><span lang="en">Side B · from the grill &amp; the pan</span><span lang="ar">الوجه ب · من الشوّاية والمقلاة</span></span>
+    <h2><span lang="en">Second Set</span><span lang="ar">الفقرة الثانية</span></h2>
+    <span class="ltr" aria-hidden="true">B</span>
+  </div>
+  <ol class="list">
+    <li class="trk"><span class="no">B1</span><h3><span lang="en">Dry-Aged Ribeye for the Rhythm Section</span><span lang="ar">ريب آي معتّق على شرف قسم الإيقاع</span><span class="std"><span lang="en">For two</span><span lang="ar">لشخصين</span></span></h3><span class="pr" dir="ltr">$96</span><p><span lang="en">600 g on the bone, marrow butter, straw potatoes, burnt-onion jus.</span><span lang="ar">٦٠٠ غرام بالعظم، زبدة نخاع العظم، بطاطا قشّية، ومرق البصل المحروق.</span></p></li>
+    <li class="trk"><span class="no">B2</span><h3><span lang="en">Blackened Sea Bass</span><span lang="ar">قاروص بالتتبيلة المحمّصة</span></h3><span class="pr" dir="ltr">$36</span><p><span lang="en">Creole butter beans, charred lemon, parsley oil.</span><span lang="ar">فاصولياء الزبدة على الطريقة الكريولية، ليمون مشوي، وزيت البقدونس.</span></p></li>
+    <li class="trk"><span class="no">B3</span><h3><span lang="en">Duck Breast, Cherry &amp; Cocoa</span><span lang="ar">صدر بطّ بالكرز والكاكاو</span></h3><span class="pr" dir="ltr">$38</span><p><span lang="en">Sour-cherry glaze, cocoa nib, roasted endive.</span><span lang="ar">تلميعة الكرز الحامض، حبيبات الكاكاو، وهندباء محمّصة.</span></p></li>
+    <li class="trk"><span class="no">B4</span><h3><span lang="en">Midnight Mac</span><span lang="ar">معكرونة منتصف الليل</span></h3><span class="pr" dir="ltr">$24</span><p><span lang="en">Three cheeses, black truffle, smoked turkey crumb.</span><span lang="ar">ثلاثة أجبان، كمأة سوداء، وفتات الديك الرومي المدخّن.</span></p></li>
+    <li class="trk"><span class="no">B5</span><h3><span lang="en">Mushroom Bourguignon</span><span lang="ar">بورغينيون الفطر</span></h3><span class="pr" dir="ltr">$27</span><p><span lang="en">Braised in grape must and thyme, celeriac purée.</span><span lang="ar">مطهوّ على مهل بعصير العنب والزعتر، مع بوريه الكرفس الجذري.</span></p></li>
+  </ol>
+</section>
+
+<section class="set setC" id="c">
+  <div class="list">
+    <div class="sethead">
+      <span class="cred"><span lang="en">Side C · sweet things</span><span lang="ar">الوجه ج · الحلويات</span></span>
+      <h2><span lang="en">Encore</span><span lang="ar">الختام</span></h2>
+    </div>
+    <ol>
+      <li class="trk"><span class="no">C1</span><h3><span lang="en">Blue Note Tart</span><span lang="ar">تارت النغمة الزرقاء</span><span class="std"><span lang="en">House standard</span><span lang="ar">من كلاسيكياتنا</span></span></h3><span class="pr" dir="ltr">$13</span><p><span lang="en">Blueberry, violet, crème fraîche, buckwheat crust.</span><span lang="ar">توت أزرق، بنفسج، كريمة طازجة، وعجينة الحنطة السوداء.</span></p></li>
+      <li class="trk"><span class="no">C2</span><h3><span lang="en">Chocolate Soufflé “Take Five”</span><span lang="ar">سوفليه الشوكولاتة «تيك فايف»</span></h3><span class="pr" dir="ltr">$15</span><p><span lang="en">Baked to order; give it five, plus ten. Salted milk ice cream.</span><span lang="ar">يُخبز عند الطلب؛ امنحه خمس دقائق، وعشرًا أخرى. مع آيس كريم الحليب المملّح.</span></p></li>
+      <li class="trk"><span class="no">C3</span><h3><span lang="en">Burnt Honey Flan</span><span lang="ar">فلان العسل المحروق</span></h3><span class="pr" dir="ltr">$11</span><p><span lang="en">Orange blossom, toasted sesame brittle.</span><span lang="ar">ماء الزهر، وقرمشة السمسم المحمّص.</span></p></li>
+      <li class="trk"><span class="no">C4</span><h3><span lang="en">Coltrane’s Pecan Pie</span><span lang="ar">فطيرة البيكان على طريقة كولترين</span></h3><span class="pr" dir="ltr">$12</span><p><span lang="en">Date caramel, smoked whipped cream.</span><span lang="ar">كراميل التمر، وكريمة مخفوقة مدخّنة.</span></p></li>
+    </ol>
+  </div>
+  <div class="discs" aria-hidden="false">
+    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    <span class="cred"><span lang="en">33⅓ rpm · last orders for the kitchen 1:15 am</span><span lang="ar">٣٣⅓ دورة في الدقيقة · آخر طلبات المطبخ ١:١٥ فجرًا</span></span>
+  </div>
+</section>
+
+<section class="set setD" id="d">
+  <div class="sethead">
+    <span class="ltr" aria-hidden="true">D</span>
+    <div>
+      <span class="cred"><span lang="en">Side D · zero-proof bar</span><span lang="ar">الوجه د · مشروبات بلا كحول</span></span>
+      <h2><span lang="en">Night<b>caps</b></span><span lang="ar">كؤوس <b>الليل</b></span></h2>
+      <p><span lang="en">Named for the standards. Stirred, shaken or smoked to order.</span><span lang="ar">تحمل أسماء المقطوعات الخالدة، وتُحضَّر عند الطلب: مخفوقة أو مقلّبة أو مدخّنة.</span></p>
+    </div>
+  </div>
+  <article class="tile t1"><div class="top"><span class="no">D1</span><span class="pr" dir="ltr">$12</span></div><div><h3><span lang="en">Blue in Green</span><span lang="ar">بلو إن غرين</span></h3><p><span lang="en">Butterfly pea tea, yuzu, tonic; turns violet as you stir.</span><span lang="ar">شاي زهرة البازلاء الزرقاء، يوزو، وتونيك؛ يتحوّل بنفسجيًا مع التحريك.</span></p></div></article>
+  <article class="tile t2"><div class="top"><span class="no">D2</span><span class="pr" dir="ltr">$11</span></div><div><h3><span lang="en">’Round Midnight</span><span lang="ar">راوند ميدنايت</span></h3><p><span lang="en">Cold brew, date molasses, smoked-salt cream.</span><span lang="ar">قهوة باردة، دبس التمر، وكريمة بالملح المدخّن.</span></p></div></article>
+  <article class="tile t3"><div class="top"><span class="no">D3</span><span class="pr" dir="ltr">$12</span></div><div><h3><span lang="en">So What Sour</span><span lang="ar">سو وات ساور</span></h3><p><span lang="en">Seville orange, verjus, foam.</span><span lang="ar">برتقال إشبيلية، حصرم، ورغوة.</span></p></div></article>
+  <article class="tile t4"><div class="top"><span class="no">D4</span><span class="pr" dir="ltr">$11</span></div><div><h3><span lang="en">Autumn Leaves</span><span lang="ar">أوراق الخريف</span></h3><p><span lang="en">Spiced pear, black tea, ginger, a cinnamon ember.</span><span lang="ar">إجاص متبّل، شاي أسود، زنجبيل، وعود قرفة متّقد.</span></p></div></article>
+  <article class="tile t5"><div class="top"><span class="no">D5</span><span class="pr" dir="ltr">$10</span></div><div><h3><span lang="en">Moanin’ Mule</span><span lang="ar">مونين ميول</span></h3><p><span lang="en">Fiery ginger brew, lime, mint.</span><span lang="ar">شراب الزنجبيل اللاذع، ليمون أخضر، ونعناع.</span></p></div></article>
+</section>
+
+<footer class="label">
+  <div class="vinyl" aria-hidden="true"><div class="rec"><div class="ctr">BLUE<br>HOUR<small>BH 0081 · 33⅓</small></div></div></div>
+  <div class="info">
+    <div><h4 class="cred"><span lang="en">Doors</span><span lang="ar">الأبواب</span></h4><p><span lang="en">Tuesday to Sunday, 7 pm – 2 am.<br>Dark on Mondays.</span><span lang="ar">من الثلاثاء إلى الأحد، ٧ مساءً – ٢ فجرًا.<br>نغلق يوم الاثنين.</span></p></div>
+    <div><h4 class="cred"><span lang="en">Find the stairs</span><span lang="ar">أين الدَّرَج؟</span></h4><p><span lang="en">47 Lower Marlowe Street, basement.<br>Look for the blue lamp.</span><span lang="ar">٤٧ شارع مارلو السفلي، الطابق السفلي.<br>ابحث عن المصباح الأزرق.</span></p></div>
+    <div><h4 class="cred"><span lang="en">Bookings</span><span lang="ar">الحجوزات</span></h4><p><span lang="en">Tables are held for one set. Music charge <span dir="ltr">$10</span> per guest.</span><span lang="ar">تُحجز الطاولة لفقرة واحدة. رسم الموسيقى <span dir="ltr">$10</span> للشخص.</span></p></div>
+    <p class="fine"><span lang="en">No alcohol is served and no pork is used. Dishes may contain nuts, shellfish, egg, dairy and gluten; tell your server before the first track. Prices in US dollars, taxes included.</span><span lang="ar">لا نقدّم الكحول ولا نستخدم لحم الخنزير. قد تحتوي الأطباق على مكسرات أو قشريات أو بيض أو ألبان أو غلوتين؛ أخبر النادل قبل أن تبدأ المقطوعة الأولى. الأسعار بالدولار الأمريكي وتشمل الضرائب.</span></p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

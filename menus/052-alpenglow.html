@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Alpenglow Fondue · وهج الألب</title>
+<meta name="description" content="Alpenglow Fondue — a paper-cut Alpine hut: bubbling caquelons, raclette, rösti and hot chocolate. وهج الألب — كوخ جبلي للفوندو والراكليت والشوكولاتة الساخنة.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2a1646">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500;700;800&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&family=Rakkas&family=Markazi+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --cream:#fbf0e1; --ink:#1f1020; --soft:#5d3b52; --rose:#f4c3c6; --plum:#4b1f49; --night:#1f1030;
+  --disp:"Grenze Gotisch","Alegreya",Georgia,serif; --body:"Alegreya",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-size:18px;line-height:1.5;color:var(--ink);background:var(--night)}
+html[lang="ar"] body{font-family:"Markazi Text","Noto Naskh Arabic",serif;font-size:22px;line-height:1.55}
+html[lang="ar"] .it p{font-size:1.05rem}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+.wrap{overflow:clip}
+svg.defs{position:absolute;width:0;height:0}
+
+/* controls: little paper tags */
+.ctl{position:absolute;inset-block-start:16px;inset-inline-end:16px;z-index:30;display:flex;gap:8px}
+.ctl a,.ctl button{
+  font:500 15px/1 var(--body);text-decoration:none;cursor:pointer;color:var(--ink);background:var(--cream);border:0;
+  padding:10px 14px;min-height:38px;display:inline-flex;align-items:center;border-radius:3px;
+  box-shadow:0 3px 0 rgba(31,16,32,.35),0 6px 12px rgba(31,16,32,.3);
+}
+.ctl button{background:var(--ink);color:var(--cream)}
+.ctl a:hover,.ctl button:hover{transform:translateY(-2px)}
+html[lang="ar"] .ctl a,.ctl button [lang="ar"]{font:500 18px/1 "Markazi Text",serif}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;text-align:center;color:var(--cream);
+  background:linear-gradient(180deg,#2a1646 0,#5a2466 22%,#b8457c 46%,#f0788c 66%,#ffb793 84%,#ffd9b0 100%);
+}
+.hero .txt{position:relative;z-index:2;padding:84px 18px 0}
+.kick{font:500 clamp(.8rem,1.2vw,1rem)/1.2 var(--body);letter-spacing:.34em;text-transform:uppercase;color:#ffd9c7}
+html[lang="ar"] .kick{font-size:1.2rem;text-transform:none}
+.hero h1{font:800 clamp(3.6rem,12vw,9.5rem)/.86 var(--disp);margin-block:14px 6px;color:var(--cream);
+  filter:drop-shadow(0 5px 0 rgba(42,22,70,.5)) drop-shadow(0 14px 18px rgba(42,22,70,.45))}
+.hero h1 small{display:block;font:500 .34em/1.2 var(--disp);letter-spacing:.32em;margin-block-start:.3em;color:#ffe3cf}
+html[lang="ar"] .hero h1{font:400 clamp(4rem,13vw,10rem)/1.15 "Rakkas",serif}
+html[lang="ar"] .hero h1 small{font:400 .3em/1.4 "Rakkas",serif}
+.hero .tag{font:italic 400 clamp(1.15rem,2vw,1.55rem)/1.4 var(--body);max-width:36ch;margin:16px auto 0;color:#fff1e6}
+html[lang="ar"] .hero .tag{font-style:normal;font-size:clamp(1.4rem,2.3vw,1.8rem)}
+.trail{position:relative;display:flex;justify-content:center;gap:clamp(4px,2vw,26px);margin:26px auto 0;max-width:680px}
+.trail::before{content:"";position:absolute;inset-inline:8%;inset-block-start:9px;border-block-start:2px dashed rgba(251,240,225,.7)}
+.trail a{position:relative;flex:1;max-width:120px;text-decoration:none;color:var(--cream);font-size:.82rem;line-height:1.2;padding-block:26px 6px}
+.trail a::before{content:"";position:absolute;inset-block-start:0;inset-inline-start:50%;width:20px;height:20px;margin-inline-start:-10px;border-radius:50%;background:var(--cream);box-shadow:0 3px 0 rgba(42,22,70,.45)}
+.trail a b{display:block;font:700 1.05rem/1.1 var(--disp);letter-spacing:.04em}
+html[lang="ar"] .trail a{font-size:1rem}
+html[lang="ar"] .trail a b{font:700 1.05rem/1.3 "Markazi Text",serif}
+.trail a:hover::before{background:var(--ink)}
+.peaks{display:block;width:100%;height:max(48.6vw,430px);margin-block-start:min(-5vw,-30px);position:relative;z-index:1}
+
+/* ---------- paper sheets ---------- */
+.sheet{position:relative;padding:clamp(40px,6vw,84px) clamp(16px,4vw,60px) clamp(70px,9vw,130px)}
+.sheet > .edge{position:absolute;inset-inline:0;inset-block-end:calc(100% - 1px);width:100%;display:block;filter:drop-shadow(0 -5px 6px rgba(31,16,32,.3))}
+.s1{background:var(--cream);z-index:2}
+.s2{background:var(--rose);z-index:3}
+.s3{background:var(--plum);color:var(--cream);z-index:4}
+.s4{background:var(--cream);z-index:5}
+.s5{background:var(--night);color:var(--cream);z-index:6;padding-block-end:50px}
+.inner{max-width:1180px;margin-inline:auto}
+.head{text-align:center;margin-block-end:clamp(26px,4vw,50px)}
+.alt{display:inline-flex;align-items:center;gap:12px;font:500 .9rem/1 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--soft)}
+.alt::before,.alt::after{content:"";width:38px;height:10px;background:radial-gradient(circle,currentColor 0 2.5px,transparent 3px) 0 50%/12px 10px repeat-x}
+html[lang="ar"] .alt{font-size:1.1rem;text-transform:none}
+.s3 .alt,.s5 .alt{color:#f3b9c7}
+.head h2{font:800 clamp(2.5rem,6vw,4.6rem)/.95 var(--disp);margin-block:10px 8px}
+html[lang="ar"] .head h2{font:400 clamp(2.6rem,6vw,4.6rem)/1.3 "Rakkas",serif}
+.head p{font-style:italic;color:var(--soft);max-width:50ch;margin-inline:auto}
+html[lang="ar"] .head p{font-style:normal}
+.s3 .head p,.s5 .head p{color:#ecc9d6}
+
+/* items */
+ul{list-style:none}
+.it{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding-block:16px}
+.it h3{font:700 1.5rem/1.1 var(--disp);letter-spacing:.01em}
+html[lang="ar"] .it h3{font:700 1.5rem/1.3 "Markazi Text",serif}
+.it p{color:var(--soft);font-size:1rem;max-width:36ch}
+.s3 .it p,.s5 .it p{color:#ecc9d6}
+.it .star{display:inline-block;width:.8em;height:.8em;vertical-align:.02em;margin-inline-start:.3em;fill:#c8315f}
+.s3 .it .star,.s5 .it .star{fill:#ff9db0}
+.pr{flex:none;width:62px;height:62px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-content:center;text-align:center;
+  font:800 1.5rem/.9 var(--disp);box-shadow:0 3px 0 rgba(31,16,32,.25),0 0 0 4px var(--cream),0 0 0 5.5px var(--ink)}
+.pr small{display:block;font:500 .62rem/1 var(--body);letter-spacing:.12em;margin-block-start:3px}
+html[lang="ar"] .pr small{font:500 .8rem/1 "Markazi Text",serif}
+.s2 .pr{background:var(--plum);box-shadow:0 3px 0 rgba(31,16,32,.25),0 0 0 4px var(--rose),0 0 0 5.5px var(--plum)}
+.s3 .pr{background:var(--cream);color:var(--plum);box-shadow:0 3px 0 rgba(0,0,0,.3),0 0 0 4px var(--plum),0 0 0 5.5px var(--cream)}
+.s5 .pr{background:var(--cream);color:var(--night);box-shadow:0 3px 0 rgba(0,0,0,.3),0 0 0 4px var(--night),0 0 0 5.5px var(--cream)}
+
+.mirror{display:grid;grid-template-columns:minmax(0,1fr);align-items:center}
+.medal{display:block;width:min(300px,78%);height:auto;margin:6px auto 18px;filter:drop-shadow(0 6px 0 rgba(31,16,32,.12))}
+.spine{display:none}
+.row4,.row3{display:grid;grid-template-columns:minmax(0,1fr)}
+.it + .it,.side + .side .it:first-child,.spine + .side .it:first-child{background:radial-gradient(circle,currentColor 0 2px,transparent 2.6px) 50% 0/14px 5px repeat-x}
+.mirror .it + .it,.side + .side .it:first-child,.spine + .side .it:first-child,.row4 .it + .it,.row3 .it + .it{background-size:14px 5px;background-repeat:no-repeat;background-image:radial-gradient(circle,rgba(93,59,82,.6) 0 2px,transparent 2.6px),radial-gradient(circle,rgba(93,59,82,.6) 0 2px,transparent 2.6px),radial-gradient(circle,rgba(93,59,82,.6) 0 2px,transparent 2.6px);background-position:calc(50% - 14px) 0,50% 0,calc(50% + 14px) 0}
+.s3 .it + .it,.s5 .it + .it{background-image:radial-gradient(circle,rgba(243,185,199,.7) 0 2px,transparent 2.6px),radial-gradient(circle,rgba(243,185,199,.7) 0 2px,transparent 2.6px),radial-gradient(circle,rgba(243,185,199,.7) 0 2px,transparent 2.6px)}
+
+/* set menu tag & rule */
+.tagcard{position:relative;max-width:760px;margin:clamp(30px,5vw,60px) auto 0;background:var(--ink);color:var(--cream);text-align:center;padding:30px clamp(20px,4vw,48px) 28px;
+  -webkit-mask:radial-gradient(circle closest-side,#000 96%,#0000) 0 0/18px 18px round,linear-gradient(#000 0 0) 50%/calc(100% - 18px) calc(100% - 18px) no-repeat;mask:radial-gradient(circle closest-side,#000 96%,#0000) 0 0/18px 18px round,linear-gradient(#000 0 0) 50%/calc(100% - 18px) calc(100% - 18px) no-repeat}
+.tagcard h3{font:800 clamp(1.9rem,3.6vw,2.6rem)/1 var(--disp)}
+html[lang="ar"] .tagcard h3{font:400 clamp(2rem,3.6vw,2.7rem)/1.3 "Rakkas",serif}
+.tagcard ol{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;margin-block:12px 14px;color:#f6d6dd}
+.tagcard li + li::before{content:"♥";font-size:.7em;margin-inline-end:18px;color:#f0788c}
+.tagcard .big{font:800 2.2rem/1 var(--disp);color:#ffb793}
+.tagcard .big small{font:500 .95rem/1 var(--body);color:#f6d6dd}
+html[lang="ar"] .tagcard .big small{font-family:"Markazi Text",serif;font-size:1.15rem}
+.rule{max-width:620px;margin:34px auto 0;text-align:center;font-style:italic;color:var(--soft)}
+html[lang="ar"] .rule{font-style:normal}
+.rule b{font:700 1.25rem/1.2 var(--disp);font-style:normal;color:var(--ink);display:block;margin-block-end:4px}
+html[lang="ar"] .rule b{font:700 1.3rem/1.3 "Markazi Text",serif}
+.hearts{display:block;width:100%;height:26px;margin-block-end:28px;color:var(--plum)}
+
+/* footer */
+.foot{max-width:1000px;margin:clamp(40px,6vw,70px) auto 0;display:grid;grid-template-columns:minmax(0,1fr);gap:24px;text-align:center;border-block-start:2px dashed rgba(251,240,225,.35);padding-block-start:36px}
+.foot h4{font:700 1.4rem/1 var(--disp);color:#ffb793;margin-block-end:8px}
+html[lang="ar"] .foot h4{font:700 1.4rem/1.3 "Markazi Text",serif}
+.foot p{color:#ecd3dc;font-size:1rem}
+.fine{text-align:center;color:#b995ad;font-size:.9rem;margin-block-start:30px}
+.lace{display:block;width:min(520px,90%);height:auto;margin:34px auto 0;color:var(--cream)}
+
+@media (min-width:860px){
+  .mirror{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);column-gap:clamp(14px,2.5vw,40px)}
+  .mirror .it{flex-direction:row;align-items:center;gap:20px;padding-block:20px}
+  .side.a .it{text-align:end;justify-content:flex-end}
+  .side.b .it{flex-direction:row-reverse;text-align:start;justify-content:flex-end}
+  .mirror .it > div{flex:1}
+  .side.a .it p{margin-inline-start:auto}
+  .side + .side .it:first-child,.spine + .side .it:first-child{background:none}
+  .mirror .it + .it{background-position:calc(100% - 14px) 0,calc(100% - 28px) 0,calc(100% - 42px) 0}
+  .side.b .it + .it{background-position:14px 0,28px 0,42px 0}
+  html[dir="rtl"] .side.a .it + .it{background-position:14px 0,28px 0,42px 0}
+  html[dir="rtl"] .side.b .it + .it{background-position:calc(100% - 14px) 0,calc(100% - 28px) 0,calc(100% - 42px) 0}
+  .medal{width:clamp(240px,26vw,340px);margin:0}
+  .spine{display:block;width:44px;align-self:stretch;color:var(--plum);
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 96'%3E%3Cg fill='%234b1f49'%3E%3Cpath d='M22 34c-13-9-16-17-11-22 4-4 9-2 11 3 2-5 7-7 11-3 5 5 2 13-11 22z'/%3E%3Ccircle cx='22' cy='48' r='3.50'/%3E%3Cpath d='M22 58l7 10-7 10-7-10z'/%3E%3Ccircle cx='22' cy='88' r='3.50'/%3E%3Crect x='21' width='2' height='96' opacity='.35'/%3E%3C/g%3E%3C/svg%3E") 50% 0/44px 96px repeat-y}
+  .row4{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:26px}
+  .row3{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:30px}
+  .row4 .it + .it,.row3 .it + .it{background:none}
+  .row3 .it:nth-child(n+4){background-image:radial-gradient(circle,rgba(243,185,199,.7) 0 2px,transparent 2.6px),radial-gradient(circle,rgba(243,185,199,.7) 0 2px,transparent 2.6px),radial-gradient(circle,rgba(243,185,199,.7) 0 2px,transparent 2.6px);background-size:14px 5px;background-repeat:no-repeat;background-position:calc(50% - 14px) 0,50% 0,calc(50% + 14px) 0}
+  .row4 .it{border-inline-start:2px dashed rgba(243,185,199,.35);padding-inline:14px}
+  .row4 .it:first-child{border:0}
+  .foot{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:no-preference){
+  .rings{animation:glow 7s ease-in-out infinite alternate;transform-origin:720px 330px}
+  @keyframes glow{from{transform:scale(.94);opacity:.8}to{transform:scale(1.04);opacity:1}}
+  .steam path{animation:steam 3.6s ease-in-out infinite alternate}
+  .steam path:nth-child(2){animation-delay:-1.2s}.steam path:nth-child(3){animation-delay:-2.4s}
+  @keyframes steam{from{transform:translateY(4px);opacity:.55}to{transform:translateY(-4px);opacity:1}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg class="defs" aria-hidden="true"><defs>
+  <path id="tree" d="M0-66l9 16H5l11 17H9l13 19H3v14h-6v-14h-19l13-19h-7l11-17h-4z"/>
+  <path id="heart" d="M0 11C-13 2-16-6-11-11c4-4 9-2 11 3 2-5 7-7 11-3 5 5 2 13-11 22z"/>
+  <g id="cow"><path d="M-34-30c6-5 16-6 28-6h20c5 0 8-2 11-6l3-5 3 6 6-2-2 6c5 2 8 6 9 12l-3 5-9-1-5 5v16h-6v-13c-8 2-18 2-26 0v13h-6v-15l-5-4v19h-6v-22c-3 3-4 9-4 15h-3c-1-9 0-17 5-23z"/><path d="M17-8h7v8h-7z"/></g>
+  <g id="chalet"><path d="M-46-30L0-62l46 32-5 7-6-4V0h-70v-27l-6 4z"/><path d="M14-58h9v14l-9-7z"/><path d="M-8 0v-18h16V0zM-26-22h10v9h-10zM16-22h10v9H16z" fill="var(--hole,#ffd9b0)"/></g>
+  <filter id="ps" x="-5%" y="-30%" width="110%" height="160%"><feDropShadow dx="0" dy="-5" stdDeviation="6" flood-color="#3a0f3a" flood-opacity=".38"/></filter>
+</defs></svg>
+
+<div class="wrap">
+<header class="hero" id="top">
+  <div class="ctl">
+    <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button" aria-label="Switch language"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+  <div class="txt">
+    <p class="kick"><span lang="en">Alpine Fondue Hut · 1,620 m</span><span lang="ar">كوخ الفوندو الجبلي · ١٬٦٢٠ م</span></p>
+    <h1><span lang="en">Alpenglow<small>Fondue</small></span><span lang="ar">وهج الألب<small>بيت الفوندو</small></span></h1>
+    <p class="tag"><span lang="en">When the peaks turn pink, the cheese goes on the flame.</span><span lang="ar">حين تتورّد القمم عند الغروب، نضع الجبن على النار.</span></p>
+    <nav class="trail" aria-label="Sections">
+      <a href="#s1"><b>3000</b><span lang="en">Caquelon</span><span lang="ar">الفوندو</span></a>
+      <a href="#s2"><b>2100</b><span lang="en">Raclette</span><span lang="ar">الراكليت</span></a>
+      <a href="#s3"><b>1400</b><span lang="en">To share</span><span lang="ar">للمشاركة</span></a>
+      <a href="#s4"><b>800</b><span lang="en">Sweet</span><span lang="ar">الحلو</span></a>
+      <a href="#s5"><b>400</b><span lang="en">Warm cups</span><span lang="ar">أكواب دافئة</span></a>
+    </nav>
+  </div>
+  <svg class="peaks" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <g class="rings"><circle cx="720" cy="330" r="330" fill="#ffd0b8" opacity=".16"/><circle cx="720" cy="330" r="250" fill="#ffd9c2" opacity=".2"/><circle cx="720" cy="330" r="175" fill="#ffe6d0" opacity=".28"/></g>
+    <g filter="url(#ps)" fill="#f9c9c6"><path id="ra" d="M720 148l34 62 28 16 46 96 62 36 62-32 52 52 84-32 70 52 92-32 82 52 108-22v304H720z"/><use href="#ra" transform="matrix(-1 0 0 1 1440 0)"/></g>
+    <path d="M720 148l34 62 28 16 16 34-26-14-18 22-20-30-14 26-14-26-20 30-18-22-26 14 16-34 28-16z" fill="#fff6ee"/>
+    <g filter="url(#ps)" fill="#ee8ea3"><path id="rb" d="M720 430l76-66 56-66 52 62 58-32 70 72 82-62 88 72 90-32 148 62v260H720z"/><use href="#rb" transform="matrix(-1 0 0 1 1440 0)"/></g>
+    <path d="M852 298l52 62-30-10-22 20-16-26-30 14zM588 298l-52 62 30-10 22 20 16-26 30 14z" fill="#ffd3d6"/>
+    <g filter="url(#ps)" fill="#c44f7c"><path id="rc" d="M720 512l72-58 70 28 88-70 92 70 88-40 100 60 100-50 110 50v198H720z"/><use href="#rc" transform="matrix(-1 0 0 1 1440 0)"/></g>
+    <g filter="url(#ps)" fill="#7a2c63"><path id="rd" d="M720 574l100-44 82 30 98-50 102 60 118-40 122 50 98-30v150H720z"/><use href="#rd" transform="matrix(-1 0 0 1 1440 0)"/></g>
+    <g filter="url(#ps)" fill="#1f1020">
+      <g id="rf">
+        <path d="M720 640c180-6 380-26 720 0v62H720z"/>
+        <use href="#tree" transform="translate(806 638) scale(1.5)"/><use href="#tree" transform="translate(846 636) scale(1)"/>
+        <use href="#cow" transform="translate(925 632) scale(-1 1)"/><use href="#cow" transform="translate(1010 629) scale(-.9 .9)"/><use href="#cow" transform="translate(1088 628) scale(-1 1)"/>
+        <use href="#tree" transform="translate(1160 628) scale(1.25)"/><use href="#tree" transform="translate(1200 629) scale(.8)"/>
+        <use href="#chalet" transform="translate(1290 632) scale(.8)"/>
+        <use href="#tree" transform="translate(1368 636) scale(1.6)"/><use href="#tree" transform="translate(1415 640) scale(1.1)"/>
+      </g>
+      <use href="#rf" transform="matrix(-1 0 0 1 1440 0)"/>
+      <use href="#chalet" transform="translate(720 642) scale(1.25)"/>
+      <use href="#heart" transform="translate(720 548) scale(1.2)"/>
+    </g>
+  </svg>
+</header>
+
+<main>
+<!-- 3000 m -->
+<section class="sheet s1" id="s1">
+  <div class="inner">
+    <div class="head">
+      <span class="alt"><span lang="en">3,000 m · The Summit</span><span lang="ar">٣٬٠٠٠ م · القمّة</span></span>
+      <h2><span lang="en">The Caquelon</span><span lang="ar">قِدر الفوندو</span></h2>
+      <p><span lang="en">Cheese fondue stirred in a figure of eight over a live flame, simmered in fresh apple must instead of wine. Served with sourdough cubes and baby potatoes. Priced per person, two or more.</span><span lang="ar">فوندو الجبن يُحرَّك على هيئة الرقم ثمانية فوق لهب حيّ، ويُطهى بعصير التفاح الطازج بدل النبيذ. يُقدَّم مع مكعبات خبز العجين المخمّر والبطاطا الصغيرة. السعر للشخص، لشخصين فأكثر.</span></p>
+    </div>
+    <div class="mirror">
+      <ul class="side a">
+        <li class="it"><div><h3><span lang="en">Moitié-Moitié</span><span lang="ar">مواتييه-مواتييه</span><svg class="star" viewBox="-12 -12 24 24"><use href="#heart"/></svg></h3><p><span lang="en">Half Gruyère, half Vacherin Fribourgeois. The one every hut is judged by.</span><span lang="ar">نصف غرويير ونصف فاشران فريبورغ. الطبق الذي يُحكم به على كل كوخ جبلي.</span></p></div><span class="pr">34<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+        <li class="it"><div><h3><span lang="en">Appenzeller &amp; Herbs</span><span lang="ar">أبنزلر بالأعشاب</span></h3><p><span lang="en">Sharp, spicy Appenzeller with wild garlic, thyme and a crack of pepper.</span><span lang="ar">جبن أبنزلر اللاذع مع الثوم البرّي والزعتر ورشّة فلفل أسود.</span></p></div><span class="pr">36<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+        <li class="it"><div><h3><span lang="en">Tomato Valaisanne</span><span lang="ar">فوندو الطماطم</span></h3><p><span lang="en">The Valais way: ripe tomato melted into the pot, ladled over boiled potatoes.</span><span lang="ar">على طريقة إقليم فاليه: طماطم ناضجة تذوب في القدر وتُسكب على البطاطا المسلوقة.</span></p></div><span class="pr">35<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      </ul>
+      <svg class="medal" viewBox="-160 -160 320 320" aria-hidden="true">
+        <g fill="none" stroke="#1f1020"><circle r="152" stroke-width="7"/><circle r="139" stroke-width="7" stroke-dasharray="0 12.48" stroke-linecap="round"/><circle r="126" stroke-width="2.50"/></g>
+        <g fill="#1f1020">
+          <path d="M-121 78Q0 56 121 78L96 104Q0 128-96 104z"/>
+          <use href="#tree" transform="translate(-86 76) scale(1.25)"/><use href="#tree" transform="translate(86 76) scale(1.25)"/>
+          <use href="#tree" transform="translate(-56 72) scale(.6)"/><use href="#tree" transform="translate(56 72) scale(.6)"/>
+          <rect x="-60" y="-8" width="120" height="12" rx="5"/>
+          <path d="M-52 6h104c0 36-18 50-52 50S-52 42-52 6z"/>
+          <path d="M-38 48l-12 24h9l11-20zM38 48l12 24h-9l-11-20zM-16 58h32v10h-32z"/>
+          <path d="M-64-2h-18v9h18zM64-2h18v9H64z"/>
+          <g stroke="#1f1020" stroke-width="4.50" stroke-linecap="round"><path d="M-16-10L-62-88M16-10L62-88"/></g>
+          <rect x="-37" y="-46" width="16" height="16" rx="3" transform="rotate(-30 -29 -38)"/><rect x="21" y="-46" width="16" height="16" rx="3" transform="rotate(30 29 -38)"/>
+          <use href="#heart" transform="translate(-64 -96) scale(.8)"/><use href="#heart" transform="translate(64 -96) scale(.8)"/>
+          <use href="#heart" transform="translate(0 92) scale(.9)" fill="#fbf0e1"/>
+        </g>
+        <use href="#heart" transform="translate(0 28) scale(1.35)" fill="#fbf0e1"/>
+        <g class="steam" fill="none" stroke="#1f1020" stroke-width="4.50" stroke-linecap="round"><path d="M0-22c-9-11 9-19 0-30s9-19 0-30s9-19 0-28"/><path d="M-20-24c-7-9 7-15 0-24"/><path d="M20-24c7-9-7-15 0-24"/></g>
+      </svg>
+      <ul class="side b">
+        <li class="it"><div><h3><span lang="en">Truffle &amp; Tête de Moine</span><span lang="ar">الكمأة وتيت دو موان</span><svg class="star" viewBox="-12 -12 24 24"><use href="#heart"/></svg></h3><p><span lang="en">Black truffle shaved at the table over rosettes of Tête de Moine.</span><span lang="ar">كمأة سوداء تُبشر أمامك فوق وردات من جبن تيت دو موان.</span></p></div><span class="pr">44<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+        <li class="it"><div><h3><span lang="en">Smoked Alp</span><span lang="ar">جبن المرعى المدخّن</span></h3><p><span lang="en">Beechwood-smoked mountain cheese with caramelised onions and caraway.</span><span lang="ar">جبن جبلي مدخّن على خشب الزان مع البصل المكرمل والكراوية.</span></p></div><span class="pr">38<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+        <li class="it"><div><h3><span lang="en">Fondue Chinoise</span><span lang="ar">فوندو شينواز</span></h3><p><span lang="en">Paper-thin beef and veal swished through herb bouillon, with four house sauces.</span><span lang="ar">شرائح رقيقة من لحم البقر والعجل تُغمس في مرق الأعشاب، مع أربع صلصات من صنعنا.</span></p></div><span class="pr">48<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      </ul>
+    </div>
+    <div class="tagcard">
+      <h3><span lang="en">Hüttenabend · the hut evening</span><span lang="ar">أمسية الكوخ</span></h3>
+      <ol><li><span lang="en">Barley soup</span><span lang="ar">حساء الشعير</span></li><li><span lang="en">Any cheese fondue</span><span lang="ar">فوندو الجبن الذي تختاره</span></li><li><span lang="en">Meringues &amp; double cream</span><span lang="ar">مرينغ بالقشطة</span></li><li><span lang="en">Hot chocolate</span><span lang="ar">شوكولاتة ساخنة</span></li></ol>
+      <p class="big">59 <small><span lang="en">CHF per person</span><span lang="ar">فرنك للشخص</span></small></p>
+    </div>
+    <p class="rule"><b><span lang="en">The law of the lost bread</span><span lang="ar">قانون الخبز الضائع</span></b><span lang="en">Drop your cube in the pot and you owe the table a song, or a round of hot chocolate.</span><span lang="ar">من تسقط قطعة خبزه في القدر فعليه أغنية للطاولة، أو جولة من الشوكولاتة الساخنة.</span></p>
+  </div>
+</section>
+
+<!-- 2100 m -->
+<section class="sheet s2" id="s2">
+  <svg class="edge" height="34" aria-hidden="true"><defs><pattern id="e2" width="44" height="34" patternUnits="userSpaceOnUse"><circle cx="22" cy="34" r="22" fill="#f4c3c6"/><circle cx="22" cy="20" r="3.50" fill="#4b1f49"/></pattern></defs><rect width="100%" height="34" fill="url(#e2)"/></svg>
+  <div class="inner">
+    <div class="head">
+      <span class="alt"><span lang="en">2,100 m · The Alp</span><span lang="ar">٢٬١٠٠ م · المرعى</span></span>
+      <h2><span lang="en">Raclette &amp; Rösti</span><span lang="ar">راكليت وروشتي</span></h2>
+      <p><span lang="en">What the herdsmen eat when the cows come home.</span><span lang="ar">ما يأكله الرعاة حين تعود الأبقار من المرعى.</span></p>
+    </div>
+    <div class="mirror">
+      <ul class="side a">
+        <li class="it"><div><h3><span lang="en">Raclette du Valais</span><span lang="ar">راكليت فاليه</span><svg class="star" viewBox="-12 -12 24 24"><use href="#heart"/></svg></h3><p><span lang="en">Half a wheel under the flame, scraped onto your plate with potatoes, gherkins and pearl onions.</span><span lang="ar">نصف قرص جبن تحت اللهب، يُكشط في صحنك مع البطاطا والخيار المخلّل والبصل اللؤلؤي.</span></p></div><span class="pr">29<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+        <li class="it"><div><h3><span lang="en">Rösti Bernoise</span><span lang="ar">روشتي بيرن</span></h3><p><span lang="en">Butter-crisp potato cake with smoked turkey rashers and a fried egg.</span><span lang="ar">قرص بطاطا مقرمش بالزبدة مع شرائح الديك الرومي المدخّن وبيضة مقلية.</span></p></div><span class="pr">24<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+        <li class="it"><div><h3><span lang="en">Trout Rösti</span><span lang="ar">روشتي السلمون المرقّط</span></h3><p><span lang="en">Smoked lake trout, horseradish cream, dill and pickled shallot.</span><span lang="ar">سلمون مرقّط مدخّن من البحيرة مع كريمة الفجل الحار والشبت والكرّاث المخلّل.</span></p></div><span class="pr">27<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      </ul>
+      <div class="spine" aria-hidden="true"></div>
+      <ul class="side b">
+        <li class="it"><div><h3><span lang="en">Älplermagronen</span><span lang="ar">معكرونة الرعاة</span></h3><p><span lang="en">Herdsmen's macaroni with potato, cream and mountain cheese, crisp onions, warm apple compote.</span><span lang="ar">معكرونة مع البطاطا والقشطة وجبن الجبل والبصل المقرمش، ومعها كومبوت التفاح الدافئ.</span></p></div><span class="pr">23<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+        <li class="it"><div><h3><span lang="en">Zürcher Geschnetzeltes</span><span lang="ar">لحم العجل على طريقة زيورخ</span><svg class="star" viewBox="-12 -12 24 24"><use href="#heart"/></svg></h3><p><span lang="en">Sliced veal in mushroom cream, finished with lemon, beside a golden rösti.</span><span lang="ar">شرائح لحم العجل بكريمة الفطر وعصرة ليمون، إلى جانب روشتي ذهبي.</span></p></div><span class="pr">38<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+        <li class="it"><div><h3><span lang="en">Käseschnitte</span><span lang="ar">خبز الجبن المحمّر</span></h3><p><span lang="en">Thick farmhouse bread soaked in apple must, buried in grilled cheese, egg on top.</span><span lang="ar">خبز ريفي سميك مشرّب بعصير التفاح ومغطّى بالجبن المشوي وفوقه بيضة.</span></p></div><span class="pr">21<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 1400 m -->
+<section class="sheet s3" id="s3">
+  <svg class="edge" height="84" aria-hidden="true"><defs><pattern id="e3" width="230" height="84" patternUnits="userSpaceOnUse"><g fill="#4b1f49"><rect y="72" width="230" height="12"/><use href="#tree" transform="translate(22 76) scale(.9)"/><use href="#tree" transform="translate(58 76) scale(1.1)"/><use href="#tree" transform="translate(96 76) scale(.6)"/><use href="#tree" transform="translate(128 76) scale(1)"/><use href="#tree" transform="translate(166 76) scale(.75)"/><use href="#tree" transform="translate(202 76) scale(1.15)"/></g></pattern></defs><rect width="100%" height="84" fill="url(#e3)"/></svg>
+  <div class="inner">
+    <div class="head">
+      <span class="alt"><span lang="en">1,400 m · The Forest</span><span lang="ar">١٬٤٠٠ م · الغابة</span></span>
+      <h2><span lang="en">To Dip &amp; Share</span><span lang="ar">للغمس والمشاركة</span></h2>
+      <p><span lang="en">Boards and bowls to pass around while the pot comes to a simmer.</span><span lang="ar">ألواح وأطباق تدور على الطاولة ريثما يغلي القدر.</span></p>
+    </div>
+    <ul class="row4">
+      <li class="it"><div><h3><span lang="en">Grisons Board</span><span lang="ar">لوح غراوبوندن</span><svg class="star" viewBox="-12 -12 24 24"><use href="#heart"/></svg></h3><p><span lang="en">Air-dried Bündnerfleisch beef, smoked turkey, cornichons and rye crisps.</span><span lang="ar">لحم بقري مجفّف في الهواء وديك رومي مدخّن وخيار مخلّل ورقائق الجاودار.</span></p></div><span class="pr">26<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      <li class="it"><div><h3><span lang="en">Dipping Garden</span><span lang="ar">سلّة الغمس</span></h3><p><span lang="en">Pear, broccoli, roast mushrooms and pickled carrots for the caquelon.</span><span lang="ar">إجاص وبروكلي وفطر مشوي وجزر مخلّل لتغمسها في القدر.</span></p></div><span class="pr">12<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      <li class="it"><div><h3><span lang="en">Barley Soup</span><span lang="ar">حساء الشعير</span></h3><p><span lang="en">Graubünden barley, root vegetables and smoked beef, slow and thick.</span><span lang="ar">شعير وخضار جذرية ولحم بقري مدخّن، حساء كثيف يُطهى على مهل.</span></p></div><span class="pr">14<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      <li class="it"><div><h3><span lang="en">Nüsslisalat</span><span lang="ar">سلطة الخسّ الجبلي</span></h3><p><span lang="en">Lamb's lettuce, chopped egg, croutons and warm walnut dressing.</span><span lang="ar">خسّ الحمل مع البيض المفروم والخبز المحمّص وصلصة الجوز الدافئة.</span></p></div><span class="pr">16<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 800 m -->
+<section class="sheet s4" id="s4">
+  <svg class="edge" height="16" aria-hidden="true"><defs><pattern id="e4" width="26" height="16" patternUnits="userSpaceOnUse"><path d="M0 16L13 0l13 16z" fill="#fbf0e1"/></pattern></defs><rect width="100%" height="16" fill="url(#e4)"/></svg>
+  <svg class="hearts" aria-hidden="true"><defs><pattern id="hp" width="46" height="26" patternUnits="userSpaceOnUse"><use href="#heart" transform="translate(23 13)" fill="#4b1f49"/></pattern></defs><rect width="100%" height="26" fill="url(#hp)"/></svg>
+  <div class="inner">
+    <div class="head">
+      <span class="alt"><span lang="en">800 m · The Valley</span><span lang="ar">٨٠٠ م · الوادي</span></span>
+      <h2><span lang="en">Sweet Descent</span><span lang="ar">نزول حلو</span></h2>
+      <p><span lang="en">One more pot, this time full of chocolate.</span><span lang="ar">قدر أخير، وهذه المرّة ممتلئ بالشوكولاتة.</span></p>
+    </div>
+    <div class="mirror">
+      <ul class="side a">
+        <li class="it"><div><h3><span lang="en">Chocolate Fondue</span><span lang="ar">فوندو الشوكولاتة</span><svg class="star" viewBox="-12 -12 24 24"><use href="#heart"/></svg></h3><p><span lang="en">Milk chocolate with honey-almond nougat; berries, banana and meringue to dip.</span><span lang="ar">شوكولاتة بالحليب مع نوغا العسل واللوز، وتوت وموز ومرينغ للغمس.</span></p></div><span class="pr">19<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+        <li class="it"><div><h3><span lang="en">Meringues &amp; Double Cream</span><span lang="ar">مرينغ بالقشطة المضاعفة</span></h3><p><span lang="en">Crackling meringues under a spoon of thick Gruyère cream.</span><span lang="ar">مرينغ هشّ تحت ملعقة من قشطة غرويير الكثيفة.</span></p></div><span class="pr">14<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      </ul>
+      <div class="spine" aria-hidden="true"></div>
+      <ul class="side b">
+        <li class="it"><div><h3><span lang="en">Engadine Nut Tart</span><span lang="ar">تارت الجوز الإنغاديني</span></h3><p><span lang="en">Shortcrust packed with caramelised walnuts and mountain honey.</span><span lang="ar">عجينة زبدية محشوّة بالجوز المكرمل وعسل الجبل.</span></p></div><span class="pr">12<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+        <li class="it"><div><h3><span lang="en">Apfelküchlein</span><span lang="ar">فطائر التفاح</span></h3><p><span lang="en">Apple rings fried in cinnamon batter, with warm vanilla sauce.</span><span lang="ar">حلقات تفاح مقلية بعجينة القرفة مع صلصة الفانيليا الدافئة.</span></p></div><span class="pr">13<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 400 m -->
+<section class="sheet s5" id="s5">
+  <svg class="edge" height="110" viewBox="0 0 1440 110" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <g fill="#4b1f49"><path id="eb" d="M720 34l70 46 60-30 80 44 90-58 90 52 80-30 90 40 80-28v40H720z"/><use href="#eb" transform="matrix(-1 0 0 1 1440 0)"/></g>
+    <g fill="#1f1030"><path id="ea" d="M720 70l60-36 70 44 70-28 80 40 90-52 90 50 80-22 90 30 90-16v30H720z"/><use href="#ea" transform="matrix(-1 0 0 1 1440 0)"/></g>
+  </svg>
+  <div class="inner">
+    <div class="head">
+      <span class="alt"><span lang="en">400 m · The Lakeside</span><span lang="ar">٤٠٠ م · ضفة البحيرة</span></span>
+      <h2><span lang="en">Warm Cups</span><span lang="ar">أكواب دافئة</span></h2>
+      <p><span lang="en">Everything here is alcohol-free. Hot drinks are the proper friend of melted cheese.</span><span lang="ar">جميع مشروباتنا خالية من الكحول، والمشروب الساخن خير رفيق للجبن الذائب.</span></p>
+    </div>
+    <ul class="row3">
+      <li class="it"><div><h3><span lang="en">Heisse Schoggi</span><span lang="ar">شوكولاتة ساخنة</span><svg class="star" viewBox="-12 -12 24 24"><use href="#heart"/></svg></h3><p><span lang="en">Melted dark chocolate, alpine milk and a cloud of whipped cream.</span><span lang="ar">شوكولاتة داكنة مذابة في حليب جبلي تعلوها غيمة من الكريمة المخفوقة.</span></p></div><span class="pr">8<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      <li class="it"><div><h3><span lang="en">Alpine Herb Tea</span><span lang="ar">شاي أعشاب الألب</span></h3><p><span lang="en">A pot of mint, verbena, lady's mantle and mountain thyme.</span><span lang="ar">إبريق من النعناع ورعي الحمام وزعتر الجبل وأعشاب المرعى.</span></p></div><span class="pr">7<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      <li class="it"><div><h3><span lang="en">Spiced Apple Must</span><span lang="ar">عصير التفاح المتبّل</span></h3><p><span lang="en">Cloudy apple juice warmed with cinnamon, clove and orange peel.</span><span lang="ar">عصير تفاح عكر يُسخَّن مع القرفة والقرنفل وقشر البرتقال.</span></p></div><span class="pr">8<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      <li class="it"><div><h3><span lang="en">Elderflower Spritz</span><span lang="ar">فوّار زهر البيلسان</span></h3><p><span lang="en">Elderflower cordial, lemon and sparkling spring water over ice.</span><span lang="ar">شراب زهر البيلسان مع الليمون ومياه الينابيع الفوّارة والثلج.</span></p></div><span class="pr">7<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      <li class="it"><div><h3><span lang="en">Malted Milk</span><span lang="ar">حليب الشعير المملَّت</span></h3><p><span lang="en">The Swiss schoolyard classic, hot or cold, extra crunchy on top.</span><span lang="ar">مشروب الطفولة السويسري، ساخنًا أو باردًا، مع رشّة مقرمشة على الوجه.</span></p></div><span class="pr">7<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+      <li class="it"><div><h3><span lang="en">Schale</span><span lang="ar">قهوة بالحليب</span></h3><p><span lang="en">A bowl of milky coffee, the way it is poured in Bern.</span><span lang="ar">وعاء من القهوة بالحليب كما تُسكب في بيرن.</span></p></div><span class="pr">6<small><span lang="en">CHF</span><span lang="ar">فرنك</span></small></span></li>
+    </ul>
+    <footer>
+      <div class="foot">
+        <div><h4><span lang="en">Hut hours</span><span lang="ar">أوقات الكوخ</span></h4><p><span lang="en">Tuesday to Sunday, 5 pm to 11 pm<br>Last caquelon lit at 9.45 pm</span><span lang="ar">من الثلاثاء إلى الأحد، ٥ مساءً – ١١ مساءً<br>آخر قدر يُشعل ٩:٤٥ مساءً</span></p></div>
+        <div><h4><span lang="en">Find the trail</span><span lang="ar">الطريق إلينا</span></h4><p><span lang="en">Sonnenweg 7, above the gondola station, 3920 Hochmatt<br>+41 27 555 01 62</span><span lang="ar">زونينفيغ ٧، فوق محطة التلفريك، هوخمات ٣٩٢٠<br><span dir="ltr">+41 27 555 01 62</span></span></p></div>
+        <div><h4><span lang="en">Good to know</span><span lang="ar">للعلم</span></h4><p><span lang="en">Dishes contain milk, wheat, egg and nuts. No alcohol and no pork in our kitchen. Gluten-free bread on request.</span><span lang="ar">أطباقنا تحتوي على الحليب والقمح والبيض والمكسّرات. مطبخنا خالٍ من الكحول ولحم الخنزير. الخبز الخالي من الغلوتين متوفّر عند الطلب.</span></p></div>
+      </div>
+      <svg class="lace" viewBox="-260 -30 520 60" aria-hidden="true"><g fill="currentColor">
+        <use href="#heart" transform="scale(1.6)"/>
+        <g id="lh"><use href="#tree" transform="translate(48 22) scale(.6)"/><use href="#cow" transform="translate(104 22) scale(-.7 .7)"/><use href="#tree" transform="translate(152 22) scale(.75)"/><use href="#chalet" transform="translate(206 22) scale(.55)" style="--hole:#1f1030"/><rect x="24" y="22" width="232" height="3"/></g>
+        <use href="#lh" transform="scale(-1 1)"/></g></svg>
+      <p class="fine"><span lang="en">Prices in Swiss francs, service included.</span><span lang="ar">الأسعار بالفرنك السويسري وتشمل الخدمة.</span></p>
+    </footer>
+  </div>
+</section>
+</main>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

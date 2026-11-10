@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Pizza Typo · بيتزا تايبو</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Pizza Typo — twenty numbered Neapolitan pizzas and plates, set on a strict grid. 485 °C, 90 seconds, 72-hour dough. بيتزا تايبو: عشرون طبقاً مرقّماً من نابولي.">
+<meta name="theme-color" content="#e42313">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Inter+Tight:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--r:#e42313;--k:#0b0b0b;--w:#fff;--g:clamp(12px,1.7vw,24px);--m:clamp(16px,2.4vw,36px);
+  --lat:"Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;--f:var(--lat)}
+html[lang="ar"]{--f:"IBM Plex Sans Arabic","Inter Tight",Tahoma,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);color:var(--k);background:var(--w);font-size:16px;line-height:1.4;overflow-x:clip;-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-size:17px;line-height:1.7}
+html[lang="ar"] [lang="ar"],html[lang="ar"] [lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--g);padding-inline:var(--m)}
+.n,.price,.num{font-family:var(--lat);direction:ltr;unicode-bidi:isolate}
+.cap{font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;line-height:1.3}
+html[lang="ar"] .cap{font-size:14.5px;line-height:1.5}
+
+/* top bar */
+.bar{position:sticky;inset-block-start:0;z-index:20;background:var(--w);border-block-end:2px solid var(--k);align-items:center;min-height:48px}
+.bar>*{grid-column:span 3}
+.bar b{font-weight:900;letter-spacing:-.02em;font-size:17px;text-transform:none}
+.bar .ctl{display:flex;justify-content:flex-end;gap:18px;align-items:center}
+.bar a,.bar button{font:inherit;font-weight:700;color:var(--k);background:none;border:0;cursor:pointer;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;border-block-end:0}
+#langToggle{background:var(--k);color:var(--w);padding:0 12px;min-height:30px;font-family:"IBM Plex Sans Arabic","Inter Tight",sans-serif;font-size:14px;letter-spacing:0;text-transform:none}
+html[lang="ar"] #langToggle{font-family:var(--lat);font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+#langToggle:hover{background:var(--r)}
+.bar a:hover{color:var(--r)}
+
+/* hero */
+.hero{background:var(--r);color:var(--w);position:relative;overflow:hidden;padding-block:var(--g) 0;row-gap:0}
+.disc{position:absolute;inset-block-start:-7vw;inset-inline-end:-6vw;width:41vw;aspect-ratio:1;border-radius:50%;background:conic-gradient(from 196deg,var(--w) 0 318deg,transparent 318deg)}
+html[dir="rtl"] .disc{transform:scaleX(-1)}
+.disc::after{content:"";position:absolute;inset-block-start:60%;inset-inline-start:-16%;width:50%;height:50%;background:var(--k);clip-path:polygon(100% 0,62% 100%,0 62%)}
+.hero .cap{grid-column:span 3;position:relative}
+h1{grid-column:1/-1;position:relative;font-weight:900;font-size:24.5vw;line-height:.78;letter-spacing:-.065em;margin-block:clamp(40px,7vw,110px) 0;margin-inline-start:-.045em;mix-blend-mode:normal}
+h1 span span{display:block}
+h1 .b{color:var(--k)}
+html[lang="ar"] h1{font-weight:700;font-size:21vw;line-height:1.02;margin-block-start:clamp(20px,4vw,60px);margin-inline-start:0}
+.facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--g);margin-block-start:clamp(28px,4vw,64px);border-block-start:2px solid var(--w);position:relative}
+.fact{grid-column:span 2;padding-block:12px 28px}
+.fact .n{display:block;font-weight:900;font-size:clamp(40px,5.2vw,84px);line-height:.9;letter-spacing:-.05em}
+.fact .n sup{font-size:.45em;vertical-align:top;letter-spacing:0;margin-inline-start:.05em;position:relative;top:.1em}
+.lede{grid-column:9/-1;padding-block:14px 28px;font-size:clamp(17px,1.45vw,22px);font-weight:500;line-height:1.25;letter-spacing:-.01em}
+html[lang="ar"] .lede{line-height:1.6;font-size:clamp(17.5px,1.4vw,21px)}
+
+/* index */
+.index{border-block-end:2px solid var(--k)}
+.index a{grid-column:span 3;text-decoration:none;padding-block:14px 18px;display:grid;grid-template-columns:auto 1fr;gap:0 12px;align-items:baseline;border-inline-start:2px solid var(--k);padding-inline-start:12px;margin-inline-start:calc(var(--g)/-2)}
+.index a:first-child{border:0;margin:0;padding-inline-start:0}
+.index a b{font:900 44px/.9 var(--lat);letter-spacing:-.04em;color:var(--r);grid-row:span 2}
+.index a strong{font-size:20px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.index a:hover strong{color:var(--r)}
+
+/* sections */
+.sec{padding-block:clamp(40px,5vw,80px) clamp(48px,6vw,96px);align-items:start;scroll-margin-top:48px}
+.side{grid-column:span 3;position:sticky;inset-block-start:72px}
+.side .L{font:900 clamp(120px,17vw,270px)/.74 var(--lat);letter-spacing:-.06em;color:var(--r);display:block;margin-inline-start:-.05em;direction:ltr;unicode-bidi:isolate}
+html[dir="rtl"] .side .L{text-align:right;margin-inline-start:0}
+.side h2{font-weight:900;font-size:clamp(34px,4vw,60px);line-height:.92;letter-spacing:-.045em;margin-block:22px 12px}
+html[lang="ar"] .side h2{font-weight:700;line-height:1.2}
+.side p{font-size:15.5px;max-width:26ch}
+html[lang="ar"] .side p{font-size:16.5px}
+.list{grid-column:4/-1;list-style:none}
+.row{display:grid;grid-template-columns:repeat(9,1fr);column-gap:var(--g);border-block-start:2px solid var(--k);padding-block:14px 22px;align-items:start;position:relative;transition:background .15s,color .15s}
+.row:last-child{border-block-end:2px solid var(--k)}
+.row .n{grid-column:span 2;font-weight:900;font-size:clamp(64px,8.6vw,132px);line-height:.8;letter-spacing:-.07em;color:var(--r);margin-inline-start:-.04em}
+html[dir="rtl"] .row .n,html[dir="rtl"] .cell .n,html[dir="rtl"] .fact .n{text-align:right}
+.row h3{grid-column:span 3}
+h3{font-weight:700;font-size:clamp(24px,2.5vw,36px);line-height:1;letter-spacing:-.035em}
+html[lang="ar"] h3{line-height:1.3;font-size:clamp(23px,2.2vw,32px)}
+.row p{grid-column:span 3;font-size:15.5px}
+html[lang="ar"] .row p,html[lang="ar"] .cell p{font-size:16.5px}
+.price{font-weight:700;font-size:clamp(22px,2.2vw,32px);letter-spacing:-.03em;line-height:1;white-space:nowrap;text-align:end;justify-self:end}
+.tag{display:block;margin-block-start:10px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--r)}
+html[lang="ar"] .tag{font-size:14px}
+.row:hover{background:var(--k);color:var(--w)}
+.row.house{background:var(--r);color:var(--w);margin-inline:calc(var(--g)/-2);padding-inline:calc(var(--g)/2);border-color:var(--k)}
+.row.house .n,.row.house .tag{color:var(--w)}
+.row.house+.row{border-block-start-color:var(--k)}
+
+/* cells (B, D) */
+.cells{grid-column:4/-1;list-style:none;display:grid;grid-template-columns:1fr 1fr;border-block-start:2px solid var(--k)}
+.cell{padding:14px 0 26px;border-block-end:2px solid var(--k);display:grid;grid-template-columns:1fr auto;gap:10px var(--g);align-content:start}
+.cell:nth-child(odd){padding-inline-end:var(--g);border-inline-end:2px solid var(--k)}
+.cell:nth-child(even){padding-inline-start:var(--g)}
+.cell .n{grid-column:1/-1;font-weight:900;font-size:clamp(90px,13vw,200px);line-height:.78;letter-spacing:-.07em;color:var(--r);margin-inline-start:-.04em;margin-block-end:clamp(24px,5vw,80px)}
+.cell p{grid-column:1/-1;font-size:15.5px;max-width:42ch}
+
+/* compact table (C) */
+.tbl{grid-column:4/-1;list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:var(--g)}
+.tr{display:grid;grid-template-columns:clamp(60px,6.5vw,96px) 1fr auto;gap:4px var(--g);border-block-start:2px solid var(--k);padding-block:12px 22px;align-items:start}
+.tr .n{font-weight:900;font-size:clamp(44px,4.6vw,68px);line-height:.8;letter-spacing:-.06em;color:var(--r);grid-row:span 2}
+html[dir="rtl"] .tr .n{text-align:right}
+.tr p{grid-column:2/4;font-size:15.5px}
+html[lang="ar"] .tr p{font-size:16.5px}
+.tr h3{font-size:clamp(22px,2vw,28px)}
+
+/* bands */
+.band{background:var(--k);color:var(--w);padding-block:var(--g) clamp(28px,3vw,44px);align-items:end;row-gap:20px}
+.band .huge{grid-column:span 7;font:900 clamp(120px,27vw,420px)/.74 var(--lat);letter-spacing:-.07em;direction:ltr;unicode-bidi:isolate;margin-inline-start:-.04em;color:var(--r)}
+html[dir="rtl"] .band .huge{text-align:right;margin:0}
+.band .huge small{font-size:.5em;letter-spacing:-.04em;color:var(--w)}
+.band .say{grid-column:span 5;font-weight:700;font-size:clamp(24px,3.1vw,48px);line-height:1;letter-spacing:-.04em;padding-block-end:.2em}
+html[lang="ar"] .band .say{line-height:1.35}
+.band .cap{grid-column:1/-1;border-block-end:2px solid var(--w);padding-block-end:10px}
+.band.red{background:var(--r)}
+.band.red .huge{color:var(--w)}.band.red .huge small{color:var(--k)}
+.dark{background:var(--k);color:var(--w)}
+.dark .cells,.dark .cell{border-color:var(--w)}
+
+/* footer */
+footer{border-block-start:2px solid var(--k);padding-block:var(--g) 40px;row-gap:40px}
+footer .ciao{grid-column:1/-1;font-weight:900;font-size:clamp(90px,22vw,340px);line-height:.8;letter-spacing:-.065em;color:var(--r);margin-inline-start:-.04em}
+html[lang="ar"] footer .ciao{font-weight:700;line-height:1.1;margin:0}
+footer div{grid-column:span 3;border-block-start:2px solid var(--k);padding-block-start:10px}
+footer h4{font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-block-end:12px;color:var(--r)}
+html[lang="ar"] footer h4{font-size:15px}
+footer div p{font-size:15.5px;font-weight:500}
+html[lang="ar"] footer div p{font-size:16.5px}
+
+@media (max-width:900px){
+  .bar>*{grid-column:span 6}.bar .hide{display:none}
+  .fact{grid-column:span 3}.lede{grid-column:1/-1;border-block-start:2px solid var(--w)}
+  .index a{grid-column:span 6}.index a:nth-child(3){border:0;margin:0;padding-inline-start:0}.index a:nth-child(n+3){border-block-start:2px solid var(--k)}
+  .index a:nth-child(4){margin-block-start:0}
+  .side{grid-column:1/-1;position:static;display:grid;grid-template-columns:auto 1fr;gap:0 var(--g);align-items:end;margin-block-end:24px}
+  .side .L{grid-row:span 2;font-size:34vw}
+  .side h2{margin:0;align-self:end}
+  .side p{max-width:none}
+  .list,.cells,.tbl{grid-column:1/-1}
+  .band .huge,.band .say{grid-column:1/-1}
+  footer div{grid-column:span 6}
+}
+@media (max-width:640px){
+  .bar b{font-size:16px}.bar .ctl{gap:12px}
+  h1{font-size:31vw;margin-block-start:26vw}
+  html[lang="ar"] h1{font-size:27vw;margin-block-start:22vw}
+  .disc{width:60vw;inset-block-start:-16vw;inset-inline-end:-16vw}.disc::after{display:none}
+  .tag{margin-block:6px 4px}
+  .hero .cap{grid-column:span 6}.hero .cap.x{display:none}
+  .fact{grid-column:span 6}.fact:nth-child(n+3){border-block-start:2px solid var(--w)}
+  .fact .n{font-size:15vw}
+  .index a b{font-size:34px}.index a strong{font-size:17px}
+  .row{grid-template-columns:22vw 1fr auto;column-gap:12px}
+  .row .n{grid-column:1;grid-row:1/4;font-size:19vw}
+  .row h3{grid-column:2}.row .price{grid-column:3;grid-row:1}
+  .row p{grid-column:2/4}
+  .row.house{margin-inline:calc(var(--m)*-1);padding-inline:var(--m)}
+  .cells{grid-template-columns:1fr}
+  .cell:nth-child(n){padding-inline:0;border-inline-end:0;grid-template-columns:22vw 1fr auto;column-gap:12px}
+  .cell .n{grid-column:1;grid-row:1/3;font-size:19vw;margin-block-end:0}
+  .cell p{grid-column:2/4}
+  .tbl{grid-template-columns:1fr}
+  .tr{grid-template-columns:22vw 1fr auto;column-gap:12px}
+  .tr .n{font-size:19vw}
+  footer div{grid-column:1/-1}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="bar grid cap">
+  <b><span lang="en">Pizza Typo</span><span lang="ar">بيتزا تايبو</span></b>
+  <span class="hide"><span lang="en">Neapolitan pizza</span><span lang="ar">بيتزا نابولية</span></span>
+  <span class="hide"><span lang="en">Menu 01–20</span><span lang="ar">القائمة 01–20</span></span>
+  <span class="ctl">
+    <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </span>
+</div>
+
+<header class="hero grid">
+  <i class="disc" aria-hidden="true"></i>
+  <p class="cap"><span lang="en">Wood-fired<br>since 2011</span><span lang="ar">على الحطب<br>منذ 2011</span></p>
+  <p class="cap x"><span lang="en">Via dei Tipografi 12<br>80138 Napoli</span><span lang="ar">فيا دي تيبوغرافي 12<br>نابولي 80138</span></p>
+  <p class="cap x"><span lang="en">Flour, water,<br>salt, yeast, fire</span><span lang="ar">دقيق وماء<br>وملح وخميرة ونار</span></p>
+  <h1><span lang="en"><span>Pizza</span><span class="b">Typo</span></span><span lang="ar"><span>بيتزا</span><span class="b">تايبو</span></span></h1>
+  <div class="facts">
+    <p class="fact cap"><span class="n">485<sup>°C</sup></span><span lang="en">Oven floor</span><span lang="ar">حرارة أرضية الفرن</span></p>
+    <p class="fact cap"><span class="n">90<sup>s</sup></span><span lang="en">Baking time</span><span lang="ar">ثانية في الفرن</span></p>
+    <p class="fact cap"><span class="n">72<sup>h</sup></span><span lang="en">Dough rest</span><span lang="ar">ساعة تخمير للعجين</span></p>
+    <p class="fact cap"><span class="n">20</span><span lang="en">Numbers, no more</span><span lang="ar">رقماً لا أكثر</span></p>
+    <p class="lede"><span lang="en">Twenty things, numbered. Order by number, like a train. Everything else we took away so the pizza could be read clearly.</span><span lang="ar">عشرون صنفاً مرقّماً. اطلب بالرقم كما تختار قطارك. حذفنا كل ما عدا ذلك لتُقرأ البيتزا بوضوح.</span></p>
+  </div>
+</header>
+
+<nav class="index grid">
+  <a href="#a"><b>A</b><strong><span lang="en">Rosse</span><span lang="ar">الحمراء</span></strong><span class="cap n">01–06</span></a>
+  <a href="#b"><b>B</b><strong><span lang="en">Bianche</span><span lang="ar">البيضاء</span></strong><span class="cap n">07–10</span></a>
+  <a href="#c"><b>C</b><strong><span lang="en">Fritti &amp; sides</span><span lang="ar">مقالٍ وأطباق جانبية</span></strong><span class="cap n">11–14</span></a>
+  <a href="#d"><b>D</b><strong><span lang="en">Dolci &amp; drinks</span><span lang="ar">حلويات ومشروبات</span></strong><span class="cap n">15–20</span></a>
+</nav>
+
+<main>
+<section class="sec grid" id="a">
+  <div class="side"><span class="L">A</span>
+    <h2><span lang="en">Rosse</span><span lang="ar">الحمراء</span></h2>
+    <p><span lang="en">Red pizzas. San Marzano tomatoes, crushed by hand, never cooked before the oven.</span><span lang="ar">بيتزا بالصلصة الحمراء. طماطم سان مارزانو تُهرس باليد ولا تُطهى قبل دخول الفرن.</span></p></div>
+  <ul class="list">
+    <li class="row"><span class="n">01</span><h3><span lang="en">Marinara</span><span lang="ar">مارينارا</span><span class="tag"><span lang="en">Vegan</span><span lang="ar">نباتية</span></span></h3>
+      <p><span lang="en">Tomato, garlic, wild oregano, olive oil. No cheese, no apology.</span><span lang="ar">طماطم وثوم وزعتر برّي وزيت زيتون. بلا جبن وبلا اعتذار.</span></p><span class="price">€ 9</span></li>
+    <li class="row"><span class="n">02</span><h3><span lang="en">Margherita</span><span lang="ar">مارغريتا</span></h3>
+      <p><span lang="en">Tomato, fior di latte, basil, olive oil. The measure of every pizzeria.</span><span lang="ar">طماطم وجبن فيور دي لاتّه وريحان وزيت زيتون. مقياس كل مطعم بيتزا.</span></p><span class="price">€ 11</span></li>
+    <li class="row house"><span class="n">03</span><h3><span lang="en">Margherita Bufala</span><span lang="ar">مارغريتا بوفالا</span><span class="tag"><span lang="en">The house choice</span><span lang="ar">اختيار الدار</span></span></h3>
+      <p><span lang="en">Buffalo mozzarella from Campania, Piennolo tomatoes from Vesuvius, basil.</span><span lang="ar">موزاريلا الجاموس من كامبانيا وطماطم بيينّولو من سفوح فيزوف مع الريحان.</span></p><span class="price">€ 14</span></li>
+    <li class="row"><span class="n">04</span><h3><span lang="en">Diavola</span><span lang="ar">ديافولا</span><span class="tag"><span lang="en">Hot</span><span lang="ar">حارّة</span></span></h3>
+      <p><span lang="en">Spicy beef salami, fior di latte, fresh chilli, a thread of honey.</span><span lang="ar">سلامي بقري حارّ وفيور دي لاتّه وفلفل طازج وخيط من العسل.</span></p><span class="price">€ 14</span></li>
+    <li class="row"><span class="n">05</span><h3><span lang="en">Napoli</span><span lang="ar">نابولي</span></h3>
+      <p><span lang="en">Cetara anchovies, capers, black olives, oregano.</span><span lang="ar">أنشوفة تشيتارا وكبر وزيتون أسود وزعتر.</span></p><span class="price">€ 13</span></li>
+    <li class="row"><span class="n">06</span><h3><span lang="en">Capricciosa</span><span lang="ar">كابريتشوزا</span></h3>
+      <p><span lang="en">Smoked turkey, mushrooms, artichoke hearts, olives, fior di latte.</span><span lang="ar">ديك رومي مدخّن وفطر وقلوب الخرشوف وزيتون وفيور دي لاتّه.</span></p><span class="price">€ 15</span></li>
+  </ul>
+</section>
+
+<aside class="band grid">
+  <p class="cap"><span lang="en">Note on the dough</span><span lang="ar">ملاحظة عن العجين</span></p>
+  <p class="huge">72<small>h</small></p>
+  <p class="say"><span lang="en">Three days of doing nothing is the hardest step in the recipe.</span><span lang="ar">ثلاثة أيام من الانتظار هي أصعب خطوة في الوصفة.</span></p>
+</aside>
+
+<section class="sec grid" id="b">
+  <div class="side"><span class="L">B</span>
+    <h2><span lang="en">Bianche</span><span lang="ar">البيضاء</span></h2>
+    <p><span lang="en">White pizzas. No tomato — the crust and the cheese do the talking.</span><span lang="ar">بيتزا بيضاء بلا طماطم، يتكلّم فيها العجين والجبن.</span></p></div>
+  <ul class="cells">
+    <li class="cell"><span class="n">07</span><h3><span lang="en">Quattro Formaggi</span><span lang="ar">كواترو فورماجي</span></h3><span class="price">€ 14</span>
+      <p><span lang="en">Fior di latte, gorgonzola, smoked provola, Parmigiano aged 24 months.</span><span lang="ar">فيور دي لاتّه وغورغونزولا وبروفولا مدخّنة وبارميزان معتّق 24 شهراً.</span></p></li>
+    <li class="cell"><span class="n">08</span><h3><span lang="en">Funghi e Tartufo</span><span lang="ar">فونغي وتارتوفو</span></h3><span class="price">€ 16</span>
+      <p><span lang="en">Roast mushrooms, black truffle cream, thyme, fior di latte.</span><span lang="ar">فطر مشوي وكريمة الكمأة السوداء وزعتر وفيور دي لاتّه.</span></p></li>
+    <li class="cell"><span class="n">09</span><h3><span lang="en">Bresaola</span><span lang="ar">بريزاولا</span></h3><span class="price">€ 16</span>
+      <p><span lang="en">Air-dried beef laid on after the oven, rocket, Parmigiano shavings, lemon.</span><span lang="ar">لحم بقري مجفّف يوضع بعد الخَبز، مع جرجير ورقائق البارميزان والليمون.</span></p></li>
+    <li class="cell"><span class="n">10</span><h3><span lang="en">Zucca</span><span lang="ar">زوكّا</span></h3><span class="price">€ 15</span>
+      <p><span lang="en">Pumpkin cream, smoked provola, crisp sage, toasted hazelnuts.</span><span lang="ar">كريمة اليقطين وبروفولا مدخّنة ومريمية مقرمشة وبندق محمّص.</span></p></li>
+  </ul>
+</section>
+
+<aside class="band red grid">
+  <p class="cap"><span lang="en">Fixed lunch · Monday to Thursday · 12–15 h</span><span lang="ar">غداء ثابت · من الاثنين إلى الخميس · 12–15</span></p>
+  <p class="huge"><small>€</small>19</p>
+  <p class="say"><span lang="en">Any pizza + any drink + one dolce. No substitutions, no decisions.</span><span lang="ar">أي بيتزا + أي مشروب + حلوى واحدة. بلا تبديل وبلا حيرة.</span></p>
+</aside>
+
+<section class="sec grid" id="c">
+  <div class="side"><span class="L">C</span>
+    <h2><span lang="en">Fritti &amp; sides</span><span lang="ar">مقالٍ وأطباق جانبية</span></h2>
+    <p><span lang="en">Fried in the Neapolitan street tradition, plus two cold plates.</span><span lang="ar">مقليّات على طريقة شوارع نابولي، وطبقان باردان.</span></p></div>
+  <ul class="tbl">
+    <li class="tr"><span class="n">11</span><h3><span lang="en">Montanara</span><span lang="ar">مونتانارا</span></h3><span class="price">€ 7</span>
+      <p><span lang="en">Three puffs of fried dough, tomato, Parmigiano, basil.</span><span lang="ar">ثلاث قطع من العجين المقلي مع الطماطم والبارميزان والريحان.</span></p></li>
+    <li class="tr"><span class="n">12</span><h3><span lang="en">Arancini</span><span lang="ar">أرانشيني</span></h3><span class="price">€ 8</span>
+      <p><span lang="en">Two saffron rice balls filled with beef ragù and peas.</span><span lang="ar">كرتان من أرز الزعفران محشوّتان براغو اللحم البقري والبازلاء.</span></p></li>
+    <li class="tr"><span class="n">13</span><h3><span lang="en">Burrata</span><span lang="ar">بوراتا</span></h3><span class="price">€ 12</span>
+      <p><span lang="en">A whole burrata, datterini tomatoes, basil oil, grilled bread.</span><span lang="ar">بوراتا كاملة مع طماطم داتّيريني وزيت الريحان وخبز مشوي.</span></p></li>
+    <li class="tr"><span class="n">14</span><h3><span lang="en">Insalata Verde</span><span lang="ar">سلطة خضراء</span></h3><span class="price">€ 6</span>
+      <p><span lang="en">Bitter leaves, shaved fennel, lemon and olive oil.</span><span lang="ar">أوراق خضراء مُرّة وشمر مبشور مع الليمون وزيت الزيتون.</span></p></li>
+  </ul>
+</section>
+
+<section class="sec grid dark" id="d">
+  <div class="side"><span class="L">D</span>
+    <h2><span lang="en">Dolci &amp; drinks</span><span lang="ar">حلويات ومشروبات</span></h2>
+    <p><span lang="en">Two sweets, three Italian sodas, one coffee. We serve no alcohol.</span><span lang="ar">حلويان وثلاثة مشروبات غازية إيطالية وقهوة واحدة. لا نقدّم الكحول.</span></p></div>
+  <ul class="cells">
+    <li class="cell"><span class="n">15</span><h3><span lang="en">Tiramisù</span><span lang="ar">تيراميسو</span></h3><span class="price">€ 7</span>
+      <p><span lang="en">Savoiardi soaked in espresso, mascarpone, bitter cocoa.</span><span lang="ar">بسكويت سافوياردي مشبّع بالإسبريسو مع الماسكاربوني والكاكاو المرّ.</span></p></li>
+    <li class="cell"><span class="n">16</span><h3><span lang="en">Cornicione Dolce</span><span lang="ar">كورنيتشوني حلو</span></h3><span class="price">€ 8</span>
+      <p><span lang="en">Strips of fried pizza crust, hazelnut chocolate, sea salt.</span><span lang="ar">شرائط من حافة البيتزا المقلية مع شوكولاتة البندق وملح البحر.</span></p></li>
+    <li class="cell"><span class="n">17</span><h3><span lang="en">Limonata</span><span lang="ar">ليموناتا</span></h3><span class="price">€ 4</span>
+      <p><span lang="en">Amalfi lemon, sparkling water, very little sugar.</span><span lang="ar">ليمون أمالفي وماء فوّار وقليل جداً من السكر.</span></p></li>
+    <li class="cell"><span class="n">18</span><h3><span lang="en">Chinotto</span><span lang="ar">كينوتو</span></h3><span class="price">€ 4</span>
+      <p><span lang="en">The dark, bitter citrus soda of the Italian south.</span><span lang="ar">مشروب الحمضيات الداكن المرّ الذي يشتهر به جنوب إيطاليا.</span></p></li>
+    <li class="cell"><span class="n">19</span><h3><span lang="en">Aranciata Rossa</span><span lang="ar">أرانشاتا روسّا</span></h3><span class="price">€ 4</span>
+      <p><span lang="en">Sicilian blood orange, sparkling, served over ice.</span><span lang="ar">برتقال صقلّي أحمر فوّار يُقدَّم على الثلج.</span></p></li>
+    <li class="cell"><span class="n">20</span><h3><span lang="en">Espresso</span><span lang="ar">إسبريسو</span></h3><span class="price">€ 2.5</span>
+      <p><span lang="en">Short, dark, Neapolitan. Standing at the bar, ideally.</span><span lang="ar">قصيرة وداكنة على طريقة نابولي، ويُفضَّل شربها واقفاً عند البار.</span></p></li>
+  </ul>
+</section>
+</main>
+
+<footer class="grid">
+  <p class="ciao"><span lang="en">Ciao.</span><span lang="ar">تشاو.</span></p>
+  <div><h4><span lang="en">Hours</span><span lang="ar">أوقات العمل</span></h4><p><span lang="en">Tue–Sun 12:00–15:00<br>and 19:00–23:30<br>Closed Monday evening</span><span lang="ar">الثلاثاء – الأحد 12:00–15:00<br>ثم 19:00–23:30<br>مغلق مساء الاثنين</span></p></div>
+  <div><h4><span lang="en">Address</span><span lang="ar">العنوان</span></h4><p><span lang="en">Via dei Tipografi 12<br>80138 Napoli, Italia</span><span lang="ar">فيا دي تيبوغرافي 12<br>نابولي 80138، إيطاليا</span></p></div>
+  <div><h4><span lang="en">Allergens</span><span lang="ar">مسبّبات الحساسية</span></h4><p><span lang="en">All pizzas contain gluten; most contain milk. 05 contains fish, 10 and 16 contain nuts. Gluten-free base + € 3.</span><span lang="ar">كل أنواع البيتزا تحتوي على الغلوتين ومعظمها على الحليب. رقم 05 يحتوي على السمك، و10 و16 على المكسرات. عجينة بلا غلوتين + € 3.</span></p></div>
+  <div><h4><span lang="en">Rules</span><span lang="ar">القواعد</span></h4><p><span lang="en">No pork, no alcohol, no pineapple. Service is included. Prices in euro.</span><span lang="ar">لا لحم خنزير ولا كحول ولا أناناس. الخدمة مشمولة. الأسعار باليورو.</span></p></div>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

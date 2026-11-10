@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Big Top Treats · حلوى السيرك</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Big Top Treats — carnival sweets under the striped tent: candy floss spun to order, funnel cakes, toffee apples and fizzing lemonades. حلوى السيرك: غزل بنات، كعك القمع، تفاح بالكراميل وليموناضة فوّارة.">
+<meta name="theme-color" content="#c4202c">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Zilla+Slab:ital,wght@0,400;0,600;0,700;1,400&family=Lalezar&family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --red:#c4202c; --red-d:#8f1420; --cream:#f7ecd2; --paper:#fbf3df; --night:#141d3a; --night-2:#1d2a52;
+  --gold:#f4b63f; --gold-d:#c9861a; --ink:#2a1a16; --pink:#f7b9c4; --mint:#a9dfcf; --sky:#a8d3ee;
+  --disp:"Rye","Lalezar","Rockwell","Georgia",serif;
+  --body:"Zilla Slab","Almarai","Rockwell","Georgia",serif;
+  --stub:96px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-size:17px;line-height:1.5;color:var(--cream);background:radial-gradient(circle,#f4b63f 0 1.5px,transparent 2px) 0 0/190px 230px,radial-gradient(circle,#f7ecd2 0 1px,transparent 1.6px) 70px 110px/150px 170px,radial-gradient(circle,#f7b9c4 0 1.2px,transparent 1.8px) 30px 40px/260px 210px,var(--night);overflow-x:clip;-webkit-font-smoothing:antialiased}
+html[lang="ar"]{--disp:"Lalezar","Rye","Tahoma",sans-serif;--body:"Almarai","Zilla Slab","Tahoma",sans-serif}
+html[lang="ar"] body{font-size:17.5px;line-height:1.75}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+ul{list-style:none}
+
+/* ---------- controls ---------- */
+.ctl{position:fixed;z-index:50;top:10px;inset-inline-end:10px;display:flex;gap:6px;align-items:stretch}
+.ctl a,.ctl button{font:700 13px/1 var(--body);color:var(--ink);background:var(--gold);border:2px solid var(--ink);border-radius:4px;padding:8px 11px;cursor:pointer;text-decoration:none;box-shadow:0 3px 0 var(--ink);display:flex;align-items:center;gap:6px;letter-spacing:.04em}
+.ctl a{background:var(--cream);padding-inline:9px}
+.ctl a svg{width:14px;height:14px;display:block}
+.ctl button:hover,.ctl a:hover{transform:translateY(1px);box-shadow:0 2px 0 var(--ink)}
+.ctl button:focus-visible,.ctl a:focus-visible{outline:3px solid #fff;outline-offset:2px}
+
+/* ---------- the tent ---------- */
+.tent{position:relative;isolation:isolate;text-align:center;padding:clamp(64px,9vw,96px) 16px clamp(70px,9vw,120px);
+  background:repeating-conic-gradient(from -90deg at 50% -18%, var(--red) 0 7.5deg, var(--cream) 7.5deg 15deg);overflow:hidden}
+.tent::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 70% 80% at 50% 0,transparent 30%,rgba(60,6,12,.4) 100%)}
+/* scalloped valance */
+.valance{position:absolute;inset-inline:0;bottom:-1px;height:54px;z-index:2;
+  background:
+   radial-gradient(circle at 50% 0,var(--gold) 0 5px,transparent 6px) 0 34px/60px 20px repeat-x,
+   radial-gradient(30px 40px at 50% 0,var(--red) 0 96%,transparent 100%) 0 0/120px 40px repeat-x,
+   radial-gradient(30px 40px at 50% 0,var(--cream) 0 96%,transparent 100%) 60px 0/120px 40px repeat-x,
+   linear-gradient(var(--night),var(--night)) 0 100%/100% 14px no-repeat;
+  filter:drop-shadow(0 4px 0 rgba(0,0,0,.35))}
+.valance::before{content:"";position:absolute;inset-inline:0;top:-8px;height:10px;background:var(--gold);border-block:2px solid var(--ink)}
+.kicker{display:inline-block;font:700 clamp(12px,1.5vw,15px)/1 var(--body);letter-spacing:.34em;text-transform:uppercase;color:var(--ink);background:var(--cream);border:2px solid var(--ink);padding:8px 16px 7px;border-radius:999px;box-shadow:0 3px 0 var(--ink)}
+/* marquee sign with bulbs */
+.marquee{position:relative;width:min(880px,100%);margin:22px auto 0;padding:26px;border-radius:26px;background:var(--night);border:3px solid var(--ink);box-shadow:0 10px 0 rgba(40,6,10,.6),0 0 60px rgba(244,182,63,.35)}
+.marquee::before,.marquee::after{content:"";position:absolute;inset:5px;border-radius:20px;pointer-events:none;
+  background:
+   radial-gradient(circle at 25% 50%,#fff8d6 0 3.5px,var(--gold) 4.5px 6px,transparent 7px) 0 0/32px 16px round no-repeat,
+   radial-gradient(circle at 25% 50%,#fff8d6 0 3.5px,var(--gold) 4.5px 6px,transparent 7px) 0 100%/32px 16px round no-repeat,
+   radial-gradient(circle at 50% 25%,#fff8d6 0 3.5px,var(--gold) 4.5px 6px,transparent 7px) 0 0/16px 32px no-repeat round,
+   radial-gradient(circle at 50% 25%,#fff8d6 0 3.5px,var(--gold) 4.5px 6px,transparent 7px) 100% 0/16px 32px no-repeat round;
+  filter:drop-shadow(0 0 5px #ffd76a);animation:blink 1.1s steps(1) infinite}
+.marquee::after{
+  background:
+   radial-gradient(circle at 75% 50%,#fff8d6 0 3.5px,var(--gold) 4.5px 6px,transparent 7px) 0 0/32px 16px round no-repeat,
+   radial-gradient(circle at 75% 50%,#fff8d6 0 3.5px,var(--gold) 4.5px 6px,transparent 7px) 0 100%/32px 16px round no-repeat,
+   radial-gradient(circle at 50% 75%,#fff8d6 0 3.5px,var(--gold) 4.5px 6px,transparent 7px) 0 0/16px 32px no-repeat round,
+   radial-gradient(circle at 50% 75%,#fff8d6 0 3.5px,var(--gold) 4.5px 6px,transparent 7px) 100% 0/16px 32px no-repeat round;
+  animation-delay:-.55s}
+@keyframes blink{0%{opacity:1}50%{opacity:.28}}
+.board{background:linear-gradient(#d32a36,#a81824);border:3px solid var(--gold);border-radius:14px;padding:clamp(18px,3.4vw,38px) 12px clamp(16px,3vw,30px);position:relative}
+.board small{display:block;font:400 clamp(13px,2vw,19px)/1 var(--disp);color:var(--gold);letter-spacing:.2em;text-transform:uppercase}
+h1{font:400 clamp(44px,11.2vw,128px)/.92 var(--disp);color:var(--cream);margin:.12em 0 .1em;
+  text-shadow:0 2px 0 var(--gold-d),0 4px 0 var(--gold-d),3px 7px 0 #4b0a12}
+html[lang="ar"] h1{font-size:clamp(58px,13vw,150px);line-height:1.16;margin:.02em 0 0}
+.board p{font:italic 400 clamp(16px,2.1vw,22px)/1.3 var(--body);color:#ffe9b8}
+html[lang="ar"] .board p{font-style:normal}
+.stars{display:flex;justify-content:center;gap:14px;margin-top:8px;color:var(--gold);font-size:18px;line-height:1}
+.intro{max-width:620px;margin:26px auto 0;padding:14px 20px;background:var(--cream);color:var(--ink);border:2px solid var(--ink);border-radius:6px;box-shadow:5px 5px 0 var(--ink);font-size:clamp(16px,1.6vw,18px);transform:rotate(-1deg)}
+.art{position:absolute;z-index:1;bottom:38px;width:clamp(120px,15vw,220px);filter:drop-shadow(6px 8px 0 rgba(40,6,10,.45))}
+.art.l{inset-inline-start:max(2vw,calc(50% - 700px));transform:rotate(-7deg)}
+.art.r{inset-inline-end:max(2vw,calc(50% - 700px));transform:rotate(6deg)}
+@media(max-width:1180px){.art{display:none}}
+
+/* ---------- ticket-strip nav ---------- */
+.acts{display:flex;flex-wrap:wrap;justify-content:center;gap:0;margin:34px auto 0;padding:0 12px;max-width:1000px;filter:drop-shadow(0 4px 0 rgba(0,0,0,.4))}
+.acts a{flex:1 1 150px;max-width:230px;text-decoration:none;text-align:center;color:var(--ink);background:var(--gold);padding:12px 12px 11px;font:700 14px/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;border-inline-end:2px dashed rgba(42,26,22,.55);
+  -webkit-mask:radial-gradient(circle 7px at 0 50%,#0000 97%,#000) 0 0/51% 100% no-repeat,radial-gradient(circle 7px at 100% 50%,#0000 97%,#000) 100% 0/51% 100% no-repeat;
+  mask:radial-gradient(circle 7px at 0 50%,#0000 97%,#000) 0 0/51% 100% no-repeat,radial-gradient(circle 7px at 100% 50%,#0000 97%,#000) 100% 0/51% 100% no-repeat}
+.acts a:nth-child(2){background:var(--pink)}.acts a:nth-child(3){background:var(--mint)}.acts a:nth-child(4){background:var(--sky)}.acts a:nth-child(5){background:var(--cream)}
+.acts a b{display:block;font:400 11px/1 var(--body);letter-spacing:.3em;opacity:.75;margin-bottom:4px}
+.acts a:hover{filter:brightness(1.08)}
+
+/* ---------- rings (sections) ---------- */
+main{position:relative;isolation:isolate;max-width:1280px;margin:0 auto;padding:0 clamp(14px,3vw,40px) 40px}
+.ring{position:relative;padding-top:clamp(56px,7vw,90px)}
+.ring-h{position:relative;display:grid;justify-items:center;text-align:center;margin-bottom:clamp(26px,3.4vw,40px)}
+.bunting{width:min(760px,100%);height:44px;display:block;margin-bottom:-6px}
+.ribbon{position:relative;display:inline-block;background:var(--red);color:var(--cream);border:3px solid var(--ink);padding:10px clamp(22px,5vw,58px) 9px;box-shadow:0 5px 0 var(--ink)}
+.ribbon::before,.ribbon::after{content:"";position:absolute;top:10px;width:34px;height:100%;background:var(--red-d);border:3px solid var(--ink);z-index:-1}
+.ribbon::before{inset-inline-start:-26px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,40% 50%)}
+.ribbon::after{inset-inline-end:-26px;clip-path:polygon(0 0,100% 0,60% 50%,100% 100%,0 100%)}
+[dir="rtl"] .ribbon::before{clip-path:polygon(0 0,100% 0,60% 50%,100% 100%,0 100%)}
+[dir="rtl"] .ribbon::after{clip-path:polygon(0 0,100% 0,100% 100%,0 100%,40% 50%)}
+.ribbon i{display:block;font:700 12px/1 var(--body);font-style:normal;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.ribbon h2{font:400 clamp(26px,4.6vw,46px)/1 var(--disp);text-shadow:2px 3px 0 #4b0a12}
+html[lang="ar"] .ribbon h2{font-size:clamp(32px,5.4vw,54px);line-height:1.15}
+.ring-h>p{margin-top:20px;max-width:520px;color:#cfd6ee;font-style:italic}
+html[lang="ar"] .ring-h>p{font-style:normal}
+
+.tks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr));gap:20px clamp(18px,2.4vw,30px);filter:drop-shadow(0 6px 0 rgba(0,0,0,.4))}
+.tk{--c:var(--paper);--x:calc(100% - var(--stub));position:relative;display:grid;grid-template-columns:1fr var(--stub);min-height:128px;color:var(--ink);background:var(--c);
+  -webkit-mask:radial-gradient(circle 10px at var(--x) 0,#0000 97%,#000),radial-gradient(circle 10px at var(--x) 100%,#0000 97%,#000),radial-gradient(circle 9px at 0 0,#0000 97%,#000),radial-gradient(circle 9px at 100% 0,#0000 97%,#000),radial-gradient(circle 9px at 0 100%,#0000 97%,#000),radial-gradient(circle 9px at 100% 100%,#0000 97%,#000);
+  -webkit-mask-composite:source-in;mask-composite:intersect;transition:transform .25s}
+[dir="rtl"] .tk{--x:var(--stub)}
+.tks li:nth-child(odd) .tk{transform:rotate(-.7deg)}
+.tks li:nth-child(even) .tk{transform:rotate(.6deg)}
+.tks li:hover .tk{transform:rotate(0) translateY(-3px)}
+.pink .tk{--c:#fbd0d6}.mint .tk{--c:#c4ecdf}.sky .tk{--c:#c6e3f5}.gold .tk{--c:#fbdc8f}
+.tk-b{position:relative;margin:9px;margin-inline-end:0;padding:12px 16px 12px;border:2px solid var(--red);border-inline-end:0;outline:1px solid var(--red);outline-offset:-6px}
+.tk-b em{position:absolute;top:-1px;inset-inline-end:10px;font:700 10.5px/1 var(--body);font-style:normal;letter-spacing:.2em;color:var(--red);background:var(--c);padding:0 6px;transform:translateY(-50%)}
+.tk h3{font:400 clamp(19px,2.2vw,23px)/1.12 var(--disp);color:var(--red-d);margin-bottom:5px}
+html[lang="ar"] .tk h3{font-size:clamp(23px,2.6vw,27px);line-height:1.25}
+.tk p{font-size:16px;line-height:1.38}
+html[lang="ar"] .tk p{font-size:16.5px;line-height:1.6}
+@media(min-width:960px){.tks li:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 15px)}}
+.tag{display:inline-block;font:700 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:var(--night);border-radius:999px;padding:5px 9px 4px;margin-top:8px}
+.tag.star{background:var(--red)}
+.tk-s{position:relative;display:grid;align-content:center;justify-items:center;gap:1px;text-align:center;border-inline-start:2px dashed rgba(42,26,22,.6);padding:8px 4px}
+.tk-s::before{content:"ADMIT ONE";font:700 10px/1 var(--body);letter-spacing:.24em;color:var(--red)}
+html[lang="ar"] .tk-s::before{content:"تذكرة دخول";font-size:12px}
+.tk-s b{font:400 40px/1 "Rye",var(--disp);color:var(--ink)}
+.tk-s::after{content:"AED";font:700 12px/1 var(--body);letter-spacing:.2em}
+html[lang="ar"] .tk-s::after{content:"درهم";font-size:14px}
+
+/* ---------- grand finale ---------- */
+.finale{position:relative;margin-top:clamp(64px,8vw,100px);padding:6px;border-radius:18px;background:var(--gold);color:var(--ink);box-shadow:0 0 0 3px var(--ink),0 12px 0 rgba(0,0,0,.4),0 0 80px rgba(244,182,63,.3);
+  display:grid;grid-template-columns:1fr auto}
+.finale-in{border:2px solid var(--ink);border-radius:12px;padding:clamp(20px,3.4vw,40px);background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(196,32,44,.1) 22px 44px);display:grid;gap:8px;align-content:center}
+.finale-in i{font:700 13px/1 var(--body);font-style:normal;letter-spacing:.32em;text-transform:uppercase;color:var(--red-d)}
+.finale h2{font:400 clamp(32px,6vw,70px)/1 var(--disp);color:var(--red);text-shadow:1px 2px 0 var(--cream),3px 4px 0 var(--ink)}
+html[lang="ar"] .finale h2{line-height:1.2}
+.finale p{max-width:640px;font-size:clamp(16px,1.6vw,19px)}
+.finale-s{display:grid;place-content:center;justify-items:center;padding:16px clamp(18px,3vw,40px);border-inline-start:3px dashed var(--ink);margin-inline-start:6px;text-align:center}
+.finale-s b{font:400 clamp(56px,8vw,96px)/1 "Rye",var(--disp);color:var(--red-d)}
+.finale-s span{font:700 13px/1.3 var(--body);letter-spacing:.2em;text-transform:uppercase}
+@media(max-width:640px){.finale{grid-template-columns:1fr}.finale-s{border-inline-start:0;border-top:3px dashed var(--ink);margin:6px 0 0;grid-auto-flow:column;gap:14px;align-items:baseline}}
+
+/* ---------- box office footer ---------- */
+.booth{position:relative;margin-top:clamp(70px,9vw,110px);background:var(--cream);color:var(--ink)}
+.awning{height:64px;background:repeating-linear-gradient(90deg,var(--red) 0 40px,var(--cream) 40px 80px);border-bottom:3px solid var(--ink);position:relative}
+.awning::after{content:"";position:absolute;inset-inline:0;top:100%;height:24px;
+  background:radial-gradient(20px 22px at 50% 0,var(--red) 0 96%,transparent 100%) 0 0/80px 24px repeat-x,radial-gradient(20px 22px at 50% 0,#ead9b2 0 96%,transparent 100%) 40px 0/80px 24px repeat-x}
+.booth-in{max-width:1180px;margin:0 auto;padding:clamp(48px,6vw,70px) clamp(18px,3vw,40px) 34px;display:grid;grid-template-columns:1.1fr repeat(3,1fr);gap:clamp(20px,3vw,44px)}
+.booth h2{font:400 clamp(32px,4vw,48px)/1 var(--disp);color:var(--red)}
+html[lang="ar"] .booth h2{line-height:1.2}
+.booth h3{font:700 13px/1 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--red-d);border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:10px}
+html[lang="ar"] .booth h3{font-size:16px}
+.booth p,.booth li{font-size:16px}
+.booth li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dotted rgba(42,26,22,.5);padding:3px 0}
+.fine{grid-column:1/-1;text-align:center;font-size:14px;letter-spacing:.14em;text-transform:uppercase;padding-top:18px;border-top:2px solid var(--ink)}
+@media(max-width:860px){.booth-in{grid-template-columns:1fr 1fr}.booth-in>div:first-child{grid-column:1/-1}}
+@media(max-width:520px){.booth-in{grid-template-columns:1fr}:root{--stub:80px}.tk-s b{font-size:33px}.tk-b{padding:11px 12px}.marquee{padding:22px}.acts a{flex-basis:33%;max-width:none;font-size:12.5px}.acts{padding:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<div class="ctl">
+  <a class="home-link" href="../index.html"><svg viewBox="0 0 14 14" aria-hidden="true"><path fill="currentColor" d="M0 0h6v6H0zM8 0h6v6H8zM0 8h6v6H0zM8 8h6v6H8z"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<header class="tent">
+  <span class="kicker"><span lang="en">Step right up · Est. 1987</span><span lang="ar">تفضّلوا بالدخول · منذ ١٩٨٧</span></span>
+  <div class="marquee"><div class="board">
+    <small><span lang="en">The sweetest show on earth</span><span lang="ar">أحلى عرضٍ على وجه الأرض</span></small>
+    <h1><span lang="en">Big Top Treats</span><span lang="ar">حلوى السيرك</span></h1>
+    <p><span lang="en">Carnival sweets, spun, fried &amp; dipped before your very eyes</span><span lang="ar">حلويات الكرنفال تُغزل وتُقلى وتُغمَّس أمام عينيك</span></p>
+    <div class="stars" aria-hidden="true">★ ★ ★ ★ ★</div>
+  </div></div>
+  <p class="intro"><span lang="en">Four rings, twenty acts and one golden ticket. Every floss is spun to order, every funnel cake hits the fryer when you call it, and the lemonade is squeezed while you watch the juggler drop things.</span><span lang="ar">أربع حلبات وعشرون فقرة وتذكرة ذهبية واحدة. نغزل كل غيمة سكّر عند الطلب، ونقلي كل كعكة لحظة تناديها، ونعصر الليموناضة وأنت تتفرّج على المهرّج يُسقط كراته.</span></p>
+
+  <svg class="art l" viewBox="0 0 200 260" aria-hidden="true"><!-- popcorn box -->
+    <g stroke="#2a1a16" stroke-width="4" stroke-linejoin="round">
+      <g fill="#fbf3df"><circle cx="58" cy="78" r="24"/><circle cx="96" cy="58" r="28"/><circle cx="138" cy="74" r="25"/><circle cx="76" cy="100" r="22"/><circle cx="120" cy="98" r="24"/><circle cx="160" cy="100" r="16"/><circle cx="40" cy="104" r="15"/></g>
+      <path d="M26 104h148l-18 146H44z" fill="#fbf3df"/>
+      <path d="M26 104h30l8 146H44zM86 104h28l-3 146H89zM144 104h30l-18 146h-20z" fill="#c4202c"/>
+      <ellipse cx="100" cy="176" rx="34" ry="22" fill="#f4b63f"/>
+    </g>
+    <path d="M100 162l4.5 9.5 10.5 1.2-7.8 7 2.2 10.3-9.4-5.3-9.4 5.3 2.2-10.3-7.8-7 10.5-1.2z" fill="#c4202c"/>
+  </svg>
+  <svg class="art r" viewBox="0 0 200 260" aria-hidden="true"><!-- candy floss -->
+    <g stroke="#2a1a16" stroke-width="4" stroke-linejoin="round">
+      <path d="M84 150h32l-10 104H94z" fill="#fbf3df"/>
+      <path d="M86 170l28-8M88 196l24-8M91 222l19-7" fill="none" stroke="#c4202c" stroke-width="7"/>
+      <g fill="#f7b9c4"><circle cx="100" cy="92" r="62"/><circle cx="52" cy="110" r="34"/><circle cx="150" cy="108" r="34"/><circle cx="76" cy="50" r="34"/><circle cx="128" cy="48" r="32"/></g>
+    </g>
+    <g fill="#f7b9c4"><circle cx="100" cy="92" r="58"/><circle cx="56" cy="108" r="30"/><circle cx="146" cy="106" r="30"/><circle cx="78" cy="54" r="30"/><circle cx="126" cy="52" r="28"/></g>
+    <g fill="none" stroke="#e98fa3" stroke-width="4" stroke-linecap="round"><path d="M60 96c14-18 40-22 58-8M92 124c18 6 38-2 46-18M70 62c10-10 26-12 38-4"/></g>
+  </svg>
+  <div class="valance" aria-hidden="true"></div>
+</header>
+
+<nav class="acts" aria-label="Sections">
+  <a href="#r1"><b>I</b><span lang="en">Spun Sugar</span><span lang="ar">غزل السكّر</span></a>
+  <a href="#r2"><b>II</b><span lang="en">Fried &amp; Dusted</span><span lang="ar">مقليّ ومرشوش</span></a>
+  <a href="#r3"><b>III</b><span lang="en">Dipped &amp; Frozen</span><span lang="ar">مغمّس ومثلّج</span></a>
+  <a href="#r4"><b>IV</b><span lang="en">Sideshow Sips</span><span lang="ar">مشروبات العرض</span></a>
+  <a href="#fin"><b>★</b><span lang="en">Grand Finale</span><span lang="ar">الختام الكبير</span></a>
+</nav>
+
+<main>
+  <!-- RING I -->
+  <section class="ring pink" id="r1">
+    <div class="ring-h">
+      <svg class="bunting" viewBox="0 0 760 44" preserveAspectRatio="none" aria-hidden="true"><path d="M0 4Q380 22 760 4" fill="none" stroke="#f7ecd2" stroke-width="2"/><g stroke="#141d3a" stroke-width="1.5"><path d="M20 5l40 3-22 30z" fill="#c4202c"/><path d="M96 9l40 3-23 30z" fill="#f4b63f"/><path d="M172 12l40 2-22 30z" fill="#a9dfcf"/><path d="M248 14l40 1-21 30z" fill="#f7b9c4"/><path d="M324 15h40l-20 29z" fill="#c4202c"/><path d="M398 15h40l-20 29z" fill="#f4b63f"/><path d="M472 15l40-1-19 30z" fill="#a8d3ee"/><path d="M548 14l40-2-18 30z" fill="#f7b9c4"/><path d="M624 12l40-3-17 30z" fill="#c4202c"/><path d="M700 8l40-3-18 30z" fill="#f4b63f"/></g></svg>
+      <div class="ribbon"><i><span lang="en">Ring One</span><span lang="ar">الحلبة الأولى</span></i><h2><span lang="en">Spun Sugar</span><span lang="ar">غزل السكّر</span></h2></div>
+      <p><span lang="en">Clouds on a stick, spun by hand from flavoured sugars we blend ourselves.</span><span lang="ar">غيومٌ على عود، نغزلها يدويًا من سكّرٍ منكّه نحضّره بأنفسنا.</span></p>
+    </div>
+    <ul class="tks">
+      <li><article class="tk"><div class="tk-b"><em>№ 0101</em><h3><span lang="en">Pink Cloud Classic</span><span lang="ar">الغيمة الوردية</span></h3><p><span lang="en">Rose-vanilla candy floss spun to order, taller than the child holding it.</span><span lang="ar">غزل بنات بالورد والفانيلا يُغزل عند الطلب، أطول من الطفل الذي يحمله.</span></p></div><div class="tk-s"><b>14</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0102</em><h3><span lang="en">Blue Moon Floss</span><span lang="ar">القمر الأزرق</span></h3><p><span lang="en">Blueberry and lemon sugar with a crackle of popping candy inside.</span><span lang="ar">سكّر التوت الأزرق والليمون تتفرقع في قلبه حلوى فوّارة.</span></p></div><div class="tk-s"><b>16</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0103</em><h3><span lang="en">Saffron Gold Floss</span><span lang="ar">غزل الزعفران الذهبي</span></h3><p><span lang="en">Saffron-cardamom sugar, finished with pistachio dust and gold shimmer.</span><span lang="ar">سكّر بالزعفران والهيل، يُرشّ بغبار الفستق وبريق ذهبي.</span></p><span class="tag star"><span lang="en">★ Ringmaster's pick</span><span lang="ar">★ اختيار مدير الحلبة</span></span></div><div class="tk-s"><b>22</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0104</em><h3><span lang="en">Floss Burrito</span><span lang="ar">بوريتو غزل البنات</span></h3><p><span lang="en">A sheet of floss rolled around vanilla ice cream, sprinkles and crushed wafer.</span><span lang="ar">لفافة من غزل البنات تحتضن آيس كريم الفانيلا والسكاكر الملوّنة والويفر المجروش.</span></p></div><div class="tk-s"><b>26</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0105</em><h3><span lang="en">Caramel Corn Tub</span><span lang="ar">سطل فشار الكراميل</span></h3><p><span lang="en">Kettle popcorn tumbled in burnt-butter caramel with a pinch of sea salt.</span><span lang="ar">فشار محمّص يُقلَّب في كراميل الزبدة المحروقة مع رشّة ملح بحري.</span></p><span class="tag"><span lang="en">Made to share</span><span lang="ar">للمشاركة</span></span></div><div class="tk-s"><b>18</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0106</em><h3><span lang="en">Toffee Brittle Shards</span><span lang="ar">شظايا التوفي المقرمش</span></h3><p><span lang="en">Hand-pulled sesame and almond brittle, snapped with a little hammer at the counter.</span><span lang="ar">توفي بالسمسم واللوز يُسحب يدويًا ويُكسَّر بمطرقة صغيرة أمامك.</span></p></div><div class="tk-s"><b>15</b></div></article></li>
+    </ul>
+  </section>
+
+  <!-- RING II -->
+  <section class="ring gold" id="r2">
+    <div class="ring-h">
+      <div class="ribbon"><i><span lang="en">Ring Two</span><span lang="ar">الحلبة الثانية</span></i><h2><span lang="en">Fried &amp; Dusted</span><span lang="ar">مقليّ ومرشوش</span></h2></div>
+      <p><span lang="en">Straight from the fryer, still singing. Give it a minute — or don't.</span><span lang="ar">من المقلاة مباشرةً وما زالت تئزّ. انتظر دقيقة… أو لا تنتظر.</span></p>
+    </div>
+    <ul class="tks">
+      <li><article class="tk"><div class="tk-b"><em>№ 0201</em><h3><span lang="en">Funnel Cake Supreme</span><span lang="ar">كعكة القمع الفاخرة</span></h3><p><span lang="en">A crisp golden lattice under icing sugar, strawberry compote and whipped cream.</span><span lang="ar">شبكة ذهبية مقرمشة تحت سكّر ناعم ومربّى الفراولة والكريمة المخفوقة.</span></p><span class="tag star"><span lang="en">★ Crowd favourite</span><span lang="ar">★ معشوقة الجمهور</span></span></div><div class="tk-s"><b>28</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0202</em><h3><span lang="en">Churro Hoops</span><span lang="ar">أطواق التشورو</span></h3><p><span lang="en">Cinnamon-sugar rings for dunking in dark chocolate and dulce de leche.</span><span lang="ar">حلقات بالقرفة والسكّر تُغمَّس في الشوكولاتة الداكنة وكراميل الحليب.</span></p></div><div class="tk-s"><b>24</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0203</em><h3><span lang="en">Mini Doughnut Cannon</span><span lang="ar">مدفع الدونات الصغيرة</span></h3><p><span lang="en">A dozen hot minis fired into a paper cone, tossed in cinnamon or plain sugar.</span><span lang="ar">اثنتا عشرة حبّة ساخنة تُطلق في قرطاس ورقي، بالقرفة أو بالسكّر.</span></p></div><div class="tk-s"><b>20</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0204</em><h3><span lang="en">The Luqaimat Juggler</span><span lang="ar">لقيمات البهلوان</span></h3><p><span lang="en">Crisp little dumplings glazed in date syrup and showered with toasted sesame.</span><span lang="ar">لقيمات مقرمشة مغموسة بدبس التمر ومنثور عليها السمسم المحمّص.</span></p><span class="tag"><span lang="en">Hometown act</span><span lang="ar">فقرة من ديارنا</span></span></div><div class="tk-s"><b>22</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0205</em><h3><span lang="en">Fried Cookie Dunk</span><span lang="ar">بسكويت مقلي بالعجين</span></h3><p><span lang="en">Chocolate sandwich cookies in vanilla batter, fried puffy, with a milk glaze.</span><span lang="ar">بسكويت الشوكولاتة المحشو يُغطّى بعجينة الفانيلا ويُقلى منتفخًا مع صوص الحليب.</span></p></div><div class="tk-s"><b>21</b></div></article></li>
+    </ul>
+  </section>
+
+  <!-- RING III -->
+  <section class="ring mint" id="r3">
+    <div class="ring-h">
+      <div class="ribbon"><i><span lang="en">Ring Three</span><span lang="ar">الحلبة الثالثة</span></i><h2><span lang="en">Dipped &amp; Frozen</span><span lang="ar">مغمّس ومثلّج</span></h2></div>
+      <p><span lang="en">Glass-shelled apples and towering sundaes from the cold end of the midway.</span><span lang="ar">تفاح بقشرة زجاجية ومثلّجات شاهقة من الطرف البارد للممرّ.</span></p>
+    </div>
+    <ul class="tks">
+      <li><article class="tk"><div class="tk-b"><em>№ 0301</em><h3><span lang="en">Crimson Candy Apple</span><span lang="ar">تفاحة الحلوى القرمزية</span></h3><p><span lang="en">A tart green apple in a mirror-red sugar shell that shatters at first bite.</span><span lang="ar">تفاحة خضراء حامضة في قشرة سكّر حمراء لامعة تتهشّم مع أول قضمة.</span></p></div><div class="tk-s"><b>17</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0302</em><h3><span lang="en">Caramel Apple Deluxe</span><span lang="ar">تفاحة الكراميل الفاخرة</span></h3><p><span lang="en">Salted caramel, roasted peanuts and a lazy drizzle of dark chocolate.</span><span lang="ar">كراميل مملّح وفول سوداني محمّص وخيوط من الشوكولاتة الداكنة.</span></p><span class="tag"><span lang="en">Contains nuts</span><span lang="ar">يحتوي مكسّرات</span></span></div><div class="tk-s"><b>23</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0303</em><h3><span lang="en">The Strongman Sundae</span><span lang="ar">مثلّجات الرجل القوي</span></h3><p><span lang="en">Three scoops, hot fudge, warm brownie, cherries. Two spoons strongly advised.</span><span lang="ar">ثلاث كرات آيس كريم وصوص شوكولاتة ساخن وبراوني دافئ وكرز. ننصح بملعقتين.</span></p><span class="tag star"><span lang="en">★ Feeds two</span><span lang="ar">★ تكفي اثنين</span></span></div><div class="tk-s"><b>38</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0304</em><h3><span lang="en">Rainbow Snow Cone</span><span lang="ar">قمع الثلج الملوّن</span></h3><p><span lang="en">Shaved ice striped with raspberry, mango and blue lime syrups.</span><span lang="ar">ثلج مبشور مخطّط بشراب توت العلّيق والمانجو والليمون الأزرق.</span></p></div><div class="tk-s"><b>12</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0305</em><h3><span lang="en">Trapeze Banana</span><span lang="ar">موزة الأرجوحة</span></h3><p><span lang="en">A frozen banana swung through milk chocolate and rolled in crushed pistachio.</span><span lang="ar">موزة مجمّدة تتأرجح في شوكولاتة الحليب ثم تُدحرج في الفستق المجروش.</span></p></div><div class="tk-s"><b>15</b></div></article></li>
+    </ul>
+  </section>
+
+  <!-- RING IV -->
+  <section class="ring sky" id="r4">
+    <div class="ring-h">
+      <div class="ribbon"><i><span lang="en">The Sideshow</span><span lang="ar">العرض الجانبي</span></i><h2><span lang="en">Sideshow Sips</span><span lang="ar">مشروبات العرض</span></h2></div>
+      <p><span lang="en">Fizzing, floating and frothing — every glass is alcohol-free.</span><span lang="ar">فوّارة وعائمة ورغوية — وكلّها خالية من الكحول.</span></p>
+    </div>
+    <ul class="tks">
+      <li><article class="tk"><div class="tk-b"><em>№ 0401</em><h3><span lang="en">Pink Lemonade</span><span lang="ar">الليموناضة الوردية</span></h3><p><span lang="en">Lemons squeezed while you wait, blushed with crushed raspberries.</span><span lang="ar">ليمون يُعصر أمامك ويتورّد بتوت العلّيق المهروس.</span></p></div><div class="tk-s"><b>14</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0402</em><h3><span lang="en">Cotton Candy Fizz</span><span lang="ar">فوّار غزل البنات</span></h3><p><span lang="en">Sparkling lemonade poured tableside over a floss cloud that vanishes on cue.</span><span lang="ar">ليموناضة فوّارة تُسكب أمامك على غيمة سكّر تختفي كخدعة ساحر.</span></p><span class="tag star"><span lang="en">★ The disappearing act</span><span lang="ar">★ خدعة الاختفاء</span></span></div><div class="tk-s"><b>21</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0403</em><h3><span lang="en">Cream Soda Float</span><span lang="ar">كريم صودا عائمة</span></h3><p><span lang="en">Vanilla cream soda with two scoops bobbing on top and a striped straw.</span><span lang="ar">صودا بالفانيلا تطفو عليها كرتان من الآيس كريم مع مصّاصة مخطّطة.</span></p></div><div class="tk-s"><b>19</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0404</em><h3><span lang="en">Lion Tamer's Hot Chocolate</span><span lang="ar">شوكولاتة مروّض الأسود</span></h3><p><span lang="en">Thick, dark and roaring hot, under a torched marshmallow mane.</span><span lang="ar">سميكة وداكنة وحارّة كالزئير، تعلوها لبدة من المارشميلو المحمّص.</span></p></div><div class="tk-s"><b>18</b></div></article></li>
+      <li><article class="tk"><div class="tk-b"><em>№ 0405</em><h3><span lang="en">Karak Caramel Shake</span><span lang="ar">ميلك شيك كرك بالكراميل</span></h3><p><span lang="en">Strong cardamom karak blended with vanilla ice cream and salted caramel.</span><span lang="ar">شاي كرك قوي بالهيل يُخفق مع آيس كريم الفانيلا والكراميل المملّح.</span></p></div><div class="tk-s"><b>20</b></div></article></li>
+    </ul>
+  </section>
+
+  <!-- FINALE -->
+  <section class="finale" id="fin">
+    <div class="finale-in">
+      <i><span lang="en">Golden ticket · for four</span><span lang="ar">التذكرة الذهبية · لأربعة أشخاص</span></i>
+      <h2><span lang="en">The Grand Finale</span><span lang="ar">الختام الكبير</span></h2>
+      <p><span lang="en">One of everything that matters: a Saffron Gold Floss, the Funnel Cake Supreme, two candy apples, a caramel corn tub and four pink lemonades — paraded to your table with a drum roll.</span><span lang="ar">من كل ما يستحقّ نصيب: غزل الزعفران الذهبي، وكعكة القمع الفاخرة، وتفاحتا حلوى، وسطل فشار بالكراميل، وأربع ليموناضات وردية — تُزفّ إلى طاولتك على قرع الطبول.</span></p>
+    </div>
+    <div class="finale-s"><b>95</b><span><span lang="en">AED<br>admit four</span><span lang="ar">درهمًا<br>لأربعة</span></span></div>
+  </section>
+</main>
+
+<footer class="booth">
+  <div class="awning" aria-hidden="true"></div>
+  <div class="booth-in">
+    <div><h2><span lang="en">Box Office</span><span lang="ar">شبّاك التذاكر</span></h2><p><span lang="en">No booking, no dress code, no such thing as too much sugar.</span><span lang="ar">لا حجز ولا زيّ رسمي، ولا شيء اسمه سكّر زائد.</span></p></div>
+    <div><h3><span lang="en">Showtimes</span><span lang="ar">مواعيد العرض</span></h3><ul>
+      <li><span lang="en">Sun – Wed</span><span lang="ar">الأحد – الأربعاء</span><span dir="ltr">16:00 – 23:00</span></li>
+      <li><span lang="en">Thu – Sat</span><span lang="ar">الخميس – السبت</span><span dir="ltr">14:00 – 01:00</span></li>
+    </ul></div>
+    <div><h3><span lang="en">Find the tent</span><span lang="ar">أين الخيمة</span></h3><p><span lang="en">Pitch 7, Carousel Walk, Al Marsa Fairground, Dubai</span><span lang="ar">الموقع ٧، ممشى الدوّامة، ساحة ملاهي المرسى، دبي</span></p><p><span dir="ltr">+971 4 555 0166</span></p></div>
+    <div><h3><span lang="en">Small print</span><span lang="ar">ملاحظات</span></h3><p><span lang="en">Our fryers and floss machines handle nuts, milk, wheat, egg and sesame. Tell the ticket seller about allergies.</span><span lang="ar">مقالينا وآلات الغزل تتعامل مع المكسّرات والحليب والقمح والبيض والسمسم. أخبر بائع التذاكر بأي حساسية.</span></p></div>
+    <p class="fine"><span lang="en">Prices in AED, VAT included · This ticket is not transferable to a diet</span><span lang="ar">الأسعار بالدرهم الإماراتي شاملةً الضريبة · هذه التذكرة لا تصلح للحمية</span></p>
+  </div>
+</footer>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Gate 7 Kitchen · مطبخ البوابة ٧</title>
+<meta name="description" content="Gate 7 Kitchen — global layover fusion, listed on a departures board. مطبخ البوابة ٧ — مأكولات عالمية معروضة على لوحة المغادرة.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffd100">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=B612:wght@400;700&family=B612+Mono:wght@400;700&family=Saira+Condensed:wght@600;800&family=Handjet:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --bg:#0b0d10; --panel:#14171b; --tile:#23272d; --gap:#07080a; --ink:#f4f1e6; --dim:#a4abb5;
+  --y:#ffd100; --amber:#ffb81c; --green:#3ddc84; --red:#ff5a4d; --cyan:#58d6ff; --paper:#f3efe4;
+  --sans:"B612","IBM Plex Sans Arabic",system-ui,"Segoe UI",Arial,sans-serif;
+  --mono:"B612 Mono","DejaVu Sans Mono",Consolas,monospace;
+  --disp:"Saira Condensed","B612","Arial Narrow",sans-serif;
+  --pad:clamp(14px,3.4vw,56px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;overflow-x:clip}
+html[lang="ar"]{--sans:"IBM Plex Sans Arabic","B612","Geeza Pro",Tahoma,sans-serif;--disp:"IBM Plex Sans Arabic","Saira Condensed",sans-serif}
+html[lang="ar"] body{font-size:17px;line-height:1.7}
+html[lang="ar"] [lang="ar"]{letter-spacing:0 !important;text-transform:none !important}
+a{color:inherit}
+ul{list-style:none}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+[dir="rtl"] .flip{transform:scaleX(-1)}
+
+/* ===== wayfinding sign (sticky) ===== */
+.sign{position:sticky;top:0;z-index:30;background:var(--y);color:#111;display:flex;align-items:stretch;gap:0;padding-inline:var(--pad);box-shadow:0 2px 0 #000,0 10px 30px rgba(0,0,0,.5);min-height:52px}
+.sign .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;font-size:22px;letter-spacing:.02em;text-transform:uppercase;padding-inline-end:16px;white-space:nowrap}
+.sign .brand svg{width:26px;height:26px;flex:none}
+.sign nav{display:flex;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;border-inline-start:2px solid #111}
+.sign nav::-webkit-scrollbar{display:none}
+.sign nav a{display:flex;align-items:center;gap:8px;padding:0 14px;text-decoration:none;font-weight:700;font-size:14px;white-space:nowrap;border-inline-end:2px solid #111}
+.sign nav a b{background:#111;color:var(--y);font-family:var(--mono);width:24px;height:24px;display:grid;place-items:center;border-radius:3px;font-size:14px}
+.sign nav a:hover{background:#111;color:var(--y)}
+.sign nav a:hover b{background:var(--y);color:#111}
+html[lang="ar"] .sign nav a{font-size:15.5px}
+.ctl{display:flex;align-items:center;gap:6px;padding-inline-start:12px;flex:none}
+.home-link,#langToggle{font:700 13px/1 var(--sans);height:34px;padding:0 11px;border-radius:4px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;text-decoration:none;border:2px solid #111;color:#111;background:transparent}
+.home-link svg{width:14px;height:14px}
+#langToggle{background:#111;color:var(--y);font-family:"IBM Plex Sans Arabic","B612",sans-serif;font-size:15px}
+html[lang="ar"] #langToggle{font-family:"B612",sans-serif;font-size:13px}
+#langToggle:hover{background:#333}.home-link:hover{background:#111;color:var(--y)}
+
+/* ===== hero ===== */
+.hero{position:relative;padding:clamp(28px,5vw,72px) var(--pad) clamp(34px,5vw,72px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,64px);align-items:center;overflow:clip}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.4px) 0 0/22px 22px;-webkit-mask:linear-gradient(180deg,#000,transparent 90%);mask:linear-gradient(180deg,#000,transparent 90%);pointer-events:none}
+.arc{position:absolute;inset-inline:0;top:0;width:100%;height:100%;pointer-events:none;opacity:.5}
+.arc path{fill:none;stroke:var(--y);stroke-width:1.5;stroke-dasharray:2 9;stroke-linecap:round;animation:dash 30s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-440}}
+.intro{position:relative}
+.gate{display:inline-grid;grid-template-columns:auto auto;align-items:stretch;background:var(--y);color:#111;border-radius:8px;overflow:hidden;box-shadow:0 0 0 3px #111,0 0 0 5px var(--y)}
+.gate .n,.route b,.pass-stub .big,.bhead .letter,.bt .code,.pass-top b{font-family:"Saira Condensed","B612",sans-serif !important}
+.gate .n{font-family:var(--disp);font-weight:800;font-size:clamp(84px,11vw,168px);line-height:.8;padding:16px 18px 14px;letter-spacing:-.02em}
+.gate .s{background:#111;color:var(--y);display:flex;flex-direction:column;justify-content:space-between;padding:12px 12px;gap:10px}
+.gate .s svg{width:clamp(38px,4.4vw,60px);height:auto}
+.gate .s span{font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+html[lang="ar"] .gate .s span{font-size:17px}
+.intro h1{font-family:var(--disp);font-weight:800;font-size:clamp(46px,6.6vw,104px);line-height:.92;text-transform:uppercase;margin-top:clamp(18px,2.4vw,30px);letter-spacing:-.01em}
+html[lang="ar"] .intro h1{font-weight:700;line-height:1.25;font-size:clamp(42px,5.8vw,88px)}
+.intro .tag{font-family:var(--mono);color:var(--y);font-size:clamp(15px,1.3vw,18px);margin-top:10px;display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.08em}
+html[lang="ar"] .intro .tag{font-family:"Handjet",var(--sans);font-size:clamp(22px,2vw,28px);font-weight:600}
+.lamp{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:blink 1.4s steps(2,jump-none) infinite;flex:none}
+@keyframes blink{50%{opacity:.25}}
+.intro p.lead{color:#cfd3d8;max-width:46ch;margin-top:16px;font-size:clamp(16px,1.25vw,19px)}
+html[lang="ar"] .intro p.lead{font-size:clamp(17px,1.35vw,20px)}
+
+/* boarding pass */
+.pass-wrap{position:relative;perspective:1200px}
+.pass{position:relative;display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,13vw,200px);background:var(--paper);color:#15171a;border-radius:18px;transform:rotate(-2.2deg);box-shadow:0 30px 60px rgba(0,0,0,.6),0 2px 0 rgba(255,255,255,.4) inset;font-family:var(--sans)}
+[dir="rtl"] .pass{transform:rotate(2.2deg)}
+.pass-main{padding:0 0 18px;min-width:0}
+.pass-top{background:var(--y);border-start-start-radius:18px;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+html[lang="ar"] .pass-top{font-size:16px}
+.pass-top b{display:flex;align-items:center;gap:8px;font-family:var(--disp);font-size:20px;letter-spacing:.04em}
+.pass-top svg{width:20px;height:20px}
+.route{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;padding:18px 22px 12px}
+.route b{font-family:var(--disp);font-weight:800;font-size:clamp(50px,6vw,92px);line-height:.85;display:block;letter-spacing:.01em}
+.route small{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#555;margin-top:6px}
+html[lang="ar"] .route small{font-size:16px}
+.route div:last-child{text-align:end}
+.route .ln{height:26px;position:relative;background:linear-gradient(90deg,#15171a 50%,transparent 0) 0 50%/10px 2px repeat-x}
+.route .ln svg{position:absolute;inset:0;margin:auto;width:34px;height:34px;background:var(--paper);padding:0 4px;box-sizing:content-box}
+.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 16px;padding:10px 22px 0;border-top:1px solid rgba(0,0,0,.14);margin-top:6px}
+.fields div span,.pass-stub .k{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6a6d72}
+html[lang="ar"] .fields div span,html[lang="ar"] .pass-stub .k{font-size:14px}
+.fields div strong{font-family:var(--mono);font-size:clamp(15px,1.25vw,18px);font-weight:700;display:block;line-height:1.3;text-transform:uppercase}
+html[lang="ar"] .fields div strong[lang="ar"]{font-family:var(--sans);font-size:clamp(16px,1.3vw,19px)}
+.pass-stub{position:relative;border-inline-start:2px dashed rgba(0,0,0,.4);padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px}
+.pass-stub::before,.pass-stub::after{content:"";position:absolute;inset-inline-start:-12px;width:22px;height:22px;border-radius:50%;background:var(--bg)}
+.pass-stub::before{top:-11px}.pass-stub::after{bottom:-11px}
+.pass-stub .big{font-family:var(--disp);font-weight:800;font-size:46px;line-height:.9}
+.pass-stub strong{font-family:var(--mono);font-size:15px;display:block}
+.barcode{flex:1;min-height:64px;margin-top:4px;background:linear-gradient(90deg,#15171a 0 2px,transparent 2px 5px,#15171a 5px 6px,transparent 6px 8px,#15171a 8px 12px,transparent 12px 13px,#15171a 13px 14px,transparent 14px 18px,#15171a 18px 20px,transparent 20px 23px,#15171a 23px 24px,transparent 24px 26px,#15171a 26px 29px,transparent 29px 31px) 0 0/31px 100%}
+.pass-stub .num{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-align:center}
+
+/* ===== boards ===== */
+main{padding:0 var(--pad) clamp(30px,4vw,60px)}
+.note{font-family:var(--mono);font-size:13px;color:var(--dim);display:flex;gap:10px 22px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+html[lang="ar"] .note{font-family:var(--sans);font-size:15px}
+.note span{display:inline-flex;align-items:center;gap:7px}
+.note i,.st i{width:9px;height:9px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor;flex:none}
+.board{background:linear-gradient(180deg,#1b1f24,#101215);border-radius:14px;padding:clamp(10px,1.4vw,20px);margin-bottom:clamp(22px,3vw,40px);box-shadow:0 0 0 1px #2c3138,0 0 0 6px #050607,0 0 0 7px #2c3138,0 30px 50px rgba(0,0,0,.5);scroll-margin-top:70px;position:relative}
+.board::before,.board::after{content:"";position:absolute;top:-22px;width:6px;height:16px;background:#2c3138}
+.board::before{inset-inline-start:12%}.board::after{inset-inline-end:12%}
+.bhead{display:flex;align-items:center;gap:clamp(10px,1.4vw,18px);padding:4px 4px 14px;flex-wrap:wrap}
+.bhead .letter{background:var(--y);color:#111;font-family:var(--disp);font-weight:800;font-size:clamp(34px,3.4vw,50px);line-height:1;width:1.25em;height:1.25em;display:grid;place-items:center;border-radius:6px;flex:none}
+.bhead h2{font-family:var(--disp);font-weight:800;font-size:clamp(28px,3.4vw,50px);line-height:1;text-transform:uppercase;letter-spacing:.01em}
+html[lang="ar"] .bhead h2{font-weight:700;font-size:clamp(26px,3vw,44px);line-height:1.3}
+.bhead p{color:var(--dim);font-size:15px;flex:1;min-width:200px}
+html[lang="ar"] .bhead p{font-size:16.5px}
+.bhead .clock{font-family:var(--mono);font-weight:700;color:var(--y);font-size:clamp(18px,1.8vw,26px);background:#000;padding:4px 10px;border-radius:4px;border:1px solid #2c3138;direction:ltr;margin-inline-start:auto}
+.cols,.row{display:grid;grid-template-columns:7.6ch 3.6ch minmax(0,1.05fr) minmax(0,1.25fr) 9.5rem 4.6ch;column-gap:clamp(10px,1.3vw,20px);align-items:start;--fs:clamp(16px,1.36vw,21px);font-size:var(--fs)}
+.cols{font-family:var(--mono);color:var(--y);text-transform:uppercase;letter-spacing:.1em;padding:6px 8px;border-block:1px solid #2c3138}
+.cols span{font-size:12px}
+html[lang="ar"] .cols span{font-family:var(--sans);font-size:14.5px;font-weight:500}
+.cols span:last-child{text-align:end}
+.row{padding:9px 8px;border-bottom:1px solid rgba(255,255,255,.06)}
+.row:last-child{border-bottom:0}
+.row:hover{background:rgba(255,209,0,.05)}
+.t,.flap{font-family:var(--mono);font-weight:700;font-size:var(--fs);line-height:1.6;color:var(--ink);letter-spacing:0;text-transform:uppercase;white-space:pre-wrap;
+  background:linear-gradient(180deg,transparent calc(50% - 1px),rgba(0,0,0,.8) calc(50% - 1px) 50%,rgba(255,255,255,.05) 50% calc(50% + 1px),transparent calc(50% + 1px)) 0 0/100% 1.6em,
+  repeating-linear-gradient(180deg,transparent 0 calc(1.6em - 3px),var(--gap) calc(1.6em - 3px) 1.6em),
+  repeating-linear-gradient(90deg,var(--tile) 0 calc(1ch - 2px),var(--gap) calc(1ch - 2px) 1ch)}
+.t{display:block;direction:ltr;text-align:left;justify-self:start}
+.fl{width:6ch}.fr{width:3ch;color:var(--amber)}
+.gt{width:3ch;color:var(--y);justify-self:end}
+.ds .flap{display:block;width:100%;width:round(down,100%,1ch)}
+html[lang="ar"] .ds .flap{font-family:"Handjet","IBM Plex Sans Arabic",sans-serif;font-weight:600;font-size:calc(var(--fs)*1.5);line-height:1.22;width:auto;padding:1px .45em 3px;border-radius:3px;color:var(--ink);
+  background:linear-gradient(180deg,transparent calc(50% - 1px),rgba(0,0,0,.75) calc(50% - 1px) 50%,rgba(255,255,255,.05) 50% calc(50% + 1px),transparent calc(50% + 1px)),var(--tile)}
+.via{color:var(--dim);font-size:15px;line-height:1.45;padding-top:.25em}
+html[lang="ar"] .via{font-size:16.5px;line-height:1.6;padding-top:.3em}
+.st{font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:8px;padding-top:.55em;color:#69707a;line-height:1.3}
+html[lang="ar"] .st{font-family:var(--sans);font-size:15px}
+.st.go{color:var(--green)}.st.go i{animation:blink 1.2s steps(2,jump-none) infinite}
+.st.hot{color:var(--red)}.st.veg{color:var(--cyan)}.st.new{color:var(--amber)}
+.live .row .t,.live .row .flap{animation:flipin .34s cubic-bezier(.3,.6,.3,1) both;transform-origin:50% 50%;backface-visibility:hidden}
+.live .row:nth-child(2) :is(.t,.flap){animation-delay:40ms}.live .row:nth-child(3) :is(.t,.flap){animation-delay:80ms}
+.live .row:nth-child(4) :is(.t,.flap){animation-delay:120ms}.live .row:nth-child(5) :is(.t,.flap){animation-delay:160ms}
+.live .row:nth-child(6) :is(.t,.flap){animation-delay:200ms}.live .row:nth-child(7) :is(.t,.flap){animation-delay:240ms}
+@keyframes flipin{0%{transform:rotateX(88deg);filter:brightness(.3)}55%{transform:rotateX(-14deg)}100%{transform:none;filter:none}}
+
+/* ===== baggage tags ===== */
+.tags{scroll-margin-top:70px;margin-top:clamp(34px,5vw,70px)}
+.tags>h2{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:clamp(30px,4vw,60px);line-height:1}
+html[lang="ar"] .tags>h2{font-weight:700;line-height:1.3;font-size:clamp(28px,3.4vw,50px)}
+.tags>p{color:var(--dim);margin:6px 0 26px;max-width:60ch}
+.tagrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,34px)}
+.bt{background:#fff;color:#111;border-radius:10px;position:relative;padding:54px 20px 18px;box-shadow:0 20px 40px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:8px}
+.bt:nth-child(1){transform:rotate(-1.2deg)}.bt:nth-child(3){transform:rotate(1deg)}
+.bt::before{content:"";position:absolute;top:14px;left:50%;width:44px;height:14px;margin-left:-22px;border-radius:8px;background:var(--bg);box-shadow:inset 0 0 0 2px #9aa0a6}
+.bt::after{content:"";position:absolute;top:36px;inset-inline:0;height:8px;background:var(--c,var(--y))}
+.bt .code{font-family:var(--disp);font-weight:800;font-size:clamp(60px,6.4vw,96px);line-height:.85;letter-spacing:.02em}
+.bt h3{font-size:19px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+html[lang="ar"] .bt h3{font-size:22px}
+.bt p{font-size:15.5px;color:#33363a;flex:1}
+html[lang="ar"] .bt p{font-size:16.5px}
+.bt .foot{display:flex;justify-content:space-between;align-items:end;gap:10px;border-top:2px solid #111;padding-top:10px;margin-top:6px}
+.bt .foot .barcode{flex:1;min-height:38px;max-width:55%;margin:0}
+.bt .pr{font-family:var(--mono);font-weight:700;font-size:26px;white-space:nowrap;direction:ltr;unicode-bidi:isolate}
+.bt .pr small{font-size:13px;margin-inline-end:4px}
+
+/* ===== footer signage ===== */
+footer{margin-top:clamp(40px,6vw,80px);background:var(--y);color:#111;padding:0 var(--pad)}
+.wf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.wf>div{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:22px clamp(12px,1.6vw,24px);align-items:start}
+.wf>div+div{border-inline-start:3px solid #111}
+.wf>div:first-child{padding-inline-start:0}
+.wf svg{width:48px;height:48px;background:#111;color:var(--y);border-radius:6px;padding:9px}
+.wf h4{font-family:var(--disp);font-weight:800;font-size:24px;text-transform:uppercase;line-height:1.1}
+html[lang="ar"] .wf h4{font-weight:700;line-height:1.4}
+.wf p{font-size:15px;font-weight:400;margin-top:4px}
+html[lang="ar"] .wf p{font-size:16.5px}
+.fine{border-top:3px solid #111;padding:12px 0 16px;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+html[lang="ar"] .fine{font-family:var(--sans);font-size:14.5px}
+
+/* ===== responsive ===== */
+@media (max-width:1100px){
+  .cols,.row{grid-template-columns:7.6ch 3.6ch minmax(0,1fr) minmax(0,1fr) 4.6ch}
+  .cols span:nth-child(5){display:none}
+  .row .st{grid-column:3/5;grid-row:2;padding-top:4px}
+  .row{row-gap:0}
+}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .sign .brand span{display:none !important}
+  .sign .brand{padding-inline-end:10px}
+  .tagrow{grid-template-columns:1fr;max-width:420px;margin-inline:auto}
+  .wf{grid-template-columns:1fr}
+  .wf>div{padding-inline:0}
+  .wf>div+div{border-inline-start:0;border-top:3px solid #111}
+}
+@media (max-width:720px){
+  .sign{padding-inline:10px}
+  .sign nav a{padding:0 10px}
+  .sign nav a span{display:none !important}
+  .ctl{padding-inline-start:8px}
+  .cols{display:none}
+  .row{grid-template-columns:auto auto 1fr auto;grid-template-areas:"fl fr st gt" "ds ds ds ds" "via via via via";gap:6px 8px;padding:14px 2px;--fs:16.5px}
+  .row .fl{grid-area:fl}.row .fr{grid-area:fr}.row .ds{grid-area:ds}.row .via{grid-area:via;padding-top:0}
+  .row .st{grid-area:st;grid-column:auto;grid-row:auto;justify-self:end;padding-top:.5em;font-size:11.5px;text-align:end}
+  html[lang="ar"] .row .st{font-size:14px;padding-top:.25em}
+  .row .gt{grid-area:gt}
+  .bhead p{flex-basis:100%;order:5}
+  .board{padding:12px 10px;border-radius:10px}
+  .pass{grid-template-columns:1fr;transform:rotate(-1.2deg);max-width:440px;margin-inline:auto}
+  [dir="rtl"] .pass{transform:rotate(1.2deg)}
+  .pass-top{border-start-end-radius:18px}
+  .route{padding-inline:16px;gap:10px}
+  .fields{padding-inline:16px}
+  .pass-stub{border-inline-start:0;border-top:2px dashed rgba(0,0,0,.4);display:grid;grid-template-columns:auto auto 1fr;gap:4px 16px;align-items:center;padding:14px 16px}
+  .pass-stub::before,.pass-stub::after{top:-12px;bottom:auto}
+  .pass-stub::before{inset-inline-start:-11px}.pass-stub::after{inset-inline-start:auto;inset-inline-end:-11px}
+  .pass-stub .barcode{grid-column:3;grid-row:1/3;min-height:52px}
+  .pass-stub .big{grid-row:1/3;font-size:44px}
+  .pass-stub .num{display:none}
+  .gate .n{font-size:84px;padding:12px 14px 10px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="sign">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="flip"><path d="M21.5 13.2v-1.9l-8-5V2.9a1.5 1.5 0 0 0-3 0v3.4l-8 5v1.9l8-2.5v5.1l-2 1.5V19l3.5-1 3.5 1v-1.7l-2-1.5v-5.1z" transform="rotate(90 12 12)"/></svg>
+    <span lang="en">Gate 7 Kitchen</span><span lang="ar">مطبخ البوابة ٧</span>
+  </div>
+  <nav aria-label="Terminals">
+    <a href="#ta"><b>A</b><span lang="en">Short-haul</span><span lang="ar">رحلات قصيرة</span></a>
+    <a href="#tb"><b>B</b><span lang="en">Long-haul</span><span lang="ar">رحلات طويلة</span></a>
+    <a href="#tc"><b>C</b><span lang="en">Duty-free sweets</span><span lang="ar">حلويات السوق الحرة</span></a>
+    <a href="#td"><b>D</b><span lang="en">The Lounge</span><span lang="ar">الصالة</span></a>
+    <a href="#te"><b>E</b><span lang="en">Layover sets</span><span lang="ar">وجبات الترانزيت</span></a>
+  </nav>
+  <div class="ctl">
+    <a class="home-link" href="../index.html"><svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M0 0h6v6H0zM8 0h6v6H8zM0 8h6v6H0zM8 8h6v6H8z"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="arc flip" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true"><path d="M-40 520C300 120 820 40 1500 260"/><path d="M-40 300C420 420 980 380 1500 60" opacity=".45"/></svg>
+  <div class="intro">
+    <div class="gate" aria-hidden="true">
+      <div class="n">7</div>
+      <div class="s">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="square" class="flip"><path d="M8 40 38 10M16 10h22v22"/></svg>
+        <span lang="en">Gate</span><span lang="ar">البوابة</span>
+      </div>
+    </div>
+    <h1><span lang="en">Gate 7 Kitchen</span><span lang="ar">مطبخ البوابة ٧</span></h1>
+    <p class="tag"><i class="lamp"></i><span lang="en">Now boarding: dinner</span><span lang="ar">النداء الآن: إلى العشاء</span></p>
+    <p class="lead"><span lang="en">A kitchen for people between places. Twenty-one routes are on the board tonight, each one a dish we fell for on a layover somewhere — cooked fast enough to make your connection, and good enough to make you miss it.</span><span lang="ar">مطبخٌ لمن هم بين مكانين. على اللوحة الليلة إحدى وعشرون وجهة، كل واحدة منها طبقٌ وقعنا في حبّه أثناء توقّف عابر في مدينة ما؛ نطهوه بسرعة تكفي لتلحق برحلتك، وبإتقانٍ قد يجعلك تفوّتها عن طيب خاطر.</span></p>
+  </div>
+
+  <div class="pass-wrap">
+    <div class="pass">
+      <div class="pass-main">
+        <div class="pass-top">
+          <b><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2v7a3 3 0 0 0 2 2.8V22h2V11.8A3 3 0 0 0 13 9V2h-1.5v6h-1V2h-1v6h-1V2zm9 0c-1.7 1.5-2.5 4-2.5 7v4H16v9h2V2z"/></svg>G7</b>
+          <span lang="en">Boarding pass</span><span lang="ar">بطاقة صعود إلى المائدة</span>
+        </div>
+        <div class="route">
+          <div><b>HGR</b><small lang="en">Hungry</small><small lang="ar">جائع</small></div>
+          <div class="ln"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="flip"><path d="M21.5 13.2v-1.9l-8-5V2.9a1.5 1.5 0 0 0-3 0v3.4l-8 5v1.9l8-2.5v5.1l-2 1.5V19l3.5-1 3.5 1v-1.7l-2-1.5v-5.1z" transform="rotate(90 12 12)"/></svg></div>
+          <div><b>FUL</b><small lang="en">Happily full</small><small lang="ar">شبعان وسعيد</small></div>
+        </div>
+        <div class="fields">
+          <div><span lang="en">Passenger</span><span lang="ar">المسافر</span><strong lang="en">You / Guest</strong><strong lang="ar">أنت / ضيفنا</strong></div>
+          <div><span lang="en">Flight</span><span lang="ar">الرحلة</span><strong dir="ltr">G7 0007</strong></div>
+          <div><span lang="en">Boarding</span><span lang="ar">الصعود</span><strong lang="en">Now</strong><strong lang="ar">الآن</strong></div>
+          <div><span lang="en">Class</span><span lang="ar">الدرجة</span><strong lang="en">Appetite</strong><strong lang="ar">درجة الشهيّة</strong></div>
+          <div><span lang="en">Seat</span><span lang="ar">المقعد</span><strong lang="en">Any window</strong><strong lang="ar">أي نافذة</strong></div>
+          <div><span lang="en">Baggage</span><span lang="ar">الأمتعة</span><strong lang="en">1 doggy bag</strong><strong lang="ar">علبة سفري واحدة</strong></div>
+        </div>
+      </div>
+      <div class="pass-stub">
+        <div class="big">G7</div>
+        <div><span class="k"><span lang="en">Gate</span><span lang="ar">البوابة</span></span><strong>07</strong></div>
+        <div><span class="k"><span lang="en">Zone</span><span lang="ar">المنطقة</span></span><strong lang="en">KITCHEN</strong><strong lang="ar" style="font-family:var(--sans)">المطبخ</strong></div>
+        <div class="barcode" aria-hidden="true"></div>
+        <div class="num">G7 0007 HGR FUL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="note">
+    <span><span lang="en">GATE = price in AED, incl. VAT</span><span lang="ar">رقم البوابة = السعر بالدرهم الإماراتي شامل الضريبة</span></span>
+    <span style="color:var(--green)"><i></i><span lang="en">Boarding = chef’s pick</span><span lang="ar">الصعود الآن = اختيار الشيف</span></span>
+    <span style="color:var(--red)"><i></i><span lang="en">Turbulence = spicy</span><span lang="ar">مطبّات = حارّ</span></span>
+    <span style="color:var(--cyan)"><i></i><span lang="en">Green lane = vegan</span><span lang="ar">المسار الأخضر = نباتي</span></span>
+    <span style="color:var(--amber)"><i></i><span lang="en">New route</span><span lang="ar">وجهة جديدة</span></span>
+  </div>
+
+  <!-- A -->
+  <section class="board" id="ta">
+    <div class="bhead"><span class="letter">A</span><h2><span lang="en">Short-haul</span><span lang="ar">رحلات قصيرة</span></h2><p><span lang="en">Small plates that land in under ten minutes.</span><span lang="ar">أطباق صغيرة تهبط على طاولتك في أقل من عشر دقائق.</span></p><span class="clock">07:07</span></div>
+    <div class="cols"><span lang="en">Flight</span><span lang="ar">الرحلة</span><span lang="en">From</span><span lang="ar">من</span><span lang="en">Destination</span><span lang="ar">الوجهة</span><span lang="en">Via</span><span lang="ar">عبر</span><span lang="en">Remarks</span><span lang="ar">ملاحظات</span><span lang="en">Gate</span><span lang="ar">البوابة</span></div>
+    <ul>
+      <li class="row"><span class="t fl">G7 101</span><span class="t fr">IST</span><span class="ds"><span class="flap" lang="en">Sigara Borek</span><span class="flap" lang="ar">بوريك السيجار</span></span><span class="via"><span lang="en">Crisp filo cigars, white cheese, parsley, sumac yoghurt</span><span lang="ar">لفائف عجين رقيقة مقرمشة بالجبن الأبيض والبقدونس مع لبن بالسمّاق</span></span><span class="st"><i></i><span lang="en">On time</span><span lang="ar">في موعدها</span></span><span class="t gt">32</span></li>
+      <li class="row"><span class="t fl">G7 118</span><span class="t fr">BKK</span><span class="ds"><span class="flap" lang="en">Tom Yum Shrimp Broth</span><span class="flap" lang="ar">حساء توم يام بالروبيان</span></span><span class="via"><span lang="en">Lemongrass, galangal, lime leaf, bird’s-eye chilli</span><span lang="ar">عشبة الليمون والخولنجان وورق الليمون والفلفل التايلندي الحار</span></span><span class="st hot"><i></i><span lang="en">Turbulence</span><span lang="ar">مطبّات</span></span><span class="t gt">42</span></li>
+      <li class="row"><span class="t fl">G7 124</span><span class="t fr">BEY</span><span class="ds"><span class="flap" lang="en">Smoked Hummus</span><span class="flap" lang="ar">حمّص مدخّن</span></span><span class="via"><span lang="en">Charred chickpeas, Urfa chilli oil, pita straight off the fire</span><span lang="ar">حمّص محمّص على اللهب، زيت فلفل أورفا، وخبز ساخن من النار مباشرة</span></span><span class="st veg"><i></i><span lang="en">Green lane</span><span lang="ar">المسار الأخضر</span></span><span class="t gt">29</span></li>
+      <li class="row"><span class="t fl">G7 137</span><span class="t fr">LIM</span><span class="ds"><span class="flap" lang="en">Sea Bass Ceviche</span><span class="flap" lang="ar">سيفيتشي القاروص</span></span><span class="via"><span lang="en">Tiger’s milk, sweet potato, toasted corn, red onion</span><span lang="ar">«حليب النمر» الحمضي، بطاطا حلوة، ذرة محمّصة وبصل أحمر</span></span><span class="st go"><i></i><span lang="en">Boarding</span><span lang="ar">الصعود الآن</span></span><span class="t gt">48</span></li>
+      <li class="row"><span class="t fl">G7 142</span><span class="t fr">ICN</span><span class="ds"><span class="flap" lang="en">Seoul Fried Cauliflower</span><span class="flap" lang="ar">قرنبيط سيول المقلي</span></span><span class="via"><span lang="en">Gochujang glaze, sesame, pickled radish</span><span lang="ar">صلصة غوتشوجانغ اللامعة، سمسم ومخلل الفجل</span></span><span class="st veg"><i></i><span lang="en">Green lane</span><span lang="ar">المسار الأخضر</span></span><span class="t gt">34</span></li>
+    </ul>
+  </section>
+
+  <!-- B -->
+  <section class="board" id="tb">
+    <div class="bhead"><span class="letter">B</span><h2><span lang="en">Long-haul</span><span lang="ar">رحلات طويلة</span></h2><p><span lang="en">Main courses. Fasten your napkin.</span><span lang="ar">الأطباق الرئيسية. اربطوا مناديلكم.</span></p><span class="clock">07:07</span></div>
+    <div class="cols"><span lang="en">Flight</span><span lang="ar">الرحلة</span><span lang="en">From</span><span lang="ar">من</span><span lang="en">Destination</span><span lang="ar">الوجهة</span><span lang="en">Via</span><span lang="ar">عبر</span><span lang="en">Remarks</span><span lang="ar">ملاحظات</span><span lang="en">Gate</span><span lang="ar">البوابة</span></div>
+    <ul>
+      <li class="row"><span class="t fl">G7 205</span><span class="t fr">DEL</span><span class="ds"><span class="flap" lang="en">Butter Chicken</span><span class="flap" lang="ar">دجاج بالزبدة</span></span><span class="via"><span lang="en">Tandoor-charred thigh, tomato makhani, garlic naan</span><span lang="ar">فخذ دجاج من التندور، صلصة مخني بالطماطم وخبز نان بالثوم</span></span><span class="st go"><i></i><span lang="en">Boarding</span><span lang="ar">الصعود الآن</span></span><span class="t gt">62</span></li>
+      <li class="row"><span class="t fl">G7 219</span><span class="t fr">NRT</span><span class="ds"><span class="flap" lang="en">Miso Black Cod</span><span class="flap" lang="ar">سمك القدّ الأسود بالميسو</span></span><span class="via"><span lang="en">48-hour sweet miso cure, pickled ginger, sticky rice</span><span lang="ar">يُتبَّل ٤٨ ساعة بالميسو الحلو، مع زنجبيل مخلل وأرز لزج</span></span><span class="st"><i></i><span lang="en">On time</span><span lang="ar">في موعدها</span></span><span class="t gt">96</span></li>
+      <li class="row"><span class="t fl">G7 226</span><span class="t fr">MEX</span><span class="ds"><span class="flap" lang="en">Birria Beef Tacos</span><span class="flap" lang="ar">تاكو بيريا باللحم</span></span><span class="via"><span lang="en">Slow-braised short rib, melted cheese, consommé for dipping</span><span lang="ar">ضلع بقري مطهو ببطء وجبن ذائب، مع مرق اللحم للتغميس</span></span><span class="st hot"><i></i><span lang="en">Turbulence</span><span lang="ar">مطبّات</span></span><span class="t gt">68</span></li>
+      <li class="row"><span class="t fl">G7 233</span><span class="t fr">CMN</span><span class="ds"><span class="flap" lang="en">Lamb Tagine</span><span class="flap" lang="ar">طاجين لحم الضأن</span></span><span class="via"><span lang="en">Prunes, toasted almonds, saffron, hand-rolled couscous</span><span lang="ar">برقوق مجفف ولوز محمّص وزعفران مع كسكس مفتول باليد</span></span><span class="st"><i></i><span lang="en">On time</span><span lang="ar">في موعدها</span></span><span class="t gt">78</span></li>
+      <li class="row"><span class="t fl">G7 247</span><span class="t fr">JFK</span><span class="ds"><span class="flap" lang="en">Terminal Burger</span><span class="flap" lang="ar">برغر المطار</span></span><span class="via"><span lang="en">Wagyu patty, turkey bacon, aged cheddar, pickles, fries</span><span lang="ar">لحم واغيو، ديك رومي مقدّد، شيدر معتّق ومخلل، مع بطاطا مقلية</span></span><span class="st"><i></i><span lang="en">On time</span><span lang="ar">في موعدها</span></span><span class="t gt">72</span></li>
+      <li class="row"><span class="t fl">G7 252</span><span class="t fr">SIN</span><span class="ds"><span class="flap" lang="en">Laksa Noodle Bowl</span><span class="flap" lang="ar">نودلز لاكسا</span></span><span class="via"><span lang="en">Coconut curry broth, prawns, tofu puffs, laksa leaf</span><span lang="ar">مرق كاري بحليب جوز الهند، روبيان، توفو منفوش وأوراق اللاكسا</span></span><span class="st hot"><i></i><span lang="en">Turbulence</span><span lang="ar">مطبّات</span></span><span class="t gt">58</span></li>
+      <li class="row"><span class="t fl">G7 268</span><span class="t fr">FCO</span><span class="ds"><span class="flap" lang="en">Truffle Cacio e Pepe</span><span class="flap" lang="ar">كاتشو إي بيبي بالكمأة</span></span><span class="via"><span lang="en">Tonnarelli, pecorino, cracked black pepper, shaved truffle</span><span lang="ar">معكرونة تونّاريلي، جبن بيكورينو، فلفل أسود مجروش ورقائق الكمأة</span></span><span class="st new"><i></i><span lang="en">New route</span><span lang="ar">وجهة جديدة</span></span><span class="t gt">64</span></li>
+    </ul>
+  </section>
+
+  <!-- C -->
+  <section class="board" id="tc">
+    <div class="bhead"><span class="letter">C</span><h2><span lang="en">Duty-free sweets</span><span lang="ar">حلويات السوق الحرة</span></h2><p><span lang="en">No customs declaration required.</span><span lang="ar">لا حاجة إلى تصريح جمركي.</span></p><span class="clock">07:07</span></div>
+    <div class="cols"><span lang="en">Flight</span><span lang="ar">الرحلة</span><span lang="en">From</span><span lang="ar">من</span><span lang="en">Destination</span><span lang="ar">الوجهة</span><span lang="en">Via</span><span lang="ar">عبر</span><span lang="en">Remarks</span><span lang="ar">ملاحظات</span><span lang="en">Gate</span><span lang="ar">البوابة</span></div>
+    <ul>
+      <li class="row"><span class="t fl">G7 301</span><span class="t fr">CDG</span><span class="ds"><span class="flap" lang="en">Paris-Brest</span><span class="flap" lang="ar">باري بريست</span></span><span class="via"><span lang="en">Choux ring, hazelnut praline cream, caramelised nuts</span><span lang="ar">حلقة من عجين الشو بكريمة برالين البندق ومكسرات مكرملة</span></span><span class="st"><i></i><span lang="en">On time</span><span lang="ar">في موعدها</span></span><span class="t gt">36</span></li>
+      <li class="row"><span class="t fl">G7 315</span><span class="t fr">GZT</span><span class="ds"><span class="flap" lang="en">Pistachio Kunefe</span><span class="flap" lang="ar">كنافة بالفستق</span></span><span class="via"><span lang="en">Crisp kataifi, stretchy cheese, orange-blossom syrup, clotted cream</span><span lang="ar">شعيرية مقرمشة وجبن مطّاط، قطر بماء الزهر وقشطة</span></span><span class="st go"><i></i><span lang="en">Boarding</span><span lang="ar">الصعود الآن</span></span><span class="t gt">38</span></li>
+      <li class="row"><span class="t fl">G7 322</span><span class="t fr">KIX</span><span class="ds"><span class="flap" lang="en">Matcha Basque Cheesecake</span><span class="flap" lang="ar">تشيز كيك باسكي بالماتشا</span></span><span class="via"><span lang="en">Burnt top, molten centre, black sesame crumble</span><span lang="ar">وجه محروق وقلب ذائب مع فتات السمسم الأسود</span></span><span class="st"><i></i><span lang="en">On time</span><span lang="ar">في موعدها</span></span><span class="t gt">34</span></li>
+      <li class="row"><span class="t fl">G7 338</span><span class="t fr">MNL</span><span class="ds"><span class="flap" lang="en">Mango Float</span><span class="flap" lang="ar">مانجو فلوت</span></span><span class="via"><span lang="en">Layers of ripe mango, chilled cream and biscuit, served ice-cold</span><span lang="ar">طبقات من المانجو الناضجة والكريمة المبرّدة والبسكويت، تقدَّم مثلّجة</span></span><span class="st new"><i></i><span lang="en">New route</span><span lang="ar">وجهة جديدة</span></span><span class="t gt">30</span></li>
+    </ul>
+  </section>
+
+  <!-- D -->
+  <section class="board" id="td">
+    <div class="bhead"><span class="letter">D</span><h2><span lang="en">The Lounge</span><span lang="ar">الصالة</span></h2><p><span lang="en">Zero-proof drinks for every time zone.</span><span lang="ar">مشروبات خالية من الكحول لكل المناطق الزمنية.</span></p><span class="clock">07:07</span></div>
+    <div class="cols"><span lang="en">Flight</span><span lang="ar">الرحلة</span><span lang="en">From</span><span lang="ar">من</span><span lang="en">Destination</span><span lang="ar">الوجهة</span><span lang="en">Via</span><span lang="ar">عبر</span><span lang="en">Remarks</span><span lang="ar">ملاحظات</span><span lang="en">Gate</span><span lang="ar">البوابة</span></div>
+    <ul>
+      <li class="row"><span class="t fl">G7 401</span><span class="t fr">HAV</span><span class="ds"><span class="flap" lang="en">Havana Nojito</span><span class="flap" lang="ar">نوهيتو هافانا</span></span><span class="via"><span lang="en">Muddled mint, lime, cane sugar, soda, crushed ice</span><span lang="ar">نعناع مهروس وليمون أخضر وسكر القصب مع الصودا والثلج المجروش</span></span><span class="st"><i></i><span lang="en">On time</span><span lang="ar">في موعدها</span></span><span class="t gt">28</span></li>
+      <li class="row"><span class="t fl">G7 414</span><span class="t fr">DXB</span><span class="ds"><span class="flap" lang="en">Saffron Karak Chai</span><span class="flap" lang="ar">شاي كرك بالزعفران</span></span><span class="via"><span lang="en">Strong black tea, evaporated milk, cardamom, saffron</span><span lang="ar">شاي أسود ثقيل بالحليب المبخّر والهيل والزعفران</span></span><span class="st go"><i></i><span lang="en">Boarding</span><span lang="ar">الصعود الآن</span></span><span class="t gt">18</span></li>
+      <li class="row"><span class="t fl">G7 427</span><span class="t fr">SGN</span><span class="ds"><span class="flap" lang="en">Saigon Iced Coffee</span><span class="flap" lang="ar">قهوة سايغون المثلّجة</span></span><span class="via"><span lang="en">Slow-drip robusta over condensed milk and ice</span><span lang="ar">قهوة روبوستا مقطّرة ببطء فوق الحليب المكثّف والثلج</span></span><span class="st"><i></i><span lang="en">On time</span><span lang="ar">في موعدها</span></span><span class="t gt">24</span></li>
+      <li class="row"><span class="t fl">G7 433</span><span class="t fr">CAI</span><span class="ds"><span class="flap" lang="en">Karkade Spritz</span><span class="flap" lang="ar">كركديه فوّار</span></span><span class="via"><span lang="en">Cold-brewed hibiscus, pomegranate, sparkling water, mint</span><span lang="ar">كركديه منقوع على البارد مع الرمان والمياه الفوّارة والنعناع</span></span><span class="st veg"><i></i><span lang="en">Green lane</span><span lang="ar">المسار الأخضر</span></span><span class="t gt">26</span></li>
+      <li class="row"><span class="t fl">G7 446</span><span class="t fr">LHR</span><span class="ds"><span class="flap" lang="en">Jet Lag Tonic</span><span class="flap" lang="ar">تونيك فارق التوقيت</span></span><span class="via"><span lang="en">Cold brew, tonic water, orange peel. Resets your body clock</span><span lang="ar">قهوة باردة وماء التونيك وقشر البرتقال. يعيد ضبط ساعتك البيولوجية</span></span><span class="st new"><i></i><span lang="en">New route</span><span lang="ar">وجهة جديدة</span></span><span class="t gt">27</span></li>
+    </ul>
+  </section>
+
+  <!-- E -->
+  <section class="tags" id="te">
+    <h2><span lang="en">Layover sets</span><span lang="ar">وجبات الترانزيت</span></h2>
+    <p><span lang="en">Tell us when your flight leaves; we will tag your table and time the kitchen to it.</span><span lang="ar">أخبرنا بموعد إقلاع رحلتك، فنضع البطاقة على طاولتك ونضبط إيقاع المطبخ عليه.</span></p>
+    <div class="tagrow">
+      <article class="bt" style="--c:#ff5a4d">
+        <div class="code">45M</div>
+        <h3><span lang="en">Tight connection</span><span lang="ar">ترانزيت على عجل</span></h3>
+        <p><span lang="en">Any short-haul plate and any Lounge drink, on your table in twelve minutes or the drink is on us.</span><span lang="ar">أي طبق من الرحلات القصيرة مع مشروب من الصالة، على طاولتك خلال اثنتي عشرة دقيقة وإلا فالمشروب علينا.</span></p>
+        <div class="foot"><div class="barcode" aria-hidden="true"></div><span class="pr"><small>AED</small>55</span></div>
+      </article>
+      <article class="bt">
+        <div class="code">2HR</div>
+        <h3><span lang="en">Standard transit</span><span lang="ar">ترانزيت مريح</span></h3>
+        <p><span lang="en">One short-haul, one long-haul and one duty-free sweet. The route most of our regulars fly.</span><span lang="ar">طبق من الرحلات القصيرة وآخر من الطويلة مع حلوى من السوق الحرة. المسار الذي يسلكه أغلب زبائننا الدائمين.</span></p>
+        <div class="foot"><div class="barcode" aria-hidden="true"></div><span class="pr"><small>AED</small>125</span></div>
+      </article>
+      <article class="bt" style="--c:#58d6ff">
+        <div class="code">O/N</div>
+        <h3><span lang="en">Missed my flight</span><span lang="ar">فاتتني الطائرة</span></h3>
+        <p><span lang="en">For two: three short-hauls to share, two long-hauls, two sweets and a pot of karak. Nowhere to be.</span><span lang="ar">لشخصين: ثلاثة أطباق قصيرة للمشاركة، طبقان رئيسيان، حلويان وإبريق كرك. لا مكان تستعجلان إليه.</span></p>
+        <div class="foot"><div class="barcode" aria-hidden="true"></div><span class="pr"><small>AED</small>290</span></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wf">
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l4 2.5"/></svg><div><h4><span lang="en">Open 24 hours</span><span lang="ar">مفتوح ٢٤ ساعة</span></h4><p><span lang="en">Every day of the year. Kitchen pauses 04:00–04:30 to wipe down the board.</span><span lang="ar">كل أيام السنة. يتوقف المطبخ من ٤:٠٠ إلى ٤:٣٠ فجرًا لتنظيف اللوحة.</span></p></div></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.6 7-12a7 7 0 0 0-14 0c0 5.400 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div><h4><span lang="en">Find us airside</span><span lang="ar">تجدنا بعد الجوازات</span></h4><p><span lang="en">Concourse B, Level 3, opposite Gate B7 — Al Noor International Airport, Terminal 1.</span><span lang="ar">القاعة «ب»، الطابق الثالث، مقابل البوابة <span dir="ltr">B7</span> — مطار النور الدولي، المبنى ١.</span></p></div></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.2v.1"/></svg><div><h4><span lang="en">Declare your allergies</span><span lang="ar">صرّح عن حساسيّتك</span></h4><p><span lang="en">Dishes may contain nuts, sesame, gluten, dairy, fish and shellfish. All meat is halal; no alcohol, no pork.</span><span lang="ar">قد تحتوي الأطباق على مكسرات وسمسم وغلوتين وألبان وأسماك وقشريات. جميع اللحوم حلال، ولا نستخدم الكحول ولا لحم الخنزير.</span></p></div></div>
+  </div>
+  <div class="fine"><span lang="en">Gate 7 Kitchen · thank you for flying hungry</span><span lang="ar">مطبخ البوابة ٧ · شكرًا لسفركم معنا جائعين</span><span dir="ltr">+971 4 555 0177</span></div>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+(function(){
+  var cs=document.querySelectorAll('.clock');
+  function tick(){var n=new Date(),s=('0'+n.getHours()).slice(-2)+':'+('0'+n.getMinutes()).slice(-2);cs.forEach(function(c){c.textContent=s})}
+  tick();setInterval(tick,15000);
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('live');io.unobserve(e.target)}})},{threshold:.15});
+    document.querySelectorAll('.board').forEach(function(b){io.observe(b)});
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Hard Hat Hoagies · خوذة وساندويتش</title>
+<meta name="description" content="Hard Hat Hoagies — subs engineered floor by floor on a 30 cm seeded roll. خوذة وساندويتش — ساندويتشات تُبنى طابقًا فوق طابق.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffd200">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;900&family=Barlow:wght@400;500;600;700&family=Lalezar&family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --k:#141414; --y:#ffd200; --o:#ff6a00; --con:#dcd9d1; --con2:#c9c5bb; --w:#fbfaf6; --steel:#434b53; --blue:#1d4f9e; --green:#14833f; --red:#d92b20;
+  --hz:repeating-linear-gradient(-45deg,var(--k) 0 16px,var(--y) 16px 32px);
+  --st:"Big Shoulders Stencil Display","Saira Stencil One","Stardos Stencil",Impact,sans-serif; --bd:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --ard:"Lalezar","Almarai",sans-serif; --ar:"Almarai","Segoe UI",Tahoma,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--bd);font-weight:500;font-size:17px;line-height:1.45;color:var(--k);
+  background:
+    radial-gradient(circle,rgba(20,20,20,.28) 0 3px,transparent 3.6px) 20px 20px/240px 150px,
+    linear-gradient(rgba(20,20,20,.1) 2px,transparent 2px) 0 0/100% 150px,
+    linear-gradient(90deg,rgba(20,20,20,.1) 2px,transparent 2px) 0 0/240px 100%,
+    linear-gradient(135deg,var(--con),var(--con2))}
+html[lang="ar"] body{font-family:var(--ar);font-size:17px;line-height:1.7}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{overflow:clip}
+html[lang="ar"] .sten{font-family:var(--ard) !important;font-weight:400 !important;text-transform:none}
+html[lang="ar"] h1.sten,html[lang="ar"] .beam h2.sten{-webkit-mask:repeating-linear-gradient(100deg,#000 0 1.5em,transparent 1.5em 1.56em);mask:repeating-linear-gradient(100deg,#000 0 1.5em,transparent 1.5em 1.56em)}
+
+/* ---------- hoist mast + cab ---------- */
+.mast{position:sticky;inset-block-start:0;z-index:50;background:var(--k)}
+.cab{display:flex;align-items:center;gap:6px;padding:8px 10px}
+.cab .lb{display:none}
+.cab nav{display:flex;gap:6px;margin-inline-end:auto}
+.cab nav a{width:38px;height:38px;border-radius:50%;border:2px solid var(--y);color:var(--y);display:grid;place-items:center;font:900 1rem/1 var(--st);letter-spacing:.02em}
+html[lang="ar"] .cab nav a{font:400 1rem/1 var(--ard)}
+.cab nav a:hover,.cab nav a:focus-visible{background:var(--y);color:var(--k)}
+.cab .home-link{width:38px;height:38px;display:grid;place-items:center;border:2px solid #666;border-radius:6px;color:#fff}
+.cab .home-link svg{width:16px;height:16px;fill:currentColor}
+#langToggle{height:38px;padding:0 12px;border:0;border-radius:6px;background:var(--o);color:var(--k);font:700 15px/1 var(--bd);cursor:pointer}
+#langToggle [lang="ar"]{font:700 14px/1 var(--ar)}
+#langToggle:hover{background:var(--y)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--y);overflow:hidden;border-block-end:6px solid var(--k)}
+.hero{padding-block-start:22px}
+.hero::before{content:"";position:absolute;inset:0 0 auto 0;height:22px;background:var(--hz);z-index:4}
+.hin{position:relative;z-index:2;padding:26px 18px 0;max-width:820px}
+.permit{display:inline-flex;gap:10px;align-items:center;font:700 .82rem/1 var(--bd);letter-spacing:.2em;text-transform:uppercase;background:var(--k);color:var(--y);padding:8px 12px}
+html[lang="ar"] .permit{font:700 .95rem/1.2 var(--ar);text-transform:none}
+.permit i{width:10px;height:10px;background:var(--o);border-radius:50%}
+.hero h1{font:900 clamp(4.6rem,22vw,10.5rem)/.82 var(--st);text-transform:uppercase;letter-spacing:.005em;margin-block:16px 12px}
+.hero h1 span span{display:block}
+.hero h1 .o{color:var(--k);-webkit-text-stroke:0;background:var(--k);color:var(--y);display:inline-block;padding:.02em .12em .06em;margin-block-start:.06em}
+html[lang="ar"] .hero h1{font-size:clamp(3.8rem,17vw,9rem);line-height:1.12}
+html[lang="ar"] .hero h1 .o{padding:.0em .16em}
+.tagl{font:700 clamp(1.3rem,2.8vw,2.1rem)/1.1 var(--st);text-transform:uppercase;letter-spacing:.04em}
+html[lang="ar"] .tagl{font:400 clamp(1.4rem,2.8vw,2.1rem)/1.4 var(--ard)}
+.intro{max-width:50ch;margin-block-start:10px;font-size:1.05rem}
+.signs{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin-block:20px 0;max-width:560px}
+.signs li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:center;background:var(--w);border:3px solid var(--k);padding:7px 10px;font-weight:700;font-size:.98rem;line-height:1.2}
+.signs svg{width:44px;height:44px}
+.crane{display:block;width:min(100%,560px);height:auto;margin:6px auto -6px;margin-inline-start:auto;position:relative;z-index:1}
+.sky{position:absolute;inset-inline:0;inset-block-end:0;width:100%;height:150px;z-index:0}
+.days{position:relative;z-index:3;margin:0 18px 22px;max-width:420px;background:var(--w);border:3px solid var(--k);box-shadow:6px 6px 0 rgba(20,20,20,.3)}
+.days .hd{background:var(--green);color:#fff;font:900 1.25rem/1 var(--st);letter-spacing:.14em;text-transform:uppercase;padding:9px 12px;text-align:center}
+html[lang="ar"] .days .hd{font:400 1.3rem/1.2 var(--ard)}
+.days p{padding:10px 12px 12px;text-align:center;font-weight:700;line-height:1.3}
+.days .n{display:flex;justify-content:center;gap:4px;margin-block:8px;direction:ltr}
+.days .n b{font:900 2.2rem/1 var(--st);background:var(--k);color:var(--y);padding:6px 9px;border-radius:4px}
+
+/* ---------- floors ---------- */
+.floors{padding:22px 12px 10px;min-width:0}
+.floor{margin-block-end:34px;scroll-margin-top:64px;position:relative}
+.beam{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:14px;color:#fff;padding:20px 16px;
+  background:
+    radial-gradient(circle,#aab2b9 0 2.5px,transparent 3px) 6px 2px/30px 9px repeat-x,
+    radial-gradient(circle,#aab2b9 0 2.5px,transparent 3px) 6px calc(100% - 2px)/30px 9px repeat-x,
+    linear-gradient(#59636c 0 13px,#1f2429 13px 16px,var(--steel) 16px calc(100% - 16px),#1f2429 calc(100% - 16px) calc(100% - 13px),#59636c calc(100% - 13px));
+  box-shadow:0 8px 0 rgba(20,20,20,.22)}
+.lv{font:900 2rem/1 var(--st);background:var(--o);color:var(--k);padding:8px 12px;border:3px solid var(--k);min-width:62px;text-align:center}
+html[lang="ar"] .lv{font:400 1.8rem/1.1 var(--ard)}
+.beam h2{font:900 clamp(1.9rem,5vw,3.2rem)/.95 var(--st);text-transform:uppercase;letter-spacing:.03em;color:#fff}
+html[lang="ar"] .beam h2{font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.25}
+.beam p{font-size:.95rem;color:#d5dbe0;font-weight:500}
+.el{display:none;font:700 1rem/1 var(--bd);letter-spacing:.06em;color:var(--y);white-space:nowrap}
+
+.boards,.prints,.tags,.deals{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;padding:22px 10px 0;position:relative}
+/* scaffold tubes behind the boards */
+.boards::before,.prints::before,.tags::before{content:"";position:absolute;inset-block:0 -18px;inset-inline:0;pointer-events:none;
+  background:linear-gradient(90deg,#8d969e,#d4dade 40%,#7d868e) 0 0/7px 100% no-repeat,linear-gradient(90deg,#8d969e,#d4dade 40%,#7d868e) 100% 0/7px 100% no-repeat}
+.board,.print,.tg,.deal{position:relative}
+.board{background:
+    radial-gradient(circle,#8a8f94 0 3px,#3a3d40 3px 4px,transparent 4.5px) 0 0/22px 22px no-repeat,
+    radial-gradient(circle,#8a8f94 0 3px,#3a3d40 3px 4px,transparent 4.5px) 100% 0/22px 22px no-repeat,
+    radial-gradient(circle,#8a8f94 0 3px,#3a3d40 3px 4px,transparent 4.5px) 0 100%/22px 22px no-repeat,
+    radial-gradient(circle,#8a8f94 0 3px,#3a3d40 3px 4px,transparent 4.5px) 100% 100%/22px 22px no-repeat,var(--w);
+  border:3px solid var(--k);padding:22px 20px 18px;box-shadow:6px 6px 0 rgba(20,20,20,.28);display:flex;flex-direction:column;gap:8px}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.cd{font:700 .85rem/1 var(--bd);letter-spacing:.12em;background:var(--k);color:var(--y);padding:5px 8px}
+.sgn{font:700 .74rem/1 var(--bd);letter-spacing:.08em;text-transform:uppercase;color:#fff;padding:5px 9px;border-radius:99px}
+html[lang="ar"] .sgn{font:700 .8rem/1.2 var(--ar);text-transform:none}
+.sgn.blue{background:var(--blue)}.sgn.green{background:var(--green)}
+.heat{font:700 .74rem/1 var(--bd);letter-spacing:.08em;text-transform:uppercase;background:var(--y);border:2px solid var(--k);padding:3px 7px;margin-inline-start:auto}
+html[lang="ar"] .heat{font:700 .8rem/1.2 var(--ar);text-transform:none}
+.heat i{font-style:normal;color:var(--red);letter-spacing:1px;font-size:.95rem}
+.board h3,.print h3{font:900 clamp(1.9rem,3vw,2.3rem)/.95 var(--st);text-transform:uppercase;letter-spacing:.02em}
+html[lang="ar"] .board h3,html[lang="ar"] .print h3{font-size:1.75rem;line-height:1.3}
+.board p{color:#3d3d3a;font-size:1rem}
+.szs{display:grid;grid-template-columns:1fr 1fr;margin-block-start:auto;border:3px solid var(--k)}
+.sz{display:grid;gap:3px;padding:8px 10px;background:var(--w);color:var(--k)}
+.sz small{font:700 .7rem/1.1 var(--bd);letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+html[lang="ar"] .sz small{font:700 .78rem/1.3 var(--ar);text-transform:none}
+.sz b{font:900 1.7rem/1 var(--st)}
+.sz.full{background:var(--o)}
+
+/* blueprint cards */
+.print{background:
+    linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px) 0 0/22px 22px,linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px) 0 0/22px 22px,var(--blue);
+  color:#fff;padding:18px 18px 18px;outline:1.5px dashed rgba(255,255,255,.6);outline-offset:-8px;box-shadow:6px 6px 0 rgba(20,20,20,.28);display:flex;flex-direction:column;gap:8px}
+.print .cd{background:#fff;color:var(--blue)}
+.print p{color:#dbe6f7}
+.dim{display:flex;align-items:center;gap:8px;font:700 .72rem/1 var(--bd);letter-spacing:.14em;color:#bcd0ee;direction:ltr}
+.dim::before,.dim::after{content:"";flex:1;height:9px;border-inline:1.5px solid #bcd0ee;background:linear-gradient(#bcd0ee,#bcd0ee) 0 50%/100% 1.5px no-repeat}
+.print .szs{border-color:#fff}
+.print .sz{background:transparent;color:#fff}
+.print .sz.full{background:#fff;color:var(--blue)}
+
+/* lockout tags */
+.tg{background:var(--o);padding:20px 18px 18px 54px;padding-inline:54px 18px;min-height:128px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-content:start;
+  clip-path:polygon(22px 0,100% 0,100% 100%,22px 100%,0 calc(100% - 22px),0 22px);filter:drop-shadow(5px 5px 0 rgba(20,20,20,.28))}
+html[dir="rtl"] .tg{clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%)}
+.tg::before{content:"";position:absolute;inset-inline-start:18px;inset-block-start:50%;width:20px;height:20px;margin-block-start:-10px;border-radius:50%;background:var(--con);box-shadow:0 0 0 4px var(--k)}
+.tg h3{font:900 1.75rem/1 var(--st);text-transform:uppercase;letter-spacing:.02em;grid-column:1}
+html[lang="ar"] .tg h3{font-size:1.5rem;line-height:1.3}
+.tg p{grid-column:1;font-size:.98rem;font-weight:600;color:#2a1500}
+.tp{grid-column:2;grid-row:1/3;align-self:center;font:900 1.5rem/1 var(--st);background:var(--k);color:var(--y);padding:10px 10px;border-radius:4px}
+
+/* tapes */
+.tape{background:var(--y);color:var(--k);border-block:3px solid var(--k);font:900 1.25rem/1 var(--st);letter-spacing:.14em;white-space:nowrap;overflow:hidden;padding-block:9px;width:120%;margin-inline:-10%;box-shadow:0 6px 10px rgba(20,20,20,.25);position:relative;z-index:3}
+html[lang="ar"] .tape{font:400 1.25rem/1.25 var(--ard);padding-block:6px}
+.t1{transform:rotate(-2deg);margin-block:6px 40px}
+.cross{position:relative;height:120px;margin-block:0 26px}
+.cross .tape{position:absolute;inset-inline-start:0;inset-block-start:38px}
+.t2{transform:rotate(3.5deg)}
+.t3{transform:rotate(-3deg);background:var(--k);color:var(--y);border-color:var(--y)}
+
+/* drinks: road sign panel */
+.vms{margin:22px 10px 0;background:var(--k);color:#fff;border:3px solid var(--k);box-shadow:6px 6px 0 rgba(20,20,20,.28)}
+.barrier{height:20px;background:repeating-linear-gradient(-45deg,var(--red) 0 22px,#fff 22px 44px)}
+.vms ul{display:grid;grid-template-columns:minmax(0,1fr);padding:6px 18px 12px}
+.vms li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding-block:13px;border-block-end:2px dashed #4a4a4a}
+.vms li:last-child{border:0}
+.vms h3{font:900 1.6rem/1 var(--st);text-transform:uppercase;letter-spacing:.04em;color:var(--y)}
+html[lang="ar"] .vms h3{font:400 1.45rem/1.3 var(--ard)}
+.vms p{color:#cfcfc9;font-size:.98rem}
+.vms b{font:900 1.6rem/1 var(--st);color:#fff;white-space:nowrap}
+html[lang="ar"] .vms b [lang="ar"]{font:400 1.3rem/1 var(--ard)}
+
+/* deals */
+.deal{background:var(--y);border:4px solid var(--k);padding:0 18px 18px;box-shadow:6px 6px 0 rgba(20,20,20,.28);display:flex;flex-direction:column;gap:6px}
+.hz{height:20px;background:var(--hz);margin-inline:-18px;margin-block-end:12px;border-block-end:4px solid var(--k)}
+.who{font:700 .78rem/1 var(--bd);letter-spacing:.16em;text-transform:uppercase}
+html[lang="ar"] .who{font:700 .9rem/1.3 var(--ar);text-transform:none}
+.deal h3{font:900 clamp(2.1rem,3.4vw,2.8rem)/.95 var(--st);text-transform:uppercase;letter-spacing:.02em}
+html[lang="ar"] .deal h3{font-size:2rem;line-height:1.3}
+.deal ul{margin-block:6px 12px}
+.deal li{padding-block:6px;border-block-end:2px solid rgba(20,20,20,.25);font-weight:600;display:flex;gap:9px}
+.deal li::before{content:"+";font:900 1.1rem/1.2 var(--st)}
+.dp{margin-block-start:auto;align-self:flex-start;font:900 3rem/1 var(--st);background:var(--k);color:var(--y);padding:6px 14px}
+
+/* footer notice board */
+footer{background:var(--k);color:#fff;margin-block-start:10px}
+footer::before{content:"";display:block;height:22px;background:var(--hz)}
+.notice{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;padding:26px 16px 10px;max-width:1240px;margin-inline:auto}
+.plate{background:var(--w);color:var(--k);border-radius:8px;overflow:hidden;border:3px solid #fff}
+.plate h4{font:900 1.5rem/1 var(--st);letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:11px 14px;text-align:center}
+html[lang="ar"] .plate h4{font:400 1.4rem/1.2 var(--ard)}
+.plate.b h4{background:var(--blue)}.plate.g h4{background:var(--green)}.plate.r h4{background:var(--red)}
+.plate p{padding:12px 16px 16px;font-weight:600;text-align:center}
+.fine{padding:14px 16px 34px;text-align:center;color:#a8a8a0;font-size:.9rem}
+
+@media (min-width:680px){
+  .hin{padding:34px 34px 0}
+  .signs{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none}
+  .signs li{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;padding:12px 8px}
+  .signs svg{width:56px;height:56px}
+  .boards,.prints,.deals{grid-template-columns:repeat(2,minmax(0,1fr));padding-inline:26px;gap:22px}
+  .tags{grid-template-columns:repeat(2,minmax(0,1fr));padding-inline:26px}
+  .vms{margin-inline:26px}
+  .vms ul{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}
+  .vms li:nth-last-child(2){border:0}
+  .notice{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .el{display:block}
+  .beam{grid-template-columns:auto minmax(0,1fr) auto;padding-inline:22px}
+  .days{margin-inline:34px}
+  .floors{padding-inline:20px}
+}
+@media (min-width:1100px){
+  .site{display:grid;grid-template-columns:108px minmax(0,1fr)}
+  .mast{position:static;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 108 96'%3E%3Cg fill='none' stroke='%23ff6a00' stroke-width='7'%3E%3Cpath d='M18 0v96M90 0v96M18 0l72 96M90 0L18 96M18 0h72'/%3E%3C/g%3E%3C/svg%3E") 0 0/108px 96px repeat-y,var(--k)}
+  .cab{position:sticky;inset-block-start:14px;flex-direction:column;margin:14px 10px;padding:12px 6px;gap:9px;background:var(--k);border:3px solid var(--y);border-radius:8px;box-shadow:0 0 0 4px var(--k)}
+  .cab .lb{display:block;font:900 .95rem/1 var(--st);letter-spacing:.2em;color:var(--y);text-transform:uppercase}
+  html[lang="ar"] .cab .lb{font:400 1rem/1.2 var(--ard)}
+  .cab nav{flex-direction:column;margin:0;gap:8px}
+  .cab nav a{width:46px;height:46px;font-size:1.15rem}
+  .cab .home-link{width:100%;height:36px}
+  #langToggle{width:100%;padding:0 4px;font-size:14px}
+  .hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:end}
+  .hin{padding:44px 0 40px 46px;padding-inline:46px 0;grid-row:1/3}
+  .crane{grid-column:2;grid-row:1;width:100%;max-width:640px;margin:10px 0 0;justify-self:end}
+  .days{grid-column:2;grid-row:2;justify-self:center;margin:-70px 30px 34px}
+  .hero{grid-template-rows:auto auto}
+  .floors{padding:34px 40px 20px}
+  .boards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .prints{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .tags,.deals{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .floor{margin-block-end:46px;scroll-margin-top:20px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .load{animation:sway 5s ease-in-out infinite alternate;transform-origin:392px 122px}
+  @keyframes sway{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+  .tape div{animation:roll 40s linear infinite}
+  @keyframes roll{to{transform:translateX(-12%)}}
+  html[dir="rtl"] .tape div{animation-name:rollr}
+  @keyframes rollr{to{transform:translateX(12%)}}
+  .permit i{animation:blink 1.2s steps(2) infinite}
+  @keyframes blink{50%{opacity:.2}}
+  .board,.print,.deal{transition:transform .18s}
+  .board:hover,.print:hover,.deal:hover{transform:translate(-3px,-3px)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="site">
+  <aside class="mast">
+    <div class="cab">
+      <span class="lb"><span lang="en">Hoist</span><span lang="ar">المصعد</span></span>
+      <nav aria-label="Floors">
+        <a href="#l4"><span lang="en">L4</span><span lang="ar">ط4</span></a><a href="#l3"><span lang="en">L3</span><span lang="ar">ط3</span></a><a href="#l2"><span lang="en">L2</span><span lang="ar">ط2</span></a><a href="#l1"><span lang="en">L1</span><span lang="ar">ط1</span></a><a href="#g"><span lang="en">G</span><span lang="ar">أ</span></a>
+      </nav>
+      <a class="home-link" href="../index.html" aria-label="All menus"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1h6v6H1zM9 1h6v6H9zM1 9h6v6H1zM9 9h6v6H9z"/></svg></a>
+      <button id="langToggle" type="button" aria-label="Switch language"><span lang="en">العربية</span><span lang="ar">English</span></button>
+    </div>
+  </aside>
+
+  <div class="col">
+    <header class="hero" id="top">
+      <svg class="sky" viewBox="0 0 1200 150" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path fill="#f2c200" d="M0 150V96h70V60h90v36h40V30h110v66h60V70h70v80zM520 150V84h80V44h100v40h50v66zM820 150V64h60V20h120v44h50v40h70V70h80v80z"/><path fill="none" stroke="#e3b400" stroke-width="3" d="M200 30v-24M310 30v-24M200 6h110M880 20V-4M1000 20V-4M600 44v-20M700 44v-20M600 24h100"/></svg>
+      <div class="hin">
+        <p class="permit"><i></i><span lang="en">Site open · Subs &amp; hoagies · Permit No. 055</span><span lang="ar">الموقع مفتوح · ساندويتشات · تصريح رقم 055</span></p>
+        <h1 class="sten"><span lang="en"><span>Hard Hat</span><span class="o">Hoagies</span></span><span lang="ar"><span>خوذة</span><span class="o">وساندويتش</span></span></h1>
+        <p class="tagl sten"><span lang="en">Built to spec. Stacked to code.</span><span lang="ar">مبنيّة حسب المخطّط. مرصوصة حسب الأصول.</span></p>
+        <p class="intro"><span lang="en">Every hoagie is engineered on a 30 cm seeded roll baked on site at five each morning, then loaded floor by floor. Take the hoist down from the heavy lifts on Level 4 to the crew deals at ground.</span><span lang="ar">كل ساندويتش يُصمَّم على رغيف بالسمسم طوله 30 سم يُخبز في الموقع عند الخامسة فجرًا، ثم يُحمَّل طابقًا فوق طابق. اركب المصعد من الأحمال الثقيلة في الطابق الرابع نزولًا إلى عروض الطاقم في الأرضي.</span></p>
+        <ul class="signs">
+          <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#1d4f9e"/><path fill="#fff" d="M10 30a14 14 0 0 1 28 0zM8 31h32v4H8zM21 15h6v10h-6z"/></svg><span><span lang="en">Appetite must be worn on site</span><span lang="ar">الشهيّة إلزامية داخل الموقع</span></span></li>
+          <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3l22 40H2z" fill="#ffd200" stroke="#141414" stroke-width="3.5" stroke-linejoin="round"/><path d="M22 17h4l-1 14h-2zM22 34h4v4h-4z" fill="#141414"/></svg><span><span lang="en">Caution: falling fillings</span><span lang="ar">تحذير: حشوات متساقطة</span></span></li>
+          <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="1" y="6" width="46" height="36" rx="3" fill="#14833f"/><path fill="#fff" d="M10 21h18v-7l11 10-11 10v-7H10z"/></svg><span><span lang="en">Napkin station this way</span><span lang="ar">محطة المناديل من هنا</span></span></li>
+        </ul>
+      </div>
+      <svg class="crane" viewBox="0 0 560 520" aria-hidden="true">
+        <g fill="none" stroke="#141414" stroke-width="5" stroke-linejoin="round">
+          <path d="M96 520V118M144 520V118M96 520l48-48-48-48 48-48-48-48 48-48-48-48 48-48-48-48 48-48M144 520l-48-48 48-48-48-48 48-48-48-48 48-48-48-48 48-48"/>
+          <path d="M144 96h396M144 118h396l0-22M144 118l22-22 22 22 22-22 22 22 22-22 22 22 22-22 22 22 22-22 22 22 22-22 22 22 22-22 22 22 22-22 22 22 22-22 22 22"/>
+          <path d="M96 96H14v22h82M14 118l20-22 20 22 20-22 22 22"/>
+          <path d="M96 96l24-70 24 70M120 26L36 96M120 26l200 70M120 26l380 70" stroke-width="3"/>
+        </g>
+        <path fill="#141414" d="M84 96h72v24H84zM10 118h52v34H10zM144 120h46v38h-46z"/><path fill="#ffd200" d="M152 127h28v16h-28z"/>
+        <path fill="#141414" d="M374 118h36v10h-36z"/>
+        <g class="load">
+          <path d="M392 128v130" stroke="#141414" stroke-width="3"/>
+          <path d="M384 256h16v12h-16zM392 268c0 12 12 8 12 18s-14 12-20 4" fill="none" stroke="#141414" stroke-width="5"/>
+          <path d="M392 290L300 356M392 290l92 66" stroke="#141414" stroke-width="3"/>
+          <g stroke="#141414" stroke-width="5" stroke-linejoin="round">
+            <path d="M292 420c-14 0-22-8-22-18h244c0 10-8 18-22 18z" fill="#e2a352"/>
+            <path d="M274 402c6 6 12-6 20 0s14-6 22 0 14-6 22 0 14-6 22 0 14-6 22 0 14-6 22 0 14-6 22 0 14-6 22 0 14-6 22 0 14-6 22 0v-8H274z" fill="#4faa3c"/>
+            <path d="M280 384h224v12H280z" fill="#d92b20"/><path d="M276 376h232l-14 12-12-8-14 10-14-10-14 10-14-10-14 10-14-10-14 10-14-10-14 10-14-10-12 8z" fill="#ffd200"/>
+            <path d="M282 366h220v10H282z" fill="#8a4a2b"/>
+            <path d="M270 366c0-22 30-34 122-34s122 12 122 34z" fill="#e2a352"/>
+          </g>
+          <g fill="#fff3d6"><ellipse cx="330" cy="346" rx="5" ry="2.50" transform="rotate(-20 330 346)"/><ellipse cx="362" cy="340" rx="5" ry="2.50" transform="rotate(10 362 340)"/><ellipse cx="398" cy="339" rx="5" ry="2.50" transform="rotate(-12 398 339)"/><ellipse cx="434" cy="342" rx="5" ry="2.50" transform="rotate(18 434 342)"/><ellipse cx="462" cy="349" rx="5" ry="2.50" transform="rotate(-8 462 349)"/><ellipse cx="346" cy="354" rx="5" ry="2.50" transform="rotate(14 346 354)"/><ellipse cx="416" cy="352" rx="5" ry="2.50" transform="rotate(-18 416 352)"/></g>
+        </g>
+      </svg>
+      <div class="days">
+        <div class="hd"><span lang="en">Safety first</span><span lang="ar">السلامة أولًا</span></div>
+        <p><span lang="en">This site has worked</span><span lang="ar">أمضى هذا الموقع</span>
+          <span class="n"><b>2</b><b>8</b><b>4</b><b>7</b></span>
+          <span lang="en">days without a bad lunch</span><span lang="ar">يومًا بلا غداء رديء</span></p>
+      </div>
+    </header>
+
+    <main class="floors">
+<section class="floor" id="l4"><header class="beam"><span class="lv"><span lang="en">L4</span><span lang="ar">ط4</span></span><div><h2 class="sten"><span lang="en">Heavy Lifts</span><span lang="ar">الأحمال الثقيلة</span></h2><p><span lang="en">Hot hoagies, fully loaded</span><span lang="ar">ساندويتشات ساخنة بحمولة كاملة</span></p></div><span class="el" dir="ltr">▽ +12.00 m</span></header><div class="boards">
+<article class="board"><div class="top"><span class="cd">HH-01</span><span class="sgn blue"><span lang="en">Foreman's pick</span><span lang="ar">اختيار رئيس العمّال</span></span></div><h3 class="sten"><span lang="en">The Foreman</span><span lang="ar">رئيس العمّال</span></h3><p><span lang="en">Slow-roast beef, provolone, fried onions and horseradish mayo, with a cup of pan gravy for dunking.</span><span lang="ar">لحم بقري مشوي على مهل مع جبن البروفولوني والبصل المقلي ومايونيز الفجل الحار، ومعه كوب مرق للتغميس.</span></p><div class="szs"><span class="sz"><small><span lang="en">Half · 15 cm</span><span lang="ar">نصف · 15 سم</span></small><b>$9.5</b></span><span class="sz full"><small><span lang="en">Full · 30 cm</span><span lang="ar">كامل · 30 سم</span></small><b>$15</b></span></div></article>
+<article class="board"><div class="top"><span class="cd">HH-02</span><span class="heat" title="heat"><span lang="en">Heat</span><span lang="ar">الحرارة</span> <i>◆◆◆</i></span></div><h3 class="sten"><span lang="en">The Jackhammer</span><span lang="ar">المطرقة الهزّازة</span></h3><p><span lang="en">Cajun chicken, pepper jack, jalapeños, crushed chilli crisps and chipotle mayo. It rattles.</span><span lang="ar">دجاج كيجن مع جبن بيبر جاك والهالبينو ورقائق الفلفل الحار ومايونيز الشيبوتلي. ساندويتش يهزّك.</span></p><div class="szs"><span class="sz"><small><span lang="en">Half · 15 cm</span><span lang="ar">نصف · 15 سم</span></small><b>$9</b></span><span class="sz full"><small><span lang="en">Full · 30 cm</span><span lang="ar">كامل · 30 سم</span></small><b>$14</b></span></div></article>
+<article class="board"><div class="top"><span class="cd">HH-03</span></div><h3 class="sten"><span lang="en">The I-Beam</span><span lang="ar">العارضة الفولاذية</span></h3><p><span lang="en">Beef salami, turkey mortadella, smoked turkey, provolone, shredded lettuce, oil, vinegar and oregano.</span><span lang="ar">سلامي بقري ومرتديلا ديك رومي وديك رومي مدخّن مع البروفولوني والخس المفروم والزيت والخل والأوريغانو.</span></p><div class="szs"><span class="sz"><small><span lang="en">Half · 15 cm</span><span lang="ar">نصف · 15 سم</span></small><b>$9.5</b></span><span class="sz full"><small><span lang="en">Full · 30 cm</span><span lang="ar">كامل · 30 سم</span></small><b>$15</b></span></div></article>
+<article class="board"><div class="top"><span class="cd">HH-04</span><span class="heat" title="heat"><span lang="en">Heat</span><span lang="ar">الحرارة</span> <i>◆◇◇</i></span></div><h3 class="sten"><span lang="en">The Wrecking Ball</span><span lang="ar">كرة الهدم</span></h3><p><span lang="en">Four beef meatballs in slow marinara under molten mozzarella, parmesan and torn basil.</span><span lang="ar">أربع كرات لحم بقري في صلصة المارينارا تحت الموتزاريلا الذائبة والبارميزان وأوراق الريحان.</span></p><div class="szs"><span class="sz"><small><span lang="en">Half · 15 cm</span><span lang="ar">نصف · 15 سم</span></small><b>$9</b></span><span class="sz full"><small><span lang="en">Full · 30 cm</span><span lang="ar">كامل · 30 سم</span></small><b>$14</b></span></div></article>
+<article class="board"><div class="top"><span class="cd">HH-05</span><span class="sgn blue"><span lang="en">Foreman's pick</span><span lang="ar">اختيار رئيس العمّال</span></span></div><h3 class="sten"><span lang="en">Steel Toe Cheesesteak</span><span lang="ar">تشيز ستيك الحذاء الفولاذي</span></h3><p><span lang="en">Shaved ribeye off the flat-top, griddled onions and peppers, poured-over cheese sauce.</span><span lang="ar">شرائح ريب آي من الصاج مع البصل والفلفل المشوي وصلصة الجبن المسكوبة فوقها.</span></p><div class="szs"><span class="sz"><small><span lang="en">Half · 15 cm</span><span lang="ar">نصف · 15 سم</span></small><b>$10.5</b></span><span class="sz full"><small><span lang="en">Full · 30 cm</span><span lang="ar">كامل · 30 سم</span></small><b>$16.5</b></span></div></article>
+<article class="board"><div class="top"><span class="cd">HH-06</span></div><h3 class="sten"><span lang="en">The Scaffold Club</span><span lang="ar">كلوب السقالة</span></h3><p><span lang="en">Three decks: roast turkey, beef bacon, fried egg, tomato, lettuce and peppercorn mayo.</span><span lang="ar">ثلاثة طوابق: ديك رومي مشوي ولحم بقري مقدّد وبيض مقلي وطماطم وخس ومايونيز الفلفل الأسود.</span></p><div class="szs"><span class="sz"><small><span lang="en">Half · 15 cm</span><span lang="ar">نصف · 15 سم</span></small><b>$9.5</b></span><span class="sz full"><small><span lang="en">Full · 30 cm</span><span lang="ar">كامل · 30 سم</span></small><b>$15</b></span></div></article>
+</div></section>
+<div class="tape t1" aria-hidden="true"><div lang="en">CAUTION · HOT SUBS OVERHEAD · CAUTION · HOT SUBS OVERHEAD · CAUTION · HOT SUBS OVERHEAD · CAUTION · HOT SUBS OVERHEAD · CAUTION · HOT SUBS OVERHEAD · CAUTION · HOT SUBS OVERHEAD · CAUTION · HOT SUBS OVERHEAD · CAUTION · HOT SUBS OVERHEAD · </div><div lang="ar">تحذير · ساندويتشات ساخنة فوقك · تحذير · ساندويتشات ساخنة فوقك · تحذير · ساندويتشات ساخنة فوقك · تحذير · ساندويتشات ساخنة فوقك · تحذير · ساندويتشات ساخنة فوقك · تحذير · ساندويتشات ساخنة فوقك · تحذير · ساندويتشات ساخنة فوقك · تحذير · ساندويتشات ساخنة فوقك · </div></div>
+<section class="floor" id="l3"><header class="beam"><span class="lv"><span lang="en">L3</span><span lang="ar">ط3</span></span><div><h2 class="sten"><span lang="en">Light Loads</span><span lang="ar">الأحمال الخفيفة</span></h2><p><span lang="en">Cold-built and meat-free drawings</span><span lang="ar">مخطّطات باردة وأخرى بلا لحوم</span></p></div><span class="el" dir="ltr">▽ +9.00 m</span></header><div class="prints">
+<article class="print"><div class="top"><span class="cd">HH-07</span><span class="sgn green"><span lang="en">Meat-free</span><span lang="ar">بلا لحوم</span></span></div><span class="dim" aria-hidden="true">30 cm</span><h3 class="sten"><span lang="en">The Green Zone</span><span lang="ar">المنطقة الخضراء</span></h3><p><span lang="en">Grilled halloumi, roasted peppers, rocket, basil pesto and a squeeze of lemon.</span><span lang="ar">حلّوم مشوي وفلفل مشوي وجرجير مع بيستو الريحان وعصرة ليمون.</span></p><div class="szs"><span class="sz"><small><span lang="en">Half · 15 cm</span><span lang="ar">نصف · 15 سم</span></small><b>$8</b></span><span class="sz full"><small><span lang="en">Full · 30 cm</span><span lang="ar">كامل · 30 سم</span></small><b>$12.5</b></span></div></article>
+<article class="print"><div class="top"><span class="cd">HH-08</span></div><span class="dim" aria-hidden="true">30 cm</span><h3 class="sten"><span lang="en">The Tuna Girder</span><span lang="ar">جسر التونة</span></h3><p><span lang="en">Line-caught tuna salad, dill pickles, red onion and sharp cheddar, pressed hot.</span><span lang="ar">سلطة تونة مع مخلّل الشبت والبصل الأحمر وجبن الشيدر، تُكبس ساخنة.</span></p><div class="szs"><span class="sz"><small><span lang="en">Half · 15 cm</span><span lang="ar">نصف · 15 سم</span></small><b>$8.5</b></span><span class="sz full"><small><span lang="en">Full · 30 cm</span><span lang="ar">كامل · 30 سم</span></small><b>$13</b></span></div></article>
+<article class="print"><div class="top"><span class="cd">HH-09</span><span class="sgn green"><span lang="en">Meat-free</span><span lang="ar">بلا لحوم</span></span><span class="heat" title="heat"><span lang="en">Heat</span><span lang="ar">الحرارة</span> <i>◆◇◇</i></span></div><span class="dim" aria-hidden="true">30 cm</span><h3 class="sten"><span lang="en">Falafel Formwork</span><span lang="ar">قالب الفلافل</span></h3><p><span lang="en">Crisp falafel, hummus, pickled turnip, tomato and tahini poured to the brim. Vegan.</span><span lang="ar">فلافل مقرمشة مع الحمّص واللفت المخلّل والطماطم والطحينة حتى الحافّة. نباتي صِرف.</span></p><div class="szs"><span class="sz"><small><span lang="en">Half · 15 cm</span><span lang="ar">نصف · 15 سم</span></small><b>$7.5</b></span><span class="sz full"><small><span lang="en">Full · 30 cm</span><span lang="ar">كامل · 30 سم</span></small><b>$12</b></span></div></article>
+<article class="print"><div class="top"><span class="cd">HH-10</span></div><span class="dim" aria-hidden="true">30 cm</span><h3 class="sten"><span lang="en">The Spirit Level</span><span lang="ar">ميزان الماء</span></h3><p><span lang="en">Smoked turkey, Swiss cheese, cucumber, lettuce and honey mustard. Perfectly balanced.</span><span lang="ar">ديك رومي مدخّن مع الجبن السويسري والخيار والخس وخردل العسل. توازن تامّ.</span></p><div class="szs"><span class="sz"><small><span lang="en">Half · 15 cm</span><span lang="ar">نصف · 15 سم</span></small><b>$8</b></span><span class="sz full"><small><span lang="en">Full · 30 cm</span><span lang="ar">كامل · 30 سم</span></small><b>$12.5</b></span></div></article>
+</div></section>
+<section class="floor" id="l2"><header class="beam"><span class="lv"><span lang="en">L2</span><span lang="ar">ط2</span></span><div><h2 class="sten"><span lang="en">Site Supplies</span><span lang="ar">مستلزمات الموقع</span></h2><p><span lang="en">Sides, tagged and ready to haul</span><span lang="ar">أطباق جانبية موسومة وجاهزة للتحميل</span></p></div><span class="el" dir="ltr">▽ +6.00 m</span></header><div class="tags">
+<article class="tg"><h3 class="sten"><span lang="en">Rubble Fries</span><span lang="ar">بطاطا الأنقاض</span></h3><p><span lang="en">Skin-on fries buried under cheese sauce, beef crumble and pickled chillies.</span><span lang="ar">بطاطا بقشرها مدفونة تحت صلصة الجبن وفتات اللحم والفلفل المخلّل.</span></p><b class="tp">$6.5</b></article>
+<article class="tg"><h3 class="sten"><span lang="en">Rebar</span><span lang="ar">حديد التسليح</span></h3><p><span lang="en">Six long mozzarella sticks with marinara.</span><span lang="ar">ستة أصابع موتزاريلا طويلة مع المارينارا.</span></p><b class="tp">$5.5</b></article>
+<article class="tg"><h3 class="sten"><span lang="en">Gravel</span><span lang="ar">الحصى</span></h3><p><span lang="en">Crunchy fried pickle chips, ranch dip.</span><span lang="ar">رقائق مخلّل مقلية مقرمشة مع صلصة الرانش.</span></p><b class="tp">$4.5</b></article>
+<article class="tg"><h3 class="sten"><span lang="en">Safety Cones</span><span lang="ar">أقماع السلامة</span></h3><p><span lang="en">A stack of crisp battered onion rings.</span><span lang="ar">برج من حلقات البصل المقرمشة.</span></p><b class="tp">$4.5</b></article>
+<article class="tg"><h3 class="sten"><span lang="en">Cement Mixer Slaw</span><span lang="ar">سلطة خلّاطة الإسمنت</span></h3><p><span lang="en">Cabbage, carrot and apple, tumbled in buttermilk dressing.</span><span lang="ar">ملفوف وجزر وتفاح تُقلَّب في صلصة اللبن الرائب.</span></p><b class="tp">$3.5</b></article>
+<article class="tg"><h3 class="sten"><span lang="en">Shift Soup</span><span lang="ar">حساء الوردية</span></h3><p><span lang="en">Roasted tomato, in a flask-size cup.</span><span lang="ar">طماطم مشوية في كوب بحجم الترمس.</span></p><b class="tp">$4</b></article>
+</div></section>
+<div class="cross" aria-hidden="true"><div class="tape t2"><div lang="en">CREW AT LUNCH · DO NOT DISTURB · CREW AT LUNCH · DO NOT DISTURB · CREW AT LUNCH · DO NOT DISTURB · CREW AT LUNCH · DO NOT DISTURB · CREW AT LUNCH · DO NOT DISTURB · CREW AT LUNCH · DO NOT DISTURB · CREW AT LUNCH · DO NOT DISTURB · CREW AT LUNCH · DO NOT DISTURB · </div><div lang="ar">الطاقم في استراحة الغداء · ممنوع الإزعاج · الطاقم في استراحة الغداء · ممنوع الإزعاج · الطاقم في استراحة الغداء · ممنوع الإزعاج · الطاقم في استراحة الغداء · ممنوع الإزعاج · الطاقم في استراحة الغداء · ممنوع الإزعاج · الطاقم في استراحة الغداء · ممنوع الإزعاج · الطاقم في استراحة الغداء · ممنوع الإزعاج · الطاقم في استراحة الغداء · ممنوع الإزعاج · </div></div><div class="tape t3"><div lang="en">DANGER · DEEP FILLINGS · DANGER · DEEP FILLINGS · DANGER · DEEP FILLINGS · DANGER · DEEP FILLINGS · DANGER · DEEP FILLINGS · DANGER · DEEP FILLINGS · DANGER · DEEP FILLINGS · DANGER · DEEP FILLINGS · DANGER · DEEP FILLINGS · DANGER · DEEP FILLINGS · </div><div lang="ar">خطر · حشوات عميقة · خطر · حشوات عميقة · خطر · حشوات عميقة · خطر · حشوات عميقة · خطر · حشوات عميقة · خطر · حشوات عميقة · خطر · حشوات عميقة · خطر · حشوات عميقة · خطر · حشوات عميقة · خطر · حشوات عميقة · </div></div></div>
+<section class="floor" id="l1"><header class="beam"><span class="lv"><span lang="en">L1</span><span lang="ar">ط1</span></span><div><h2 class="sten"><span lang="en">Hydration Station</span><span lang="ar">محطة الترطيب</span></h2><p><span lang="en">Drink before you are thirsty</span><span lang="ar">اشرب قبل أن تعطش</span></p></div><span class="el" dir="ltr">▽ +3.00 m</span></header><div class="vms"><div class="barrier" aria-hidden="true"></div><ul>
+<li><div><h3><span lang="en">High-Vis Lemonade</span><span lang="ar">ليموناضة السترة العاكسة</span></h3><p><span lang="en">Fluorescent-yellow lemon and passion fruit.</span><span lang="ar">ليمون وباشن فروت بلون أصفر فاقع.</span></p></div><b>$3.5</b></li>
+<li><div><h3><span lang="en">Wet Cement Shake</span><span lang="ar">ميلك شيك الإسمنت الطري</span></h3><p><span lang="en">Cookies and cream, too thick for the straw.</span><span lang="ar">كوكيز وكريمة، أكثف من أن يمرّ في المصّاصة.</span></p></div><b>$5.5</b></li>
+<li><div><h3><span lang="en">Orange Barrier Float</span><span lang="ar">فلوت الحاجز البرتقالي</span></h3><p><span lang="en">Orange soda over vanilla soft serve.</span><span lang="ar">صودا البرتقال فوق آيس كريم الفانيليا.</span></p></div><b>$4.5</b></li>
+<li><div><h3><span lang="en">Diesel</span><span lang="ar">ديزل</span></h3><p><span lang="en">Black cold brew, nothing added.</span><span lang="ar">قهوة باردة سوداء بلا أي إضافات.</span></p></div><b>$3.5</b></li>
+<li><div><h3><span lang="en">Site Tea</span><span lang="ar">شاي الموقع</span></h3><p><span lang="en">Iced black tea, lemon, a lot of ice.</span><span lang="ar">شاي أسود مثلّج بالليمون وكثير من الثلج.</span></p></div><b>$3</b></li>
+<li><div><h3><span lang="en">Tap Water</span><span lang="ar">ماء</span></h3><p><span lang="en">Free at the standpipe. Bottled 1.5.</span><span lang="ar">مجّانًا من الصنبور. والمعبّأ بـ 1.5.</span></p></div><b><span lang="en">Free</span><span lang="ar">مجّانًا</span></b></li>
+</ul></div></section>
+<section class="floor" id="g"><header class="beam"><span class="lv"><span lang="en">G</span><span lang="ar">أ</span></span><div><h2 class="sten"><span lang="en">Crew Deals</span><span lang="ar">عروض الطاقم</span></h2><p><span lang="en">Ground floor: combos signed off by the site office</span><span lang="ar">الطابق الأرضي: وجبات معتمدة من مكتب الموقع</span></p></div><span class="el" dir="ltr">▽ ±0.00 m</span></header><div class="deals">
+<article class="deal"><div class="hz" aria-hidden="true"></div><span class="who"><span lang="en">One worker</span><span lang="ar">لعامل واحد</span></span><h3 class="sten"><span lang="en">The Lunch Pail</span><span lang="ar">سطل الغداء</span></h3><ul><li><span lang="en">Any half hoagie</span><span lang="ar">أي نصف ساندويتش</span></li><li><span lang="en">Gravel or slaw</span><span lang="ar">حصى أو سلطة</span></li><li><span lang="en">Site tea or lemonade</span><span lang="ar">شاي الموقع أو ليموناضة</span></li></ul><b class="dp">$13</b></article>
+<article class="deal"><div class="hz" aria-hidden="true"></div><span class="who"><span lang="en">One hungry worker</span><span lang="ar">لعامل جائع</span></span><h3 class="sten"><span lang="en">The Double Shift</span><span lang="ar">الوردية المزدوجة</span></h3><ul><li><span lang="en">Any full hoagie</span><span lang="ar">أي ساندويتش كامل</span></li><li><span lang="en">Rubble fries</span><span lang="ar">بطاطا الأنقاض</span></li><li><span lang="en">Wet cement shake</span><span lang="ar">ميلك شيك الإسمنت الطري</span></li></ul><b class="dp">$23</b></article>
+<article class="deal"><div class="hz" aria-hidden="true"></div><span class="who"><span lang="en">Crew of four</span><span lang="ar">لطاقم من أربعة</span></span><h3 class="sten"><span lang="en">The Gang Box</span><span lang="ar">صندوق الطاقم</span></h3><ul><li><span lang="en">Four full hoagies</span><span lang="ar">أربعة ساندويتشات كاملة</span></li><li><span lang="en">Rubble fries, rebar &amp; cones</span><span lang="ar">بطاطا الأنقاض وحديد التسليح والأقماع</span></li><li><span lang="en">Four drinks</span><span lang="ar">أربعة مشروبات</span></li></ul><b class="dp">$69</b></article>
+</div></section>
+    </main>
+
+    <footer>
+      <div class="notice">
+        <div class="plate b"><h4><span lang="en">Site hours</span><span lang="ar">ساعات الموقع</span></h4><p><span lang="en">Day shift: Mon–Sat 10 am – 10 pm<br>Sunday: 11 am – 8 pm</span><span lang="ar">الوردية النهارية: الإثنين–السبت 10 ص – 10 م<br>الأحد: 11 ص – 8 م</span></p></div>
+        <div class="plate g"><h4><span lang="en">Site entrance</span><span lang="ar">مدخل الموقع</span></h4><p><span lang="en">Lot 55, Girder Street, Ironworks Quarter<br>Call-ahead orders: (555) 014-0155</span><span lang="ar">القطعة 55، شارع الجسور، حيّ الحدّادين<br>للطلب المسبق: <span dir="ltr">(555) 014-0155</span></span></p></div>
+        <div class="plate r"><h4><span lang="en">Danger: allergens</span><span lang="ar">خطر: مسبّبات الحساسية</span></h4><p><span lang="en">Our rolls contain wheat and sesame. Kitchen handles milk, egg, mustard, fish and soy. All meat is halal. Report allergies to the foreman.</span><span lang="ar">أرغفتنا تحتوي على القمح والسمسم، ومطبخنا يتعامل مع الحليب والبيض والخردل والسمك والصويا. جميع اللحوم حلال. أبلغ رئيس العمّال عن أي حساسية.</span></p></div>
+      </div>
+      <p class="fine"><span lang="en">Prices in US dollars, tax included. Hard hats provided for the Jackhammer on request.</span><span lang="ar">الأسعار بالدولار الأمريكي شاملة الضريبة. نوفّر الخوذات لمن يطلب «المطرقة الهزّازة».</span></p>
+    </footer>
+  </div>
+</div>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

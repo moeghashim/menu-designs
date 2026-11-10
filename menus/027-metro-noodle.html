@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Metro Noodle · مترو نودلز</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Metro Noodle — a pan-Asian noodle bar mapped like a transit network: five lines, twenty-one stops, one day pass. مترو نودلز — مطعم نودلز آسيوي على هيئة خريطة مترو.">
+<meta name="theme-color" content="#111417">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;800&family=Overpass:wght@400;600;800;900&family=Overpass+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--paper:#f3f0e8;--ink:#111417;--mut:#555d66;--R:#e3002b;--U:#0069c8;--W:#00994c;--S:#f2a900;--D:#8a3ab9;--river:#cfe6f3}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Overpass","Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.45;color:var(--ink);background:var(--paper);overflow-x:clip}
+html[lang="ar"] body{font-family:"Noto Kufi Arabic","Tahoma",sans-serif;font-size:1rem;line-height:1.8}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit;text-decoration:none}
+ol{list-style:none}
+.num,.code,.bd,.fare b{font-family:"Overpass","Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums}
+
+/* overhead sign */
+.sign{position:sticky;top:0;z-index:30;background:var(--ink);color:#fff;display:flex;align-items:center;gap:.8rem;padding:.5rem clamp(.8rem,3vw,2.2rem);border-bottom:4px solid var(--S)}
+.sign .arrow{width:34px;height:34px;flex:none;background:#fff;color:var(--ink);border-radius:4px;display:grid;place-items:center}
+.sign .arrow svg{width:20px;height:20px}
+.sign strong{font-weight:800;font-size:1.05rem;white-space:nowrap}
+.sign .mini{display:flex;gap:.25rem;margin-inline-end:auto}
+.sign .mini a{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:800 .8rem "Overpass",sans-serif;color:#fff;background:var(--c)}
+.sign .mini a.y{color:var(--ink)}
+.sign .ctl{display:flex;gap:.45rem;align-items:center}
+.home-link,#langToggle{font:inherit;font-weight:600;font-size:.86rem;min-height:36px;padding:.2rem .8rem;border-radius:4px;border:2px solid #fff;color:#fff;background:transparent;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap}
+#langToggle{background:var(--S);color:var(--ink);border-color:var(--S)}
+#langToggle [lang="ar"]{font-family:"Noto Kufi Arabic",sans-serif}
+#langToggle [lang="en"]{font-family:"Overpass",sans-serif}
+.home-link:hover,.home-link:focus-visible,#langToggle:hover,#langToggle:focus-visible{background:#fff;color:var(--ink);border-color:#fff;outline:none}
+.home-link svg{width:14px;height:14px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(1rem,3vw,3rem);align-items:center;max-width:1500px;margin-inline:auto;padding:clamp(1.5rem,4vw,4rem) clamp(1rem,3vw,2.5rem) clamp(1.5rem,3vw,3rem)}
+.kick{display:inline-flex;align-items:center;gap:.6rem;font-weight:800;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
+.kick i{display:block;width:44px;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--R) 0 20%,var(--U) 0 40%,var(--W) 0 60%,var(--S) 0 80%,var(--D) 0)}
+h1{font-weight:900;font-size:clamp(3.2rem,8.2vw,7.4rem);line-height:.9;letter-spacing:-.035em;margin:.25em 0 .2em}
+html[lang="ar"] h1{font-weight:800;font-size:clamp(3rem,7.4vw,6.4rem);line-height:1.25;margin:.1em 0}
+.tagline{font-size:clamp(1.15rem,1.9vw,1.55rem);font-weight:600;max-width:22em}
+.intro{color:var(--mut);margin-block-start:.7rem;max-width:34em;font-size:1.02rem}
+.board{margin-block-start:1.6rem;background:#0b0d0f;color:#ffb81c;border-radius:6px;padding:.8rem 1rem;font-family:"Overpass Mono",ui-monospace,monospace;font-size:.92rem;max-width:30rem;box-shadow:inset 0 0 0 2px #2a2f35,0 10px 24px -12px rgba(0,0,0,.5)}
+html[lang="ar"] .board{font-family:"Noto Kufi Arabic",sans-serif;font-size:.9rem}
+.board h2{font:inherit;color:#8b949e;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;display:flex;justify-content:space-between;border-bottom:1px dashed #333a42;padding-block-end:.4rem;margin-block-end:.4rem}
+.board li{display:grid;grid-template-columns:2.2rem 1fr auto;gap:.6rem;align-items:center;padding:.16rem 0}
+.board .bd{font-weight:800;font-size:.78rem;color:#fff;background:var(--c);border-radius:3px;text-align:center;padding:.12rem 0;line-height:1.3}
+.board .bd.y{color:#111}
+.board .m{font-family:"Overpass Mono",monospace;unicode-bidi:isolate}
+.board li:first-child .m{animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+.map{position:relative;background:#fff;border:3px solid var(--ink);border-radius:10px;overflow:hidden;box-shadow:10px 10px 0 var(--ink)}
+.map svg{display:block;width:100%;height:auto}
+.map .lbl{font:800 13px "Overpass",sans-serif;fill:var(--ink)}
+.map .dash{stroke-dasharray:1400;stroke-dashoffset:0}
+.map figcaption{position:absolute;inset-block-end:.6rem;inset-inline-start:.8rem;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:#fff;padding:.2rem .6rem;border-radius:3px}
+
+/* index of lines */
+.index{max-width:1500px;margin-inline:auto;padding:0 clamp(1rem,3vw,2.5rem);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem}
+.index a{display:flex;align-items:center;gap:.7rem;background:var(--ink);color:#fff;padding:.7rem .9rem;border-radius:6px;min-height:60px;border-bottom:6px solid var(--c);transition:transform .2s}
+.index a:hover,.index a:focus-visible{transform:translateY(-3px);outline:none}
+.rd{flex:none;width:2.1rem;height:2.1rem;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font:900 1.05rem "Overpass",sans-serif;line-height:1}
+.y .rd,.rd.y{color:var(--ink)}
+.index b{display:block;font-weight:800;line-height:1.2}
+.index small{display:block;font-size:.78rem;color:#b6bec7;line-height:1.3}
+
+/* legend */
+.key{max-width:1500px;margin:1rem auto 0;padding:0 clamp(1rem,3vw,2.5rem);display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;font-size:.88rem;color:var(--mut)}
+.key span{display:inline-flex;align-items:center;gap:.5rem}
+.key .o{width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--ink);display:block}
+.key .o.x{width:30px;border-radius:10px}
+.tg{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid currentColor;border-radius:3px;padding:0 .35rem;line-height:1.55;vertical-align:middle}
+html[lang="ar"] .tg{font-size:.7rem;line-height:1.7}
+.tg.hot{color:var(--R)} .tg.veg{color:var(--W)} .tg.pick{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* lines */
+main{max-width:1500px;margin-inline:auto;padding:1rem clamp(1rem,3vw,2.5rem) 2rem}
+.line{--c:var(--R);margin-block-start:clamp(2.6rem,5vw,4.2rem);scroll-margin-top:4.5rem}
+.lh{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.lh .rd{width:4rem;height:4rem;font-size:2.2rem;box-shadow:0 0 0 4px var(--paper),0 0 0 7px var(--ink)}
+.lh h2{font-weight:900;font-size:clamp(1.7rem,3.6vw,2.7rem);letter-spacing:-.02em;line-height:1}
+html[lang="ar"] .lh h2{font-weight:800;line-height:1.4;font-size:clamp(1.6rem,3.2vw,2.4rem)}
+.lh .dir{font-size:.9rem;color:var(--mut);font-weight:600;display:flex;align-items:center;gap:.4rem}
+.lh .dir svg{width:16px;height:16px;flex:none}
+[dir="rtl"] .flip{transform:scaleX(-1)}
+.lh .stat{margin-inline-start:auto;font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:.45rem}
+.lh .stat::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--W);box-shadow:0 0 0 3px rgba(0,153,76,.25)}
+
+.stops{position:relative;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));margin-block-start:1rem}
+.stops::before{content:"";position:absolute;inset-inline:0;top:50%;height:16px;margin-top:-8px;border-radius:8px;background:var(--c)}
+.stop{position:relative;display:grid;grid-template-rows:1fr 54px 1fr;justify-items:center;text-align:center;padding-inline:.8rem}
+.dot{grid-row:2;align-self:center;width:30px;height:30px;border-radius:50%;background:#fff;border:6px solid var(--ink);position:relative;z-index:1}
+.x .dot{width:56px;border-radius:15px;box-shadow:0 0 0 3px #fff,0 0 0 6px var(--ink)}
+.lab{grid-row:1;align-self:end;max-width:17.5rem;padding-block-end:.3rem;position:relative}
+.lab::after{content:"";display:block;width:4px;height:14px;background:var(--c);margin:.45rem auto 0}
+.aux{grid-row:3;align-self:start;padding-block-start:.3rem}
+.aux::before{content:"";display:block;width:4px;height:14px;background:var(--c);margin:0 auto .45rem}
+.stop:nth-child(even) .lab{grid-row:3;align-self:start;padding-block:.3rem 0}
+.stop:nth-child(even) .lab::after{display:none}
+.stop:nth-child(even) .lab::before{content:"";display:block;width:4px;height:14px;background:var(--c);margin:0 auto .45rem}
+.stop:nth-child(even) .aux{grid-row:1;align-self:end;padding-block:0 .3rem;display:flex;flex-direction:column-reverse}
+.stop:nth-child(even) .aux::before{margin:.45rem auto 0}
+.stop:nth-child(even) .aux .xf{margin-block:0 .6rem;align-self:center}
+.code{display:inline-block;font-weight:800;font-size:.78rem;color:#fff;background:var(--c);border-radius:99px;padding:.05rem .6rem;line-height:1.5}
+.y .code{color:var(--ink)}
+.stop h3{font-weight:800;font-size:1.22rem;line-height:1.2;margin-block:.3rem .2rem}
+html[lang="ar"] .stop h3{font-size:1.15rem;line-height:1.5}
+.stop p{font-size:.95rem;color:#39414a}
+.tags{display:flex;gap:.3rem;justify-content:center;margin-block-start:.35rem;flex-wrap:wrap}
+.fare{font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);line-height:1.2}
+.fare b{display:block;font-size:2rem;font-weight:900;color:var(--ink);letter-spacing:-.02em;line-height:1.05}
+.xf{margin-block-start:.5rem;display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:600;background:#fff;border:2px solid var(--ink);border-radius:99px;padding:.15rem .7rem .15rem .2rem;text-align:start}
+[dir="rtl"] .xf{padding:.15rem .2rem .15rem .7rem}
+.xf .code{background:var(--x);flex:none}
+.xf .code.y{color:var(--ink)}
+
+/* day pass ticket */
+.pass{margin:clamp(3rem,6vw,5rem) auto 0;max-width:60rem;display:grid;grid-template-columns:minmax(0,1fr) auto;background:#fff;border:3px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:8px 8px 0 var(--ink);position:relative}
+.pass .body{padding:1.4rem 1.6rem 0;display:flex;flex-direction:column}
+.pass h2{font-weight:900;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.02em;line-height:1}
+html[lang="ar"] .pass h2{font-weight:800;line-height:1.4}
+.pass .route{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-block:.9rem;font-weight:800}
+.pass .route i{flex:1;min-width:1.2rem;height:6px;border-radius:3px;background:var(--ink)}
+.pass .route .rd{width:2.4rem;height:2.4rem}
+.pass .stripe{margin:auto -1.6rem 0;height:34px;background:#3a2d22;margin-block-start:1.2rem}
+.pass .stub{border-inline-start:3px dashed var(--ink);padding:1.4rem 1.6rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--S);min-width:11rem}
+.pass .stub b{font:900 3.6rem/1 "Overpass",sans-serif;letter-spacing:-.03em}
+.pass .stub span{font-weight:800;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+
+/* service info */
+footer{background:var(--ink);color:#fff;margin-block-start:4rem;border-top:8px solid var(--S)}
+.info{max-width:1500px;margin-inline:auto;padding:2.4rem clamp(1rem,3vw,2.5rem);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem}
+.info h3{font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--S);margin-block-end:.5rem}
+.info p{color:#d5dbe1;font-size:.98rem}
+.info b{color:#fff;unicode-bidi:isolate}
+.info .big{font:900 1.9rem/1.15 "Overpass",sans-serif;color:#fff;unicode-bidi:isolate;direction:ltr;display:inline-block}
+.end{border-top:1px solid #2c333a;text-align:center;padding:1rem;font-size:.82rem;color:#98a2ad}
+
+@media (max-width:1020px){
+  .hero{grid-template-columns:1fr}
+  .index{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .index a:last-child{grid-column:1/-1}
+  .stops{grid-template-columns:1fr;padding-block:.4rem}
+  .stops::before{inset-inline:auto;inset-inline-start:14px;top:0;bottom:0;height:auto;width:14px;margin:0}
+  .stop,.stop:nth-child(even){display:grid;grid-template-columns:42px minmax(0,1fr) auto;grid-template-rows:auto;justify-items:start;text-align:start;padding:1rem 0;column-gap:.9rem;align-items:start;border-bottom:1px solid #d9d4c7}
+  .stop:last-child{border-bottom:0}
+  .dot{grid-row:1;grid-column:1;width:28px;height:28px;margin-inline-start:7px;margin-top:.1rem;align-self:start}
+  .x .dot{width:28px;height:44px}
+  .lab,.stop:nth-child(even) .lab{grid-row:1;grid-column:2;padding:0;max-width:none;align-self:start}
+  .aux,.stop:nth-child(even) .aux{grid-row:1;grid-column:3;padding:0;display:block;text-align:end;align-self:start}
+  .lab::after,.lab::before,.aux::before{display:none !important}
+  .tags{justify-content:flex-start}
+  .fare b{font-size:1.5rem}
+  .xf{grid-column:2/-1}
+  .aux .xf{display:none}
+  .lab .xf{display:inline-flex !important}
+  .info{grid-template-columns:1fr}
+}
+@media (min-width:1021px){.lab .xf{display:none}}
+@media (max-width:640px){
+  .sign strong{display:none}
+  .sign .mini a{width:22px;height:22px;font-size:.7rem}
+  .home-link span{display:none}
+  .home-link{padding-inline:.6rem}
+  .map{box-shadow:6px 6px 0 var(--ink)}
+  .map svg{height:230px;width:100%}
+  .lh .rd{width:3.2rem;height:3.2rem;font-size:1.7rem}
+  .lh .stat{margin-inline-start:0;flex-basis:100%}
+  .pass{grid-template-columns:1fr}
+  .pass .stub{border-inline-start:0;border-top:3px dashed var(--ink);flex-direction:row;gap:1rem;padding:1rem}
+  .pass .stub b{font-size:2.8rem}
+}
+@media (prefers-reduced-motion:no-preference){
+  .map .draw{stroke-dasharray:2400;animation:draw 2.4s ease-out both}
+  @keyframes draw{from{stroke-dashoffset:2400}to{stroke-dashoffset:0}}
+  .map .train{animation:run 9s linear infinite}
+  @keyframes run{from{offset-distance:0%}to{offset-distance:100%}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.board li:first-child .m{animation:none}}
+</style>
+</head>
+<body>
+<div class="sign">
+  <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="square"><path d="M12 21V4M5 11l7-7 7 7"/></svg></span>
+  <strong><span lang="en">Metro Noodle</span><span lang="ar">مترو نودلز</span></strong>
+  <div class="mini">
+    <a href="#r" style="--c:var(--R)" aria-label="R">R</a><a href="#u" style="--c:var(--U)" aria-label="U">U</a><a href="#w" style="--c:var(--W)" aria-label="W">W</a><a href="#s" class="y" style="--c:var(--S)" aria-label="S">S</a><a href="#d" style="--c:var(--D)" aria-label="D">D</a>
+  </div>
+  <div class="ctl">
+    <a class="home-link" href="../index.html" aria-label="All menus"><svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect width="6" height="6"/><rect x="8" width="6" height="6"/><rect y="8" width="6" height="6"/><rect x="8" y="8" width="6" height="6"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+</div>
+
+<header class="hero">
+  <div>
+    <p class="kick"><i></i><span lang="en">Network map · Edition 27</span><span lang="ar">خريطة الشبكة · الإصدار ٢٧</span></p>
+    <h1><span lang="en">Metro<br>Noodle</span><span lang="ar">مترو<br>نودلز</span></h1>
+    <p class="tagline"><span lang="en">Five lines. Twenty-one stops. Please mind the broth.</span><span lang="ar">خمسة خطوط. إحدى وعشرون محطة. انتبه للمرق من فضلك.</span></p>
+    <p class="intro"><span lang="en">Every colour is a noodle tradition, every station a bowl. Ride one line end to end, or change at an interchange for the side we think belongs with it.</span><span lang="ar">كلّ لونٍ مدرسةٌ في النودلز، وكلّ محطةٍ طبق. اركب الخطّ من أوّله إلى آخره، أو بدّل عند محطة التحويل إلى الطبق الجانبي الذي نراه رفيقًا له.</span></p>
+    <div class="board">
+      <h2><span><span lang="en">Next from the kitchen</span><span lang="ar">التالي من المطبخ</span></span><span><span lang="en">Platform 1</span><span lang="ar">الرصيف ١</span></span></h2>
+      <ol>
+        <li><span class="bd" style="--c:var(--R)">R1</span><span><span lang="en">Tori Paitan</span><span lang="ar">توري بايتان</span></span><span class="m"><span lang="en">NOW</span><span lang="ar">الآن</span></span></li>
+        <li><span class="bd y" style="--c:var(--S)">S2</span><span><span lang="en">Curry Laksa</span><span lang="ar">لاكسا بالكاري</span></span><span class="m"><span lang="en">3 min</span><span lang="ar">٣ د</span></span></li>
+        <li><span class="bd" style="--c:var(--W)">W1</span><span><span lang="en">Pad Thai</span><span lang="ar">باد تاي</span></span><span class="m"><span lang="en">6 min</span><span lang="ar">٦ د</span></span></li>
+      </ol>
+    </div>
+  </div>
+  <figure class="map" aria-hidden="true">
+    <svg viewBox="0 0 1200 440" preserveAspectRatio="xMidYMid slice">
+      <path d="M-20 300C160 220 300 420 560 330S960 210 1220 300" fill="none" stroke="#cfe6f3" stroke-width="46"/>
+      <g fill="none" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+        <path class="draw" stroke="#00994c" d="M150 40V260L250 360H700L800 260V40"/>
+        <path class="draw" stroke="#f2a900" d="M620 410V150L700 70H1150"/>
+        <path class="draw" stroke="#0069c8" d="M50 330H300L460 170V40"/>
+        <path class="draw" stroke="#8a3ab9" d="M1160 350H1030L900 220"/>
+        <path class="draw" stroke="#e3002b" d="M50 110H430L540 220H900L990 130H1150"/>
+      </g>
+      <g fill="#fff" stroke="#111417" stroke-width="5">
+        <circle cx="260" cy="110" r="8"/><circle cx="350" cy="110" r="8"/><circle cx="710" cy="220" r="8"/><circle cx="1070" cy="130" r="8"/>
+        <circle cx="110" cy="330" r="8"/><circle cx="380" cy="250" r="8"/><circle cx="460" cy="70" r="8"/>
+        <circle cx="150" cy="190" r="8"/><circle cx="400" cy="360" r="8"/><circle cx="520" cy="360" r="8"/><circle cx="800" cy="140" r="8"/>
+        <circle cx="620" cy="290" r="8"/><circle cx="900" cy="70" r="8"/><circle cx="1010" cy="70" r="8"/>
+        <circle cx="1090" cy="350" r="8"/><circle cx="965" cy="285" r="8"/>
+      </g>
+      <g fill="#fff" stroke="#111417" stroke-width="6">
+        <circle cx="150" cy="110" r="15"/><circle cx="460" cy="140" r="15"/><circle cx="220" cy="330" r="15"/><circle cx="800" cy="220" r="15"/><circle cx="620" cy="360" r="15"/><circle cx="620" cy="220" r="15"/><circle cx="800" cy="70" r="15"/><circle cx="900" cy="220" r="15"/>
+      </g>
+      <g font-family="Overpass,Arial,sans-serif" font-weight="900" font-size="20" text-anchor="middle" fill="#fff">
+        <circle cx="50" cy="110" r="20" fill="#e3002b"/><text x="50" y="117">R</text>
+        <circle cx="50" cy="330" r="20" fill="#0069c8"/><text x="50" y="337">U</text>
+        <circle cx="150" cy="40" r="20" fill="#00994c"/><text x="150" y="47">W</text>
+        <circle cx="1150" cy="70" r="20" fill="#f2a900"/><text x="1150" y="77" fill="#111417">S</text>
+        <circle cx="1160" cy="350" r="20" fill="#8a3ab9"/><text x="1160" y="357">D</text>
+      </g>
+      <rect class="train" x="-16" y="-7" width="32" height="14" rx="5" fill="#111417" style="offset-path:path('M50 110H430L540 220H900L990 130H1150');offset-rotate:auto"/>
+    </svg>
+    <figcaption><span lang="en">Not to scale · very much to taste</span><span lang="ar">ليست بمقياس الرسم · بل بمقياس الذوق</span></figcaption>
+  </figure>
+</header>
+
+<nav class="index" aria-label="Lines">
+  <a href="#r" style="--c:var(--R)"><span class="rd">R</span><span><b><span lang="en">Ramen Line</span><span lang="ar">خطّ الرامن</span></b><small><span lang="en">Tokyo-bound broths</span><span lang="ar">مرق باتجاه طوكيو</span></small></span></a>
+  <a href="#u" style="--c:var(--U)"><span class="rd">U</span><span><b><span lang="en">Udon &amp; Soba Line</span><span lang="ar">خطّ الأودون والسوبا</span></b><small><span lang="en">Thick, thin, hot, cold</span><span lang="ar">سميك ورفيع، ساخن وبارد</span></small></span></a>
+  <a href="#w" style="--c:var(--W)"><span class="rd">W</span><span><b><span lang="en">Wok Line</span><span lang="ar">خطّ الووك</span></b><small><span lang="en">Express, high flame</span><span lang="ar">سريع على لهب عالٍ</span></small></span></a>
+  <a href="#s" class="y" style="--c:var(--S)"><span class="rd">S</span><span><b><span lang="en">Southern Soup Line</span><span lang="ar">خطّ حساء الجنوب</span></b><small><span lang="en">Hanoi to Penang</span><span lang="ar">من هانوي إلى بينانغ</span></small></span></a>
+  <a href="#d" style="--c:var(--D)"><span class="rd">D</span><span><b><span lang="en">Sides &amp; Drinks Loop</span><span lang="ar">حلقة الجوانب والمشروبات</span></b><small><span lang="en">All interchanges</span><span lang="ar">كلّ محطات التحويل</span></small></span></a>
+</nav>
+<div class="key">
+  <span><i class="o"></i><span lang="en">Station = one dish</span><span lang="ar">المحطة = طبق واحد</span></span>
+  <span><i class="o x"></i><span lang="en">Interchange = pairs well with</span><span lang="ar">محطة تحويل = يليق معه</span></span>
+  <span><b class="tg pick"><span lang="en">Rush hour</span><span lang="ar">ساعة الذروة</span></b><span lang="en">Most ordered</span><span lang="ar">الأكثر طلبًا</span></span>
+  <span><b class="tg hot"><span lang="en">Hot</span><span lang="ar">حارّ</span></b><b class="tg veg"><span lang="en">Veg</span><span lang="ar">نباتي</span></b></span>
+  <span><span lang="en">Fares in UAE dirhams</span><span lang="ar">الأجرة بالدرهم الإماراتي</span></span>
+</div>
+
+<main>
+<section class="line" id="r" style="--c:var(--R)">
+  <div class="lh"><span class="rd">R</span><div><h2><span lang="en">Ramen Line</span><span lang="ar">خطّ الرامن</span></h2>
+    <p class="dir"><svg class="flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M3 12h17M13 5l7 7-7 7"/></svg><span lang="en">Toward Tokyo Central · 18-hour broths</span><span lang="ar">باتجاه طوكيو المركزية · مرق يُطهى ١٨ ساعة</span></p></div>
+    <span class="stat"><span lang="en">Good service</span><span lang="ar">الخدمة منتظمة</span></span></div>
+  <ol class="stops">
+    <li class="stop x"><div class="lab"><span class="code">R1</span><h3><span lang="en">Tori Paitan</span><span lang="ar">توري بايتان</span></h3><p><span lang="en">Creamy chicken-bone broth, torched chicken chashu, soft egg, black garlic oil.</span><span lang="ar">مرق عظام الدجاج الكريمي مع شرائح دجاج مشوية باللهب وبيضة طرية وزيت الثوم الأسود.</span></p><div class="tags"><b class="tg pick"><span lang="en">Rush hour</span><span lang="ar">ساعة الذروة</span></b></div>
+      <span class="xf" style="--x:var(--D)"><span class="code">D1</span><span><span lang="en">Change for Chicken Gyoza</span><span lang="ar">بدّل إلى غيوزا الدجاج</span></span></span></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>46</b></p><span class="xf" style="--x:var(--D)"><span class="code">D1</span><span><span lang="en">Change for Chicken Gyoza</span><span lang="ar">بدّل إلى غيوزا الدجاج</span></span></span></div></li>
+    <li class="stop"><div class="lab"><span class="code">R2</span><h3><span lang="en">Shoyu Beef</span><span lang="ar">شويو باللحم البقري</span></h3><p><span lang="en">Clear soy broth, slow-braised short rib, bamboo shoots, nori.</span><span lang="ar">مرق صافٍ بصلصة الصويا مع ضلع بقري مطهوّ ببطء وبراعم الخيزران والنوري.</span></p></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>52</b></p></div></li>
+    <li class="stop"><div class="lab"><span class="code">R3</span><h3><span lang="en">Spicy Miso</span><span lang="ar">ميسو حارّ</span></h3><p><span lang="en">Red miso and chilli paste, minced chicken, sweetcorn, a knob of butter.</span><span lang="ar">ميسو أحمر ومعجون الفلفل مع دجاج مفروم وذرة حلوة وقطعة زبدة.</span></p><div class="tags"><b class="tg hot"><span lang="en">Hot</span><span lang="ar">حارّ</span></b></div></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>48</b></p></div></li>
+    <li class="stop x"><div class="lab"><span class="code">R4</span><h3><span lang="en">Yuzu Shio</span><span lang="ar">يوزو شيو</span></h3><p><span lang="en">Light sea-salt broth lifted with yuzu peel, shiitake and spring greens.</span><span lang="ar">مرق خفيف بملح البحر وقشر اليوزو مع فطر الشيتاكي وخضار الربيع.</span></p><div class="tags"><b class="tg veg"><span lang="en">Veg</span><span lang="ar">نباتي</span></b></div>
+      <span class="xf" style="--x:var(--D)"><span class="code">D4</span><span><span lang="en">Change for Yuzu Soda</span><span lang="ar">بدّل إلى صودا اليوزو</span></span></span></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>42</b></p><span class="xf" style="--x:var(--D)"><span class="code">D4</span><span><span lang="en">Change for Yuzu Soda</span><span lang="ar">بدّل إلى صودا اليوزو</span></span></span></div></li>
+  </ol>
+</section>
+
+<section class="line" id="u" style="--c:var(--U)">
+  <div class="lh"><span class="rd">U</span><div><h2><span lang="en">Udon &amp; Soba Line</span><span lang="ar">خطّ الأودون والسوبا</span></h2>
+    <p class="dir"><svg class="flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M3 12h17M13 5l7 7-7 7"/></svg><span lang="en">Toward Kagawa · noodles cut each morning</span><span lang="ar">باتجاه كاغاوا · نودلز تُقطَّع كلّ صباح</span></p></div>
+    <span class="stat"><span lang="en">Good service</span><span lang="ar">الخدمة منتظمة</span></span></div>
+  <ol class="stops">
+    <li class="stop"><div class="lab"><span class="code">U1</span><h3><span lang="en">Kitsune Udon</span><span lang="ar">كيتسونه أودون</span></h3><p><span lang="en">Thick wheat noodles in dashi with sweet simmered tofu and spring onion.</span><span lang="ar">نودلز قمح سميكة في مرق الداشي مع توفو مطهوّ حلو وبصل أخضر.</span></p><div class="tags"><b class="tg veg"><span lang="en">Veg</span><span lang="ar">نباتي</span></b></div></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>36</b></p></div></li>
+    <li class="stop x"><div class="lab"><span class="code">U2</span><h3><span lang="en">Tempura Udon</span><span lang="ar">أودون بالتمبورا</span></h3><p><span lang="en">Two tiger prawns in lace-light batter on a deep bonito broth.</span><span lang="ar">حبّتان من الروبيان النمري بعجينة هشّة فوق مرق البونيتو العميق.</span></p><div class="tags"><b class="tg pick"><span lang="en">Rush hour</span><span lang="ar">ساعة الذروة</span></b></div>
+      <span class="xf" style="--x:var(--D)"><span class="code">D2</span><span><span lang="en">Change for Sea-salt Edamame</span><span lang="ar">بدّل إلى إدامامي بملح البحر</span></span></span></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>49</b></p><span class="xf" style="--x:var(--D)"><span class="code">D2</span><span><span lang="en">Change for Sea-salt Edamame</span><span lang="ar">بدّل إلى إدامامي بملح البحر</span></span></span></div></li>
+    <li class="stop"><div class="lab"><span class="code">U3</span><h3><span lang="en">Sukiyaki Beef Udon</span><span lang="ar">أودون سوكيياكي باللحم</span></h3><p><span lang="en">Shaved beef and sweet onions simmered in soy, with an onsen egg.</span><span lang="ar">شرائح لحم بقري رقيقة وبصل حلو في صلصة الصويا مع بيضة أونسن.</span></p></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>54</b></p></div></li>
+    <li class="stop"><div class="lab"><span class="code">U4</span><h3><span lang="en">Zaru Soba</span><span lang="ar">زارو سوبا</span></h3><p><span lang="en">Chilled buckwheat noodles on bamboo, with wasabi and a cold dipping tsuyu.</span><span lang="ar">نودلز الحنطة السوداء الباردة على حصيرة خيزران مع الواسابي وصلصة تسويو للتغميس.</span></p><div class="tags"><b class="tg veg"><span lang="en">Veg</span><span lang="ar">نباتي</span></b></div></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>34</b></p></div></li>
+  </ol>
+</section>
+
+<section class="line" id="w" style="--c:var(--W)">
+  <div class="lh"><span class="rd">W</span><div><h2><span lang="en">Wok Line</span><span lang="ar">خطّ الووك</span></h2>
+    <p class="dir"><svg class="flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M3 12h17M13 5l7 7-7 7"/></svg><span lang="en">Express · no broth, all flame</span><span lang="ar">قطار سريع · بلا مرق، كلّه لهب</span></p></div>
+    <span class="stat"><span lang="en">Running fast</span><span lang="ar">يسير بسرعة</span></span></div>
+  <ol class="stops">
+    <li class="stop x"><div class="lab"><span class="code">W1</span><h3><span lang="en">Pad Thai</span><span lang="ar">باد تاي</span></h3><p><span lang="en">Rice noodles, prawns, tamarind, crushed peanuts, lime and bean sprouts.</span><span lang="ar">نودلز الأرز مع الروبيان والتمر الهندي والفول السوداني المجروش والليمون وبراعم الفاصولياء.</span></p><div class="tags"><b class="tg pick"><span lang="en">Rush hour</span><span lang="ar">ساعة الذروة</span></b></div>
+      <span class="xf" style="--x:var(--D)"><span class="code">D3</span><span><span lang="en">Change for Thai Iced Tea</span><span lang="ar">بدّل إلى الشاي التايلندي المثلّج</span></span></span></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>44</b></p><span class="xf" style="--x:var(--D)"><span class="code">D3</span><span><span lang="en">Change for Thai Iced Tea</span><span lang="ar">بدّل إلى الشاي التايلندي المثلّج</span></span></span></div></li>
+    <li class="stop"><div class="lab"><span class="code">W2</span><h3><span lang="en">Char Kway Teow</span><span lang="ar">تشار كواي تياو</span></h3><p><span lang="en">Flat noodles seared smoky with prawns, beef sausage, egg and chives.</span><span lang="ar">نودلز عريضة بنكهة الدخان مع الروبيان ونقانق البقر والبيض والثوم المعمّر.</span></p></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>46</b></p></div></li>
+    <li class="stop"><div class="lab"><span class="code">W3</span><h3><span lang="en">Dan Dan Mian</span><span lang="ar">دان دان ميان</span></h3><p><span lang="en">Sichuan pepper, sesame paste and chilli oil over minced beef and wheat noodles.</span><span lang="ar">فلفل سيتشوان ومعجون السمسم وزيت الفلفل الحارّ فوق لحم بقري مفروم ونودلز القمح.</span></p><div class="tags"><b class="tg hot"><span lang="en">Hot</span><span lang="ar">حارّ</span></b></div></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>42</b></p></div></li>
+    <li class="stop"><div class="lab"><span class="code">W4</span><h3><span lang="en">Pad See Ew</span><span lang="ar">باد سي يو</span></h3><p><span lang="en">Wide rice noodles caramelised in dark soy with chicken and Chinese broccoli.</span><span lang="ar">نودلز أرز عريضة مكرملة بالصويا الداكنة مع الدجاج والبروكلي الصيني.</span></p></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>41</b></p></div></li>
+  </ol>
+</section>
+
+<section class="line y" id="s" style="--c:var(--S)">
+  <div class="lh"><span class="rd">S</span><div><h2><span lang="en">Southern Soup Line</span><span lang="ar">خطّ حساء الجنوب</span></h2>
+    <p class="dir"><svg class="flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M3 12h17M13 5l7 7-7 7"/></svg><span lang="en">Hanoi → Chiang Mai → Penang</span><span lang="ar">هانوي ← شيانغ ماي ← بينانغ</span></p></div>
+    <span class="stat"><span lang="en">Good service</span><span lang="ar">الخدمة منتظمة</span></span></div>
+  <ol class="stops">
+    <li class="stop"><div class="lab"><span class="code">S1</span><h3><span lang="en">Pho Bo</span><span lang="ar">فو بو</span></h3><p><span lang="en">Star-anise beef broth, rare sirloin, rice noodles, Thai basil and lime.</span><span lang="ar">مرق بقري باليانسون النجمي مع شرائح لحم طرية ونودلز الأرز والريحان التايلندي والليمون.</span></p></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>47</b></p></div></li>
+    <li class="stop"><div class="lab"><span class="code">S2</span><h3><span lang="en">Curry Laksa</span><span lang="ar">لاكسا بالكاري</span></h3><p><span lang="en">Coconut curry soup with prawns, tofu puffs, egg and two kinds of noodle.</span><span lang="ar">حساء كاري بجوز الهند مع الروبيان وكرات التوفو والبيض ونوعين من النودلز.</span></p><div class="tags"><b class="tg pick"><span lang="en">Rush hour</span><span lang="ar">ساعة الذروة</span></b><b class="tg hot"><span lang="en">Hot</span><span lang="ar">حارّ</span></b></div></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>49</b></p></div></li>
+    <li class="stop"><div class="lab"><span class="code">S3</span><h3><span lang="en">Khao Soi</span><span lang="ar">كاو سوي</span></h3><p><span lang="en">Northern Thai curry noodles with chicken leg, pickled mustard greens, crisp noodle nest.</span><span lang="ar">نودلز الكاري من شمال تايلند مع فخذ دجاج ومخلّل الخردل وعشّ من النودلز المقرمشة.</span></p></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>48</b></p></div></li>
+    <li class="stop x"><div class="lab"><span class="code">S4</span><h3><span lang="en">Tom Yum Noodles</span><span lang="ar">نودلز توم يم</span></h3><p><span lang="en">Hot-and-sour lemongrass broth, prawns, mushrooms and glass noodles.</span><span lang="ar">مرق حارّ حامض بعشبة الليمون مع الروبيان والفطر والنودلز الزجاجية.</span></p><div class="tags"><b class="tg hot"><span lang="en">Hot</span><span lang="ar">حارّ</span></b></div>
+      <span class="xf" style="--x:var(--D)"><span class="code">D5</span><span><span lang="en">Change for Mango Sticky Rice</span><span lang="ar">بدّل إلى الأرز اللزج بالمانجو</span></span></span></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>45</b></p><span class="xf" style="--x:var(--D)"><span class="code">D5</span><span><span lang="en">Change for Mango Sticky Rice</span><span lang="ar">بدّل إلى الأرز اللزج بالمانجو</span></span></span></div></li>
+  </ol>
+</section>
+
+<section class="line" id="d" style="--c:var(--D)">
+  <div class="lh"><span class="rd">D</span><div><h2><span lang="en">Sides &amp; Drinks Loop</span><span lang="ar">حلقة الجوانب والمشروبات</span></h2>
+    <p class="dir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 12a8 8 0 1 1-3-6.2M20 3v5h-5"/></svg><span lang="en">Circular · connects with every line</span><span lang="ar">خطّ دائري · يتصل بكلّ الخطوط</span></p></div>
+    <span class="stat"><span lang="en">Good service</span><span lang="ar">الخدمة منتظمة</span></span></div>
+  <ol class="stops" style="--n:5">
+    <li class="stop x"><div class="lab"><span class="code">D1</span><h3><span lang="en">Chicken Gyoza</span><span lang="ar">غيوزا الدجاج</span></h3><p><span lang="en">Five pan-crisped dumplings, ginger, chilli-vinegar dip.</span><span lang="ar">خمس قطع محمّرة على الصاج مع الزنجبيل وصلصة الخلّ الحارّة.</span></p></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>24</b></p></div></li>
+    <li class="stop x"><div class="lab"><span class="code">D2</span><h3><span lang="en">Sea-salt Edamame</span><span lang="ar">إدامامي بملح البحر</span></h3><p><span lang="en">Steamed young soybeans, flaky salt, a little sesame oil.</span><span lang="ar">فول صويا أخضر مطهوّ بالبخار مع رقائق الملح وقليل من زيت السمسم.</span></p><div class="tags"><b class="tg veg"><span lang="en">Veg</span><span lang="ar">نباتي</span></b></div></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>18</b></p></div></li>
+    <li class="stop x"><div class="lab"><span class="code">D3</span><h3><span lang="en">Thai Iced Tea</span><span lang="ar">شاي تايلندي مثلّج</span></h3><p><span lang="en">Strong spiced black tea over ice with condensed milk.</span><span lang="ar">شاي أسود قويّ بالبهارات فوق الثلج مع الحليب المكثّف.</span></p></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>19</b></p></div></li>
+    <li class="stop x"><div class="lab"><span class="code">D4</span><h3><span lang="en">Yuzu Soda</span><span lang="ar">صودا اليوزو</span></h3><p><span lang="en">Sparkling yuzu and honey with a shiso leaf.</span><span lang="ar">يوزو فوّار بالعسل مع ورقة شيسو.</span></p></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>21</b></p></div></li>
+    <li class="stop x"><div class="lab"><span class="code">D5</span><h3><span lang="en">Mango Sticky Rice</span><span lang="ar">أرز لزج بالمانجو</span></h3><p><span lang="en">Warm coconut rice, ripe mango, toasted mung beans.</span><span lang="ar">أرز دافئ بجوز الهند مع مانجو ناضجة وحبوب المونغ المحمّصة.</span></p><div class="tags"><b class="tg veg"><span lang="en">Veg</span><span lang="ar">نباتي</span></b></div></div>
+      <i class="dot"></i>
+      <div class="aux"><p class="fare"><span lang="en">Fare · AED</span><span lang="ar">الأجرة · د.إ</span><b>28</b></p></div></li>
+  </ol>
+</section>
+
+<aside class="pass">
+  <div class="body">
+    <p class="kick"><i></i><span lang="en">Valid all day · one rider</span><span lang="ar">صالحة طوال اليوم · لراكب واحد</span></p>
+    <h2><span lang="en">Day Pass</span><span lang="ar">تذكرة اليوم</span></h2>
+    <div class="route"><span class="rd" style="--c:var(--R)">R</span><span><span lang="en">Any bowl</span><span lang="ar">أيّ طبق نودلز</span></span><i></i><span class="rd" style="--c:var(--D)">D</span><span><span lang="en">Any side</span><span lang="ar">أيّ طبق جانبي</span></span><i></i><span class="rd" style="--c:var(--D)">D</span><span><span lang="en">Any drink</span><span lang="ar">أيّ مشروب</span></span></div>
+    <p><span lang="en">Three stops, one ticket. Show it to your server before boarding.</span><span lang="ar">ثلاث محطات بتذكرة واحدة. أبرزها للنادل قبل الصعود.</span></p>
+    <div class="stripe" aria-hidden="true"></div>
+  </div>
+  <div class="stub"><span><span lang="en">AED</span><span lang="ar">د.إ</span></span><b>69</b><span><span lang="en">Save up to 28</span><span lang="ar">وفّر حتى ٢٨</span></span></div>
+</aside>
+</main>
+
+<footer>
+  <div class="info">
+    <div><h3><span lang="en">Service hours</span><span lang="ar">ساعات الخدمة</span></h3>
+      <p><span lang="en">First bowl</span><span lang="ar">أوّل طبق</span> <span class="big">11:00</span><br><span lang="en">Last bowl</span><span lang="ar">آخر طبق</span> <span class="big">23:30</span><br><span lang="en">Every day, including holidays.</span><span lang="ar">يوميًّا، بما فيها أيام العطل.</span></p></div>
+    <div><h3><span lang="en">Station</span><span lang="ar">المحطة</span></h3>
+      <p><span lang="en">Concourse level, Unit C-27, Al Wasl Junction, Dubai. Exit 2, turn toward the steam.</span><span lang="ar">طابق الردهة، الوحدة C-27، تقاطع الوصل، دبي. المخرج ٢، ثم اتّجه نحو البخار.</span><br><b dir="ltr">+971 4 555 0127</b></p></div>
+    <div><h3><span lang="en">Service notice</span><span lang="ar">تنبيه للركّاب</span></h3>
+      <p><span lang="en">All meat is halal; no alcohol is used. Our kitchen handles peanuts, sesame, soy, shellfish, egg and gluten — tell the crew about any allergy before you board.</span><span lang="ar">جميع اللحوم حلال ولا نستخدم الكحول. مطبخنا يتعامل مع الفول السوداني والسمسم والصويا والقشريات والبيض والغلوتين، فأخبروا الطاقم بأيّ حساسية قبل الصعود.</span></p></div>
+  </div>
+  <p class="end"><span lang="en">Metro Noodle · stand clear of the closing lids</span><span lang="ar">مترو نودلز · ابتعدوا عن الأغطية عند الإغلاق</span></p>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

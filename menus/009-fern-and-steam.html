@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Fern &amp; Steam · سرخس وبخار</title>
+<meta name="description" content="Fern &amp; Steam — a tea house whose menu is a Victorian herbarium of teas, tisanes and small comforts. سرخس وبخار — بيت شاي قائمته معشبة فيكتورية للشاي والأعشاب المنقوعة.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#56684f">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IM+Fell+English:ital@0;1&family=Pinyon+Script&family=Scheherazade+New:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --paper:#f3edda; --paper2:#ebe3cc; --ink:#3b3024; --ink2:#5d5140; --green:#33472f; --sage:#6f8362; --sage2:#a9b79b; --cloth:#56684f; --red:#9c4a36; --tape:rgba(216,198,140,.6);
+  --body:"IM Fell English","Noto Naskh Arabic",Georgia,"Times New Roman",serif;
+  --disp:"Cormorant Garamond","Scheherazade New",Georgia,serif;
+  --script:"Pinyon Script","Cormorant Garamond",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{color:var(--ink);font-family:var(--body);font-size:clamp(16.5px,.3vw + 15.4px,18.5px);line-height:1.5;
+  background:var(--cloth);
+  background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px),radial-gradient(ellipse at 50% 0,rgba(255,255,255,.12),transparent 60%)}
+html[lang="ar"]{--body:"Noto Naskh Arabic","Scheherazade New","Geeza Pro","Times New Roman",serif;--disp:"Scheherazade New","Noto Naskh Arabic",serif;--script:"Scheherazade New",serif}
+html[lang="ar"] body{font-size:clamp(17.5px,.3vw + 16.4px,19.5px);line-height:1.8}
+html[lang="ar"] [lang="ar"]{letter-spacing:0 !important;text-transform:none !important;font-style:normal !important}
+a{color:inherit}ul,ol{list-style:none}
+svg.ill{display:block;fill:none;stroke:currentColor;stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+:focus-visible{outline:2px dashed var(--red);outline-offset:3px}
+.ltr{direction:ltr;unicode-bidi:isolate}
+
+/* ===== layout: index + folio ===== */
+.wrap{max-width:1480px;margin-inline:auto;padding:clamp(10px,2vw,30px);display:grid;grid-template-columns:232px minmax(0,1fr);gap:clamp(14px,2vw,30px);align-items:start}
+.index{position:sticky;top:clamp(10px,2vw,30px);background:var(--paper);padding:20px 18px 18px;box-shadow:0 10px 30px rgba(20,30,15,.35),inset 0 0 40px rgba(120,95,50,.16);z-index:20}
+.index::before{content:"";position:absolute;inset:6px;border:1px solid var(--sage);pointer-events:none}
+.index .mark{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;color:var(--green);padding-bottom:10px;border-bottom:1px solid var(--sage2)}
+.index .mark svg{width:44px;height:74px}
+.index .mark b{font-family:var(--disp);font-weight:500;font-size:22px;letter-spacing:.12em;text-transform:uppercase;line-height:1.1}
+html[lang="ar"] .index .mark b{font-size:27px;font-weight:700}
+.index h2{font-family:var(--disp);font-style:italic;font-weight:400;font-size:17px;text-align:center;margin:10px 0 4px;color:var(--ink2)}
+html[lang="ar"] .index h2{font-size:21px}
+.index nav a{display:grid;grid-template-columns:2.2em 1fr;gap:6px;align-items:baseline;text-decoration:none;padding:6px 2px;border-bottom:1px dotted var(--sage2);font-size:.95em;line-height:1.25}
+.index nav a b{font-family:var(--disp);font-weight:600;color:var(--sage);font-size:1.02em;letter-spacing:.04em}
+.index nav a:hover{color:var(--red)}
+.ctl{display:flex;gap:8px;margin-top:14px;position:relative}
+.home-link,#langToggle{flex:1;min-height:38px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:4px 8px;border:1px solid var(--green);background:transparent;color:var(--green);font:italic 400 16px/1.1 var(--disp);text-decoration:none;cursor:pointer;border-radius:2px;text-align:center}
+#langToggle{background:var(--green);color:var(--paper);font:400 19px/1 "Scheherazade New",serif}
+html[lang="ar"] #langToggle{font:italic 500 17px/1 "Cormorant Garamond",serif}
+html[lang="ar"] .home-link{font-size:19px}
+.home-link:hover{background:var(--paper2)}#langToggle:hover{background:var(--ink)}
+
+/* ===== sheets ===== */
+.sheet{position:relative;background:var(--paper);margin-bottom:clamp(16px,2.2vw,32px);padding:clamp(20px,3.6vw,58px);overflow:clip;scroll-margin-top:70px;
+  box-shadow:0 14px 34px rgba(20,30,15,.38),inset 0 0 70px rgba(125,98,50,.17);
+  background-image:radial-gradient(circle at 8% 12%,rgba(150,105,45,.13) 0 3px,transparent 5px),radial-gradient(circle at 91% 30%,rgba(150,105,45,.1) 0 2px,transparent 4px),radial-gradient(circle at 70% 88%,rgba(150,105,45,.12) 0 4px,transparent 7px),radial-gradient(circle at 22% 72%,rgba(150,105,45,.08) 0 2px,transparent 3px),radial-gradient(circle at 48% 4%,rgba(150,105,45,.09) 0 2px,transparent 4px)}
+.rh{display:flex;justify-content:space-between;gap:12px;font-family:var(--disp);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);border-bottom:1px solid var(--ink2);padding-bottom:6px;margin-bottom:clamp(16px,2.4vw,34px)}
+html[lang="ar"] .rh{font-size:17px}
+.rh b{font-weight:600;color:var(--green)}
+.tape{position:absolute;width:78px;height:22px;background:var(--tape);box-shadow:0 1px 2px rgba(0,0,0,.12);border-inline:1px dashed rgba(120,100,50,.25);z-index:2}
+.ptitle{text-align:center;margin-bottom:clamp(18px,2.6vw,38px)}
+.ptitle h2{font-family:var(--disp);font-weight:500;font-style:italic;font-size:clamp(38px,5.4vw,78px);line-height:1;color:var(--green)}
+html[lang="ar"] .ptitle h2{font-weight:700;line-height:1.5;font-size:clamp(38px,5vw,70px)}
+.ptitle .lat{font-family:var(--disp);font-style:italic;font-size:clamp(17px,1.6vw,22px);color:var(--sage);display:block;margin-top:4px}
+.ptitle p{max-width:56ch;margin:10px auto 0;color:var(--ink2)}
+.ptitle::after{content:"❧";display:block;color:var(--sage);font-size:22px;margin-top:8px}
+.price{font-family:var(--disp);font-weight:600;font-size:1.3em;white-space:nowrap;direction:ltr;unicode-bidi:isolate;color:var(--green);line-height:1.1}
+h3{font-family:var(--disp);font-weight:600;font-size:clamp(23px,1.9vw,29px);line-height:1.12;color:var(--ink)}
+html[lang="ar"] h3{font-weight:700;line-height:1.45;font-size:clamp(24px,2vw,30px)}
+.bin{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--sage);font-size:17.5px;display:block;direction:ltr;unicode-bidi:plaintext;text-align:start;line-height:1.25}
+.stamp{display:inline-block;font-family:var(--disp);font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);border:1.5px solid var(--red);padding:2px 8px 1px;transform:rotate(-3deg);border-radius:2px;opacity:.9;white-space:nowrap;vertical-align:middle;margin-inline-start:8px}
+html[lang="ar"] .stamp{font-size:16px;font-weight:700;padding:0 9px}
+
+/* ===== title page ===== */
+.title{padding:clamp(26px,4vw,60px) clamp(18px,3vw,50px);text-align:center;min-height:min(92vh,860px);display:flex;flex-direction:column;justify-content:center}
+.title::before{content:"";position:absolute;inset:clamp(10px,1.4vw,20px);border:1px solid var(--ink2);outline:3px double var(--ink2);outline-offset:-9px;pointer-events:none}
+.title .frond{position:absolute;color:var(--sage);width:clamp(150px,21vw,300px);bottom:clamp(20px,4%,50px);opacity:.95}
+.title .f1{inset-inline-start:clamp(-20px,2.4vw,46px);transform:rotate(-7deg)}
+.title .f2{inset-inline-end:clamp(-20px,2.4vw,46px);transform:scaleX(-1) rotate(-7deg)}
+[dir="rtl"] .title .f1{transform:scaleX(-1) rotate(-7deg)}[dir="rtl"] .title .f2{transform:rotate(-7deg)}
+.title .t1{inset-inline-start:clamp(30px,9vw,150px);bottom:clamp(60px,14%,130px);transform:rotate(-28deg)}
+.title .t2{inset-inline-end:clamp(30px,9vw,150px);bottom:clamp(60px,14%,130px);transform:rotate(28deg)}
+.title .in{position:relative;z-index:3;max-width:640px;margin-inline:auto}
+.title .pre{font-family:var(--disp);font-size:clamp(13px,1.1vw,16px);letter-spacing:.34em;text-transform:uppercase;color:var(--ink2)}
+html[lang="ar"] .title .pre{font-size:clamp(19px,1.5vw,23px)}
+.title h1{font-family:var(--disp);font-weight:500;font-size:clamp(46px,7.6vw,118px);line-height:.95;letter-spacing:.07em;text-transform:uppercase;color:var(--green);margin:.14em 0 .1em}
+.title h1 i{font-family:var(--script);font-style:normal;text-transform:none;letter-spacing:0;color:var(--red);font-size:.8em;display:block;line-height:.7;margin:.05em 0}
+html[lang="ar"] .title h1{font-weight:700;line-height:1.25;font-size:clamp(58px,8vw,124px)}
+html[lang="ar"] .title h1 i{font-size:.7em;line-height:1;margin:0}
+.rule{display:flex;align-items:center;gap:12px;justify-content:center;color:var(--sage);margin:6px 0}
+.rule::before,.rule::after{content:"";height:1px;width:clamp(40px,8vw,110px);background:currentColor}
+.title .sub{font-family:var(--disp);font-style:italic;font-size:clamp(22px,2.5vw,36px);line-height:1.2;color:var(--ink)}
+html[lang="ar"] .title .sub{line-height:1.5;font-size:clamp(24px,2.6vw,36px)}
+.title .lead{margin:14px auto 0;max-width:46ch;color:var(--ink2)}
+.title .cup{width:clamp(120px,13vw,180px);margin:clamp(6px,1vw,14px) auto 0;color:var(--green)}
+.title .imp{font-family:var(--disp);font-size:clamp(12.5px,1vw,15px);letter-spacing:.24em;text-transform:uppercase;margin-top:10px;color:var(--ink2);line-height:1.7}
+html[lang="ar"] .title .imp{font-size:clamp(18px,1.4vw,21px)}
+
+/* ===== plate I ===== */
+.p1{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(18px,3vw,50px)}
+.mount{position:relative;color:var(--green);align-self:start;padding:6px 0 0;position:sticky;top:20px}
+.mount svg.ill{width:100%;height:auto;max-height:660px}
+.mount .tape:nth-of-type(1){top:22%;inset-inline-start:26%;transform:rotate(-34deg)}
+.mount .tape:nth-of-type(2){top:71%;inset-inline-start:30%;transform:rotate(12deg)}
+.label{position:relative;border:1px solid var(--ink2);padding:10px 12px 9px;background:#f7f2e2;max-width:280px;margin-top:-34px;margin-inline-start:auto;font-size:.86em;line-height:1.35;color:var(--ink);box-shadow:1px 2px 0 rgba(0,0,0,.08);z-index:3}
+.label::before{content:"";position:absolute;inset:3px;border:1px solid var(--sage2);pointer-events:none}
+.label strong{display:block;text-align:center;font-family:var(--disp);font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:12.5px;border-bottom:1px solid var(--ink2);padding-bottom:3px;margin-bottom:5px}
+html[lang="ar"] .label strong{font-size:17px}
+.label dl{display:grid;grid-template-columns:auto 1fr;gap:1px 8px}
+.label dt{font-style:italic;color:var(--ink2)}
+.label dd{font-family:var(--script);font-size:1.32em;line-height:1.05;color:#2c3a5a;border-bottom:1px dotted var(--ink2)}
+html[lang="ar"] .label dd{font-size:1.02em;line-height:1.35}
+.spec li{display:grid;grid-template-columns:2.6em minmax(0,1fr) auto;column-gap:10px;padding:14px 0;border-bottom:1px solid var(--sage2);align-items:start}
+.spec li:first-child{padding-top:0}
+.spec .n{font-family:var(--disp);font-style:italic;font-size:1.25em;color:var(--sage);line-height:1.2}
+.spec p{margin-top:3px}
+.steep{display:inline-flex;gap:8px;align-items:center;font-family:var(--disp);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-top:5px}
+html[lang="ar"] .steep{font-size:17.5px}
+.steep svg{width:11px;height:16px;stroke:currentColor;fill:none;stroke-width:1.2;flex:none}
+
+/* ===== plate II: mounted specimens ===== */
+.cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.6vw,24px)}
+.card{position:relative;background:#f7f2e2;border:1px solid rgba(93,81,64,.45);padding:14px 14px 16px;display:flex;flex-direction:column;box-shadow:2px 3px 0 rgba(0,0,0,.06)}
+.card:nth-child(odd){transform:rotate(-.7deg)}.card:nth-child(even){transform:rotate(.6deg)}
+.card .tape{top:-9px;left:50%;margin-left:-32px;width:64px;transform:rotate(-2deg)}
+.card svg.ill{width:94%;margin:6px auto 4px;color:var(--green);aspect-ratio:200/260}
+.card .no{position:absolute;top:10px;inset-inline-end:12px;font-family:var(--disp);font-style:italic;color:var(--sage);font-size:1.1em}
+.card h3{font-size:clamp(21px,1.6vw,25px);border-top:1px solid var(--ink2);padding-top:8px}
+.card p{font-size:.94em;margin:5px 0 10px;flex:1}
+.card .price{align-self:flex-end}
+[dir="rtl"] .card .price{align-self:flex-start}
+
+/* ===== plate III: key ===== */
+.key{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,70px)}
+.key h4{font-family:var(--disp);font-style:italic;font-weight:500;font-size:clamp(22px,2vw,28px);color:var(--green);border-bottom:3px double var(--sage);padding-bottom:4px;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+html[lang="ar"] .key h4{font-weight:700}
+.key h4 svg{width:30px;height:34px;flex:none}
+.key li{padding:12px 0;border-bottom:1px dotted var(--sage)}
+.key .row{display:flex;align-items:baseline;gap:8px}
+.key .row::before{content:attr(data-n);font-family:var(--disp);font-style:italic;color:var(--sage);font-size:1.1em;min-width:1.8em}
+.key .row h3{flex:0 1 auto;min-width:0}
+.key .row i{flex:1;border-bottom:1.5px dotted var(--ink2);transform:translateY(-5px);min-width:16px}
+.key p{padding-inline-start:calc(1.8em + 8px);margin-top:2px;font-size:.96em;color:var(--ink2)}
+
+/* ===== plate IV: tea table ===== */
+.table{display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,17vw,240px) minmax(0,1fr);gap:clamp(16px,2.6vw,44px);align-items:start}
+.table .fig{color:var(--green);text-align:center;position:sticky;top:90px}
+.table .fig svg{width:100%;height:auto}
+.table .fig figcaption,.fcap{font-style:italic;font-size:.88em;color:var(--ink2);margin-top:6px;text-align:center}
+.table h4{font-family:var(--disp);font-weight:600;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--sage);margin-bottom:8px;text-align:center}
+html[lang="ar"] .table h4{font-size:21px;font-weight:700}
+.table li{padding:11px 0;border-top:1px solid var(--sage2);display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px}
+.table li p{grid-column:1/-1;font-size:.96em;color:var(--ink2);margin-top:2px}
+
+/* ===== plate V: afternoon tea ticket ===== */
+.ticket{position:relative;max-width:860px;margin-inline:auto;border:1px solid var(--ink2);padding:clamp(20px,3vw,40px);text-align:center;background:#f7f2e2}
+.ticket::before{content:"";position:absolute;inset:6px;border:3px double var(--sage);pointer-events:none}
+.ticket .pre{font-family:var(--disp);letter-spacing:.3em;text-transform:uppercase;font-size:13px;color:var(--ink2)}
+html[lang="ar"] .ticket .pre{font-size:19px}
+.ticket h2{font-family:var(--disp);font-style:italic;font-weight:500;font-size:clamp(36px,5vw,68px);line-height:1.05;color:var(--green);margin:6px 0}
+html[lang="ar"] .ticket h2{font-weight:700;line-height:1.5}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:18px 0 14px;text-align:center}
+.tiers>div{padding:4px clamp(8px,1.6vw,22px)}
+.tiers>div+div{border-inline-start:1px solid var(--sage2)}
+.tiers b{display:block;font-family:var(--disp);font-weight:600;font-size:13.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
+html[lang="ar"] .tiers b{font-size:20px;font-weight:700}
+.tiers span{font-size:.96em}
+.ticket .big{font-family:var(--disp);font-size:clamp(34px,4vw,54px);font-weight:500;color:var(--red);line-height:1}
+.ticket .big small{font-size:clamp(12.5px,1vw,14.5px);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);display:block;margin-top:4px;font-family:var(--body)}
+html[lang="ar"] .ticket .big small{font-size:17px}
+.ticket .stamp{position:absolute;top:18px;inset-inline-end:20px;transform:rotate(8deg);font-size:13px}
+
+/* ===== colophon ===== */
+.colo{display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));gap:clamp(16px,2.6vw,40px);align-items:start}
+.seal{width:clamp(96px,10vw,132px);aspect-ratio:1;border-radius:50%;border:2px solid var(--red);color:var(--red);display:grid;place-items:center;text-align:center;transform:rotate(-9deg);opacity:.85;box-shadow:inset 0 0 0 4px var(--paper),inset 0 0 0 5px var(--red);font-family:"Cormorant Garamond",serif;line-height:1}
+.seal svg{width:26%;height:auto;margin:0 auto 2px}
+.seal b{font-weight:600;font-size:clamp(17px,1.7vw,23px);letter-spacing:.08em;display:block}
+.seal small{font-size:11px;letter-spacing:.2em}
+.colo h4{font-family:var(--disp);font-weight:600;font-size:13.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--green);border-bottom:1px solid var(--sage);padding-bottom:4px;margin-bottom:6px}
+html[lang="ar"] .colo h4{font-size:21px;font-weight:700}
+.colo p{font-size:.95em}
+.fin{text-align:center;font-family:var(--disp);font-style:italic;color:var(--ink2);margin-top:22px;font-size:1.02em}
+
+/* ===== responsive ===== */
+@media (max-width:1180px){
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .table{grid-template-columns:1fr 1fr}
+  .table .fig{grid-column:1/-1;grid-row:1;position:static;max-width:200px;margin-inline:auto}
+}
+@media (max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);padding:0 8px 8px;gap:8px}
+  .index{top:0;margin-inline:-8px;padding:6px 10px;display:flex;align-items:center;gap:8px;box-shadow:0 4px 14px rgba(20,30,15,.35);border-bottom:1px solid var(--sage)}
+  .index::before,.index h2,.index .mark b{display:none !important}
+  .index .mark{border:0;padding:0}.index .mark svg{width:22px;height:38px}
+  .index nav{display:flex;flex:1;min-width:0;justify-content:space-around}
+  .index nav a{display:block;border:0;padding:8px 7px}
+  .index nav a span{display:none !important}
+  .index nav a b{font-size:19px}
+  .ctl{margin:0;flex:none;gap:6px}
+  .home-link,#langToggle{flex:none;min-height:36px;padding:2px 10px}
+  .home-link span{display:none !important}
+  .home-link svg{display:block !important}
+  .p1{grid-template-columns:1fr}
+  .mount{max-width:330px;margin-inline:auto;width:100%}
+  .mount svg.ill{max-height:400px}
+  .label{margin-top:-20px}
+  .key{grid-template-columns:1fr}
+  .colo{grid-template-columns:auto 1fr}
+  .colo>div:nth-child(n+3){grid-column:1/-1}
+}
+@media (max-width:640px){
+  .sheet{padding:18px 16px 24px}
+  .rh{font-size:10.5px;letter-spacing:.16em}
+  html[lang="ar"] .rh{font-size:15px}
+  .title{min-height:0;padding:44px 22px 222px}
+  .title .frond{width:106px;bottom:10px;opacity:.9}
+  .title .f1{inset-inline-start:calc(50% - 118px)}.title .f2{inset-inline-end:calc(50% - 118px)}
+  .title .tape{display:none}
+  .cards{grid-template-columns:1fr;gap:20px}
+  .card{display:grid;grid-template-columns:104px minmax(0,1fr);column-gap:14px;align-items:start;padding:16px 14px}
+  .card svg.ill{width:100%;margin:0;grid-row:1/5}
+  .card h3{border:0;padding:0;padding-inline-end:2.4em}
+  .card .price{justify-self:end}
+  [dir="rtl"] .card .price{justify-self:end;align-self:auto}
+  .table{grid-template-columns:1fr}
+  .tiers{grid-template-columns:1fr}
+  .tiers>div+div{border-inline-start:0;border-top:1px solid var(--sage2);margin-top:8px;padding-top:8px}
+  .ticket .stamp{position:static;display:inline-block;margin-bottom:10px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.home-link svg{display:none;width:15px;height:15px}
+</style>
+</head>
+<body>
+<!--SYM--><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="fern"><path d="M74 514Q72.7 488.8 72.2 476.2Q71.7 463.7 71.3 451.1Q71 438.5 71 425.9Q70.9 413.3 71.2 400.7Q71.5 388.1 72.2 375.5Q72.9 362.9 74 350.4Q75.2 337.8 76.8 325.3Q78.5 312.8 80.7 300.4Q82.9 288 85.7 275.7Q88.5 263.5 92 251.3Q95.4 239.2 99.5 227.3Q103.6 215.4 108.5 203.8Q113.3 192.1 118.8 180.8Q124.4 169.5 130.7 158.6Q136.9 147.7 144 137.2Q151 126.8 158.8 116.9Q166.6 107 175.1 97.7Q183.6 88.4 192.8 79.8Q202 71.2 211.9 63.4Q221.8 55.6 221.8 55.6L221.8 55.6M72.3 480.4 C51.9 482.8 22.7 474.4 5.5 463.8 C25.7 462.5 55.4 468.8 72.3 480.4M72.3 480.4 L8.2 464.5M72.3 480.4 C87.4 469.7 114 463.7 132.2 464.6 C116.9 474.4 90.8 482.3 72.3 480.4M72.3 480.4 L129.8 465.2M71.4 455.3 C48.3 457.1 16 446.5 -2.9 433.9 C19.8 433.3 52.8 441.5 71.4 455.3M71.4 455.3 L0.1 434.8M71.4 455.3 C88.3 443.2 118.2 436.3 138.6 437.2 C121.4 448.3 92.1 457.3 71.4 455.3M71.4 455.3 L135.9 437.9M71 438.5 C45.6 439.6 10.4 426.8 -10 412.2 C15.1 412.3 51.1 422.6 71 438.5M71 438.5 L-6.7 413.3M71 438.5 C89.6 425 122.4 417.3 144.9 418.2 C126 430.5 93.8 440.5 71 438.5M71 438.5 L141.9 419M70.9 421.7 C43.3 421.9 5.7 406.7 -15.8 390.1 C11.3 391.2 49.9 403.7 70.9 421.7M70.9 421.7 L-12.3 391.4M70.9 421.7 C90.9 407 126.5 398.5 150.8 399.4 C130.4 412.8 95.6 423.8 70.9 421.7M70.9 421.7 L147.6 400.3M71 404.9 C43.8 404.1 7.2 387.6 -13.4 370.4 C13.3 372.5 51 386.4 71 404.9M71 404.9 L-10 371.8M71 404.9 C90.8 390.4 125.9 381.9 150 382.8 C129.9 396 95.5 407 71 404.9M71 404.9 L146.9 383.7M71.8 379.7 C45.6 377.6 11.1 359.8 -7.9 342.2 C17.8 345.6 53.4 360.8 71.8 379.7M71.8 379.7 L-4.7 343.7M71.8 379.7 C91.2 365.9 125.2 358.2 148.5 359.3 C128.9 371.8 95.4 382 71.8 379.7M71.8 379.7 L145.4 360.1M72.9 362.9 C47.6 359.8 15.1 341.2 -2.5 323.5 C22.1 327.8 55.9 344 72.9 362.9M72.9 362.9 L0.6 325M72.9 362.9 C91.6 349.7 124.4 342.4 146.9 343.5 C127.9 355.6 95.6 365.3 72.9 362.9M72.9 362.9 L143.9 344.3M74.3 346.2 C50.1 342.1 19.7 322.8 3.5 304.9 C27 310.2 58.8 327.2 74.3 346.2M74.3 346.2 L6.4 306.6M74.3 346.2 C92.4 333.6 124.1 326.7 145.7 327.9 C127.3 339.4 96.2 348.6 74.3 346.2M74.3 346.2 L142.8 328.7M76.1 329.5 C53.2 324.4 24.8 304.6 10.1 286.7 C32.4 292.8 62.1 310.6 76.1 329.5M76.1 329.5 L12.7 288.4M76.1 329.5 C93.6 317.5 124.1 311.1 144.9 312.5 C127.2 323.4 97.2 331.9 76.1 329.5M76.1 329.5 L142.2 313.2M79.8 304.5 C58.1 298.3 32.2 277.5 19.2 259.5 C40.2 266.7 67.6 285.6 79.8 304.5M79.8 304.5 L21.7 261.3M79.8 304.5 C96.9 293.5 126.3 288.1 146.1 289.9 C128.9 299.9 99.9 307.4 79.8 304.5M79.8 304.5 L143.5 290.5M82.9 288 C62.5 281 38.7 259.9 27.2 242 C46.9 250 72.1 269.3 82.9 288M82.9 288 L29.5 243.9M82.9 288 C99.3 277.7 127.5 272.8 146.5 274.8 C129.9 284.2 102.1 291 82.9 288M82.9 288 L143.9 275.4M86.5 271.6 C67.4 263.9 45.9 242.6 35.9 225 C54.2 233.5 77.2 253.3 86.5 271.6M86.5 271.6 L37.9 226.9M86.5 271.6 C102.3 262 129.2 257.7 147.3 259.9 C131.3 268.6 104.8 274.7 86.5 271.6M86.5 271.6 L144.9 260.4M90.7 255.3 C73 247 53.6 225.7 45.1 208.5 C62 217.5 82.8 237.4 90.7 255.3M90.7 255.3 L46.9 210.4M90.7 255.3 C105.8 246.4 131.5 242.8 148.6 245.1 C133.3 253.1 108 258.6 90.7 255.3M90.7 255.3 L146.3 245.5M98 231.2 C81.9 222.1 65.2 200.6 58.3 183.8 C73.7 193.5 91.9 213.8 98 231.2M98 231.2 L59.9 185.7M98 231.2 C112.6 223.3 137 220.8 153.2 223.5 C138.4 230.6 114.2 234.9 98 231.2M98 231.2 L150.9 223.9M103.6 215.4 C89 205.9 74.5 184.8 69 168.6 C82.9 178.6 98.9 198.7 103.6 215.4M103.6 215.4 L70.4 170.5M103.6 215.4 C117.6 208.2 140.6 206.3 155.7 209.2 C141.7 215.6 118.9 219.1 103.6 215.4M103.6 215.4 L153.6 209.4M109.9 199.8 C96.8 190.1 84.4 169.5 80.1 154.1 C92.6 164.2 106.4 183.9 109.9 199.8M109.9 199.8 L81.3 155.9M109.9 199.8 C123.1 193.4 144.7 192 158.8 195 C145.5 200.8 124.1 203.6 109.9 199.8M109.9 199.8 L156.9 195.2M116.8 184.5 C105.2 174.8 94.9 154.9 91.8 140.3 C102.8 150.5 114.5 169.5 116.8 184.5M116.8 184.5 L92.8 142.1M116.8 184.5 C129.2 178.8 149.3 178 162.4 181.1 C149.9 186.1 129.9 188.4 116.8 184.5M116.8 184.5 L160.6 181.2M128.4 162.1 C118.5 152.3 110.6 133.2 108.9 119.5 C118.2 129.7 127.4 148.2 128.4 162.1M128.4 162.1 L109.7 121.2M128.4 162.1 C140.1 157.4 158.6 157.5 170.6 161 C158.9 165.1 140.3 166.2 128.4 162.1M128.4 162.1 L168.9 161M136.9 147.7 C128.5 138.1 122.5 120.2 121.8 107.7 C129.6 117.5 136.9 134.9 136.9 147.7M136.9 147.7 L122.4 109.3M136.9 147.7 C147.7 143.6 164.7 144.2 175.4 147.6 C164.7 151.1 147.7 151.7 136.9 147.7M136.9 147.7 L173.9 147.6M146.2 133.6 C139.1 124.5 134.8 108.1 134.9 96.8 C141.4 106.1 146.9 122.1 146.2 133.6M146.2 133.6 L135.4 98.3M146.2 133.6 C156 130.3 171.2 131.2 180.8 134.6 C171 137.4 155.8 137.5 146.2 133.6M146.2 133.6 L179.4 134.5M156 120 C150.4 111.6 147.6 96.8 148.4 86.9 C153.5 95.5 157.4 110 156 120M156 120 L148.7 88.2M156 120 C164.8 117.3 178.2 118.5 186.6 121.8 C177.9 124 164.4 123.7 156 120M172.1 100.6 C168 92.9 166.7 80.1 168.3 71.6 C171.9 79.4 174 92.1 172.1 100.6M172.1 100.6 C179.7 98.7 191.2 100.4 198.2 103.6 C190.7 105.1 179.1 104.2 172.1 100.6M183.6 88.4 C180.7 81.8 180.4 71.2 182.2 64.3 C184.7 70.9 185.7 81.5 183.6 88.4M183.6 88.4 C189.9 87 199.3 88.7 205 91.5 C198.7 92.6 189.3 91.5 183.6 88.4M195.7 76.8 C193.9 71.6 194.3 63.6 196 58.5 C197.5 63.6 197.7 71.7 195.7 76.8M195.7 76.8 C200.6 75.9 207.6 77.4 211.9 79.7 C207.1 80.3 199.9 79.3 195.7 76.8M208.5 65.8 C207.6 62.6 208.2 57.7 209.5 54.6 C210.2 57.9 209.9 62.8 208.5 65.8M208.5 65.8 C211.5 65.4 215.8 66.5 218.3 68 C215.4 68.3 211 67.5 208.5 65.8"/></g><g id="tea"><path d="M168 512Q171.9 488.5 173.9 476.8Q176 465 178 453.2Q180 441.5 182.1 429.8Q184.1 418 186.1 406.2Q188 394.5 190 382.8Q191.9 371 193.7 359.2Q195.5 347.5 197.2 335.8Q198.8 324 200.4 312.2Q201.9 300.5 203.3 288.8Q204.6 277 205.8 265.2Q207 253.5 207.9 241.8Q208.9 230 209.6 218.2Q210.4 206.5 210.9 194.8Q211.4 183 211.6 171.2Q211.9 159.5 211.9 147.8Q212 136 211.7 124.2Q211.5 112.5 211.1 100.8Q210.6 89 209.9 77.2Q209.2 65.5 208.3 53.8L207.3 42M175.1 469.7 C122.9 464.2 77.8 415.8 65.3 367.6 C114.3 376.6 165.8 418 175.1 469.7M175.1 469.7 L69.7 371.7M153.2 449.3 Q140.6 447.3 125.9 445.5M153.2 449.3 Q150.3 436.9 147.4 422.4M131.2 428.9 Q117.6 428.1 101.6 427.7M131.2 428.9 Q129.4 415.3 127.8 399.4M109.2 408.4 Q95.8 407.4 80.1 406.7M109.2 408.4 Q107.2 395.2 105.4 379.5M87.2 388 Q75.3 385.4 61.4 382.8M87.2 388 Q83.8 376.3 80.2 362.6M184.1 418 C210.4 369.4 275.6 344.8 327.6 351.9 C299.2 396 238.2 429.6 184.1 418M184.1 418 L321.9 354.5M212.8 404.8 Q219.7 393.4 227.4 379.8M212.8 404.8 Q226 407 241.3 410M241.5 391.6 Q247.7 378.6 254.5 363.2M241.5 391.6 Q255.4 395.2 271.5 400.1M270.2 378.3 Q276.6 365.7 283.5 350.7M270.2 378.3 Q283.9 381.7 299.9 386.2M298.9 365.1 Q306.2 354.6 314.3 342M298.9 365.1 Q311.7 366.4 326.5 368.4M194.1 356.9 C143.4 350 100.9 301.6 90.1 254.4 C137.5 264.5 186.5 306.4 194.1 356.9M194.1 356.9 L94.3 258.5M173.3 336.4 Q161.1 334.1 146.9 332M173.3 336.4 Q170.9 324.3 168.5 310.1M152.5 315.9 Q139.3 314.7 123.7 313.9M152.5 315.9 Q151.1 302.7 150.1 287.1M131.7 295.4 Q118.7 294 103.4 292.9M131.7 295.4 Q130.1 282.4 128.8 267.1M110.9 274.9 Q99.4 272 85.9 269.1M110.9 274.9 Q107.9 263.4 104.7 249.9M201.9 300.5 C220.3 256.6 274 230 319.2 231.6 C298.6 271.8 249.2 305.8 201.9 300.5M201.9 300.5 L314.5 234.3M225.4 286.7 Q230.3 276.3 235.7 264M225.4 286.7 Q236.8 287.4 250.2 288.7M248.8 272.9 Q253 261.3 257.5 247.5M248.8 272.9 Q261 274.9 275.3 277.7M272.3 259.1 Q276.6 247.8 281.3 234.3M272.3 259.1 Q284.3 260.9 298.4 263.3M295.7 245.4 Q301.1 235.7 306.9 224.2M295.7 245.4 Q306.8 245.4 319.6 245.8M207.8 244.1 C166.1 239.2 130.4 200.1 120.8 161.5 C159.9 169.1 200.8 202.7 207.8 244.1M207.8 244.1 L124.3 164.8M190.4 227.6 Q180.4 225.9 168.6 224.3M190.4 227.6 Q188.2 217.7 186 206M173 211 Q162.1 210.3 149.3 209.8M173 211 Q171.7 200.2 170.6 187.5M155.6 194.5 Q144.9 193.6 132.3 192.9M155.6 194.5 Q154.1 183.9 152.8 171.4M138.2 178 Q128.7 175.8 117.5 173.6M138.2 178 Q135.5 168.6 132.7 157.6M211 192.4 C220.6 157.3 258.7 131.7 293.1 128.5 C281.5 161 247.4 191.7 211 192.4M211 192.4 L289.8 131M227.4 179.6 Q230.2 171.3 233 161.4M227.4 179.6 Q236.2 179 246.5 178.7M243.9 166.8 Q245.9 157.6 247.9 146.7M243.9 166.8 Q253.3 167.1 264.4 167.8M260.3 154 Q262.4 145 264.6 134.3M260.3 154 Q269.6 154.1 280.5 154.6M276.7 141.3 Q279.8 133.4 283.1 124.1M276.7 141.3 Q285.1 140.2 294.9 139.2M212 140.7 C182 138.5 155.2 111.6 147.2 84.2 C175.4 88.4 205.7 111.3 212 140.7M212 140.7 L149.8 86.4M199 129.4 Q191.8 128.5 183.4 127.7M199 129.4 Q197.2 122.4 195.3 114.1M186.1 118.1 Q178.3 117.9 169.1 117.9M186.1 118.1 Q184.8 110.4 183.6 101.3M173.1 106.8 Q165.4 106.4 156.4 106.3M173.1 106.8 Q171.7 99.2 170.4 90.3M160.2 95.5 Q153.3 94.2 145.2 92.9M160.2 95.5 Q158 88.8 155.6 81M211 98.4 C214.1 76.9 234.7 59 254.8 54.5 C250.4 74.6 232.5 95.3 211 98.4M211 98.4 L253.1 56.3M219.8 89.6 Q220.8 84.5 221.7 78.4M219.8 89.6 Q224.9 88.6 231 87.7M228.5 80.8 Q229.1 75.2 229.5 68.6M228.5 80.8 Q234.1 80.3 240.7 79.9M237.3 72.1 Q237.9 66.6 238.4 60.1M237.3 72.1 Q242.8 71.4 249.3 70.9M246.1 63.3 Q247.3 58.4 248.6 52.7M246.1 63.3 Q250.9 62 256.7 60.7M207.3 42 C192.3 37.4 180.9 20.6 179 5.8 C193 11.2 206.5 26.3 207.3 42M207.3 42 L180.2 7.2M201.7 34.8 Q198.1 33.5 193.9 32.1M201.7 34.8 Q201.3 31 201 26.5M184.7 13 Q181.3 11.6 177.3 10M184.7 13 Q184.1 9.4 183.6 5.1M207.3 42 C206.5 28.3 216.8 14 228.5 8.1 C228.4 21.2 220.1 36.7 207.3 42M207.3 42 L227.7 9.4M211.6 35.2 Q211.5 31.9 211.4 28M211.6 35.2 Q214.6 33.8 218.2 32.3M224.3 14.9 Q224.5 11.7 224.5 7.9M224.3 14.9 Q227.1 13.3 230.5 11.6M207.3 42 C202 32.7 202.2 17.7 206.2 8 C210.7 17.4 212 32.3 207.3 42M204.6 277Q174.6 273 148.6 251M140.6 243 C149.2 233.3 159.3 236.8 164.3 247.2 C156 255.2 145.3 255 140.6 243M140.6 243 C153.3 245.6 155.3 256 148.8 265.6 C137.8 262.4 132.6 253.1 140.6 243M140.6 243 C144.7 255.2 136.7 262.2 125.2 261.4 C122.4 250.2 127.9 241.1 140.6 243M140.6 243 C132.1 252.7 122 249.2 117 238.8 C125.2 230.8 135.9 231 140.6 243M140.6 243 C128 240.4 125.9 230 132.4 220.4 C143.5 223.6 148.7 232.9 140.6 243M140.6 243 C136.5 230.8 144.6 223.8 156.1 224.6 C158.9 235.8 153.4 244.9 140.6 243M135.1 243a5.5 5.5 0 1 0 11 0a5.5 5.5 0 1 0 -11 0M210.1 211.2q16 -2 26 -14M234.6 192.2a6.5 6.5 0 1 0 13 0a6.5 6.5 0 1 0 -13 0M235.1 194.2q7 -3 11 2M191.9 371q-14 2 -22 -8M160.9 359a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><circle cx="150.1" cy="243" r="1" fill="currentColor" stroke="none"/><circle cx="148.3" cy="248.6" r="1" fill="currentColor" stroke="none"/><circle cx="143.6" cy="252" r="1" fill="currentColor" stroke="none"/><circle cx="137.7" cy="252" r="1" fill="currentColor" stroke="none"/><circle cx="132.9" cy="248.6" r="1" fill="currentColor" stroke="none"/><circle cx="131.1" cy="243" r="1" fill="currentColor" stroke="none"/><circle cx="132.9" cy="237.4" r="1" fill="currentColor" stroke="none"/><circle cx="137.7" cy="234" r="1" fill="currentColor" stroke="none"/><circle cx="143.6" cy="234" r="1" fill="currentColor" stroke="none"/><circle cx="148.3" cy="237.4" r="1" fill="currentColor" stroke="none"/></g><g id="mint"><path d="M100 256Q101 180 100 140Q99 100 99.5 65L100 30M100 218 C76.7 226 54.7 211.2 47 189.8 C69 184.2 93.6 194.2 100 218M100 218 L49.1 191M89.4 212.4 Q83.8 214 77.2 216.1M89.4 212.4 Q87.6 206.8 85.7 200.2M57.6 195.5 Q52.2 196.6 46 198.2M57.6 195.5 Q55.6 190.4 53.4 184.3M100 218 C106.4 194.2 131 184.2 153 189.8 C145.3 211.2 123.3 226 100 218M100 218 L150.9 191M110.6 212.4 Q112.4 206.8 114.3 200.2M110.6 212.4 Q116.2 214 122.8 216.1M142.4 195.5 Q144.4 190.4 146.6 184.3M142.4 195.5 Q147.8 196.6 154 198.2M100 176 C78.3 183.5 57.7 169.7 50.6 149.7 C71.1 144.5 94 153.8 100 176M100 176 L52.5 150.8M90.1 170.7 Q84.9 172.2 78.7 174.2M90.1 170.7 Q88.4 165.6 86.7 159.4M60.4 155 Q55.4 156.1 49.6 157.5M60.4 155 Q58.5 150.2 56.5 144.5M100 176 C106 153.8 128.9 144.5 149.4 149.7 C142.3 169.7 121.7 183.5 100 176M100 176 L147.5 150.8M109.9 170.7 Q111.6 165.6 113.3 159.4M109.9 170.7 Q115.1 172.2 121.3 174.2M139.6 155 Q141.5 150.2 143.5 144.5M139.6 155 Q144.6 156.1 150.4 157.5M100 136 C81.4 142.4 63.7 130.6 57.6 113.5 C75.2 109 94.9 117 100 136M100 136 L59.3 114.4M91.5 131.5 Q87 132.8 81.8 134.5M91.5 131.5 Q90.1 127 88.6 121.7M66.1 118 Q61.8 118.9 56.8 120.2M66.1 118 Q64.5 113.9 62.7 109M100 136 C105.1 117 124.8 109 142.4 113.5 C136.3 130.6 118.6 142.4 100 136M100 136 L140.7 114.4M108.5 131.5 Q109.9 127 111.4 121.7M108.5 131.5 Q113 132.8 118.2 134.5M133.9 118 Q135.5 113.9 137.3 109M133.9 118 Q138.2 118.9 143.2 120.2M100 100 C84.5 105.3 69.8 95.5 64.7 81.2 C79.4 77.5 95.7 84.1 100 100M100 100 L66.1 82M92.9 96.2 Q89.2 97.3 84.8 98.7M92.9 96.2 Q91.7 92.5 90.5 88.1M71.7 85 Q68.2 85.8 64 86.8M71.7 85 Q70.4 81.6 68.9 77.5M100 100 C104.3 84.1 120.6 77.5 135.3 81.2 C130.2 95.5 115.5 105.3 100 100M100 100 L133.9 82M107.1 96.2 Q108.3 92.5 109.5 88.1M107.1 96.2 Q110.8 97.3 115.2 98.7M128.3 85 Q129.6 81.6 131.1 77.5M128.3 85 Q131.8 85.8 136 86.8M100 70 C88.4 74 77.3 66.6 73.5 55.9 C84.5 53.1 96.8 58.1 100 70M100 70 L74.6 56.5M94.7 67.2 Q91.9 68 88.6 69.1M94.7 67.2 Q93.8 64.4 92.8 61.1M78.8 58.7 Q76.1 59.3 73 60.1M78.8 58.7 Q77.8 56.2 76.7 53.1M100 70 C103.2 58.1 115.5 53.1 126.5 55.9 C122.7 66.6 111.6 74 100 70M100 70 L125.4 56.5M105.3 67.2 Q106.2 64.4 107.2 61.1M105.3 67.2 Q108.1 68 111.4 69.1M121.2 58.7 Q122.2 56.2 123.3 53.1M121.2 58.7 Q123.9 59.3 127 60.1M100 47 C91.9 49.8 84.1 44.6 81.5 37.1 C89.2 35.2 97.8 38.7 100 47M100 47 L82.2 37.5M96.3 45 Q94.3 45.6 92 46.3M96.3 45 Q95.7 43.1 95 40.8M85.2 39.1 Q83.3 39.5 81.1 40.1M85.2 39.1 Q84.5 37.3 83.7 35.2M100 47 C102.2 38.7 110.8 35.2 118.5 37.1 C115.9 44.6 108.1 49.8 100 47M100 47 L117.8 37.5M103.7 45 Q104.3 43.1 105 40.8M103.7 45 Q105.7 45.6 108 46.3M114.8 39.1 Q115.5 37.3 116.3 35.2M114.8 39.1 Q116.7 39.5 118.9 40.1M100 32 C95.2 29.2 94.3 23 96.6 18.4 C100.9 21.4 102.9 27.2 100 32M100 32 C97.1 27.2 99.1 21.4 103.4 18.4 C105.7 23 104.8 29.2 100 32"/></g><g id="daisy"><path d="M96 256Q100 190 98 160Q96 130 98 107L100 84M98 150Q120 140 146 112M113 66 C122.5 61.2 137.5 62 147 66 C137.5 70 122.5 70.8 113 66M112 70.2 C122.6 70.9 135.2 79.1 141.3 87.5 C131 86.1 117.8 79.1 112 70.2M109.2 73.8 C118.7 78.5 127.2 90.9 129.7 100.9 C120.7 95.8 111.1 84.2 109.2 73.8M105 76.2 C112 84.2 115 98.8 113.5 109.1 C107.2 100.9 102.8 86.6 105 76.2M100 77 C103.4 87.1 100.6 101.8 95.3 110.7 C92.6 100.7 94 85.8 100 77M95 76.2 C94.3 86.8 86.1 99.3 77.8 105.5 C79.1 95.2 86.1 81.9 95 76.2M90.8 73.8 C86.1 83.3 73.7 91.7 63.7 94.2 C68.8 85.3 80.3 75.7 90.8 73.8M88 70.2 C80 77.2 65.3 80.3 55.1 78.7 C63.3 72.4 77.6 68 88 70.2M87 66 C76.9 69.4 62.2 66.6 53.3 61.3 C63.3 58.6 78.2 60 87 66M88 61.8 C77.4 62.5 63.8 56.2 56.6 48.8 C66.9 48.7 81 53.7 88 61.8M90.8 58.2 C80.7 54.9 70.6 43.8 66.8 34.2 C76.4 38.1 87.4 48.1 90.8 58.2M95 55.8 C87 48.9 81.9 34.8 82 24.4 C89.4 31.7 95.8 45.2 95 55.8M100 55 C95.2 45.5 96 30.5 100 21 C104 30.5 104.8 45.5 100 55M105 55.8 C104.2 45.2 110.6 31.7 118 24.4 C118.1 34.8 113 48.9 105 55.8M109.2 58.2 C112.6 48.1 123.6 38.1 133.2 34.2 C129.4 43.8 119.3 54.9 109.2 58.2M112 61.8 C119 53.7 133.1 48.7 143.4 48.8 C136.2 56.2 122.6 62.5 112 61.8M87 66a13 11 0 1 0 26 0a13 11 0 1 0 -26 0M161 100 C167.2 96.9 176.8 97.4 183 100 C176.8 102.6 167.2 103.1 161 100M160 103.7 C166.8 104.8 174.4 110.8 177.8 116.6 C171.3 115.1 163.2 109.8 160 103.7M157.1 106.6 C162.6 110.7 166.5 119.6 167 126.3 C161.9 121.9 157.1 113.5 157.1 106.6M153.1 107.9 C156 114.2 155.4 123.8 152.7 129.9 C150.2 123.7 149.9 114 153.1 107.9M148.8 107.5 C148.5 114.4 143.5 122.6 138.2 126.8 C138.9 120.1 143.1 111.4 148.8 107.5M145.3 105.3 C141.8 111.3 133.5 116.2 126.9 117.5 C130.6 111.9 138.4 106.1 145.3 105.3M143.3 101.9 C137.4 105.6 127.8 106.1 121.4 104.2 C127.2 100.9 136.8 99.5 143.3 101.9M143.3 98.1 C136.5 99.6 127.3 96.8 121.9 92.8 C128.5 91.8 138 93.6 143.3 98.1M145.3 94.7 C138.6 92.9 131.7 86.2 128.8 80.1 C135.1 82.2 142.7 88.3 145.3 94.7M148.8 92.5 C143.7 87.9 140.7 78.6 141 71.9 C145.6 76.8 149.5 85.7 148.8 92.5M153.1 92.1 C150.8 85.6 152.4 76 155.7 70.2 C157.6 76.6 156.9 86.3 153.1 92.1M157.1 93.4 C158.1 86.6 164 78.9 169.6 75.3 C168.3 81.9 163.1 90.1 157.1 93.4M160 96.3 C164 90.7 172.8 86.6 179.4 86.1 C175.2 91.2 166.9 96.1 160 96.3M143 100a9 8 0 1 0 18 0a9 8 0 1 0 -18 0M99 217L90 212M93 214l-2 -9 M93 214l-7 6M90 212L81 207M84 209l-2 -9 M84 209l-7 6M81 207L72 202M75 204l-2 -9 M75 204l-7 6M72 202L63 197M66 199l-2 -9 M66 199l-7 6M63 197L54 192M57 194l-2 -9 M57 194l-7 6M98 182L107 177M104 179l2 -9 M104 179l7 6M107 177L116 172M113 174l2 -9 M113 174l7 6M116 172L125 167M122 169l2 -9 M122 169l7 6M125 167L134 162M131 164l2 -9 M131 164l7 6M134 162L143 157M140 159l2 -9 M140 159l7 6M98 152L89 147M92 149l-2 -9 M92 149l-7 6M89 147L80 142M83 144l-2 -9 M83 144l-7 6M80 142L71 137M74 139l-2 -9 M74 139l-7 6M71 137L62 132M65 134l-2 -9 M65 134l-7 6M62 132L53 127M56 129l-2 -9 M56 129l-7 6M109 147L118 142M115 144l2 -9 M115 144l7 6M118 142L127 137M124 139l2 -9 M124 139l7 6M127 137L136 132M133 134l2 -9 M133 134l7 6M136 132L145 127M142 129l2 -9 M142 129l7 6M145 127L154 122M151 124l2 -9 M151 124l7 6"/><circle cx="102" cy="66" r=".9" fill="currentColor" stroke="none"/><circle cx="101.1" cy="69.2" r=".9" fill="currentColor" stroke="none"/><circle cx="94.9" cy="68.6" r=".9" fill="currentColor" stroke="none"/><circle cx="98.5" cy="64.9" r=".9" fill="currentColor" stroke="none"/><circle cx="101.9" cy="63.1" r=".9" fill="currentColor" stroke="none"/><circle cx="105.9" cy="67.1" r=".9" fill="currentColor" stroke="none"/><circle cx="100.1" cy="67.7" r=".9" fill="currentColor" stroke="none"/><circle cx="96.2" cy="67.1" r=".9" fill="currentColor" stroke="none"/><circle cx="96.6" cy="61.9" r=".9" fill="currentColor" stroke="none"/><circle cx="101.3" cy="64.7" r=".9" fill="currentColor" stroke="none"/><circle cx="103.6" cy="67.4" r=".9" fill="currentColor" stroke="none"/><circle cx="99" cy="70.9" r=".9" fill="currentColor" stroke="none"/></g><g id="hib"><path d="M104 256Q100 200 101 175Q102 150 101 131L100 112M100 84 C73 67.2 77 40.8 100 24 C123 40.8 127 67.2 100 84M100 84 L100 26.4M100 72 Q93.9 67.8 86.5 63M100 72 Q106.1 67.8 113.5 63M100 54 Q92.5 49.8 83.3 45M100 54 Q107.5 49.8 116.7 45M100 36 Q94.7 31.8 88.2 27M100 36 Q105.3 31.8 111.8 27M100 84 C107.6 53.1 134 48.8 157.1 65.5 C148.2 92.5 124.3 104.5 100 84M100 84 L154.8 66.2M111.4 80.3 Q113.5 73.2 115.8 64.6M111.4 80.3 Q117.3 84.8 124.2 90.4M128.5 74.7 Q130.2 66.3 131.9 56.1M128.5 74.7 Q134.8 80.6 142.2 87.8M145.7 69.2 Q148 62.8 150.6 55.1M145.7 69.2 Q151.3 72.9 157.9 77.6M100 84 C131.7 81.7 144 105.5 135.3 132.5 C106.8 132.4 88 113.5 100 84M100 84 L133.9 130.6M107.1 93.7 Q114.5 93.5 123.3 93M107.1 93.7 Q104.6 100.7 101.4 108.9M117.6 108.3 Q126.2 107.3 136.4 105.7M117.6 108.3 Q114 116.1 109.4 125.4M128.2 122.8 Q135 123.1 143.1 123.2M128.2 122.8 Q126.4 129.4 123.9 137.1M100 84 C112 113.5 93.2 132.4 64.7 132.5 C56 105.5 68.3 81.7 100 84M100 84 L66.1 130.6M92.9 93.7 Q95.4 100.7 98.6 108.9M92.9 93.7 Q85.5 93.5 76.7 93M82.4 108.3 Q86 116.1 90.6 125.4M82.4 108.3 Q73.8 107.3 63.6 105.7M71.8 122.8 Q73.6 129.4 76.1 137.1M71.8 122.8 Q65 123.1 56.9 123.2M100 84 C75.7 104.5 51.8 92.5 42.9 65.5 C66 48.8 92.4 53.1 100 84M100 84 L45.2 66.2M88.6 80.3 Q82.7 84.8 75.8 90.4M88.6 80.3 Q86.5 73.2 84.2 64.6M71.5 74.7 Q65.2 80.6 57.8 87.8M71.5 74.7 Q69.8 66.3 68.1 56.1M54.3 69.2 Q48.7 72.9 42.1 77.6M54.3 69.2 Q52 62.8 49.4 55.1M100 84Q116 62 132 40M101 196 C109.3 174.6 134.4 163.8 155.7 166.9 C146.4 186.3 123.4 201.1 101 196M101 196 L153.6 168.1M111.9 190.2 Q114.2 185.2 116.6 179.2M111.9 190.2 Q117.4 191.1 123.7 192.5M122.9 184.4 Q124.8 178.7 126.8 171.9M122.9 184.4 Q128.7 186 135.4 188.1M133.8 178.5 Q135.8 173 137.9 166.4M133.8 178.5 Q139.5 180 146.2 182M144.8 172.7 Q147.2 168.1 149.9 162.5M144.8 172.7 Q150 173.3 156.1 174.2M101 168 C80.4 172.3 60.1 158.1 52.5 140 C72 137.5 94.4 148 101 168M101 168 L54.4 141.1M91.3 162.4 Q86.3 163.2 80.5 164.3M91.3 162.4 Q89.5 157.7 87.5 152.1M81.6 156.8 Q76.3 158.2 70 160M81.6 156.8 Q80.1 151.5 78.6 145.2M71.9 151.2 Q66.6 152.5 60.5 154.1M71.9 151.2 Q70.4 146 68.8 139.9M62.2 145.6 Q57.4 146 51.9 146.7M62.2 145.6 Q60.2 141.2 58 136.1M104 232q14 -6 20 -18M121 209a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/><circle cx="118" cy="56" r="1.6" fill="currentColor" stroke="none"/><circle cx="125" cy="57.6" r="1.6" fill="currentColor" stroke="none"/><circle cx="132" cy="49.2" r="1.6" fill="currentColor" stroke="none"/><circle cx="121" cy="50.8" r="1.6" fill="currentColor" stroke="none"/><circle cx="128" cy="42.4" r="1.6" fill="currentColor" stroke="none"/><circle cx="135" cy="44" r="1.6" fill="currentColor" stroke="none"/><circle cx="124" cy="35.6" r="1.6" fill="currentColor" stroke="none"/></g><g id="verb"><path d="M100 256Q103 232.8 104.3 221.2Q105.6 209.6 106.7 198Q107.8 186.4 108.6 174.8Q109.3 163.2 109.6 151.6Q110 140 109.9 128.4Q109.7 116.8 109.2 105.2Q108.6 93.6 107.7 82Q106.8 70.4 105.5 58.8Q104.3 47.2 102.8 35.6L101.4 24M104.1 223.5 C82.6 218.8 55.6 200.6 41.3 184.3 C62.2 190 90.4 206.3 104.1 223.5M104.1 223.5 L43.8 185.9M104.1 223.5 C117.7 206.3 145.9 190 166.8 184.3 C152.6 200.6 125.6 218.8 104.1 223.5M104.1 223.5 L164.3 185.9M104.1 223.5 C96.3 212 92.9 192.1 94.5 178.6 C101.5 190.3 106.5 209.9 104.1 223.5M104.1 223.5 L94.9 180.4M108.2 181.8 C87.9 177.3 62.3 160.1 48.8 144.7 C68.6 150 95.3 165.4 108.2 181.8M108.2 181.8 L51.2 146.1M108.2 181.8 C121.1 165.4 147.8 150 167.6 144.7 C154.1 160.1 128.5 177.3 108.2 181.8M108.2 181.8 L165.2 146.1M108.2 181.8 C100.9 170.9 97.6 152.1 99.2 139.3 C105.8 150.3 110.5 168.9 108.2 181.8M108.2 181.8 L99.5 141M110 140 C92 136.1 69.3 120.8 57.4 107.1 C74.9 111.9 98.5 125.5 110 140M110 140 L59.5 108.5M110 140 C121.4 125.5 145 111.9 162.6 107.1 C150.6 120.8 128 136.1 110 140M110 140 L160.5 108.5M110 140 C103.5 130.4 100.6 113.7 102 102.4 C107.8 112.2 112 128.6 110 140M110 140 L102.3 103.9M109.1 100.6 C94.5 97.4 76.3 85.1 66.6 74.1 C80.8 77.9 99.8 88.9 109.1 100.6M109.1 100.6 L68.3 75.1M109.1 100.6 C118.3 88.9 137.3 77.9 151.5 74.1 C141.8 85.1 123.6 97.4 109.1 100.6M109.1 100.6 L149.8 75.1M109.1 100.6 C107.4 91.3 110.8 78.1 115.5 70.2 C116.6 79.3 114.3 92.8 109.1 100.6M109.1 100.6 L115.2 71.5M106.3 65.8 C95.3 63.3 81.4 54 74.1 45.6 C84.8 48.5 99.3 56.9 106.3 65.8M106.3 65.8 L75.4 46.4M106.3 65.8 C113.3 56.9 127.8 48.5 138.5 45.6 C131.2 54 117.3 63.3 106.3 65.8M106.3 65.8 L137.2 46.4M106.3 65.8 C102.3 59.9 100.6 49.6 101.4 42.7 C105 48.7 107.5 58.8 106.3 65.8M106.3 65.8 L101.6 43.6M103.4 40.2 C96.5 38.7 87.7 32.8 83.1 27.5 C89.9 29.4 99 34.6 103.4 40.2M103.4 40.2 L83.9 28M103.4 40.2 C107.9 34.6 117 29.4 123.8 27.5 C119.2 32.8 110.4 38.7 103.4 40.2M103.4 40.2 L123 28M103.4 40.2 C102.7 35.8 104.3 29.5 106.5 25.7 C107.1 30.1 106 36.5 103.4 40.2M103.4 40.2 L106.4 26.3"/></g><g id="lav"><path d="M100 256Q92.3 170 75.2 135Q58.2 100 57.1 72L56 44M56.2 48 C51.9 48.1 49.9 44.7 50.6 40.9 C54.4 41.1 57.3 43.9 56.2 48M56.2 48 C55 43.9 57.9 41.1 61.7 40.9 C62.4 44.7 60.4 48.1 56.2 48M56.5 57.5 C51.7 57.7 49.5 53.9 50.4 49.6 C54.7 49.8 57.9 52.9 56.5 57.5M56.5 57.5 C55.2 52.9 58.4 49.8 62.7 49.6 C63.6 53.9 61.3 57.7 56.5 57.5M56.9 67 C51.5 67.3 49.1 63.1 50.1 58.3 C55 58.5 58.5 61.9 56.9 67M56.9 67 C55.3 61.9 58.8 58.5 63.7 58.3 C64.7 63.1 62.3 67.3 56.9 67M57.3 76.5 C51.3 76.9 48.7 72.3 49.9 67 C55.2 67.1 59.1 70.8 57.3 76.5M57.3 76.5 C55.5 70.8 59.3 67.1 64.7 67 C65.9 72.3 63.2 76.9 57.3 76.5M57.6 86 C51.7 86.4 49 81.8 50.3 76.5 C55.6 76.6 59.4 80.3 57.6 86M57.6 86 C55.9 80.3 59.7 76.6 65 76.5 C66.3 81.8 63.6 86.4 57.6 86M58 95.5 C52.1 95.9 49.4 91.3 50.6 86 C56 86.1 59.8 89.8 58 95.5M58 95.5 C56.2 89.8 60.1 86.1 65.4 86 C66.6 91.3 64 95.9 58 95.5M58.4 105 C52.5 105.4 49.8 100.8 51 95.5 C56.4 95.6 60.2 99.3 58.4 105M58.4 105 C56.6 99.3 60.4 95.6 65.8 95.5 C67 100.8 64.3 105.4 58.4 105M56 46 C53.4 43.5 53.8 39.5 56 37 C58.2 39.5 58.6 43.5 56 46M100 256Q100 170 100 135Q100 100 100 61L100 22M100 26 C95.8 26.1 93.7 22.7 94.5 18.9 C98.3 19.1 101.1 21.9 100 26M100 26 C98.9 21.9 101.7 19.1 105.5 18.9 C106.3 22.7 104.2 26.1 100 26M100 35.5 C95.2 35.7 93 31.9 93.8 27.6 C98.2 27.8 101.3 30.9 100 35.5M100 35.5 C98.7 30.9 101.8 27.8 106.2 27.6 C107 31.9 104.8 35.7 100 35.5M100 45 C94.6 45.3 92.2 41.1 93.2 36.3 C98.1 36.5 101.6 39.9 100 45M100 45 C98.4 39.9 101.9 36.5 106.8 36.3 C107.8 41.1 105.4 45.3 100 45M100 54.5 C94.1 54.9 91.4 50.3 92.6 45 C98 45.1 101.8 48.8 100 54.5M100 54.5 C98.2 48.8 102 45.1 107.4 45 C108.6 50.3 105.9 54.9 100 54.5M100 64 C94.1 64.4 91.4 59.8 92.6 54.5 C98 54.6 101.8 58.3 100 64M100 64 C98.2 58.3 102 54.6 107.4 54.5 C108.6 59.8 105.9 64.4 100 64M100 73.5 C94.1 73.9 91.4 69.3 92.6 64 C98 64.1 101.8 67.8 100 73.5M100 73.5 C98.2 67.8 102 64.1 107.4 64 C108.6 69.3 105.9 73.9 100 73.5M100 83 C94.1 83.4 91.4 78.8 92.6 73.5 C98 73.6 101.8 77.3 100 83M100 83 C98.2 77.3 102 73.6 107.4 73.5 C108.6 78.8 105.9 83.4 100 83M100 24 C97.4 21.5 97.8 17.5 100 15 C102.2 17.5 102.6 21.5 100 24M100 256Q107.7 170 125.8 135Q143.8 100 144.9 74L146 48M145.8 52 C141.6 52.1 139.6 48.7 140.3 44.9 C144.1 45.1 147 47.9 145.8 52M145.8 52 C144.7 47.9 147.6 45.1 151.4 44.9 C152.1 48.7 150.1 52.1 145.8 52M145.5 61.5 C140.7 61.7 138.4 57.9 139.3 53.6 C143.6 53.8 146.8 56.9 145.5 61.5M145.5 61.5 C144.1 56.9 147.3 53.8 151.6 53.6 C152.5 57.9 150.3 61.7 145.5 61.5M145.1 71 C139.7 71.3 137.3 67.1 138.3 62.3 C143.2 62.5 146.7 65.9 145.1 71M145.1 71 C143.5 65.9 147 62.5 151.9 62.3 C152.9 67.1 150.5 71.3 145.1 71M144.7 80.5 C138.8 80.9 136.1 76.3 137.3 71 C142.7 71.1 146.5 74.8 144.7 80.5M144.7 80.5 C142.9 74.8 146.8 71.1 152.1 71 C153.3 76.3 150.7 80.9 144.7 80.5M144.3 90 C138.4 90.4 135.7 85.8 137 80.5 C142.3 80.6 146.1 84.3 144.3 90M144.3 90 C142.6 84.3 146.4 80.6 151.7 80.5 C153 85.8 150.3 90.4 144.3 90M144 99.5 C138 99.9 135.4 95.3 136.6 90 C141.9 90.1 145.8 93.8 144 99.5M144 99.5 C142.2 93.8 146 90.1 151.4 90 C152.6 95.3 149.9 99.9 144 99.5M143.6 109 C137.7 109.4 135 104.8 136.2 99.5 C141.6 99.6 145.4 103.3 143.6 109M143.6 109 C141.8 103.3 145.6 99.6 151 99.5 C152.2 104.8 149.5 109.4 143.6 109M146 50 C143.4 47.5 143.8 43.5 146 41 C148.2 43.5 148.6 47.5 146 50M100 238 C82.7 232.2 58.6 217.6 44.6 206 C61.6 212.3 86.3 225.9 100 238M100 238 L46.8 207.3M100 238 C84.9 223.4 66.2 196.7 56.5 178.1 C71.2 193.1 90.7 219.1 100 238M100 238 L58.2 180.5M100 238 C107.6 219 124.9 192.4 138.2 176.9 C130.1 195.7 113.7 222.8 100 238M100 238 L136.6 179.4M100 238 C112.8 225.7 136.2 211.7 152.6 205.1 C139.5 216.9 116.6 231.9 100 238M100 238 L150.5 206.5M100 206 C93.1 193.3 88.3 171.8 87.9 157.5 C94.3 170.3 100.1 191.5 100 206M100 206 L88.4 159.4M100 206 C99.3 192.1 104.2 171.6 110 159 C110.2 172.8 106.3 193.6 100 206M100 206 L109.6 160.9"/></g><g id="cup"><path d="M52 132h136c0 44-26 70-68 70s-68-26-68-70zM52 132c0-9 136-9 136 0M60 140c20 8 100 8 120 0M188 142c26-6 40 8 34 26s-26 24-44 20M188 152c16-3 24 6 21 16s-13 14-27 13M96 202c-4 8 52 8 48 0M40 212c0 12 160 12 160 0s-160-12-160 0M66 216c20 6 88 6 108 0M98 122Q89 95.1 97.5 80.7Q106 66.3 100.5 53.8Q95 41.4 95 41.2Q95 41 92.2 39.7Q89.5 38.4 87.7 36.3Q85.9 34.2 85.1 31.8Q84.4 29.4 84.7 27.2Q85 24.9 86.1 23.2Q87.1 21.4 88.7 20.4Q90.2 19.3 91.9 19Q93.5 18.7 95 19.1Q96.5 19.4 97.5 20.3Q98.6 21.1 99.2 22.2Q99.8 23.3 99.9 24.4Q100 25.5 99.6 26.5Q99.3 27.5 98.6 28.1Q98 28.8 97.2 29.1Q96.5 29.4 95.7 29.4Q94.9 29.3 94.3 29Q93.7 28.7 93.3 28.3Q92.9 27.8 92.8 27.3Q92.6 26.7 92.7 26.2Q92.8 25.7 93 25.3Q93.3 24.9 93.6 24.7L94 24.5M128 122Q137 90.6 128.5 73.8Q120 57 125.5 42.5Q131 27.9 131 26.5Q131 25 133.8 23.7Q136.5 22.4 138.3 20.3Q140.1 18.2 140.9 15.8Q141.6 13.4 141.3 11.2Q141 8.9 139.9 7.2Q138.9 5.4 137.3 4.4Q135.8 3.3 134.1 3Q132.5 2.7 131 3.1Q129.5 3.4 128.5 4.3Q127.4 5.1 126.8 6.2Q126.2 7.3 126.1 8.4Q126 9.5 126.4 10.5Q126.7 11.5 127.4 12.1Q128 12.8 128.8 13.1Q129.5 13.4 130.3 13.4Q131.1 13.3 131.7 13Q132.3 12.7 132.7 12.3Q133.1 11.8 133.2 11.3Q133.4 10.7 133.3 10.2Q133.2 9.7 133 9.3Q132.7 8.9 132.4 8.7L132 8.5M150 122Q141 99.6 149.5 87.6Q158 75.6 152.5 65.2Q147 54.8 147 55.9Q147 57 144.2 55.7Q141.5 54.4 139.7 52.3Q137.9 50.2 137.1 47.8Q136.4 45.4 136.7 43.2Q137 40.9 138.1 39.2Q139.1 37.4 140.7 36.4Q142.2 35.3 143.9 35Q145.5 34.7 147 35.1Q148.5 35.4 149.5 36.3Q150.6 37.1 151.2 38.2Q151.8 39.3 151.9 40.4Q152 41.5 151.6 42.5Q151.3 43.5 150.6 44.1Q150 44.8 149.2 45.1Q148.5 45.4 147.7 45.4Q146.9 45.3 146.3 45Q145.7 44.7 145.3 44.3Q144.9 43.8 144.8 43.3Q144.6 42.7 144.7 42.2Q144.8 41.7 145 41.3Q145.3 40.9 145.6 40.7L146 40.5"/></g><g id="steam"><path d="M10 44h34c0 12-6 20-17 20s-17-8-17-20zM44 47c9-1 9 11-2 11M6 66h42M20 36c-6-8 6-12 0-20M32 36c-6-8 6-12 0-20M26 30c-4-6 4-9 0-15"/></g><g id="ice"><path d="M12 14l5 50h26l5-50zM10 14h40M15 30h30M22 36l10-3 3 10-10 3zM30 50l8-5 5 8-8 5zM36 14L46 2"/></g><g id="stand"><path d="M120 14v286M112 14c0-10 16-10 16 0M108 20h24M70 96c0 8 100 8 100 0s-100-8-100 0M70 96c6 10 94 10 100 0M46 186c0 10 148 10 148 0s-148-10-148 0M46 186c8 12 140 12 148 0M22 286c0 12 196 12 196 0s-196-12-196 0M22 286c10 14 186 14 196 0M92 306h56M82 92l10-22 14 22M134 92v-16h22v16M140 76c2-8 10-8 11 0M96 70l5 6M66 182c-2-22 34-22 32 0M68 172h28M104 182c-2-22 34-22 32 0M106 172h28M142 182c-2-22 34-22 32 0M144 172h28M176 182v-12c0-6 14-6 14 0v12M40 282v-20h28v20M40 269h28M40 275h28M74 282v-20h28v20M74 269h28M74 275h28M134 282v-20h28v20M134 269h28M134 275h28M168 282v-20h28v20M168 269h28M168 275h28M108 282c-2-16 26-16 24 0"/></g></defs></svg><!--/SYM-->
+<div class="wrap">
+
+<aside class="index">
+  <div class="mark"><svg class="ill" viewBox="0 0 260 520" aria-hidden="true"><use href="#fern"/></svg><b lang="en">Fern &amp; Steam</b><b lang="ar">سرخس وبخار</b></div>
+  <h2><span lang="en">Index of Plates</span><span lang="ar">فهرس اللوحات</span></h2>
+  <nav aria-label="Plates">
+    <a href="#p1"><b>I.</b><span lang="en">The True Teas</span><span lang="ar">الشاي الأصيل</span></a>
+    <a href="#p2"><b>II.</b><span lang="en">Tisanes &amp; Infusions</span><span lang="ar">الأعشاب المنقوعة</span></a>
+    <a href="#p3"><b>III.</b><span lang="en">Steamed &amp; Iced</span><span lang="ar">بالبخار وعلى الثلج</span></a>
+    <a href="#p4"><b>IV.</b><span lang="en">The Tea Table</span><span lang="ar">مائدة الشاي</span></a>
+    <a href="#p5"><b>V.</b><span lang="en">Afternoon Tea</span><span lang="ar">شاي العصر</span></a>
+  </nav>
+  <div class="ctl">
+    <a class="home-link" href="../index.html" aria-label="All menus"><svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M0 0h6v6H0zM8 0h6v6H8zM0 8h6v6H0zM8 8h6v6H8z"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+</aside>
+
+<main>
+<!-- TITLE PAGE -->
+<header class="sheet title">
+  <svg class="ill frond f1" viewBox="0 0 260 520" aria-hidden="true"><use href="#fern"/></svg>
+  <svg class="ill frond f2" viewBox="0 0 260 520" aria-hidden="true"><use href="#fern"/></svg>
+  <i class="tape t1"></i><i class="tape t2"></i>
+  <div class="in">
+    <p class="pre"><span lang="en">The Herbarium of</span><span lang="ar">مَعشَبة</span></p>
+    <h1><span lang="en">Fern <i>&amp;</i> Steam</span><span lang="ar">سرخس <i>و</i> بخار</span></h1>
+    <div class="rule">❦</div>
+    <p class="sub"><span lang="en">being a faithful Catalogue of Teas, Tisanes<br>&amp; small Comforts, steeped daily</span><span lang="ar">فهرسٌ أمين لأصناف الشاي والأعشاب المنقوعة<br>وما يرافقها من لطائف، تُنقع كل يوم</span></p>
+    <p class="lead"><span lang="en">Every leaf in this folio has been gathered, dried and described by hand. Choose a specimen; we shall see to the kettle, the timer and the proper cup.</span><span lang="ar">كل ورقة في هذا المجلّد قُطفت وجُفّفت ووُصفت باليد. اختر عيّنتك، ودع لنا أمر الغلاية والمؤقّت والفنجان اللائق.</span></p>
+    <svg class="ill cup" viewBox="0 0 240 230" aria-hidden="true"><use href="#cup"/></svg>
+    <p class="imp"><span lang="en">Tea House · at the sign of the copper kettle<br>Established MDCCCLXXXVII</span><span lang="ar">بيت الشاي · عند لافتة الغلاية النحاسية<br>تأسّس سنة ١٨٨٧</span></p>
+  </div>
+</header>
+
+<!-- PLATE I -->
+<section class="sheet" id="p1">
+  <div class="rh"><span lang="en">Herbarium of Fern &amp; Steam</span><span lang="ar">معشبة سرخس وبخار</span><b lang="en">Plate I.</b><b lang="ar">اللوحة الأولى</b></div>
+  <div class="ptitle">
+    <h2><span lang="en">The True Teas</span><span lang="ar">الشاي الأصيل</span></h2>
+    <span class="lat">Camellia sinensis (L.) Kuntze</span>
+    <p><span lang="en">One plant, six temperaments. Served by the pot for one, with a sand-glass set to the proper steep.</span><span lang="ar">نبتة واحدة وستة أمزجة. يُقدَّم في إبريق لشخص واحد، مع ساعة رملية مضبوطة على مدة النقع الصحيحة.</span></p>
+  </div>
+  <div class="p1">
+    <div class="mount">
+      <i class="tape"></i><i class="tape"></i>
+      <svg class="ill" viewBox="0 0 360 520" role="img" aria-label="Tea branch"><use href="#tea"/></svg>
+      <div class="label">
+        <strong lang="en">Herb. Fern &amp; Steam</strong><strong lang="ar">معشبة سرخس وبخار</strong>
+        <dl>
+          <dt><span lang="en">No.</span><span lang="ar">رقم</span></dt><dd>0001</dd>
+          <dt><span lang="en">Loc.</span><span lang="ar">الموطن</span></dt><dd><span lang="en">Assam, upper valley</span><span lang="ar">أعالي وادي آسام</span></dd>
+          <dt><span lang="en">Coll.</span><span lang="ar">الجامع</span></dt><dd><span lang="en">two leaves &amp; a bud</span><span lang="ar">ورقتان وبرعم</span></dd>
+        </dl>
+      </div>
+    </div>
+    <ol class="spec">
+      <li><span class="n">1.</span><div><h3 lang="en">Assam Breakfast</h3><h3 lang="ar">شاي آسام للفطور</h3><span class="bin">var. assamica — Assam, India</span><p lang="en">Malty, brisk and the colour of new copper. The one that stands up to milk.</p><p lang="ar">قويّ بنكهة الشعير المحمّص ولونٍ كالنحاس الجديد. هو الذي يصمد أمام الحليب.</p><span class="steep"><svg viewBox="0 0 11 16"><path d="M1 1h9L6.2 8 10 15H1l3.800-7z"/></svg><span lang="en">100 °C · 4 min</span><span lang="ar">١٠٠ °م · ٤ دقائق</span></span></div><span class="price">£4.80</span></li>
+      <li><span class="n">2.</span><div><h3><span lang="en">Darjeeling First Flush</span><span lang="ar">دارجيلنغ القطفة الأولى</span><span class="stamp"><span lang="en">Curator’s choice</span><span lang="ar">اختيار القيّم</span></span></h3><span class="bin">var. sinensis — Darjeeling, 2,000 m</span><p lang="en">Pale gold in the cup, with muscatel grape and spring blossom. Take it without milk.</p><p lang="ar">ذهبيّ فاتح في الفنجان، فيه عنب المسكات وزهر الربيع. يُشرب بلا حليب.</p><span class="steep"><svg viewBox="0 0 11 16"><path d="M1 1h9L6.2 8 10 15H1l3.800-7z"/></svg><span lang="en">90 °C · 3 min</span><span lang="ar">٩٠ °م · ٣ دقائق</span></span></div><span class="price">£6.20</span></li>
+      <li><span class="n">3.</span><div><h3 lang="en">Earl Grey Blue</h3><h3 lang="ar">إيرل غراي الأزرق</h3><span class="bin">cum Citrus bergamia — Ceylon</span><p lang="en">High-grown black tea scented with oil of bergamot and strewn with cornflower petals.</p><p lang="ar">شاي أسود من المرتفعات معطّر بزيت البرغموت ومنثور ببتلات القنطريون الأزرق.</p><span class="steep"><svg viewBox="0 0 11 16"><path d="M1 1h9L6.2 8 10 15H1l3.800-7z"/></svg><span lang="en">95 °C · 4 min</span><span lang="ar">٩٥ °م · ٤ دقائق</span></span></div><span class="price">£5.00</span></li>
+      <li><span class="n">4.</span><div><h3 lang="en">Dragon Well</h3><h3 lang="ar">بئر التنّين (لونغ جينغ)</h3><span class="bin">Longjing — Hangzhou, China</span><p lang="en">Flat, pan-fired green leaves; sweet chestnut, soft and entirely without bitterness.</p><p lang="ar">أوراق خضراء مسطّحة محمّصة في المقلاة؛ حلاوة الكستناء ونعومة بلا أثرٍ للمرارة.</p><span class="steep"><svg viewBox="0 0 11 16"><path d="M1 1h9L6.2 8 10 15H1l3.800-7z"/></svg><span lang="en">80 °C · 2 min</span><span lang="ar">٨٠ °م · دقيقتان</span></span></div><span class="price">£6.00</span></li>
+      <li><span class="n">5.</span><div><h3 lang="en">Iron Goddess Oolong</h3><h3 lang="ar">أولونغ «إلهة الحديد»</h3><span class="bin">Tieguanyin — Anxi, Fujian</span><p lang="en">Tightly rolled leaves that unfurl into orchid, warm butter and a long, sweet finish.</p><p lang="ar">أوراق ملفوفة بإحكام تتفتّح عن عبير الأوركيد والزبدة الدافئة وخاتمة حلوة طويلة.</p><span class="steep"><svg viewBox="0 0 11 16"><path d="M1 1h9L6.2 8 10 15H1l3.800-7z"/></svg><span lang="en">90 °C · 3 min</span><span lang="ar">٩٠ °م · ٣ دقائق</span></span></div><span class="price">£6.50</span></li>
+      <li><span class="n">6.</span><div><h3 lang="en">Silver Needle</h3><h3 lang="ar">الإبرة الفضّية</h3><span class="bin">Baihao Yinzhen — Fuding, Fujian</span><p lang="en">White tea of downy buds only. Honeydew melon, fresh hay, a whisper rather than a statement.</p><p lang="ar">شاي أبيض من البراعم الزغبية وحدها. شمّام وقشّ طازج؛ همسةٌ لا تصريح.</p><span class="steep"><svg viewBox="0 0 11 16"><path d="M1 1h9L6.2 8 10 15H1l3.800-7z"/></svg><span lang="en">75 °C · 5 min</span><span lang="ar">٧٥ °م · ٥ دقائق</span></span></div><span class="price">£7.20</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- PLATE II -->
+<section class="sheet" id="p2">
+  <div class="rh"><span lang="en">Herbarium of Fern &amp; Steam</span><span lang="ar">معشبة سرخس وبخار</span><b lang="en">Plate II.</b><b lang="ar">اللوحة الثانية</b></div>
+  <div class="ptitle">
+    <h2><span lang="en">Tisanes &amp; Infusions</span><span lang="ar">الأعشاب المنقوعة</span></h2>
+    <span class="lat">Herbae variae, sine theina</span>
+    <p><span lang="en">Five mounted specimens from the kitchen garden, all free of caffeine. Steep as long as you please.</span><span lang="ar">خمس عيّنات مثبّتة من حديقة المطبخ، خالية كلها من الكافيين. انقعها ما طاب لك.</span></p>
+  </div>
+  <div class="cards">
+    <article class="card"><i class="tape"></i><span class="no">7.</span><svg class="ill" viewBox="0 0 200 260" aria-hidden="true"><use href="#mint"/></svg><h3 lang="en">Garden Mint</h3><h3 lang="ar">نعناع الحديقة</h3><span class="bin">Mentha spicata</span><p lang="en">Fresh spearmint, cut this morning, and nothing else in the pot.</p><p lang="ar">نعناع أخضر طازج قُطف هذا الصباح، ولا شيء سواه في الإبريق.</p><span class="price">£4.20</span></article>
+    <article class="card"><i class="tape"></i><span class="no">8.</span><svg class="ill" viewBox="0 0 200 260" aria-hidden="true"><use href="#daisy"/></svg><h3 lang="en">Chamomile Flowers</h3><h3 lang="ar">أزهار البابونج</h3><span class="bin">Matricaria chamomilla</span><p lang="en">Whole blossoms tasting of apple and honey. For the far end of the day.</p><p lang="ar">أزهار كاملة بطعم التفاح والعسل. لآخر النهار حين يهدأ كل شيء.</p><span class="price">£4.20</span></article>
+    <article class="card"><i class="tape"></i><span class="no">9.</span><svg class="ill" viewBox="0 0 200 260" aria-hidden="true"><use href="#hib"/></svg><h3 lang="en">Hibiscus &amp; Rosehip</h3><h3 lang="ar">كركديه وثمر الورد</h3><span class="bin">Hibiscus sabdariffa</span><p lang="en">Ruby red and tart as cranberry; handsome hot, better still over ice.</p><p lang="ar">أحمر ياقوتي بحموضة التوت البري؛ جميل ساخنًا، وأجمل على الثلج.</p><span class="price">£4.50</span></article>
+    <article class="card"><i class="tape"></i><span class="no">10.</span><svg class="ill" viewBox="0 0 200 260" aria-hidden="true"><use href="#verb"/></svg><h3 lang="en">Lemon Verbena</h3><h3 lang="ar">لويزة ليمونية</h3><span class="bin">Aloysia citrodora</span><p lang="en">Slender leaves from our glasshouse, bright as lemon sherbet.</p><p lang="ar">أوراق نحيلة من بيتنا الزجاجي، منعشة كشراب الليمون.</p><span class="price">£4.50</span></article>
+    <article class="card"><i class="tape"></i><span class="no">11.</span><svg class="ill" viewBox="0 0 200 260" aria-hidden="true"><use href="#lav"/></svg><h3><span lang="en">Lavender &amp; Sage</span><span lang="ar">خزامى ومريمية</span></h3><span class="bin">Lavandula angustifolia</span><p lang="en">Soothing and resinous, sweetened with a little heather honey.</p><p lang="ar">مهدّئ بعطرٍ راتنجي، يُحلّى بقليل من عسل الخلنج.</p><span class="price">£4.80</span></article>
+  </div>
+</section>
+
+<!-- PLATE III -->
+<section class="sheet" id="p3">
+  <div class="rh"><span lang="en">Herbarium of Fern &amp; Steam</span><span lang="ar">معشبة سرخس وبخار</span><b lang="en">Plate III.</b><b lang="ar">اللوحة الثالثة</b></div>
+  <div class="ptitle">
+    <h2><span lang="en">Steamed &amp; Iced</span><span lang="ar">بالبخار وعلى الثلج</span></h2>
+    <span class="lat">Clavis analytica — a key to the species</span>
+    <p><span lang="en">Follow the key as a botanist would: first decide whether you are cold or warm, then proceed to your specimen.</span><span lang="ar">اتّبع المفتاح كما يفعل عالم النبات: حدّد أولًا أتشعر بالبرد أم بالحرّ، ثم امضِ إلى عيّنتك.</span></p>
+  </div>
+  <div class="key">
+    <div>
+      <h4><svg class="ill" viewBox="0 0 60 68" aria-hidden="true"><use href="#steam"/></svg><span lang="en">a. Guest is chilled — served steaming</span><span lang="ar">أ. الضيف يشعر بالبرد — يُقدَّم ساخنًا</span></h4>
+      <ul>
+        <li><div class="row" data-n="12."><h3 lang="en">London Fog</h3><h3 lang="ar">ضباب لندن</h3><i></i><span class="price">£5.20</span></div><p lang="en">Earl Grey Blue under steamed milk and a thread of vanilla.</p><p lang="ar">إيرل غراي الأزرق تحت حليب مبخّر وخيط من الفانيلا.</p></li>
+        <li><div class="row" data-n="13."><h3><span lang="en">Masala Chai</span><span lang="ar">شاي ماسالا</span><span class="stamp"><span lang="en">Curator’s choice</span><span lang="ar">اختيار القيّم</span></span></h3><i></i><span class="price">£5.20</span></div><p lang="en">Assam simmered in the pan with cardamom, ginger, clove and black pepper.</p><p lang="ar">شاي آسام يُغلى في القدر مع الهيل والزنجبيل والقرنفل والفلفل الأسود.</p></li>
+        <li><div class="row" data-n="14."><h3 lang="en">Matcha Latte</h3><h3 lang="ar">ماتشا لاتيه</h3><i></i><span class="price">£5.80</span></div><p lang="en">Ceremonial Uji matcha whisked by hand, with dairy or oat milk.</p><p lang="ar">ماتشا احتفالية من أوجي تُخفق باليد، مع حليب البقر أو الشوفان.</p></li>
+      </ul>
+    </div>
+    <div>
+      <h4><svg class="ill" viewBox="0 0 60 68" aria-hidden="true"><use href="#ice"/></svg><span lang="en">b. Guest is warm — served over ice</span><span lang="ar">ب. الضيف يشعر بالحرّ — يُقدَّم على الثلج</span></h4>
+      <ul>
+        <li><div class="row" data-n="15."><h3 lang="en">Cold-Brewed Jasmine</h3><h3 lang="ar">ياسمين منقوع على البارد</h3><i></i><span class="price">£4.80</span></div><p lang="en">Jasmine pearls steeped twelve hours in cold water; poured over clear ice.</p><p lang="ar">لآلئ الياسمين تُنقع اثنتي عشرة ساعة في ماء بارد، وتُصبّ فوق ثلج صافٍ.</p></li>
+        <li><div class="row" data-n="16."><h3 lang="en">Hibiscus Cooler</h3><h3 lang="ar">كركديه منعش</h3><i></i><span class="price">£5.00</span></div><p lang="en">Hibiscus, pressed orange, sparkling water and a sprig of garden mint.</p><p lang="ar">كركديه وعصير برتقال وماء فوّار مع غصن من نعناع الحديقة.</p></li>
+        <li><div class="row" data-n="17."><h3 lang="en">Peach Oolong</h3><h3 lang="ar">أولونغ بالخوخ</h3><i></i><span class="price">£5.20</span></div><p lang="en">Iron Goddess shaken with white peach and a little lemon.</p><p lang="ar">«إلهة الحديد» تُرجّ مع الخوخ الأبيض وقليل من الليمون.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PLATE IV -->
+<section class="sheet" id="p4">
+  <div class="rh"><span lang="en">Herbarium of Fern &amp; Steam</span><span lang="ar">معشبة سرخس وبخار</span><b lang="en">Plate IV.</b><b lang="ar">اللوحة الرابعة</b></div>
+  <div class="ptitle">
+    <h2><span lang="en">The Tea Table</span><span lang="ar">مائدة الشاي</span></h2>
+    <span class="lat">Comestibilia — edible companions</span>
+    <p><span lang="en">Baked each morning before the first kettle. Scones leave the oven at eleven and again at three.</span><span lang="ar">تُخبز كل صباح قبل أول غلاية. يخرج السكونز من الفرن في الحادية عشرة ثم في الثالثة.</span></p>
+  </div>
+  <div class="table">
+    <div>
+      <h4><span lang="en">Fig. 1 — Savouries</span><span lang="ar">الشكل ١ — الموالح</span></h4>
+      <ul>
+        <li><h3 lang="en">Cucumber &amp; Mint Fingers</h3><h3 lang="ar">أصابع الخيار والنعناع</h3><span class="price">£6.50</span><p lang="en">Thin white bread, salted butter, cucumber sliced to transparency.</p><p lang="ar">خبز أبيض رقيق وزبدة مملّحة وخيار مقطّع حتى يكاد يشفّ.</p></li>
+        <li><h3 lang="en">Egg &amp; Cress</h3><h3 lang="ar">بيض ورشاد</h3><span class="price">£6.50</span><p lang="en">Soft-boiled egg mayonnaise and peppery cress on malted bread.</p><p lang="ar">مايونيز البيض نصف المسلوق مع الرشاد اللاذع في خبز الشعير.</p></li>
+        <li><h3 lang="en">Smoked Salmon Blini</h3><h3 lang="ar">بليني السلمون المدخّن</h3><span class="price">£8.50</span><p lang="en">Warm buckwheat blini, oak-smoked salmon, dill and lemon cream.</p><p lang="ar">فطائر حنطة سوداء دافئة مع سلمون مدخّن على البلوط وكريمة الشبت والليمون.</p></li>
+        <li><h3 lang="en">Coronation Chicken Brioche</h3><h3 lang="ar">بريوش دجاج التتويج</h3><span class="price">£7.80</span><p lang="en">Poached chicken in mild curried cream with apricot and toasted almond.</p><p lang="ar">دجاج مسلوق في كريمة كاري خفيفة مع المشمش واللوز المحمّص.</p></li>
+        <li><h3 lang="en">Cheddar &amp; Chive Scone</h3><h3 lang="ar">سكون الشيدر والثوم المعمّر</h3><span class="price">£4.80</span><p lang="en">Served warm and split, with whipped butter.</p><p lang="ar">يُقدَّم دافئًا مشطورًا مع زبدة مخفوقة.</p></li>
+      </ul>
+    </div>
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 320" role="img" aria-label="Three-tier cake stand"><use href="#stand"/></svg><figcaption><span lang="en">Fig. 3 — the stand, fully furnished</span><span lang="ar">الشكل ٣ — الحامل بكامل زينته</span></figcaption></figure>
+    <div>
+      <h4><span lang="en">Fig. 2 — Sweets</span><span lang="ar">الشكل ٢ — الحلويات</span></h4>
+      <ul>
+        <li><h3><span lang="en">Plain &amp; Fruit Scones</span><span lang="ar">سكونز سادة وبالزبيب</span><span class="stamp"><span lang="en">Curator’s choice</span><span lang="ar">اختيار القيّم</span></span></h3><span class="price">£6.00</span><p lang="en">A pair, with clotted cream and our strawberry jam. Cream first or jam first: we do not judge.</p><p lang="ar">قطعتان مع القشطة الإنجليزية ومربّى الفراولة من صنعنا. القشطة أولًا أم المربّى؟ لا نحكم على أحد.</p></li>
+        <li><h3 lang="en">Earl Grey Lemon Drizzle</h3><h3 lang="ar">كعكة الليمون بالإيرل غراي</h3><span class="price">£4.80</span><p lang="en">Loaf cake soaked in bergamot-lemon syrup, crisp sugar crust.</p><p lang="ar">كعكة قالب مشرّبة بشراب الليمون والبرغموت، بقشرة سكرية مقرمشة.</p></li>
+        <li><h3 lang="en">Victoria Sponge</h3><h3 lang="ar">إسفنجية فيكتوريا</h3><span class="price">£5.20</span><p lang="en">Two feather-light layers, raspberry jam and fresh cream between.</p><p lang="ar">طبقتان بخفّة الريش، بينهما مربّى التوت الأحمر والكريمة الطازجة.</p></li>
+        <li><h3 lang="en">Lavender Shortbread</h3><h3 lang="ar">بسكويت الزبدة بالخزامى</h3><span class="price">£3.80</span><p lang="en">Three buttery fingers, flowers from specimen No. 11.</p><p lang="ar">ثلاثة أصابع زبدية، أزهارها من العيّنة رقم ١١.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PLATE V -->
+<section class="sheet" id="p5">
+  <div class="rh"><span lang="en">Herbarium of Fern &amp; Steam</span><span lang="ar">معشبة سرخس وبخار</span><b lang="en">Plate V.</b><b lang="ar">اللوحة الخامسة</b></div>
+  <div class="ticket">
+    <span class="stamp"><span lang="en">Complete collection</span><span lang="ar">المجموعة الكاملة</span></span>
+    <p class="pre"><span lang="en">Daily from noon until five</span><span lang="ar">يوميًا من الظهر حتى الخامسة</span></p>
+    <h2><span lang="en">The Full Herbarium</span><span lang="ar">المعشبة الكاملة</span></h2>
+    <p><span lang="en">Afternoon tea upon three tiers, with any pot from Plates I or II, refilled as often as you wish.</span><span lang="ar">شاي العصر على ثلاثة طوابق، مع أي إبريق من اللوحتين الأولى أو الثانية يُعاد ملؤه كلما شئت.</span></p>
+    <div class="tiers">
+      <div><b lang="en">Lower tier</b><b lang="ar">الطابق السفلي</b><span lang="en">Four finger sandwiches and a warm cheddar scone</span><span lang="ar">أربعة أصابع ساندويتش وسكون شيدر دافئ</span></div>
+      <div><b lang="en">Middle tier</b><b lang="ar">الطابق الأوسط</b><span lang="en">Plain and fruit scones, clotted cream, strawberry jam</span><span lang="ar">سكونز سادة وبالزبيب مع القشطة ومربّى الفراولة</span></div>
+      <div><b lang="en">Upper tier</b><b lang="ar">الطابق العلوي</b><span lang="en">Lemon drizzle, Victoria sponge, lavender shortbread</span><span lang="ar">كعكة الليمون وإسفنجية فيكتوريا وبسكويت الخزامى</span></div>
+    </div>
+    <div class="big"><span class="ltr">£26</span><small lang="en">per person · children under ten £14</small><small lang="ar">للشخص · للأطفال دون العاشرة <span class="ltr">£14</span></small></div>
+  </div>
+</section>
+
+<!-- COLOPHON -->
+<footer class="sheet">
+  <div class="rh"><span lang="en">Herbarium of Fern &amp; Steam</span><span lang="ar">معشبة سرخس وبخار</span><b lang="en">Colophon</b><b lang="ar">خاتمة المجلّد</b></div>
+  <div class="colo">
+    <div class="seal" aria-hidden="true"><div><svg class="ill" viewBox="0 0 260 520"><use href="#fern"/></svg><b>F &amp; S</b><small>1887</small></div></div>
+    <div><h4><span lang="en">Hours of steeping</span><span lang="ar">ساعات النقع</span></h4><p><span lang="en">Tuesday to Sunday, 9 in the morning until 7 in the evening. Closed Mondays, when we tend the garden.</span><span lang="ar">من الثلاثاء إلى الأحد، من ٩ صباحًا حتى ٧ مساءً. نغلق أيام الاثنين لنعتني بالحديقة.</span></p></div>
+    <div><h4><span lang="en">Where we are found</span><span lang="ar">أين تجدنا</span></h4><p><span lang="en">14 Kettle Lane, beside the old physic garden, Mossbury.<br>Tables: <span class="ltr">01632 960 187</span></span><span lang="ar">١٤ زقاق الغلاية، بجوار حديقة الأعشاب الطبية القديمة، موسبري.<br>للحجز: <span class="ltr">01632 960 187</span></span></p></div>
+    <div><h4><span lang="en">A note on allergens</span><span lang="ar">تنبيه بشأن الحساسية</span></h4><p><span lang="en">Our bakes contain wheat, milk and eggs; some contain nuts and fish. Kindly tell us before ordering. No alcohol is used. A discretionary 10% is added for tables of six or more.</span><span lang="ar">تحتوي مخبوزاتنا على القمح والحليب والبيض، وبعضها على المكسرات والسمك. نرجو إخبارنا قبل الطلب. لا نستخدم الكحول. تُضاف خدمة اختيارية بنسبة ١٠٪ للطاولات من ستة أشخاص فأكثر.</span></p></div>
+  </div>
+  <p class="fin"><span lang="en">Finis. — Pressed, mounted &amp; poured with care.</span><span lang="ar">تمّ. — جُفّف وثُبّت وسُكب بعناية.</span></p>
+</footer>
+</main>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

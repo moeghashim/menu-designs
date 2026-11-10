@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Level 44 · الطابق ٤٤</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Level 44 — a rooftop lounge 186 metres above the marina. Signature mocktails, small plates and robata grill at dusk. الطابق ٤٤ — صالة السطح.">
+<meta name="theme-color" content="#141038">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500&family=Readex+Pro:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --ink:#0e0a24; --ink2:#161033; --line:rgba(190,170,255,.16); --txt:#f4eeff; --mute:#b6abd6;
+  --amber:#ffbd66; --rose:#ff7d9c; --lift:132px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--txt);font-family:"Outfit","Readex Pro",system-ui,sans-serif;font-weight:300;font-size:16px;line-height:1.55;overflow-x:clip}
+html[lang="ar"] body{font-family:"Readex Pro","Outfit",system-ui,sans-serif;font-size:17px;line-height:1.8}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+ul{list-style:none}
+.num,.price b,.lift,.datum,.code,.dial{font-family:"Outfit",sans-serif;font-variant-numeric:tabular-nums}
+
+/* ───────── elevator panel ───────── */
+.lift{position:fixed;z-index:50;display:flex;align-items:center;gap:8px;
+  background:linear-gradient(180deg,rgba(38,30,74,.86),rgba(14,10,36,.92));border:1px solid rgba(220,200,255,.22);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 18px 50px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.12)}
+.lift .display{display:flex;align-items:center;justify-content:center;gap:5px;background:#07050f;border:1px solid rgba(255,189,102,.3);
+  color:var(--amber);font-weight:300;text-shadow:0 0 12px rgba(255,170,70,.9);border-radius:6px}
+.lift .display .arrow{font-size:.55em;transition:transform .3s}
+.lift .display.up .arrow{transform:rotate(180deg)}
+.lift .floors{display:flex;gap:8px}
+.lift .floors a{display:grid;place-items:center;border-radius:50%;text-decoration:none;font-weight:300;color:var(--mute);
+  border:1px solid rgba(220,200,255,.28);background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.12),rgba(255,255,255,0) 60%);transition:color .25s,border-color .25s,box-shadow .25s}
+.lift .floors a:hover,.lift .floors a:focus-visible{color:#fff;border-color:#fff;outline:none}
+.lift .floors a.on{color:var(--amber);border-color:var(--amber);box-shadow:0 0 0 3px rgba(255,189,102,.14),0 0 18px rgba(255,170,70,.55)}
+.lift .ctl{display:flex;gap:6px;align-items:center}
+#langToggle{font:inherit;font-size:13px;font-weight:400;color:var(--ink);background:var(--amber);border:0;border-radius:99px;cursor:pointer;padding:0 12px;height:34px;white-space:nowrap}
+html[lang="en"] #langToggle{font-family:"Readex Pro",sans-serif}
+html[lang="ar"] #langToggle{font-family:"Outfit",sans-serif}
+#langToggle:hover{background:#fff}
+.home-link{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(220,200,255,.28);color:var(--mute)}
+.home-link:hover{color:#fff;border-color:#fff}
+.home-link svg{width:14px;height:14px}
+/* mobile: bar along the bottom */
+.lift{inset-inline:8px;bottom:8px;height:56px;padding:0 8px;border-radius:16px;justify-content:space-between}
+.lift .display{width:46px;height:38px;font-size:19px;flex:none}
+.lift .floors{gap:5px}
+.lift .floors a{width:31px;height:40px;border-radius:16px;font-size:14px}
+.lift .cab-label{display:none}
+body{padding-bottom:0}
+@media (max-width:359px){.lift .display{display:none}}
+@media (min-width:900px){
+  .lift{inset-inline:auto;inset-inline-start:26px;top:50%;bottom:auto;transform:translateY(-50%);height:auto;width:84px;flex-direction:column;padding:14px 0 14px;border-radius:44px;gap:14px}
+  .lift .display{width:60px;height:54px;font-size:27px;border-radius:10px}
+  .lift .floors{flex-direction:column;gap:9px}
+  .lift .floors a{width:46px;height:46px;border-radius:50%;font-size:16px}
+  .lift .ctl{flex-direction:column;gap:8px;padding-top:12px;border-top:1px solid var(--line);width:60px}
+  #langToggle{padding:0 4px;width:66px;font-size:12.5px;height:30px}
+  .lift .cab-label{display:block;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+  html[lang="ar"] .lift .cab-label{font-size:11px}
+}
+
+/* ───────── vista (hero) ───────── */
+.vista{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:clamp(28px,6vh,70px) 20px 0;
+  background:linear-gradient(180deg,#110d33 0%,#241758 24%,#5b2a78 46%,#b9426f 64%,#f0804c 80%,#ffc878 100%)}
+.stars{position:absolute;inset:0 0 55% 0;pointer-events:none;
+  background:
+   radial-gradient(1.2px 1.2px at 8% 22%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 17% 61%,#fff 50%,transparent 51%),
+   radial-gradient(1.4px 1.4px at 29% 12%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 38% 44%,#ffe 50%,transparent 51%),
+   radial-gradient(1.2px 1.2px at 63% 18%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 71% 52%,#fff 50%,transparent 51%),
+   radial-gradient(1.5px 1.5px at 83% 9%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 92% 37%,#fff 50%,transparent 51%),
+   radial-gradient(1px 1px at 52% 30%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 4% 74%,#fff 50%,transparent 51%);
+  opacity:.75;animation:glint 5s ease-in-out infinite alternate}
+@keyframes glint{to{opacity:.35}}
+.sun{position:absolute;left:50%;bottom:clamp(120px,22vh,250px);width:min(74vw,520px);aspect-ratio:1;transform:translate(-50%,50%);border-radius:50%;
+  background:radial-gradient(circle,#fff3c4 0 16%,#ffd27a 26%,rgba(255,150,80,.55) 46%,rgba(255,110,110,0) 70%)}
+.cloud{position:absolute;height:3px;border-radius:9px;background:linear-gradient(90deg,transparent,rgba(255,214,190,.75),transparent);filter:blur(1px)}
+.cloud.c1{width:46vw;left:-6vw;bottom:44%}
+.cloud.c2{width:38vw;right:-4vw;bottom:50%;height:2px}
+.cloud.c3{width:30vw;left:22vw;bottom:38%;height:2px;opacity:.7}
+.cloud.c4{width:52vw;right:8vw;bottom:33%;height:4px;opacity:.5}
+.vista-in{position:relative;z-index:2;max-width:900px}
+.dial{width:clamp(150px,22vw,230px);display:block;margin:0 auto clamp(6px,2vh,18px)}
+.dial text{font-size:9px;fill:#e8dcff;font-weight:300}
+.dial .needle{transform-origin:100px 100px;transform:rotate(72deg);animation:rise 2.8s cubic-bezier(.5,0,.15,1) .3s backwards}
+@keyframes rise{from{transform:rotate(-72deg)}}
+.eyebrow{font-size:clamp(11px,1.1vw,13px);letter-spacing:.42em;text-transform:uppercase;color:#e8dcff;font-weight:400}
+html[lang="ar"] .eyebrow{font-size:clamp(14px,1.3vw,16px)}
+h1{font-weight:100;font-size:clamp(4rem,13.5vw,11rem);line-height:.95;letter-spacing:.02em;margin:.08em 0 .12em;color:#fff;text-shadow:0 0 60px rgba(255,190,130,.35)}
+h1 b{font-weight:200;background:linear-gradient(180deg,#fff 20%,#ffd9a0 70%,#ff9d7a);-webkit-background-clip:text;background-clip:text;color:transparent}
+html[lang="ar"] h1{font-weight:200;font-size:clamp(3.4rem,11.5vw,9.4rem);line-height:1.25;margin:0}
+.tagline{font-size:clamp(1.05rem,2vw,1.5rem);font-weight:200;color:#fff}
+.facts{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;margin-top:clamp(10px,2.4vh,22px);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#f3e6ff}
+html[lang="ar"] .facts{font-size:15px}
+.facts span b{font-weight:500;color:#fff}
+.facts>span+span::before{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--amber);margin-inline-end:22px;vertical-align:middle}
+@media (max-width:599px){.facts{flex-direction:column;gap:2px}.facts>span+span::before{display:none}}
+.skyline{position:absolute;inset-inline:0;bottom:-1px;width:100%;height:clamp(210px,40vh,400px);z-index:1;display:block}
+.sk-b{fill:rgba(74,28,92,.55)} .sk-f{fill:var(--ink)}
+.sk-w{fill:#ffd992} .sk-crown{fill:#ffcf7d;filter:drop-shadow(0 0 6px #ffb050)}
+.sk-beacon{fill:#ff4a5e;animation:blink 2.2s steps(1) infinite}
+.tw1{animation:tw 4.6s ease-in-out infinite} .tw2{animation:tw 6.3s ease-in-out -2s infinite} .tw3{animation:tw 3.4s ease-in-out -1s infinite}
+@keyframes tw{0%,40%,100%{opacity:1}55%,80%{opacity:.08}}
+@keyframes blink{0%,60%{opacity:1}61%,100%{opacity:.15}}
+
+/* ───────── tower ───────── */
+.tower{position:relative;background:
+   repeating-linear-gradient(90deg,rgba(190,170,255,.035) 0 1px,transparent 1px 96px),
+   linear-gradient(180deg,var(--ink) 0,#0b081d 100%);
+  padding:clamp(40px,7vw,90px) clamp(16px,4vw,60px) 30px}
+@media (min-width:900px){.tower,.lobby-in{padding-inline-start:calc(var(--lift) + 10px)}}
+.welcome{display:grid;gap:clamp(22px,4vw,60px);max-width:1280px;margin:0 auto clamp(46px,7vw,96px);align-items:center}
+.welcome p.lead{font-size:clamp(1.3rem,2.7vw,2.25rem);font-weight:200;line-height:1.35;color:#fff}
+html[lang="ar"] .welcome p.lead{line-height:1.65;font-size:clamp(1.3rem,2.5vw,2.05rem)}
+.welcome p.lead em{font-style:normal;color:var(--amber)}
+.goldset{position:relative;padding:24px 26px 22px;border-radius:2px;
+  background:linear-gradient(150deg,rgba(255,189,102,.2),rgba(255,125,156,.1) 60%,rgba(255,255,255,.02));border:1px solid rgba(255,189,102,.5);
+  box-shadow:0 0 60px rgba(255,160,80,.16), inset 0 0 40px rgba(255,180,100,.07)}
+.goldset .when{display:flex;justify-content:space-between;gap:10px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);font-weight:400}
+html[lang="ar"] .goldset .when{font-size:14px}
+.goldset h2{font-weight:200;font-size:clamp(1.6rem,3vw,2.2rem);margin:.3em 0 .2em;color:#fff}
+.goldset p{color:#e9dfff}
+.goldset .price{display:inline-block;margin-top:12px;font-size:1.25rem;color:var(--amber)}
+@media (min-width:860px){.welcome{grid-template-columns:1.25fr .85fr}}
+
+.floor{max-width:1280px;margin:0 auto;display:grid;gap:22px;padding-bottom:clamp(50px,7vw,100px);scroll-margin-top:20px}
+.slab{position:relative;border-top:1px solid rgba(220,200,255,.4);padding-top:26px}
+.datum{position:absolute;top:-12px;inset-inline-end:0;background:var(--ink);padding-inline-start:12px;font-size:12px;letter-spacing:.18em;color:var(--amber);display:flex;align-items:center;gap:8px;height:24px}
+.datum::before{content:"";border:6px solid transparent;border-top:9px solid var(--amber);border-bottom:0}
+.num{font-weight:100;font-size:clamp(6.5rem,17vw,12.5rem);line-height:.8;letter-spacing:-.03em;
+  background:linear-gradient(180deg,#fff 0,#f6c9a8 45%,rgba(196,71,108,.5) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;margin-inline-start:-.04em}
+.slab h2{font-weight:300;font-size:clamp(1.5rem,2.6vw,2rem);letter-spacing:.06em;margin-top:.5em;color:#fff}
+.kind{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);font-weight:400;margin-top:2px}
+html[lang="ar"] .kind{font-size:15px}
+.slab .note{color:var(--mute);margin-top:12px;max-width:34ch}
+.panes{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line);border-inline-start:1px solid var(--line)}
+.pane{position:relative;padding:20px 20px 18px;border-bottom:1px solid var(--line);border-inline-end:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-height:150px;
+  background:linear-gradient(135deg,rgba(255,255,255,.035) 0,rgba(255,255,255,0) 38%);transition:background-color .35s,box-shadow .35s}
+.pane:hover{background-color:rgba(255,189,102,.09)}
+.pane.lit{background:linear-gradient(150deg,rgba(255,189,102,.24),rgba(255,125,156,.1) 62%,rgba(255,255,255,.02));box-shadow:inset 0 0 44px rgba(255,170,80,.12)}
+.code{font-size:11px;letter-spacing:.2em;color:var(--mute);display:flex;justify-content:space-between;gap:8px;align-items:center;min-height:22px}
+.badge{font-family:inherit;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:var(--amber);padding:2px 9px;border-radius:99px;font-weight:500}
+.badge.leaf{background:transparent;color:#bfe9c8;border:1px solid rgba(191,233,200,.5)}
+html[lang="ar"] .badge{font-family:"Readex Pro",sans-serif;font-size:12.5px;padding:1px 10px}
+.pane h3{font-weight:400;font-size:1.22rem;line-height:1.25;color:#fff}
+html[lang="ar"] .pane h3{font-size:1.2rem;line-height:1.5}
+.pane p{color:var(--mute);font-size:.97rem;flex:1}
+.price{white-space:nowrap;color:var(--amber);font-weight:300;font-size:.82rem;letter-spacing:.12em}
+.price b{font-weight:300;font-size:1.5rem;letter-spacing:0;color:#fff}
+.pane.lit .price b{color:var(--amber)}
+.code>span:first-child{direction:ltr;unicode-bidi:isolate}
+html[lang="ar"] .price{font-size:1rem}
+@media (max-width:599px){
+  .pane{display:grid;grid-template-columns:1fr auto;grid-template-areas:"c c" "h pr" "d d";min-height:0;gap:4px 14px;padding:16px 16px 18px;align-items:baseline}
+  .pane .code{grid-area:c}.pane h3{grid-area:h}.pane p{grid-area:d}.pane .price{grid-area:pr}
+}
+@media (min-width:600px){.panes{grid-template-columns:1fr 1fr}.pane:last-child:nth-child(odd){grid-column:span 2}}
+@media (min-width:1080px){
+  .floor{grid-template-columns:minmax(230px,290px) 1fr;gap:40px}
+  .slab{position:sticky;top:24px;align-self:start}
+}
+@media (min-width:1280px){.panes{grid-template-columns:repeat(3,1fr)}.pane:last-child:nth-child(odd){grid-column:auto}}
+
+/* ───────── lobby ───────── */
+.lobby{position:relative;overflow:hidden;background:linear-gradient(180deg,#0b081d 0,#07061a 40%,#1a1450 82%,#3a2168 100%);scroll-margin-top:20px}
+.lobby .stars{inset:30% 0 30% 0;opacity:.5}
+.lobby-in{position:relative;z-index:2;padding:10px clamp(16px,4vw,60px) clamp(250px,34vw,330px)}
+.lobby-grid{max-width:1280px;margin:0 auto;display:grid;gap:26px 40px}
+.lobby .slab{grid-column:1/-1}
+.lobby .num{font-size:clamp(5rem,12vw,9rem)}
+html[lang="ar"] .lobby .num{font-family:"Readex Pro",sans-serif;font-weight:200;line-height:1.3;letter-spacing:0;margin:0}
+.lobby h3{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);font-weight:400;margin-bottom:8px}
+html[lang="ar"] .lobby h3{font-size:15px}
+.lobby p{color:#ddd2f6}
+.lobby p+p{margin-top:4px}
+.lobby .fine{grid-column:1/-1;font-size:.9rem;color:var(--mute);border-top:1px solid var(--line);padding-top:16px}
+@media (min-width:760px){.lobby-grid{grid-template-columns:repeat(3,1fr)}}
+.lobby .skyline{height:clamp(200px,28vw,300px)}
+.lobby .sk-f{fill:#05040e} .lobby .sk-b{fill:rgba(40,28,92,.8)}
+@media (max-width:899px){.lobby-in{padding-bottom:300px}.lobby .skyline{bottom:60px}.lobby::after{content:"";position:absolute;inset-inline:0;bottom:0;height:61px;background:#05040e}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="lift" aria-label="Floors">
+  <span class="cab-label"><span lang="en">Floor</span><span lang="ar">الطابق</span></span>
+  <div class="display" id="display" aria-hidden="true"><span class="arrow">▼</span><span id="dnum">44</span></div>
+  <div class="floors">
+    <a href="#f44" class="on" data-f="44">44</a>
+    <a href="#f43" data-f="43">43</a>
+    <a href="#f42" data-f="42">42</a>
+    <a href="#f41" data-f="41">41</a>
+    <a href="#lobby" data-f="L"><span lang="en">L</span><span lang="ar">ب</span></a>
+  </div>
+  <div class="ctl">
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+    <a class="home-link" href="../index.html"><svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect width="6" height="6"/><rect x="8" width="6" height="6"/><rect y="8" width="6" height="6"/><rect x="8" y="8" width="6" height="6"/></svg><span lang="en" style="position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden">All menus</span><span lang="ar" style="position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden">كل القوائم</span></a>
+  </div>
+</nav>
+
+<header class="vista">
+  <div class="stars"></div><div class="sun"></div>
+  <i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i><i class="cloud c4"></i>
+  <div class="vista-in">
+    <svg class="dial" viewBox="0 0 200 112" aria-hidden="true" focusable="false">
+      <path d="M22 100A78 78 0 0 1 178 100" fill="none" stroke="#e8dcff" stroke-width=".8"/>
+      <path d="M32 100A68 68 0 0 1 168 100" fill="none" stroke="rgba(232,220,255,.35)" stroke-width=".5" stroke-dasharray="1 4"/>
+      <g stroke="#e8dcff" stroke-width=".8"><path d="M25.8 75.9l5.7 1.9M52 38.4l3.7 4.8M100 22v6M148 38.4l-3.7 4.8"/></g>
+      <path d="M174.2 75.9l-7.6 2.5" stroke="#ffbd66" stroke-width="1.6"/>
+      <text x="14" y="74" text-anchor="middle">1</text><text x="44" y="33" text-anchor="middle">11</text><text x="100" y="15" text-anchor="middle">22</text><text x="156" y="33" text-anchor="middle">33</text>
+      <text x="187" y="74" text-anchor="middle" style="fill:#ffbd66;font-weight:500;font-size:11px">44</text>
+      <g class="needle"><path d="M99.2 100L100 34l.8 66z" fill="#ffbd66"/></g>
+      <circle cx="100" cy="100" r="5" fill="#ffbd66"/><circle cx="100" cy="100" r="2" fill="#241758"/>
+    </svg>
+    <p class="eyebrow"><span lang="en">Rooftop Lounge · Dubai Marina</span><span lang="ar">صالة السطح · مرسى دبي</span></p>
+    <h1><span lang="en">Level <b>44</b></span><span lang="ar">الطابق <b>٤٤</b></span></h1>
+    <p class="tagline"><span lang="en">Where the city switches its lights on.</span><span lang="ar">حيث تُشعل المدينة أنوارها.</span></p>
+    <p class="facts">
+      <span><span lang="en"><b>186 m</b> above the street</span><span lang="ar"><b>186 م</b> فوق الشارع</span></span>
+      <span><span lang="en">Sunset tonight <b>17:42</b></span><span lang="ar">غروب الليلة <b>17:42</b></span></span>
+      <span><span lang="en">Lifts from <b>17:00</b></span><span lang="ar">المصاعد من <b>17:00</b></span></span>
+    </p>
+  </div>
+  <svg class="skyline" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><path class="sk-b" d="M0,360V155h32V125h57V247h48V203h79V200h38V189h53V98h65V105h48V244h38V158h34V210h65V167h73V151h75V74h59V77h37V128h56V99h45V228h41V234h75V221h49V96h38V144h74V188h48V198h53V183h63V241h64V185h40V360z"/><path class="sk-f" d="M-10,360V269h64V360zM22,269v-23h1.5V269zM59,360V201h8v-8h64v8h8V360zM99,193v-17h1.5V193zM144,360V211h75V360zM222,360V139h73V360zM259,139v-15h1.5V139zM300,360V283h14v-14h57v14h14V360zM385,360V200h10v-10h27v10h10V360zM434,360V146h14v-14h81v14h14V360zM489,132v-32h1.5V132zM543,360V278h65V360zM576,278v-27h1.5V278zM762,360V252h95V360zM810,252v-28h1.5V252zM858,360V218h11v-11h66v11h11V360zM947,360V283h100V360zM1051,360V152h15v-15h39v15h15V360zM1121,360V272h11v-11h77v11h11V360zM1222,360V161h50V360zM1274,360V230l44,-14l43,14V360zM1364,360V167h88V360z"/><path class="sk-f" d="M682,360V56l10,-12h56l10,12V360zM719,44V4h2V44z"/><rect class="sk-crown" x="686" y="60" width="68" height="9"/><circle class="sk-beacon" cx="720" cy="3" r="2.6"/><path class="sk-w" d="M42,293h4v5h-4zM24,307h4v5h-4zM42,307h4v5h-4zM-3,335h4v5h-4zM6,335h4v5h-4zM6,349h4v5h-4zM111,217h4v5h-4zM129,231h4v5h-4zM84,287h4v5h-4zM129,301h4v5h-4zM93,315h4v5h-4zM75,343h4v5h-4zM111,343h4v5h-4zM120,343h4v5h-4zM206,235h4v5h-4zM151,249h4v5h-4zM195,249h4v5h-4zM162,263h4v5h-4zM184,263h4v5h-4zM184,277h4v5h-4zM151,291h4v5h-4zM184,305h4v5h-4zM195,305h4v5h-4zM206,347h4v5h-4zM229,163h4v5h-4zM247,177h4v5h-4zM283,177h4v5h-4zM283,205h4v5h-4zM229,219h4v5h-4zM283,219h4v5h-4zM274,233h4v5h-4zM229,247h4v5h-4zM256,261h4v5h-4zM265,261h4v5h-4zM274,261h4v5h-4zM283,261h4v5h-4zM229,275h4v5h-4zM274,275h4v5h-4zM283,275h4v5h-4zM229,289h4v5h-4zM247,289h4v5h-4zM274,289h4v5h-4zM229,303h4v5h-4zM274,303h4v5h-4zM247,317h4v5h-4zM265,317h4v5h-4zM265,331h4v5h-4zM274,331h4v5h-4zM247,345h4v5h-4zM256,345h4v5h-4zM318,305h4v5h-4zM351,305h4v5h-4zM373,305h4v5h-4zM329,317h4v5h-4zM373,329h4v5h-4zM392,214h4v5h-4zM392,312h4v5h-4zM414,312h4v5h-4zM392,340h4v5h-4zM414,340h4v5h-4zM463,156h4v5h-4zM518,156h4v5h-4zM463,170h4v5h-4zM518,184h4v5h-4zM441,198h4v5h-4zM452,198h4v5h-4zM485,198h4v5h-4zM452,226h4v5h-4zM474,240h4v5h-4zM441,254h4v5h-4zM463,254h4v5h-4zM529,254h4v5h-4zM463,268h4v5h-4zM485,268h4v5h-4zM518,268h4v5h-4zM452,282h4v5h-4zM507,282h4v5h-4zM518,282h4v5h-4zM452,310h4v5h-4zM463,324h4v5h-4zM507,324h4v5h-4zM452,338h4v5h-4zM496,338h4v5h-4zM550,302h4v5h-4zM568,302h4v5h-4zM559,316h4v5h-4zM586,316h4v5h-4zM550,330h4v5h-4zM550,344h4v5h-4zM813,290h4v5h-4zM824,290h4v5h-4zM802,304h4v5h-4zM780,318h4v5h-4zM835,318h4v5h-4zM835,332h4v5h-4zM883,255h4v5h-4zM901,267h4v5h-4zM865,279h4v5h-4zM919,279h4v5h-4zM865,291h4v5h-4zM919,291h4v5h-4zM892,303h4v5h-4zM928,303h4v5h-4zM874,315h4v5h-4zM901,315h4v5h-4zM910,315h4v5h-4zM919,327h4v5h-4zM965,307h4v5h-4zM1009,307h4v5h-4zM1031,307h4v5h-4zM1020,321h4v5h-4zM1031,321h4v5h-4zM976,335h4v5h-4zM1020,335h4v5h-4zM965,349h4v5h-4zM1069,161h4v5h-4zM1091,161h4v5h-4zM1058,175h4v5h-4zM1080,175h4v5h-4zM1069,189h4v5h-4zM1091,189h4v5h-4zM1080,203h4v5h-4zM1102,203h4v5h-4zM1058,217h4v5h-4zM1069,217h4v5h-4zM1091,217h4v5h-4zM1069,231h4v5h-4zM1058,245h4v5h-4zM1102,245h4v5h-4zM1069,259h4v5h-4zM1080,259h4v5h-4zM1091,259h4v5h-4zM1069,301h4v5h-4zM1102,301h4v5h-4zM1102,329h4v5h-4zM1137,285h4v5h-4zM1164,285h4v5h-4zM1173,285h4v5h-4zM1191,297h4v5h-4zM1200,297h4v5h-4zM1128,309h4v5h-4zM1173,309h4v5h-4zM1164,321h4v5h-4zM1173,321h4v5h-4zM1191,321h4v5h-4zM1155,333h4v5h-4zM1191,345h4v5h-4zM1256,185h4v5h-4zM1238,283h4v5h-4zM1247,283h4v5h-4zM1247,297h4v5h-4zM1256,311h4v5h-4zM1229,325h4v5h-4zM1238,325h4v5h-4zM1238,339h4v5h-4zM1314,240h4v5h-4zM1325,296h4v5h-4zM1347,296h4v5h-4zM1292,310h4v5h-4zM1336,324h4v5h-4zM1292,338h4v5h-4zM1389,191h4v5h-4zM1416,203h4v5h-4zM1380,215h4v5h-4zM1398,215h4v5h-4zM1425,215h4v5h-4zM1407,239h4v5h-4zM1371,251h4v5h-4zM1389,251h4v5h-4zM1434,263h4v5h-4zM1434,287h4v5h-4zM1425,311h4v5h-4zM1398,323h4v5h-4zM1425,323h4v5h-4zM1407,335h4v5h-4zM1389,347h4v5h-4zM1425,347h4v5h-4zM689,100h5v6h-5zM734,100h5v6h-5zM743,100h5v6h-5zM707,111h5v6h-5zM689,122h5v6h-5zM707,122h5v6h-5zM698,133h5v6h-5zM725,133h5v6h-5zM734,133h5v6h-5zM734,144h5v6h-5zM734,155h5v6h-5zM689,166h5v6h-5zM707,166h5v6h-5zM716,166h5v6h-5zM698,177h5v6h-5zM707,177h5v6h-5zM734,177h5v6h-5zM743,177h5v6h-5zM725,188h5v6h-5zM743,188h5v6h-5zM698,199h5v6h-5zM725,199h5v6h-5zM689,210h5v6h-5zM707,210h5v6h-5zM725,210h5v6h-5zM734,210h5v6h-5zM689,221h5v6h-5zM698,221h5v6h-5zM734,221h5v6h-5zM743,221h5v6h-5zM743,232h5v6h-5zM707,243h5v6h-5zM725,243h5v6h-5zM734,243h5v6h-5zM743,243h5v6h-5zM689,265h5v6h-5zM698,265h5v6h-5zM734,265h5v6h-5zM743,265h5v6h-5zM716,276h5v6h-5zM689,287h5v6h-5zM716,287h5v6h-5zM743,287h5v6h-5zM689,298h5v6h-5zM707,298h5v6h-5zM716,298h5v6h-5zM734,298h5v6h-5zM689,309h5v6h-5zM698,309h5v6h-5zM707,309h5v6h-5zM725,309h5v6h-5zM743,309h5v6h-5zM707,320h5v6h-5zM734,320h5v6h-5zM689,331h5v6h-5zM707,331h5v6h-5zM716,331h5v6h-5zM707,342h5v6h-5zM743,342h5v6h-5z"/><path class="sk-w tw1" d="M6,293h4v5h-4zM66,245h4v5h-4zM66,329h4v5h-4zM206,305h4v5h-4zM283,317h4v5h-4zM283,331h4v5h-4zM229,345h4v5h-4zM414,256h4v5h-4zM507,198h4v5h-4zM485,324h4v5h-4zM586,344h4v5h-4zM769,332h4v5h-4zM998,307h4v5h-4zM1069,175h4v5h-4zM1069,329h4v5h-4zM1247,241h4v5h-4zM1425,251h4v5h-4zM1416,275h4v5h-4zM1425,335h4v5h-4zM743,89h5v6h-5zM698,144h5v6h-5zM734,199h5v6h-5zM698,243h5v6h-5zM716,254h5v6h-5z"/><path class="sk-w tw2" d="M24,335h4v5h-4zM102,301h4v5h-4zM283,191h4v5h-4zM247,205h4v5h-4zM265,205h4v5h-4zM247,303h4v5h-4zM238,331h4v5h-4zM340,293h4v5h-4zM414,242h4v5h-4zM518,198h4v5h-4zM595,302h4v5h-4zM802,318h4v5h-4zM892,279h4v5h-4zM954,307h4v5h-4zM1091,175h4v5h-4zM1069,245h4v5h-4zM1191,285h4v5h-4zM1247,213h4v5h-4zM1256,255h4v5h-4zM1325,240h4v5h-4zM1434,347h4v5h-4zM734,89h5v6h-5zM743,155h5v6h-5zM707,199h5v6h-5zM689,232h5v6h-5zM707,265h5v6h-5zM698,342h5v6h-5z"/><path class="sk-w tw3" d="M15,307h4v5h-4zM15,335h4v5h-4zM102,287h4v5h-4zM66,315h4v5h-4zM173,291h4v5h-4zM229,261h4v5h-4zM256,317h4v5h-4zM229,331h4v5h-4zM318,341h4v5h-4zM403,284h4v5h-4zM485,240h4v5h-4zM507,310h4v5h-4zM791,346h4v5h-4zM919,267h4v5h-4zM1102,231h4v5h-4zM1102,287h4v5h-4zM1058,329h4v5h-4zM1416,251h4v5h-4zM1425,275h4v5h-4z"/></svg>
+</header>
+
+<main class="tower">
+  <div class="welcome">
+    <p class="lead"><span lang="en">Forty-four floors up, the wind drops, the sky turns the colour of apricots and the towers light up <em>one window at a time</em>. Take a seat on the terrace; we will bring the evening to you, floor by floor.</span><span lang="ar">على ارتفاع أربعة وأربعين طابقاً يهدأ الهواء، وتكتسي السماء بلون المشمش، وتضيء الأبراج <em>نافذةً بعد نافذة</em>. تفضّلوا بالجلوس على الشرفة، وسنحمل إليكم الأمسية طابقاً بعد طابق.</span></p>
+    <aside class="goldset">
+      <p class="when"><span><span lang="en">Golden hour set</span><span lang="ar">قائمة الساعة الذهبية</span></span><span dir="ltr">17:00 – 19:00</span></p>
+      <h2><span lang="en">Two glasses, three plates, one sunset</span><span lang="ar">كأسان، ثلاثة أطباق، وغروب واحد</span></h2>
+      <p><span lang="en">Any two signatures from 44 and three small plates from 43, served for two at the terrace rail.</span><span lang="ar">أي مشروبين من قائمة الطابق 44 وثلاثة أطباق صغيرة من الطابق 43، تُقدَّم لشخصين عند حافة الشرفة.</span></p>
+      <span class="price"><b>195</b> <span lang="en">AED for two</span><span lang="ar">د.إ لشخصين</span></span>
+    </aside>
+  </div>
+
+  <section class="floor" id="f44" data-f="44">
+    <header class="slab">
+      <span class="datum" dir="ltr">+186.0 m</span>
+      <div class="num">44</div>
+      <h2><span lang="en">Sky Terrace</span><span lang="ar">شرفة السماء</span></h2>
+      <p class="kind"><span lang="en">Signature mocktails</span><span lang="ar">موكتيلات الدار</span></p>
+      <p class="note"><span lang="en">Zero-proof, built over hand-cut ice and poured while the horizon is still glowing.</span><span lang="ar">خالية من الكحول، تُحضَّر على ثلج مقطوع يدوياً وتُسكب والأفق ما زال متوهّجاً.</span></p>
+    </header>
+    <ul class="panes">
+      <li class="pane"><div class="code"><span>44·01</span></div><h3><span lang="en">Dusk Spritz</span><span lang="ar">سبريتز الغسق</span></h3><p><span lang="en">Blood orange, bitter gentian tonic and a sprig of smoked rosemary.</span><span lang="ar">برتقال أحمر وتونيك الجنطيانا المرّ مع غصن إكليل جبل مدخَّن.</span></p><span class="price"><b>48</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane lit"><div class="code"><span>44·02</span><span class="badge"><span lang="en">Sunset pick</span><span lang="ar">اختيار الغروب</span></span></div><h3><span lang="en">Golden Hour</span><span lang="ar">الساعة الذهبية</span></h3><p><span lang="en">Saffron honey, charred pineapple and ginger shrub, lengthened with soda.</span><span lang="ar">عسل الزعفران وأناناس مشوي وشراب الزنجبيل الحامض، يُكمَّل بالصودا.</span></p><span class="price"><b>52</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>44·03</span></div><h3><span lang="en">44th Parallel</span><span lang="ar">خط العرض 44</span></h3><p><span lang="en">Juniper botanical distillate, cucumber ribbon, yuzu and dry tonic.</span><span lang="ar">مقطَّر العرعر النباتي مع شرائط الخيار واليوزو وتونيك جاف.</span></p><span class="price"><b>50</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>44·04</span></div><h3><span lang="en">Night Shift</span><span lang="ar">نوبة الليل</span></h3><p><span lang="en">Cold-brew espresso, date molasses, cardamom and a float of tonic.</span><span lang="ar">إسبريسو منقوع على البارد مع دبس التمر والهيل وطبقة من التونيك.</span></p><span class="price"><b>44</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>44·05</span></div><h3><span lang="en">Cloud Nine</span><span lang="ar">السحابة التاسعة</span></h3><p><span lang="en">Lychee, rose water and lime under a drift of coconut foam.</span><span lang="ar">ليتشي وماء الورد والليمون الأخضر تحت غيمة من رغوة جوز الهند.</span></p><span class="price"><b>48</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>44·06</span></div><h3><span lang="en">Skyline Sour</span><span lang="ar">ساور الأفق</span></h3><p><span lang="en">Hibiscus, pomegranate and lemon, shaken to a silky head.</span><span lang="ar">كركديه ورمّان وليمون تُخفق حتى تعلوها رغوة حريرية.</span></p><span class="price"><b>46</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+    </ul>
+  </section>
+
+  <section class="floor" id="f43" data-f="43">
+    <header class="slab">
+      <span class="datum" dir="ltr">+181.8 m</span>
+      <div class="num">43</div>
+      <h2><span lang="en">The Lounge</span><span lang="ar">الصالة</span></h2>
+      <p class="kind"><span lang="en">Small plates to share</span><span lang="ar">أطباق صغيرة للمشاركة</span></p>
+      <p class="note"><span lang="en">Low tables, deep sofas, plates that arrive as they are ready.</span><span lang="ar">طاولات منخفضة وأرائك وثيرة، وأطباق تصلكم فور جهوزها.</span></p>
+    </header>
+    <ul class="panes">
+      <li class="pane lit"><div class="code"><span>43·01</span><span class="badge"><span lang="en">Sunset pick</span><span lang="ar">اختيار الغروب</span></span></div><h3><span lang="en">Hamachi Crudo</span><span lang="ar">كرودو الهاماتشي</span></h3><p><span lang="en">Yellowtail, yuzu kosho, green apple and shiso oil.</span><span lang="ar">سمك الهاماتشي النيء مع يوزو كوشو والتفاح الأخضر وزيت الشيسو.</span></p><span class="price"><b>78</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>43·02</span></div><h3><span lang="en">Truffle Arancini</span><span lang="ar">أرانشيني الكمأة</span></h3><p><span lang="en">Crisp risotto spheres, black truffle, aged parmesan cream.</span><span lang="ar">كرات ريزوتو مقرمشة بالكمأة السوداء وكريمة البارميزان المعتّق.</span></p><span class="price"><b>58</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>43·03</span></div><h3><span lang="en">Wagyu Sliders</span><span lang="ar">سلايدر الواغيو</span></h3><p><span lang="en">Two brioche buns, caramelised onion, smoked cheddar, pickles.</span><span lang="ar">قطعتان في خبز البريوش مع بصل مكرمل وشيدر مدخَّن ومخلل.</span></p><span class="price"><b>86</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>43·04</span><span class="badge leaf"><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span></div><h3><span lang="en">Burrata &amp; Heirloom Tomato</span><span lang="ar">بوراتا وطماطم بلدية</span></h3><p><span lang="en">Basil oil, aged balsamic and toasted sourdough.</span><span lang="ar">زيت الريحان وخل البلسميك المعتّق وخبز العجين المخمَّر المحمّص.</span></p><span class="price"><b>64</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>43·05</span></div><h3><span lang="en">Prawn Tempura</span><span lang="ar">تمبورا الروبيان</span></h3><p><span lang="en">Tiger prawns in a whisper of batter, yuzu mayo, togarashi.</span><span lang="ar">روبيان النمر في عجينة رقيقة مع مايونيز اليوزو وبهار التوغاراشي.</span></p><span class="price"><b>72</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>43·06</span><span class="badge leaf"><span lang="en">Vegan</span><span lang="ar">نباتي صِرف</span></span></div><h3><span lang="en">Edamame Hummus</span><span lang="ar">حمّص الإدامامي</span></h3><p><span lang="en">Sesame, chilli crisp and warm saj crackers.</span><span lang="ar">سمسم ورقائق الفلفل الحار مع خبز الصاج المقرمش الدافئ.</span></p><span class="price"><b>42</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+    </ul>
+  </section>
+
+  <section class="floor" id="f42" data-f="42">
+    <header class="slab">
+      <span class="datum" dir="ltr">+177.6 m</span>
+      <div class="num">42</div>
+      <h2><span lang="en">The Grill Room</span><span lang="ar">غرفة الشواء</span></h2>
+      <p class="kind"><span lang="en">From the robata</span><span lang="ar">من شواية الروباتا</span></p>
+      <p class="note"><span lang="en">Everything here meets binchotan charcoal behind a wall of glass.</span><span lang="ar">كل ما هنا يمرّ على فحم البنشوتان خلف جدار من الزجاج.</span></p>
+    </header>
+    <ul class="panes">
+      <li class="pane lit"><div class="code"><span>42·01</span><span class="badge"><span lang="en">Sunset pick</span><span lang="ar">اختيار الغروب</span></span></div><h3><span lang="en">Black Cod Miso</span><span lang="ar">القدّ الأسود بالميسو</span></h3><p><span lang="en">Forty-eight hours in white miso, pickled ginger stem.</span><span lang="ar">ثمانٍ وأربعون ساعة في تتبيلة الميسو الأبيض، مع ساق الزنجبيل المخلل.</span></p><span class="price"><b>165</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>42·02</span></div><h3><span lang="en">Wagyu Striploin</span><span lang="ar">ستربلوين الواغيو</span></h3><p><span lang="en">200 g, grade 7, smoked salt and wasabi butter.</span><span lang="ar">200 غرام من الدرجة السابعة مع ملح مدخَّن وزبدة الواسابي.</span></p><span class="price"><b>240</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>42·03</span></div><h3><span lang="en">Charred Octopus</span><span lang="ar">أخطبوط على الفحم</span></h3><p><span lang="en">Smoked paprika, potato foam, preserved lemon.</span><span lang="ar">بابريكا مدخَّنة ورغوة البطاطا والليمون المخلل.</span></p><span class="price"><b>96</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>42·04</span></div><h3><span lang="en">Za’atar Baby Chicken</span><span lang="ar">فرّوج بالزعتر</span></h3><p><span lang="en">Sumac onions, whipped garlic toum, charred lemon.</span><span lang="ar">بصل بالسمّاق وثومية مخفوقة وليمون مشوي.</span></p><span class="price"><b>118</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>42·05</span></div><h3><span lang="en">Lamb Cutlets</span><span lang="ar">ريش الضأن</span></h3><p><span lang="en">Three cutlets, pistachio crust, pomegranate glaze.</span><span lang="ar">ثلاث ريش بقشرة الفستق ودبس الرمّان اللامع.</span></p><span class="price"><b>148</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>42·06</span><span class="badge leaf"><span lang="en">Vegan</span><span lang="ar">نباتي صِرف</span></span></div><h3><span lang="en">Robata Cauliflower</span><span lang="ar">قرنبيط الروباتا</span></h3><p><span lang="en">Tahini, golden raisins and toasted pine nuts.</span><span lang="ar">طحينة وزبيب ذهبي وصنوبر محمّص.</span></p><span class="price"><b>68</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+    </ul>
+  </section>
+
+  <section class="floor" id="f41" data-f="41">
+    <header class="slab">
+      <span class="datum" dir="ltr">+173.4 m</span>
+      <div class="num">41</div>
+      <h2><span lang="en">Pâtisserie</span><span lang="ar">ركن الحلويات</span></h2>
+      <p class="kind"><span lang="en">Sweet endings</span><span lang="ar">ختام حلو</span></p>
+      <p class="note"><span lang="en">Plated after dark, when the skyline is fully lit.</span><span lang="ar">تُقدَّم بعد حلول الظلام، حين يكتمل ضياء الأفق.</span></p>
+    </header>
+    <ul class="panes">
+      <li class="pane lit"><div class="code"><span>41·01</span><span class="badge"><span lang="en">Sunset pick</span><span lang="ar">اختيار الغروب</span></span></div><h3><span lang="en">Midnight Dome</span><span lang="ar">قبّة منتصف الليل</span></h3><p><span lang="en">A dark chocolate shell melted at the table over salted caramel.</span><span lang="ar">قشرة من الشوكولاتة الداكنة تُذاب أمامكم فوق الكراميل المملّح.</span></p><span class="price"><b>58</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>41·02</span></div><h3><span lang="en">Saffron Milk Cake</span><span lang="ar">كعكة الحليب بالزعفران</span></h3><p><span lang="en">Three milks, Iranian saffron and a dusting of pistachio.</span><span lang="ar">ثلاثة أنواع من الحليب مع الزعفران الإيراني ورذاذ الفستق.</span></p><span class="price"><b>52</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+      <li class="pane"><div class="code"><span>41·03</span></div><h3><span lang="en">Yuzu Meringue Tart</span><span lang="ar">تارت اليوزو والمارينغ</span></h3><p><span lang="en">Sharp yuzu curd, torched meringue, sablé base.</span><span lang="ar">كريمة يوزو لاذعة ومارينغ محمَّص على قاعدة سابليه.</span></p><span class="price"><b>48</b> <span lang="en">AED</span><span lang="ar">د.إ</span></span></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="lobby" id="lobby" data-f="L">
+  <div class="stars"></div>
+  <div class="lobby-in">
+    <div class="lobby-grid">
+      <header class="slab">
+        <span class="datum" dir="ltr">±0.0 m</span>
+        <div class="num"><span lang="en">L</span><span lang="ar">البهو</span></div>
+        <p class="kind"><span lang="en">Lobby · before you ride up</span><span lang="ar">قبل أن تصعدوا</span></p>
+      </header>
+      <div>
+        <h3><span lang="en">Hours</span><span lang="ar">أوقات العمل</span></h3>
+        <p><span lang="en">Every evening, 17:00 – 02:00</span><span lang="ar">كل مساء، 17:00 – 02:00</span></p>
+        <p><span lang="en">Kitchen until 00:30 · last lift up 01:00</span><span lang="ar">المطبخ حتى 00:30 · آخر مصعد صاعد 01:00</span></p>
+      </div>
+      <div>
+        <h3><span lang="en">Find us</span><span lang="ar">العنوان</span></h3>
+        <p><span lang="en">Meridian Tower, Level 44, Al Marsa Street, Dubai Marina</span><span lang="ar">برج ميريديان، الطابق 44، شارع المرسى، مرسى دبي</span></p>
+        <p><span lang="en">Express lift C from the lobby</span><span lang="ar">المصعد السريع «C» من البهو</span></p>
+      </div>
+      <div>
+        <h3><span lang="en">Reservations</span><span lang="ar">الحجوزات</span></h3>
+        <p><span dir="ltr">+971 4 555 0144</span></p>
+        <p><span lang="en">Terrace rail tables go first. Smart-casual, please.</span><span lang="ar">طاولات حافة الشرفة تُحجز أولاً. الزيّ أنيق غير رسمي.</span></p>
+      </div>
+      <p class="fine"><span lang="en">Our kitchen handles nuts, sesame, shellfish, dairy and gluten; tell your host about any allergy before ordering. Nothing on this menu contains alcohol. Prices are in UAE dirhams and include VAT and service.</span><span lang="ar">يتعامل مطبخنا مع المكسرات والسمسم والقشريات ومشتقات الحليب والغلوتين؛ يُرجى إبلاغ المضيف بأي حساسية قبل الطلب. جميع أصناف القائمة خالية من الكحول. الأسعار بالدرهم الإماراتي وتشمل الضريبة والخدمة.</span></p>
+    </div>
+  </div>
+  <svg class="skyline" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><path class="sk-b" d="M0,300V123h30V193h41V53h56V167h78V177h64V130h64V78h73V122h42V121h66V158h60V44h74V204h52V72h65V61h72V199h52V97h49V147h51V94h38V208h34V51h42V48h48V205h32V208h57V149h35V146h52V84h73V111h45V300z"/><path class="sk-f" d="M-10,300V162l22,-14l22,14V300zM12,148v-22h1.5V148zM36,300V219h13v-13h19v13h13V300zM82,300V125h13v-13h74v13h13V300zM185,300V108h90V300zM230,108v-24h1.5V108zM279,300V169h16v-16h14v16h16V300zM302,153v-27h1.5V153zM331,300V221h47V300zM380,300V130h91V300zM474,300V213l47,-14l47,14V300zM574,300V188h11v-11h88v11h11V300zM689,300V188h13v-13h50v13h13V300zM727,175v-14h1.5V175zM769,300V254l31,-14l31,14V300zM833,300V193l46,-14l46,14V300zM879,179v-23h1.5V179zM926,300V220h11v-11h77v11h11V300zM976,209v-23h1.5V209zM1031,300V186l38,-14l37,14V300zM1069,172v-25h1.5V172zM1109,300V237h10v-10h64v10h10V300zM1151,227v-31h1.5V227zM1194,300V108h99V300zM1294,300V227h11v-11h62v11h11V300zM1379,300V107h77V300z"/><path class="sk-w" d="M24,172h4v5h-4zM24,186h4v5h-4zM24,200h4v5h-4zM-3,228h4v5h-4zM15,228h4v5h-4zM24,256h4v5h-4zM6,270h4v5h-4zM6,284h4v5h-4zM24,284h4v5h-4zM65,230h4v5h-4zM43,244h4v5h-4zM65,244h4v5h-4zM65,258h4v5h-4zM65,272h4v5h-4zM43,286h4v5h-4zM54,286h4v5h-4zM89,136h4v5h-4zM98,136h4v5h-4zM125,136h4v5h-4zM134,136h4v5h-4zM143,136h4v5h-4zM170,136h4v5h-4zM89,148h4v5h-4zM152,148h4v5h-4zM161,148h4v5h-4zM170,160h4v5h-4zM116,172h4v5h-4zM134,172h4v5h-4zM116,184h4v5h-4zM143,184h4v5h-4zM107,196h4v5h-4zM152,196h4v5h-4zM161,196h4v5h-4zM107,208h4v5h-4zM116,208h4v5h-4zM125,208h4v5h-4zM134,208h4v5h-4zM152,208h4v5h-4zM89,220h4v5h-4zM107,220h4v5h-4zM125,220h4v5h-4zM134,220h4v5h-4zM170,220h4v5h-4zM116,232h4v5h-4zM125,244h4v5h-4zM134,244h4v5h-4zM161,244h4v5h-4zM170,244h4v5h-4zM98,256h4v5h-4zM170,256h4v5h-4zM98,268h4v5h-4zM125,268h4v5h-4zM134,268h4v5h-4zM143,268h4v5h-4zM152,268h4v5h-4zM89,280h4v5h-4zM116,280h4v5h-4zM125,280h4v5h-4zM134,280h4v5h-4zM143,280h4v5h-4zM161,280h4v5h-4zM170,280h4v5h-4zM203,132h4v5h-4zM225,132h4v5h-4zM236,132h4v5h-4zM247,132h4v5h-4zM192,146h4v5h-4zM203,146h4v5h-4zM225,146h4v5h-4zM258,146h4v5h-4zM203,160h4v5h-4zM225,160h4v5h-4zM236,160h4v5h-4zM192,174h4v5h-4zM225,188h4v5h-4zM247,188h4v5h-4zM258,188h4v5h-4zM225,202h4v5h-4zM258,202h4v5h-4zM214,216h4v5h-4zM203,244h4v5h-4zM214,244h4v5h-4zM225,244h4v5h-4zM247,244h4v5h-4zM258,244h4v5h-4zM258,258h4v5h-4zM203,272h4v5h-4zM225,272h4v5h-4zM247,272h4v5h-4zM258,272h4v5h-4zM192,286h4v5h-4zM247,286h4v5h-4zM258,286h4v5h-4zM295,191h4v5h-4zM313,191h4v5h-4zM286,219h4v5h-4zM313,219h4v5h-4zM286,247h4v5h-4zM304,261h4v5h-4zM286,275h4v5h-4zM295,275h4v5h-4zM304,275h4v5h-4zM347,257h4v5h-4zM338,269h4v5h-4zM398,154h4v5h-4zM409,154h4v5h-4zM420,154h4v5h-4zM453,154h4v5h-4zM387,178h4v5h-4zM398,178h4v5h-4zM409,190h4v5h-4zM442,190h4v5h-4zM420,202h4v5h-4zM409,214h4v5h-4zM420,214h4v5h-4zM442,214h4v5h-4zM420,238h4v5h-4zM431,238h4v5h-4zM442,238h4v5h-4zM387,250h4v5h-4zM409,250h4v5h-4zM387,262h4v5h-4zM409,262h4v5h-4zM398,274h4v5h-4zM453,274h4v5h-4zM387,286h4v5h-4zM409,286h4v5h-4zM442,286h4v5h-4zM490,223h4v5h-4zM508,223h4v5h-4zM490,237h4v5h-4zM544,237h4v5h-4zM553,237h4v5h-4zM490,251h4v5h-4zM508,251h4v5h-4zM517,251h4v5h-4zM535,251h4v5h-4zM544,251h4v5h-4zM481,265h4v5h-4zM553,265h4v5h-4zM508,279h4v5h-4zM526,279h4v5h-4zM553,279h4v5h-4zM599,201h4v5h-4zM608,201h4v5h-4zM626,201h4v5h-4zM644,201h4v5h-4zM653,201h4v5h-4zM599,215h4v5h-4zM608,215h4v5h-4zM662,215h4v5h-4zM608,229h4v5h-4zM626,229h4v5h-4zM644,229h4v5h-4zM662,229h4v5h-4zM671,229h4v5h-4zM599,243h4v5h-4zM617,243h4v5h-4zM635,243h4v5h-4zM662,243h4v5h-4zM671,243h4v5h-4zM590,257h4v5h-4zM599,257h4v5h-4zM626,257h4v5h-4zM653,257h4v5h-4zM581,271h4v5h-4zM599,271h4v5h-4zM608,271h4v5h-4zM626,271h4v5h-4zM671,271h4v5h-4zM590,285h4v5h-4zM608,285h4v5h-4zM617,285h4v5h-4zM626,285h4v5h-4zM635,285h4v5h-4zM653,285h4v5h-4zM662,285h4v5h-4zM750,199h4v5h-4zM705,211h4v5h-4zM714,211h4v5h-4zM750,211h4v5h-4zM705,223h4v5h-4zM723,223h4v5h-4zM732,223h4v5h-4zM741,223h4v5h-4zM696,235h4v5h-4zM705,235h4v5h-4zM714,235h4v5h-4zM723,235h4v5h-4zM750,235h4v5h-4zM705,247h4v5h-4zM741,247h4v5h-4zM714,259h4v5h-4zM723,259h4v5h-4zM732,259h4v5h-4zM741,259h4v5h-4zM723,271h4v5h-4zM732,271h4v5h-4zM705,283h4v5h-4zM741,283h4v5h-4zM750,283h4v5h-4zM776,264h4v5h-4zM803,264h4v5h-4zM803,276h4v5h-4zM812,276h4v5h-4zM821,276h4v5h-4zM803,288h4v5h-4zM867,203h4v5h-4zM894,203h4v5h-4zM903,203h4v5h-4zM885,217h4v5h-4zM894,217h4v5h-4zM903,217h4v5h-4zM858,231h4v5h-4zM867,231h4v5h-4zM876,231h4v5h-4zM912,231h4v5h-4zM849,245h4v5h-4zM894,245h4v5h-4zM858,259h4v5h-4zM876,273h4v5h-4zM894,273h4v5h-4zM912,273h4v5h-4zM876,287h4v5h-4zM903,287h4v5h-4zM912,287h4v5h-4zM944,247h4v5h-4zM955,247h4v5h-4zM955,261h4v5h-4zM966,261h4v5h-4zM988,261h4v5h-4zM999,261h4v5h-4zM1010,261h4v5h-4zM944,275h4v5h-4zM966,275h4v5h-4zM966,289h4v5h-4zM977,289h4v5h-4zM1038,196h4v5h-4zM1047,196h4v5h-4zM1056,196h4v5h-4zM1083,196h4v5h-4zM1074,208h4v5h-4zM1047,220h4v5h-4zM1074,220h4v5h-4zM1047,232h4v5h-4zM1056,232h4v5h-4zM1074,232h4v5h-4zM1083,232h4v5h-4zM1065,244h4v5h-4zM1092,244h4v5h-4zM1038,256h4v5h-4zM1038,268h4v5h-4zM1083,268h4v5h-4zM1038,280h4v5h-4zM1047,280h4v5h-4zM1065,280h4v5h-4zM1074,280h4v5h-4zM1083,280h4v5h-4zM1171,251h4v5h-4zM1116,263h4v5h-4zM1171,263h4v5h-4zM1116,275h4v5h-4zM1127,275h4v5h-4zM1160,275h4v5h-4zM1182,275h4v5h-4zM1116,287h4v5h-4zM1149,287h4v5h-4zM1182,287h4v5h-4zM1212,132h4v5h-4zM1223,132h4v5h-4zM1245,132h4v5h-4zM1223,144h4v5h-4zM1267,144h4v5h-4zM1212,156h4v5h-4zM1267,156h4v5h-4zM1212,168h4v5h-4zM1234,168h4v5h-4zM1278,168h4v5h-4zM1201,180h4v5h-4zM1267,180h4v5h-4zM1212,204h4v5h-4zM1278,204h4v5h-4zM1223,216h4v5h-4zM1234,216h4v5h-4zM1256,216h4v5h-4zM1223,228h4v5h-4zM1245,228h4v5h-4zM1234,240h4v5h-4zM1256,240h4v5h-4zM1278,240h4v5h-4zM1245,252h4v5h-4zM1256,252h4v5h-4zM1267,252h4v5h-4zM1201,264h4v5h-4zM1212,264h4v5h-4zM1223,264h4v5h-4zM1256,264h4v5h-4zM1212,276h4v5h-4zM1278,276h4v5h-4zM1223,288h4v5h-4zM1301,240h4v5h-4zM1312,240h4v5h-4zM1323,240h4v5h-4zM1334,240h4v5h-4zM1345,240h4v5h-4zM1323,252h4v5h-4zM1334,252h4v5h-4zM1345,252h4v5h-4zM1356,252h4v5h-4zM1367,252h4v5h-4zM1312,264h4v5h-4zM1334,264h4v5h-4zM1345,264h4v5h-4zM1356,264h4v5h-4zM1367,264h4v5h-4zM1334,276h4v5h-4zM1367,276h4v5h-4zM1301,288h4v5h-4zM1323,288h4v5h-4zM1334,288h4v5h-4zM1386,131h4v5h-4zM1430,131h4v5h-4zM1419,143h4v5h-4zM1397,155h4v5h-4zM1430,155h4v5h-4zM1408,167h4v5h-4zM1419,167h4v5h-4zM1386,179h4v5h-4zM1419,179h4v5h-4zM1441,179h4v5h-4zM1386,191h4v5h-4zM1408,191h4v5h-4zM1386,203h4v5h-4zM1419,203h4v5h-4zM1430,215h4v5h-4zM1441,215h4v5h-4zM1386,227h4v5h-4zM1430,227h4v5h-4zM1397,239h4v5h-4zM1441,239h4v5h-4zM1397,251h4v5h-4zM1430,251h4v5h-4zM1441,251h4v5h-4zM1386,263h4v5h-4zM1419,263h4v5h-4zM1397,275h4v5h-4zM1419,275h4v5h-4zM1419,287h4v5h-4z"/><path class="sk-w tw1" d="M161,160h4v5h-4zM98,172h4v5h-4zM89,184h4v5h-4zM89,196h4v5h-4zM98,208h4v5h-4zM143,220h4v5h-4zM161,256h4v5h-4zM116,268h4v5h-4zM236,146h4v5h-4zM214,202h4v5h-4zM214,272h4v5h-4zM409,238h4v5h-4zM431,286h4v5h-4zM481,237h4v5h-4zM499,265h4v5h-4zM490,279h4v5h-4zM581,201h4v5h-4zM671,201h4v5h-4zM590,215h4v5h-4zM671,215h4v5h-4zM653,229h4v5h-4zM590,243h4v5h-4zM644,243h4v5h-4zM644,257h4v5h-4zM662,257h4v5h-4zM590,271h4v5h-4zM581,285h4v5h-4zM723,199h4v5h-4zM741,199h4v5h-4zM741,271h4v5h-4zM876,203h4v5h-4zM912,203h4v5h-4zM858,245h4v5h-4zM849,259h4v5h-4zM1047,256h4v5h-4zM1171,275h4v5h-4zM1212,144h4v5h-4zM1256,156h4v5h-4zM1267,192h4v5h-4zM1278,228h4v5h-4zM1201,252h4v5h-4zM1234,288h4v5h-4zM1301,264h4v5h-4zM1356,276h4v5h-4zM1441,131h4v5h-4zM1408,155h4v5h-4zM1397,167h4v5h-4zM1397,191h4v5h-4z"/><path class="sk-w tw2" d="M15,172h4v5h-4zM-3,214h4v5h-4zM43,258h4v5h-4zM54,258h4v5h-4zM134,184h4v5h-4zM170,184h4v5h-4zM170,196h4v5h-4zM170,208h4v5h-4zM152,244h4v5h-4zM89,256h4v5h-4zM192,132h4v5h-4zM247,160h4v5h-4zM247,202h4v5h-4zM192,216h4v5h-4zM258,230h4v5h-4zM304,233h4v5h-4zM481,223h4v5h-4zM508,237h4v5h-4zM499,279h4v5h-4zM635,201h4v5h-4zM750,223h4v5h-4zM732,235h4v5h-4zM696,259h4v5h-4zM849,287h4v5h-4zM933,233h4v5h-4zM977,261h4v5h-4zM1092,232h4v5h-4zM1083,256h4v5h-4zM1138,263h4v5h-4zM1256,144h4v5h-4zM1278,144h4v5h-4zM1278,156h4v5h-4zM1212,216h4v5h-4zM1245,240h4v5h-4zM1212,288h4v5h-4zM1419,191h4v5h-4zM1441,203h4v5h-4zM1386,239h4v5h-4zM1419,251h4v5h-4zM1386,287h4v5h-4zM1430,287h4v5h-4z"/><path class="sk-w tw3" d="M6,186h4v5h-4zM54,244h4v5h-4zM54,272h4v5h-4zM116,160h4v5h-4zM116,196h4v5h-4zM89,208h4v5h-4zM98,232h4v5h-4zM143,232h4v5h-4zM214,174h4v5h-4zM236,202h4v5h-4zM247,216h4v5h-4zM236,244h4v5h-4zM214,258h4v5h-4zM236,258h4v5h-4zM247,258h4v5h-4zM313,275h4v5h-4zM453,250h4v5h-4zM662,201h4v5h-4zM626,215h4v5h-4zM723,283h4v5h-4zM821,288h4v5h-4zM840,203h4v5h-4zM858,203h4v5h-4zM885,259h4v5h-4zM903,259h4v5h-4zM903,273h4v5h-4zM933,261h4v5h-4zM933,275h4v5h-4zM1056,220h4v5h-4zM1074,244h4v5h-4zM1127,251h4v5h-4zM1160,263h4v5h-4zM1223,192h4v5h-4zM1234,252h4v5h-4zM1386,143h4v5h-4zM1430,143h4v5h-4zM1419,227h4v5h-4zM1441,227h4v5h-4zM1430,263h4v5h-4zM1430,275h4v5h-4zM1408,287h4v5h-4z"/></svg>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.lift .floors a')),dn=document.getElementById('dnum'),disp=document.getElementById('display');
+  var secs=[].slice.call(document.querySelectorAll('[data-f][id]')),last=window.scrollY;
+  function set(f){btns.forEach(function(b){var on=b.getAttribute('data-f')===f;b.classList.toggle('on',on);if(on)dn.innerHTML=b.innerHTML});}
+  function tick(){var y=window.scrollY,mid=window.innerHeight*.45,cur=secs[0];
+    secs.forEach(function(s){if(s.getBoundingClientRect().top<mid)cur=s});
+    set(cur.getAttribute('data-f'));
+    if(Math.abs(y-last)>4){disp.classList.toggle('up',y<last);last=y}}
+  window.addEventListener('scroll',tick,{passive:true});tick();
+})();
+</script>
+</body>
+</html>

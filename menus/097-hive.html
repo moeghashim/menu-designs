@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Hive · الخليّة</title>
+<meta name="description" content="Hive — honey &amp; waffles. Single-origin Arabian honeys poured over waffles baked to order. الخليّة — عسل ووافل.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffc21a">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Lemonada:wght@500;700&family=Baloo+Bhaijaan+2:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--honey:#ffc21a;--amber:#f29a00;--deep:#b85c00;--wall:#2b1a02;--ink:#1c1202;--wax:#fff6d6;--wax2:#ffe9a6;
+  --w:min(300px,23.4vw);--disp:'Fredoka','Trebuchet MS',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Fredoka','Trebuchet MS',sans-serif;color:var(--ink);font-size:16px;line-height:1.4;overflow-x:clip;
+  background:var(--honey) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='145.5'%3E%3Cpath d='M42 0v24.25L0 48.5v48.5l42 24.25 42-24.25V48.5L42 24.25M42 121.25V145.5' fill='none' stroke='%23e9a700' stroke-width='2'/%3E%3C/svg%3E")}
+html[lang="ar"] body{font-family:'Baloo Bhaijaan 2','Tajawal',Tahoma,sans-serif;line-height:1.55}
+html[lang="ar"]{--disp:'Lemonada','Baloo Bhaijaan 2',Tahoma,sans-serif}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+
+/* controls */
+.ctl{position:fixed;z-index:60;top:10px;inset-inline-end:10px;display:flex;gap:6px}
+.ctl>*{height:36px;padding:0 14px;border-radius:99px;border:2px solid var(--ink);background:var(--ink);color:var(--honey);font:600 14px/1 'Fredoka','Baloo Bhaijaan 2',sans-serif;display:inline-flex;align-items:center;gap:6px;text-decoration:none;cursor:pointer;box-shadow:0 3px 0 #0003}
+.ctl>*:hover,.ctl>*:focus-visible{background:var(--wax);color:var(--ink);outline:none}
+#langToggle [lang="en"]{font-family:'Baloo Bhaijaan 2',sans-serif;font-size:15px}
+.home-link svg{width:14px;height:16px}
+
+/* drip */
+.drip{position:absolute;inset:0 0 auto 0;height:130px;width:100%;display:block;filter:drop-shadow(0 4px 0 #8a430033)}
+.drop{position:absolute;top:92px;width:14px;height:14px;background:linear-gradient(135deg,#ffb52e,#b85c00);border-radius:0 50% 50% 50%;transform:rotate(45deg);animation:fall 4.2s cubic-bezier(.6,0,.9,.5) infinite;opacity:0}
+.drop.b{animation-delay:1.7s;animation-duration:5s}.drop.c{animation-delay:3s;animation-duration:4.6s}
+@keyframes fall{0%{opacity:0;translate:0 0;scale:.4}12%{opacity:1;scale:1}80%{opacity:1}100%{translate:0 min(70vh,560px);opacity:0}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:150px clamp(1rem,5vw,4.5rem) 0;min-height:min(92svh,800px);display:grid;grid-template-columns:1fr minmax(0,1.05fr);align-items:center;gap:1rem;max-width:1500px;margin:auto}
+.kick{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:.9rem;background:var(--ink);color:var(--honey);padding:.4rem 1rem;border-radius:99px}
+html[lang="ar"] .kick{font-size:1.05rem}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(5.6rem,17vw,15rem);line-height:.82;letter-spacing:-.03em;margin:.12em 0 .1em;color:var(--ink);text-shadow:.035em .035em 0 var(--wax)}
+html[lang="ar"] h1{font-size:clamp(4.2rem,12vw,10rem);line-height:1.5;margin:-.1em 0 -.15em}
+.hero h2{font-family:var(--disp);font-weight:600;font-size:clamp(1.4rem,2.6vw,2.2rem);line-height:1.15;max-width:19ch}
+html[lang="ar"] .hero h2{line-height:1.7;font-size:clamp(1.25rem,2.2vw,1.8rem)}
+.hero p.intro{max-width:44ch;margin-top:.9rem;font-size:1.08rem;font-weight:500}
+.jump{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.jump a{text-decoration:none;font-weight:600;border:2.5px solid var(--ink);padding:.5rem 1.05rem;border-radius:99px;background:var(--wax);box-shadow:0 4px 0 var(--ink);transition:translate .15s,box-shadow .15s}
+.jump a:hover{translate:0 3px;box-shadow:0 1px 0 var(--ink);background:#fff}
+.art{width:100%;max-width:780px;justify-self:center;overflow:visible}
+html[dir="rtl"] .art{transform:scaleX(-1)}
+
+/* ---------- the comb ---------- */
+.comb{display:grid;grid-template-columns:repeat(8,calc(var(--w)/2));justify-content:center;padding:calc(var(--w)*.1) 0 calc(var(--w)*.42)}
+.cell{grid-column:span 2;width:var(--w);height:calc(var(--w)*1.1547);margin-bottom:calc(var(--w)*-.2887);position:relative;
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--wall);scroll-margin-top:40px}
+.cell .in{position:absolute;inset:5px;clip-path:inherit;background:radial-gradient(circle at 50% 30%,#fffdf2,var(--wax) 55%,var(--wax2));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16% 9.5%;gap:.22rem;transition:background .2s}
+.cell:hover .in{background:radial-gradient(circle at 50% 30%,#fff,#fff3c4 60%,#ffd869)}
+@media (min-width:1100px){.cell:nth-child(7n+5){grid-column:2 / span 2}}
+@media (min-width:640px) and (max-width:1099.9px){:root{--w:min(300px,32vw)}.comb{grid-template-columns:repeat(6,calc(var(--w)/2))}.cell:nth-child(5n+4){grid-column:2 / span 2}}
+@media (max-width:639.9px){:root{--w:calc((100vw - 14px)/1.5)}.comb{grid-template-columns:repeat(3,calc(var(--w)/2))}.cell:nth-child(2n){grid-column:2 / span 2}}
+.cell h3{font-family:var(--disp);font-weight:700;font-size:clamp(1.05rem,1.55vw,1.32rem);line-height:1.12}
+html[lang="ar"] .cell h3{font-weight:700;font-size:clamp(.98rem,1.3vw,1.15rem);line-height:1.55}
+.cell p{font-size:clamp(.875rem,1.05vw,.97rem);line-height:1.3;color:#4a3408;font-weight:500}
+html[lang="ar"] .cell p{font-size:clamp(.9rem,1.1vw,1rem);line-height:1.45}
+.pr{font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.3rem;margin-top:.15rem;white-space:nowrap;display:inline-flex;align-items:baseline;gap:.25em}
+.pr small{font-size:.62em;font-weight:600;letter-spacing:.06em;color:var(--deep)}
+html[lang="ar"] .pr small{font-family:'Baloo Bhaijaan 2',sans-serif;font-size:.72em}
+.drops{display:flex;gap:5px;direction:ltr;margin-bottom:.25rem}
+.drops i{width:10px;height:10px;border-radius:0 50% 50% 50%;transform:rotate(45deg);border:1.5px solid var(--deep)}
+.s1 i:nth-child(-n+1),.s2 i:nth-child(-n+2),.s3 i{background:var(--amber);border-color:var(--deep)}
+.queen{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--honey);border-radius:99px;padding:.12rem .6rem .16rem;display:inline-flex;gap:.3em;align-items:center;margin-bottom:.2rem}
+html[lang="ar"] .queen{font-size:.82rem}
+.queen svg{width:13px;height:10px}
+/* section header cells */
+.cell.head .in{background:radial-gradient(circle at 50% 25%,#3d2a06,#120b00 70%);color:var(--honey);gap:.3rem}
+.cell.head h2{font-family:var(--disp);font-weight:700;font-size:clamp(1.7rem,2.9vw,2.7rem);line-height:1}
+html[lang="ar"] .cell.head h2{font-size:clamp(1.45rem,2.3vw,2.1rem);line-height:1.6}
+.cell.head p{color:#ffe08a;max-width:16ch}
+.cell.head .no{font-weight:700;font-size:.85rem;letter-spacing:.2em;color:var(--ink);background:var(--honey);border-radius:99px;padding:.1rem .7rem}
+/* honey-filled cells */
+.cell.full .in{background:radial-gradient(ellipse 60% 26% at 42% 26%,#fff6c988,#fff6c900 70%),linear-gradient(170deg,#ffb92e 5%,#f08e00 45%,#b85c00 95%);color:#2b1400}
+.cell.full h3{font-size:clamp(1.15rem,1.7vw,1.5rem)}
+.cell.full p{color:#3a1d00;font-weight:600}
+.cell.full .pr small{color:#5b2c00}
+
+/* footer */
+footer{background:var(--ink);color:var(--wax);position:relative;padding:5.5rem clamp(1rem,5vw,4rem) 4.5rem}
+footer .wave{position:absolute;inset:-1px 0 auto 0;width:100%;height:70px;display:block;transform:scaleY(-1)}
+.foot{max-width:1150px;margin:auto;display:grid;grid-template-columns:1.15fr 1fr 1fr 1fr;gap:2rem;align-items:start}
+.foot .mark{font-family:var(--disp);font-weight:700;font-size:3.4rem;line-height:1;color:var(--honey)}
+html[lang="ar"] .foot .mark{font-size:2.5rem;line-height:1.6}
+.foot h4{font-family:var(--disp);font-size:1.1rem;color:var(--honey);margin-bottom:.4rem;display:flex;align-items:center;gap:.5rem}
+.foot h4::before{content:"";width:14px;height:16px;background:var(--honey);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.foot p{font-size:.98rem;color:#f3e3b4}
+.tiny{max-width:1150px;margin:2.2rem auto 0;border-top:1.5px dashed #6b5320;padding-top:1rem;font-size:.9rem;color:#cdb980}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:128px;text-align:center;justify-items:center;min-height:0}
+  .hero h2,.hero p.intro{margin-inline:auto}
+  .jump{justify-content:center}
+  .art{max-width:520px;margin-top:.5rem}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:639.9px){
+  .cell h3{font-size:1.06rem}.cell p{font-size:.875rem;line-height:1.28}
+  html[lang="ar"] .cell h3{font-size:1rem;line-height:1.45}html[lang="ar"] .cell p{font-size:.88rem;line-height:1.4}
+  .cell .in{padding:15% 8%}
+  .pr{font-size:1.15rem}
+  .cell.head h2{font-size:1.75rem}html[lang="ar"] .cell.head h2{font-size:1.5rem}
+  .foot{grid-template-columns:1fr}
+  .ctl>*{height:33px;padding:0 11px;font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<div class="ctl">
+  <a class="home-link" href="../index.html"><svg viewBox="0 0 14 16" aria-hidden="true"><path d="M7 0l7 4v8l-7 4-7-4V4z" fill="currentColor"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<div style="position:relative;overflow:hidden">
+<svg class="drip" aria-hidden="true" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e88a00"/><stop offset="1" stop-color="#b85c00"/></linearGradient>
+    <pattern id="dr" width="320" height="130" patternUnits="userSpaceOnUse">
+      <path fill="url(#hg)" d="M0 0H320V38C310 38 306 46 304 60C302 80 300 96 290 96C280 96 279 78 277 62C275 48 268 40 255 40C238 40 236 52 234 66C232 74 226 76 222 68C218 54 214 42 196 42C176 42 174 60 172 84C170 108 168 122 157 122C146 122 145 104 143 82C141 58 136 44 118 44C104 44 100 50 97 58C94 64 88 64 85 57C81 46 76 40 60 40C42 40 40 56 38 70C36 82 32 88 26 88C18 88 17 76 15 64C13 48 10 38 0 38Z"/>
+      <path d="M150 60v38M284 56v22M22 54v18M0 12H320" stroke="#ffd36b" stroke-width="3" stroke-linecap="round" fill="none" opacity=".7"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="130" fill="url(#dr)"/>
+</svg>
+<i class="drop" style="left:150px"></i><i class="drop b" style="left:603px"></i><i class="drop c" style="left:1110px"></i>
+
+<header class="hero">
+  <div>
+    <span class="kick"><span lang="en">Honey &amp; Waffles</span><span lang="ar">عسل ووافل</span></span>
+    <h1><span lang="en">Hive</span><span lang="ar">الخليّة</span></h1>
+    <h2><span lang="en">Raw Arabian honey, poured slowly over waffles baked to order.</span><span lang="ar">عسل عربي خام يُسكب على مهل فوق وافل يُخبز عند الطلب.</span></h2>
+    <p class="intro"><span lang="en">We keep four single-origin honeys on tap and one cast-iron press per table section. Pick a cell, any cell. Everything in the comb is made to be drizzled.</span><span lang="ar">عندنا أربعة أنواع من العسل، كلٌّ من منشأ واحد، ومكابس حديد تخبز لكل طاولة على حدة. اختر خليّة، أي خليّة؛ فكل ما في القرص صُنع ليُسقى عسلاً.</span></p>
+    <nav class="jump">
+      <a href="#waffles"><span lang="en">Waffles</span><span lang="ar">الوافل</span></a><a href="#honey"><span lang="en">Honey flight</span><span lang="ar">تذوّق العسل</span></a><a href="#savoury"><span lang="en">Savoury</span><span lang="ar">الموالح</span></a><a href="#sips"><span lang="en">Sips</span><span lang="ar">المشروبات</span></a>
+    </nav>
+  </div>
+  <svg class="art" viewBox="0 0 600 540" aria-hidden="true">
+    <defs>
+      <polygon id="hx" points="0,-86 74.5,-43 74.5,43 0,86 -74.5,43 -74.5,-43"/>
+      <linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffbe36"/><stop offset=".55" stop-color="#f08e00"/><stop offset="1" stop-color="#b85c00"/></linearGradient>
+      <pattern id="wf" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45 300 270)"><rect width="22" height="22" fill="#e9a23b"/><rect x="3" y="3" width="16" height="16" rx="3" fill="#c97a1c"/><rect x="5" y="5" width="12" height="5" rx="2" fill="#b0650f"/></pattern>
+      <g id="bee"><ellipse cx="-4" cy="-9" rx="9" ry="5.5" fill="#fff" opacity=".85" transform="rotate(-25 -4 -9)"/><ellipse cx="5" cy="-9" rx="8" ry="5" fill="#fff" opacity=".7" transform="rotate(20 5 -9)"/><ellipse rx="12" ry="8" fill="#ffc21a" stroke="#1c1202" stroke-width="2"/><path d="M-4-7.5v15M3-7.5v15" stroke="#1c1202" stroke-width="3.4"/><circle cx="12" r="5.5" fill="#1c1202"/><path d="M-12 0l-5 0" stroke="#1c1202" stroke-width="2" stroke-linecap="round"/></g>
+      <path id="p1" d="M40 420C100 300 60 120 220 70S470 20 540 150 520 420 400 480 120 520 40 420Z"/>
+      <path id="p2" d="M560 300C520 200 420 250 300 190S120 60 70 190 160 400 300 360 600 420 560 300Z"/>
+    </defs>
+    <g stroke="#2b1a02" stroke-width="6" stroke-linejoin="round">
+      <use href="#hx" x="300" y="270" fill="#fff6d6"/>
+      <use href="#hx" x="456" y="270" fill="url(#fl)"/>
+      <use href="#hx" x="144" y="270" fill="#1c1202"/>
+      <use href="#hx" x="378" y="135" fill="#ffe08a"/>
+      <use href="#hx" x="222" y="135" fill="url(#fl)"/>
+      <use href="#hx" x="378" y="405" fill="#1c1202"/>
+      <use href="#hx" x="222" y="405" fill="#fff6d6"/>
+      <use href="#hx" x="534" y="135" fill="none" stroke-dasharray="2 12" stroke-linecap="round"/>
+      <use href="#hx" x="66" y="405" fill="none" stroke-dasharray="2 12" stroke-linecap="round"/>
+    </g>
+    <!-- gloss -->
+    <g fill="none" stroke="#fff3c4" stroke-width="7" stroke-linecap="round" opacity=".75"><path d="M410 236q20-22 52-18"/><path d="M176 101q20-22 52-18"/></g>
+    <!-- waffle -->
+    <circle cx="300" cy="270" r="60" fill="url(#wf)" stroke="#8a4b08" stroke-width="5"/>
+    <path d="M262 240c10-18 60-22 76 0 12 18 4 28-4 38-6 8 2 24-8 26-10 2-8-14-18-16-12-2-10 22-24 18-12-4 0-22-10-30-10-8-20-20-12-36z" fill="url(#fl)" stroke="#8a4b08" stroke-width="2.5"/>
+    <rect x="286" y="244" width="26" height="20" rx="4" fill="#fff3b0" stroke="#d9a300" stroke-width="2" transform="rotate(-12 299 254)"/>
+    <!-- dipper -->
+    <g transform="translate(222 405) rotate(35)"><rect x="-4" y="-58" width="8" height="64" rx="4" fill="#8a4b08"/><g fill="#c97a1c" stroke="#8a4b08" stroke-width="2"><ellipse cy="8" rx="15" ry="6"/><ellipse cy="18" rx="19" ry="6.5"/><ellipse cy="29" rx="19" ry="6.5"/><ellipse cy="39" rx="14" ry="6"/></g><path d="M0 44c6 10 6 18 0 22-6-4-6-12 0-22z" fill="#f08e00"/></g>
+    <!-- drop + flower in dark cells -->
+    <path d="M144 236c18 26 26 40 26 52a26 26 0 0 1-52 0c0-12 8-26 26-52z" fill="url(#fl)"/><path d="M132 290q2 12 14 14" stroke="#fff3c4" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <g transform="translate(378 405)" fill="#ffc21a"><circle cy="-22" r="13"/><circle cx="21" cy="-7" r="13"/><circle cx="13" cy="18" r="13"/><circle cx="-13" cy="18" r="13"/><circle cx="-21" cy="-7" r="13"/><circle r="11" fill="#fff6d6"/></g>
+    <g transform="translate(378 135)" fill="none" stroke="#b85c00" stroke-width="4" stroke-linejoin="round"><polygon points="0,-34 29.4,-17 29.4,17 0,34 -29.4,17 -29.4,-17"/><polygon points="0,-14 12,-7 12,7 0,14 -12,7 -12,-7" fill="#f08e00"/></g>
+    <!-- flight paths + bees -->
+    <g fill="none" stroke="#2b1a02" stroke-width="2.5" stroke-dasharray="3 11" stroke-linecap="round" opacity=".55"><use href="#p1"/><use href="#p2"/></g>
+    <use href="#bee"><animateMotion dur="17s" repeatCount="indefinite" rotate="auto"><mpath href="#p1"/></animateMotion></use>
+    <use href="#bee"><animateMotion dur="23s" begin="-9s" repeatCount="indefinite" rotate="auto"><mpath href="#p2"/></animateMotion></use>
+    <use href="#bee"><animateMotion dur="17s" begin="-11s" repeatCount="indefinite" rotate="auto"><mpath href="#p1"/></animateMotion></use>
+  </svg>
+</header>
+</div>
+
+<main class="comb">
+  <!-- WAFFLES -->
+  <section class="cell head" id="waffles"><div class="in"><span class="no">01</span><h2><span lang="en">Waffles</span><span lang="ar">الوافل</span></h2><p><span lang="en">Pressed to order, eight minutes</span><span lang="ar">تُخبز عند الطلب في ثماني دقائق</span></p></div></section>
+  <article class="cell"><div class="in"><span class="queen"><svg viewBox="0 0 13 10"><path d="M0 2l3 3 3.5-5L10 5l3-3-1.5 8h-10z" fill="currentColor"/></svg><span lang="en">Queen’s pick</span><span lang="ar">اختيار الملكة</span></span><h3><span lang="en">The Queen Bee</span><span lang="ar">ملكة النحل</span></h3><p><span lang="en">Liège waffle, Sidr honey butter, clotted cream, bee pollen</span><span lang="ar">وافل لييج، زبدة عسل السدر، قشطة وحبوب لقاح</span></p><span class="pr" dir="ltr">42 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s3"><i></i><i></i><i></i></span><h3><span lang="en">Honeycomb Crunch</span><span lang="ar">قرمشة الشهد</span></h3><p><span lang="en">Buttermilk waffle, shattered honeycomb, vanilla soft-serve</span><span lang="ar">وافل باللبن، شهد مقرمش مفتّت وآيس كريم فانيلا</span></p><span class="pr" dir="ltr">38 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s3"><i></i><i></i><i></i></span><h3><span lang="en">Baklava Waffle</span><span lang="ar">وافل البقلاوة</span></h3><p><span lang="en">Pistachio, walnut, orange-blossom syrup, crisp kataifi</span><span lang="ar">فستق وجوز وقطر ماء الزهر مع كنافة مقرمشة</span></p><span class="pr" dir="ltr">44 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s2"><i></i><i></i><i></i></span><h3><span lang="en">Date &amp; Tahini</span><span lang="ar">تمر وطحينة</span></h3><p><span lang="en">Date molasses, tahini caramel, sesame brittle</span><span lang="ar">دبس التمر، كراميل الطحينة وسمسمية مقرمشة</span></p><span class="pr" dir="ltr">36 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s2"><i></i><i></i><i></i></span><h3><span lang="en">Burnt Honey Banana</span><span lang="ar">موز بالعسل المحروق</span></h3><p><span lang="en">Brûléed banana, burnt-honey custard, toasted pecans</span><span lang="ar">موز مكرمل، كاسترد العسل المحروق وبيكان محمّص</span></p><span class="pr" dir="ltr">39 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s1"><i></i><i></i><i></i></span><h3><span lang="en">Lemon &amp; Thyme</span><span lang="ar">ليمون وزعتر</span></h3><p><span lang="en">Thyme honey, sharp lemon curd, whipped mascarpone</span><span lang="ar">عسل الزعتر، كريمة ليمون لاذعة وماسكربوني مخفوق</span></p><span class="pr" dir="ltr">37 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <aside class="cell full"><div class="in"><h3><span lang="en">Extra pour</span><span lang="ar">سَكبة إضافية</span></h3><p><span lang="en">Any honey from the taps, another ladle</span><span lang="ar">مغرفة أخرى من أي عسل تختاره</span></p><span class="pr" dir="ltr">+6 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></aside>
+
+  <!-- HONEY -->
+  <section class="cell head" id="honey"><div class="in"><span class="no">02</span><h2><span lang="en">Honey flight</span><span lang="ar">تذوّق العسل</span></h2><p><span lang="en">Single origin, raw, never heated</span><span lang="ar">منشأ واحد، خام لم تمسّه نار</span></p></div></section>
+  <article class="cell"><div class="in"><span class="drops s3"><i></i><i></i><i></i></span><h3><span lang="en">Sidr · Hadramawt</span><span lang="ar">سدر · حضرموت</span></h3><p><span lang="en">Buttery and deep: toffee, dried fig, a long finish</span><span lang="ar">زبدي وعميق: توفي وتين مجفّف وطعم يطول</span></p><span class="pr" dir="ltr">28 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s2"><i></i><i></i><i></i></span><h3><span lang="en">Talh · Hail</span><span lang="ar">طلح · حائل</span></h3><p><span lang="en">Dark acacia honey, woody, with a molasses edge</span><span lang="ar">عسل أكاسيا داكن بنكهة خشبية ولمسة دبس</span></p><span class="pr" dir="ltr">18 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s2"><i></i><i></i><i></i></span><h3><span lang="en">Samar · Asir</span><span lang="ar">سمر · عسير</span></h3><p><span lang="en">Smoky and mineral, with a tamarind tang</span><span lang="ar">مدخَّن ومعدني مع حموضة تذكّر بالتمر الهندي</span></p><span class="pr" dir="ltr">20 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s1"><i></i><i></i><i></i></span><h3><span lang="en">Citrus Blossom · AlUla</span><span lang="ar">زهر الحمضيات · العُلا</span></h3><p><span lang="en">Pale and floral, like marmalade in spring</span><span lang="ar">فاتح وزهري، كمربّى البرتقال في الربيع</span></p><span class="pr" dir="ltr">14 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="queen"><svg viewBox="0 0 13 10"><path d="M0 2l3 3 3.5-5L10 5l3-3-1.5 8h-10z" fill="currentColor"/></svg><span lang="en">Queen’s pick</span><span lang="ar">اختيار الملكة</span></span><h3><span lang="en">The Full Flight</span><span lang="ar">الجولة الكاملة</span></h3><p><span lang="en">All four honeys, a slab of comb, warm waffle fingers</span><span lang="ar">الأنواع الأربعة مع قطعة شهد وأصابع وافل دافئة</span></p><span class="pr" dir="ltr">59 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <aside class="cell full"><div class="in"><h3><span lang="en">Take a jar home</span><span lang="ar">خذ مرطباناً معك</span></h3><p><span lang="en">250 g of any honey, sealed at the counter</span><span lang="ar">٢٥٠ غراماً من أي نوع، تُختم أمامك</span></p><span class="pr" dir="ltr">85 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></aside>
+
+  <!-- SAVOURY -->
+  <section class="cell head" id="savoury"><div class="in"><span class="no">03</span><h2><span lang="en">Savoury</span><span lang="ar">الموالح</span></h2><p><span lang="en">Salt loves honey. Trust us.</span><span lang="ar">الملح يعشق العسل، صدّقنا</span></p></div></section>
+  <article class="cell"><div class="in"><span class="queen"><svg viewBox="0 0 13 10"><path d="M0 2l3 3 3.5-5L10 5l3-3-1.5 8h-10z" fill="currentColor"/></svg><span lang="en">Queen’s pick</span><span lang="ar">اختيار الملكة</span></span><h3><span lang="en">Hot Honey Chicken</span><span lang="ar">دجاج بالعسل الحار</span></h3><p><span lang="en">Buttermilk fried chicken, chilli honey, dill pickles</span><span lang="ar">دجاج مقلي متبّل باللبن، عسل بالفلفل ومخلّل شبت</span></p><span class="pr" dir="ltr">52 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s1"><i></i><i></i><i></i></span><h3><span lang="en">Halloumi &amp; Za’atar</span><span lang="ar">حلّوم وزعتر</span></h3><p><span lang="en">Grilled halloumi, za’atar honey, blistered tomatoes</span><span lang="ar">حلّوم مشوي، عسل بالزعتر وطماطم كرزية مشوية</span></p><span class="pr" dir="ltr">41 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s1"><i></i><i></i><i></i></span><h3><span lang="en">Benedict Waffle</span><span lang="ar">وافل بنديكت</span></h3><p><span lang="en">Poached eggs, hollandaise, honey-glazed turkey bacon</span><span lang="ar">بيض مسلوق، هولنديز ولحم حبش مقدّد بالعسل</span></p><span class="pr" dir="ltr">48 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s2"><i></i><i></i><i></i></span><h3><span lang="en">Labneh &amp; Comb</span><span lang="ar">لبنة وشهد</span></h3><p><span lang="en">Cheddar-chive waffle, labneh, olive oil, fresh comb</span><span lang="ar">وافل بالشيدر والثوم المعمّر، لبنة وزيت زيتون وشهد</span></p><span class="pr" dir="ltr">34 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+
+  <!-- SIPS -->
+  <section class="cell head" id="sips"><div class="in"><span class="no">04</span><h2><span lang="en">Sips</span><span lang="ar">المشروبات</span></h2><p><span lang="en">Sweetened with honey only</span><span lang="ar">لا يُحلّيها إلا العسل</span></p></div></section>
+  <article class="cell"><div class="in"><span class="drops s2"><i></i><i></i><i></i></span><h3><span lang="en">Honey Latte</span><span lang="ar">لاتيه بالعسل</span></h3><p><span lang="en">Double espresso, wildflower honey, steamed milk</span><span lang="ar">إسبريسو مزدوج، عسل الأزهار البرية وحليب مبخّر</span></p><span class="pr" dir="ltr">21 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s3"><i></i><i></i><i></i></span><h3><span lang="en">Honeycomb Shaker</span><span lang="ar">شيكر الشهد</span></h3><p><span lang="en">Iced shaken espresso under honeycomb cream</span><span lang="ar">إسبريسو مثلّج مخفوق تعلوه كريمة الشهد</span></p><span class="pr" dir="ltr">24 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s1"><i></i><i></i><i></i></span><h3><span lang="en">Ginger Lemonade</span><span lang="ar">ليموناضة الزنجبيل</span></h3><p><span lang="en">Pressed lemon, fresh ginger, Talh honey, soda</span><span lang="ar">ليمون معصور، زنجبيل طازج، عسل الطلح وصودا</span></p><span class="pr" dir="ltr">19 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s2"><i></i><i></i><i></i></span><h3><span lang="en">Saffron Honey Milk</span><span lang="ar">حليب بالزعفران والعسل</span></h3><p><span lang="en">Warm milk, saffron threads, cardamom, Sidr honey</span><span lang="ar">حليب دافئ، خيوط زعفران، هيل وعسل السدر</span></p><span class="pr" dir="ltr">22 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <article class="cell"><div class="in"><span class="drops s1"><i></i><i></i><i></i></span><h3><span lang="en">Bee’s Knees</span><span lang="ar">بيز نيز</span></h3><p><span lang="en">A zero-proof classic: juniper, lemon, honey, soda</span><span lang="ar">موكتيل كلاسيكي: عرعر وليمون وعسل وصودا</span></p><span class="pr" dir="ltr">26 <small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article>
+  <aside class="cell full"><div class="in"><h3><span lang="en">Sweetness key</span><span lang="ar">مفتاح الحلاوة</span></h3><span class="drops s3" style="margin-top:.2rem"><i style="background:#fff6d6;border-color:#5b2c00"></i><i style="background:#fff6d6;border-color:#5b2c00"></i><i style="background:#fff6d6;border-color:#5b2c00"></i></span><p><span lang="en">One drop: a whisper. Three drops: full nectar.</span><span lang="ar">قطرة واحدة: همسة. ثلاث قطرات: رحيق كامل.</span></p></div></aside>
+</main>
+
+<footer>
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="#ffc21a" d="M0 70V30c60 0 70 30 120 30s60-44 130-44 80 40 150 40 70-30 130-30 80 36 150 36 80-48 160-48 70 44 140 44 90-34 160-34 70 30 130 30 100-40 170-24V70z"/></svg>
+  <div class="foot">
+    <div><div class="mark"><span lang="en">Hive</span><span lang="ar">الخليّة</span></div><p><span lang="en">Honey &amp; waffles, drizzled daily.</span><span lang="ar">عسل ووافل، بسكبة طازجة كل يوم.</span></p></div>
+    <div><h4><span lang="en">Foraging hours</span><span lang="ar">ساعات الجَني</span></h4><p><span lang="en">Saturday – Wednesday 7 am – 11 pm<br>Thursday &amp; Friday 7 am – 1 am</span><span lang="ar">السبت – الأربعاء ٧ ص – ١١ م<br>الخميس والجمعة ٧ ص – ١ ص</span></p></div>
+    <div><h4><span lang="en">Find the hive</span><span lang="ar">موقع الخليّة</span></h4><p><span lang="en">Unit 6, Al Nakheel Walk, Prince Turki Road, Al Khobar · 013 555 0142</span><span lang="ar">محل ٦، ممشى النخيل، طريق الأمير تركي، الخبر · <span dir="ltr">013 555 0142</span></span></p></div>
+    <div><h4><span lang="en">Good to know</span><span lang="ar">يهمّك أن تعرف</span></h4><p><span lang="en">Our batters contain wheat, egg and milk; nuts and sesame are everywhere. Gluten-free batter on request. Raw honey is not suitable for infants under one year.</span><span lang="ar">عجائننا تحتوي على القمح والبيض والحليب، والمكسرات والسمسم حاضرة في كل مكان. تتوفر عجينة خالية من الغلوتين عند الطلب. العسل الخام لا يناسب الرضّع دون السنة.</span></p></div>
+  </div>
+  <p class="tiny"><span lang="en">Prices in Saudi riyals, VAT included. One riyal from every Full Flight goes to desert beekeepers in Asir.</span><span lang="ar">الأسعار بالريال السعودي وتشمل ضريبة القيمة المضافة. ريال من كل «جولة كاملة» يذهب إلى نحّالي عسير.</span></p>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelector('.art').pauseAnimations()}catch(e){}
+</script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Form &amp; Fork · شكل وشوكة</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Form &amp; Fork — a Bauhaus brunch room where every plate is a circle, a square, a triangle or a line. شكل وشوكة — برانش على طريقة الباوهاوس.">
+<meta name="theme-color" content="#141414">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;800;900&family=Jost:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--paper:#f1ecdf;--ink:#141414;--red:#d8271c;--blue:#1c4da1;--yel:#f3c110;--line:4px;--pad:clamp(1.1rem,2.4vw,2.2rem)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{font-family:Jost,"Century Gothic",Futura,"Trebuchet MS",sans-serif;color:var(--ink);background:var(--ink);font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-family:Alexandria,"Noto Kufi Arabic",Tahoma,sans-serif;font-size:16.5px;line-height:1.7}
+html[lang="ar"] *{letter-spacing:0!important}
+a{color:inherit}
+ol,ul{list-style:none}
+
+/* ---------- rail ---------- */
+.rail{position:sticky;top:0;z-index:20;background:var(--ink);color:var(--paper);display:flex;align-items:center;gap:.7rem;padding:.55rem .8rem;border-bottom:var(--line) solid var(--ink)}
+.mark{flex:none;width:30px;height:30px}
+.rail .name{font-weight:800;text-transform:uppercase;letter-spacing:.22em;font-size:.95rem;white-space:nowrap;margin-inline-end:auto}
+.rail nav{display:none}
+#langToggle{font:inherit;font-weight:700;font-size:.85rem;background:var(--yel);color:var(--ink);border:0;padding:.5rem .7rem;min-height:40px;cursor:pointer;border-radius:0}
+#langToggle:hover,#langToggle:focus-visible{background:var(--paper)}
+.home-link{flex:none;display:grid;place-items:center;width:40px;height:40px;background:var(--red)}
+.home-link svg{width:18px;height:18px;fill:var(--paper)}
+.home-link:hover,.home-link:focus-visible{background:var(--blue)}
+:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+
+/* ---------- modular grid ---------- */
+main{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--line);padding:var(--line);background:var(--ink)}
+.tile{background:var(--paper);position:relative;overflow:hidden;min-width:0}
+
+/* hero */
+.hero{display:flex;flex-direction:column}
+.hero .art{width:100%;height:auto;display:block;background:var(--paper)}
+html[dir="rtl"] .hero .art{transform:scaleX(-1)}
+.hero .txt{padding:var(--pad);border-top:var(--line) solid var(--ink)}
+.kicker{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.78rem}
+.kicker b{color:var(--red)}
+h1{font-weight:900;text-transform:uppercase;line-height:.84;font-size:clamp(4.2rem,22vw,7rem);letter-spacing:-.03em;margin:.35em 0 .25em}
+h1 span>span{display:block}
+h1 .amp{display:inline-grid;place-items:center;width:.86em;height:.86em;border-radius:50%;background:var(--red);color:var(--paper);font-size:.8em;vertical-align:.02em;margin-inline-end:.08em;line-height:1}
+html[lang="ar"] h1{line-height:1.12;font-size:clamp(3.6rem,19vw,6.2rem)}
+html[lang="ar"] h1 .amp{background:none;color:var(--red);width:auto;height:auto;font-size:1em;margin:0}
+.tag{font-size:clamp(1.15rem,2.2vw,1.6rem);font-weight:500;max-width:22ch;line-height:1.2}
+.tag::before{content:"";display:block;width:3.2rem;height:8px;background:var(--ink);margin-bottom:.8rem}
+
+/* intro */
+.intro{background:var(--blue);color:#fff;padding:var(--pad);display:flex;flex-direction:column;gap:1.4rem}
+.intro::after{content:"";position:absolute;inset-block-end:-70px;inset-inline-end:-70px;width:190px;height:190px;border-radius:50%;background:var(--yel)}
+.intro .no{text-align:start;font-weight:900;font-size:clamp(3rem,7vw,5rem);line-height:.9}
+.intro p{font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.45;max-width:34ch}
+html[lang="ar"] .intro p{line-height:1.8}
+.facts{display:grid;gap:.35rem;font-weight:700;font-size:.92rem;position:relative;z-index:1;margin-top:auto;padding-inline-end:120px}
+.facts li{display:flex;gap:.6rem;align-items:baseline}
+.facts li::before{content:"";flex:none;width:.7em;height:.7em;background:#fff}
+.facts li:nth-child(2)::before{border-radius:50%}
+.facts li:nth-child(3)::before{clip-path:polygon(50% 0,100% 100%,0 100%)}
+
+/* sections */
+.sec{display:grid;grid-template-columns:clamp(46px,5vw,70px) minmax(0,1fr)}
+.tab{writing-mode:vertical-rl;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;font-weight:800;text-transform:uppercase;letter-spacing:.34em;font-size:.82rem;color:#fff;background:var(--c);white-space:nowrap}
+html[dir="ltr"] .tab{transform:rotate(180deg)}
+.tab b{font-size:1.5rem;letter-spacing:0;font-weight:900}
+.s1{--c:var(--red)}.s2{--c:var(--blue)}.s3{--c:var(--yel)}.s4{--c:var(--ink)}
+.s3 .tab{color:var(--ink)}
+.body{padding:var(--pad);min-width:0}
+.sec header{position:relative;min-height:clamp(170px,34vw,230px);display:flex;flex-direction:column;justify-content:flex-end;margin-bottom:1.2rem}
+.shape{position:absolute;inset-block-start:calc(var(--pad)*-1 - 20px);inset-inline-end:calc(var(--pad)*-1 - 30px);width:clamp(128px,36vw,270px);aspect-ratio:1;background:var(--c)}
+.s1 .shape{border-radius:50%}
+.s2 .shape{inset-block-start:calc(var(--pad)*-1);inset-inline-end:calc(var(--pad)*-1)}
+.s3 .shape{clip-path:polygon(100% 0,100% 100%,0 0)}
+html[dir="rtl"] .s3 .shape{clip-path:polygon(0 0,100% 0,0 100%)}
+.s4 .shape{background:repeating-linear-gradient(180deg,var(--ink) 0 14px,transparent 14px 34px)}
+.sec h2{position:relative;font-weight:900;text-transform:uppercase;font-size:clamp(2.6rem,9.5vw,4.6rem);line-height:.9;letter-spacing:-.02em}
+html[lang="ar"] .sec h2{line-height:1.25;font-size:clamp(2.4rem,8.5vw,4rem)}
+.sec header p{position:relative;font-weight:500;font-size:1rem;margin-top:.5rem;max-width:30ch}
+.items li{display:grid;grid-template-columns:2rem minmax(0,1fr) auto;gap:.2rem .7rem;padding:.9rem 0;border-top:3px solid var(--ink);align-items:start;break-inside:avoid}
+.items .n{font-weight:900;font-size:.9rem;padding-top:.18rem;color:var(--c)}
+.s3 .items .n,.s4 .items .n{color:var(--ink)}
+.items h3{font-size:1.08rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;line-height:1.2}
+html[lang="ar"] .items h3{font-size:1.12rem;line-height:1.5}
+.items p{font-size:.97rem;color:#3a3833;margin-top:.15rem}
+.p{font-weight:900;font-size:1.35rem;line-height:1;white-space:nowrap;direction:ltr;unicode-bidi:isolate;padding-top:.05rem}
+.p::after{content:" AED";font-size:.62rem;font-weight:700;letter-spacing:.1em}
+html[lang="ar"] .p::after{content:" د.إ";font-size:.72rem}
+.pick,.veg{display:inline-block;width:.62em;height:.62em;margin-inline-start:.4em;vertical-align:.05em}
+.pick{background:var(--red);border-radius:50%}
+.veg{background:var(--yel);clip-path:polygon(50% 0,100% 100%,0 100%);box-shadow:inset 0 0 0 9px var(--yel)}
+.s3 .veg{background:var(--ink)}
+
+/* triad */
+.triad{background:var(--yel);padding:var(--pad);display:flex;flex-direction:column;gap:1rem}
+.triad .eq{display:flex;align-items:center;gap:.5rem;font-weight:900;font-size:1.6rem}
+.triad .eq i{width:2.6rem;height:2.6rem;background:var(--ink);flex:none}
+.triad .eq i:nth-of-type(1){border-radius:50%;background:var(--red)}
+.triad .eq i:nth-of-type(2){background:var(--blue)}
+.triad .eq i:nth-of-type(3){clip-path:polygon(50% 0,100% 100%,0 100%)}
+.triad h2{font-weight:900;text-transform:uppercase;font-size:clamp(2.2rem,5vw,3.2rem);line-height:.9}
+html[lang="ar"] .triad h2{line-height:1.25}
+.triad p{font-weight:500;font-size:1.12rem;line-height:1.4}
+.triad ul{border-top:3px solid var(--ink);font-weight:800;font-size:.95rem}
+.triad ul li{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:3px solid var(--ink)}
+.triad ul bdo{white-space:nowrap}
+.triad .big{margin-top:auto;font-size:clamp(4.5rem,9vw,7rem);font-weight:900;line-height:.8;direction:ltr;unicode-bidi:isolate;align-self:flex-start}
+.triad .big::after{content:" AED";font-size:.9rem;letter-spacing:.1em}
+html[lang="ar"] .triad .big::after{content:" د.إ";font-size:1rem}
+
+/* footer tiles */
+.ft{padding:var(--pad)}
+.ft h2{font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.24em;margin-bottom:.9rem;display:flex;align-items:center;gap:.6rem}
+.ft h2::before{content:"";width:1rem;height:1rem;background:currentColor;flex:none}
+.hours{background:var(--red);color:#fff}
+.hours dl{display:grid;grid-template-columns:1fr auto;gap:.3rem 1rem;font-weight:700}
+.hours dd{direction:ltr;unicode-bidi:isolate}
+.addr p{font-size:1.25rem;font-weight:700;line-height:1.3}
+.addr small{display:block;margin-top:.8rem;font-size:.92rem;font-weight:500}
+.notes ul{display:grid;gap:.5rem;font-size:.95rem}
+.notes li{display:flex;gap:.6rem;align-items:baseline}
+.notes li i{flex:none;margin:0}
+.sign{background:var(--ink);color:var(--paper);display:grid;place-items:center;padding:var(--pad);min-height:9rem}
+.sign p{font-weight:900;text-transform:uppercase;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1;letter-spacing:.02em}
+.sign p em{font-style:normal;color:var(--yel)}
+html[lang="ar"] .sign p{line-height:1.4}
+
+/* motion */
+@media (prefers-reduced-motion:no-preference){
+  .fork{animation:fork 1.1s cubic-bezier(.2,.8,.2,1) both;transform-origin:300px 300px}
+  @keyframes fork{from{transform:rotate(-95deg)}to{transform:rotate(-35deg)}}
+  .orbit{animation:orbit 26s linear infinite;transform-origin:300px 300px}
+  @keyframes orbit{to{transform:rotate(360deg)}}
+  .tri{animation:tri 1s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes tri{from{transform:translate(60px,60px)}to{transform:none}}
+}
+.fork{transform:rotate(-35deg);transform-origin:300px 300px}
+
+@media (min-width:700px){
+  main{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero,.sec,.intro,.triad{grid-column:1/-1}
+  .s2 .items{columns:2;column-gap:2.2rem}
+  .s2 .items li:first-child,.s2 .items li:nth-child(4){border-top:3px solid var(--ink)}
+  .sec header{min-height:200px}
+}
+@media (min-width:1100px){
+  body{display:grid;grid-template-columns:96px minmax(0,1fr)}
+  .rail{flex-direction:column;height:100vh;padding:1.1rem 0;border:0;gap:1.2rem}
+  .mark{width:44px;height:44px}
+  .rail .name{writing-mode:vertical-rl;margin:0;font-size:1.25rem;letter-spacing:.42em;flex:1;text-align:center}
+  html[dir="ltr"] .rail .name{transform:rotate(180deg)}
+  .rail nav{display:grid;gap:.8rem;justify-items:center}
+  .rail nav a{display:block;width:26px;height:26px;background:var(--paper);transition:transform .2s}
+  .rail nav a:hover{transform:scale(1.25)}
+  .rail nav a:nth-child(1){border-radius:50%;background:var(--red)}
+  .rail nav a:nth-child(2){background:var(--blue)}
+  .rail nav a:nth-child(3){background:var(--yel);clip-path:polygon(50% 0,100% 100%,0 100%)}
+  .rail nav a:nth-child(4){background:repeating-linear-gradient(180deg,var(--paper) 0 4px,transparent 4px 9px)}
+  #langToggle{width:76px;padding:.5rem .2rem}
+  .home-link{width:76px}
+  main{grid-template-columns:repeat(12,minmax(0,1fr))}
+  .hero{grid-column:1/9;display:block;min-height:min(86vh,760px)}
+  .hero .art{position:absolute;inset-block:0;inset-inline-end:0;height:100%;width:auto;max-width:74%}
+  .hero .txt{position:relative;border:0;height:100%;display:flex;flex-direction:column;min-height:inherit;pointer-events:none}
+  h1{font-size:clamp(6rem,10.5vw,10.5rem);margin-top:auto}
+  html[lang="ar"] h1{font-size:clamp(5.4rem,9vw,9rem)}
+  .intro{grid-column:9/13}
+  .s1{grid-column:1/6}.s2{grid-column:6/13}
+  .triad{grid-column:1/4}.s3{grid-column:4/9}.s4{grid-column:9/13}
+  .hours{grid-column:1/4}.addr{grid-column:4/7}.notes{grid-column:7/11}.sign{grid-column:11/13}
+  .sign p{writing-mode:vertical-rl;font-size:1.7rem}
+  html[dir="ltr"] .sign p{transform:rotate(180deg)}
+  .sec header{min-height:220px}
+}
+</style>
+</head>
+<body>
+<div class="rail">
+  <svg class="mark" viewBox="0 0 44 44" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="#d8271c"/><rect x="24" y="2" width="18" height="18" fill="#1c4da1"/><path d="M2 42h40L22 24z" fill="#f3c110"/></svg>
+  <span class="name"><span lang="en">Form &amp; Fork</span><span lang="ar">شكل وشوكة</span></span>
+  <nav aria-label="Sections">
+    <a href="#circles"><span lang="en" hidden>Circles</span><span lang="ar" hidden>الدوائر</span></a>
+    <a href="#squares"><span lang="en" hidden>Squares</span><span lang="ar" hidden>المربعات</span></a>
+    <a href="#triangles"><span lang="en" hidden>Triangles</span><span lang="ar" hidden>المثلثات</span></a>
+    <a href="#lines"><span lang="en" hidden>Lines</span><span lang="ar" hidden>الخطوط</span></a>
+  </nav>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html" aria-label="All menus · كل القوائم"><svg viewBox="0 0 18 18" aria-hidden="true"><rect width="7" height="7"/><rect x="11" width="7" height="7"/><rect y="11" width="7" height="7"/><rect x="11" y="11" width="7" height="7"/></svg></a>
+</div>
+
+<main>
+  <section class="tile hero">
+    <svg class="art" viewBox="0 0 640 600" aria-hidden="true">
+      <rect width="640" height="600" fill="#f1ecdf"/>
+      <g fill="#141414"><rect x="0" y="548" width="640" height="6"/></g>
+      <circle cx="300" cy="300" r="205" fill="#d8271c"/>
+      <circle cx="300" cy="300" r="128" fill="none" stroke="#f1ecdf" stroke-width="6"/>
+      <rect x="418" y="36" width="190" height="190" fill="#1c4da1" style="mix-blend-mode:multiply"/>
+      <path class="tri" d="M372 548h250V282z" fill="#f3c110" style="mix-blend-mode:multiply"/>
+      <g class="fork" fill="#f1ecdf"><rect x="262" y="96" width="14" height="130"/><rect x="293" y="96" width="14" height="130"/><rect x="324" y="96" width="14" height="130"/><rect x="262" y="212" width="76" height="30"/><rect x="290" y="236" width="20" height="290"/></g>
+      <g class="orbit"><circle cx="300" cy="62" r="17" fill="#141414"/></g>
+      <g fill="#141414"><circle cx="100" cy="500" r="7"/><circle cx="124" cy="500" r="7"/><circle cx="148" cy="500" r="7"/><circle cx="100" cy="524" r="7"/><circle cx="124" cy="524" r="7"/><circle cx="148" cy="524" r="7"/></g>
+      <path d="M608 36a120 120 0 0 1-120 120" fill="none" stroke="#f3c110" stroke-width="22"/>
+    </svg>
+    <div class="txt">
+      <p class="kicker"><span lang="en">Brunch</span><span lang="ar">برانش</span><b>N° 011</b><span lang="en">Daily 08–16</span><span lang="ar">يوميًا ٨ – ٤</span></p>
+      <h1><span lang="en"><span>Form</span><span><i class="amp" style="font-style:normal">&amp;</i>Fork</span></span><span lang="ar"><span>شكل</span><span><i class="amp" style="font-style:normal">و</i>شوكة</span></span></h1>
+      <p class="tag"><span lang="en">Brunch follows function.</span><span lang="ar">البرانش يتبع الوظيفة.</span></p>
+    </div>
+  </section>
+
+  <section class="tile intro">
+    <div class="no" dir="ltr">1919 →<br>11:00</div>
+    <p><span lang="en">A hundred years ago a school in Weimar reduced the world to a circle, a square and a triangle. We did the same to breakfast. Every plate here is filed under the shape it makes on the table — no garnish without a job, no dish without a reason.</span><span lang="ar">قبل مئة عام اختزلت مدرسةٌ في فايمار العالمَ في دائرة ومربّع ومثلّث، ونحن فعلنا الشيء نفسه مع الفطور. كل طبق هنا مصنّف بحسب الشكل الذي يرسمه على المائدة: لا زينة بلا مهمّة، ولا طبق بلا سبب.</span></p>
+    <ul class="facts">
+      <li><span lang="en">Bread baked at 05:00</span><span lang="ar">خبزنا يُخبز الخامسة فجرًا</span></li>
+      <li><span lang="en">Eggs from free-range hens</span><span lang="ar">بيض من دجاج طليق</span></li>
+      <li><span lang="en">Kitchen closes 15:30</span><span lang="ar">المطبخ يغلق ٣:٣٠ عصرًا</span></li>
+    </ul>
+  </section>
+
+  <section class="tile sec s1" id="circles">
+    <div class="tab"><b>01</b><span lang="en">Circles</span><span lang="ar">الدوائر</span></div>
+    <div class="body">
+      <header><i class="shape"></i>
+        <h2><span lang="en">Circles</span><span lang="ar">الدوائر</span></h2>
+        <p><span lang="en">Eggs, pans, pancakes and other round arguments.</span><span lang="ar">بيض ومقالٍ وفطائر، وكل ما هو مستدير ومقنع.</span></p>
+      </header>
+      <ol class="items">
+        <li><span class="n">01</span><div><h3><span lang="en">Shakshuka in the Round</span><span lang="ar">شكشوكة مستديرة</span><i class="pick"></i><i class="veg"></i></h3><p><span lang="en">Two eggs poached in roast pepper and tomato, served in the pan with sourdough.</span><span lang="ar">بيضتان تنضجان في صلصة الفلفل المشوي والطماطم، تُقدَّم في مقلاتها مع خبز العجين المخمّر.</span></p></div><span class="p">42</span></li>
+        <li><span class="n">02</span><div><h3><span lang="en">Benedict N° 2</span><span lang="ar">بنديكت رقم ٢</span></h3><p><span lang="en">Smoked turkey, poached egg and brown-butter hollandaise on a toasted muffin.</span><span lang="ar">ديك رومي مدخّن وبيضة مسلوقة بلا قشر وصلصة هولنديز بالزبدة البنّية على خبز المافن المحمّص.</span></p></div><span class="p">48</span></li>
+        <li><span class="n">03</span><div><h3><span lang="en">Pancake Stack ×3</span><span lang="ar">ثلاثية البان كيك</span><i class="veg"></i></h3><p><span lang="en">Buttermilk pancakes, orange-blossom labneh and a slow pour of date molasses.</span><span lang="ar">فطائر باللبن الرائب مع لبنة بماء الزهر وخيط طويل من دبس التمر.</span></p></div><span class="p">38</span></li>
+        <li><span class="n">04</span><div><h3><span lang="en">Sesame Bagel, Salmon</span><span lang="ar">بيغل السمسم بالسلمون</span></h3><p><span lang="en">House-cured salmon, whipped cream cheese, capers and pickled red onion.</span><span lang="ar">سلمون مملّح في مطبخنا وجبنة كريمية مخفوقة ونبات القبّار وبصل أحمر مخلّل.</span></p></div><span class="p">52</span></li>
+        <li><span class="n">05</span><div><h3><span lang="en">Sunny Side Plate</span><span lang="ar">طبق عيون الشمس</span></h3><p><span lang="en">Two fried eggs, crisp beef bacon, roast tomato and a potato rösti disc.</span><span lang="ar">بيضتان مقليتان ولحم بقري مقدّد مقرمش وطماطم مشوية وقرص روستي من البطاطا.</span></p></div><span class="p">46</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="tile sec s2" id="squares">
+    <div class="tab"><b>02</b><span lang="en">Squares</span><span lang="ar">المربعات</span></div>
+    <div class="body">
+      <header><i class="shape"></i>
+        <h2><span lang="en">Squares</span><span lang="ar">المربعات</span></h2>
+        <p><span lang="en">Toasts, slabs and things cut with a ruler.</span><span lang="ar">توست وألواح وكل ما قُطع بالمسطرة.</span></p>
+      </header>
+      <ol class="items">
+        <li><span class="n">06</span><div><h3><span lang="en">Avocado Toast, Squared</span><span lang="ar">توست الأفوكادو المربّع</span><i class="veg"></i></h3><p><span lang="en">Crushed avocado, dukkah, chilli oil and a six-minute egg on dark rye.</span><span lang="ar">أفوكادو مهروس ودقّة وزيت الفلفل الحار وبيضة نصف مسلوقة على خبز الجاودار الداكن.</span></p></div><span class="p">44</span></li>
+        <li><span class="n">07</span><div><h3><span lang="en">Brioche French Toast</span><span lang="ar">توست فرنسي بالبريوش</span><i class="pick"></i><i class="veg"></i></h3><p><span lang="en">Thick-cut and caramelised, with mascarpone and macerated strawberries.</span><span lang="ar">شريحة سميكة مكرملة مع جبنة الماسكاربوني وفراولة منقوعة بالسكر.</span></p></div><span class="p">40</span></li>
+        <li><span class="n">08</span><div><h3><span lang="en">Halloumi Slab</span><span lang="ar">لوح الحلّوم</span><i class="veg"></i></h3><p><span lang="en">Griddled halloumi, hot honey and za'atar on seeded bread.</span><span lang="ar">حلّوم مشوي على الصاج مع عسل حار وزعتر فوق خبز بالبذور.</span></p></div><span class="p">39</span></li>
+        <li><span class="n">09</span><div><h3><span lang="en">Focaccia Egg Sandwich</span><span lang="ar">ساندويتش الفوكاتشا بالبيض</span></h3><p><span lang="en">Folded omelette, turkey ham, aged cheddar and tomato jam.</span><span lang="ar">عجّة مطوية وشرائح الديك الرومي وجبنة شيدر معتّقة ومربّى الطماطم.</span></p></div><span class="p">43</span></li>
+        <li><span class="n">10</span><div><h3><span lang="en">Granola Grid</span><span lang="ar">شبكة الغرانولا</span><i class="veg"></i></h3><p><span lang="en">Baked oat squares, thick yoghurt, seasonal fruit and wildflower honey.</span><span lang="ar">مربّعات شوفان مخبوزة مع زبادي كثيف وفاكهة الموسم وعسل الأزهار البرّية.</span></p></div><span class="p">32</span></li>
+        <li><span class="n">11</span><div><h3><span lang="en">Feta &amp; Spinach Bake</span><span lang="ar">صينية الفيتا والسبانخ</span><i class="veg"></i></h3><p><span lang="en">A crisp filo square, warm from the tray, with lemon and nigella seed.</span><span lang="ar">مربّع من عجينة الفيلو المقرمشة، دافئ من الصينية، مع الليمون وحبّة البركة.</span></p></div><span class="p">36</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="tile triad">
+    <div class="eq" aria-hidden="true"><i></i>+<i></i>+<i></i></div>
+    <h2><span lang="en">The Triad</span><span lang="ar">الثلاثي</span></h2>
+    <p><span lang="en">Set brunch for one: any circle, any square, any triangle — and a line to drink. Composition is yours.</span><span lang="ar">برانش كامل لشخص واحد: دائرة ومربّع ومثلّث من اختيارك، ومعها خطّ تشربه. التكوين لك.</span></p>
+    <ul>
+      <li><span lang="en">The classic</span><span lang="ar">الكلاسيكي</span><bdo dir="ltr">01 + 07 + 12 + 17</bdo></li>
+      <li><span lang="en">The savoury</span><span lang="ar">المالح</span><bdo dir="ltr">02 + 08 + 14 + 19</bdo></li>
+      <li><span lang="en">The sweet tooth</span><span lang="ar">لعشّاق الحلو</span><bdo dir="ltr">03 + 10 + 16 + 21</bdo></li>
+    </ul>
+    <span class="big">95</span>
+  </section>
+
+  <section class="tile sec s3" id="triangles">
+    <div class="tab"><b>03</b><span lang="en">Triangles</span><span lang="ar">المثلثات</span></div>
+    <div class="body">
+      <header><i class="shape"></i>
+        <h2><span lang="en">Triangles</span><span lang="ar">المثلثات</span></h2>
+        <p><span lang="en">Wedges, slices and pastry with a point.</span><span lang="ar">شرائح وقطع ومعجّنات لها رأس حادّ.</span></p>
+      </header>
+      <ol class="items">
+        <li><span class="n">12</span><div><h3><span lang="en">Butter Croissant</span><span lang="ar">كرواسون بالزبدة</span><i class="veg"></i></h3><p><span lang="en">Rolled from one exact triangle of 27 layers. Apricot jam on the side.</span><span lang="ar">يُلفّ من مثلّث واحد دقيق بسبع وعشرين طبقة، ومعه مربّى المشمش.</span></p></div><span class="p">18</span></li>
+        <li><span class="n">13</span><div><h3><span lang="en">Tortilla Wedge</span><span lang="ar">مثلّث التورتيا الإسبانية</span><i class="veg"></i></h3><p><span lang="en">Potato and sweet onion omelette, garlic aioli, peppery rocket.</span><span lang="ar">عجّة البطاطا والبصل الحلو مع أيولي الثوم وأوراق الجرجير.</span></p></div><span class="p">34</span></li>
+        <li><span class="n">14</span><div><h3><span lang="en">Cheese Sambousek ×4</span><span lang="ar">سمبوسك بالجبنة ×٤</span><i class="veg"></i></h3><p><span lang="en">Crisp triangles of akkawi and mint with a tomato chutney.</span><span lang="ar">مثلّثات مقرمشة محشوّة بالعكّاوي والنعناع مع صلصة الطماطم الحلوة الحارة.</span></p></div><span class="p">28</span></li>
+        <li><span class="n">15</span><div><h3><span lang="en">Waffle, Quarter Turn</span><span lang="ar">وافل ربع دورة</span><i class="pick"></i></h3><p><span lang="en">Waffle wedges, buttermilk fried chicken and a maple-chilli glaze.</span><span lang="ar">أرباع الوافل مع دجاج مقلي متبّل باللبن وطلاء القيقب والفلفل الحار.</span></p></div><span class="p">49</span></li>
+        <li><span class="n">16</span><div><h3><span lang="en">Lemon Tart, One Slice</span><span lang="ar">شريحة تارت الليمون</span><i class="veg"></i></h3><p><span lang="en">Sharp lemon curd, short crust, torched meringue.</span><span lang="ar">كريمة ليمون لاذعة على عجينة هشّة وفوقها مارينغ محمّر باللهب.</span></p></div><span class="p">26</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="tile sec s4" id="lines">
+    <div class="tab"><b>04</b><span lang="en">Lines</span><span lang="ar">الخطوط</span></div>
+    <div class="body">
+      <header><i class="shape"></i>
+        <h2><span lang="en">Lines</span><span lang="ar">الخطوط</span></h2>
+        <p><span lang="en">Everything that is poured.</span><span lang="ar">كل ما يُسكب.</span></p>
+      </header>
+      <ol class="items">
+        <li><span class="n">17</span><div><h3><span lang="en">Flat White</span><span lang="ar">فلات وايت</span></h3><p><span lang="en">Double ristretto, silk-textured milk.</span><span lang="ar">جرعتا ريستريتو وحليب بقوام الحرير.</span></p></div><span class="p">19</span></li>
+        <li><span class="n">18</span><div><h3><span lang="en">Filter, Straight</span><span lang="ar">قهوة مقطّرة</span></h3><p><span lang="en">One origin, one cup. Changes weekly.</span><span lang="ar">محصول واحد في كوب واحد، يتغيّر كل أسبوع.</span></p></div><span class="p">17</span></li>
+        <li><span class="n">19</span><div><h3><span lang="en">Primary Press</span><span lang="ar">عصير الألوان الأساسية</span><i class="pick"></i></h3><p><span lang="en">Red: beetroot, apple, ginger. Yellow: orange, turmeric, carrot.</span><span lang="ar">الأحمر: شمندر وتفاح وزنجبيل. الأصفر: برتقال وكركم وجزر.</span></p></div><span class="p">24</span></li>
+        <li><span class="n">20</span><div><h3><span lang="en">Blue Lemonade</span><span lang="ar">ليموناضة زرقاء</span></h3><p><span lang="en">Butterfly pea flower and soda; turns violet when you add the lemon.</span><span lang="ar">زهرة البازلاء الزرقاء مع الصودا، تتحوّل إلى البنفسجي حين تعصر الليمون.</span></p></div><span class="p">22</span></li>
+        <li><span class="n">21</span><div><h3><span lang="en">Hibiscus Spritz</span><span lang="ar">كركديه فوّار</span></h3><p><span lang="en">Cold-brewed hibiscus, pomegranate, sparkling water. Zero proof.</span><span lang="ar">كركديه منقوع على البارد مع الرمّان والماء الفوّار، بلا كحول.</span></p></div><span class="p">25</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="tile ft hours">
+    <h2><span lang="en">Hours</span><span lang="ar">الأوقات</span></h2>
+    <dl>
+      <dt><span lang="en">Sunday – Thursday</span><span lang="ar">الأحد – الخميس</span></dt><dd>08:00 – 16:00</dd>
+      <dt><span lang="en">Friday</span><span lang="ar">الجمعة</span></dt><dd>09:00 – 17:00</dd>
+      <dt><span lang="en">Saturday</span><span lang="ar">السبت</span></dt><dd>08:00 – 17:00</dd>
+    </dl>
+  </section>
+  <section class="tile ft addr">
+    <h2><span lang="en">Find us</span><span lang="ar">العنوان</span></h2>
+    <p><span lang="en">Unit 4, Warehouse 19<br>Alserkal Lane, Al Quoz<br>Dubai</span><span lang="ar">الوحدة ٤، المستودع ١٩<br>ممرّ السركال، القوز<br>دبي</span></p>
+    <small><span lang="en">Walk-ins only. The long table seats twelve.</span><span lang="ar">بلا حجز مسبق. الطاولة الطويلة تتّسع لاثني عشر ضيفًا.</span></small>
+  </section>
+  <section class="tile ft notes">
+    <h2><span lang="en">Key</span><span lang="ar">مفتاح الرموز</span></h2>
+    <ul>
+      <li><i class="pick"></i><span lang="en">Red dot — the kitchen's favourite form.</span><span lang="ar">النقطة الحمراء: الشكل المفضّل لدى المطبخ.</span></li>
+      <li><i class="veg"></i><span lang="en">Yellow triangle — vegetarian.</span><span lang="ar">المثلّث الأصفر: طبق نباتي.</span></li>
+      <li><i class="pick" style="background:var(--ink);border-radius:0"></i><span lang="en">Our kitchen handles nuts, sesame, gluten, eggs and dairy. Tell us before you order.</span><span lang="ar">يستخدم مطبخنا المكسّرات والسمسم والغلوتين والبيض ومشتقات الحليب؛ أخبرنا قبل الطلب.</span></li>
+      <li><i class="pick" style="background:var(--blue);border-radius:0"></i><span lang="en">Prices in AED, 5% VAT included.</span><span lang="ar">الأسعار بالدرهم الإماراتي وتشمل ضريبة القيمة المضافة ٥٪.</span></li>
+    </ul>
+  </section>
+  <section class="tile sign"><p><span lang="en">Less, <em>but</em> brunch.</span><span lang="ar">أقلّ، <em>لكن</em> ألذّ.</span></p></section>
+</main>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

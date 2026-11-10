@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Maison Lune · ميزون لون</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Maison Lune — a French pâtisserie that bakes by moonlight. ميزون لون — حلويات فرنسية تُخبز على ضوء القمر.">
+<meta name="theme-color" content="#f3dcd6">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&family=Amiri:ital,wght@0,400;0,700;1,400&family=Zain:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--cream:#fbf6ee;--blush:#f3dcd6;--pist:#d3dfc3;--ink:#2c2522;--soft:#6b5d55;--gold:#a9775c;--hair:rgba(44,37,34,.28);
+--serif:'Bodoni Moda','Amiri','Didot',serif;--sans:'Jost','Zain',system-ui,sans-serif}
+html[lang="ar"]{--serif:'Amiri','Bodoni Moda',serif;--sans:'Zain','Jost',sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;background:#efe7dc}
+body{font:300 17px/1.6 var(--sans);color:var(--ink);overflow-x:clip}
+html[lang="ar"] body{font-size:19.5px;line-height:1.75}
+a{color:inherit}ul,ol{list-style:none;padding:0}
+.lab{font:400 12px/1.4 var(--sans);letter-spacing:.34em;text-transform:uppercase}
+html[lang="ar"] .lab{letter-spacing:0;font-size:16px}
+/* controls */
+.ctl{position:fixed;top:10px;inset-inline-end:14px;z-index:30;display:flex;gap:6px}
+.ctl a,.ctl button{font:400 13px/1 'Jost','Zain',sans-serif;letter-spacing:.08em;color:var(--ink);background:rgba(251,246,238,.86);backdrop-filter:blur(6px);border:1px solid var(--hair);border-radius:999px;padding:9px 15px;text-decoration:none;cursor:pointer;transition:background .25s,color .25s}
+.ctl button{font-family:'Zain','Jost',sans-serif;font-size:15px;letter-spacing:0;padding-block:7px}
+html[lang="ar"] .ctl a{font-size:15px;letter-spacing:0;padding-block:7px}html[lang="ar"] .ctl button{font-size:13px;letter-spacing:.08em;padding-block:9px}
+.ctl a:hover,.ctl button:hover{background:var(--ink);color:var(--cream)}
+html[lang="en"] .to-en,html[lang="ar"] .to-ar{display:none}
+/* spreads */
+.spread{position:relative;max-width:1560px;margin:0 auto;background:var(--cream);display:grid}
+.spread+.spread{margin-top:clamp(14px,2.4vw,34px)}
+.page{position:relative;padding:clamp(34px,5vw,84px) clamp(22px,5.2vw,88px) clamp(74px,7vw,110px);min-width:0}
+.page.blush{background:var(--blush)}.page.pist{background:var(--pist)}
+.folio{position:absolute;bottom:clamp(22px,2.6vw,38px);inset-inline:clamp(22px,5.2vw,88px);display:flex;gap:16px;align-items:baseline;font:400 11.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--soft);border-top:1px solid var(--hair);padding-top:12px}
+html[lang="ar"] .folio{letter-spacing:0;font-size:15px}
+.folio>span:first-child{unicode-bidi:isolate;direction:ltr;font:italic 400 17px/1 'Bodoni Moda',serif;letter-spacing:0;color:var(--ink)}
+.folio.r{flex-direction:row-reverse}
+/* cover */
+.mast{display:flex;justify-content:space-between;gap:14px;padding:clamp(54px,4vw,60px) clamp(22px,5.2vw,88px) 12px;position:absolute;inset:0 0 auto;z-index:3}
+.mast>span{border-top:1px solid var(--ink);padding-top:10px;flex:1}
+.mast>span:nth-child(2){text-align:center}.mast>span:nth-child(3){text-align:end}
+h1{position:absolute;z-index:2;inset-inline:0;top:clamp(104px,9.5vw,150px);text-align:center;font:400 clamp(60px,15.2vw,238px)/.9 var(--serif);letter-spacing:-.035em;white-space:nowrap;pointer-events:none}
+h1 em{font-style:italic;font-weight:400}
+html[lang="ar"] h1{letter-spacing:0;font-size:clamp(70px,15vw,236px);line-height:1.15;top:clamp(92px,7.6vw,120px);font-weight:700}
+html[lang="ar"] h1 em{font-weight:400}
+.cover .page{padding-top:clamp(240px,29vw,440px)}
+.moonart{display:block;width:min(100%,470px);margin:0 auto}
+.moonart .hl{fill:none;stroke:var(--ink);stroke-width:.7}
+.tagline{font:italic 400 clamp(25px,2.8vw,42px)/1.2 var(--serif);text-align:center;margin-top:18px}
+html[lang="ar"] .tagline{line-height:1.6}
+.cuisine{text-align:center;margin-top:14px;color:var(--soft)}
+.letter h2{font:400 12px/1.4 var(--sans);letter-spacing:.34em;text-transform:uppercase;margin-bottom:18px;color:var(--gold)}
+html[lang="ar"] .letter h2{letter-spacing:0;font-size:17px;font-weight:700}
+.letter p{font-size:clamp(17px,1.35vw,19.5px);max-width:52ch}
+html[lang="ar"] .letter p{font-size:clamp(19.5px,1.5vw,22px)}
+html[lang="en"] .letter p:first-of-type::first-letter{font:400 4.6em/.78 'Bodoni Moda',serif;float:left;padding:.06em .1em 0 0;color:var(--gold)}
+.signed{font:italic 400 22px/1.3 var(--serif);margin-top:16px}
+.toc{margin-top:clamp(28px,3.4vw,52px);border-top:1px solid var(--ink)}
+.toc a{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:13px 2px;border-bottom:1px solid var(--hair);text-decoration:none;font:400 clamp(21px,1.9vw,28px)/1.2 var(--serif);transition:padding .3s,color .3s}
+.toc a:hover{padding-inline-start:14px;color:var(--gold)}
+.toc a>span:last-child{font:italic 400 17px/1 'Bodoni Moda',serif;color:var(--soft)}
+.ph{display:inline-block;width:15px;height:15px;border-radius:50%;border:1px solid var(--ink);background:linear-gradient(90deg,var(--ink) var(--p),transparent 0);flex:none}
+/* section heads */
+.sh{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-items:center;margin-bottom:clamp(22px,2.6vw,40px);scroll-margin-top:60px}
+.rom{font:400 12px/1 var(--sans);letter-spacing:.34em;color:var(--gold)}
+.sh h2{grid-column:1/-1;font:400 clamp(46px,5.6vw,92px)/.98 var(--serif);letter-spacing:-.02em}
+.sh h2 em,.sh h2{font-style:normal}
+html[lang="ar"] .sh h2{letter-spacing:0;line-height:1.3;font-weight:700}
+.sh p{grid-column:1/-1;font:italic 400 clamp(18px,1.5vw,22px)/1.4 var(--serif);color:var(--soft);max-width:44ch}
+html[lang="ar"] .sh p{line-height:1.7}
+/* item lists */
+.list li{padding:15px 0 14px;border-top:1px solid var(--hair)}
+.list li:last-child{border-bottom:1px solid var(--hair)}
+.nm{display:flex;align-items:baseline;gap:10px}
+.nm h3{font:italic 400 clamp(22px,1.9vw,28px)/1.2 var(--serif)}
+html[lang="ar"] .nm h3{font-style:normal;font-weight:700;font-size:clamp(23px,2vw,29px);line-height:1.5}
+.lead{flex:1;min-width:14px;border-bottom:1px dotted var(--soft);transform:translateY(-5px)}
+.p{font:400 clamp(21px,1.7vw,25px)/1 'Bodoni Moda',serif;font-variant-numeric:lining-nums;white-space:nowrap}
+.p sup{font-size:.52em;margin-inline-end:3px;vertical-align:.7em;color:var(--gold)}
+.list p{color:var(--soft);max-width:50ch;margin-top:2px}
+.sig{font:400 10.5px/1 var(--sans);font-style:normal;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:99px;padding:5px 9px 4px;white-space:nowrap;transform:translateY(-3px)}
+html[lang="ar"] .sig{letter-spacing:0;font-size:14px;padding:2px 10px 3px}
+.two{columns:2;column-gap:clamp(30px,4vw,64px)}.two li{break-inside:avoid}
+/* plates */
+.plate{display:grid;place-items:center;align-content:center;gap:22px;text-align:center}
+.arch{width:min(100%,430px);aspect-ratio:3/4.1;border-radius:999px 999px 0 0;display:grid;place-items:center;position:relative;background:var(--cream);box-shadow:0 0 0 1px var(--ink) inset}
+.arch::after{content:"";position:absolute;inset:10px;border-radius:999px 999px 0 0;border:1px solid var(--hair)}
+.arch svg{width:74%;height:auto;overflow:visible}
+.cap{font:italic 400 clamp(17px,1.4vw,20px)/1.4 var(--serif);max-width:34ch;color:var(--soft)}
+html[lang="ar"] .cap{line-height:1.7}
+.float{animation:float 7s ease-in-out infinite alternate}
+@keyframes float{from{transform:translateY(-6px) rotate(-2deg)}to{transform:translateY(8px) rotate(2deg)}}
+.quote{font:italic 400 clamp(30px,3.7vw,60px)/1.12 var(--serif);letter-spacing:-.01em;margin-bottom:clamp(26px,3vw,44px)}
+html[lang="ar"] .quote{letter-spacing:0;line-height:1.5;font-size:clamp(30px,3.4vw,54px)}
+.quote::before{content:"";display:block;width:60px;height:1px;background:var(--ink);margin-bottom:26px}
+/* macarons */
+.chart{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,36px) clamp(10px,1.6vw,24px);margin-bottom:clamp(22px,2.6vw,36px)}
+.chart li{display:grid;justify-items:center;text-align:center;gap:3px}
+.chart i{width:min(100%,104px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 34% 30%,rgba(255,255,255,.55),transparent 42%),var(--c);box-shadow:0 0 0 1px rgba(44,37,34,.35),inset 0 0 0 7px rgba(255,255,255,.22),inset 0 0 0 8px rgba(44,37,34,.16),0 10px 18px -10px rgba(44,37,34,.5);margin-bottom:10px;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.chart li:hover i{transform:translateY(-6px) rotate(14deg)}
+.chart small{font:400 11px/1 'Jost',sans-serif;letter-spacing:.26em;color:var(--gold)}
+.chart span{font:italic 400 clamp(16.5px,1.35vw,20px)/1.25 var(--serif)}
+html[lang="ar"] .chart span{font-style:normal;line-height:1.5}
+.boxes{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--ink)}
+.boxes div{padding:16px 8px;text-align:center}.boxes div+div{border-inline-start:1px solid var(--hair)}
+.boxes .p{display:block;margin-top:8px;font-size:clamp(26px,2.4vw,36px)}
+/* gouter */
+.gouter{border:1px solid var(--ink);padding:8px;text-align:center;max-width:560px;margin:0 auto}
+.gouter>div{border:1px solid var(--hair);padding:clamp(26px,3.4vw,50px) clamp(18px,3vw,44px)}
+.gouter h2{font:italic 400 clamp(38px,4.4vw,68px)/1.02 var(--serif);margin:14px 0 6px}
+html[lang="ar"] .gouter h2{font-style:normal;font-weight:700;line-height:1.4}
+.gouter ol{margin:20px 0}.gouter ol li{padding:9px 0;border-top:1px solid var(--hair)}.gouter ol li:last-child{border-bottom:1px solid var(--hair)}
+.gouter .p{font-size:clamp(40px,4vw,58px)}
+.gouter svg{width:120px;height:auto;margin:0 auto;display:block}
+.colo{display:grid;gap:26px}
+.colo h4{font:400 12px/1.4 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+html[lang="ar"] .colo h4{letter-spacing:0;font-size:17px;font-weight:700}
+.colo p{font:400 clamp(20px,1.7vw,25px)/1.35 var(--serif)}
+html[lang="ar"] .colo p{line-height:1.7}
+.fine{margin-top:clamp(26px,3vw,44px);padding-top:18px;border-top:1px solid var(--ink);font-size:15px;color:var(--soft);max-width:60ch}
+html[lang="ar"] .fine{font-size:17px}
+.bye{font:italic 400 clamp(54px,7vw,120px)/1 var(--serif);margin-top:clamp(30px,4vw,60px);letter-spacing:-.02em}
+html[lang="ar"] .bye{letter-spacing:0;line-height:1.4}
+@media (min-width:960px){
+ .spread{grid-template-columns:1fr 1fr;min-height:min(960px,66vw)}
+ .spread::after{content:"";position:absolute;inset-block:0;inset-inline-start:calc(50% - 40px);width:80px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(44,37,34,.07) 48%,rgba(44,37,34,.16) 50%,rgba(44,37,34,.07) 52%,transparent);z-index:1}
+ .cover .page.r{display:flex;flex-direction:column;justify-content:flex-end}
+}
+@media (max-width:959px){
+ .mast>span:nth-child(2){display:none}.mast{padding-top:58px;font-size:10px;letter-spacing:.14em}
+ h1{white-space:normal;line-height:.84;top:122px;font-size:25vw}
+ html[lang="ar"] h1{font-size:24vw;line-height:1.05;top:104px}
+ .cover .page.l{padding-top:calc(52vw + 160px)}.cover .page.r{padding-top:40px}
+ html[lang="ar"] .cover .page.l{padding-top:calc(56vw + 140px)}
+ .two{columns:1}
+ .arch{width:min(78%,300px)}
+ .chart{gap:22px 8px}
+ .ctl a,.ctl button{padding:8px 12px}
+ .folio>span:last-child{font-size:10.5px}
+ html[lang="ar"] .folio>span:last-child{font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="ctl"><a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a><button id="langToggle" type="button"><span class="to-ar">العربية</span><span class="to-en">English</span></button></div>
+<header class="spread cover">
+ <div class="mast lab"><span><span lang="en">Issue N° 12 — The Spring Carte</span><span lang="ar">العدد ١٢ — قائمة الربيع</span></span><span><span lang="en">Pâtisserie · Salon de thé</span><span lang="ar">حلويات فرنسية · صالون شاي</span></span><span><span lang="en">Baked by moonlight</span><span lang="ar">يُخبز على ضوء القمر</span></span></div>
+ <h1><span lang="en">Maison <em>Lune</em></span><span lang="ar">ميزون <em>لون</em></span></h1>
+ <div class="page l blush">
+  <svg class="moonart" viewBox="0 0 400 330" aria-hidden="true">
+   <circle class="hl" cx="200" cy="165" r="150"/><circle class="hl" cx="200" cy="165" r="118" stroke-dasharray="1 5"/>
+   <ellipse class="hl" cx="200" cy="165" rx="190" ry="46" transform="rotate(-18 200 165)"/>
+   <path class="float" d="M236 62a104 104 0 1 0 0 206 84 84 0 0 1 0-206z" fill="#fbf6ee" stroke="#2c2522" stroke-width=".8"/>
+   <g fill="#a9775c"><g transform="translate(300 96)"><path d="M0-9Q1-1 9 0 1 1 0 9-1 1-9 0-1-1 0-9z"/></g><g transform="translate(332 180) scale(.6)"><path d="M0-9Q1-1 9 0 1 1 0 9-1 1-9 0-1-1 0-9z"/></g><g transform="translate(66 78) scale(.7)"><path d="M0-9Q1-1 9 0 1 1 0 9-1 1-9 0-1-1 0-9z"/></g><g transform="translate(286 248) scale(.5)"><path d="M0-9Q1-1 9 0 1 1 0 9-1 1-9 0-1-1 0-9z"/></g></g>
+   <circle cx="382" cy="110" r="4" fill="#2c2522"/>
+  </svg>
+  <p class="tagline"><span lang="en">Butter, patience and a little moonlight.</span><span lang="ar">زبدة وصبر وقليل من ضوء القمر.</span></p>
+  <p class="cuisine lab"><span lang="en">French Pâtisserie — Paris, 6ᵉ</span><span lang="ar">حلويات فرنسية — باريس، الدائرة السادسة</span></p>
+  <footer class="folio l"><span>01</span><span><span lang="en">Maison Lune — Spring</span><span lang="ar">ميزون لون — الربيع</span></span></footer>
+ </div>
+ <div class="page r">
+  <div class="letter"><h2><span lang="en">A note from the chef</span><span lang="ar">كلمة من الشيف</span></h2>
+   <p><span lang="en">Our ovens are lit at three in the morning, when the street is silent and the dough has had the whole night to think. By sunrise the first croissants are still warm, and by dusk every tart, éclair and macaron in the vitrine has been made that same day — nothing is kept for tomorrow.</span><span lang="ar">نُشعل أفراننا عند الثالثة فجرًا، حين يكون الشارع صامتًا والعجين قد أخذ ليلته كاملة ليتأمّل. مع شروق الشمس تكون أولى حبّات الكرواسون ما زالت دافئة، ومع الغروب يكون كلّ ما في الواجهة من تارت وإكلير وماكارون قد صُنع في يومه — لا شيء عندنا يُترك للغد.</span></p>
+   <p class="signed"><span lang="en">— Céleste Aubrac, chef pâtissière</span><span lang="ar">— سيليست أوبراك، رئيسة الحلوانيّين</span></p></div>
+  <nav class="toc" aria-label="Contents">
+   <a href="#vien"><i class="ph" style="--p:15%" aria-hidden="true"></i><span><span lang="en">Viennoiserie</span><span lang="ar">المعجّنات الصباحية</span></span><span>02</span></a>
+   <a href="#pat"><i class="ph" style="--p:40%" aria-hidden="true"></i><span><span lang="en">Pâtisserie fine</span><span lang="ar">الحلويات الراقية</span></span><span>04</span></a>
+   <a href="#mac"><i class="ph" style="--p:65%" aria-hidden="true"></i><span><span lang="en">Macarons</span><span lang="ar">الماكارون</span></span><span>06</span></a>
+   <a href="#tea"><i class="ph" style="--p:85%" aria-hidden="true"></i><span><span lang="en">Salon de thé</span><span lang="ar">صالون الشاي</span></span><span>07</span></a>
+   <a href="#gouter"><i class="ph" style="--p:100%" aria-hidden="true"></i><span><span lang="en">Le Goûter de Minuit</span><span lang="ar">وليمة منتصف الليل</span></span><span>08</span></a>
+  </nav>
+  <footer class="folio r"><span>01 bis</span><span><span lang="en">Maison Lune — Spring</span><span lang="ar">ميزون لون — الربيع</span></span></footer>
+ </div>
+</header>
+<main>
+<section class="spread">
+ <div class="page l pist plate">
+  <div class="arch"><svg viewBox="0 0 240 200" aria-hidden="true" class="float"><g fill="#f0cf9b" stroke="#2c2522" stroke-width="1.1" stroke-linejoin="round"><path d="M14 150C2 96 44 30 120 30s118 66 106 120c-10-34-44-62-106-62S24 116 14 150z"/><path d="M62 52c-6 22-2 42 8 52M94 34c-8 24-6 46 2 60M146 34c8 24 6 46-2 60M178 52c6 22 2 42-8 52M120 30v58" fill="none"/></g><g fill="#a9775c"><g transform="translate(120 136) scale(.9)"><path d="M0-9Q1-1 9 0 1 1 0 9-1 1-9 0-1-1 0-9z"/></g><g transform="translate(70 160) scale(.5)"><path d="M0-9Q1-1 9 0 1 1 0 9-1 1-9 0-1-1 0-9z"/></g><g transform="translate(172 164) scale(.5)"><path d="M0-9Q1-1 9 0 1 1 0 9-1 1-9 0-1-1 0-9z"/></g></g></svg></div>
+  <p class="cap"><span lang="en">Plate I — The croissant, a crescent moon you may eat before nine.</span><span lang="ar">اللوحة الأولى — الكرواسون، هلالٌ يُؤكل قبل التاسعة صباحًا.</span></p>
+  <footer class="folio l"><span>02</span><span><span lang="en">Maison Lune — Spring</span><span lang="ar">ميزون لون — الربيع</span></span></footer>
+ </div>
+ <div class="page r">
+  <header class="sh" id="vien"><i class="ph" style="--p:15%" aria-hidden="true"></i><span class="rom">I</span><h2><span lang="en">Viennoiserie</span><span lang="ar">المعجّنات الصباحية</span></h2><p><span lang="en">From the first bake, until they are gone — usually before noon.</span><span lang="ar">من الخَبزة الأولى حتى تنفد — وغالبًا قبل الظهيرة.</span></p></header>
+  <ul class="list"><li><div class="nm"><h3><span lang="en">Croissant au beurre</span><span lang="ar">كرواسون بالزبدة</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>3.20</span></div><p><span lang="en">Twenty-seven layers of Charentes butter, baked dark and shattering.</span><span lang="ar">سبع وعشرون طبقة من زبدة شارانت، تُخبز حتى تكتسب لونًا داكنًا وقرمشة هشّة.</span></p></li><li><div class="nm"><h3><span lang="en">Pain au chocolat</span><span lang="ar">بان أو شوكولا</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>3.60</span></div><p><span lang="en">Two batons of 64% Madagascan chocolate in laminated dough.</span><span lang="ar">إصبعان من شوكولاتة مدغشقر ٦٤٪ داخل عجين مورّق.</span></p></li><li><div class="nm"><h3><span lang="en">Croissant aux amandes</span><span lang="ar">كرواسون باللوز</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>4.40</span></div><p><span lang="en">Soaked in orange-flower syrup, filled with frangipane, baked twice.</span><span lang="ar">يُشرَّب بقطر ماء الزهر ويُحشى بكريمة اللوز ثم يُخبز مرّتين.</span></p></li><li><div class="nm"><h3><span lang="en">Kouign-amann</span><span lang="ar">كوين أمان</span></h3><em class="sig"><span lang="en">Signature</span><span lang="ar">توقيع الدار</span></em><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>4.80</span></div><p><span lang="en">The Breton classic: caramelised crust, salted butter, soft heart.</span><span lang="ar">الحلوى البريتانية العريقة: قشرة مكرملة وزبدة مملّحة وقلب طريّ.</span></p></li><li><div class="nm"><h3><span lang="en">Brioche à la fleur d’oranger</span><span lang="ar">بريوش بماء الزهر</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>3.90</span></div><p><span lang="en">A tender crumb, pearl sugar, the scent of a Provençal morning.</span><span lang="ar">لبّ طريّ وسكّر لؤلؤي وعبير صباحٍ في بروفانس.</span></p></li><li><div class="nm"><h3><span lang="en">Chausson aux pommes</span><span lang="ar">شوسون بالتفّاح</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>4.20</span></div><p><span lang="en">Slow-cooked apple compote with vanilla in a scored puff turnover.</span><span lang="ar">مربّى تفّاح مطهوّ على مهل مع الفانيليا داخل فطيرة مورّقة.</span></p></li></ul>
+  <footer class="folio r"><span>03</span><span><span lang="en">Maison Lune — Spring</span><span lang="ar">ميزون لون — الربيع</span></span></footer>
+ </div>
+</section>
+<section class="spread">
+ <div class="page l">
+  <header class="sh" id="pat"><i class="ph" style="--p:40%" aria-hidden="true"></i><span class="rom">II</span><h2><span lang="en">Pâtisserie fine</span><span lang="ar">الحلويات الراقية</span></h2><p><span lang="en">Small architectures of cream, fruit and caramel, finished by hand.</span><span lang="ar">عمائر صغيرة من الكريمة والفاكهة والكراميل، تُنجَز باليد.</span></p></header>
+  <ul class="list"><li><div class="nm"><h3><span lang="en">Clair de Lune</span><span lang="ar">كلير دو لون</span></h3><em class="sig"><span lang="en">Signature</span><span lang="ar">توقيع الدار</span></em><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>9.80</span></div><p><span lang="en">Our moon: white-chocolate mousse, a heart of yuzu, almond sablé.</span><span lang="ar">قمرُنا: موس الشوكولاتة البيضاء بقلب من اليوزو فوق سابليه اللوز.</span></p></li><li><div class="nm"><h3><span lang="en">Tarte au citron meringuée</span><span lang="ar">تارت الليمون بالميرانغ</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>7.50</span></div><p><span lang="en">Amalfi lemon curd beneath a torched Italian meringue.</span><span lang="ar">كريمة ليمون أمالفي تحت ميرانغ إيطالي ملفوح باللهب.</span></p></li><li><div class="nm"><h3><span lang="en">Paris-Brest</span><span lang="ar">باري بريست</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>8.20</span></div><p><span lang="en">Choux ring, hazelnut praline mousseline, toasted Piedmont nuts.</span><span lang="ar">حلقة من عجين الشو مع كريمة برالين البندق وبندق بييمونتي محمّص.</span></p></li><li><div class="nm"><h3><span lang="en">Millefeuille vanille</span><span lang="ar">ميل فوي بالفانيليا</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>8.80</span></div><p><span lang="en">Caramelised puff pastry and Tahitian vanilla cream, assembled to order.</span><span lang="ar">عجين مورّق مكرمل وكريمة فانيليا تاهيتي، يُركَّب عند الطلب.</span></p></li><li><div class="nm"><h3><span lang="en">Saint-Honoré rose-framboise</span><span lang="ar">سانت أونوريه بالورد والتوت</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>9.20</span></div><p><span lang="en">Rose chantilly, fresh raspberries, a crown of glazed choux.</span><span lang="ar">كريمة شانتيي بالورد وتوت طازج وتاج من كرات الشو اللامعة.</span></p></li><li><div class="nm"><h3><span lang="en">Éclair pistache</span><span lang="ar">إكلير بالفستق</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>6.80</span></div><p><span lang="en">Sicilian pistachio cream under a pistachio-green glaze.</span><span lang="ar">كريمة الفستق الصقلّي تحت طبقة لامعة بلون الفستق.</span></p></li><li><div class="nm"><h3><span lang="en">Opéra</span><span lang="ar">أوبرا</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>8.40</span></div><p><span lang="en">Almond joconde, coffee buttercream, dark ganache, a gold leaf.</span><span lang="ar">بسكويت جوكوند باللوز، كريمة الزبدة بالقهوة، غاناش داكن وورقة ذهب.</span></p></li></ul>
+  <footer class="folio l"><span>04</span><span><span lang="en">Maison Lune — Spring</span><span lang="ar">ميزون لون — الربيع</span></span></footer>
+ </div>
+ <div class="page r blush" style="display:flex;flex-direction:column;justify-content:center">
+  <blockquote class="quote"><span lang="en">“A pastry should be eaten the day it is born. After that, it is only a memory of itself.”</span><span lang="ar">«الحلوى تُؤكل في يوم ولادتها. بعد ذلك لا تكون إلّا ذكرى لنفسها.»</span></blockquote>
+  <svg viewBox="0 0 400 190" aria-hidden="true" style="width:min(100%,460px)"><g stroke="#2c2522" stroke-width=".9">
+   <g fill="#c3d4a4"><ellipse cx="80" cy="150" rx="62" ry="17"/><ellipse cx="80" cy="132" rx="62" ry="17"/></g><ellipse cx="80" cy="141" rx="58" ry="8" fill="#fbf6ee"/>
+   <g fill="#f0c2c8"><ellipse cx="200" cy="150" rx="62" ry="17"/><ellipse cx="200" cy="132" rx="62" ry="17"/></g><ellipse cx="200" cy="141" rx="58" ry="8" fill="#fbf6ee"/>
+   <g fill="#f3e7c3"><ellipse cx="320" cy="150" rx="62" ry="17"/><ellipse cx="320" cy="132" rx="62" ry="17"/></g><ellipse cx="320" cy="141" rx="58" ry="8" fill="#fbf6ee"/>
+   <g fill="#d9ad78"><ellipse cx="140" cy="98" rx="62" ry="17"/><ellipse cx="140" cy="80" rx="62" ry="17"/></g><ellipse cx="140" cy="89" rx="58" ry="8" fill="#fbf6ee"/>
+   <g fill="#d6748c"><ellipse cx="260" cy="98" rx="62" ry="17"/><ellipse cx="260" cy="80" rx="62" ry="17"/></g><ellipse cx="260" cy="89" rx="58" ry="8" fill="#fbf6ee"/>
+   <g fill="#eedd84"><ellipse cx="200" cy="46" rx="62" ry="17"/><ellipse cx="200" cy="28" rx="62" ry="17"/></g><ellipse cx="200" cy="37" rx="58" ry="8" fill="#fbf6ee"/></g></svg>
+  <p class="cap" style="margin-top:20px"><span lang="en">Plate II — A study in six colours.</span><span lang="ar">اللوحة الثانية — دراسة في ستّة ألوان.</span></p>
+  <footer class="folio r"><span>05</span><span><span lang="en">Maison Lune — Spring</span><span lang="ar">ميزون لون — الربيع</span></span></footer>
+ </div>
+</section>
+<section class="spread">
+ <div class="page l">
+  <header class="sh" id="mac"><i class="ph" style="--p:65%" aria-hidden="true"></i><span class="rom">III</span><h2><span lang="en">Macarons</span><span lang="ar">الماكارون</span></h2><p><span lang="en">Our colour chart. Shells rested for a day, filled the next morning.</span><span lang="ar">لوحة ألواننا. تستريح الأقراص يومًا كاملًا وتُحشى في الصباح التالي.</span></p></header>
+  <ul class="chart"><li><i style="--c:#f0c2c8"></i><small>N° 01</small><span><span lang="en">Rose &amp; Litchi</span><span lang="ar">ورد وليتشي</span></span></li><li><i style="--c:#c3d4a4"></i><small>N° 02</small><span><span lang="en">Pistache</span><span lang="ar">فستق</span></span></li><li><i style="--c:#d9ad78"></i><small>N° 03</small><span><span lang="en">Caramel salé</span><span lang="ar">كراميل مملّح</span></span></li><li><i style="--c:#f3e7c3"></i><small>N° 04</small><span><span lang="en">Vanille</span><span lang="ar">فانيليا</span></span></li><li><i style="--c:#d6748c"></i><small>N° 05</small><span><span lang="en">Framboise</span><span lang="ar">توت العلّيق</span></span></li><li><i style="--c:#eedd84"></i><small>N° 06</small><span><span lang="en">Citron-verveine</span><span lang="ar">ليمون ولويزة</span></span></li><li><i style="--c:#6e4c3d"></i><small>N° 07</small><span><span lang="en">Chocolat noir</span><span lang="ar">شوكولاتة داكنة</span></span></li><li><i style="--c:#f5cc9c"></i><small>N° 08</small><span><span lang="en">Fleur d’oranger</span><span lang="ar">ماء الزهر</span></span></li></ul>
+  <div class="boxes"><div><span class="lab"><span lang="en">By the piece</span><span lang="ar">بالقطعة</span></span><span class="p" dir="ltr"><sup>€</sup>2.60</span></div><div><span class="lab"><span lang="en">Coffret of 6</span><span lang="ar">علبة من ٦</span></span><span class="p" dir="ltr"><sup>€</sup>15</span></div><div><span class="lab"><span lang="en">Coffret of 12</span><span lang="ar">علبة من ١٢</span></span><span class="p" dir="ltr"><sup>€</sup>28</span></div></div>
+  <footer class="folio l"><span>06</span><span><span lang="en">Maison Lune — Spring</span><span lang="ar">ميزون لون — الربيع</span></span></footer>
+ </div>
+ <div class="page r pist">
+  <header class="sh" id="tea"><i class="ph" style="--p:85%" aria-hidden="true"></i><span class="rom">IV</span><h2><span lang="en">Salon de thé</span><span lang="ar">صالون الشاي</span></h2><p><span lang="en">To sit with, slowly. Every pot is poured at the table.</span><span lang="ar">لجلسة هادئة على مهل. كلّ إبريق يُسكب على الطاولة.</span></p></header>
+  <ul class="list"><li><div class="nm"><h3><span lang="en">Chocolat chaud à l’ancienne</span><span lang="ar">شوكولاتة ساخنة على الطريقة القديمة</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>6.50</span></div><p><span lang="en">Melted 70% chocolate, whole milk, a cloud of chantilly on the side.</span><span lang="ar">شوكولاتة ٧٠٪ مذابة في حليب كامل الدسم مع غيمة من الشانتيي.</span></p></li><li><div class="nm"><h3><span lang="en">Thé « Lune Blanche »</span><span lang="ar">شاي «القمر الأبيض»</span></h3><em class="sig"><span lang="en">Signature</span><span lang="ar">توقيع الدار</span></em><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>5.80</span></div><p><span lang="en">White tea with jasmine pearls and pear, served by the pot.</span><span lang="ar">شاي أبيض مع لآلئ الياسمين والإجاص، يُقدَّم في إبريق.</span></p></li><li><div class="nm"><h3><span lang="en">Café crème</span><span lang="ar">قهوة بالكريمة</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>4.60</span></div><p><span lang="en">A double shot of our house roast with steamed milk.</span><span lang="ar">جرعة مزدوجة من تحميصتنا الخاصّة مع حليب مبخَّر.</span></p></li><li><div class="nm"><h3><span lang="en">Infusion verveine-menthe</span><span lang="ar">منقوع اللويزة والنعناع</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>5.20</span></div><p><span lang="en">Fresh lemon verbena and garden mint, honey on request.</span><span lang="ar">أوراق اللويزة الطازجة ونعناع الحديقة، والعسل عند الطلب.</span></p></li><li><div class="nm"><h3><span lang="en">Citronnade à la lavande</span><span lang="ar">ليموناضة بالخزامى</span></h3><i class="lead"></i><span class="p" dir="ltr"><sup>€</sup>5.60</span></div><p><span lang="en">Pressed lemons, lavender syrup, sparkling water over ice.</span><span lang="ar">ليمون معصور وشراب الخزامى ومياه فوّارة على الثلج.</span></p></li></ul>
+  <footer class="folio r"><span>07</span><span><span lang="en">Maison Lune — Spring</span><span lang="ar">ميزون لون — الربيع</span></span></footer>
+ </div>
+</section>
+<section class="spread">
+ <div class="page l blush" id="gouter" style="display:grid;align-content:center">
+  <div class="gouter"><div>
+   <svg viewBox="0 0 120 110" aria-hidden="true" fill="none" stroke="#2c2522" stroke-width="1"><path d="M60 6v96M38 102h44"/><ellipse cx="60" cy="34" rx="22" ry="5"/><ellipse cx="60" cy="62" rx="36" ry="7"/><ellipse cx="60" cy="92" rx="52" ry="9"/><path d="M56 6a6 6 0 1 0 8 0" /><g fill="#a9775c" stroke="none"><circle cx="50" cy="29" r="4"/><circle cx="68" cy="29" r="4"/><circle cx="36" cy="56" r="5"/><circle cx="60" cy="55" r="5"/><circle cx="84" cy="56" r="5"/></g></svg>
+   <span class="lab"><span lang="en">For two · from 3 pm</span><span lang="ar">لشخصين · من الثالثة عصرًا</span></span>
+   <h2><span lang="en">Le Goûter de Minuit</span><span lang="ar">وليمة منتصف الليل</span></h2>
+   <p><span lang="en">Three tiers, taken slowly — our answer to afternoon tea.</span><span lang="ar">ثلاث طبقات تؤخذ على مهل — جوابنا الفرنسي على شاي العصر.</span></p>
+   <ol>
+    <li><span lang="en">Four finger sandwiches: smoked turkey, cucumber-mint, egg &amp; chive</span><span lang="ar">أربع شطائر صغيرة: ديك رومي مدخّن، خيار ونعناع، بيض وثوم معمّر</span></li>
+    <li><span lang="en">Mini viennoiseries, warm from the oven</span><span lang="ar">معجّنات صغيرة دافئة من الفرن</span></li>
+    <li><span lang="en">Four petits fours chosen by the chef</span><span lang="ar">أربع قطع بيتي فور من اختيار الشيف</span></li>
+    <li><span lang="en">Six macarons and a pot of Lune Blanche tea</span><span lang="ar">ستّ حبّات ماكارون وإبريق من شاي القمر الأبيض</span></li>
+   </ol>
+   <span class="p" dir="ltr"><sup>€</sup>42</span>
+  </div></div>
+  <footer class="folio l"><span>08</span><span><span lang="en">Maison Lune — Spring</span><span lang="ar">ميزون لون — الربيع</span></span></footer>
+ </div>
+ <div class="page r">
+  <div class="colo">
+   <div><h4><span lang="en">The house</span><span lang="ar">العنوان</span></h4><p><span lang="en">17 rue des Belles-Feuilles, Paris 6ᵉ</span><span lang="ar">١٧ شارع بيل فوي، باريس، الدائرة السادسة</span></p></div>
+   <div><h4><span lang="en">Hours</span><span lang="ar">ساعات العمل</span></h4><p><span lang="en">Tuesday to Sunday, 7:30 – 19:30. Closed Mondays, when the ovens rest.</span><span lang="ar">من الثلاثاء إلى الأحد، ٧:٣٠ – ١٩:٣٠. نُغلق يوم الإثنين لتستريح الأفران.</span></p></div>
+   <div><h4><span lang="en">Orders &amp; celebration cakes</span><span lang="ar">الطلبات وكعك المناسبات</span></h4><p><span dir="ltr">+33 1 55 50 01 42</span> — <span lang="en">48 hours’ notice, please.</span><span lang="ar">يُرجى الطلب قبل ٤٨ ساعة.</span></p></div>
+  </div>
+  <p class="fine"><span lang="en">Allergens: our pastries contain gluten, eggs, milk and nuts; traces of sesame are possible. We use no alcohol and no pork gelatine in any recipe. Prices in euros, service included.</span><span lang="ar">مسبّبات الحساسية: تحتوي حلوياتنا على الغلوتين والبيض والحليب والمكسّرات، وقد تحمل آثارًا من السمسم. لا نستخدم الكحول ولا جيلاتين الخنزير في أيّ من وصفاتنا. الأسعار باليورو وتشمل الخدمة.</span></p>
+  <p class="bye"><span lang="en">À bientôt.</span><span lang="ar">إلى اللقاء.</span></p>
+  <footer class="folio r"><span>09</span><span><span lang="en">Maison Lune — Spring</span><span lang="ar">ميزون لون — الربيع</span></span></footer>
+ </div>
+</section>
+</main>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body></html>

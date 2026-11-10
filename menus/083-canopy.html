@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Canopy · كانوبي</title>
+<meta name="description" content="Canopy — Peruvian-Amazonian cooking served as a descent through the rainforest, from treetop ceviches to river fruit. كانوبي — مطبخ بيروفي أمازوني في رحلة نزول من قمم الأشجار إلى النهر.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b2f23">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Lalezar&family=Outfit:wght@300;400;600;700&family=Readex+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --cream:#f6f1dc; --or:#ff8c1a; --ye:#ffd23f; --re:#ef3e36; --tq:#2ec4b6; --lime:#a6d94a;
+  --disp:"Caprasimo","Cooper Black",Georgia,serif; --body:"Outfit","Helvetica Neue",Arial,sans-serif;
+}
+html[lang="ar"]{ --disp:"Lalezar","Readex Pro",Tahoma,sans-serif; --body:"Readex Pro","Segoe UI",Tahoma,sans-serif; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{color:var(--cream);font-family:var(--body);font-weight:300;font-size:16.5px;line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased;
+  background:linear-gradient(#0d3a2a 0,#0b3023 22%,#082519 48%,#0d2415 66%,#17240f 78%,#0a3033 90%,#083a45 100%)}
+html[lang="ar"] body{font-size:17px;line-height:1.85}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+ul{list-style:none}
+
+/* leaves */
+.lf{position:absolute;left:var(--x);top:var(--y);width:calc(var(--w)*clamp(4.2px,1vw,13px));aspect-ratio:1;overflow:visible;transform:translate(-50%,-50%) rotate(var(--r));animation:sway 7s ease-in-out infinite alternate;animation-delay:var(--d);pointer-events:none}
+@keyframes sway{to{transform:translate(-50%,-50%) rotate(calc(var(--r) + 4deg))}}
+
+/* controls */
+.ctl{position:fixed;z-index:50;inset-block-start:12px;inset-inline-end:12px;display:flex;gap:6px;padding:5px;border-radius:99px;background:rgba(5,25,18,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(166,217,74,.35)}
+.ctl a,.ctl button{height:36px;display:inline-flex;align-items:center;gap:7px;border-radius:99px;padding-inline:13px;font:600 .86rem var(--body);text-decoration:none;border:0;cursor:pointer;color:var(--cream);background:transparent}
+#langToggle{background:var(--or);color:#1a1005;font-family:"Readex Pro","Outfit",sans-serif}
+#langToggle:hover{background:var(--ye)}
+.home-link svg{width:15px;height:15px;fill:var(--lime)}
+.home-link span{display:none}
+@media (min-width:760px){.home-link span{display:inline}}
+
+/* depth gauge */
+.gauge{display:none}
+@media (min-width:1240px){
+  .gauge{display:grid;position:fixed;z-index:40;inset-inline-start:18px;inset-block-start:50%;transform:translateY(-50%);gap:0;padding:14px 10px;border-radius:99px;background:rgba(5,25,18,.6);backdrop-filter:blur(6px);border:1px solid rgba(166,217,74,.25)}
+  .gauge a{display:grid;justify-items:center;text-decoration:none;font:600 .72rem var(--body);padding-block:9px;color:rgba(246,241,220,.75);position:relative;min-width:40px}
+  .gauge a + a::before{content:"";position:absolute;inset-block-start:-4px;width:1px;height:8px;background:rgba(246,241,220,.4)}
+  .gauge a:hover{color:var(--ye)}
+  .gauge a b{font-family:"Caprasimo",Georgia,serif;font-weight:400;font-size:1.05rem;color:var(--lime);line-height:1}
+}
+
+/* ───── hero: emergent layer ───── */
+.hero{position:relative;min-height:100svh;min-height:max(100svh,680px);display:grid;place-items:center;overflow:hidden;isolation:isolate;
+  background:radial-gradient(ellipse 60% 55% at 50% 42%,#2a8a56 0,#17603d 34%,#0d3a2a 66%,transparent 100%)}
+.hero .rays{position:absolute;inset:0;z-index:1;background:conic-gradient(from 150deg at 50% -8%,transparent 0 6deg,rgba(255,236,160,.13) 6deg 11deg,transparent 11deg 19deg,rgba(255,236,160,.09) 19deg 23deg,transparent 23deg 33deg,rgba(255,236,160,.14) 33deg 41deg,transparent 41deg 49deg,rgba(255,236,160,.08) 49deg 53deg,transparent 53deg 360deg);mix-blend-mode:screen;animation:breathe 9s ease-in-out infinite alternate}
+@keyframes breathe{to{opacity:.45}}
+.layer{position:absolute;inset:0;direction:ltr;will-change:transform}
+.l1{z-index:0;opacity:.9}.l2{z-index:2}.l3{z-index:4}
+.hero .txt{position:relative;z-index:3;text-align:center;padding:90px 22px 150px;max-width:900px}
+.hero .kick{display:inline-flex;gap:10px;align-items:center;font-weight:600;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ye)}
+html[lang="ar"] .hero .kick{font-size:1rem}
+.hero .kick::before,.hero .kick::after{content:"";width:26px;height:2px;background:var(--ye)}
+.hero h1{font-family:var(--disp);font-weight:400;font-size:clamp(4.6rem,19vw,15rem);line-height:.9;color:var(--cream);text-shadow:0 6px 0 #0a2a1e,0 22px 50px rgba(0,0,0,.45);margin-block:.08em .12em}
+html[lang="ar"] .hero h1{line-height:1.15;font-size:clamp(6rem,24vw,16rem);margin-block:0 .28em}
+.hero .tag{font-size:clamp(1.1rem,2vw,1.5rem);font-weight:400;max-width:30ch;margin-inline:auto;text-wrap:balance}
+.hero .down{display:inline-grid;justify-items:center;gap:4px;margin-block-start:26px;text-decoration:none;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+html[lang="ar"] .hero .down{font-size:.98rem}
+.hero .down b{font-family:"Caprasimo",Georgia,serif;font-weight:400;font-size:1.9rem;letter-spacing:0;color:var(--cream);line-height:1}
+.hero .down i{width:2px;height:38px;background:linear-gradient(var(--lime),transparent);animation:drip 1.8s ease-in-out infinite}
+@keyframes drip{50%{transform:translateY(8px);opacity:.5}}
+.toucan{position:absolute;z-index:5;inset-block-end:5%;inset-inline-end:max(4%,calc(50% - 560px));width:clamp(170px,22vw,330px)}
+[dir="rtl"] .toucan{transform:scaleX(-1)}
+.toucan .hd{transform-origin:118px 96px;animation:nod 5s ease-in-out infinite}
+@keyframes nod{0%,70%,100%{transform:rotate(0)}80%{transform:rotate(-9deg)}90%{transform:rotate(3deg)}}
+@media (max-width:760px){.toucan{inset-inline-end:8%;inset-block-end:3%}.hero .txt{padding-block:84px 220px}}
+
+/* ───── set menu plank ───── */
+.descent{position:relative;z-index:6;max-width:1060px;margin:-34px auto 0;padding-inline:18px}
+.descent .in{display:grid;grid-template-columns:auto 1fr auto;gap:10px 26px;align-items:center;background:linear-gradient(#5a3b20,#4a2f18);border-radius:16px;padding:18px 26px;box-shadow:0 12px 0 #2c1b0d,0 30px 40px rgba(0,0,0,.4);border:2px solid #7a5230;
+  background-image:repeating-linear-gradient(92deg,rgba(0,0,0,.09) 0 2px,transparent 2px 22px),linear-gradient(#5f3f22,#4a2f18)}
+.descent h3{font-family:var(--disp);font-weight:400;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.05;color:var(--ye)}
+html[lang="ar"] .descent h3{line-height:1.3}
+.descent p{font-weight:400;font-size:1rem}
+.descent .pr{font-family:"Caprasimo",Georgia,serif;font-size:clamp(2rem,4vw,3rem);line-height:1;color:var(--cream);unicode-bidi:isolate;white-space:nowrap}
+.descent .pr small{font-size:.45em;color:var(--ye);margin-inline-end:.2em}
+.descent .pr em{display:block;font:400 .8rem var(--body);opacity:.8}
+@media (max-width:760px){.descent .in{grid-template-columns:1fr auto}.descent h3{grid-column:1/-1}}
+
+/* ───── strata ───── */
+.stratum{position:relative;padding:clamp(56px,7vw,100px) 18px clamp(30px,4vw,50px);overflow:clip;--l1:#1c7446;--l2:#145a36;--stem:#3fae62}
+.under{--l1:#17603f;--l2:#0f4630;--stem:#2f8f55}
+.floor{--l1:#5a4a22;--l2:#40351a;--stem:#8a6b34}
+.river{--l1:#126e78;--l2:#0b4e5a;--stem:#2ec4b6}
+.fringe{position:absolute;inset:0;direction:ltr;z-index:0}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){.fringe{animation:depth linear both;animation-timeline:view()}}
+  @keyframes depth{from{transform:translateY(90px)}to{transform:translateY(-90px)}}
+}
+.sh{position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto clamp(34px,5vw,64px)}
+.alt{display:inline-flex;align-items:baseline;gap:8px;font-weight:600;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);border:1px solid currentColor;border-radius:99px;padding:5px 16px 4px}
+html[lang="ar"] .alt{font-size:.95rem}
+.alt b{font-family:"Caprasimo",Georgia,serif;font-weight:400;font-size:1.5rem;letter-spacing:0;color:var(--cream);line-height:1}
+.river .alt{color:var(--tq)}.floor .alt{color:var(--ye)}
+.sh h2{font-family:var(--disp);font-weight:400;font-size:clamp(3rem,8vw,6.6rem);line-height:.95;margin-block:.18em .1em;text-shadow:0 5px 0 rgba(0,0,0,.3)}
+html[lang="ar"] .sh h2{line-height:1.25;margin-block:.05em 0}
+.sh .sub{font-family:var(--disp);font-size:clamp(1.15rem,2vw,1.5rem);color:var(--ye);margin-block-end:10px;line-height:1.25}
+html[lang="ar"] .sh .sub{line-height:1.5}
+.sh p{font-weight:400}
+
+.vine{position:relative;z-index:1;max-width:1060px;margin-inline:auto;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(70px,9vw,120px);row-gap:22px;padding-block-end:80px}
+.vine::before{content:"";position:absolute;inset-block:-30px 0;inset-inline-start:calc(50% - 14px);width:28px;
+  background:repeat-y center/28px 160px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='160'%3E%3Cpath d='M14 0C26 40 2 120 14 160' fill='none' stroke='%233fae62' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E")}
+.floor .vine::before{filter:hue-rotate(-70deg) saturate(.7)}.river .vine::before{filter:hue-rotate(40deg)}
+.leaf{position:relative;background:linear-gradient(135deg,var(--l1),var(--l2));padding:26px 40px 30px;min-height:150px;
+  border-start-start-radius:110px;border-start-end-radius:10px;border-end-end-radius:110px;border-end-start-radius:10px;
+  box-shadow:0 10px 24px rgba(0,0,0,.35),inset 0 2px 0 rgba(255,255,255,.12)}
+[dir="rtl"] .leaf{background:linear-gradient(225deg,var(--l1),var(--l2))}
+.leaf::before{content:"";position:absolute;inset-block-start:34px;inset-inline-end:calc(-1*clamp(35px,4.5vw,60px) - 6px);width:calc(clamp(35px,4.5vw,60px) + 6px);height:5px;border-radius:3px;background:var(--stem)}
+.leaf::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:.5;
+  background:linear-gradient(to bottom left,transparent calc(50% - 1px),rgba(255,255,255,.22) 50%,transparent calc(50% + 1px)),repeating-linear-gradient(60deg,transparent 0 26px,rgba(255,255,255,.05) 26px 28px)}
+[dir="rtl"] .leaf::after{background:linear-gradient(to bottom right,transparent calc(50% - 1px),rgba(255,255,255,.22) 50%,transparent calc(50% + 1px)),repeating-linear-gradient(-60deg,transparent 0 26px,rgba(255,255,255,.05) 26px 28px)}
+.leaf:nth-child(even){transform:translateY(78px);border-start-start-radius:10px;border-start-end-radius:110px;border-end-end-radius:10px;border-end-start-radius:110px;background:linear-gradient(225deg,var(--l1),var(--l2))}
+[dir="rtl"] .leaf:nth-child(even){background:linear-gradient(135deg,var(--l1),var(--l2))}
+.leaf:nth-child(even)::before{inset-inline-end:auto;inset-inline-start:calc(-1*clamp(35px,4.5vw,60px) - 6px)}
+.leaf:nth-child(even)::after{background:linear-gradient(to bottom right,transparent calc(50% - 1px),rgba(255,255,255,.22) 50%,transparent calc(50% + 1px)),repeating-linear-gradient(-60deg,transparent 0 26px,rgba(255,255,255,.05) 26px 28px)}
+[dir="rtl"] .leaf:nth-child(even)::after{background:linear-gradient(to bottom left,transparent calc(50% - 1px),rgba(255,255,255,.22) 50%,transparent calc(50% + 1px)),repeating-linear-gradient(60deg,transparent 0 26px,rgba(255,255,255,.05) 26px 28px)}
+.leaf h3{position:relative;z-index:1;font-family:var(--disp);font-weight:400;font-size:1.5rem;line-height:1.15;padding-inline-end:54px}
+html[lang="ar"] .leaf h3{font-size:1.7rem;line-height:1.35}
+.leaf:nth-child(even) h3{padding-inline:54px 0}
+.leaf:nth-child(even){padding-inline:44px 36px}
+.leaf p{position:relative;z-index:1;font-weight:400;font-size:.98rem;margin-block-start:6px;color:rgba(246,241,220,.92);max-width:40ch}
+.leaf:nth-child(even) p,.leaf:nth-child(even) .meta{margin-inline-start:54px}
+.meta{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-block-start:6px;font-size:.78rem;font-weight:600}
+html[lang="ar"] .meta{font-size:.86rem}
+.pick{background:var(--ye);color:#1f1403;border-radius:99px;padding:2px 11px 1px;display:inline-flex;align-items:center;gap:6px}
+.pick::before{content:"";width:16px;height:9px;border-radius:2px 9px 9px 2px;background:linear-gradient(90deg,#111 0 18%,var(--or) 18% 78%,var(--re) 78%)}
+[dir="rtl"] .pick::before{transform:scaleX(-1)}
+.aji{color:var(--cream);letter-spacing:.06em}
+.aji i{font-style:normal;color:#ff6a4d;letter-spacing:2px}.aji u{text-decoration:none;opacity:.3;letter-spacing:2px}
+.fruit{position:absolute;z-index:2;inset-block-start:2px;inset-inline-end:-12px;width:66px;height:66px;border-radius:50%;display:grid;place-content:center;justify-items:center;text-align:center;
+  background:radial-gradient(circle at 34% 30%,#ffc45c,var(--or) 55%,#d96a00);color:#261300;font-family:"Caprasimo",Georgia,serif;font-size:1.45rem;line-height:.95;box-shadow:0 5px 10px rgba(0,0,0,.4),inset -3px -5px 0 rgba(0,0,0,.12)}
+.fruit small{font:700 .62rem "Outfit",sans-serif;letter-spacing:.04em}
+.fruit::before{content:"";position:absolute;inset-block-start:-7px;inset-inline-start:27px;width:14px;height:10px;border-radius:0 10px 0 10px;background:var(--lime)}
+.leaf:nth-child(even) .fruit{inset-inline-end:auto;inset-inline-start:-12px}
+.leaf:nth-child(3n) .fruit{background:radial-gradient(circle at 34% 30%,#ffe98a,var(--ye) 55%,#d9a400)}
+.leaf:nth-child(4n+1) .fruit{background:radial-gradient(circle at 34% 30%,#ff8b78,var(--re) 55%,#b81f18);color:#fff}
+.river .leaf:nth-child(odd) .fruit{background:radial-gradient(circle at 34% 30%,#8ff0e4,var(--tq) 55%,#12897e);color:#04211d}
+@media (max-width:820px){
+  .vine{grid-template-columns:1fr;padding-inline-start:38px;padding-block-end:10px;row-gap:20px}
+  .vine::before{inset-inline-start:0}
+  .leaf,.leaf:nth-child(even){transform:none;padding:22px 26px 26px 34px;padding-inline:34px 26px;border-start-start-radius:10px;border-start-end-radius:84px;border-end-end-radius:10px;border-end-start-radius:84px;background:linear-gradient(225deg,var(--l1),var(--l2))}
+  [dir="rtl"] .leaf,[dir="rtl"] .leaf:nth-child(even){background:linear-gradient(135deg,var(--l1),var(--l2))}
+  .leaf::before,.leaf:nth-child(even)::before{inset-inline-end:auto;inset-inline-start:-26px;width:26px}
+  .leaf::after,.leaf:nth-child(even)::after{background:repeating-linear-gradient(-60deg,transparent 0 26px,rgba(255,255,255,.05) 26px 28px)}
+  .leaf .fruit,.leaf:nth-child(even) .fruit{inset-inline-end:auto;inset-inline-start:-22px;inset-block-start:6px;width:58px;height:58px;font-size:1.25rem}
+  .fruit::before{inset-inline-start:23px}
+  .leaf h3,.leaf:nth-child(even) h3{padding-inline:30px 34px}
+  .leaf p,.leaf:nth-child(even) p,.leaf .meta,.leaf:nth-child(even) .meta{margin-inline-start:30px}
+  .fringe{opacity:.55}
+}
+
+/* ───── riverbank footer ───── */
+.bank{position:relative;background:linear-gradient(#083a45,#062a33);padding:0 18px 40px;overflow:clip}
+.bank .water{height:70px;margin-inline:-18px;background:
+  radial-gradient(60px 22px at 50% 0,transparent 98%,#083a45) 0 0/120px 30px repeat-x,
+  radial-gradient(60px 22px at 50% 0,rgba(46,196,182,.35) 98%,transparent) 60px 12px/120px 30px repeat-x;animation:flow 6s linear infinite}
+@keyframes flow{to{background-position:120px 0,180px 12px}}
+[dir="rtl"] .bank .water{animation-direction:reverse}
+.bank .in{max-width:1060px;margin:10px auto 0;display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:26px 36px}
+.bank h2{font-family:var(--disp);font-weight:400;font-size:clamp(2.2rem,4vw,3.4rem);line-height:1;color:var(--tq)}
+html[lang="ar"] .bank h2{line-height:1.3}
+.bank h4{font-weight:600;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ye);margin-block-end:6px}
+html[lang="ar"] .bank h4{font-size:.95rem}
+.bank p{font-weight:400;font-size:.98rem}
+.bank .fine{grid-column:1/-1;border-block-start:1px solid rgba(246,241,220,.25);padding-block-start:16px;font-size:.9rem;color:rgba(246,241,220,.85)}
+@media (max-width:820px){.bank .in{grid-template-columns:1fr 1fr}.bank .in>div:first-child{grid-column:1/-1}}
+@media (max-width:480px){.bank .in{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="lm" viewBox="0 0 200 200"><path d="M100 144.2 100.9 144.9 101.9 146.7 103.2 149.6 104.6 153.3 106.4 157.3 108.4 161.5 110.6 165.4 113 168.9 115.4 171.7 117.8 174 120.2 175.6 122.6 176.6 124.8 177.1 127 177.2 129.1 177 131.1 176.5 133 175.9 134.9 175.1 136.8 174.2 138.6 173.3 140.4 172.2 142.1 171.1 143.9 170 145.6 168.8 147.2 167.6 148.8 166.3 150.3 164.8 150.9 162.4 147.5 156.5 136.7 144.4 123.9 131.9 124.3 131.1 139.1 141 153.6 149.4 160.6 151.7 163.2 150.9 164.6 149.2 165.8 147.4 166.9 145.6 168 143.7 169.1 141.8 170 139.8 171 137.8 171.9 135.8 172.7 133.8 173.4 131.7 173.3 129.4 169.1 126.3 155.4 121.8 135.9 117.3 129.8 115.5 145.3 116 164.9 115.8 174.9 114.2 177.6 112 178.2 109.7 178.3 107.4 178.4 105.1 178.4 102.8 178.3 100.5 178.2 98.2 178 95.9 177.7 93.6 177.4 91.3 176.9 89 175.9 86.9 172 85.8 159.9 88.2 139.8 94.8 128.1 98.9 138 93 156.5 81.6 167.2 73.3 169.6 69.2 169.1 66.7 168 64.6 166.8 62.5 165.5 60.4 164.2 58.4 162.8 56.5 161.4 54.6 159.8 52.7 158.1 51 155.4 50.4 149 54.4 135.8 67.4 121.9 83 120.6 83 131.2 65.4 140.4 47.8 143 39.2 142.1 36 140.2 34.2 138.3 32.5 136.4 30.8 134.4 29 132.4 27.1 130.4 25.1 128.3 23 126.2 20.9 124 18.7 121.8 16.5 119.4 14.3 116.9 12.2 114.3 10.3 111.6 8.6 108.8 7.2 105.9 6.1 103 5.5 100 5.2 97 5.5 94.1 6.1 91.2 7.2 88.4 8.6 85.7 10.3 83.1 12.2 80.6 14.3 78.2 16.5 76 18.7 73.8 20.9 71.7 23 69.6 25.1 67.6 27.1 65.6 29 63.6 30.8 61.7 32.5 59.8 34.2 57.9 36 57 39.2 59.6 47.8 68.8 65.4 79.4 83 78.1 83 64.2 67.4 51 54.4 44.6 50.4 41.9 51 40.2 52.7 38.6 54.6 37.2 56.5 35.8 58.4 34.5 60.4 33.2 62.5 32 64.6 30.9 66.7 30.4 69.2 32.8 73.3 43.5 81.6 62 93 71.9 98.9 60.2 94.8 40.1 88.2 28 85.8 24.1 86.9 23.1 89 22.6 91.3 22.3 93.6 22 95.9 21.8 98.2 21.7 100.5 21.6 102.8 21.6 105.1 21.7 107.4 21.8 109.7 22.4 112 25.1 114.2 35.1 115.8 54.7 116 70.2 115.5 64.1 117.3 44.6 121.8 30.9 126.3 26.7 129.4 26.6 131.7 27.3 133.8 28.1 135.8 29 137.8 30 139.8 30.9 141.8 32 143.7 33.1 145.6 34.2 147.4 35.4 149.2 36.8 150.9 39.4 151.7 46.4 149.4 60.9 141 75.7 131.1 76.1 131.9 63.3 144.4 52.5 156.5 49.1 162.4 49.7 164.8 51.2 166.3 52.8 167.6 54.4 168.8 56.1 170 57.9 171.1 59.6 172.2 61.4 173.3 63.2 174.2 65.1 175.1 67 175.9 68.9 176.5 70.9 177 73 177.2 75.2 177.1 77.4 176.6 79.8 175.6 82.2 174 84.6 171.7 87 168.9 89.4 165.4 91.6 161.5 93.6 157.3 95.4 153.3 96.8 149.6 98.1 146.7 99.1 144.9 100 144.2Z" fill="currentColor"/><ellipse cx="78" cy="92" rx="5" ry="10" transform="rotate(-35 78 92)" fill="#000" opacity=".28"/><ellipse cx="122" cy="92" rx="5" ry="10" transform="rotate(35 122 92)" fill="#000" opacity=".28"/><ellipse cx="84" cy="128" rx="4" ry="8" transform="rotate(-60 84 128)" fill="#000" opacity=".28"/><ellipse cx="116" cy="128" rx="4" ry="8" transform="rotate(60 116 128)" fill="#000" opacity=".28"/><path d="M100 196V40M100 150L52 150M100 150L148 150M100 120L40 100M100 120L160 100M100 92L58 56M100 92L142 56" stroke="#000" stroke-opacity=".22" stroke-width="2.2" fill="none" stroke-linecap="round"/></symbol><symbol id="lp" viewBox="0 0 200 200"><path d="M100.5 171.7Q71.9 147.4 37.9 146.7Q66.5 156.3 100.5 171.7ZM100.5 171.7Q137.4 167 171.7 166.9Q134.8 156.9 100.5 171.7ZM101.3 158.2Q70.4 130.5 33.7 127.6Q64.6 139.1 101.3 158.2ZM101.3 158.2Q141.7 150.8 179.1 149.6Q138.7 140.8 101.3 158.2ZM102.2 144.7Q70.2 113.9 32 109Q64.1 122.3 102.2 144.7ZM102.2 144.7Q145.1 134.6 184.5 132Q141.7 124.7 102.2 144.7ZM103.5 131.3Q71.4 98 32.7 90.9Q64.9 106.1 103.5 131.3ZM103.5 131.3Q147.6 118.6 187.9 114.4Q143.8 108.9 103.5 131.3ZM105.1 117.8Q73.9 82.7 35.8 73.9Q67 90.5 105.1 117.8ZM105.1 117.8Q149.3 103 189.2 97.1Q145 93.5 105.1 117.8ZM107 104.3Q77.5 68.3 41 58Q70.4 75.8 107 104.3ZM107 104.3Q150 87.9 188.5 80.3Q145.4 78.5 107 104.3ZM109.1 90.8Q82.3 54.8 48.1 43.5Q74.9 62 109.1 90.8ZM109.1 90.8Q150.1 73.4 186 64.4Q145.1 64.3 109.1 90.8ZM111.5 77.4Q88.1 42.3 56.9 30.6Q80.3 49.2 111.5 77.4ZM111.5 77.4Q149.4 59.6 181.9 49.5Q144 50.8 111.5 77.4ZM114.2 63.9Q94.7 30.9 67 19.4Q86.6 37.4 114.2 63.9ZM114.2 63.9Q148.2 46.8 176.5 35.9Q142.5 38.1 114.2 63.9ZM117.3 50.4Q101.9 20.5 78.3 9.9Q93.6 26.7 117.3 50.4ZM117.3 50.4Q146.7 34.8 170 23.7Q140.5 26.4 117.3 50.4ZM120.5 36.9Q109.7 11.2 90.2 2.1Q101.1 17.1 120.5 36.9ZM120.5 36.9Q144.9 23.7 162.7 13.1Q138.4 15.6 120.5 36.9ZM124.1 23.5Q117.8 3 102.6 -3.9Q108.9 8.5 124.1 23.5ZM124.1 23.5Q143 13.6 155 4Q136.1 5.7 124.1 23.5ZM128 10Q128 -0.8 119 -2.7Q119 4.4 128 10ZM128 10Q138.3 7.3 141.4 0.7Q131.1 -0.3 128 10Z" fill="currentColor"/><path d="M100 198Q100 100 128 10" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/></symbol><symbol id="lb" viewBox="0 0 200 200"><path d="M100 198C100 198 96 170 92 160C60 150 44 110 50 70C55 36 78 10 104 4C128 12 150 40 152 76C154 112 138 150 108 160C104 172 100 198 100 198Z" fill="currentColor"/><path d="M52 96L74 100L51 108ZM150 66L128 74L152 80ZM60 132L80 128L66 142ZM146 118L126 116L142 130Z" fill="#000" opacity=".3"/><path d="M100 190Q98 90 104 8M99 150L66 130M99 150L134 132M99 120L56 96M100 120L146 100M100 90L58 62M101 90L148 66M102 60L74 36M102 60L134 38" stroke="#000" stroke-opacity=".2" stroke-width="2" fill="none" stroke-linecap="round"/></symbol></defs></svg>
+<div class="ctl">
+  <a class="home-link" href="../index.html"><svg viewBox="0 0 16 16" aria-hidden="true"><rect width="7" height="7" rx="2"/><rect x="9" width="7" height="7" rx="2"/><rect y="9" width="7" height="7" rx="2"/><rect x="9" y="9" width="7" height="7" rx="2"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+<nav class="gauge" aria-label="Depth">
+  <a href="#top"><b>45</b><span lang="en">m</span><span lang="ar">م</span></a>
+  <a href="#canopy"><b>30</b><span lang="en">m</span><span lang="ar">م</span></a>
+  <a href="#under"><b>15</b><span lang="en">m</span><span lang="ar">م</span></a>
+  <a href="#floor"><b>0</b><span lang="en">m</span><span lang="ar">م</span></a>
+  <a href="#river"><b>≈</b><span lang="en">river</span><span lang="ar">النهر</span></a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="layer l1" data-p=".32" aria-hidden="true"><svg class="lf" style="--x:8%;--y:30%;--w:46;--r:70deg;--d:-1s;color:#0b4230"><use href="#lp"/></svg><svg class="lf" style="--x:92%;--y:28%;--w:46;--r:-70deg;--d:-3s;color:#0e5038"><use href="#lp"/></svg><svg class="lf" style="--x:21%;--y:7%;--w:34;--r:150deg;--d:-2s;color:#0e5038"><use href="#lm"/></svg><svg class="lf" style="--x:80%;--y:5%;--w:36;--r:200deg;--d:-4s;color:#0b4230"><use href="#lm"/></svg><svg class="lf" style="--x:50%;--y:-4%;--w:30;--r:180deg;--d:-1s;color:#0b4230"><use href="#lb"/></svg><svg class="lf" style="--x:36%;--y:100%;--w:40;--r:10deg;--d:-2s;color:#0e5038"><use href="#lp"/></svg><svg class="lf" style="--x:66%;--y:102%;--w:40;--r:-14deg;--d:-5s;color:#0b4230"><use href="#lp"/></svg></div>
+  <div class="rays" aria-hidden="true"></div>
+  <div class="layer l2" data-p=".16" aria-hidden="true"><svg class="lf" style="--x:4%;--y:62%;--w:42;--r:60deg;--d:-2s;color:#14663e"><use href="#lm"/></svg><svg class="lf" style="--x:96%;--y:60%;--w:44;--r:-55deg;--d:-1s;color:#1a7748"><use href="#lm"/></svg><svg class="lf" style="--x:15%;--y:95%;--w:40;--r:30deg;--d:-3s;color:#1a7748"><use href="#lb"/></svg><svg class="lf" style="--x:86%;--y:97%;--w:40;--r:-28deg;--d:-4s;color:#14663e"><use href="#lb"/></svg><svg class="lf" style="--x:29%;--y:1%;--w:40;--r:160deg;--d:-5s;color:#14663e"><use href="#lp"/></svg><svg class="lf" style="--x:71%;--y:-1%;--w:40;--r:200deg;--d:-2s;color:#1a7748"><use href="#lp"/></svg></div>
+  <div class="txt">
+    <span class="kick"><span lang="en">Peruvian-Amazonian kitchen</span><span lang="ar">مطبخ بيروفي أمازوني</span></span>
+    <h1><span lang="en">Canopy</span><span lang="ar">كانوبي</span></h1>
+    <p class="tag"><span lang="en">Dinner is a descent: from the sunlit treetops down to the cool brown river.</span><span lang="ar">العشاء رحلةُ نزول: من قمم الأشجار المشمسة إلى النهر البنيّ البارد.</span></p>
+    <a class="down" href="#canopy"><b>45 <span lang="en">m</span><span lang="ar">م</span></b><span lang="en">Start climbing down</span><span lang="ar">ابدأ النزول</span><i></i></a>
+  </div>
+  <div class="layer l3" data-p="-.12" aria-hidden="true"><svg class="lf" style="--x:-1%;--y:97%;--w:50;--r:42deg;--d:-1s;color:#23914f"><use href="#lm"/></svg><svg class="lf" style="--x:101%;--y:99%;--w:52;--r:-40deg;--d:-3s;color:#35aa5e"><use href="#lm"/></svg><svg class="lf" style="--x:1%;--y:20%;--w:36;--r:100deg;--d:-2s;color:#35aa5e"><use href="#lb"/></svg><svg class="lf" style="--x:99%;--y:18%;--w:36;--r:-102deg;--d:-5s;color:#23914f"><use href="#lb"/></svg><svg class="lf" style="--x:-3%;--y:58%;--w:44;--r:82deg;--d:-4s;color:#86c440"><use href="#lp"/></svg><svg class="lf" style="--x:103%;--y:61%;--w:44;--r:-80deg;--d:-1s;color:#35aa5e"><use href="#lp"/></svg></div>
+  <svg class="toucan" viewBox="0 0 250 230" aria-hidden="true">
+    <defs><linearGradient id="bk" x1="0" x2="1"><stop offset="0" stop-color="#ffd23f"/><stop offset=".55" stop-color="#ff8c1a"/><stop offset="1" stop-color="#ef3e36"/></linearGradient></defs>
+    <path d="M6 196C70 186 170 190 246 180" stroke="#5a3b20" stroke-width="13" stroke-linecap="round" fill="none"/>
+    <path d="M6 196C70 186 170 190 246 180" stroke="#7a5230" stroke-width="4" stroke-linecap="round" fill="none" transform="translate(0 -4)"/>
+    <path d="M78 150L42 222L66 224L96 168Z" fill="#0b0b0d"/><path d="M82 160L70 186L86 184Z" fill="#ef3e36"/>
+    <ellipse cx="102" cy="128" rx="42" ry="62" transform="rotate(-16 102 128)" fill="#0b0b0d"/>
+    <path d="M96 190v-10M90 190l6-6 7 6M124 188v-10M118 188l6-6 7 6" stroke="#2ec4b6" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <g class="hd">
+      <circle cx="120" cy="72" r="31" fill="#0b0b0d"/>
+      <path d="M100 86C104 124 132 132 146 104C150 92 146 80 140 74Z" fill="#fff7d6"/><path d="M104 108C112 126 134 128 146 104C136 116 116 118 104 108Z" fill="#ffd23f"/>
+      <path d="M140 52C184 36 232 58 242 100C210 92 176 92 142 88Z" fill="url(#bk)"/>
+      <path d="M142 88C176 92 210 92 242 100C208 112 168 108 141 96Z" fill="#e06d00"/>
+      <path d="M142 50C137 64 137 82 142 97" stroke="#0b0b0d" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M228 78C236 84 240 92 242 100L224 96Z" fill="#0b0b0d" opacity=".75"/>
+      <circle cx="126" cy="64" r="11" fill="#2ec4b6"/><circle cx="127" cy="64" r="5.5" fill="#0b0b0d"/><circle cx="129" cy="62" r="1.8" fill="#fff"/>
+    </g>
+  </svg>
+</header>
+
+<aside class="descent">
+  <div class="in">
+    <h3><span lang="en">The Descent</span><span lang="ar">رحلة النزول</span></h3>
+    <p><span lang="en">Six courses from treetop to riverbed, chosen by the kitchen. Ends with cacao and a glass of chicha morada.</span><span lang="ar">ستة أطباق من قمة الشجرة إلى قاع النهر يختارها المطبخ، تنتهي بالكاكاو وكأس من التشيتشا مورادا.</span></p>
+    <span class="pr" dir="ltr"><small>S/</small>165<em><span lang="en">per guest</span><span lang="ar">للشخص</span></em></span>
+  </div>
+</aside>
+
+<main>
+
+  <section class="stratum canopy" id="canopy">
+    <div class="fringe" aria-hidden="true"><svg class="lf" style="--x:-1%;--y:12%;--w:34;--r:84deg;--d:-1s;color:#14663e"><use href="#lp"/></svg><svg class="lf" style="--x:101%;--y:30%;--w:36;--r:-62deg;--d:-2s;color:#23914f"><use href="#lm"/></svg><svg class="lf" style="--x:0%;--y:78%;--w:30;--r:60deg;--d:-3s;color:#35aa5e"><use href="#lb"/></svg><svg class="lf" style="--x:102%;--y:88%;--w:34;--r:-96deg;--d:-4s;color:#1a7748"><use href="#lp"/></svg></div>
+    <header class="sh">
+      <span class="alt"><b>30</b><span lang="en">m above the ground</span><span lang="ar">م فوق الأرض</span></span>
+      <h2><span lang="en">The Canopy</span><span lang="ar">ظُلّة الغابة</span></h2>
+      <p class="sub"><span lang="en">Raw, cured &amp; bright</span><span lang="ar">نيء ومنقوع ومشرق</span></p>
+      <p><span lang="en">Where the light is. Citrus, chilli and river fish, cut to order and dressed at the last second.</span><span lang="ar">حيث يسكن الضوء. حمضيات وفلفل وأسماك النهر، تُقطَّع عند الطلب وتُتبَّل في اللحظة الأخيرة.</span></p>
+    </header>
+    <ul class="vine">
+      <li class="leaf"><span class="fruit"><small>S/</small>46</span><h3><span lang="en">Ceviche Amazónico</span><span lang="ar">سيفيتشي أمازوني</span></h3><div class="meta"><span class="pick"><span lang="en">Toucan’s pick</span><span lang="ar">اختيار الطوقان</span></span><span class="aji" title="ají"><span lang="en">ají</span><span lang="ar">حرارة</span> <i>●●●</i><u></u></span></div><p><span lang="en">Paiche cured in cocona and ají charapita tiger’s milk, plantain crisps.</span><span lang="ar">سمك البايتشي منقوع في «حليب النمر» بالكوكونا وفلفل تشارابيتا، مع رقائق الموز الأخضر.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>42</span><h3><span lang="en">Tiradito de Trucha</span><span lang="ar">تيراديتو السلمون المرقّط</span></h3><div class="meta"><span class="aji" title="ají"><span lang="en">ají</span><span lang="ar">حرارة</span> <i>●</i><u>●●</u></span></div><p><span lang="en">Andean trout, passion-fruit tiger’s milk, toasted corn, coriander oil.</span><span lang="ar">سلمون مرقّط من الأنديز، حليب النمر بالباشن فروت، ذرة محمّصة وزيت الكزبرة.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>34</span><h3><span lang="en">Ensalada de Chonta</span><span lang="ar">سلطة قلب النخيل</span></h3><p><span lang="en">Hand-peeled ribbons of fresh palm heart, lime, avocado, Brazil nuts.</span><span lang="ar">شرائط قلب النخيل الطازج المقشّر باليد، ليمون أخضر، أفوكادو وجوز برازيلي.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>38</span><h3><span lang="en">Causa de Camarón</span><span lang="ar">كاوسا الروبيان</span></h3><div class="meta"><span class="aji" title="ají"><span lang="en">ají</span><span lang="ar">حرارة</span> <i>●</i><u>●●</u></span></div><p><span lang="en">Whipped yellow potato, river prawns, ají amarillo, avocado.</span><span lang="ar">بطاطا صفراء مخفوقة، روبيان نهري، فلفل أخي أماريّو وأفوكادو.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>24</span><h3><span lang="en">Patacones &amp; Ají de Cocona</span><span lang="ar">باتاكونيس مع صلصة الكوكونا</span></h3><div class="meta"><span class="aji" title="ají"><span lang="en">ají</span><span lang="ar">حرارة</span> <i>●●</i><u>●</u></span></div><p><span lang="en">Twice-fried green plantain, a sharp salsa of cocona fruit and chilli.</span><span lang="ar">موز أخضر مقلي مرتين، مع صلصة لاذعة من ثمرة الكوكونا والفلفل الحار.</span></p></li>
+    </ul>
+  </section>
+
+  <section class="stratum under" id="under">
+    <div class="fringe" aria-hidden="true"><svg class="lf" style="--x:0%;--y:18%;--w:36;--r:70deg;--d:-2s;color:#1a7748"><use href="#lm"/></svg><svg class="lf" style="--x:101%;--y:10%;--w:32;--r:-110deg;--d:-1s;color:#14663e"><use href="#lb"/></svg><svg class="lf" style="--x:-2%;--y:70%;--w:36;--r:100deg;--d:-5s;color:#23914f"><use href="#lp"/></svg><svg class="lf" style="--x:102%;--y:74%;--w:38;--r:-50deg;--d:-3s;color:#0e5038"><use href="#lm"/></svg></div>
+    <header class="sh">
+      <span class="alt"><b>15</b><span lang="en">m above the ground</span><span lang="ar">م فوق الأرض</span></span>
+      <h2><span lang="en">The Understory</span><span lang="ar">ما تحت الظُّلّة</span></h2>
+      <p class="sub"><span lang="en">Wrapped in leaves, kissed by smoke</span><span lang="ar">ملفوف بالأوراق، ممسوس بالدخان</span></p>
+      <p><span lang="en">Shade, steam and embers. Everything here is cooked inside a bijao leaf or right above the coals.</span><span lang="ar">ظلٌّ وبخارٌ وجمر. كل شيء هنا يُطهى داخل ورقة البيخاو أو فوق الفحم مباشرة.</span></p>
+    </header>
+    <ul class="vine">
+      <li class="leaf"><span class="fruit"><small>S/</small>48</span><h3><span lang="en">Juane de Gallina</span><span lang="ar">خواني بالدجاج البلدي</span></h3><div class="meta"><span class="pick"><span lang="en">Toucan’s pick</span><span lang="ar">اختيار الطوقان</span></span></div><p><span lang="en">Turmeric rice, hen, olive and egg, steamed in a bijao leaf parcel.</span><span lang="ar">أرز بالكركم مع دجاج بلدي وزيتون وبيض، يُطهى بالبخار في صرّة من ورق البيخاو.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>62</span><h3><span lang="en">Patarashca</span><span lang="ar">باتاراشكا</span></h3><div class="meta"><span class="aji" title="ají"><span lang="en">ají</span><span lang="ar">حرارة</span> <i>●</i><u>●●</u></span></div><p><span lang="en">Whole river fish grilled in leaves with sacha culantro, tomato and sweet chilli.</span><span lang="ar">سمكة نهرية كاملة تُشوى في الأوراق مع الكزبرة البرّية والطماطم والفلفل الحلو.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>36</span><h3><span lang="en">Anticuchos de Corazón</span><span lang="ar">أنتيكوتشوس</span></h3><div class="meta"><span class="aji" title="ají"><span lang="en">ají</span><span lang="ar">حرارة</span> <i>●●</i><u>●</u></span></div><p><span lang="en">Beef-heart skewers in ají panca, charred corn, golden potato.</span><span lang="ar">أسياخ قلب العجل متبّلة بفلفل بانكا، مع ذرة مشوية وبطاطا ذهبية.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>44</span><h3><span lang="en">Pollo de Selva</span><span lang="ar">دجاج الغابة</span></h3><div class="meta"><span class="aji" title="ají"><span lang="en">ají</span><span lang="ar">حرارة</span> <i>●</i><u>●●</u></span></div><p><span lang="en">Charcoal chicken rubbed with annatto and wild garlic, yuca fries.</span><span lang="ar">دجاج على الفحم مدلوك بالأناتو والثوم البرّي، مع أصابع اليوكا المقلية.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>54</span><h3><span lang="en">Sudado de Doncella</span><span lang="ar">سودادو الدونسيّا</span></h3><p><span lang="en">River catfish steamed in tomato, cocona broth and coriander.</span><span lang="ar">سمك السلّور النهري مطهوّ بالبخار مع الطماطم ومرق الكوكونا والكزبرة.</span></p></li>
+    </ul>
+  </section>
+
+  <section class="stratum floor" id="floor">
+    <div class="fringe" aria-hidden="true"><svg class="lf" style="--x:-1%;--y:14%;--w:34;--r:96deg;--d:-1s;color:#0e5038"><use href="#lb"/></svg><svg class="lf" style="--x:102%;--y:24%;--w:36;--r:-74deg;--d:-3s;color:#14663e"><use href="#lp"/></svg><svg class="lf" style="--x:0%;--y:82%;--w:38;--r:48deg;--d:-2s;color:#14663e"><use href="#lm"/></svg><svg class="lf" style="--x:101%;--y:84%;--w:30;--r:-60deg;--d:-4s;color:#23914f"><use href="#lb"/></svg></div>
+    <header class="sh">
+      <span class="alt"><b>0</b><span lang="en">m · ground level</span><span lang="ar">م · مستوى الأرض</span></span>
+      <h2><span lang="en">The Forest Floor</span><span lang="ar">أرض الغابة</span></h2>
+      <p class="sub"><span lang="en">Roots, pots &amp; fire</span><span lang="ar">جذورٌ وقدورٌ ونار</span></p>
+      <p><span lang="en">Dark, rich and slow. Roots dug this morning, clay pots, and a wok that never cools.</span><span lang="ar">عتمةٌ وغنىً وطهوٌ على مهل. جذورٌ اقتُلعت هذا الصباح، قدورٌ فخارية، ومقلاة ووك لا تبرد.</span></p>
+    </header>
+    <ul class="vine">
+      <li class="leaf"><span class="fruit"><small>S/</small>58</span><h3><span lang="en">Lomo Saltado</span><span lang="ar">لومو سالتادو</span></h3><div class="meta"><span class="pick"><span lang="en">Toucan’s pick</span><span lang="ar">اختيار الطوقان</span></span><span class="aji" title="ají"><span lang="en">ají</span><span lang="ar">حرارة</span> <i>●</i><u>●●</u></span></div><p><span lang="en">Beef tenderloin flamed in the wok with tomato, red onion and soy; fries and rice.</span><span lang="ar">فيليه بقري يُلهَب في الووك مع الطماطم والبصل الأحمر والصويا؛ يُقدَّم مع بطاطا مقلية وأرز.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>46</span><h3><span lang="en">Tacacho con Cecina de Res</span><span lang="ar">تاكاتشو مع لحم بقري مدخّن</span></h3><p><span lang="en">Fire-roasted plantain, smashed, with smoked beef and pickled onion.</span><span lang="ar">موز مشوي على النار ومهروس، مع لحم بقري مدخّن وبصل مخلّل.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>42</span><h3><span lang="en">Chaufa Amazónico</span><span lang="ar">أرز تشاوفا الأمازوني</span></h3><div class="meta"><span class="aji" title="ají"><span lang="en">ají</span><span lang="ar">حرارة</span> <i>●</i><u>●●</u></span></div><p><span lang="en">Wok-fried rice, smoked beef, sweet plantain, egg and sacha culantro.</span><span lang="ar">أرز مقلي في الووك مع لحم بقري مدخّن، موز حلو، بيض وكزبرة برّية.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>32</span><h3><span lang="en">Inchicapi</span><span lang="ar">إنتشيكابي</span></h3><p><span lang="en">Hen and roasted-peanut soup thickened with corn, yuca and coriander.</span><span lang="ar">حساء الدجاج البلدي والفول السوداني المحمّص، يُكثَّف بالذرة مع اليوكا والكزبرة.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>22</span><h3><span lang="en">Yuca &amp; Huancaína</span><span lang="ar">يوكا مع صلصة هوانكاينا</span></h3><div class="meta"><span class="aji" title="ají"><span lang="en">ají</span><span lang="ar">حرارة</span> <i>●●</i><u>●</u></span></div><p><span lang="en">Crisp cassava batons, creamy yellow-chilli and fresh-cheese sauce.</span><span lang="ar">أصابع الكسافا المقرمشة مع صلصة كريمية من الفلفل الأصفر والجبن الطازج.</span></p></li>
+    </ul>
+  </section>
+
+  <section class="stratum river" id="river">
+    <div class="fringe" aria-hidden="true"><svg class="lf" style="--x:-2%;--y:20%;--w:36;--r:76deg;--d:-2s;color:#0f5a5c"><use href="#lp"/></svg><svg class="lf" style="--x:101%;--y:16%;--w:34;--r:-70deg;--d:-1s;color:#127066"><use href="#lm"/></svg><svg class="lf" style="--x:1%;--y:80%;--w:30;--r:70deg;--d:-4s;color:#178a78"><use href="#lb"/></svg><svg class="lf" style="--x:103%;--y:78%;--w:36;--r:-90deg;--d:-3s;color:#0f5a5c"><use href="#lp"/></svg></div>
+    <header class="sh">
+      <span class="alt"><b>≈</b><span lang="en">at the water</span><span lang="ar">عند الماء</span></span>
+      <h2><span lang="en">The River</span><span lang="ar">النهر</span></h2>
+      <p class="sub"><span lang="en">Fruits, sweets &amp; refrescos</span><span lang="ar">فواكه وحلويات ومرطّبات</span></p>
+      <p><span lang="en">Cool, sweet and slightly wild. Jungle fruit you have never met, and nothing with alcohol.</span><span lang="ar">بارد وحلو وفيه شيء من البرّية. فواكه غابةٍ لم تلتقِ بها من قبل، وكلّها بلا كحول.</span></p>
+    </header>
+    <ul class="vine">
+      <li class="leaf"><span class="fruit"><small>S/</small>14</span><h3><span lang="en">Chicha Morada</span><span lang="ar">تشيتشا مورادا</span></h3><p><span lang="en">Purple corn simmered with pineapple skin, cinnamon and clove, over ice.</span><span lang="ar">ذرة بنفسجية تُغلى مع قشر الأناناس والقرفة والقرنفل، وتُقدَّم على الثلج.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>16</span><h3><span lang="en">Camu Camu Cooler</span><span lang="ar">منعش الكامو كامو</span></h3><p><span lang="en">Tart camu camu berries, lime, soda, a salted rim.</span><span lang="ar">توت الكامو كامو الحامض، ليمون أخضر، صودا وحافة مملّحة.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>18</span><h3><span lang="en">Cocona Sour, Zero-Proof</span><span lang="ar">كوكونا ساور بلا كحول</span></h3><p><span lang="en">Cocona, lime and cane syrup shaken to a foam with aquafaba.</span><span lang="ar">كوكونا وليمون أخضر وشراب القصب، تُخفق مع ماء الحمّص حتى تعلوها الرغوة.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>20</span><h3><span lang="en">Helado de Aguaje</span><span lang="ar">آيس كريم الأغواخي</span></h3><p><span lang="en">Ice cream of aguaje palm fruit, Brazil-nut brittle.</span><span lang="ar">آيس كريم من ثمرة نخيل الأغواخي مع قرمشة الجوز البرازيلي.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>22</span><h3><span lang="en">Suspiro de Lúcuma</span><span lang="ar">سوسبيرو اللوكوما</span></h3><p><span lang="en">Silky lúcuma custard under a cloud of cinnamon meringue.</span><span lang="ar">كاسترد مخملي من فاكهة اللوكوما تحت غيمة من المرنغ بالقرفة.</span></p></li>
+      <li class="leaf"><span class="fruit"><small>S/</small>24</span><h3><span lang="en">Chazuta Chocolate</span><span lang="ar">شوكولاتة تشازوتا</span></h3><div class="meta"><span class="pick"><span lang="en">Toucan’s pick</span><span lang="ar">اختيار الطوقان</span></span></div><p><span lang="en">70% Amazonian cacao mousse, toasted macambo, sea salt.</span><span lang="ar">موس من كاكاو الأمازون ٧٠٪، بذور الماكامبو المحمّصة وملح البحر.</span></p></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="bank">
+  <div class="water" aria-hidden="true"></div>
+  <div class="in">
+    <div><h2><span lang="en">You’ve reached the water.</span><span lang="ar">ها قد بلغتَ الماء.</span></h2><p><span lang="en">Sit a while. The boats leave when the rain stops.</span><span lang="ar">اجلس قليلًا. القوارب تغادر حين يتوقف المطر.</span></p></div>
+    <div><h4><span lang="en">Hours</span><span lang="ar">ساعات العمل</span></h4><p><span lang="en">Tuesday – Sunday<br>12:30 – 16:00 · 19:00 – 23:30</span><span lang="ar">الثلاثاء – الأحد<br>١٢:٣٠ – ١٦:٠٠ · ١٩:٠٠ – ٢٣:٣٠</span></p></div>
+    <div><h4><span lang="en">Find us</span><span lang="ar">العنوان</span></h4><p><span lang="en">Jirón Tamshiyacu 418<br>Malecón, Iquitos, Peru</span><span lang="ar">شارع تامشياكو ٤١٨<br>الماليكون، إيكيتوس، بيرو</span></p></div>
+    <div><h4><span lang="en">Tables</span><span lang="ar">الحجز</span></h4><p><span lang="en">The treehouse table seats eight. Book it two days ahead.</span><span lang="ar">طاولة بيت الشجرة تتّسع لثمانية. احجزها قبل يومين.</span></p></div>
+    <p class="fine"><span lang="en">No pork and no alcohol in this kitchen. Dishes may contain fish, shellfish, peanuts, tree nuts, egg, milk and soy; ají levels are honest, so ask before you leap. River fish is from managed, sustainable fisheries. Prices in Peruvian soles (S/), service included.</span><span lang="ar">لا لحم خنزير ولا كحول في هذا المطبخ. قد تحتوي الأطباق على سمك أو قشريات أو فول سوداني أو مكسرات أو بيض أو حليب أو صويا؛ ودرجات الحرارة صادقة، فاسأل قبل أن تقفز. أسماك النهر من مصايد مستدامة ومُدارة. الأسعار بالسول البيروفي (S/) وتشمل الخدمة.</span></p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+(function(){if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)return;var ls=[].slice.call(document.querySelectorAll('.layer')),t=false;
+function u(){t=false;var y=window.scrollY;if(y>innerHeight*1.3)return;ls.forEach(function(e){e.style.transform='translate3d(0,'+(y*parseFloat(e.dataset.p)).toFixed(1)+'px,0)'})}
+addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(u)}},{passive:true})})();
+</script>
+</body>
+</html>

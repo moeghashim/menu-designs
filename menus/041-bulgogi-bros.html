@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Bulgogi Bros · إخوة البولغوغي</title>
+<meta name="description" content="Bulgogi Bros — charcoal tabletop Korean BBQ. Bilingual menu: grill cuts, banchan, stone pots and sets. إخوة البولغوغي: شواء كوري على الفحم.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0d0b0a">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Black+Han+Sans&family=Cairo:wght@400;700;900&family=Lalezar&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--k:#0d0b0a;--k2:#1a1614;--r:#e0241b;--r2:#b3140d;--c:#f4ead9;--e:#ff8a1f;--y:#ffc640;
+  --disp:"Black Han Sans","Archivo","Arial Black",Impact,sans-serif;--body:"Archivo","Helvetica Neue",Arial,sans-serif}
+html[lang="ar"]{--disp:"Lalezar","Cairo","Tahoma",sans-serif;--body:"Cairo","Tahoma","Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--k);color:var(--c);font-family:var(--body);font-size:16px;line-height:1.5;overflow-x:clip;-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-size:17px;line-height:1.75}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:.92}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{line-height:1.15}
+.pr{unicode-bidi:isolate;white-space:nowrap;font-family:var(--disp)}
+.pr small{font-family:var(--body);font-weight:800;font-size:.5em;margin-inline-start:.25em;letter-spacing:.06em}
+
+/* controls */
+.ctl{position:fixed;inset-block-start:12px;inset-inline-end:12px;z-index:50;display:flex;gap:6px}
+.ctl a,.ctl button{font:800 13px/1 var(--body);height:38px;padding:0 14px;border-radius:99px;border:2px solid var(--c);background:var(--k);color:var(--c);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;box-shadow:0 0 0 3px rgba(13,11,10,.55)}
+.ctl button{background:var(--y);color:var(--k);border-color:var(--k)}
+.ctl a:hover,.ctl button:hover{transform:translateY(-1px)}
+.ctl svg{width:13px;height:13px}
+.ctl a span{display:none}
+@media(min-width:720px){.ctl a span{display:inline}html[lang="ar"] .ctl a span[lang="en"],html[lang="en"] .ctl a span[lang="ar"]{display:none}}
+
+/* hero: blocks */
+.hero{display:grid;grid-template-columns:1fr;min-height:100svh}
+.h-red{background:var(--r);color:var(--k);padding:74px 22px 34px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.h-red::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.09) 0 2px,transparent 2px 26px);pointer-events:none}
+.kicker{font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:12px;display:flex;gap:10px;align-items:center;margin-bottom:14px;position:relative}
+.kicker i{display:inline-block;width:34px;height:4px;background:var(--k)}
+h1{font-size:clamp(4rem,18.4vw,7rem);text-transform:uppercase;letter-spacing:-.01em;position:relative}
+h1 b{display:block;font-weight:400}
+h1 b+b{color:var(--c);-webkit-text-stroke:0}
+html[lang="ar"] h1{font-size:clamp(4rem,19vw,6.6rem)}
+.tag{font-size:clamp(1.05rem,2.2vw,1.45rem);font-weight:800;max-width:24ch;margin-top:16px;position:relative;line-height:1.25}
+html[lang="ar"] .tag{line-height:1.6}
+.hangul{position:absolute;inset-block-start:60px;inset-inline-end:-10px;font-family:var(--disp);font-size:150px;line-height:.8;color:rgba(0,0,0,.14);writing-mode:vertical-rl;pointer-events:none}
+.h-blk{background:radial-gradient(circle at 50% 46%,#3a1408 0,#170d09 42%,var(--k) 70%);position:relative;display:grid;place-items:center;padding:10px 0 26px;overflow:hidden}
+.table{width:min(100%,640px);display:block}
+.h-cream{background:var(--c);color:var(--k);padding:22px;display:grid;gap:14px}
+.h-cream p{font-size:1rem;max-width:52ch}
+.steps{display:flex;gap:0;list-style:none;border:3px solid var(--k)}
+.steps li{flex:1;padding:10px 10px 11px;font-weight:800;font-size:13px;line-height:1.25;border-inline-end:3px solid var(--k)}
+.steps li:last-child{border:0;background:var(--k);color:var(--c)}
+.steps b{display:block;font-family:var(--disp);font-size:26px;font-weight:400;color:var(--r)}
+.steps li:last-child b{color:var(--y)}
+@media(min-width:960px){
+ .hero{grid-template-columns:minmax(0,46fr) minmax(0,54fr);grid-template-rows:1fr auto}
+ .h-red{padding:90px 4vw 44px;grid-row:1}
+ h1{font-size:clamp(5rem,8.1vw,10rem)}
+ html[lang="ar"] h1{font-size:clamp(5.4rem,9vw,11rem)}
+ .h-blk{grid-row:1/3;grid-column:2;padding:20px}
+ .table{width:min(100%,86vh,820px)}
+ .h-cream{grid-row:2;padding:26px 4vw 30px}
+ .hangul{font-size:230px}
+}
+/* grill animation */
+.glow{animation:glow 3.2s ease-in-out infinite}
+.em{animation:em 2.4s ease-in-out infinite}
+.em:nth-of-type(2n){animation-duration:1.7s;animation-delay:-.6s}
+.em:nth-of-type(3n){animation-duration:3.1s;animation-delay:-1.3s}
+.em:nth-of-type(5n){animation-duration:2s;animation-delay:-.9s}
+.smoke path{animation:smoke 5s linear infinite;opacity:0}
+.smoke path:nth-child(2){animation-delay:-1.7s}.smoke path:nth-child(3){animation-delay:-3.2s}
+.ring{animation:spin 120s linear infinite;transform-origin:0 0}
+.ring .dish{animation:spinr 120s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes glow{0%,100%{opacity:.75}50%{opacity:1}}
+@keyframes em{0%,100%{opacity:.25}45%{opacity:1}}
+@keyframes smoke{0%{opacity:0;transform:translateY(10px)}25%{opacity:.5}100%{opacity:0;transform:translateY(-70px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spinr{to{transform:rotate(-360deg)}}
+
+/* knob nav */
+.knobs{background:var(--k2);border-block:3px solid var(--r);display:flex;gap:6px;overflow-x:auto;padding:10px 14px;scrollbar-width:none;position:sticky;inset-block-start:0;z-index:20}
+.knobs::-webkit-scrollbar{display:none}
+.knobs a{flex:none;display:flex;align-items:center;gap:9px;text-decoration:none;font-weight:800;font-size:14px;padding:6px 14px 6px 6px;border-radius:99px;white-space:nowrap}
+html[dir="rtl"] .knobs a{padding:6px 6px 6px 14px}
+.knobs a:hover{background:rgba(255,255,255,.07)}
+.knobs i{width:30px;height:30px;border-radius:50%;background:conic-gradient(from 0deg,#555,#222,#666,#222,#555);border:2px solid #000;position:relative;flex:none;transition:transform .3s}
+.knobs i::after{content:"";position:absolute;inset-block-start:3px;inset-inline-start:calc(50% - 1.5px);width:3px;height:9px;background:var(--e);border-radius:2px}
+.knobs a:nth-child(2) i{transform:rotate(50deg)}.knobs a:nth-child(3) i{transform:rotate(110deg)}.knobs a:nth-child(4) i{transform:rotate(170deg)}.knobs a:nth-child(5) i{transform:rotate(230deg)}
+.knobs a:hover i{transform:rotate(300deg)}
+@media(min-width:960px){.knobs{justify-content:center;gap:26px;padding-inline-end:230px}}
+
+/* shared section */
+section{position:relative;padding:54px 22px 60px;scroll-margin-top:56px}
+.sec-h{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:end;margin-bottom:34px}
+.sec-h .no{font-family:var(--disp);font-size:clamp(5rem,13vw,10rem);line-height:.74;grid-row:1/3}
+.sec-h h2{font-size:clamp(2.5rem,7vw,5.2rem);text-transform:uppercase}
+.sec-h p{font-weight:600;max-width:52ch;font-size:.98rem}
+.wrap{max-width:1280px;margin:0 auto}
+@media(min-width:960px){section{padding:84px 4vw 90px}}
+
+/* 01 grill */
+#grill{background:var(--r);color:var(--k)}
+#grill .no{color:var(--k)}
+#grill h2{color:var(--c)}
+.cuts{display:grid;gap:0;border-top:4px solid var(--k)}
+.cut{display:grid;grid-template-columns:64px minmax(0,1fr);gap:6px 14px;align-items:center;padding:16px 0;border-bottom:4px solid var(--k)}
+.timer{width:64px;height:64px;border-radius:50%;background:conic-gradient(var(--y) calc(var(--t)*1%),var(--k) 0);display:grid;place-items:center;position:relative}
+.timer::before{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--k);box-shadow:inset 0 0 0 2px #2c2622}
+.timer>span{position:relative;color:var(--c);font-family:var(--disp);font-size:19px;line-height:1;text-align:center}
+.timer small{display:block;font:800 8.5px/1.1 var(--body);letter-spacing:.08em;color:var(--y);margin-top:2px;text-transform:uppercase}
+html[lang="ar"] .timer small{font-size:10px}
+.cut h3{font-size:1.7rem;text-transform:uppercase;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.cut h3 em{font:600 .86rem/1 var(--body);font-style:normal;text-transform:none;opacity:.8}
+.cut p{font-weight:600;font-size:.95rem;line-height:1.35;margin-top:4px;max-width:44ch}
+html[lang="ar"] .cut p{line-height:1.6}
+.cut>div:nth-child(2){grid-row:1/3;grid-column:2}.cut .pr{font-size:1.45rem;color:var(--c);text-align:center;grid-column:1;grid-row:2}
+.badge{font:800 10.5px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;background:var(--k);color:var(--y);padding:5px 8px 4px;border-radius:3px}
+html[lang="ar"] .badge{font-size:12px}
+.heat{display:inline-flex;gap:3px}
+.heat i{width:10px;height:10px;border-radius:50% 50% 50% 0;background:var(--k);transform:rotate(-45deg)}
+.heat i.o{background:transparent;box-shadow:inset 0 0 0 2px var(--k)}
+.note{margin-top:22px;font-weight:800;font-size:.9rem;display:flex;gap:10px;align-items:baseline}
+.note::before{content:"";width:22px;height:4px;background:currentColor;flex:none;transform:translateY(-4px)}
+@media(min-width:960px){.cuts{grid-template-columns:1fr 1fr;column-gap:56px}.cut{grid-template-columns:84px minmax(0,1fr) auto;padding:22px 0;column-gap:18px}.cut>div:nth-child(2){grid-row:auto}.cut .pr{grid-column:3;grid-row:1;font-size:2.1rem;text-align:end}.timer{width:84px;height:84px}.timer>span{font-size:25px}.timer small{font-size:9.5px}.cut h3{font-size:2.1rem}.cut:last-child:nth-child(odd){grid-column:1/-1}}
+
+/* 02 banchan */
+#banchan{background:var(--k);background-image:radial-gradient(circle at 20% 0,rgba(224,36,27,.22),transparent 45%),repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 90px)}
+#banchan .no{color:var(--r)}
+.dishes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 14px;list-style:none}
+.dishes li{text-align:center;display:grid;justify-items:center;align-content:start}
+.plate{width:min(100%,150px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--f1) 0 34%,var(--f2) 35% 52%,#fbf5ea 53% 62%,#d9cfbf 63% 66%,#fffaf0 67% 100%);box-shadow:0 10px 0 -2px #000,0 0 0 3px #000,0 18px 30px rgba(0,0,0,.6);position:relative;margin-bottom:16px;transition:transform .4s cubic-bezier(.3,1.5,.5,1)}
+.plate::before{content:"";position:absolute;inset:24%;border-radius:50%;background:var(--tx);opacity:.9}
+.plate::after{content:attr(data-n);position:absolute;inset-block-start:-6px;inset-inline-start:-4px;width:34px;height:34px;border-radius:50%;background:var(--r);color:var(--c);font:400 17px/34px var(--disp);box-shadow:0 0 0 3px var(--k)}
+.dishes li:hover .plate{transform:rotate(18deg) scale(1.05)}
+.dishes h3{font-size:1.35rem;text-transform:uppercase;color:var(--c)}
+.dishes p{font-size:.92rem;color:#cdbfae;line-height:1.35;max-width:22ch;margin:5px auto 6px}
+html[lang="ar"] .dishes p{line-height:1.6}
+.dishes .pr{color:var(--y);font-size:1.25rem}
+@media(min-width:720px){.dishes{grid-template-columns:repeat(4,minmax(0,1fr));gap:50px 24px}.plate{width:min(100%,190px)}.dishes li:nth-child(even){margin-top:46px}}
+#banchan .note{color:var(--y);margin-top:40px}
+
+/* 03 pots */
+#pots{background:var(--c);color:var(--k)}
+#pots .no{color:var(--r)}
+.pots{display:grid;gap:14px}
+.pot{display:grid;grid-template-columns:1fr auto;background:var(--k);color:var(--c);border-radius:6px 6px 46px 46px;padding:18px 20px 22px;position:relative;gap:4px 14px;border-top:8px solid var(--r)}
+.pot::before,.pot::after{content:"";position:absolute;inset-block-start:14px;width:12px;height:26px;background:var(--k);border-radius:4px}
+.pot::before{inset-inline-start:-9px}.pot::after{inset-inline-end:-9px}
+.pot h3{font-size:1.65rem;text-transform:uppercase;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pot p{grid-column:1/-1;font-size:.95rem;color:#d8cbb9;max-width:46ch}
+.pot .pr{font-size:1.8rem;color:var(--y)}
+.pot .heat i{background:var(--r)}.pot .heat i.o{background:transparent;box-shadow:inset 0 0 0 2px #6a5c50}
+.pot .badge{background:var(--y);color:var(--k)}
+@media(min-width:760px){.pots{grid-template-columns:repeat(6,1fr);gap:22px 30px}.pot{grid-column:span 2;padding:24px 26px 34px}.pot:nth-child(n+4){grid-column:span 3}}
+
+/* 04 sets */
+#sets{background:var(--k2);padding-bottom:70px}
+#sets .no{color:var(--y)}
+.sets{display:grid;gap:22px}
+.set{display:grid;grid-template-columns:1fr;background:var(--r);color:var(--k);position:relative}
+.set:nth-child(2){background:var(--c)}
+.set-top{padding:24px 22px 18px;position:relative}
+.set h3{font-size:clamp(2.2rem,5vw,3.6rem);text-transform:uppercase;max-width:9ch}
+.set .for{font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:12px;margin-bottom:10px;display:block}
+html[lang="ar"] .set .for{font-size:14px}
+.set ul{list-style:none;padding:0 22px 26px;font-weight:600;columns:1}
+.set li{padding:8px 0;border-top:3px solid var(--k);display:flex;gap:10px;break-inside:avoid}
+.set li::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--k);flex:none;margin-top:.45em}
+.coin{position:absolute;inset-block-start:-18px;inset-inline-end:16px;width:104px;height:104px;border-radius:50%;background:var(--k);color:var(--y);display:grid;place-content:center;text-align:center;transform:rotate(8deg);box-shadow:0 0 0 5px var(--y),0 0 0 9px var(--k)}
+html[dir="rtl"] .coin{transform:rotate(-8deg)}
+.coin .pr{font-size:2.3rem;line-height:1;display:grid}
+.coin .pr small{font-size:11px;margin:2px 0 0}
+@media(min-width:900px){.sets{grid-template-columns:1fr 1fr;gap:34px}.set-top{padding:34px 34px 22px}.set ul{padding:0 34px 34px}.coin{width:132px;height:132px;inset-inline-end:28px}.coin .pr{font-size:3rem}}
+
+/* 05 sips */
+#sips{background:var(--k)}
+#sips .no{color:var(--r)}
+.sips{display:grid;gap:0;border-top:3px solid var(--c)}
+.sip{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:14px 0;border-bottom:3px solid #3a322c;align-items:baseline}
+.sip h3{font-size:1.4rem;text-transform:uppercase;color:var(--c)}
+.sip h3 .badge{vertical-align:middle;margin-inline-start:8px;background:var(--r);color:var(--c)}
+.sip p{grid-column:1;font-size:.94rem;color:#cdbfae}
+.sip .pr{font-size:1.5rem;color:var(--y);grid-row:1/3;grid-column:2;align-self:center}
+@media(min-width:860px){.sips{grid-template-columns:1fr 1fr;column-gap:60px}}
+
+footer{background:var(--r);color:var(--k);padding:44px 22px 30px;position:relative;overflow:hidden}
+.ft{display:grid;gap:26px;max-width:1280px;margin:0 auto;position:relative}
+.ft h2{font-size:clamp(3rem,9vw,7rem);text-transform:uppercase;color:var(--c)}
+.ft h4{font:800 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;border-bottom:4px solid var(--k);padding-bottom:8px;margin-bottom:10px}
+html[lang="ar"] .ft h4{font-size:15px}
+.ft p{font-weight:600;font-size:.98rem}
+.ft .cols{display:grid;gap:24px}
+.ft small{font-size:.85rem;font-weight:600;display:block;border-top:4px solid var(--k);padding-top:14px}
+@media(min-width:860px){footer{padding:70px 4vw 36px}.ft .cols{grid-template-columns:repeat(3,1fr);gap:44px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}.smoke path{opacity:.3}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="ctl">
+  <a class="home-link" href="../index.html" aria-label="All menus"><svg viewBox="0 0 13 13" fill="currentColor" aria-hidden="true"><circle cx="2.5" cy="2.5" r="2.2"/><circle cx="10.5" cy="2.5" r="2.2"/><circle cx="2.5" cy="10.5" r="2.2"/><circle cx="10.5" cy="10.5" r="2.2"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<header class="hero">
+  <div class="h-red">
+    <div class="hangul" aria-hidden="true">불고기</div>
+    <div class="kicker"><i></i><span lang="en">Korean BBQ · Charcoal · Est. 2016</span><span lang="ar">شواء كوري · على الفحم · منذ 2016</span></div>
+    <h1 lang="en"><b>Bulgogi</b><b>Bros</b></h1>
+    <h1 lang="ar"><b>إخوة</b><b>البولغوغي</b></h1>
+    <p class="tag" lang="en">You hold the tongs. We keep the fire and the side dishes coming.</p>
+    <p class="tag" lang="ar">الملقط في يدك، وعلينا النار والأطباق الجانبية التي لا تنقطع.</p>
+  </div>
+  <div class="h-blk" aria-hidden="true">
+    <svg class="table" viewBox="-320 -320 640 640" role="img">
+      <defs>
+        <radialGradient id="fire"><stop offset="0" stop-color="#ffd24a"/><stop offset=".35" stop-color="#ff7a18"/><stop offset=".75" stop-color="#c41a0c"/><stop offset="1" stop-color="#3b0a04"/></radialGradient>
+        <radialGradient id="halo"><stop offset=".5" stop-color="#ff5a14" stop-opacity=".55"/><stop offset="1" stop-color="#ff5a14" stop-opacity="0"/></radialGradient>
+        <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6b625c"/><stop offset=".5" stop-color="#1d1917"/><stop offset="1" stop-color="#4a433e"/></linearGradient>
+        <clipPath id="gc"><circle r="150"/></clipPath>
+        <g id="plate"><circle r="45" fill="#000" opacity=".5" cy="6"/><circle r="44" fill="#fffaf0"/><circle r="44" fill="none" stroke="#d9cfbf" stroke-width="3"/><circle r="33" fill="#efe5d4"/></g>
+      </defs>
+      <circle r="300" fill="url(#halo)" class="glow"/>
+      <!-- banchan ring -->
+      <g class="ring">
+        <g transform="rotate(0) translate(0,-258)"><g class="dish"><use href="#plate"/><circle r="29" fill="#c9281a"/><path d="M-18-6q10-10 20 0t16 2M-16 8q12-8 22 2t10 0" stroke="#f2793a" stroke-width="5" fill="none" stroke-linecap="round"/></g></g>
+        <g transform="rotate(45) translate(0,-258)"><g class="dish"><use href="#plate"/><circle r="29" fill="#2f6b2a"/><path d="M-16-8l30 6M-18 6l32-2M-8-18l10 34" stroke="#63a544" stroke-width="5" stroke-linecap="round"/></g></g>
+        <g transform="rotate(90) translate(0,-258)"><g class="dish"><use href="#plate"/><circle r="29" fill="#f1c93b"/><rect x="-18" y="-14" width="14" height="28" rx="6" fill="#ffe27a"/><rect x="2" y="-14" width="14" height="28" rx="6" fill="#ffe27a"/></g></g>
+        <g transform="rotate(135) translate(0,-258)"><g class="dish"><use href="#plate"/><circle r="29" fill="#e9dcae"/><path d="M-18-10q16 4 34-4M-18 2q18 6 36-2M-14 14q14 2 28-4" stroke="#fff6cf" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="-18" cy="-10" r="4" fill="#f3c63e"/><circle cx="18" cy="0" r="4" fill="#f3c63e"/></g></g>
+        <g transform="rotate(180) translate(0,-258)"><g class="dish"><use href="#plate"/><circle r="29" fill="#d8472a"/><rect x="-16" y="-14" width="13" height="13" rx="2" fill="#f6dccb"/><rect x="2" y="-10" width="13" height="13" rx="2" fill="#f6dccb"/><rect x="-8" y="4" width="13" height="13" rx="2" fill="#f6dccb"/></g></g>
+        <g transform="rotate(225) translate(0,-258)"><g class="dish"><use href="#plate"/><circle r="29" fill="#5b3a22"/><path d="M-18-8q12 12 34-2M-16 6q14-12 32 4M-10 16q10-8 20-2" stroke="#b98a55" stroke-width="3.5" fill="none" stroke-linecap="round"/><circle cx="6" cy="-12" r="3" fill="#e2572b"/><circle cx="-8" cy="10" r="3" fill="#5fa243"/></g></g>
+        <g transform="rotate(270) translate(0,-258)"><g class="dish"><use href="#plate"/><circle r="29" fill="#7a2416"/><circle r="15" fill="#f0e8dc"/><circle r="6" fill="#ffc640"/></g></g>
+        <g transform="rotate(315) translate(0,-258)"><g class="dish"><use href="#plate"/><circle r="29" fill="#3d7f34"/><path d="M-20 0h40M-14-12l28 24M-14 12l28-24" stroke="#bfe08a" stroke-width="3" stroke-linecap="round"/></g></g>
+      </g>
+      <!-- grill -->
+      <circle r="188" fill="#000" opacity=".55" cy="8"/>
+      <circle r="184" fill="url(#rim)"/>
+      <circle r="168" fill="#0b0908"/>
+      <circle r="158" fill="url(#fire)" class="glow"/>
+      <g clip-path="url(#gc)">
+        <g fill="#ffe48a">
+          <circle class="em" cx="-80" cy="-40" r="9"/><circle class="em" cx="40" cy="-90" r="7"/><circle class="em" cx="90" cy="30" r="10"/><circle class="em" cx="-30" cy="70" r="8"/><circle class="em" cx="-110" cy="50" r="6"/><circle class="em" cx="10" cy="10" r="12"/><circle class="em" cx="70" cy="-30" r="6"/><circle class="em" cx="-50" cy="-100" r="7"/><circle class="em" cx="30" cy="110" r="8"/><circle class="em" cx="120" cy="-60" r="5"/><circle class="em" cx="-100" cy="-10" r="5"/><circle class="em" cx="-10" cy="-50" r="6"/>
+        </g>
+        <g stroke="#0e0c0b" stroke-width="9"><path d="M-140-160v320M-112-160v320M-84-160v320M-56-160v320M-28-160v320M0-160v320M28-160v320M56-160v320M84-160v320M112-160v320M140-160v320"/></g>
+        <g stroke="#3a332f" stroke-width="2"><path d="M-143-160v320M-115-160v320M-87-160v320M-59-160v320M-31-160v320M-3-160v320M25-160v320M53-160v320M81-160v320M109-160v320M137-160v320"/></g>
+      </g>
+      <circle r="150" fill="none" stroke="#0e0c0b" stroke-width="10"/>
+      <circle r="92" fill="none" stroke="#0e0c0b" stroke-width="7"/>
+      <!-- meat -->
+      <g>
+        <g transform="translate(-62,-58) rotate(-24)"><rect x="-52" y="-22" width="104" height="44" rx="20" fill="#7a2f1b"/><rect x="-46" y="-17" width="92" height="30" rx="14" fill="#a8482a"/><path d="M-30-22v44M-6-22v44M18-22v44" stroke="#3b1408" stroke-width="5" opacity=".7"/><path d="M-40-8q30-10 70 0" stroke="#e7b48f" stroke-width="3" fill="none" opacity=".7"/></g>
+        <g transform="translate(66,-30) rotate(38)"><rect x="-46" y="-19" width="92" height="38" rx="18" fill="#8a3a22"/><rect x="-40" y="-14" width="80" height="26" rx="12" fill="#b7552f"/><path d="M-22-19v38M2-19v38M26-19v38" stroke="#3b1408" stroke-width="5" opacity=".7"/></g>
+        <g transform="translate(-20,62) rotate(8)"><rect x="-58" y="-21" width="116" height="42" rx="20" fill="#6e2917"/><rect x="-52" y="-16" width="104" height="29" rx="13" fill="#9c4226"/><path d="M-36-21v42M-12-21v42M12-21v42M36-21v42" stroke="#3b1408" stroke-width="5" opacity=".7"/><path d="M-44 6q40 8 86-2" stroke="#e7b48f" stroke-width="3" fill="none" opacity=".6"/></g>
+        <g transform="translate(88,70)"><circle r="20" fill="#f3ead7"/><circle r="20" fill="none" stroke="#c9b48e" stroke-width="3"/><path d="M-10-4q10 8 20 0M-8 8q8-6 16 0" stroke="#c9b48e" stroke-width="2.5" fill="none"/></g>
+        <g transform="translate(-104,22)"><circle r="15" fill="#f3ead7"/><circle r="15" fill="none" stroke="#c9b48e" stroke-width="3"/></g>
+        <g transform="translate(14,-112) rotate(-12)"><rect x="-30" y="-9" width="60" height="18" rx="9" fill="#4f8f38"/><rect x="-30" y="-9" width="16" height="18" rx="8" fill="#e9f0d2"/></g>
+      </g>
+      <g class="smoke" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".5">
+        <path d="M-60-70q-16-22 0-44t0-44"/><path d="M50-30q16-22 0-44t0-44"/><path d="M-10 50q-16-22 0-44t0-44"/>
+      </g>
+    </svg>
+  </div>
+  <div class="h-cream">
+    <p lang="en">Two brothers, one charcoal pit per table and a marinade recipe their grandmother in Jeonju refused to write down. Order your cuts, grill them your way, wrap them in lettuce with a dab of ssamjang.</p>
+    <p lang="ar">أخوان، وموقد فحم على كل طاولة، وتتبيلة جدّتهما في جونجو التي رفضت أن تدوّنها يومًا. اختر قطع اللحم، واشوِها على طريقتك، ثم لفّها في ورقة خس مع لمسة من صلصة السامجانغ.</p>
+    <ol class="steps">
+      <li><b>1</b><span lang="en">Sear it hot</span><span lang="ar">اشوِ على نار قوية</span></li>
+      <li><b>2</b><span lang="en">Flip only once</span><span lang="ar">اقلب مرة واحدة</span></li>
+      <li><b>3</b><span lang="en">Wrap &amp; eat</span><span lang="ar">لفّ وتذوّق</span></li>
+    </ol>
+  </div>
+</header>
+
+<nav class="knobs" aria-label="Sections">
+  <a href="#grill"><i></i><span lang="en">The Grill</span><span lang="ar">الشواية</span></a>
+  <a href="#banchan"><i></i><span lang="en">Banchan</span><span lang="ar">البانشان</span></a>
+  <a href="#pots"><i></i><span lang="en">Stone Pots</span><span lang="ar">القدور الحجرية</span></a>
+  <a href="#sets"><i></i><span lang="en">Table Sets</span><span lang="ar">وجبات الطاولة</span></a>
+  <a href="#sips"><i></i><span lang="en">Sips &amp; Sweets</span><span lang="ar">مشروبات وحلويات</span></a>
+</nav>
+
+<main>
+<section id="grill"><div class="wrap">
+  <div class="sec-h"><span class="no">01</span>
+    <h2><span lang="en">The Grill</span><span lang="ar">على الشواية</span></h2>
+    <p><span lang="en">Raw cuts, 150 g per order, brought to your charcoal. The dial tells you how long each side wants.</span><span lang="ar">قطع نيئة، 150 غرامًا لكل طلب، تصل إلى فحم طاولتك. والمؤقّت يخبرك كم يحتاج كل وجه.</span></p>
+  </div>
+  <div class="cuts">
+    <article class="cut"><div class="timer" style="--t:25"><span>45<small><span lang="en">sec/side</span><span lang="ar">ث/للوجه</span></small></span></div>
+      <div><h3><span lang="en">Signature Bulgogi</span><span lang="ar">بولغوغي الإخوة</span><span class="badge"><span lang="en">Bros' pick</span><span lang="ar">اختيار الإخوة</span></span></h3>
+      <p><span lang="en">Shaved ribeye in soy, Korean pear and toasted sesame, the recipe that started it all.</span><span lang="ar">شرائح ريب آي رقيقة منقوعة بالصويا والكمثرى الكورية والسمسم المحمّص؛ الوصفة التي بدأ بها كل شيء.</span></p></div>
+      <span class="pr">68<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+    <article class="cut"><div class="timer" style="--t:75"><span>3<small><span lang="en">min/side</span><span lang="ar">د/للوجه</span></small></span></div>
+      <div><h3><span lang="en">Galbi</span><span lang="ar">غالبي</span><em><span lang="en">bone-in short rib</span><span lang="ar">ضلع بقري بالعظم</span></em></h3>
+      <p><span lang="en">Butterflied by hand, marinated 24 hours, snipped at the table with scissors.</span><span lang="ar">يُفتح يدويًا ويُتبَّل 24 ساعة، ثم يُقصّ بالمقص على طاولتك.</span></p></div>
+      <span class="pr">96<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+    <article class="cut"><div class="timer" style="--t:10"><span>10<small><span lang="en">sec/side</span><span lang="ar">ث/للوجه</span></small></span></div>
+      <div><h3><span lang="en">Chadolbaegi</span><span lang="ar">تشادولباغي</span><em><span lang="en">brisket curls</span><span lang="ar">لفائف صدر البقر</span></em></h3>
+      <p><span lang="en">Paper-thin and unmarinated. Dip in sesame oil and sea salt, nothing else.</span><span lang="ar">رقيقة كالورق وبلا تتبيلة. اغمسها في زيت السمسم وملح البحر فقط.</span></p></div>
+      <span class="pr">58<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+    <article class="cut"><div class="timer" style="--t:50"><span>90<small><span lang="en">sec/side</span><span lang="ar">ث/للوجه</span></small></span></div>
+      <div><h3><span lang="en">Fire Bulgogi</span><span lang="ar">بولغوغي النار</span><span class="heat" aria-label="heat 2 of 3"><i></i><i></i><i class="o"></i></span></h3>
+      <p><span lang="en">Beef sirloin in gochugaru and garlic, sweet first, then the slow burn.</span><span lang="ar">سيرلوين بقري برقائق الفلفل الكوري والثوم؛ حلاوة أولًا ثم لسعة تتصاعد على مهل.</span></p></div>
+      <span class="pr">64<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+    <article class="cut"><div class="timer" style="--t:90"><span>4<small><span lang="en">min/side</span><span lang="ar">د/للوجه</span></small></span></div>
+      <div><h3><span lang="en">Dak-galbi</span><span lang="ar">داك غالبي</span><span class="heat" aria-label="heat 3 of 3"><i></i><i></i><i></i></span></h3>
+      <p><span lang="en">Boneless chicken thigh lacquered in gochujang, honey and ginger.</span><span lang="ar">أفخاذ دجاج مخلية مطلية بمعجون الغوتشوجانغ والعسل والزنجبيل.</span></p></div>
+      <span class="pr">49<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+    <article class="cut"><div class="timer" style="--t:40"><span>75<small><span lang="en">sec/side</span><span lang="ar">ث/للوجه</span></small></span></div>
+      <div><h3><span lang="en">Saeu-gui</span><span lang="ar">سايو غوي</span><em><span lang="en">tiger prawns</span><span lang="ar">روبيان النمر</span></em></h3>
+      <p><span lang="en">Six shell-on prawns with garlic butter and a wedge of charred lemon.</span><span lang="ar">ست حبات روبيان بقشرها مع زبدة الثوم وشريحة ليمون مشوية.</span></p></div>
+      <span class="pr">79<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+    <article class="cut"><div class="timer" style="--t:60"><span>2<small><span lang="en">min/side</span><span lang="ar">د/للوجه</span></small></span></div>
+      <div><h3><span lang="en">Garden Grill</span><span lang="ar">شواء الحديقة</span><span class="badge"><span lang="en">Vegan</span><span lang="ar">نباتي</span></span></h3>
+      <p><span lang="en">King oyster mushrooms, firm tofu, sweet potato and scallion in bulgogi glaze.</span><span lang="ar">فطر المحار الملكي والتوفو المتماسك والبطاطا الحلوة والبصل الأخضر بتتبيلة البولغوغي.</span></p></div>
+      <span class="pr">39<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+  </div>
+  <p class="note"><span lang="en">Every grill order comes with lettuce, perilla leaves, ssamjang and sliced garlic.</span><span lang="ar">يُقدَّم مع كل طلب شواء: خس وأوراق البريلا وصلصة السامجانغ وشرائح الثوم.</span></p>
+</div></section>
+
+<section id="banchan"><div class="wrap">
+  <div class="sec-h"><span class="no">02</span>
+    <h2><span lang="en">Banchan</span><span lang="ar">البانشان</span></h2>
+    <p><span lang="en">The little dishes that circle every Korean table. Made each morning, meant for sharing.</span><span lang="ar">الأطباق الصغيرة التي تحيط بكل مائدة كورية. تُحضَّر كل صباح وتُقدَّم للمشاركة.</span></p>
+  </div>
+  <ul class="dishes">
+    <li><div class="plate" data-n="1" style="--f1:#c9281a;--f2:#e0502c;--tx:repeating-conic-gradient(#f2793a 0 20deg,#b81c12 0 40deg)"></div><h3><span lang="en">Baechu Kimchi</span><span lang="ar">كيمتشي الملفوف</span></h3><p><span lang="en">Napa cabbage, fermented 21 days in our cellar.</span><span lang="ar">ملفوف صيني مخمَّر 21 يومًا في قبونا.</span></p><span class="pr">12<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li><div class="plate" data-n="2" style="--f1:#d8472a;--f2:#e9825a;--tx:conic-gradient(#f6dccb 0 25%,#e27650 0 50%,#f6dccb 0 75%,#e27650 0)"></div><h3><span lang="en">Kkakdugi</span><span lang="ar">كاكدوغي</span></h3><p><span lang="en">Crunchy radish cubes in chilli and pear.</span><span lang="ar">مكعبات فجل مقرمشة بالفلفل والكمثرى.</span></p><span class="pr">10<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li><div class="plate" data-n="3" style="--f1:#e9dcae;--f2:#f6edc6;--tx:repeating-conic-gradient(#fff6cf 0 12deg,#d9c98a 0 24deg)"></div><h3><span lang="en">Kongnamul</span><span lang="ar">كونغنامول</span></h3><p><span lang="en">Soybean sprouts with sesame oil and garlic.</span><span lang="ar">براعم فول الصويا بزيت السمسم والثوم.</span></p><span class="pr">9<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li><div class="plate" data-n="4" style="--f1:#2f6b2a;--f2:#4f8f38;--tx:repeating-conic-gradient(#63a544 0 30deg,#255a22 0 60deg)"></div><h3><span lang="en">Sigeumchi</span><span lang="ar">سيغومتشي</span></h3><p><span lang="en">Blanched spinach, soy and toasted sesame.</span><span lang="ar">سبانخ مسلوقة بالصويا والسمسم المحمّص.</span></p><span class="pr">9<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li><div class="plate" data-n="5" style="--f1:#f1c93b;--f2:#ffe27a;--tx:repeating-radial-gradient(#ffe27a 0 6px,#e8b72a 6px 10px)"></div><h3><span lang="en">Gyeran-mari</span><span lang="ar">غيران ماري</span></h3><p><span lang="en">Rolled omelette with carrot and scallion.</span><span lang="ar">عجّة ملفوفة بالجزر والبصل الأخضر.</span></p><span class="pr">14<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li><div class="plate" data-n="6" style="--f1:#5b3a22;--f2:#86603a;--tx:repeating-conic-gradient(from 20deg,#b98a55 0 8deg,#5b3a22 0 22deg)"></div><h3><span lang="en">Japchae</span><span lang="ar">جابتشي</span></h3><p><span lang="en">Glass noodles, peppers and shiitake, served warm.</span><span lang="ar">نودلز زجاجية بالفلفل وفطر الشيتاكي، تُقدَّم دافئة.</span></p><span class="pr">16<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li><div class="plate" data-n="7" style="--f1:#b9782f;--f2:#d9a45a;--tx:conic-gradient(from 45deg,#e7c08a 0 25%,#a8642a 0 50%,#e7c08a 0 75%,#a8642a 0)"></div><h3><span lang="en">Eomuk Bokkeum</span><span lang="ar">أوموك بوكوم</span></h3><p><span lang="en">Stir-fried fish cake, sweet soy and chilli.</span><span lang="ar">كعك السمك المقلّب بالصويا الحلوة والفلفل.</span></p><span class="pr">12<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+    <li><div class="plate" data-n="8" style="--f1:#3d7f34;--f2:#7fb85a;--tx:repeating-conic-gradient(from 10deg,#bfe08a 0 6deg,#3d7f34 0 18deg)"></div><h3><span lang="en">Pa-muchim</span><span lang="ar">با موتشيم</span></h3><p><span lang="en">Shredded scallion salad, the grill's best friend.</span><span lang="ar">سلطة البصل الأخضر المبشور، رفيقة الشواء المثالية.</span></p><span class="pr">9<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></li>
+  </ul>
+  <p class="note"><span lang="en">Your first round of four banchan is on the house with any grill order. Refills of kimchi are always free.</span><span lang="ar">الجولة الأولى من أربعة أطباق بانشان مجانية مع أي طلب شواء، وإعادة تعبئة الكيمتشي مجانية دائمًا.</span></p>
+</div></section>
+
+<section id="pots"><div class="wrap">
+  <div class="sec-h"><span class="no">03</span>
+    <h2><span lang="en">Stone Pots</span><span lang="ar">القدور الحجرية</span></h2>
+    <p><span lang="en">Arrive bubbling. Mind the rim: the dolsot stays hot longer than the conversation.</span><span lang="ar">تصلك وهي تغلي. انتبه للحافة، فالقدر الحجري يبقى ساخنًا أطول من الحديث نفسه.</span></p>
+  </div>
+  <div class="pots">
+    <article class="pot"><h3><span lang="en">Kimchi-jjigae</span><span lang="ar">كيمتشي جيغي</span><span class="heat"><i></i><i></i><i class="o"></i></span></h3><span class="pr">42<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><p><span lang="en">Aged kimchi stew with beef brisket, tofu and rice cakes.</span><span lang="ar">يخنة الكيمتشي المعتّق مع صدر البقر والتوفو وكعك الأرز.</span></p></article>
+    <article class="pot"><h3><span lang="en">Sundubu</span><span lang="ar">سوندوبو</span><span class="heat"><i></i><i></i><i></i></span></h3><span class="pr">39<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><p><span lang="en">Silken tofu in fiery clam broth, an egg cracked in at the table.</span><span lang="ar">توفو حريري في مرق محار لاذع، تُكسر فيه بيضة أمامك.</span></p></article>
+    <article class="pot"><h3><span lang="en">Doenjang-jjigae</span><span lang="ar">دوينجانغ جيغي</span></h3><span class="pr">36<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><p><span lang="en">Earthy soybean-paste stew, courgette, potato and mushrooms.</span><span lang="ar">يخنة معجون فول الصويا مع الكوسا والبطاطا والفطر.</span></p></article>
+    <article class="pot"><h3><span lang="en">Dolsot Bibimbap</span><span lang="ar">دولسوت بيبيمباب</span><span class="badge"><span lang="en">Crispy rice</span><span lang="ar">أرز مقرمش</span></span></h3><span class="pr">46<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><p><span lang="en">Rice crackling against hot stone, six vegetables, bulgogi and a fried egg.</span><span lang="ar">أرز يتقرمش على الحجر الساخن مع ستة أنواع من الخضار والبولغوغي وبيضة مقلية.</span></p></article>
+    <article class="pot"><h3><span lang="en">Mul-naengmyeon</span><span lang="ar">مول نينغميون</span><span class="badge"><span lang="en">Served icy</span><span lang="ar">يُقدَّم مثلّجًا</span></span></h3><span class="pr">38<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><p><span lang="en">Chewy buckwheat noodles in chilled beef broth, the classic finish after the grill.</span><span lang="ar">نودلز الحنطة السوداء في مرق بقري مثلّج؛ الختام التقليدي بعد الشواء.</span></p></article>
+  </div>
+</div></section>
+
+<section id="sets"><div class="wrap">
+  <div class="sec-h"><span class="no">04</span>
+    <h2><span lang="en">Table Sets</span><span lang="ar">وجبات الطاولة</span></h2>
+    <p><span lang="en">Can't choose? Let the brothers build the table for you.</span><span lang="ar">احترت في الاختيار؟ دع الأخوين يرتّبان لك المائدة.</span></p>
+  </div>
+  <div class="sets">
+    <article class="set"><div class="set-top"><span class="for"><span lang="en">For two</span><span lang="ar">لشخصين</span></span><h3><span lang="en">The Bros Duo</span><span lang="ar">ثنائي الإخوة</span></h3>
+      <div class="coin"><span class="pr">189<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></div>
+      <ul><li><span lang="en">Signature bulgogi + chadolbaegi</span><span lang="ar">بولغوغي الإخوة + تشادولباغي</span></li><li><span lang="en">Six banchan, refilled once</span><span lang="ar">ستة أطباق بانشان مع إعادة تعبئة واحدة</span></li><li><span lang="en">Kimchi-jjigae to share</span><span lang="ar">كيمتشي جيغي للمشاركة</span></li><li><span lang="en">Steamed rice and two sikhye</span><span lang="ar">أرز مطهو على البخار وكوبان من السيكهي</span></li></ul></article>
+    <article class="set"><div class="set-top"><span class="for"><span lang="en">For four</span><span lang="ar">لأربعة أشخاص</span></span><h3><span lang="en">Family Fire</span><span lang="ar">نار العائلة</span></h3>
+      <div class="coin"><span class="pr">349<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></div>
+      <ul><li><span lang="en">Galbi, signature bulgogi, dak-galbi and prawns</span><span lang="ar">غالبي وبولغوغي الإخوة وداك غالبي وروبيان</span></li><li><span lang="en">All eight banchan, unlimited</span><span lang="ar">أطباق البانشان الثمانية بلا حدود</span></li><li><span lang="en">Dolsot bibimbap and sundubu</span><span lang="ar">دولسوت بيبيمباب وسوندوبو</span></li><li><span lang="en">Hotteok platter and barley tea</span><span lang="ar">طبق هوتوك وشاي الشعير</span></li></ul></article>
+  </div>
+</div></section>
+
+<section id="sips"><div class="wrap">
+  <div class="sec-h"><span class="no">05</span>
+    <h2><span lang="en">Sips &amp; Sweets</span><span lang="ar">مشروبات وحلويات</span></h2>
+    <p><span lang="en">Something cold for the heat, something sweet for the road.</span><span lang="ar">شيء بارد يطفئ الحرارة، وشيء حلو يرافقك في طريق العودة.</span></p>
+  </div>
+  <div class="sips">
+    <article class="sip"><h3><span lang="en">Sikhye</span><span lang="ar">سيكهي</span></h3><p><span lang="en">Chilled sweet rice punch with pine nuts.</span><span lang="ar">شراب الأرز الحلو المبرّد مع الصنوبر.</span></p><span class="pr">16<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+    <article class="sip"><h3><span lang="en">Yuja Ade</span><span lang="ar">يوجا آيد</span></h3><p><span lang="en">Sparkling Korean citron with honey.</span><span lang="ar">أترج كوري فوّار بالعسل.</span></p><span class="pr">18<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+    <article class="sip"><h3><span lang="en">Omija Fizz</span><span lang="ar">أوميجا فيز</span></h3><p><span lang="en">Five-flavour berry cordial, soda, fresh mint.</span><span lang="ar">شراب توت النكهات الخمس مع الصودا والنعناع الطازج.</span></p><span class="pr">19<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+    <article class="sip"><h3><span lang="en">Bori-cha</span><span lang="ar">بوري تشا</span><span class="badge"><span lang="en">Free refills</span><span lang="ar">تعبئة مجانية</span></span></h3><p><span lang="en">Roasted barley tea, hot or over ice.</span><span lang="ar">شاي الشعير المحمّص، ساخنًا أو مع الثلج.</span></p><span class="pr">8<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+    <article class="sip"><h3><span lang="en">Hotteok</span><span lang="ar">هوتوك</span></h3><p><span lang="en">Griddled pancake oozing brown sugar, cinnamon and walnut.</span><span lang="ar">فطيرة مشوية محشوة بالسكر البني والقرفة والجوز.</span></p><span class="pr">22<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+    <article class="sip"><h3><span lang="en">Injeolmi Bingsu</span><span lang="ar">إنجولمي بينغسو</span></h3><p><span lang="en">Milk shaved ice, roasted soybean powder, chewy rice cake.</span><span lang="ar">ثلج الحليب المبشور مع مسحوق فول الصويا المحمّص وكعك الأرز الطري.</span></p><span class="pr">32<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="ft">
+  <h2><span lang="en">Fire's on.</span><span lang="ar">النار مشتعلة.</span></h2>
+  <div class="cols">
+    <div><h4><span lang="en">Hours</span><span lang="ar">ساعات العمل</span></h4><p><span lang="en">Sat – Wed 12:30 pm – 12:00 am<br>Thu – Fri 12:30 pm – 1:30 am</span><span lang="ar">السبت – الأربعاء 12:30 ظهرًا – 12:00 منتصف الليل<br>الخميس – الجمعة 12:30 ظهرًا – 1:30 فجرًا</span></p></div>
+    <div><h4><span lang="en">Find us</span><span lang="ar">موقعنا</span></h4><p><span lang="en">14 Ember Lane, Al Nakheel District, Riyadh<br>Reservations 011 555 0141</span><span lang="ar">14 زقاق الجمر، حي النخيل، الرياض<br>للحجز 0141 555 011</span></p></div>
+    <div><h4><span lang="en">Good to know</span><span lang="ar">يهمّك أن تعرف</span></h4><p><span lang="en">All meat is halal. Marinades contain soy, sesame and wheat; tell your server about any allergy.</span><span lang="ar">جميع اللحوم حلال. تحتوي التتبيلات على الصويا والسمسم والقمح؛ أخبر النادل عن أي حساسية.</span></p></div>
+  </div>
+  <small><span lang="en">Prices in Saudi riyals, VAT included. Tables are held for 100 minutes at peak hours.</span><span lang="ar">الأسعار بالريال السعودي شاملة ضريبة القيمة المضافة. مدة الطاولة 100 دقيقة في أوقات الذروة.</span></small>
+</div></footer>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>

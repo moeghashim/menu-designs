@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Side B · الوجه ب</title>
+<meta name="description" content="Side B — a 70s hi-fi listening café and mocktail bar. The menu is a double album: four sides, running times are prices. الوجه ب — مقهى استماع وموكتيلات بروح السبعينيات.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2a1710">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&family=Lalezar&family=Readex+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --cream:#f3e6ca; --cream2:#e9d7b3; --must:#e2a52a; --or:#d9652a; --rust:#a93c14; --br:#4a2a1a; --dk:#2a1710; --blk:#150c08;
+  --body:"DM Sans","Readex Pro",system-ui,"Segoe UI",Arial,sans-serif;
+  --disp:"Shrikhand","Lalezar","Cooper Black",Georgia,serif;
+  --mono:"DM Mono","Courier New",monospace;
+  --pad:clamp(18px,5vw,84px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--dk);color:var(--dk);font-family:var(--body);font-size:clamp(16px,.3vw + 14.8px,18px);line-height:1.5;overflow-x:clip}
+html[lang="ar"]{--body:"Readex Pro","DM Sans",Tahoma,sans-serif;--disp:"Lalezar","Shrikhand",sans-serif}
+html[lang="ar"] body{font-size:clamp(17px,.3vw + 15.8px,19px);line-height:1.75;font-weight:300}
+html[lang="ar"] [lang="ar"]{letter-spacing:0 !important;text-transform:none !important}
+a{color:inherit}ul{list-style:none}
+:focus-visible{outline:3px solid var(--must);outline-offset:3px}
+
+/* ============ receiver faceplate (sticky) ============ */
+.rx{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:clamp(8px,1.4vw,18px);padding:8px clamp(10px,2.4vw,30px);
+  background:linear-gradient(180deg,#e9e2d2,#bdb39e 48%,#cfc6b2 52%,#a79d88);border-bottom:3px solid var(--blk);box-shadow:0 8px 24px rgba(0,0,0,.45)}
+.rx::before,.rx::after{content:"";align-self:stretch;width:clamp(8px,1.4vw,18px);margin-block:-8px;background:repeating-linear-gradient(90deg,#6b3d22 0 3px,#5a3119 3px 5px,#7a4728 5px 9px)}
+.rx::before{margin-inline-start:calc(-1 * clamp(10px,2.4vw,30px))}
+.rx::after{margin-inline-end:calc(-1 * clamp(10px,2.4vw,30px));order:9}
+.rx .logo{font-family:var(--disp);font-size:22px;line-height:1;color:var(--dk);white-space:nowrap;padding-inline-end:4px}
+html[lang="ar"] .rx .logo{font-size:25px}
+.dial{position:relative;flex:1;min-width:0;height:42px;border-radius:5px;background:linear-gradient(180deg,#120a06,#26160d);box-shadow:inset 0 2px 8px #000,0 1px 0 rgba(255,255,255,.6);display:flex;align-items:stretch;overflow:hidden}
+.dial::after{content:"";position:absolute;inset-inline:0;bottom:0;height:7px;background:repeating-linear-gradient(90deg,rgba(255,196,110,.7) 0 1px,transparent 1px 9px);pointer-events:none}
+.dial a{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;color:#ffc46e;font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 8px rgba(255,170,60,.7);white-space:nowrap;padding:0 6px 5px;min-width:44px}
+html[lang="ar"] .dial a{font-family:var(--body);font-size:14.5px;font-weight:400}
+.dial a b{font-family:var(--mono);font-weight:500;font-size:15px}
+.dial a:hover{color:#fff}
+.needle{position:absolute;top:0;bottom:0;left:0;width:2px;background:#ff4a1c;box-shadow:0 0 10px 2px rgba(255,74,28,.8);transform:translateX(-50px);transition:transform .5s cubic-bezier(.3,1.3,.5,1);pointer-events:none}
+.btns{display:flex;gap:6px;flex:none}
+.home-link,#langToggle{height:38px;padding:0 12px;border-radius:5px;border:1px solid #6d6453;background:linear-gradient(180deg,#f6f1e4,#c9c0ac);box-shadow:0 2px 0 #6d6453,inset 0 1px 0 #fff;color:var(--dk);font:500 13px/1 var(--body);display:inline-flex;align-items:center;gap:7px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.home-link:active,#langToggle:active{transform:translateY(2px);box-shadow:none}
+#langToggle::before{content:"";width:7px;height:7px;border-radius:50%;background:#ff4a1c;box-shadow:0 0 6px #ff4a1c}
+#langToggle{font-family:"Readex Pro","DM Sans",sans-serif;font-size:14px}
+html[lang="ar"] #langToggle{font-family:"DM Sans",sans-serif;font-size:13px}
+.home-link svg{width:13px;height:13px}
+
+/* ============ vinyl ============ */
+.disc{position:relative;aspect-ratio:1;border-radius:50%;
+  background:conic-gradient(from 35deg,transparent 0 6%,rgba(255,255,255,.16) 11%,transparent 17% 50%,rgba(255,255,255,.13) 56%,transparent 63%),
+  repeating-radial-gradient(circle,#120e0c 0 1.1px,#2a221d 1.5px 2.7px);
+  box-shadow:0 0 0 1px #000,0 18px 40px rgba(0,0,0,.45)}
+.disc .lab{position:absolute;inset:31%;border-radius:50%;background:var(--lab,var(--or));color:var(--labink,var(--dk));display:grid;place-items:center;text-align:center;animation:spin 7s linear infinite;box-shadow:0 0 0 5px rgba(0,0,0,.35),inset 0 0 0 2px rgba(0,0,0,.2)}
+.disc .lab::after{content:"";position:absolute;width:9%;height:9%;border-radius:50%;background:var(--hole,var(--cream));box-shadow:inset 0 1px 2px rgba(0,0,0,.6)}
+.disc .lab b{font-family:"Shrikhand",serif;font-weight:400;font-size:clamp(34px,5cqw,84px);line-height:1;position:absolute;top:9%;inset-inline:0}
+.disc .lab small{position:absolute;bottom:13%;inset-inline:0;font-family:var(--mono);font-size:clamp(8px,1.3cqw,12px);letter-spacing:.14em}
+.disc .lab i{position:absolute;inset:7%;border-radius:50%;border:1px solid currentColor;opacity:.45}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ============ hero ============ */
+.hero{position:relative;background:var(--dk);color:var(--cream);overflow:clip;padding:clamp(34px,5vw,80px) var(--pad) 0;
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 2px,transparent 2px 7px,rgba(0,0,0,.12) 7px 8px,transparent 8px 19px)}
+.hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:center;position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--must);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+html[lang="ar"] .eyebrow{font-family:var(--body);font-size:16px;font-weight:400}
+.eyebrow i{border:1.5px solid currentColor;border-radius:50px;padding:2px 10px;font-style:normal;letter-spacing:.14em}
+.hero h1{font-family:var(--disp);font-weight:400;font-size:clamp(104px,17.5vw,290px);line-height:.84;margin:.12em 0 .14em;color:var(--cream);
+  text-shadow:.03em .03em 0 var(--or),.06em .06em 0 var(--must),.09em .09em 0 var(--rust);letter-spacing:-.01em}
+[dir="rtl"] .hero h1{text-shadow:-.03em .03em 0 var(--or),-.06em .06em 0 var(--must),-.09em .09em 0 var(--rust);line-height:1.05;font-size:clamp(90px,11.5vw,200px);margin:.02em 0 .08em;white-space:nowrap}
+.hero .tagline{font-family:var(--disp);font-size:clamp(24px,2.8vw,42px);line-height:1.1;color:var(--must)}
+html[lang="ar"] .hero .tagline{line-height:1.4}
+.hero .lead{max-width:44ch;margin-top:14px;color:#ecdcbd}
+.stage{position:relative;container-type:inline-size;padding-block:10px 20px}
+.sleeve{position:relative;width:66%;aspect-ratio:1;border-radius:3px;z-index:2;transform:rotate(-3deg);
+  background:radial-gradient(circle at 0 100%,var(--cream) 0 16%,var(--must) 16% 30%,var(--or) 30% 44%,var(--rust) 44% 58%,var(--br) 58% 72%,transparent 72.2%),#1b0f0a;
+  box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.08),inset -8px 0 14px rgba(0,0,0,.35)}
+[dir="rtl"] .sleeve{transform:rotate(3deg) scaleX(-1)}
+[dir="rtl"] .sleeve>*{transform:scaleX(-1)}
+.sleeve::after{content:"";position:absolute;inset:8%;border-radius:50%;border:10px solid rgba(255,255,255,.035);pointer-events:none}
+.sleeve .st{position:absolute;top:6%;inset-inline-end:6%;font-family:var(--mono);font-size:clamp(9px,1.5cqw,13px);letter-spacing:.3em;color:var(--cream);border:1px solid;padding:3px 8px;text-transform:uppercase}
+html[lang="ar"] .sleeve .st{font-family:var(--body)}
+.sleeve .nm{position:absolute;top:5%;inset-inline-start:6%;font-family:var(--disp);font-size:clamp(20px,5cqw,44px);color:var(--cream);line-height:1}
+.sleeve .cat{position:absolute;bottom:5%;inset-inline-end:6%;font-family:var(--mono);font-size:clamp(9px,1.4cqw,12px);letter-spacing:.2em;color:var(--cream2)}
+.stage .disc{position:absolute;width:62%;top:50%;inset-inline-end:0;translate:0 -50%;--lab:var(--or);--hole:var(--dk)}
+.stripes{height:56px;margin:clamp(26px,4vw,56px) calc(-1 * var(--pad)) 0;background:linear-gradient(180deg,var(--rust) 0 25%,var(--or) 25% 50%,var(--must) 50% 75%,var(--cream) 75%)}
+
+/* ============ liner notes ============ */
+.liner{background:var(--cream);padding:clamp(28px,4vw,56px) var(--pad);display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:clamp(20px,3vw,48px);
+  background-image:radial-gradient(rgba(74,42,26,.07) 1px,transparent 1.2px);background-size:5px 5px}
+.liner h2{font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;border-bottom:1.5px solid var(--dk);padding-bottom:6px;margin-bottom:10px}
+html[lang="ar"] .liner h2{font-family:var(--body);font-size:16.5px;font-weight:600}
+.liner p{font-size:.95em}
+.liner .key{display:flex;align-items:center;gap:14px;margin-top:12px}
+.liner .key b{font-family:var(--mono);font-weight:500;font-size:26px;background:var(--dk);color:var(--must);padding:4px 12px;border-radius:4px;direction:ltr}
+.liner .key span{font-size:.92em;line-height:1.35}
+.prog li{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:6px 0;border-bottom:1px dashed rgba(42,23,16,.4);font-size:.95em}
+.prog li:last-child{border:0}
+.prog time{font-family:var(--mono);font-weight:500;color:var(--rust);direction:ltr}
+
+/* ============ crate (signature sleeves) ============ */
+.crate{background:var(--br);color:var(--cream);padding:clamp(34px,5vw,70px) var(--pad) clamp(40px,5vw,80px);scroll-margin-top:60px;position:relative;
+  background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.14) 0 1px,transparent 1px 6px,rgba(255,255,255,.02) 6px 7px,transparent 7px 23px)}
+.sec-t{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:clamp(18px,2.6vw,34px)}
+.sec-t h2{font-family:var(--disp);font-weight:400;font-size:clamp(40px,6vw,88px);line-height:.95;color:var(--must)}
+html[lang="ar"] .sec-t h2{line-height:1.25}
+.sec-t p{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream2)}
+html[lang="ar"] .sec-t p{font-family:var(--body);font-size:16px}
+.racks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.4vw,36px)}
+.lp{container-type:inline-size}
+.lp .cov{position:relative;aspect-ratio:1;border-radius:2px;box-shadow:0 16px 30px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.1);overflow:hidden;transition:transform .35s}
+.lp:nth-child(odd) .cov{transform:rotate(-1.5deg)}.lp:nth-child(even) .cov{transform:rotate(1.2deg)}
+.lp:hover .cov{transform:rotate(0) translateY(-6px)}
+.lp .cov::after{content:"";position:absolute;inset:7%;border-radius:50%;border:8px solid rgba(255,255,255,.045)}
+.lp .cov b{position:absolute;top:6%;inset-inline:7%;font-family:var(--disp);font-weight:400;font-size:clamp(20px,11cqw,38px);line-height:1;z-index:1}
+html[lang="ar"] .lp .cov b{line-height:1.2}
+.lp .cov small{position:absolute;bottom:5%;inset-inline:7%;display:flex;justify-content:space-between;font-family:var(--mono);font-size:clamp(9px,4cqw,11.5px);letter-spacing:.16em;z-index:1}
+.c1{background:radial-gradient(circle at 50% 108%,var(--cream) 0 14%,var(--must) 14% 27%,var(--or) 27% 40%,var(--rust) 40% 53%,#6a2a12 53% 66%,transparent 66.3%),#1b0f0a;color:var(--cream)}
+.c2{background:radial-gradient(circle at 68% 36%,var(--must) 0 15%,transparent 15.4%),linear-gradient(180deg,var(--dk) 0 46%,var(--rust) 46% 57%,var(--or) 57% 68%,var(--must) 68% 79%,var(--cream) 79% 90%,var(--dk) 90%);color:var(--cream)}
+.c3{background:radial-gradient(circle at 50% 56%,var(--cream) 0 19%,transparent 19.4%),repeating-linear-gradient(135deg,#6b2d4a 0 12%,var(--rust) 12% 24%,var(--must) 24% 36%);color:var(--cream);text-shadow:0 2px 0 rgba(0,0,0,.35)}
+.c4{background:radial-gradient(circle at 50% 54%,#efc65f 0 21%,transparent 21.4%),repeating-radial-gradient(circle at 50% 54%,transparent 0 9%,rgba(239,198,95,.4) 9% 9.8%),#39391f;color:var(--cream)}
+.lp .hit{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;background:var(--must);color:var(--dk);padding:2px 9px;border-radius:50px;margin-bottom:6px}
+html[lang="ar"] .lp .hit{font-family:var(--body);font-size:14px;font-weight:400}
+.lp .txt{padding-top:16px}
+.lp p{font-size:.95em;color:#ecdcbd}
+.lp .dur{display:flex;align-items:center;gap:10px;margin-top:8px;font-family:var(--mono);font-weight:500;font-size:1.25em;color:var(--must);direction:ltr}
+.lp .dur::before{content:"";flex:1;height:0;border-top:2px dotted rgba(243,230,202,.4);order:0}
+[dir="rtl"] .lp .dur{flex-direction:row-reverse}
+
+/* ============ sides ============ */
+.side{position:relative;overflow:clip;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,4vw,72px);align-items:center;padding:clamp(44px,6.5vw,100px) var(--pad);scroll-margin-top:58px;background:var(--bg);color:var(--fg)}
+.side .plat{container-type:inline-size;width:116%;margin-inline-start:-46%}
+.side.alt{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.side.alt .plat{order:2;margin-inline-start:30%;}
+.tracks{max-width:760px}
+.sA{--bg:var(--cream);--fg:var(--dk);--acc:var(--rust);--lab:var(--or)}
+.sB{--bg:var(--dk);--fg:var(--cream);--acc:var(--must);--lab:var(--must)}
+.sC{--bg:var(--must);--fg:var(--dk);--acc:#7a2a0c;--lab:var(--dk);--labink:var(--cream)}
+.sD{--bg:#a13811;--fg:#fbf0d9;--acc:#ffd98a;--lab:var(--cream)}
+.side .disc{--hole:var(--bg)}
+.side header{margin-bottom:clamp(14px,2vw,26px)}
+.side header .k{font-family:var(--mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc)}
+html[lang="ar"] .side header .k{font-family:var(--body);font-size:16px;font-weight:400}
+.side h2{font-family:var(--disp);font-weight:400;font-size:clamp(56px,8.4vw,132px);line-height:.9;margin:.06em 0}
+html[lang="ar"] .side h2{line-height:1.2;margin:0}
+.side header p{max-width:46ch}
+.tracks li{display:grid;grid-template-columns:3.2ch minmax(0,1fr) auto;column-gap:14px;align-items:baseline;padding:13px 0;border-top:1.5px solid color-mix(in srgb,var(--fg) 30%,transparent)}
+.tracks li:last-child{border-bottom:1.5px solid color-mix(in srgb,var(--fg) 30%,transparent)}
+.tracks .no{font-family:var(--mono);font-weight:500;color:var(--acc);font-size:.95em;direction:ltr;unicode-bidi:isolate}
+.tracks b{font-weight:700;font-size:1.18em;line-height:1.25;display:block}
+html[lang="ar"] .tracks b{font-weight:600;line-height:1.5}
+.tracks small{display:block;font-size:.93em;opacity:.86;margin-top:2px;line-height:1.45}
+html[lang="ar"] .tracks small{line-height:1.65}
+.tracks .dur{font-family:var(--mono);font-weight:500;font-size:1.15em;direction:ltr;unicode-bidi:isolate}
+.tracks em{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1.5px solid var(--acc);color:var(--acc);border-radius:50px;padding:1px 8px;margin-inline-start:8px;vertical-align:.2em;white-space:nowrap;font-weight:500}
+html[lang="ar"] .tracks em{font-family:var(--body);font-size:13.5px;font-weight:400}
+.runout{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;margin-top:14px;color:var(--acc)}
+html[lang="ar"] .runout{font-family:var(--body);font-size:15.5px}
+
+/* ============ footer (record label small print) ============ */
+footer{background:var(--blk);color:var(--cream2);padding:0 var(--pad) 30px}
+footer .stripes{margin-top:0;height:28px;transform:scaleY(-1)}
+.foot{display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:clamp(18px,3vw,50px);align-items:start;padding-top:clamp(26px,3.6vw,48px)}
+.foot .disc{width:clamp(110px,11vw,160px);container-type:inline-size;--lab:var(--rust);--labink:var(--cream);--hole:var(--blk)}
+.foot .disc .lab{inset:26%}
+.foot .disc .lab b{font-size:30cqw;top:50%;translate:0 -50%}
+.foot h3{font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--must);margin-bottom:6px}
+html[lang="ar"] .foot h3{font-family:var(--body);font-size:16.5px;font-weight:600}
+.foot p{font-size:.93em}
+.legal{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:26px;padding-top:12px;border-top:1px solid rgba(233,215,179,.25);color:#b9a888}
+html[lang="ar"] .legal{font-family:var(--body);font-size:14px}
+
+/* ============ responsive ============ */
+@media (max-width:980px){
+  .liner{grid-template-columns:1fr 1fr}
+  .liner>div:first-child{grid-column:1/-1}
+  .racks{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot{grid-template-columns:auto 1fr 1fr}
+  .foot>div:last-child{grid-column:2/-1}
+}
+@media (max-width:760px){
+  .rx .logo{display:none}
+  .dial a span{display:none !important}
+  .home-link span{display:none !important}
+  .home-link{padding:0 11px}
+  .hero-in{grid-template-columns:1fr}
+  .stage{max-width:460px;margin-top:8px}
+  .hero h1{font-size:clamp(104px,34vw,190px)}
+  [dir="rtl"] .hero h1{font-size:clamp(90px,27vw,170px)}
+  .stripes{height:40px}
+  .liner{grid-template-columns:1fr}
+  .racks{grid-template-columns:1fr;gap:22px}
+  .lp{display:grid;grid-template-columns:38% 1fr;gap:16px;align-items:center;container-type:normal}
+  .lp .cov{container-type:inline-size}
+  .lp .cov b{font-size:13cqw}
+  .lp .cov small{font-size:8.5px}
+  .lp .cov small span:last-child{display:none}
+  .lp .txt{padding-top:0}
+  .side{grid-template-columns:1fr;padding-top:34px}
+  .side .plat,.side.alt .plat{position:absolute;order:0;width:270px;top:-74px;inset-inline-end:-122px;margin:0}
+  .side header{min-height:176px;padding-inline-end:124px;display:flex;flex-direction:column;justify-content:flex-end}
+  .side h2{font-size:clamp(54px,16vw,84px);white-space:nowrap}
+  html[lang="ar"] .side h2{font-size:clamp(52px,15.5vw,76px);white-space:nowrap}
+  .side.alt{grid-template-columns:1fr}
+  .tracks li{grid-template-columns:3ch minmax(0,1fr) auto;column-gap:10px}
+  .foot{grid-template-columns:1fr}
+  .foot>div:last-child{grid-column:auto}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="rx">
+  <span class="logo"><span lang="en">Side B</span><span lang="ar">الوجه ب</span></span>
+  <nav class="dial" aria-label="Sections" id="dial">
+    <a href="#crate"><b>★</b><span lang="en">Singles</span><span lang="ar">الأغاني المنفردة</span></a>
+    <a href="#sa"><b>A</b><span lang="en">Coffee</span><span lang="ar">القهوة</span></a>
+    <a href="#sb"><b>B</b><span lang="en">Mocktails</span><span lang="ar">الموكتيلات</span></a>
+    <a href="#sc"><b>C</b><span lang="en">Bites</span><span lang="ar">لقيمات</span></a>
+    <a href="#sd"><b>D</b><span lang="en">Encore</span><span lang="ar">الختام</span></a>
+    <i class="needle" id="needle" aria-hidden="true"></i>
+  </nav>
+  <div class="btns">
+    <a class="home-link" href="../index.html" aria-label="All menus"><svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M0 0h6v6H0zM8 0h6v6H8zM0 8h6v6H0zM8 8h6v6H8z"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <p class="eyebrow"><span lang="en">Listening café &amp; mocktails</span><span lang="ar">مقهى استماع وموكتيلات</span><i>33⅓</i></p>
+      <h1><span lang="en">Side B</span><span lang="ar">الوجه ب</span></h1>
+      <p class="tagline"><span lang="en">Flip the record. Stay a while.</span><span lang="ar">اقلب الأسطوانة… وأطِل الجلوس.</span></p>
+      <p class="lead"><span lang="en">Two turntables, a tube amp older than most of our guests and four thousand records along the wall. We play albums the way they were pressed — whole sides, no skipping — and pour drinks made to last exactly as long.</span><span lang="ar">جهازا أسطوانات، ومضخّم صوت بالصمّامات أكبر سنًّا من معظم ضيوفنا، وأربعة آلاف أسطوانة على الجدار. نشغّل الألبومات كما سُجّلت: وجهًا كاملًا بلا قفز بين الأغاني، ونحضّر مشروبات تدوم بطول الوجه تمامًا.</span></p>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="disc"><div class="lab"><i></i><b>B</b><small>SB · 1974</small></div></div>
+      <div class="sleeve">
+        <span class="nm"><span lang="en">Side B</span><span lang="ar">الوجه ب</span></span>
+        <span class="st"><span lang="en">Stereo</span><span lang="ar">ستيريو</span></span>
+        <span class="cat">SB-0001</span>
+      </div>
+    </div>
+  </div>
+  <div class="stripes" aria-hidden="true"></div>
+</header>
+
+<section class="liner">
+  <div>
+    <h2><span lang="en">Liner notes</span><span lang="ar">كلمة الغلاف</span></h2>
+    <p><span lang="en">This menu is a double album. Sides A and B are for drinking: coffee while the light is still gold, mocktails once the needle drops after dark. Sides C and D are for the hungry. Order by track number; our bartenders know the catalogue by heart.</span><span lang="ar">هذه القائمة ألبوم مزدوج. الوجهان «أ» و«ب» للشرب: القهوة ما دام الضوء ذهبيًا، والموكتيلات حين تهبط الإبرة بعد الغروب. أما الوجهان «ج» و«د» فللجائعين. اطلب برقم المقطع، فمن يقفون خلف البار يحفظون الكتالوج عن ظهر قلب.</span></p>
+  </div>
+  <div>
+    <h2><span lang="en">How to read it</span><span lang="ar">كيف تقرؤها</span></h2>
+    <div class="key"><b>28:00</b><span lang="en">Running time is the price: twenty-eight Saudi riyals, VAT included.</span><span lang="ar">مدة المقطع هي السعر: ثمانية وعشرون ريالًا سعوديًا شاملة الضريبة.</span></div>
+    <p style="margin-top:12px"><span lang="en">Every drink is alcohol-free. Always has been.</span><span lang="ar">جميع المشروبات خالية من الكحول، ولطالما كانت كذلك.</span></p>
+  </div>
+  <div>
+    <h2><span lang="en">Tonight on the turntable</span><span lang="ar">الليلة على القرص الدوّار</span></h2>
+    <ul class="prog">
+      <li><time>19:00</time><span lang="en">Seventies Beirut pop &amp; Cairo strings</span><span lang="ar">بوب بيروت السبعينيات ووتريات القاهرة</span></li>
+      <li><time>21:00</time><span lang="en">Brazilian tropicália, two full albums</span><span lang="ar">تروبيكاليا برازيلية، ألبومان كاملان</span></li>
+      <li><time>23:00</time><span lang="en">Deep soul. Voices low, please</span><span lang="ar">سول عميق. نرجو خفض الأصوات</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="crate" id="crate">
+  <div class="sec-t"><h2><span lang="en">The Singles</span><span lang="ar">الأغاني المنفردة</span></h2><p><span lang="en">Four house signatures, pulled from the front of the crate</span><span lang="ar">أربعة مشروبات من توقيعنا، من مقدّمة الصندوق</span></p></div>
+  <div class="racks">
+    <article class="lp">
+      <div class="cov c1"><b lang="en">Tangerine Dream</b><b lang="ar">حلم اليوسفي</b><small><span>SB-101</span><span>STEREO</span></small></div>
+      <div class="txt"><span class="hit"><span lang="en">★ No. 1 hit</span><span lang="ar">★ الأولى في القائمة</span></span>
+      <p><span lang="en">Clementine juice, burnt-orange cordial, vanilla smoke under a glass dome, topped with soda.</span><span lang="ar">عصير اليوسفي وشراب البرتقال المحروق ودخان الفانيلا تحت قبّة زجاجية، يُكمَّل بالصودا.</span></p>
+      <div class="dur">34:00</div></div>
+    </article>
+    <article class="lp">
+      <div class="cov c2"><b lang="en">Brown Sugar Sunset</b><b lang="ar">غروب السكر الأسمر</b><small><span>SB-102</span><span>STEREO</span></small></div>
+      <div class="txt"><p><span lang="en">Cold brew, date molasses and tonic poured in layers over a single block of ice, orange peel.</span><span lang="ar">قهوة باردة ودبس تمر وماء تونيك تُصبّ طبقاتٍ فوق مكعّب ثلج واحد، مع قشر البرتقال.</span></p>
+      <div class="dur">32:00</div></div>
+    </article>
+    <article class="lp">
+      <div class="cov c3"><b lang="en">Purple Haze</b><b lang="ar">ضباب بنفسجي</b><small><span>SB-103</span><span>STEREO</span></small></div>
+      <div class="txt"><p><span lang="en">Hibiscus, crushed blackberry and lime, shaken hard and crowned with lavender foam.</span><span lang="ar">كركديه وتوت أسود مهروس وليمون أخضر، تُرجّ بقوة وتُتوَّج برغوة الخزامى.</span></p>
+      <div class="dur">34:00</div></div>
+    </article>
+    <article class="lp">
+      <div class="cov c4"><b lang="en">Harvest Moon</b><b lang="ar">قمر الحصاد</b><small><span>SB-104</span><span>STEREO</span></small></div>
+      <div class="txt"><span class="hit"><span lang="en">New pressing</span><span lang="ar">إصدار جديد</span></span>
+      <p><span lang="en">Roasted pear, sage and lemon lengthened with fiery ginger beer. Autumn in a tall glass.</span><span lang="ar">كمثرى مشوية ومريمية وليمون، تُمدّ بجعة الزنجبيل اللاذعة. الخريف في كأس طويلة.</span></p>
+      <div class="dur">36:00</div></div>
+    </article>
+  </div>
+</section>
+
+<!-- SIDE A -->
+<section class="side sA" id="sa">
+  <div class="plat" aria-hidden="true"><div class="disc"><div class="lab"><i></i><b>A</b><small>33⅓ RPM</small></div></div></div>
+  <div>
+    <header>
+      <span class="k"><span lang="en">Disc one · the warm-up</span><span lang="ar">الأسطوانة الأولى · الإحماء</span></span>
+      <h2><span lang="en">Side A</span><span lang="ar">الوجه أ</span></h2>
+      <p><span lang="en">Coffee and tea, pulled and poured slowly. Beans roasted for us every Tuesday.</span><span lang="ar">قهوة وشاي يُحضَّران على مهل. تُحمَّص حبوبنا خصيصًا لنا كل ثلاثاء.</span></p>
+    </header>
+    <ul class="tracks">
+      <li><span class="no">A1</span><div><b lang="en">Needle Drop Espresso</b><b lang="ar">إسبريسو «هبوط الإبرة»</b><small lang="en">Double shot of our Ethiopia–Brazil blend: cocoa, dried apricot, a clean finish.</small><small lang="ar">جرعة مزدوجة من خلطتنا الإثيوبية البرازيلية: كاكاو ومشمش مجفف وخاتمة نظيفة.</small></div><span class="dur">14:00</span></li>
+      <li><span class="no">A2</span><div><b><span lang="en">Slow Groove Pour-Over</span><span lang="ar">قهوة مقطّرة «على مهل»</span><em><span lang="en">Staff pick</span><em lang="ar">اختيار الفريق</em></em></b><small lang="en">Single-origin V60 brewed at your table, served with tasting notes on a sleeve card.</small><small lang="ar">قهوة أحادية المصدر تُقطَّر بالـV60 أمامك، ومعها بطاقة تصف نكهاتها.</small></div><span class="dur">24:00</span></li>
+      <li><span class="no">A3</span><div><b lang="en">Spanish Latte 45</b><b lang="ar">سبانش لاتيه ٤٥</b><small lang="en">Double shot, sweet condensed milk, steamed or shaken over ice.</small><small lang="ar">جرعة مزدوجة مع الحليب المكثّف المحلّى، ساخنة أو مرجوجة على الثلج.</small></div><span class="dur">22:00</span></li>
+      <li><span class="no">A4</span><div><b lang="en">Cardamom Flat White</b><b lang="ar">فلات وايت بالهيل</b><small lang="en">Silky microfoam, freshly cracked green cardamom, no syrup in sight.</small><small lang="ar">رغوة حريرية وهيل أخضر مطحون للتوّ، بلا أي شراب محلّى.</small></div><span class="dur">20:00</span></li>
+      <li><span class="no">A5</span><div><b lang="en">Hojicha Fog</b><b lang="ar">ضباب الهوجيتشا</b><small lang="en">Roasted Japanese green tea, steamed oat milk, a spoon of sidr honey.</small><small lang="ar">شاي أخضر ياباني محمّص مع حليب الشوفان المبخّر وملعقة من عسل السدر.</small></div><span class="dur">22:00</span></li>
+    </ul>
+    <p class="runout"><span lang="en">Decaf and oat, almond or camel milk on request — no extra time added</span><span lang="ar">منزوعة الكافيين وحليب الشوفان أو اللوز أو النوق عند الطلب، بلا دقائق إضافية</span></p>
+  </div>
+</section>
+
+<!-- SIDE B -->
+<section class="side sB alt" id="sb">
+  <div class="plat" aria-hidden="true"><div class="disc"><div class="lab"><i></i><b>B</b><small>33⅓ RPM</small></div></div></div>
+  <div>
+    <header>
+      <span class="k"><span lang="en">Disc one · slow jams</span><span lang="ar">الأسطوانة الأولى · أنغام هادئة</span></span>
+      <h2><span lang="en">Side B</span><span lang="ar">الوجه ب</span></h2>
+      <p><span lang="en">The side we are named for. Zero-proof classics, stirred and shaken after sundown.</span><span lang="ar">الوجه الذي نحمل اسمه. كلاسيكيات بلا كحول، تُحرَّك وتُرجّ بعد الغروب.</span></p>
+    </header>
+    <ul class="tracks">
+      <li><span class="no">B1</span><div><b><span lang="en">No-Groni</span><span lang="ar">نو-غروني</span><em><span lang="en">Staff pick</span><em lang="ar">اختيار الفريق</em></em></b><small lang="en">Bitter orange, gentian root and red grape reduction, stirred over one big cube.</small><small lang="ar">برتقال مرّ وجذر الجنطيانا ومركّز العنب الأحمر، تُحرَّك فوق مكعّب ثلج كبير.</small></div><span class="dur">32:00</span></li>
+      <li><span class="no">B2</span><div><b lang="en">Paloma Blanca</b><b lang="ar">بالوما بلانكا</b><small lang="en">Pink grapefruit, lime and agave with a smoked-salt rim and plenty of fizz.</small><small lang="ar">غريب فروت وردي وليمون أخضر وشراب الأغاف، بحافة من الملح المدخّن وفوران سخيّ.</small></div><span class="dur">30:00</span></li>
+      <li><span class="no">B3</span><div><b lang="en">Mint Condition</b><b lang="ar">بحالة النعناع</b><small lang="en">Cucumber, garden mint and green apple, lengthened with dry tonic.</small><small lang="ar">خيار ونعناع بلدي وتفاح أخضر، يُمدّ بماء التونيك.</small></div><span class="dur">28:00</span></li>
+      <li><span class="no">B4</span><div><b lang="en">Espresso Not-ini</b><b lang="ar">إسبريسو «نوتيني»</b><small lang="en">Fresh espresso, date syrup and vanilla, shaken until it wears a velvet head.</small><small lang="ar">إسبريسو طازج وشراب التمر والفانيلا، تُرجّ حتى تعلوها رغوة مخملية.</small></div><span class="dur">30:00</span></li>
+      <li><span class="no">B5</span><div><b><span lang="en">Ginger Baker</span><span lang="ar">جنجر بيكر</span><em><span lang="en">Loud</span><em lang="ar">صاخب</em></em></b><small lang="en">Pressed ginger, turmeric, lemon and honey over soda. Hits like a drum solo.</small><small lang="ar">زنجبيل معصور وكركم وليمون وعسل فوق الصودا. وقعُه كعزفٍ منفرد على الطبول.</small></div><span class="dur">28:00</span></li>
+    </ul>
+    <p class="runout"><span lang="en">Extended mix: make any Side B track a sharing carafe — 78:00</span><span lang="ar">نسخة مطوّلة: اطلب أي مقطع من الوجه ب في إبريق للمشاركة — <span dir="ltr">78:00</span></span></p>
+  </div>
+</section>
+
+<!-- SIDE C -->
+<section class="side sC" id="sc">
+  <div class="plat" aria-hidden="true"><div class="disc"><div class="lab"><i></i><b>C</b><small>33⅓ RPM</small></div></div></div>
+  <div>
+    <header>
+      <span class="k"><span lang="en">Disc two · B-sides &amp; bites</span><span lang="ar">الأسطوانة الثانية · لقيمات</span></span>
+      <h2><span lang="en">Side C</span><span lang="ar">الوجه ج</span></h2>
+      <p><span lang="en">Small plates built for one hand, so the other stays free to hold a sleeve.</span><span lang="ar">أطباق صغيرة تؤكل بيد واحدة، لتبقى الأخرى حرّة تمسك بغلاف الأسطوانة.</span></p>
+    </header>
+    <ul class="tracks">
+      <li><span class="no">C1</span><div><b lang="en">Olives &amp; Smoked Almonds</b><b lang="ar">زيتون ولوز مدخّن</b><small lang="en">Warm citrus-marinated olives, almonds smoked over oak, rosemary.</small><small lang="ar">زيتون دافئ متبّل بالحمضيات ولوز مدخّن على خشب البلوط مع إكليل الجبل.</small></div><span class="dur">18:00</span></li>
+      <li><span class="no">C2</span><div><b lang="en">Whipped Labneh</b><b lang="ar">لبنة مخفوقة</b><small lang="en">Hot honey, toasted za’atar and a flatbread straight off the griddle.</small><small lang="ar">عسل حار وزعتر محمّص مع خبز رقيق ساخن من الصاج مباشرة.</small></div><span class="dur">26:00</span></li>
+      <li><span class="no">C3</span><div><b><span lang="en">Truffle Grilled Cheese</span><span lang="ar">جبن مشوي بالكمأة</span><em><span lang="en">Staff pick</span><em lang="ar">اختيار الفريق</em></em></b><small lang="en">Three cheeses on sourdough, cut into fingers, with tomato jam for dipping.</small><small lang="ar">ثلاثة أجبان في خبز مخمّر مقطّع أصابع، مع مربّى الطماطم للتغميس.</small></div><span class="dur">34:00</span></li>
+      <li><span class="no">C4</span><div><b lang="en">Pastrami Toastie</b><b lang="ar">توست البسطرمة</b><small lang="en">Beef pastrami, Swiss cheese, dill pickles and grain mustard on rye.</small><small lang="ar">بسطرمة بقرية وجبن سويسري ومخلل الشبت وخردل الحبوب في خبز الجاودار.</small></div><span class="dur">38:00</span></li>
+      <li><span class="no">C5</span><div><b lang="en">Halloumi Fries</b><b lang="ar">أصابع الحلّوم المقلية</b><small lang="en">Crisp outside, squeaky inside, with pomegranate molasses and mint.</small><small lang="ar">مقرمشة من الخارج طريّة من الداخل، مع دبس الرمان والنعناع.</small></div><span class="dur">28:00</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- SIDE D -->
+<section class="side sD alt" id="sd">
+  <div class="plat" aria-hidden="true"><div class="disc"><div class="lab"><i></i><b>D</b><small>33⅓ RPM</small></div></div></div>
+  <div>
+    <header>
+      <span class="k"><span lang="en">Disc two · the encore</span><span lang="ar">الأسطوانة الثانية · الختام</span></span>
+      <h2><span lang="en">Side D</span><span lang="ar">الوجه د</span></h2>
+      <p><span lang="en">Something sweet before the run-out groove.</span><span lang="ar">شيء حلو قبل أن تبلغ الإبرة آخر الأخدود.</span></p>
+    </header>
+    <ul class="tracks">
+      <li><span class="no">D1</span><div><b lang="en">Burnt Basque Cheesecake</b><b lang="ar">تشيز كيك باسكي محروق</b><small lang="en">Dark on top, barely set in the middle, with a spoon of sour cherry.</small><small lang="ar">داكن الوجه، بالكاد متماسك القلب، مع ملعقة من الكرز الحامض.</small></div><span class="dur">28:00</span></li>
+      <li><span class="no">D2</span><div><b lang="en">Tahini Chocolate Cookie</b><b lang="ar">كوكيز الطحينة والشوكولاتة</b><small lang="en">Baked to order, served warm with flaky sea salt. Worth the ten minutes.</small><small lang="ar">تُخبز عند الطلب وتقدَّم دافئة مع رقائق ملح البحر. تستحق انتظار الدقائق العشر.</small></div><span class="dur">14:00</span></li>
+      <li><span class="no">D3</span><div><b><span lang="en">Affogato 33⅓</span><span lang="ar">أفوغاتو ٣٣⅓</span><em><span lang="en">Staff pick</span><em lang="ar">اختيار الفريق</em></em></b><small lang="en">Vanilla-bean gelato drowned in a hot Needle Drop espresso.</small><small lang="ar">جيلاتو بحبوب الفانيلا يغرق في إسبريسو «هبوط الإبرة» الساخن.</small></div><span class="dur">22:00</span></li>
+      <li><span class="no">D4</span><div><b lang="en">Orange Olive Oil Cake</b><b lang="ar">كعكة البرتقال بزيت الزيتون</b><small lang="en">Moist semolina crumb, candied peel, a cloud of whipped cream.</small><small lang="ar">كعكة سميد رطبة مع قشر برتقال مسكّر وغيمة من الكريمة المخفوقة.</small></div><span class="dur">24:00</span></li>
+    </ul>
+    <p class="runout"><span lang="en">Bonus track: any dessert + any Side A coffee — 38:00</span><span lang="ar">مقطع إضافي: أي حلوى مع أي قهوة من الوجه أ — <span dir="ltr">38:00</span></span></p>
+  </div>
+</section>
+
+<footer>
+  <div class="stripes" aria-hidden="true"></div>
+  <div class="foot">
+    <div class="disc" aria-hidden="true"><div class="lab"><i></i><b>B</b></div></div>
+    <div><h3><span lang="en">Playing hours</span><span lang="ar">ساعات التشغيل</span></h3><p><span lang="en">Sunday–Wednesday 4 pm – 12 am<br>Thursday–Saturday 4 pm – 2 am<br>Full-album sessions nightly at 9.</span><span lang="ar">الأحد – الأربعاء: ٤ عصرًا – ١٢ منتصف الليل<br>الخميس – السبت: ٤ عصرًا – ٢ فجرًا<br>جلسات الألبوم الكامل كل ليلة في التاسعة.</span></p></div>
+    <div><h3><span lang="en">Pressed at</span><span lang="ar">عنوان الاستوديو</span></h3><p><span lang="en">12 Record Row, upstairs from the radio repair shop, Al Naseem Quarter.<br><span dir="ltr">+966 12 555 0133</span></span><span lang="ar">١٢ زقاق الأسطوانات، فوق محل تصليح الراديو، حيّ النسيم.<br><span dir="ltr">+966 12 555 0133</span></span></p></div>
+    <div><h3><span lang="en">Fine print</span><span lang="ar">ملاحظات</span></h3><p><span lang="en">Our kitchen handles nuts, sesame, dairy, gluten and eggs; ask for the allergen sleeve. Requests welcome — bring your own vinyl and we will play Side B.</span><span lang="ar">يتعامل مطبخنا مع المكسرات والسمسم والألبان والغلوتين والبيض؛ اطلب بطاقة مسبّبات الحساسية. نرحّب بطلباتكم: أحضر أسطوانتك ونشغّل لك وجهها الثاني.</span></p></div>
+  </div>
+  <p class="legal"><span lang="en">℗ &amp; © Side B listening café · all tracks alcohol-free · handle with care, play loud</span><span lang="ar">℗ و© مقهى الوجه ب · جميع المقاطع خالية من الكحول · يُحمل بعناية ويُسمع بصوت عالٍ</span></p>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}setTimeout(tune,30)});
+var dial=document.getElementById('dial'),needle=document.getElementById('needle'),links=[].slice.call(dial.querySelectorAll('a')),cur=0;
+function tune(){var a=links[cur].getBoundingClientRect(),d=dial.getBoundingClientRect();needle.style.transform='translateX('+(a.left-d.left+a.width/2)+'px)'}
+function spy(){var y=innerHeight*.4,n=0;links.forEach(function(a,i){var s=document.querySelector(a.getAttribute('href'));if(s&&s.getBoundingClientRect().top<y)n=i});if(n!==cur){cur=n}tune()}
+addEventListener('scroll',spy,{passive:true});addEventListener('resize',spy);spy();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(spy);
+</script>
+</body>
+</html>

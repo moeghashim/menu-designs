@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Kyma · كيما</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Kyma — a whitewashed Greek taverna above the Aegean: meze, charcoal and the morning's catch. كيما: تافيرنا يونانية بيضاء فوق بحر إيجه، مزّة وشواء وصيد الصباح.">
+<meta name="theme-color" content="#1546a0">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=GFS+Didot&family=Josefin+Sans:wght@200;300;400;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--white:#fff;--wash:#f3f7fb;--shade:#dfe9f4;--cob:#1546a0;--deep:#0b2a6b;--aeg:#2f7fd1;--sky:#d5e8f7;--pink:#d92f86;--ink:#16284f;--mute:#4d5f85;
+  --key:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='24'%3E%3Cpath d='M0 21H32M27 21V3H7V15H19V9H13' fill='none' stroke='%231546a0' stroke-width='3'/%3E%3C/svg%3E");
+  --keyw:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='24'%3E%3Cpath d='M0 21H32M27 21V3H7V15H19V9H13' fill='none' stroke='%23ffffff' stroke-width='3'/%3E%3C/svg%3E");
+  --disp:'Josefin Sans','Tajawal','Century Gothic',sans-serif;--body:'Figtree','Tajawal','Helvetica Neue',sans-serif;--gr:'GFS Didot','Times New Roman',serif}
+html[lang="ar"]{--disp:'Tajawal','Josefin Sans','Tahoma',sans-serif;--body:'Tajawal','Figtree','Tahoma',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-size:16px;line-height:1.55;color:var(--ink);background:var(--wash);overflow-x:clip}
+html[lang="ar"] body{font-size:17.5px;line-height:1.8}
+a{color:inherit}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.trk{font-family:var(--disp);text-transform:uppercase;letter-spacing:.3em;font-weight:400;font-size:12.5px}
+html[lang="ar"] .trk{letter-spacing:0;text-transform:none;font-size:16px;font-weight:500}
+.gr{font-family:var(--gr);font-style:italic;letter-spacing:0;text-transform:none;direction:ltr;unicode-bidi:isolate}
+
+/* ===== hero: sky, horizon, village ===== */
+.hero{position:relative;min-height:clamp(700px,84vh,800px);overflow:clip;background:linear-gradient(#bfdcf3,#e8f3fb 52%,#fff 66%);display:flex;flex-direction:column}
+.scene{position:absolute;inset:0;width:100%;height:100%}
+html[dir="rtl"] .scene{transform:scaleX(-1)}
+.sails{transform-origin:1110px 372px;animation:spin 26s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.wv{animation:drift 9s ease-in-out infinite alternate}
+.wv.b{animation-duration:13s;animation-direction:alternate-reverse}
+@keyframes drift{from{transform:translateX(-24px)}to{transform:translateX(24px)}}
+.bar{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px clamp(16px,4vw,56px)}
+.bar .gr{font-size:24px;color:var(--cob)}
+.ctrl{display:flex;gap:8px}
+#langToggle,.home-link{font:500 14px/1 var(--body);min-height:40px;padding:0 16px;display:inline-flex;align-items:center;gap:7px;border-radius:99px;cursor:pointer;text-decoration:none;background:#ffffffd9;color:var(--cob);border:1.5px solid var(--cob)}
+html[lang="en"] #langToggle{font-family:'Tajawal',sans-serif;font-size:16px}
+#langToggle:hover,.home-link:hover{background:var(--cob);color:#fff}
+.title{position:relative;z-index:2;padding:clamp(8px,5vh,70px) clamp(18px,7vw,110px) 0;max-width:760px}
+.title .trk{color:var(--cob)}
+h1{font-family:var(--disp);font-weight:200;font-size:clamp(84px,15vw,210px);line-height:.95;letter-spacing:.12em;color:var(--cob);text-transform:uppercase;margin-block:.08em 0;margin-inline-start:-.04em}
+html[lang="ar"] h1{font-weight:300;letter-spacing:0;line-height:1.25;font-size:clamp(84px,14vw,190px);margin:0}
+.squig{display:block;width:clamp(150px,22vw,300px);height:18px;color:var(--pink);margin-block:6px 16px}
+.title p{font-size:clamp(16.5px,1.5vw,20px);max-width:36ch;color:var(--ink)}
+html[lang="ar"] .title p{font-size:clamp(18px,1.6vw,22px)}
+
+.meander{height:24px;background:var(--key) center/32px 24px repeat-x;background-color:var(--white);border-block:3px solid var(--cob);box-sizing:content-box;padding-block:6px;background-clip:content-box}
+nav.isl{display:flex;flex-wrap:wrap;justify-content:center;gap:4px clamp(6px,2vw,30px);padding:14px 12px;background:var(--white)}
+nav.isl a{font-family:var(--disp);text-decoration:none;color:var(--cob);padding:12px 10px 9px;min-height:44px;border-bottom:2px solid transparent;letter-spacing:.2em;text-transform:uppercase;font-size:13.5px}
+html[lang="ar"] nav.isl a{letter-spacing:0;font-size:17px;font-weight:500;padding-block:8px}
+nav.isl a:hover{border-color:var(--pink)}
+
+/* ===== village terraces ===== */
+.village{max-width:1220px;margin-inline:auto;padding:clamp(36px,6vw,80px) clamp(14px,3vw,36px) clamp(30px,5vw,70px)}
+.terrace{display:grid;grid-template-columns:1fr;gap:0 44px;align-items:end;margin-bottom:clamp(34px,5vw,64px)}
+.art{justify-self:center;width:min(60%,210px);margin-bottom:-6px;position:relative;z-index:1}
+.art svg{display:block;width:100%;height:auto;overflow:visible}
+.block{position:relative;background:var(--white);border-radius:34px 34px 10px 10px;padding:clamp(26px,3.4vw,46px) clamp(20px,3.4vw,50px) clamp(30px,3.4vw,48px);
+  box-shadow:0 40px 60px -40px #1546a066,0 0 0 1px #e4ecf5;border-bottom:10px solid var(--cob);min-width:0}
+.block::after{content:"";position:absolute;inset-inline-end:34px;top:-18px;width:74px;height:18px;background:var(--white);border-radius:12px 12px 0 0;box-shadow:0 -1px 0 #e4ecf5}
+.th{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--shade)}
+.th h2{font-family:var(--disp);font-weight:300;font-size:clamp(30px,3.6vw,46px);line-height:1.1;color:var(--cob);letter-spacing:.08em;text-transform:uppercase}
+html[lang="ar"] .th h2{letter-spacing:0;font-weight:500;line-height:1.4}
+.th .gr{font-size:clamp(20px,2vw,26px);color:var(--pink)}
+.th p{flex-basis:100%;color:var(--mute)}
+.items{display:grid;grid-template-columns:1fr;gap:0 48px}
+.it{padding:13px 0;border-bottom:1px dashed #c9d8ea;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 14px;align-items:baseline}
+.it h3{font-family:var(--disp);font-weight:600;font-size:16.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);line-height:1.35}
+html[lang="ar"] .it h3{letter-spacing:0;font-weight:700;font-size:19px;line-height:1.5}
+.it .gr{grid-column:1;justify-self:start;font-size:15.5px;color:var(--aeg);line-height:1.3}
+.it p{grid-column:1/-1;color:var(--mute);margin-top:2px}
+.pr{font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:19px;color:var(--cob);white-space:nowrap;unicode-bidi:isolate}
+.tag{display:inline-block;font:600 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--pink);border:1px solid var(--pink);border-radius:99px;padding:4px 8px;margin-inline-start:8px;vertical-align:middle}
+html[lang="ar"] .tag{letter-spacing:0;text-transform:none;font-size:13px;font-weight:500;padding:3px 9px 5px}
+
+/* ===== waterline + the deep ===== */
+.water{position:relative;margin-top:-2px;height:clamp(70px,9vw,120px);overflow:hidden;background:linear-gradient(var(--wash) 40%,#1f5cbf 40%)}
+.water svg{position:absolute;bottom:0;left:-5%;width:110%;height:100%}
+.deep{position:relative;background:linear-gradient(#1f5cbf,#123f95 30%,var(--deep) 85%);color:#fff;padding:clamp(20px,3vw,40px) clamp(14px,3vw,36px) clamp(50px,7vw,100px);overflow:clip}
+.deep::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(105deg,#ffffff00 0 90px,#ffffff0d 90px 150px,#ffffff00 150px 260px);-webkit-mask:linear-gradient(#000,#0000 70%);mask:linear-gradient(#000,#0000 70%);pointer-events:none}
+.fish{position:absolute;color:#9cc4f3;opacity:.5;pointer-events:none}
+html[dir="rtl"] .fish{transform:scaleX(-1)}
+.fish.a{top:60px;inset-inline-end:4%;width:min(34vw,330px)}
+.fish.b{bottom:40px;inset-inline-start:2%;width:min(40vw,360px);opacity:.35}
+.bub{position:absolute;bottom:-20px;width:10px;height:10px;border:1.5px solid #ffffff88;border-radius:50%;animation:rise 9s linear infinite;pointer-events:none}
+.bub:nth-of-type(2){inset-inline-start:22%;animation-delay:-3s;width:6px;height:6px}.bub:nth-of-type(1){inset-inline-start:8%}.bub:nth-of-type(3){inset-inline-start:76%;animation-delay:-6s;width:14px;height:14px}
+@keyframes rise{to{transform:translateY(-900px);opacity:0}}
+.sea{position:relative;max-width:1150px;margin-inline:auto}
+.sea .th{border-color:#ffffff33;justify-content:center;text-align:center;margin-bottom:26px}
+.sea .th h2{color:#fff;font-size:clamp(34px,5vw,64px);flex-basis:100%}
+.sea .th .gr{color:#ffb3d6;flex-basis:100%}
+.sea .th p{color:#cfe0f7;max-width:52ch;margin-inline:auto}
+.sea .it{border-color:#ffffff40}
+.sea .it h3{color:#fff}.sea .it .gr{color:#a9cdf6}.sea .it p{color:#d5e4f8}.sea .pr{color:#fff}
+.sea .tag{color:#ffc4df;border-color:#ffc4df}
+.catch{margin-top:34px;display:grid;grid-template-columns:1fr;gap:10px 30px;align-items:center;border:1.5px solid #fff;border-radius:20px;padding:22px clamp(18px,3vw,36px);background:#14419a}
+.catch h3{font-family:var(--disp);font-weight:300;font-size:clamp(24px,2.6vw,34px);letter-spacing:.08em;text-transform:uppercase;line-height:1.2}
+html[lang="ar"] .catch h3{letter-spacing:0;font-weight:500;line-height:1.5}
+.catch p{color:#d5e4f8}
+.catch .pr{font-size:clamp(30px,3.4vw,44px);font-weight:200}
+.catch .pr small{font-size:.4em;font-family:var(--body);letter-spacing:.06em}
+
+/* ===== seabed footer ===== */
+footer{background:var(--deep);color:#dbe7fa;padding:0 clamp(14px,3vw,36px) 34px}
+.keyw{height:24px;background:var(--keyw) center/32px 24px repeat-x;margin-inline:calc(-1*clamp(14px,3vw,36px));border-block:2px solid #ffffff66;padding-block:6px;box-sizing:content-box;background-clip:content-box;opacity:.85}
+.fgrid{max-width:1150px;margin:36px auto 0;display:grid;grid-template-columns:1fr;gap:26px}
+.fgrid h2{font-family:var(--disp);font-weight:400;font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:#fff;margin-bottom:8px}
+html[lang="ar"] .fgrid h2{letter-spacing:0;font-size:20px;font-weight:700;text-transform:none}
+.fgrid .t{unicode-bidi:isolate;direction:ltr;display:inline-block}
+.fine{max-width:1150px;margin:30px auto 0;padding-top:18px;border-top:1px solid #ffffff33;font-size:14.5px;display:flex;flex-wrap:wrap;gap:8px 30px;justify-content:space-between;color:#b9cdee}
+html[lang="ar"] .fine{font-size:16px}
+
+@media (min-width:860px){
+  .terrace{grid-template-columns:230px minmax(0,1fr)}
+  .terrace.alt{grid-template-columns:minmax(0,1fr) 230px}
+  .terrace.alt .art{order:2}
+  .art{width:100%;margin-bottom:0}
+  .terrace:nth-of-type(2){margin-inline:5% -1%}
+  .terrace:nth-of-type(3){margin-inline:-1% 6%}
+  .items{grid-template-columns:1fr 1fr}
+  .sea .items{grid-template-columns:1fr 1fr;gap:0 70px}
+  .catch{grid-template-columns:1fr auto}
+  .fgrid{grid-template-columns:1.2fr 1fr 1.3fr;gap:50px}
+}
+@media (max-width:859px){
+  .hero{min-height:730px}
+  .scene{top:auto;bottom:0;height:520px}
+  .title{padding-top:6px}
+  .block::after{display:none}
+  .terrace .art{order:-1}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <svg class="scene" viewBox="0 0 1440 700" preserveAspectRatio="xMaxYMax slice" aria-hidden="true">
+    <defs><linearGradient id="seag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d8fe0"/><stop offset=".5" stop-color="#1b56b4"/><stop offset="1" stop-color="#103a8c"/></linearGradient></defs>
+    <circle cx="800" cy="210" r="56" fill="#fff" opacity=".9"/><circle cx="800" cy="210" r="100" fill="#fff" opacity=".28"/>
+    <path d="M0 470q90-34 190-22t170 22zM560 470q60-44 150-34t130 34z" fill="#a9c9ea"/>
+    <rect y="470" width="1440" height="230" fill="url(#seag)"/>
+    <g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".55"><path class="wv" d="M40 510q20-10 40 0t40 0 40 0M300 540q20-10 40 0t40 0 40 0 40 0M620 505q20-10 40 0t40 0M90 610q20-10 40 0t40 0 40 0M520 600q20-10 40 0t40 0 40 0"/><path class="wv b" d="M180 570q20-10 40 0t40 0M440 650q20-10 40 0t40 0 40 0M700 560q20-10 40 0t40 0 40 0M760 640q20-10 40 0t40 0"/></g>
+    <path d="M900 700q30-90 110-130 40-60 110-80 60-70 150-80 90-20 170 10V700z" fill="#d8cdbb"/><path d="M900 700q60-70 150-90t200-10 190-10v110z" fill="#c9bca6"/>
+    <!-- windmill -->
+    <path d="M1086 470l8-92h32l8 92z" fill="#fff"/><path d="M1090 380l20-22 20 22z" fill="#8a6f52"/><rect x="1104" y="430" width="12" height="20" rx="6" fill="#1546a0"/>
+    <g class="sails" stroke="#16284f" stroke-width="2" fill="#fff" fill-opacity=".8"><path d="M1110 372l-10-62h20zM1110 372l10 62h-20zM1110 372l62-10v20zM1110 372l-62 10v-20z"/><path d="M1110 372l-52-36 12-12zM1110 372l52 36-12 12zM1110 372l36-52 12 12zM1110 372l-36 52-12-12z" fill-opacity=".5"/></g>
+    <!-- houses -->
+    <g fill="#fff"><rect x="1150" y="470" width="130" height="130"/><rect x="1250" y="400" width="190" height="220"/><rect x="1040" y="540" width="150" height="110"/><rect x="1170" y="580" width="270" height="120"/><rect x="1385" y="300" width="42" height="110"/><path d="M1378 300h56v-12h-56z"/></g>
+    <g fill="#dbe6f2"><path d="M1250 400h26v220h-26zM1150 470h18v130h-18zM1040 540h16v110h-16zM1170 580h270v10h-270z"/></g>
+    <path d="M1276 400a70 70 0 0 1 140 0z" fill="#1546a0"/><path d="M1300 380a46 46 0 0 1 30-36" fill="none" stroke="#5e8fe0" stroke-width="5" stroke-linecap="round"/><rect x="1266" y="396" width="160" height="12" rx="3" fill="#fff"/><path d="M1346 330v-26M1336 312h20" stroke="#16284f" stroke-width="3"/>
+    <path d="M1395 356v-22a11 11 0 0 1 22 0v22z" fill="#bfdcf3"/><path d="M1400 352q6-18 12 0z" fill="#16284f"/>
+    <path d="M1196 600v-50a22 22 0 0 1 44 0v50z" fill="#1546a0"/><circle cx="1232" cy="566" r="3" fill="#fff"/>
+    <g fill="#1546a0"><rect x="1310" y="450" width="34" height="46" rx="2"/><rect x="1376" y="450" width="34" height="46" rx="2"/><rect x="1070" y="570" width="30" height="36" rx="2"/><rect x="1120" y="570" width="30" height="36" rx="2"/><rect x="1300" y="620" width="40" height="52" rx="20 20 0 0"/></g>
+    <g stroke="#fff" stroke-width="2"><path d="M1327 450v46M1393 450v46M1085 570v36M1135 570v36"/></g>
+    <path d="M1040 700v-22h26v-18h26v-18h26v-18h26v-18h26v94z" fill="#fff"/><path d="M1040 678h26M1066 660h26M1092 642h26M1118 624h26" stroke="#1546a0" stroke-width="4"/>
+    <g fill="#d92f86"><circle cx="1262" cy="468" r="16"/><circle cx="1244" cy="482" r="14"/><circle cx="1278" cy="486" r="13"/><circle cx="1258" cy="500" r="12"/><circle cx="1236" cy="504" r="9"/><circle cx="1430" cy="574" r="18"/><circle cx="1412" cy="590" r="14"/><circle cx="1436" cy="600" r="12"/><circle cx="1396" cy="578" r="10"/></g>
+    <g fill="#f06aae"><circle cx="1256" cy="474" r="7"/><circle cx="1272" cy="492" r="6"/><circle cx="1424" cy="582" r="8"/><circle cx="1246" cy="496" r="5"/></g>
+    <g fill="#3f8f5a"><circle cx="1288" cy="474" r="7"/><circle cx="1230" cy="492" r="6"/><circle cx="1404" cy="566" r="7"/></g>
+  </svg>
+  <div class="bar">
+    <span class="gr">κύμα</span>
+    <div class="ctrl">
+      <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+      <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+    </div>
+  </div>
+  <div class="title">
+    <span class="trk"><span lang="en">Greek taverna · Sifnos</span><span lang="ar">تافيرنا يونانية · سيفنوس</span></span>
+    <h1><span lang="en">Kyma</span><span lang="ar">كيما</span></h1>
+    <svg class="squig" viewBox="0 0 300 18" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9q18-14 37 0t37 0 37 0 37 0 37 0 37 0 37 0 37 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+    <p><span lang="en">“Kyma” means wave. Ours breaks forty steps below the terrace, and lunch lasts until it turns gold.</span><span lang="ar">«كيما» تعني الموجة. موجتنا تتكسّر على بُعد أربعين درجة تحت الشرفة، والغداء يطول حتى يصير لونها ذهبياً.</span></p>
+  </div>
+</header>
+<div class="meander" aria-hidden="true"></div>
+<nav class="isl" aria-label="Sections">
+  <a href="#meze"><span lang="en">Meze</span><span lang="ar">المزّة</span></a>
+  <a href="#garden"><span lang="en">Garden</span><span lang="ar">البستان</span></a>
+  <a href="#charcoal"><span lang="en">Charcoal</span><span lang="ar">الفحم</span></a>
+  <a href="#sweet"><span lang="en">Sweet &amp; cool</span><span lang="ar">الحلو والبارد</span></a>
+  <a href="#sea"><span lang="en">The sea</span><span lang="ar">البحر</span></a>
+</nav>
+
+<main>
+<div class="village">
+  <section class="terrace alt" id="meze">
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 220 250"><path d="M30 250V70a80 80 0 0 1 160 0v180z" fill="#fff"/><path d="M52 250V96a58 58 0 0 1 116 0v154z" fill="#1546a0"/><path d="M110 40v210M52 130h116M52 190h116" stroke="#0b2a6b" stroke-width="3"/><circle cx="122" cy="160" r="5" fill="#fff"/><path d="M52 96a58 58 0 0 1 116 0" fill="none" stroke="#5e8fe0" stroke-width="4"/>
+      <g fill="#d92f86"><circle cx="176" cy="34" r="20"/><circle cx="196" cy="56" r="17"/><circle cx="154" cy="22" r="15"/><circle cx="204" cy="84" r="13"/><circle cx="130" cy="16" r="11"/><circle cx="208" cy="110" r="9"/></g><g fill="#f06aae"><circle cx="170" cy="40" r="9"/><circle cx="194" cy="66" r="7"/><circle cx="148" cy="24" r="6"/></g><g fill="#3f8f5a"><circle cx="186" cy="18" r="7"/><circle cx="212" cy="70" r="6"/></g></svg></div>
+    <div class="block">
+      <div class="th"><h2><span lang="en">Meze</span><span lang="ar">المزّة</span></h2><span class="gr">μεζέδες</span>
+        <p><span lang="en">For the middle of the table. Order one more than you think.</span><span lang="ar">لوسط الطاولة. اطلبوا صحناً أكثر ممّا تظنّون.</span></p></div>
+      <ul class="items">
+        <li class="it"><h3><span lang="en">Tzatziki</span><span lang="ar">تزاتزيكي</span></h3><span class="pr" dir="ltr">€6.50</span><span class="gr">τζατζίκι</span><p><span lang="en">Strained sheep's yoghurt, cucumber, garlic and dill.</span><span lang="ar">لبن غنم مصفّى مع الخيار والثوم والشبت.</span></p></li>
+        <li class="it"><h3><span lang="en">Santorini Fava</span><span lang="ar">فافا سانتوريني</span><span class="tag"><span lang="en">Island classic</span><span lang="ar">من تراث الجزيرة</span></span></h3><span class="pr" dir="ltr">€7.50</span><span class="gr">φάβα</span><p><span lang="en">Warm yellow split-pea purée, capers, raw onion, green oil.</span><span lang="ar">هريس دافئ من البازلاء الصفراء المجروشة مع الكبَر والبصل وزيت أخضر.</span></p></li>
+        <li class="it"><h3><span lang="en">Dolmadakia</span><span lang="ar">دولماداكيا</span></h3><span class="pr" dir="ltr">€7.00</span><span class="gr">ντολμαδάκια</span><p><span lang="en">Vine leaves rolled around rice, mint and lemon.</span><span lang="ar">ورق عنب محشوّ بالأرز والنعناع والليمون.</span></p></li>
+        <li class="it"><h3><span lang="en">Saganaki</span><span lang="ar">ساغاناكي</span></h3><span class="pr" dir="ltr">€8.50</span><span class="gr">σαγανάκι</span><p><span lang="en">Pan-fried graviera cheese, thyme honey, black sesame.</span><span lang="ar">جبن غرافييرا مقلي مع عسل الزعتر والسمسم الأسود.</span></p></li>
+        <li class="it"><h3><span lang="en">Courgette Fritters</span><span lang="ar">أقراص الكوسا</span></h3><span class="pr" dir="ltr">€8.00</span><span class="gr">κολοκυθοκεφτέδες</span><p><span lang="en">Crisp courgette and feta fritters with mint yoghurt.</span><span lang="ar">أقراص مقرمشة من الكوسا والفيتا مع لبن بالنعناع.</span></p></li>
+        <li class="it"><h3><span lang="en">Smoked Aubergine</span><span lang="ar">باذنجان مدخّن</span></h3><span class="pr" dir="ltr">€7.00</span><span class="gr">μελιτζανοσαλάτα</span><p><span lang="en">Charred over wood, chopped with parsley, garlic and vinegar.</span><span lang="ar">يُشوى على الحطب ثم يُفرم مع البقدونس والثوم والخلّ.</span></p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="terrace" id="garden">
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 220 250"><rect x="20" y="20" width="180" height="230" rx="18" fill="#fff"/><rect x="62" y="60" width="96" height="110" fill="#bfdcf3"/><path d="M110 60v110M62 115h96" stroke="#fff" stroke-width="5"/><rect x="34" y="56" width="30" height="118" rx="3" fill="#1546a0"/><rect x="156" y="56" width="30" height="118" rx="3" fill="#1546a0"/><path d="M40 70h18M40 82h18M40 94h18M40 106h18M40 118h18M40 130h18M40 142h18M40 154h18M162 70h18M162 82h18M162 94h18M162 106h18M162 118h18M162 130h18M162 142h18M162 154h18" stroke="#5e8fe0" stroke-width="2.5"/><rect x="52" y="172" width="116" height="10" rx="3" fill="#dbe6f2"/>
+      <path d="M70 172l5-26h26l5 26zM122 172l4-20h22l4 20z" fill="#c9673f"/><g fill="#3f8f5a"><circle cx="88" cy="134" r="14"/><circle cx="76" cy="128" r="9"/><circle cx="100" cy="126" r="10"/><circle cx="137" cy="142" r="11"/></g><g fill="#d92f86"><circle cx="84" cy="124" r="5"/><circle cx="96" cy="132" r="4"/><circle cx="134" cy="136" r="4"/><circle cx="142" cy="144" r="3.5"/></g>
+      <path d="M150 250q-4-30 14-34 6-12 16-4 10 2 6 16 6 12-2 22z" fill="#16284f"/><path d="M164 216l-3-12 9 7M180 212l6-10 2 12" fill="#16284f"/><circle cx="168" cy="224" r="2" fill="#ffd34d"/><circle cx="179" cy="224" r="2" fill="#ffd34d"/></svg></div>
+    <div class="block">
+      <div class="th"><h2><span lang="en">From the Garden</span><span lang="ar">من البستان</span></h2><span class="gr">του κήπου</span>
+        <p><span lang="en">Tomatoes that never saw a fridge, oil pressed in the next village.</span><span lang="ar">طماطم لم تعرف الثلّاجة يوماً، وزيت يُعصر في القرية المجاورة.</span></p></div>
+      <ul class="items">
+        <li class="it"><h3><span lang="en">Horiatiki</span><span lang="ar">هورياتيكي</span></h3><span class="pr" dir="ltr">€11.00</span><span class="gr">χωριάτικη</span><p><span lang="en">The village salad: tomato, cucumber, olives, a slab of barrel feta, oregano.</span><span lang="ar">سلطة القرية: طماطم وخيار وزيتون ولوح من فيتا البراميل مع الأوريغانو.</span></p></li>
+        <li class="it"><h3><span lang="en">Dakos</span><span lang="ar">داكوس</span></h3><span class="pr" dir="ltr">€9.50</span><span class="gr">ντάκος</span><p><span lang="en">Barley rusk soaked in grated tomato, soft mizithra, capers.</span><span lang="ar">قرشلّة شعير مبلّلة بالطماطم المبشورة مع جبن ميزيثرا الطريّ والكبَر.</span></p></li>
+        <li class="it"><h3><span lang="en">Gigantes</span><span lang="ar">خيغانتس</span></h3><span class="pr" dir="ltr">€8.50</span><span class="gr">γίγαντες</span><p><span lang="en">Giant white beans baked slowly in tomato, celery and dill.</span><span lang="ar">فاصولياء بيضاء عملاقة تُخبز ببطء مع الطماطم والكرفس والشبت.</span></p></li>
+        <li class="it"><h3><span lang="en">Briam</span><span lang="ar">بريام</span></h3><span class="pr" dir="ltr">€10.00</span><span class="gr">μπριάμ</span><p><span lang="en">Summer vegetables roasted until they collapse into olive oil.</span><span lang="ar">خضار الصيف تُشوى في الفرن حتى تذوب في زيت الزيتون.</span></p></li>
+        <li class="it"><h3><span lang="en">Horta</span><span lang="ar">خورتا</span></h3><span class="pr" dir="ltr">€7.00</span><span class="gr">χόρτα</span><p><span lang="en">Wild mountain greens, blanched, with lemon and oil.</span><span lang="ar">أعشاب جبلية برّية مسلوقة مع الليمون والزيت.</span></p></li>
+        <li class="it"><h3><span lang="en">Caper-leaf Potatoes</span><span lang="ar">بطاطا بورق الكبَر</span></h3><span class="pr" dir="ltr">€7.50</span><span class="gr">πατατοσαλάτα</span><p><span lang="en">Warm island potatoes, pickled caper leaves, spring onion.</span><span lang="ar">بطاطا الجزيرة دافئةً مع ورق الكبَر المخلّل والبصل الأخضر.</span></p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="terrace alt" id="charcoal">
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 220 250"><path d="M20 250V120q0-20 20-20h140q20 0 20 20v130z" fill="#fff"/><path d="M60 250v-70a50 50 0 0 1 100 0v70z" fill="#16284f"/><path d="M60 250v-70a50 50 0 0 1 100 0" fill="none" stroke="#dbe6f2" stroke-width="8"/><g fill="#ff8a3d"><path d="M86 250q-8-22 6-36 2 14 10 16-4-22 12-36 0 20 14 30 4-10 2-18 16 20 4 44z"/></g><path d="M100 250q-2-12 8-20 2 10 8 14 4 0 2-8 8 8 2 14z" fill="#ffd34d"/><rect x="50" y="94" width="120" height="12" rx="4" fill="#1546a0"/><path d="M150 100V40h26v60" fill="#fff"/><rect x="146" y="32" width="34" height="10" rx="3" fill="#1546a0"/><g fill="none" stroke="#a9c0dc" stroke-width="4" stroke-linecap="round"><path d="M163 24q-10-10 0-20M175 18q-8-8 0-16"/></g></svg></div>
+    <div class="block">
+      <div class="th"><h2><span lang="en">From the Charcoal</span><span lang="ar">من على الفحم</span></h2><span class="gr">της σχάρας</span>
+        <p><span lang="en">Vine-wood embers, oregano, lemon. Yiannis turns everything by hand.</span><span lang="ar">جمر حطب العنب وأوريغانو وليمون. يانيس يقلّب كل شيء بيده.</span></p></div>
+      <ul class="items">
+        <li class="it"><h3><span lang="en">Lamb Chops</span><span lang="ar">ريش الضأن</span><span class="tag"><span lang="en">Yiannis' pick</span><span lang="ar">اختيار يانيس</span></span></h3><span class="pr" dir="ltr">€22.00</span><span class="gr">παϊδάκια</span><p><span lang="en">Thin-cut, eaten with fingers, with lemon potatoes.</span><span lang="ar">شرائح رقيقة تُؤكل بالأصابع مع بطاطا بالليمون.</span></p></li>
+        <li class="it"><h3><span lang="en">Chicken Souvlaki</span><span lang="ar">سوفلاكي الدجاج</span></h3><span class="pr" dir="ltr">€14.00</span><span class="gr">σουβλάκι</span><p><span lang="en">Two skewers, warm pita, tomato, red onion and tzatziki.</span><span lang="ar">سيخان مع خبز بيتا ساخن وطماطم وبصل أحمر وتزاتزيكي.</span></p></li>
+        <li class="it"><h3><span lang="en">Soutzoukakia</span><span lang="ar">سوتزوكاكيا</span></h3><span class="pr" dir="ltr">€15.00</span><span class="gr">σουτζουκάκια</span><p><span lang="en">Cumin-scented beef meatballs in a slow tomato sauce.</span><span lang="ar">كرات لحم بقري بالكمّون في صلصة طماطم مطهوّة على مهل.</span></p></li>
+        <li class="it"><h3><span lang="en">Moussaka</span><span lang="ar">مسقّعة يونانية</span></h3><span class="pr" dir="ltr">€15.00</span><span class="gr">μουσακάς</span><p><span lang="en">Aubergine, potato and spiced beef under a bronzed béchamel.</span><span lang="ar">باذنجان وبطاطا ولحم بقري متبّل تحت بشاميل محمّر.</span></p></li>
+        <li class="it"><h3><span lang="en">Kleftiko</span><span lang="ar">كليفتيكو</span></h3><span class="pr" dir="ltr">€21.00</span><span class="gr">κλέφτικο</span><p><span lang="en">Lamb shoulder sealed in parchment with garlic and kefalotyri, six hours.</span><span lang="ar">كتف ضأن يُحكم إغلاقه في ورق الزبدة مع الثوم وجبن كيفالوتيري لستّ ساعات.</span></p></li>
+        <li class="it"><h3><span lang="en">Grilled Halloumi &amp; Figs</span><span lang="ar">حلّوم مشوي بالتين</span></h3><span class="pr" dir="ltr">€12.00</span><span class="gr">χαλούμι</span><p><span lang="en">Charred cheese, fresh figs, carob syrup and mint.</span><span lang="ar">جبن مشوي مع تين طازج ودبس الخرّوب والنعناع.</span></p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="terrace" id="sweet">
+    <div class="art" aria-hidden="true"><svg viewBox="0 0 220 250"><ellipse cx="120" cy="150" rx="78" ry="16" fill="#fff"/><path d="M116 150h8v90h-8zM90 244h60v6H90z" fill="#1546a0"/><ellipse cx="120" cy="150" rx="78" ry="16" fill="none" stroke="#1546a0" stroke-width="3"/><path d="M92 146l4-34h22l4 34z" fill="#fff" stroke="#1546a0" stroke-width="2.5"/><path d="M96 124h22l3 20H94z" fill="#7a4a24"/><path d="M96 120h22v6H96z" fill="#f3e2c3"/><path d="M112 112l10-34" stroke="#d92f86" stroke-width="3" stroke-linecap="round"/><ellipse cx="156" cy="146" rx="22" ry="6" fill="#fff" stroke="#1546a0" stroke-width="2"/><g fill="#e0a13c"><circle cx="150" cy="141" r="6"/><circle cx="161" cy="141" r="6"/><circle cx="156" cy="134" r="6"/></g>
+      <path d="M20 250V120q0-6 6-6t6 6v62h34v68h-8v-56H32v56z" fill="#1546a0"/><path d="M26 136h6M26 152h6" stroke="#fff" stroke-width="3"/><path d="M28 182h38" stroke="#f3e2c3" stroke-width="6"/></svg></div>
+    <div class="block">
+      <div class="th"><h2><span lang="en">Sweet &amp; Cool</span><span lang="ar">الحلو والبارد</span></h2><span class="gr">γλυκά &amp; δροσερά</span>
+        <p><span lang="en">The kafeneio corner. Nobody will bring the bill until you ask.</span><span lang="ar">ركن المقهى. لن يحضر أحد الحساب حتى تطلبوه.</span></p></div>
+      <ul class="items">
+        <li class="it"><h3><span lang="en">Loukoumades</span><span lang="ar">لوكوماديس</span></h3><span class="pr" dir="ltr">€7.50</span><span class="gr">λουκουμάδες</span><p><span lang="en">Hot honey doughnuts, cinnamon and crushed walnuts.</span><span lang="ar">كرات عجين ساخنة بالعسل والقرفة والجوز المجروش.</span></p></li>
+        <li class="it"><h3><span lang="en">Galaktoboureko</span><span lang="ar">غالاكتوبوريكو</span></h3><span class="pr" dir="ltr">€7.00</span><span class="gr">γαλακτομπούρεκο</span><p><span lang="en">Semolina custard in buttered filo, lemon-peel syrup.</span><span lang="ar">كاسترد السميد في رقائق الفيلو بالزبدة مع قَطر قشر الليمون.</span></p></li>
+        <li class="it"><h3><span lang="en">Yoghurt &amp; Thyme Honey</span><span lang="ar">لبن بعسل الزعتر</span></h3><span class="pr" dir="ltr">€6.50</span><span class="gr">γιαούρτι με μέλι</span><p><span lang="en">Thick sheep's yoghurt, island honey, toasted walnuts.</span><span lang="ar">لبن غنم كثيف مع عسل الجزيرة وجوز محمّص.</span></p></li>
+        <li class="it"><h3><span lang="en">Freddo Cappuccino</span><span lang="ar">فريدو كابتشينو</span></h3><span class="pr" dir="ltr">€4.50</span><span class="gr">φρέντο</span><p><span lang="en">Shaken espresso over ice with cold milk foam.</span><span lang="ar">إسبريسو مخفوق على الثلج تعلوه رغوة حليب باردة.</span></p></li>
+        <li class="it"><h3><span lang="en">Sour-Cherry Soda</span><span lang="ar">صودا الكرز الحامض</span></h3><span class="pr" dir="ltr">€4.50</span><span class="gr">βυσσινάδα</span><p><span lang="en">House vyssino syrup topped with sparkling water.</span><span lang="ar">شراب الكرز الحامض من صنعنا مع ماء فوّار.</span></p></li>
+        <li class="it"><h3><span lang="en">Mountain Tea</span><span lang="ar">شاي الجبل</span></h3><span class="pr" dir="ltr">€4.00</span><span class="gr">τσάι του βουνού</span><p><span lang="en">Wild ironwort, hot or iced, with honey and lemon.</span><span lang="ar">عشبة جبلية برّية، ساخنة أو مثلّجة، مع العسل والليمون.</span></p></li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<div class="water" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path class="wv b" d="M-60 62q60-34 120 0t120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0V120H-60z" fill="#5a9be6"/><path class="wv" d="M-60 78q60-30 120 0t120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0 120 0V120H-60z" fill="#1f5cbf"/></svg></div>
+<section class="deep" id="sea">
+  <i class="bub"></i><i class="bub"></i><i class="bub"></i>
+  <svg class="fish a" viewBox="0 0 330 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><path d="M20 40q40-30 80 0l18-14v28l-18-14q-40 30-80 0z"/><circle cx="38" cy="38" r="2.5"/><path d="M150 80q40-30 80 0l18-14v28l-18-14q-40 30-80 0z"/><circle cx="168" cy="78" r="2.5"/><path d="M210 26q30-22 60 0l14-10v20l-14-10q-30 22-60 0z"/></g></svg>
+  <svg class="fish b" viewBox="0 0 360 200" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M120 70a50 50 0 1 1 100 0q0 30-14 44"/><path d="M134 108q-30 20-60 4t-50 14M150 116q-16 40-50 44t-44 26M170 120q-4 40 20 60M190 118q20 30 60 30t50 26M206 108q30 10 60-6t60 0"/><circle cx="154" cy="66" r="4"/><circle cx="186" cy="66" r="4"/></g></svg>
+  <div class="sea">
+    <div class="th"><h2><span lang="en">From the Sea</span><span lang="ar">من البحر</span></h2><span class="gr">της θάλασσας</span>
+      <p><span lang="en">Below the waterline. Landed at Kamares at six, on the grill by one.</span><span lang="ar">تحت خطّ الماء. يصل إلى مرفأ كاماريس في السادسة ويبلغ الشوّاية عند الواحدة.</span></p></div>
+    <ul class="items">
+      <li class="it"><h3><span lang="en">Grilled Octopus</span><span lang="ar">أخطبوط مشوي</span><span class="tag"><span lang="en">House pride</span><span lang="ar">فخر الدار</span></span></h3><span class="pr" dir="ltr">€18.00</span><span class="gr">χταπόδι</span><p><span lang="en">Sun-dried on the line, charred, with vinegar, oregano and fava.</span><span lang="ar">يُجفَّف في الشمس على الحبل ثم يُشوى ويُقدَّم مع الخلّ والأوريغانو والفافا.</span></p></li>
+      <li class="it"><h3><span lang="en">Fried Calamari</span><span lang="ar">كاليماري مقلي</span></h3><span class="pr" dir="ltr">€14.00</span><span class="gr">καλαμαράκια</span><p><span lang="en">Small squid, a dusting of semolina, lemon and nothing else.</span><span lang="ar">حبّار صغير برشّة سميد وليمون ولا شيء غير ذلك.</span></p></li>
+      <li class="it"><h3><span lang="en">Prawn Saganaki</span><span lang="ar">ساغاناكي الروبيان</span></h3><span class="pr" dir="ltr">€17.00</span><span class="gr">γαρίδες σαγανάκι</span><p><span lang="en">Prawns baked in tomato, chilli and melting feta. Bread required.</span><span lang="ar">روبيان يُخبز مع الطماطم والفلفل الحارّ وفيتا ذائبة. الخبز ضروري.</span></p></li>
+      <li class="it"><h3><span lang="en">Whole Sea Bream</span><span lang="ar">دنيس كامل</span></h3><span class="pr" dir="ltr">€24.00</span><span class="gr">τσιπούρα</span><p><span lang="en">Grilled on the bone, dressed in ladolemono, with horta.</span><span lang="ar">يُشوى كاملاً بعظمه ويُتبَّل بالزيت والليمون ويُقدَّم مع الخورتا.</span></p></li>
+      <li class="it"><h3><span lang="en">Grilled Sardines</span><span lang="ar">سردين مشوي</span></h3><span class="pr" dir="ltr">€12.00</span><span class="gr">σαρδέλες</span><p><span lang="en">Six fat sardines, coarse salt, vine leaf, a wedge of lemon.</span><span lang="ar">ستّ سمكات سردين سمينة بملح خشن وورق عنب وشريحة ليمون.</span></p></li>
+      <li class="it"><h3><span lang="en">Lobster Pasta for Two</span><span lang="ar">معكرونة الكركند لشخصين</span></h3><span class="pr" dir="ltr">€58.00</span><span class="gr">αστακομακαρονάδα</span><p><span lang="en">Spiny lobster cooked in its own tomato broth with thick spaghetti.</span><span lang="ar">كركند شوكي يُطهى في مرق الطماطم خاصّته مع سباغيتي سميكة.</span></p></li>
+    </ul>
+    <div class="catch"><div><h3><span lang="en">Today's catch, by the kilo</span><span lang="ar">صيد اليوم بالكيلو</span></h3>
+      <p><span lang="en">Ask to see the tray: red mullet, dentex, scorpion fish, whatever the boat brought. Grilled, with oil and lemon.</span><span lang="ar">اطلبوا رؤية الصينية: سلطان إبراهيم، دنتكس، سمك العقرب، وما حمله القارب. يُشوى ويُقدَّم بالزيت والليمون.</span></p></div>
+      <span class="pr" dir="ltr">€68<small> / kg</small></span></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="keyw" aria-hidden="true"></div>
+  <div class="fgrid">
+    <div><h2><span lang="en">Find us</span><span lang="ar">موقعنا</span></h2><p><span lang="en">Above Vathi beach, Sifnos, Cyclades. Follow the blue steps down from the chapel.</span><span lang="ar">فوق شاطئ فاثي، جزيرة سيفنوس، سيكلادس. اتبعوا الدرج الأزرق نزولاً من الكنيسة الصغيرة.</span></p></div>
+    <div><h2><span lang="en">Hours</span><span lang="ar">الأوقات</span></h2><p><span lang="en">May to October, every day</span><span lang="ar">من مايو إلى أكتوبر، كل يوم</span><br><span class="t">12:30 – 23:30</span><br><span class="t">+30 2284 055 034</span></p></div>
+    <div><h2><span lang="en">Kindly note</span><span lang="ar">يُرجى العلم</span></h2><p><span lang="en">Our dishes may contain fish, shellfish, dairy, gluten, nuts and sesame; please tell us about allergies. We serve no alcohol and no pork.</span><span lang="ar">قد تحتوي أطباقنا على السمك والقشريات والألبان والغلوتين والمكسّرات والسمسم؛ أخبرونا عن أيّ حساسية. لا نقدّم الكحول ولا لحم الخنزير.</span></p></div>
+  </div>
+  <div class="fine"><span><span lang="en">Prices in euros, tax included.</span><span lang="ar">الأسعار باليورو شاملة الضريبة.</span></span><span><span lang="en">Kalí órexi!</span><span lang="ar">بالهناء والشفاء!</span> <span class="gr">καλή όρεξη</span></span></div>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

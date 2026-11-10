@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Molecule · جُزَيء</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Molecule — an experimental tasting kitchen whose menu is a periodic table: every dish an element, every price an atomic mass. قائمة مطعم جُزَيء للمطبخ التجريبي على هيئة جدول دوري.">
+<meta name="theme-color" content="#0a0f1f">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Caveat:wght@500;700&family=Readex+Pro:wght@300;400;600&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --bg:#0a0f1f; --ink:#e9eefc; --dim:#aab4d4; --line:rgba(130,160,255,.1);
+  --g1:#ff6f61; --g2:#74e39a; --g3:#52cfff; --g4:#ffb84a; --g5:#c7a0ff; --g6:#ff8fcf; --chalk:#ffe27a;
+  --sans:"Space Grotesk","Readex Pro","Helvetica Neue",Arial,sans-serif;
+  --mono:"Space Mono","Readex Pro",ui-monospace,Menlo,monospace;
+  --hand:"Caveat","Aref Ruqaa","Bradley Hand",cursive;
+  --dir:1;
+}
+html[dir="rtl"]{--dir:-1}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 1rem/1.5 var(--sans);color:var(--ink);background:var(--bg);
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px),linear-gradient(rgba(130,160,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(130,160,255,.05) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;background-position:-1px -1px}
+html[lang="ar"] body{font-family:"Readex Pro","Space Grotesk",Tahoma,sans-serif;font-weight:300;line-height:1.75}
+html[lang="ar"] *{letter-spacing:0!important}
+a{color:inherit}
+.lab{max-width:1440px;margin-inline:auto;padding-inline:clamp(12px,2.8vw,40px);overflow-x:clip}
+.mono{font-family:var(--mono)}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px clamp(12px,2.8vw,40px);background:rgba(10,15,31,.86);backdrop-filter:blur(8px);border-bottom:1px solid rgba(130,160,255,.22);font:400 .78rem/1 var(--mono);color:var(--dim)}
+html[lang="ar"] .bar{font-family:"Readex Pro",sans-serif;font-size:.86rem}
+.ctl{display:flex;gap:8px}
+#langToggle,.home-link{font:500 .84rem/1 "Readex Pro","Space Grotesk",sans-serif;color:var(--ink);background:transparent;border:1px solid rgba(130,160,255,.5);border-radius:3px;padding:0 12px;min-height:38px;display:inline-flex;align-items:center;cursor:pointer;text-decoration:none}
+#langToggle{border-color:var(--chalk);color:var(--chalk)}
+#langToggle:hover,.home-link:hover,#langToggle:focus-visible,.home-link:focus-visible{background:var(--ink);color:var(--bg);border-color:var(--ink);outline:none}
+
+/* the table */
+.table{display:grid;gap:8px;padding-top:clamp(18px,2.4vw,34px);position:relative}
+.grp{display:grid;gap:8px;scroll-margin-top:60px}
+.gh{display:flex;align-items:baseline;gap:10px;margin-top:22px;padding:6px 0;border-bottom:1px solid var(--gc);color:var(--gc);font:500 1.15rem/1.2 var(--sans)}
+.gh i{font:400 .78rem var(--mono);font-style:normal;opacity:.85}
+html[lang="ar"] .gh{font-family:"Readex Pro",sans-serif;font-weight:600}
+.g1{--gc:var(--g1)}.g2{--gc:var(--g2)}.g3{--gc:var(--g3)}.g4{--gc:var(--g4)}.g5{--gc:var(--g5)}.g6{--gc:var(--g6)}
+.el{position:relative;display:grid;grid-template-columns:84px minmax(0,1fr);gap:2px 14px;align-items:start;padding:12px;border:1px solid color-mix(in srgb,var(--gc) 60%,transparent);border-radius:3px;
+  background:linear-gradient(160deg,color-mix(in srgb,var(--gc) 17%,#0c1226),color-mix(in srgb,var(--gc) 6%,#0c1226));transition:transform .25s,box-shadow .25s,opacity .25s}
+.el:hover{transform:translateY(-3px);box-shadow:0 0 0 1px var(--gc),0 14px 34px -10px var(--gc)}
+.cell{grid-row:1/4;aspect-ratio:1;border:1px solid var(--gc);border-radius:2px;display:grid;grid-template-rows:auto 1fr;padding:5px 7px;background:rgba(10,15,31,.5)}
+.z{font:400 .8rem/1 var(--mono);color:var(--gc)}
+.sym{font:700 2.6rem/1 "Space Grotesk",sans-serif;color:var(--gc);direction:ltr;place-self:center;letter-spacing:-.03em;margin-top:-4px}
+.el h3{font:500 1.08rem/1.25 var(--sans);padding-inline-end:54px}
+html[lang="ar"] .el h3{font-family:"Readex Pro",sans-serif;font-weight:600;font-size:1.1rem;line-height:1.5}
+.el p{font-size:.95rem;line-height:1.4;color:var(--dim)}
+html[lang="ar"] .el p{font-size:.97rem;line-height:1.65}
+.mass{font:700 1rem/1 var(--mono);margin-top:6px;unicode-bidi:isolate;white-space:nowrap}
+.mass small{font-weight:400;font-size:.95em;color:var(--gc);margin-inline-start:.3em}
+.st{position:absolute;top:12px;inset-inline-end:12px;font:400 .68rem/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--gc);border:1px solid color-mix(in srgb,var(--gc) 50%,transparent);border-radius:99px;padding:3px 7px}
+html[lang="ar"] .st{font:400 .76rem/1.2 "Readex Pro",sans-serif}
+.note{position:absolute;z-index:2;font:700 1.25rem/1 var(--hand);color:var(--chalk);transform:rotate(calc(-6deg*var(--dir)));inset-inline-end:8px;bottom:8px;white-space:nowrap;pointer-events:none}
+html[lang="ar"] .note{font:700 1.3rem/1.2 "Aref Ruqaa",serif}
+.note::before{content:"";display:inline-block;width:22px;height:12px;margin-inline-end:4px;border-top:2px solid var(--chalk);border-inline-start:2px solid var(--chalk);border-start-start-radius:14px;transform:translateY(8px)}
+
+/* notch: title + legend */
+.title{padding:clamp(18px,3vw,30px) 2px clamp(10px,2vw,20px);display:grid;gap:14px;position:relative}
+.kick{font:400 .76rem/1.4 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--g3)}
+html[lang="ar"] .kick{font:400 .92rem/1.5 "Readex Pro",sans-serif}
+h1{font:700 clamp(3.4rem,11.5vw,8.2rem)/.86 "Space Grotesk",sans-serif;letter-spacing:-.055em}
+h1 sub{font:400 .26em/1 var(--mono);letter-spacing:0;color:var(--chalk);vertical-align:baseline;position:relative;top:.35em;margin-inline:.1em .05em}
+html[lang="ar"] h1{font:600 clamp(3.6rem,12vw,8rem)/1.25 "Readex Pro",sans-serif}
+.tagline{font:700 clamp(1.5rem,2.6vw,2.1rem)/1.1 var(--hand);color:var(--chalk);transform:rotate(calc(-2deg*var(--dir)));transform-origin:0 50%;justify-self:start}
+html[lang="ar"] .tagline{font:700 clamp(1.6rem,2.7vw,2.2rem)/1.4 "Aref Ruqaa",serif;transform-origin:100% 50%}
+.mol{width:min(100%,360px);height:auto;justify-self:center;overflow:visible}
+.mol .bond{stroke:rgba(233,238,252,.55);stroke-width:2.2}
+.mol .orb{fill:none;stroke:rgba(130,160,255,.35);stroke-dasharray:3 6}
+.mol .spin{transform-origin:150px 100px;animation:spin 14s linear infinite}
+.mol .spin.b{animation-duration:22s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.mol text{font:400 11px var(--mono);fill:var(--dim)}
+.fig{font:500 1.1rem/1 var(--hand);color:var(--dim);text-align:center}
+html[lang="ar"] .fig{font:400 1.15rem/1.3 "Aref Ruqaa",serif}
+.legend{padding:10px 2px;display:grid;gap:14px;align-content:center}
+.legend p{color:var(--dim);font-size:1rem;max-width:52ch}
+.legend ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.legend a{display:flex;align-items:center;gap:8px;text-decoration:none;font-size:.92rem;padding:7px 8px;border:1px solid color-mix(in srgb,var(--gc) 45%,transparent);border-radius:3px;min-height:40px;line-height:1.2}
+.legend a::before{content:"";width:12px;height:12px;background:var(--gc);border-radius:2px;flex:none}
+.legend a:hover,.legend a:focus-visible{background:color-mix(in srgb,var(--gc) 22%,transparent);outline:none}
+
+/* liquids series */
+.series{margin-top:clamp(26px,4vw,54px);position:relative}
+.series .gh{margin-top:0}
+.series .gh b{font:700 1.2rem var(--hand);color:var(--chalk);margin-inline-start:auto;font-weight:700}
+html[lang="ar"] .series .gh b{font:400 1.3rem "Aref Ruqaa",serif}
+
+/* notebook page */
+.book{margin:clamp(60px,9vw,120px) auto 0;max-width:1120px;position:relative;transform:rotate(calc(-.7deg*var(--dir)));color:#1c2440;
+  background:#f4f0e3;background-image:linear-gradient(rgba(60,110,200,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(60,110,200,.2) 1px,transparent 1px);background-size:22px 22px;
+  padding:clamp(26px,4vw,54px) clamp(18px,4vw,56px) clamp(30px,4vw,56px);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);border-radius:2px}
+.book::before,.book::after{content:"";position:absolute;top:-14px;width:110px;height:30px;background:rgba(255,226,122,.75);transform:rotate(-4deg)}
+.book::before{inset-inline-start:8%}.book::after{inset-inline-end:10%;transform:rotate(3deg)}
+.book h2{font:700 clamp(2.2rem,5.4vw,3.6rem)/1 var(--hand);color:#1d3fa8}
+html[lang="ar"] .book h2{font:700 clamp(2rem,5vw,3.2rem)/1.4 "Aref Ruqaa",serif}
+.eq{font:400 clamp(.86rem,1.5vw,1rem)/1.6 var(--mono);margin-top:8px;direction:ltr;unicode-bidi:isolate;text-align:start}
+html[dir="rtl"] .eq{text-align:right}
+.exps{display:grid;gap:26px;margin-top:26px}
+.exp{border:2px solid #1c2440;background:rgba(244,240,227,.86);padding:18px 18px 16px;position:relative}
+.exp .no{font:700 .8rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;background:#1c2440;color:#f4f0e3;padding:5px 8px;display:inline-block}
+html[lang="ar"] .exp .no{font:600 .9rem/1.3 "Readex Pro",sans-serif}
+.exp h3{font:700 1.7rem/1.1 var(--sans);margin:12px 0 6px;letter-spacing:-.02em}
+html[lang="ar"] .exp h3{font-family:"Readex Pro",sans-serif;font-weight:600;line-height:1.4}
+.exp dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:.98rem;margin-top:10px}
+.exp dt{font:700 .78rem/1.9 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:#1d3fa8}
+html[lang="ar"] .exp dt{font:600 .9rem/1.8 "Readex Pro",sans-serif}
+.exp .res{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:14px;border-top:2px dashed #1c2440;padding-top:10px}
+.exp .res b{font:700 1.9rem/1 var(--mono);unicode-bidi:isolate;white-space:nowrap}
+.exp .res b small{font-size:.5em;font-weight:400}
+.scrib{font:700 1.4rem/1.15 var(--hand);color:#c22f2f;transform:rotate(calc(-3deg*var(--dir)));display:inline-block}
+html[lang="ar"] .scrib{font:700 1.45rem/1.4 "Aref Ruqaa",serif}
+.margin{font:500 1.3rem/1.25 var(--hand);color:#1d3fa8;margin-top:22px}
+html[lang="ar"] .margin{font:400 1.4rem/1.6 "Aref Ruqaa",serif}
+
+/* safety sheet */
+footer{margin-top:clamp(70px,9vw,130px);border-top:1px solid rgba(130,160,255,.3);padding:clamp(26px,4vw,48px) 0 50px}
+.sds{display:grid;gap:28px}
+.sds h2{font:400 .78rem/1.4 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--chalk);margin-bottom:10px}
+html[lang="ar"] .sds h2{font:600 1rem/1.5 "Readex Pro",sans-serif}
+.sds p{color:var(--dim);max-width:44ch}
+.sds .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.haz{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:16px 20px;margin:4px 0 14px 6px}
+.haz li{display:flex;align-items:center;gap:14px;font-size:.92rem;color:var(--ink)}
+.haz i{width:30px;height:30px;border:2.5px solid var(--g1);background:#fff;transform:rotate(45deg);display:grid;place-items:center;flex:none}
+.haz i b{transform:rotate(-45deg);font:700 .8rem var(--mono);color:#111;font-style:normal}
+.endline{margin-top:40px;font:400 .78rem/1.6 var(--mono);color:var(--dim);display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between}
+html[lang="ar"] .endline{font-family:"Readex Pro",sans-serif;font-size:.88rem}
+
+@media (min-width:640px){
+  .grp{grid-template-columns:repeat(2,minmax(0,1fr))}.gh{grid-column:1/-1}
+  .title{grid-template-columns:1.3fr 1fr;align-items:center}
+  .title .kick,.title h1,.title .tagline{grid-column:1}
+  .molbox{grid-column:2;grid-row:1/4}
+  .exps{grid-template-columns:1fr 1fr}
+  .sds{grid-template-columns:repeat(3,1fr)}
+  .legend ul{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (min-width:1180px){
+  .table{grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:minmax(248px,auto)}
+  .table>.grp{display:contents}
+  .table .gh{display:none}
+  .el{grid-column:var(--x);grid-row:var(--y);display:flex;flex-direction:column;gap:0;padding:12px 14px 14px}
+  .cell{display:contents}
+  .z{font-size:.86rem}
+  .sym{font-size:clamp(3rem,4.4vw,4rem);place-self:auto;margin:8px 0 4px}
+  .el h3{padding:0;font-size:1.06rem}
+  .el p{font-size:.88rem;margin-top:5px;flex:1}
+  html[lang="ar"] .el p{font-size:.9rem;line-height:1.6}
+  .mass{margin-top:10px}
+  .title{grid-column:2/6;grid-row:1;padding:6px 26px;align-content:center}
+  .legend{grid-column:3/5;grid-row:2;padding:8px 22px}
+  .legend p{font-size:.92rem}
+  .legend ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .legend a{font-size:.84rem;min-height:34px;padding:5px 8px}
+  .series .grp{grid-template-columns:repeat(6,minmax(0,1fr))}.series .el{min-height:248px}.series .gh{display:flex}
+  .series .el{grid-column:auto;grid-row:auto}
+  /* hovering a group in the key dims every other element */
+  .table:has(.k1:hover) .el:not(.g1),.table:has(.k2:hover) .el:not(.g2),.table:has(.k3:hover) .el:not(.g3),.table:has(.k4:hover) .el:not(.g4),.table:has(.k5:hover) .el:not(.g5){opacity:.22}
+}
+@media (max-width:639px){.bar .pg{display:none}.mol{width:230px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="bar">
+  <span><span lang="en">Lab notebook</span><span lang="ar">دفتر المختبر</span><span class="pg"> · <span lang="en">p. 024 · rev. autumn</span><span lang="ar">ص ٢٤ · نسخة الخريف</span></span></span>
+  <div class="ctl">
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+    <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  </div>
+</div>
+
+<div class="lab">
+<main>
+<div class="table">
+  <header class="title">
+    <p class="kick"><span lang="en">Experimental tasting laboratory</span><span lang="ar">مختبر تذوّق تجريبي</span></p>
+    <h1><span lang="en">Mo<sub>2</sub>lecule</span><span lang="ar">جُزَيء</span></h1>
+    <p class="tagline"><span lang="en">dinner, reduced to its elements.</span><span lang="ar">العشاء مُختزَلاً إلى عناصره.</span></p>
+    <div class="molbox">
+      <svg class="mol" viewBox="0 0 300 200" aria-hidden="true">
+        <ellipse class="orb" cx="150" cy="100" rx="138" ry="52"/><ellipse class="orb" cx="150" cy="100" rx="138" ry="52" transform="rotate(60 150 100)"/>
+        <g class="spin"><circle cx="288" cy="100" r="4" fill="#ffe27a"/></g><g class="spin b"><circle cx="150" cy="6" r="3.500" fill="#52cfff"/></g>
+        <g class="bond"><path d="M150 58L186 79V121L150 142L114 121V79Z" fill="none"/><path d="M150 58V28M186 79L218 62M186 121L220 140M114 121L80 140M114 79L84 60M220 140L246 124M80 140L62 166"/><path d="M156 66L180 80M120 118L144 132" stroke-width="1.400"/></g>
+        <circle cx="150" cy="58" r="11" fill="#ff6f61"/><circle cx="186" cy="79" r="11" fill="#52cfff"/><circle cx="186" cy="121" r="11" fill="#ffb84a"/><circle cx="150" cy="142" r="11" fill="#c7a0ff"/><circle cx="114" cy="121" r="11" fill="#74e39a"/><circle cx="114" cy="79" r="11" fill="#ff8fcf"/>
+        <circle cx="150" cy="28" r="7" fill="#e9eefc"/><circle cx="218" cy="62" r="7" fill="#e9eefc"/><circle cx="220" cy="140" r="8" fill="#52cfff"/><circle cx="246" cy="124" r="5" fill="#e9eefc"/><circle cx="80" cy="140" r="8" fill="#ff6f61"/><circle cx="62" cy="166" r="5" fill="#e9eefc"/><circle cx="84" cy="60" r="7" fill="#e9eefc"/>
+      </svg>
+      <p class="fig"><span lang="en">fig. 1 — appetite (unstable)</span><span lang="ar">الشكل ١ — الشهيّة (غير مستقرّة)</span></p>
+    </div>
+  </header>
+
+  <nav class="legend" aria-label="Groups">
+    <p><span lang="en">Twenty-four preparations, arranged by how they behave on the tongue. Read left to right, light to rich — or let the lab run an experiment on you.</span><span lang="ar">أربعة وعشرون تحضيراً مرتّبة بحسب سلوكها على اللسان. اقرأ الجدول من الأخفّ إلى الأغنى، أو دَع المختبر يُجري تجربته عليك.</span></p>
+    <ul>
+      <li><a class="k1 g1" href="#g1"><span lang="en">Volatile snacks</span><span lang="ar">لُقيمات متطايرة</span></a></li>
+      <li><a class="k2 g2" href="#g2"><span lang="en">Garden</span><span lang="ar">الحديقة</span></a></li>
+      <li><a class="k3 g3" href="#g3"><span lang="en">Sea</span><span lang="ar">البحر</span></a></li>
+      <li><a class="k4 g4" href="#g4"><span lang="en">Land</span><span lang="ar">البرّ</span></a></li>
+      <li><a class="k5 g5" href="#g5"><span lang="en">Noble sweets</span><span lang="ar">حلويات نبيلة</span></a></li>
+      <li><a class="k6 g6" href="#g6"><span lang="en">Liquids</span><span lang="ar">السوائل</span></a></li>
+    </ul>
+  </nav>
+
+  <section class="grp g1" id="g1">
+    <h2 class="gh"><i>I</i><span lang="en">Volatile snacks</span><span lang="ar">لُقيمات متطايرة</span></h2>
+    <article class="el g1" style="--x:1;--y:1"><div class="cell"><span class="z">1</span><b class="sym">Ol</b></div><span class="st"><span lang="en">liquid</span><span lang="ar">سائل</span></span><h3><span lang="en">Liquid Olive</span><span lang="ar">الزيتونة السائلة</span></h3><p><span lang="en">A green olive rebuilt as a sphere that bursts; thyme oil, lemon zest.</span><span lang="ar">زيتونة خضراء أُعيد تكوينها كرةً تنفجر في الفم، مع زيت الزعتر وبشر الليمون.</span></p><span class="mass">6.00<small>€</small></span><span class="note"><span lang="en">one bite!</span><span lang="ar">لقمة واحدة!</span></span></article>
+    <article class="el g1" style="--x:1;--y:2"><div class="cell"><span class="z">3</span><b class="sym">Pm</b></div><span class="st"><span lang="en">gas</span><span lang="ar">غاز</span></span><h3><span lang="en">Parmesan Cloud</span><span lang="ar">غيمة البارميزان</span></h3><p><span lang="en">Thirty-month parmesan whipped into air on a black-pepper crisp.</span><span lang="ar">بارميزان معتّق ثلاثين شهراً يتحوّل إلى هواء فوق رقاقة الفلفل الأسود.</span></p><span class="mass">7.00<small>€</small></span></article>
+    <article class="el g1" style="--x:1;--y:3"><div class="cell"><span class="z">7</span><b class="sym">Be</b></div><span class="st"><span lang="en">solid</span><span lang="ar">صلب</span></span><h3><span lang="en">Beet Meringue</span><span lang="ar">مرنغ الشمندر</span></h3><p><span lang="en">Weightless beetroot meringue, labneh, sumac. Dissolves on contact.</span><span lang="ar">مرنغ شمندر بلا وزن مع اللبنة والسمّاق. يذوب لحظة ملامسته اللسان.</span></p><span class="mass">7.00<small>€</small></span></article>
+    <article class="el g1" style="--x:1;--y:4"><div class="cell"><span class="z">13</span><b class="sym">N</b></div><span class="st"><span lang="en">frozen</span><span lang="ar">مجمَّد</span></span><h3><span lang="en">Nitro Popcorn</span><span lang="ar">فشار النيتروجين</span></h3><p><span lang="en">Salted-caramel popcorn dipped at −196 °C. Exhale like a dragon.</span><span lang="ar">فشار بالكراميل المملّح يُغمس عند ١٩٦ تحت الصفر. اِزفر كالتنّين.</span></p><span class="mass">8.00<small>€</small></span></article>
+  </section>
+
+  <section class="grp g2" id="g2">
+    <h2 class="gh"><i>II</i><span lang="en">Garden</span><span lang="ar">الحديقة</span></h2>
+    <article class="el g2" style="--x:2;--y:2"><div class="cell"><span class="z">4</span><b class="sym">Tm</b></div><span class="st"><span lang="en">liquid</span><span lang="ar">سائل</span></span><h3><span lang="en">Tomato Water</span><span lang="ar">ماء الطماطم</span></h3><p><span lang="en">Crystal-clear tomato essence, basil pearls, olive-oil powder.</span><span lang="ar">خلاصة طماطم صافية كالبلّور مع لآلئ الريحان ومسحوق زيت الزيتون.</span></p><span class="mass">12.00<small>€</small></span></article>
+    <article class="el g2" style="--x:2;--y:3"><div class="cell"><span class="z">8</span><b class="sym">Ca</b></div><span class="st"><span lang="en">gel</span><span lang="ar">هلام</span></span><h3><span lang="en">Carrot, Five States</span><span lang="ar">الجزر بخمس حالات</span></h3><p><span lang="en">One carrot as raw ribbon, gel, foam, glass and ash.</span><span lang="ar">جزرة واحدة على خمس هيئات: شريط نيء وهلام ورغوة وزجاج ورماد.</span></p><span class="mass">14.00<small>€</small></span></article>
+    <article class="el g2" style="--x:2;--y:4"><div class="cell"><span class="z">14</span><b class="sym">Mf</b></div><span class="st"><span lang="en">solid</span><span lang="ar">صلب</span></span><h3><span lang="en">Mushroom Forest</span><span lang="ar">غابة الفطر</span></h3><p><span lang="en">Porcini soil, parsley moss sponge, pickled shimeji, truffle dew.</span><span lang="ar">تربة من فطر البورتشيني، إسفنج طحلبي من البقدونس، شيميجي مخلّل وندى الكمأة.</span></p><span class="mass">16.00<small>€</small></span></article>
+  </section>
+
+  <section class="grp g3" id="g3">
+    <h2 class="gh"><i>III</i><span lang="en">Sea</span><span lang="ar">البحر</span></h2>
+    <article class="el g3" style="--x:3;--y:3"><div class="cell"><span class="z">9</span><b class="sym">Os</b></div><span class="st"><span lang="en">gas</span><span lang="ar">غاز</span></span><h3><span lang="en">Oyster &amp; Sea Mist</span><span lang="ar">محار وضباب البحر</span></h3><p><span lang="en">Warm poached oyster, cucumber, seawater vapour under a glass dome.</span><span lang="ar">محارة مسلوقة برفق مع الخيار وبخار ماء البحر تحت قبّة زجاجية.</span></p><span class="mass">15.00<small>€</small></span></article>
+    <article class="el g3" style="--x:4;--y:3"><div class="cell"><span class="z">10</span><b class="sym">Sc</b></div><span class="st"><span lang="en">foam</span><span lang="ar">رغوة</span></span><h3><span lang="en">Scallop Carbonate</span><span lang="ar">أسقلوب مُكربَن</span></h3><p><span lang="en">Seared scallop, fizzing yuzu, brown-butter espuma.</span><span lang="ar">أسقلوب محمّر مع يوزو فوّار ورغوة الزبدة المحمّرة.</span></p><span class="mass">19.00<small>€</small></span></article>
+    <article class="el g3" style="--x:3;--y:4"><div class="cell"><span class="z">15</span><b class="sym">Sm</b></div><span class="st"><span lang="en">solid</span><span lang="ar">صلب</span></span><h3><span lang="en">Salmon at 42°</span><span lang="ar">سلمون عند ٤٢°</span></h3><p><span lang="en">Confit at exactly 42 °C, dill snow, smoked roe, horseradish.</span><span lang="ar">يُطهى في الزيت عند ٤٢ درجة تماماً، مع ثلج الشبت وبطارخ مدخّنة وفجل حار.</span></p><span class="mass">21.00<small>€</small></span></article>
+    <article class="el g3" style="--x:4;--y:4"><div class="cell"><span class="z">16</span><b class="sym">Sq</b></div><span class="st"><span lang="en">solid</span><span lang="ar">صلب</span></span><h3><span lang="en">Squid Ink Lattice</span><span lang="ar">شبكة حبر الحبّار</span></h3><p><span lang="en">Charred squid beneath a printed ink tuile, saffron aioli.</span><span lang="ar">حبّار مشوي تحت رقاقة مطبوعة من حبره، مع أيولي الزعفران.</span></p><span class="mass">18.00<small>€</small></span></article>
+  </section>
+
+  <section class="grp g4" id="g4">
+    <h2 class="gh"><i>IV</i><span lang="en">Land</span><span lang="ar">البرّ</span></h2>
+    <article class="el g4" style="--x:5;--y:2"><div class="cell"><span class="z">5</span><b class="sym">Eg</b></div><span class="st"><span lang="en">gel</span><span lang="ar">هلام</span></span><h3><span lang="en">The 63° Egg</span><span lang="ar">بيضة الـ٦٣°</span></h3><p><span lang="en">An hour in the bath; potato foam, beef bresaola crumb, chive oil.</span><span lang="ar">ساعة كاملة في الحمّام المائي، مع رغوة البطاطا وفتات بريزاولا البقر وزيت الثوم المعمّر.</span></p><span class="mass">13.00<small>€</small></span></article>
+    <article class="el g4" style="--x:5;--y:3"><div class="cell"><span class="z">11</span><b class="sym">W</b></div><span class="st"><span lang="en">solid</span><span lang="ar">صلب</span></span><h3><span lang="en">Wagyu Maillard</span><span lang="ar">واغيو مايار</span></h3><p><span lang="en">Hard-seared wagyu, onion caramel, bone-marrow emulsion.</span><span lang="ar">واغيو محمّر بقوة مع كراميل البصل ومستحلب نخاع العظم.</span></p><span class="mass">34.00<small>€</small></span><span class="note"><span lang="en">lab favourite</span><span lang="ar">مفضَّل المختبر</span></span></article>
+    <article class="el g4" style="--x:5;--y:4"><div class="cell"><span class="z">17</span><b class="sym">La</b></div><span class="st"><span lang="en">solid</span><span lang="ar">صلب</span></span><h3><span lang="en">Lamb, 36 Hours</span><span lang="ar">ضأن الـ٣٦ ساعة</span></h3><p><span lang="en">Sous-vide shoulder lacquered in date molasses, yoghurt pearls.</span><span lang="ar">كتف مطهوّ بالتفريغ ومطليّ بدبس التمر، مع لآلئ اللبن.</span></p><span class="mass">29.00<small>€</small></span></article>
+  </section>
+
+  <section class="grp g5" id="g5">
+    <h2 class="gh"><i>V</i><span lang="en">Noble sweets</span><span lang="ar">حلويات نبيلة</span></h2>
+    <article class="el g5" style="--x:6;--y:1"><div class="cell"><span class="z">2</span><b class="sym">He</b></div><span class="st"><span lang="en">gas</span><span lang="ar">غاز</span></span><h3><span lang="en">Helium Balloon</span><span lang="ar">بالون الهيليوم</span></h3><p><span lang="en">An edible green-apple sugar balloon. Inhale, speak, then eat it.</span><span lang="ar">بالون من سكّر التفاح الأخضر يؤكل. استنشق، تكلَّم، ثم كُلْه.</span></p><span class="mass">9.00<small>€</small></span></article>
+    <article class="el g5" style="--x:6;--y:2"><div class="cell"><span class="z">6</span><b class="sym">Co</b></div><span class="st"><span lang="en">solid</span><span lang="ar">صلب</span></span><h3><span lang="en">Chocolate Sphere</span><span lang="ar">كرة الشوكولاتة</span></h3><p><span lang="en">Hot salted caramel melts the shell at the table.</span><span lang="ar">يذيب الكراميل المملّح الساخن قشرتها أمامك على الطاولة.</span></p><span class="mass">14.00<small>€</small></span></article>
+    <article class="el g5" style="--x:6;--y:3"><div class="cell"><span class="z">12</span><b class="sym">Y</b></div><span class="st"><span lang="en">frozen</span><span lang="ar">مجمَّد</span></span><h3><span lang="en">Yoghurt Rocks</span><span lang="ar">صخور اللبن</span></h3><p><span lang="en">Nitrogen-frozen yoghurt, rose water, pistachio dust.</span><span lang="ar">لبن مجمّد بالنيتروجين مع ماء الورد وغبار الفستق.</span></p><span class="mass">12.00<small>€</small></span></article>
+    <article class="el g5" style="--x:6;--y:4"><div class="cell"><span class="z">18</span><b class="sym">Au</b></div><span class="st"><span lang="en">solid</span><span lang="ar">صلب</span></span><h3><span lang="en">Gold Bar</span><span lang="ar">سبيكة الذهب</span></h3><p><span lang="en">Saffron custard, hazelnut praline, a sheet of 24-carat leaf.</span><span lang="ar">كاسترد الزعفران وبرالين البندق تحت ورقة ذهب من عيار ٢٤.</span></p><span class="mass">16.00<small>€</small></span><span class="note"><span lang="en">order two.</span><span lang="ar">اُطلب اثنتين.</span></span></article>
+  </section>
+</div>
+
+<div class="series">
+  <section class="grp g6" id="g6">
+    <h2 class="gh"><i>57–62</i><span lang="en">Liquids series</span><span lang="ar">سلسلة السوائل</span><b><span lang="en">zero-proof, all of it</span><span lang="ar">كلّها بلا كحول</span></b></h2>
+    <article class="el g6"><div class="cell"><span class="z">57</span><b class="sym">Li</b></div><span class="st"><span lang="en">liquid</span><span lang="ar">سائل</span></span><h3><span lang="en">Litmus Lemonade</span><span lang="ar">ليموناضة عبّاد الشمس</span></h3><p><span lang="en">Butterfly-pea tea turns from blue to pink as you pour the lemon.</span><span lang="ar">شاي زهرة البازلاء الزرقاء ينقلب وردياً حين تسكب عليه الليمون.</span></p><span class="mass">8.00<small>€</small></span></article>
+    <article class="el g6"><div class="cell"><span class="z">58</span><b class="sym">Ap</b></div><span class="st"><span lang="en">gas</span><span lang="ar">غاز</span></span><h3><span lang="en">Smoked Apple</span><span lang="ar">تفاح مدخَّن</span></h3><p><span lang="en">Cold-pressed apple and verjus under a cloche of applewood smoke.</span><span lang="ar">عصير تفاح معصور على البارد مع الحصرم تحت قبّة من دخان خشب التفاح.</span></p><span class="mass">9.00<small>€</small></span></article>
+    <article class="el g6"><div class="cell"><span class="z">59</span><b class="sym">Kr</b></div><span class="st"><span lang="en">liquid</span><span lang="ar">سائل</span></span><h3><span lang="en">Clear Karak</span><span lang="ar">كرك شفّاف</span></h3><p><span lang="en">Cardamom milk tea clarified until transparent. Tastes creamy, looks like water.</span><span lang="ar">شاي حليب بالهيل يُصفّى حتى يصير شفافاً: مذاق كريمي ومظهر الماء.</span></p><span class="mass">8.00<small>€</small></span></article>
+    <article class="el g6"><div class="cell"><span class="z">60</span><b class="sym">Cf</b></div><span class="st"><span lang="en">liquid</span><span lang="ar">سائل</span></span><h3><span lang="en">Twelve-Hour Drip</span><span lang="ar">تقطير الاثنتي عشرة ساعة</span></h3><p><span lang="en">Coffee dripped cold overnight, tonic, burnt orange peel.</span><span lang="ar">قهوة تُقطَّر على البارد طوال الليل مع التونيك وقشر برتقال محروق.</span></p><span class="mass">7.00<small>€</small></span></article>
+    <article class="el g6"><div class="cell"><span class="z">61</span><b class="sym">Cu</b></div><span class="st"><span lang="en">foam</span><span lang="ar">رغوة</span></span><h3><span lang="en">Cucumber Fizz</span><span lang="ar">فوّار الخيار</span></h3><p><span lang="en">Carbonated cucumber juice, juniper, lime, a cap of salted foam.</span><span lang="ar">عصير خيار مُكربَن مع العرعر والليمون وتاج من رغوة مملّحة.</span></p><span class="mass">8.00<small>€</small></span></article>
+    <article class="el g6"><div class="cell"><span class="z">62</span><b class="sym">Mt</b></div><span class="st"><span lang="en">foam</span><span lang="ar">رغوة</span></span><h3><span lang="en">Matcha Cloud</span><span lang="ar">غيمة الماتشا</span></h3><p><span lang="en">Whisked ceremonial matcha beneath warm coconut foam.</span><span lang="ar">ماتشا احتفالية مخفوقة تحت رغوة جوز الهند الدافئة.</span></p><span class="mass">8.00<small>€</small></span></article>
+  </section>
+</div>
+
+<section class="book" aria-labelledby="xp">
+  <h2 id="xp"><span lang="en">Run an experiment</span><span lang="ar">أَجرِ تجربة</span></h2>
+  <p class="eq">appetite + curiosity <b>→</b> Δt (≈ 3 h) <b>→</b> joy<sub>(s)</sub> + stories<sub>(g)</sub> ↑</p>
+  <div class="exps">
+    <article class="exp">
+      <span class="no"><span lang="en">Experiment 07</span><span lang="ar">التجربة ٠٧</span></span>
+      <h3><span lang="en">Short reaction</span><span lang="ar">تفاعل قصير</span></h3>
+      <dl>
+        <dt><span lang="en">Reagents</span><span lang="ar">الموادّ</span></dt><dd><span lang="en">Seven elements chosen by the lab, one from every group.</span><span lang="ar">سبعة عناصر يختارها المختبر، واحد من كل مجموعة.</span></dd>
+        <dt><span lang="en">Duration</span><span lang="ar">المدّة</span></dt><dd><span lang="en">About ninety minutes.</span><span lang="ar">نحو تسعين دقيقة.</span></dd>
+        <dt><span lang="en">Method</span><span lang="ar">الطريقة</span></dt><dd><span lang="en">Sit. Trust us. Observe.</span><span lang="ar">اجلس، ثِق بنا، وراقِب.</span></dd>
+      </dl>
+      <p class="res"><span class="scrib"><span lang="en">good first visit</span><span lang="ar">مناسبة للزيارة الأولى</span></span><b>95.00<small> €</small></b></p>
+    </article>
+    <article class="exp">
+      <span class="no"><span lang="en">Experiment 12</span><span lang="ar">التجربة ١٢</span></span>
+      <h3><span lang="en">Full synthesis</span><span lang="ar">تخليق كامل</span></h3>
+      <dl>
+        <dt><span lang="en">Reagents</span><span lang="ar">الموادّ</span></dt><dd><span lang="en">Twelve elements, including Wagyu Maillard and the Gold Bar.</span><span lang="ar">اثنا عشر عنصراً، منها واغيو مايار وسبيكة الذهب.</span></dd>
+        <dt><span lang="en">Duration</span><span lang="ar">المدّة</span></dt><dd><span lang="en">Three unhurried hours.</span><span lang="ar">ثلاث ساعات على مهل.</span></dd>
+        <dt><span lang="en">Catalyst</span><span lang="ar">المحفِّز</span></dt><dd><span lang="en">Five paired liquids, + 35.00 €.</span><span lang="ar">خمسة سوائل مرافقة، + 35.00 €.</span></dd>
+      </dl>
+      <p class="res"><span class="scrib"><span lang="en">results reproducible!</span><span lang="ar">النتائج قابلة للتكرار!</span></span><b>150.00<small> €</small></b></p>
+    </article>
+  </div>
+  <p class="margin"><span lang="en">NB — the whole table takes part. Tell your lab partner (the waiter) about allergies before ignition.</span><span lang="ar">ملاحظة: تشارك المائدة كلّها في التجربة. أخبِر شريكك في المختبر (النادل) عن أي حساسية قبل الإشعال.</span></p>
+</section>
+</main>
+
+<footer>
+  <div class="sds">
+    <div><h2><span lang="en">Safety data sheet</span><span lang="ar">بطاقة بيانات السلامة</span></h2>
+      <ul class="haz">
+        <li><i><b>G</b></i><span lang="en">gluten</span><span lang="ar">غلوتين</span></li>
+        <li><i><b>D</b></i><span lang="en">dairy</span><span lang="ar">ألبان</span></li>
+        <li><i><b>N</b></i><span lang="en">nuts</span><span lang="ar">مكسرات</span></li>
+        <li><i><b>S</b></i><span lang="en">shellfish</span><span lang="ar">قشريات</span></li>
+      </ul>
+      <p><span lang="en">Present somewhere in most experiments. No alcohol and no pork are used anywhere in the laboratory.</span><span lang="ar">موجودة في معظم التجارب بشكل أو بآخر. لا نستخدم الكحول ولا لحم الخنزير في أي ركن من المختبر.</span></p></div>
+    <div><h2><span lang="en">Lab hours</span><span lang="ar">ساعات المختبر</span></h2><p><span lang="en">Tuesday to Saturday<br>Two sittings: 18:30 and 21:15<br>Closed Sunday and Monday for research</span><span lang="ar">من الثلاثاء إلى السبت<br>جلستان: ٦:٣٠ و٩:١٥ مساءً<br>مغلق الأحد والاثنين لأغراض البحث</span></p></div>
+    <div><h2><span lang="en">Coordinates</span><span lang="ar">الإحداثيات</span></h2><p><span lang="en">Laboratory 24, 14 rue Lavoisier<br>69002 Lyon</span><span lang="ar">المختبر ٢٤، ١٤ شارع لافوازييه<br>ليون ٦٩٠٠٢</span><br><span class="ltr">+33 4 55 01 24 00</span></p></div>
+  </div>
+  <p class="endline"><span><span lang="en">Masses in euros, service included.</span><span lang="ar">الكُتل باليورو، والخدمة مشمولة.</span></span><span><span lang="en">Nothing is lost, everything is transformed.</span><span lang="ar">لا شيء يفنى، كل شيء يتحوّل.</span></span></p>
+</footer>
+</div>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>

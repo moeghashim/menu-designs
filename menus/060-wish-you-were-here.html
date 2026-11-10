@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Wish You Were Here · ليتك معنا</title>
+<meta name="description" content="Wish You Were Here — a travel café whose menu arrives as postcards from Lisbon, Istanbul, Oaxaca, Kyoto and Melbourne. ليتك معنا: مقهى المسافر، قائمة على هيئة بطاقات بريدية من خمس مدن.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1d4f91">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Damion&family=Gulzar&family=Katibeh&family=Noto+Naskh+Arabic:wght@400;600&family=Rakkas&family=Shadows+Into+Light&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --card:#f8f1dd; --card2:#efe5c8; --ink:#27344f; --pen:#1f3f8f; --red:#c8102e; --blue:#1d4f91; --kraft:#c9a877; --kraft-d:#a98555; --soft:#5d6478;
+  --big:"Anton", Impact, "Arial Narrow Bold", sans-serif;
+  --script:"Damion", "Brush Script MT", cursive;
+  --hand:"Shadows Into Light", "Segoe Print", "Comic Sans MS", cursive;
+  --type:"Special Elite", "Courier New", Courier, monospace;
+}
+html[lang="ar"]{
+  --big:"Rakkas", "Noto Naskh Arabic", serif;
+  --script:"Gulzar", "Katibeh", "Noto Naskh Arabic", serif;
+  --hand:"Katibeh", "Noto Naskh Arabic", serif;
+  --type:"Noto Naskh Arabic", "Traditional Arabic", serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; font-family:var(--type); font-size:16px; line-height:1.5; color:var(--ink); background:var(--kraft)}
+html[lang="ar"] body{font-size:17.5px; line-height:1.7}
+svg{display:block}
+ul,ol{list-style:none; margin:0; padding:0}
+h1,h2,h3,p{margin:0}
+.desk{position:relative; overflow:clip; padding:0 clamp(10px,3vw,40px) 70px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .1 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(0deg, transparent 0 119px, rgba(80,50,20,.14) 119px 120px),
+    repeating-linear-gradient(90deg, transparent 0 119px, rgba(80,50,20,.14) 119px 120px),
+    radial-gradient(120% 60% at 50% 0, #d9bb8c, var(--kraft) 60%, var(--kraft-d))}
+.route{position:absolute; inset:520px 0 300px; width:100%; height:calc(100% - 820px); pointer-events:none; opacity:.55}
+.inner{position:relative; max-width:1240px; margin:0 auto}
+
+/* controls */
+.ctl{position:fixed; top:10px; inset-inline-end:10px; z-index:40; display:flex; gap:6px}
+.ctl > *{font:400 14px/1 var(--type); min-height:38px; padding:2px 12px 0; display:grid; place-items:center; cursor:pointer; text-decoration:none; border:0; border-radius:3px; box-shadow:0 2px 0 rgba(0,0,0,.25), 0 6px 12px rgba(60,30,0,.3)}
+html[lang="ar"] .ctl > *{font-size:15.5px; font-weight:600; padding-top:0}
+#langToggle{background:var(--blue); color:#fff; outline:1px solid #fff; outline-offset:-4px}
+.home-link{background:var(--card); color:var(--ink); border:1px dashed var(--ink)}
+.ctl > *:hover,.ctl > *:focus-visible{background:var(--red); color:#fff}
+
+/* shared card bits */
+.pc{background:var(--card); box-shadow:0 1px 0 #fff inset, 0 2px 2px rgba(60,30,0,.3), 0 20px 34px -14px rgba(60,30,0,.6); position:relative;
+  background-image:radial-gradient(130% 90% at 0 0, #fffaf0, transparent 60%), radial-gradient(90% 80% at 100% 100%, var(--card2), transparent 70%)}
+.air{border:clamp(8px,1vw,12px) solid; border-image:repeating-linear-gradient(-45deg, var(--red) 0 13px, var(--card) 13px 26px, var(--blue) 26px 39px, var(--card) 39px 52px) 12}
+.stamp{flex:none; width:90px; height:110px; padding:8px; background:radial-gradient(circle at 5px 5px, transparent 3.200px, #fbf6e6 3.700px) -5px -5px/10px 10px; filter:drop-shadow(0 1px 1px rgba(0,0,0,.35)); transform:rotate(3deg)}
+.stamp > div{height:100%; background:var(--sc,#1d4f91); display:flex; flex-direction:column; align-items:center; justify-content:space-between; gap:3px; padding:5px 4px 5px; color:#fff; box-shadow:inset 0 0 0 2px rgba(255,255,255,.75)}
+.stamp svg{width:46px; flex:1 1 0; height:0; min-height:0}
+.stamp b{font:400 15px/1 "Anton", sans-serif; letter-spacing:.06em; direction:ltr}
+.stamp small{font:400 8.500px/1 "Special Elite", monospace; letter-spacing:.14em; opacity:.9}
+.pm{flex:none; width:92px; height:92px; border-radius:50%; border:2px solid var(--ink); box-shadow:inset 0 0 0 4px var(--card), inset 0 0 0 5px var(--ink); display:grid; place-content:center; text-align:center; gap:3px; color:var(--ink); opacity:.72; transform:rotate(-13deg); font:400 10px/1.1 "Special Elite", monospace; letter-spacing:.08em; text-transform:uppercase}
+html[lang="ar"] .pm{font:600 12.500px/1.2 "Noto Naskh Arabic", serif; letter-spacing:0; text-transform:none}
+.pm b{font-weight:400; font-size:1.25em; direction:ltr}
+.cancel{flex:none; width:70px; opacity:.6; margin-inline:-16px -22px; transform:rotate(-13deg)}
+
+/* ============ HERO ============ */
+.hero{padding:clamp(64px,7vw,90px) 0 clamp(20px,3vw,40px); position:relative}
+.hero .under{position:absolute; inset-inline:8% 6%; top:clamp(74px,8vw,104px); height:clamp(240px,40vw,520px); transform:rotate(3.500deg); background:var(--card2)}
+html[dir="rtl"] .hero .under{transform:rotate(-3.500deg)}
+.greet{max-width:980px; margin:0 auto; padding:clamp(18px,3.4vw,46px) clamp(14px,3.4vw,50px) clamp(20px,3vw,40px); text-align:center; transform:rotate(-1.600deg); overflow:hidden}
+html[dir="rtl"] .greet{transform:rotate(1.600deg)}
+.greet::before{content:""; position:absolute; inset:0; background:
+   radial-gradient(circle at 50% 118%, #ffd166 0 26%, transparent 26.3%),
+   linear-gradient(#bfe3ea 0, #f9e2b5 62%, #f6b77c 100%); opacity:.55}
+.greet > *{position:relative}
+.corner{position:absolute!important; top:clamp(8px,1.6vw,22px); inset-inline-end:clamp(8px,1.6vw,22px); display:flex; align-items:center}
+.gf{display:block; font:400 clamp(26px,4.6vw,58px)/1 var(--script); color:var(--red); transform:rotate(-4deg); margin-top:clamp(44px,7vw,86px); text-shadow:2px 2px 0 #fff}
+html[lang="ar"] .gf{font-size:clamp(22px,3.6vw,44px); line-height:1.9; transform:rotate(-2deg); margin-top:clamp(50px,6vw,70px)}
+h1{font:400 clamp(60px,18.5vw,188px)/.92 var(--big); text-transform:uppercase; letter-spacing:.01em; margin-top:.06em;
+  background:linear-gradient(#2a7fc0 0 22%, #62b6d9 22% 40%, #ffd166 40% 52%, #f28c38 52% 66%, #d6453a 66% 80%, #1d4f91 80%); -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(.035em .045em 0 var(--ink))}
+html[lang="ar"] h1{text-transform:none; letter-spacing:0; font-size:clamp(104px,25vw,300px); line-height:1.12; margin-top:-.12em; padding-bottom:.08em}
+h1 span span{display:block}
+.ribbon{display:inline-block; margin-top:clamp(12px,1.6vw,20px); padding:.5em 1.4em .4em; background:var(--red); color:#fff; font:400 clamp(13px,1.5vw,18px)/1.2 var(--type); letter-spacing:.2em; text-transform:uppercase; clip-path:polygon(0 0,100% 0,calc(100% - 12px) 50%,100% 100%,0 100%,12px 50%)}
+html[lang="ar"] .ribbon{letter-spacing:0; text-transform:none; font-weight:600; font-size:clamp(16px,1.8vw,21px); padding-block:.3em}
+.note{max-width:760px; margin:clamp(18px,2.6vw,34px) auto 0; padding:18px clamp(16px,3vw,34px) 20px; background:#fffdf4; box-shadow:0 12px 22px -12px rgba(60,30,0,.6); transform:rotate(.800deg); position:relative; z-index:2; font-size:1.02em}
+.note::before{content:""; position:absolute; top:-12px; left:50%; width:110px; height:26px; margin-left:-55px; background:rgba(230,200,120,.6); transform:rotate(-2deg); box-shadow:0 1px 2px rgba(0,0,0,.15)}
+/* luggage-tag route nav */
+.tags{display:flex; flex-wrap:wrap; justify-content:center; gap:10px clamp(8px,1.4vw,18px); margin-top:clamp(22px,3vw,36px); position:relative; z-index:2}
+.tags a{display:flex; align-items:center; gap:10px; padding:8px 16px 8px 14px; padding-inline-start:30px; background:var(--card); color:var(--ink); text-decoration:none; position:relative; box-shadow:0 6px 12px -6px rgba(60,30,0,.7); clip-path:polygon(14px 0,100% 0,100% 100%,14px 100%,0 50%)}
+html[dir="rtl"] .tags a{clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%)}
+.tags a::before{content:""; position:absolute; inset-inline-start:14px; top:50%; width:8px; height:8px; margin-top:-4px; border-radius:50%; background:var(--kraft-d); box-shadow:inset 0 1px 2px rgba(0,0,0,.5)}
+.tags b{font:400 22px/1 "Anton", sans-serif; letter-spacing:.06em; color:var(--red)}
+.tags span{font-size:14px; line-height:1.2}
+html[lang="ar"] .tags span{font-size:16px; font-weight:600}
+.tags a:hover,.tags a:focus-visible{background:var(--blue); color:#fff; outline:0}
+.tags a:hover b,.tags a:focus-visible b{color:#ffd166}
+
+/* ============ STOPS ============ */
+.stop{display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); align-items:start; margin-top:clamp(60px,8vw,120px); scroll-margin-top:20px}
+.front{container-type:inline-size; aspect-ratio:3/2; z-index:2; margin-top:46px; margin-inline-end:-38px; transform:rotate(-3deg); overflow:hidden; border:8px solid #fffdf4; display:grid; place-content:center; justify-items:center; text-align:center; background:var(--sky)}
+html[dir="rtl"] .front{transform:rotate(3deg)}
+.front .scene{position:absolute; inset:auto 0 0; width:100%; height:46%}
+.front .gf{font-size:11cqw; margin:0 0 -1cqw; position:relative; color:var(--gfc,var(--red))}
+html[lang="ar"] .front .gf{font-size:8cqw; margin:-4cqw 0 -5cqw}
+.city{position:relative; font:400 calc(var(--k) * 1cqw)/1 var(--big); text-transform:uppercase; letter-spacing:.02em; background:var(--fill); -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(.500cqw 0 0 #fff) drop-shadow(-.500cqw 0 0 #fff) drop-shadow(0 .500cqw 0 #fff) drop-shadow(0 -.500cqw 0 #fff) drop-shadow(.900cqw 1.100cqw 0 var(--ink))}
+html[lang="ar"] .city{font-size:calc(var(--ka) * 1cqw); letter-spacing:0; text-transform:none; line-height:1.25; padding-bottom:.1em}
+.front h2{position:relative; margin-top:3cqw; padding:.5em 1.6em .38em; font:400 clamp(13px,3.600cqw,19px)/1.15 var(--type); letter-spacing:.16em; text-transform:uppercase; color:#fff; background:var(--ink); clip-path:polygon(0 0,100% 0,calc(100% - 10px) 50%,100% 100%,0 100%,10px 50%)}
+html[lang="ar"] .front h2{letter-spacing:0; text-transform:none; font-weight:600; font-size:clamp(15px,4.200cqw,22px); padding-block:.26em; margin-top:0}
+
+.back{padding:clamp(16px,2.2vw,28px) clamp(16px,2.4vw,32px) clamp(18px,2.4vw,30px); padding-inline-start:clamp(16px,4.600vw,62px); transform:rotate(1.100deg)}
+html[dir="rtl"] .back{transform:rotate(-1.100deg)}
+.stop:nth-of-type(even) .front{order:2; margin-inline:-38px 0; transform:rotate(2.600deg)}
+html[dir="rtl"] .stop:nth-of-type(even) .front{transform:rotate(-2.600deg)}
+.stop:nth-of-type(even){grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.stop:nth-of-type(even) .back{transform:rotate(-1deg); padding-inline:clamp(16px,2.400vw,32px) clamp(16px,4.600vw,62px)}
+html[dir="rtl"] .stop:nth-of-type(even) .back{transform:rotate(1deg)}
+.bhead{display:flex; align-items:flex-start; gap:10px; min-height:112px}
+.bhead .lbl{flex:1; text-align:center; font:400 clamp(17px,1.900vw,24px)/1.1 var(--type); letter-spacing:.42em; text-transform:uppercase; color:var(--soft); padding-top:8px}
+html[lang="ar"] .bhead .lbl{letter-spacing:0; text-transform:none; font-weight:600; font-size:clamp(20px,2.200vw,27px)}
+.bhead .lbl small{display:block; font-size:.5em; letter-spacing:.3em; margin-top:8px; opacity:.8}
+html[lang="ar"] .bhead .lbl small{letter-spacing:0; font-size:.62em; font-weight:400}
+.bbody{display:grid; grid-template-columns:minmax(0,4fr) minmax(0,6fr); gap:0 clamp(16px,2.400vw,34px); margin-top:4px}
+.msg{font:400 clamp(21px,1.750vw,25px)/1.34 var(--hand); color:var(--pen); padding-inline-end:clamp(12px,2vw,28px); border-inline-end:1.500px solid var(--soft); transform:rotate(-1.200deg)}
+html[dir="rtl"] .msg{transform:rotate(1.200deg)}
+html[lang="ar"] .msg{font-size:clamp(25px,2.050vw,30px); line-height:1.4}
+.msg .sig{display:block; margin-top:.5em; text-align:end; font-size:1.2em}
+.lines li{padding:9px 0 4px}
+.ln{display:flex; align-items:baseline; gap:10px; border-bottom:1.500px solid var(--soft); padding-bottom:1px}
+.ln h3{flex:1; font:400 clamp(24px,2.050vw,29px)/1.15 var(--hand); color:var(--pen)}
+html[lang="ar"] .ln h3{font-size:clamp(28px,2.400vw,34px); line-height:1.25}
+.pr{font:400 clamp(21px,1.700vw,24px)/1 "Special Elite", monospace; color:var(--red); direction:ltr; unicode-bidi:isolate; white-space:nowrap}
+.lines p{font-size:.94em; color:var(--soft); margin-top:4px; line-height:1.4}
+html[lang="ar"] .lines p{line-height:1.6}
+.pick{display:inline-block; font:400 11px/1 "Special Elite", monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--red); border:1.500px solid var(--red); padding:4px 6px 2px; border-radius:2px; transform:rotate(-5deg); margin-inline-start:8px; vertical-align:4px; opacity:.85}
+html[lang="ar"] .pick{font:600 13px/1.2 "Noto Naskh Arabic", serif; letter-spacing:0; text-transform:none; padding:1px 7px 3px}
+
+/* ============ TICKET ============ */
+.ticket{margin:clamp(70px,9vw,130px) auto 0; max-width:1120px; display:grid; grid-template-columns:minmax(0,1fr) 230px; transform:rotate(-.800deg); scroll-margin-top:20px}
+.tmain{padding:clamp(18px,2.400vw,30px) clamp(16px,2.600vw,34px)}
+.ticket .k{font:400 13px/1 var(--type); letter-spacing:.3em; text-transform:uppercase; color:var(--red)}
+html[lang="ar"] .ticket .k{letter-spacing:0; text-transform:none; font-weight:600; font-size:17px}
+.ticket h2{font:400 clamp(34px,4.600vw,62px)/1 var(--big); text-transform:uppercase; color:var(--blue); margin-top:6px}
+html[lang="ar"] .ticket h2{text-transform:none; line-height:1.25}
+.ticket .lede{margin-top:6px; color:var(--soft); max-width:62ch}
+.legs{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; margin-top:18px; position:relative}
+.legs::before{content:""; position:absolute; top:17px; inset-inline:4% 4%; border-top:2px dashed var(--soft)}
+.legs li{position:relative; text-align:center}
+.legs b{display:inline-block; font:400 30px/1 "Anton", sans-serif; letter-spacing:.05em; color:var(--ink); background:var(--card); padding:2px 8px}
+.legs span{display:block; margin-top:6px; font:400 clamp(20px,1.650vw,23px)/1.15 var(--hand); color:var(--pen)}
+html[lang="ar"] .legs span{font-size:clamp(23px,1.900vw,27px)}
+.stub{border-inline-start:3px dotted var(--soft); padding:clamp(18px,2.400vw,30px) 20px; text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:8px; background:rgba(29,79,145,.07)}
+.stub .pr{font-size:clamp(52px,5vw,68px)}
+.stub span{font-size:.92em; color:var(--soft); line-height:1.35}
+.bar{width:150px; height:42px; background:repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 5px, var(--ink) 5px 6px, transparent 6px 10px, var(--ink) 10px 13px, transparent 13px 15px)}
+
+/* ============ FOOTER (envelope) ============ */
+.env{margin:clamp(70px,9vw,120px) auto 0; max-width:980px; padding:clamp(20px,3vw,40px); transform:rotate(.700deg); display:grid; grid-template-columns:minmax(0,1fr) auto; gap:14px 30px}
+.env h2{font:400 clamp(30px,3.800vw,48px)/1 var(--script); color:var(--red)}
+html[lang="ar"] .env h2{font-size:clamp(26px,3.200vw,38px); line-height:2}
+.env dl{margin:12px 0 0; display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 18px}
+.env dt{font:400 12.500px/1.7 var(--type); letter-spacing:.2em; text-transform:uppercase; color:var(--soft); padding-top:6px}
+html[lang="ar"] .env dt{letter-spacing:0; text-transform:none; font-weight:600; font-size:15.500px; padding-top:9px}
+.env dd{margin:0; font:400 clamp(22px,1.850vw,26px)/1.3 var(--hand); color:var(--pen); border-bottom:1.500px solid var(--soft); padding-bottom:2px}
+html[lang="ar"] .env dd{font-size:clamp(26px,2.150vw,31px); line-height:1.4}
+.env .side{display:flex; flex-direction:column; align-items:flex-end; gap:16px}
+.avion{background:var(--blue); color:#fff; padding:8px 16px 6px; font:400 15px/1.15 "Special Elite", monospace; letter-spacing:.14em; text-transform:uppercase; text-align:center; outline:1px solid #fff; outline-offset:-4px; transform:rotate(-4deg)}
+html[lang="ar"] .avion{font:600 17px/1.3 "Noto Naskh Arabic", serif; letter-spacing:0; text-transform:none}
+.env .ps{grid-column:1/-1; font-size:.95em; color:var(--soft); border-top:1px dashed var(--soft); padding-top:12px}
+
+@media (max-width:900px){
+  .stop,.stop:nth-of-type(even){grid-template-columns:1fr; margin-top:64px}
+  .front,.stop:nth-of-type(even) .front{order:0; width:min(100%,460px); margin:0 auto -26px; margin-inline:auto}
+  .back,.stop:nth-of-type(even) .back{padding:40px 18px 22px; padding-inline:18px}
+  .ticket{grid-template-columns:1fr}
+  .stub{border-inline-start:0; border-top:3px dotted var(--soft); flex-direction:row; flex-wrap:wrap; gap:6px 18px}
+}
+@media (max-width:640px){
+  .bbody{grid-template-columns:1fr}
+  .msg{border-inline-end:0; padding-inline-end:0; padding-bottom:12px; margin-bottom:6px; border-bottom:1.500px dashed var(--soft)}
+  .bhead{min-height:0}
+  .bhead .lbl{text-align:start; letter-spacing:.24em; font-size:15px; padding-top:14px}
+  .stamp{width:80px; height:100px}
+  .pm{width:78px; height:78px; font-size:8.500px}
+  html[lang="ar"] .pm{font-size:11px}
+  .cancel{display:none}
+  .hero .corner .pm{display:none}
+  .hero .stamp{width:60px; height:70px; padding:6px}
+  .hero .stamp small{display:none} .hero .stamp b{font-size:11px}
+  .hero .gf{margin-top:64px}
+  html[lang="ar"] .hero .gf{margin-top:56px}
+  .legs{grid-template-columns:1fr; gap:10px}
+  .legs::before{top:4%; bottom:4%; inset-inline:auto; inset-inline-start:30px; border-top:0; border-inline-start:2px dashed var(--soft)}
+  .legs li{display:flex; align-items:center; gap:12px; text-align:start}
+  .legs b{font-size:24px; min-width:60px; text-align:center; padding:4px 0}
+  .legs span{margin:0}
+  .env{grid-template-columns:1fr}
+  .env .side{flex-direction:row; align-items:center; justify-content:space-between; order:-1}
+  .env dl{grid-template-columns:1fr; gap:0}
+  .env dd{margin-bottom:8px}
+  .tags a{padding-block:10px}
+  .ctl > *{min-height:36px; padding-inline:10px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .front,.back{transition:transform .35s ease}
+  .stop:hover .front{transform:rotate(-1deg) translateY(-6px)}
+  html[dir="rtl"] .stop:hover .front{transform:rotate(1deg) translateY(-6px)}
+  .route path{stroke-dashoffset:0; animation:fly 60s linear infinite}
+  @keyframes fly{to{stroke-dashoffset:-600}}
+}
+</style>
+</head>
+<body>
+<nav class="ctl">
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+</nav>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="cancel" viewBox="0 0 70 50"><path fill="none" stroke="#27344f" stroke-width="2" d="M0 8q9-8 18 0t18 0 18 0 16 0M0 19q9-8 18 0t18 0 18 0 16 0M0 30q9-8 18 0t18 0 18 0 16 0M0 41q9-8 18 0t18 0 18 0 16 0"/></symbol>
+  <symbol id="s-plane" viewBox="0 0 48 48"><path fill="#fff" d="M44 6c-3-2-7 0-10 3l-7 7-19-5-4 4 15 9-7 8-7-1-3 3 9 4 4 9 3-3-1-7 8-7 9 15 4-4-5-19 7-7c3-3 5-7 4-9z"/></symbol>
+  <symbol id="s-tram" viewBox="0 0 48 48"><path fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" d="M6 6h36M24 6v6"/><rect x="8" y="12" width="32" height="24" rx="5" fill="#fff"/><path fill="#e0a800" d="M12 17h10v8H12zM26 17h10v8H26z"/><path stroke="#fff" stroke-width="3" stroke-linecap="round" d="M14 41l3-5M34 41l-3-5"/><circle cx="15" cy="31" r="2" fill="#e0a800"/><circle cx="33" cy="31" r="2" fill="#e0a800"/></symbol>
+  <symbol id="s-tea" viewBox="0 0 48 48"><path fill="#fff" d="M15 8h18c1 6-3 9-3 13s5 7 3 14c-1 4-4 6-9 6s-8-2-9-6c-2-7 3-10 3-14s-4-7-3-13z"/><path fill="#b3402a" d="M17 12h14c0 4-3 6-3 9s4 6 3 11H17c-1-5 3-8 3-11s-3-5-3-9z"/><ellipse cx="24" cy="43" rx="15" ry="3" fill="#fff" opacity=".8"/></symbol>
+  <symbol id="s-cactus" viewBox="0 0 48 48"><path fill="#fff" d="M20 44V10a4 4 0 0 1 8 0v34zM28 30h4a6 6 0 0 0 6-6v-6a3 3 0 0 0-6 0v6h-4zM20 34h-4a6 6 0 0 1-6-6v-8a3 3 0 0 1 6 0v8h4z"/><path stroke="#fff" stroke-width="2.5" stroke-linecap="round" d="M8 45h32"/></symbol>
+  <symbol id="s-torii" viewBox="0 0 48 48"><path fill="#fff" d="M4 8c13 3 27 3 40 0v6c-13 3-27 3-40 0zM8 19h32v4H8zM12 14h5v30h-5zM31 14h5v30h-5z"/></symbol>
+  <symbol id="s-cup" viewBox="0 0 48 48"><path fill="#fff" d="M8 20h26v8c0 8-5 13-13 13S8 36 8 28zM34 22h4a5 5 0 0 1 0 12h-5l1-4h3a2 2 0 0 0 0-4h-3z"/><path fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" d="M15 14c-2-3 2-5 0-8M22 14c-2-3 2-5 0-8M29 14c-2-3 2-5 0-8M5 44h32"/></symbol>
+</defs></svg>
+
+<div class="desk">
+<svg class="route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M50 0C-10 6 110 14 50 22S-10 38 50 44 110 60 50 68-10 84 50 100" fill="none" stroke="#7a3b1c" stroke-width="2.5" stroke-dasharray="3 10" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+<div class="inner">
+
+<header class="hero">
+  <div class="pc under"></div>
+  <div class="pc air greet">
+    <div class="corner">
+      <div class="pm"><span lang="en">Travel Café</span><span lang="ar">مقهى المسافر</span><b>14·III·26</b><span lang="en">Gate 60</span><span lang="ar">البوابة ٦٠</span></div>
+      <svg class="cancel" viewBox="0 0 70 50" aria-hidden="true"><use href="#cancel"/></svg>
+      <div class="stamp" style="--sc:#c8102e"><div><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s-plane"/></svg><b>AIR MAIL</b><small>WYWH</small></div></div>
+    </div>
+    <span class="gf"><span lang="en">Greetings from the Travel Café</span><span lang="ar">تحيّاتنا من مقهى المسافر</span></span>
+    <h1><span lang="en"><span>Wish You</span><span>Were Here</span></span><span lang="ar"><span>ليتك معنا</span></span></h1>
+    <p class="ribbon"><span lang="en">Five cities · one table · no passport</span><span lang="ar">خمس مدن · طاولة واحدة · بلا جواز سفر</span></p>
+  </div>
+  <p class="note" lang="en">Every plate on this menu was first eaten somewhere else: on a kerb in Lisbon, a ferry in Istanbul, a market bench in Oaxaca. We wrote them down on the backs of postcards and brought them home. Pick a city and read the card.</p>
+  <p class="note" lang="ar">كل طبق في هذه القائمة ذُقناه أول مرة في مكان بعيد: على رصيف في لشبونة، أو عبّارة في إسطنبول، أو مقعد خشبي في سوق واهاكا. دوّنّاها على ظهور البطاقات البريدية وعدنا بها. اختر مدينة واقرأ بطاقتها.</p>
+  <nav class="tags">
+    <a href="#lis"><b>LIS</b><span lang="en">Pastries</span><span lang="ar">معجّنات</span></a>
+    <a href="#ist"><b>IST</b><span lang="en">Breakfast</span><span lang="ar">فطور</span></a>
+    <a href="#oax"><b>OAX</b><span lang="en">Plates</span><span lang="ar">أطباق</span></a>
+    <a href="#kix"><b>KIX</b><span lang="en">Tea</span><span lang="ar">شاي</span></a>
+    <a href="#mel"><b>MEL</b><span lang="en">Coffee</span><span lang="ar">قهوة</span></a>
+    <a href="#rtw"><b>RTW</b><span lang="en">The ticket</span><span lang="ar">التذكرة</span></a>
+  </nav>
+</header>
+
+<main>
+<!-- LISBON -->
+<section class="stop" id="lis">
+  <div class="pc front" style="--k:30;--ka:33;--sky:linear-gradient(#8fd0e8,#fbe7a8 70%);--fill:linear-gradient(#f2b705 0 34%,#f28c38 34% 52%,#1d6fb5 52% 70%,#0e3f7a 70%)">
+    <svg class="scene" viewBox="0 0 300 92" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path fill="#e8734a" d="M0 60l24-16 22 16 20-22 26 22 22-14 24 14 26-24 28 24 22-12 24 12 30-20 32 20v32H0z"/><path fill="#fff7e0" d="M0 66h300v26H0z"/><g fill="#1d6fb5"><path d="M0 70h300v3H0zM0 80h300v2H0z"/><path d="M12 76l5-4 5 4-5 4zM42 76l5-4 5 4-5 4zM72 76l5-4 5 4-5 4zM102 76l5-4 5 4-5 4zM132 76l5-4 5 4-5 4zM162 76l5-4 5 4-5 4zM192 76l5-4 5 4-5 4zM222 76l5-4 5 4-5 4zM252 76l5-4 5 4-5 4zM282 76l5-4 5 4-5 4z"/></g></svg>
+    <span class="gf"><span lang="en">Greetings from</span><span lang="ar">تحيّاتنا من</span></span>
+    <strong class="city"><span lang="en">Lisbon</span><span lang="ar">لشبونة</span></strong>
+    <h2><span lang="en">Pastries &amp; Bakes</span><span lang="ar">معجّنات ومخبوزات</span></h2>
+  </div>
+  <div class="pc back">
+    <div class="bhead">
+      <div class="lbl"><span lang="en">Post Card</span><span lang="ar">بطاقة بريدية</span><small lang="en">Bilhete postal · No. 1</small><small lang="ar">البطاقة الأولى · لشبونة</small></div>
+      <div class="pm"><span lang="en">Lisboa</span><span lang="ar">لشبونة</span><b>07:00</b><span lang="en">Alfama</span><span lang="ar">ألفاما</span></div>
+      <svg class="cancel" viewBox="0 0 70 50" aria-hidden="true"><use href="#cancel"/></svg>
+      <div class="stamp" style="--sc:#e0a800"><div><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s-tram"/></svg><b>LIS</b><small>PORTUGAL</small></div></div>
+    </div>
+    <div class="bbody">
+      <p class="msg" lang="en">Dear you, the tram rattles past the bakery at seven and by eight the custard tarts are gone. I queued twice. Blistered on top, trembling in the middle. I'm bringing the recipe home.<span class="sig">— Leila</span></p>
+      <p class="msg" lang="ar">عزيزي، يمرّ الترام مقعقعًا أمام المخبز في السابعة، وفي الثامنة تكون فطائر الكاسترد قد نفدت. وقفتُ في الطابور مرتين. وجهها محمّر وقلبها يرتجف. سأعود بالوصفة معي.<span class="sig">— ليلى</span></p>
+      <ul class="lines">
+        <li><div class="ln"><h3><span lang="en">Pastel de Nata</span><span lang="ar">باستيل دي ناتا</span><i class="pick"><span lang="en">must try</span><span lang="ar">لا تفوّته</span></i></h3><b class="pr">$3.50</b></div><p lang="en">Flaky custard tart, scorched top, a shake of cinnamon. Baked every hour.</p><p lang="ar">فطيرة كاسترد مورّقة بوجه محمّر ورشّة قرفة. تُخبز كل ساعة.</p></li>
+        <li><div class="ln"><h3><span lang="en">Pão de Deus</span><span lang="ar">باو دي ديوش</span></h3><b class="pr">$4.00</b></div><p lang="en">"God's bread": soft brioche bun under a golden coconut crust.</p><p lang="ar">«خبز الله»: بريوش طري تعلوه قشرة ذهبية من جوز الهند.</p></li>
+        <li><div class="ln"><h3><span lang="en">Bola de Berlim</span><span lang="ar">بولا دي برليم</span></h3><b class="pr">$4.50</b></div><p lang="en">Beach doughnut rolled in sugar, split and filled with egg custard.</p><p lang="ar">دونات الشاطئ مغطّاة بالسكر ومحشوّة بكاسترد البيض.</p></li>
+        <li><div class="ln"><h3><span lang="en">Orange Olive-Oil Cake</span><span lang="ar">كعكة البرتقال بزيت الزيتون</span></h3><b class="pr">$5.00</b></div><p lang="en">Whole Algarve oranges, almond flour, a glossy citrus glaze.</p><p lang="ar">برتقال الغارف بقشره مع دقيق اللوز وطبقة لامعة من الحمضيات.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ISTANBUL -->
+<section class="stop" id="ist">
+  <div class="pc front" style="--k:23;--ka:28;--sky:linear-gradient(#f7b267,#f4845f 45%,#f25c54);--gfc:#fff;--fill:linear-gradient(#12a4a0 0 36%,#0b7a8a 36% 56%,#c8102e 56% 74%,#7a0c2e 74%)">
+    <svg class="scene" viewBox="0 0 300 92" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="#5a1c4a"><path d="M0 70h300v22H0z"/><path d="M90 70a34 34 0 0 1 68 0zM60 70a18 18 0 0 1 36 0zM152 70a18 18 0 0 1 36 0zM206 70a22 22 0 0 1 44 0z"/><path d="M48 70V24l3-10 3 10v46zM192 70V20l3-10 3 10v50zM258 70V34l3-10 3 10v36zM122 36v-10l2-4 2 4v10zM226 48v-8l2-4 2 4v8z"/></g><path fill="#f9d77a" opacity=".8" d="M0 82q25-6 50 0t50 0 50 0 50 0 50 0 50 0v10H0z"/></svg>
+    <span class="gf"><span lang="en">Greetings from</span><span lang="ar">تحيّاتنا من</span></span>
+    <strong class="city"><span lang="en">Istanbul</span><span lang="ar">إسطنبول</span></strong>
+    <h2><span lang="en">Breakfast, All Day</span><span lang="ar">فطور طوال اليوم</span></h2>
+  </div>
+  <div class="pc back">
+    <div class="bhead">
+      <div class="lbl"><span lang="en">Post Card</span><span lang="ar">بطاقة بريدية</span><small lang="en">Kartpostal · No. 2</small><small lang="ar">البطاقة الثانية · إسطنبول</small></div>
+      <div class="pm"><span lang="en">Istanbul</span><span lang="ar">إسطنبول</span><b>10:30</b><span lang="en">Karaköy</span><span lang="ar">كاراكوي</span></div>
+      <svg class="cancel" viewBox="0 0 70 50" aria-hidden="true"><use href="#cancel"/></svg>
+      <div class="stamp" style="--sc:#0b7a8a"><div><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s-tea"/></svg><b>IST</b><small>TÜRKİYE</small></div></div>
+    </div>
+    <div class="bbody">
+      <p class="msg" lang="en">Breakfast lasts until noon here and nobody apologises. Tea in tulip glasses, eggs that arrive still bubbling, a ferry horn somewhere over the water. I may not come back.<span class="sig">— L.</span></p>
+      <p class="msg" lang="ar">الفطور هنا يمتدّ حتى الظهيرة ولا أحد يعتذر. شاي في أكواب بشكل الزنبق، وبيض يصل وهو ما زال يغلي، وصفّارة عبّارة من بعيد فوق الماء. قد لا أعود.<span class="sig">— ل.</span></p>
+      <ul class="lines">
+        <li><div class="ln"><h3><span lang="en">Menemen</span><span lang="ar">مينيمين</span><i class="pick"><span lang="en">must try</span><span lang="ar">لا تفوّته</span></i></h3><b class="pr">$9.00</b></div><p lang="en">Soft-scrambled eggs in tomato, green pepper and butter, served in the pan.</p><p lang="ar">بيض مخفوق طري بالطماطم والفلفل الأخضر والزبدة، يُقدَّم في مقلاته.</p></li>
+        <li><div class="ln"><h3><span lang="en">Simit, Kaymak and Honey</span><span lang="ar">سميت مع القيمق والعسل</span></h3><b class="pr">$7.00</b></div><p lang="en">Sesame bread ring, clotted cream, mountain honeycomb.</p><p lang="ar">حلقة خبز بالسمسم مع قشطة القيمق وشهد عسل الجبال.</p></li>
+        <li><div class="ln"><h3><span lang="en">Sucuklu Yumurta</span><span lang="ar">بيض بالسجق</span></h3><b class="pr">$10.00</b></div><p lang="en">Fried eggs over sizzling spiced beef sausage.</p><p lang="ar">بيض مقلي فوق سجق بقري متبّل يئزّ في المقلاة.</p></li>
+        <li><div class="ln"><h3><span lang="en">Spinach Gözleme</span><span lang="ar">غوزلمة بالسبانخ</span></h3><b class="pr">$8.00</b></div><p lang="en">Hand-rolled flatbread, spinach and white cheese, griddled crisp.</p><p lang="ar">خبز رقيق يُفرد باليد ويُحشى بالسبانخ والجبن الأبيض ثم يُحمَّر على الصاج.</p></li>
+        <li><div class="ln"><h3><span lang="en">Su Böreği</span><span lang="ar">بوريك الماء</span></h3><b class="pr">$7.50</b></div><p lang="en">Tender layered pastry with feta and parsley, cut in squares.</p><p lang="ar">طبقات عجين ليّنة بالجبن والبقدونس، تُقطَّع مربّعات.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- OAXACA -->
+<section class="stop" id="oax">
+  <div class="pc front" style="--k:27;--ka:36;--sky:linear-gradient(#ffd166,#f78c6b 60%,#ef476f);--fill:linear-gradient(#ef476f 0 30%,#f78c2a 30% 52%,#06a77d 52% 74%,#05668d 74%)">
+    <svg class="scene" viewBox="0 0 300 92" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path fill="#b5532f" d="M0 62l50-26 40 20 46-30 54 30 40-18 70 24v30H0z"/><path fill="#7a3b1c" d="M0 78h300v14H0z"/><g fill="#0b7a54"><path d="M40 80V46a5 5 0 0 1 10 0v34zM50 66h5a6 6 0 0 0 6-6v-8a3 3 0 0 0-6 0v8h-5zM40 70h-5a6 6 0 0 1-6-6v-6a3 3 0 0 1 6 0v6h5z"/><path d="M236 80V40a6 6 0 0 1 12 0v40zM248 62h6a7 7 0 0 0 7-7v-9a3.5 3.5 0 0 0-7 0v9h-6zM236 68h-6a7 7 0 0 1-7-7v-7a3.5 3.5 0 0 1 7 0v7h6z"/></g></svg>
+    <span class="gf"><span lang="en">Greetings from</span><span lang="ar">تحيّاتنا من</span></span>
+    <strong class="city"><span lang="en">Oaxaca</span><span lang="ar">واهاكا</span></strong>
+    <h2><span lang="en">Market Plates</span><span lang="ar">أطباق السوق</span></h2>
+  </div>
+  <div class="pc back">
+    <div class="bhead">
+      <div class="lbl"><span lang="en">Post Card</span><span lang="ar">بطاقة بريدية</span><small lang="en">Tarjeta postal · No. 3</small><small lang="ar">البطاقة الثالثة · واهاكا</small></div>
+      <div class="pm"><span lang="en">Oaxaca</span><span lang="ar">واهاكا</span><b>13:15</b><span lang="en">Mercado</span><span lang="ar">السوق</span></div>
+      <svg class="cancel" viewBox="0 0 70 50" aria-hidden="true"><use href="#cancel"/></svg>
+      <div class="stamp" style="--sc:#06a77d"><div><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s-cactus"/></svg><b>OAX</b><small>MÉXICO</small></div></div>
+    </div>
+    <div class="bbody">
+      <p class="msg" lang="en">The market smells of toasted chilli and chocolate. A woman pressed tortillas while we talked; I ate four things I couldn't name and loved every one. My shirt will never recover.<span class="sig">— Leila</span></p>
+      <p class="msg" lang="ar">السوق يفوح برائحة الفلفل المحمّص والشوكولاتة. كانت سيدة تفرد التورتيّا ونحن نتحدث؛ أكلتُ أربعة أشياء لا أعرف أسماءها وأحببتها كلها. أما قميصي فلن يعود كما كان.<span class="sig">— ليلى</span></p>
+      <ul class="lines">
+        <li><div class="ln"><h3><span lang="en">Chilaquiles Verdes</span><span lang="ar">تشيلاكيليس خضراء</span><i class="pick"><span lang="en">must try</span><span lang="ar">لا تفوّته</span></i></h3><b class="pr">$11.00</b></div><p lang="en">Crisp tortillas in tomatillo salsa, fried egg, crema, queso fresco.</p><p lang="ar">تورتيّا مقرمشة في صلصة التوماتيّو مع بيضة مقلية وكريمة وجبن طازج.</p></li>
+        <li><div class="ln"><h3><span lang="en">Chicken Tinga Tostadas</span><span lang="ar">توستادا دجاج التينغا</span></h3><b class="pr">$10.00</b></div><p lang="en">Smoky chipotle chicken, black beans, avocado and pickled onion.</p><p lang="ar">دجاج مدخّن بالتشيبوتلي مع فاصولياء سوداء وأفوكادو وبصل مخلّل.</p></li>
+        <li><div class="ln"><h3><span lang="en">Elote</span><span lang="ar">إيلوتي</span></h3><b class="pr">$6.00</b></div><p lang="en">Charred corn on the cob, lime mayo, cotija cheese, chilli dust.</p><p lang="ar">كوز ذرة مشوي مع مايونيز الليمون وجبن الكوتيخا وغبار الفلفل.</p></li>
+        <li><div class="ln"><h3><span lang="en">Churros and Oaxacan Chocolate</span><span lang="ar">تشوروس وشوكولاتة واهاكا</span></h3><b class="pr">$7.00</b></div><p lang="en">Cinnamon-sugar churros with a cup of thick spiced chocolate.</p><p lang="ar">أصابع تشوروس بالسكر والقرفة مع كوب شوكولاتة كثيفة متبّلة.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- KYOTO -->
+<section class="stop" id="kix">
+  <div class="pc front" style="--k:31;--ka:38;--sky:linear-gradient(#fde2e4,#fad2e1 55%,#f7b2c4);--fill:linear-gradient(#d62828 0 40%,#f77f00 40% 58%,#2a6f4e 58% 76%,#1b4332 76%)">
+    <svg class="scene" viewBox="0 0 300 92" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="232" cy="34" r="22" fill="#d62828"/><path fill="#7fa58a" d="M0 70q40-30 80-6t70-12 70 14 80-10v36H0z"/><path fill="#2a6f4e" d="M0 80q50-14 100-2t100-4 100 2v16H0z"/><path fill="#b3202a" d="M40 44c16 3 32 3 48 0v5c-16 3-32 3-48 0zM45 53h38v3H45zM49 49h4v36h-4zM75 49h4v36h-4z"/></svg>
+    <span class="gf"><span lang="en">Greetings from</span><span lang="ar">تحيّاتنا من</span></span>
+    <strong class="city"><span lang="en">Kyoto</span><span lang="ar">كيوتو</span></strong>
+    <h2><span lang="en">Tea &amp; Quiet Things</span><span lang="ar">شاي وأشياء هادئة</span></h2>
+  </div>
+  <div class="pc back">
+    <div class="bhead">
+      <div class="lbl"><span lang="en">Post Card</span><span lang="ar">بطاقة بريدية</span><small lang="en">Hagaki · No. 4</small><small lang="ar">البطاقة الرابعة · كيوتو</small></div>
+      <div class="pm"><span lang="en">Kyoto</span><span lang="ar">كيوتو</span><b>16:00</b><span lang="en">Gion</span><span lang="ar">غيون</span></div>
+      <svg class="cancel" viewBox="0 0 70 50" aria-hidden="true"><use href="#cancel"/></svg>
+      <div class="stamp" style="--sc:#d62828"><div><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s-torii"/></svg><b>KIX</b><small>NIPPON</small></div></div>
+    </div>
+    <div class="bbody">
+      <p class="msg" lang="en">A tea house behind a bamboo fence. The matcha was whisked in silence, bitter and green as moss, and rain tapped on the roof the whole time. I thought of you.<span class="sig">— L.</span></p>
+      <p class="msg" lang="ar">بيت شاي خلف سياج من الخيزران. خُفقت الماتشا في صمت، مُرّة خضراء كالطحلب، والمطر ينقر السقف طوال الوقت. تذكّرتك.<span class="sig">— ل.</span></p>
+      <ul class="lines">
+        <li><div class="ln"><h3><span lang="en">Ceremonial Matcha</span><span lang="ar">ماتشا احتفالية</span><i class="pick"><span lang="en">must try</span><span lang="ar">لا تفوّته</span></i></h3><b class="pr">$6.50</b></div><p lang="en">Uji matcha whisked to order in a bowl, with a small sweet on the side.</p><p lang="ar">ماتشا أوجي تُخفق عند الطلب في وعائها، مع قطعة حلوى صغيرة.</p></li>
+        <li><div class="ln"><h3><span lang="en">Hojicha Latte</span><span lang="ar">لاتيه الهوجيتشا</span></h3><b class="pr">$5.50</b></div><p lang="en">Roasted green tea, steamed milk, a toasty caramel finish.</p><p lang="ar">شاي أخضر محمّص مع حليب مبخّر وختام يشبه الكراميل.</p></li>
+        <li><div class="ln"><h3><span lang="en">Yuzu Sparkler</span><span lang="ar">يوزو فوّار</span></h3><b class="pr">$5.00</b></div><p lang="en">Yuzu citrus, honey and soda over hand-cut ice.</p><p lang="ar">حمضيات اليوزو مع العسل والصودا فوق ثلج مقطّع باليد.</p></li>
+        <li><div class="ln"><h3><span lang="en">Matcha Basque Cheesecake</span><span lang="ar">تشيز كيك باسكي بالماتشا</span></h3><b class="pr">$7.50</b></div><p lang="en">Burnt top, molten green centre, red-bean cream.</p><p lang="ar">وجه محروق وقلب أخضر ذائب مع كريمة الفاصولياء الحمراء.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MELBOURNE -->
+<section class="stop" id="mel">
+  <div class="pc front" style="--k:20;--ka:33;--sky:linear-gradient(#90e0ef,#caf0f8 60%,#fefae0);--fill:linear-gradient(#0077b6 0 34%,#00b4d8 34% 52%,#e76f51 52% 72%,#264653 72%)">
+    <svg class="scene" viewBox="0 0 300 92" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="#264653"><path d="M0 92V60h18V44h14v16h10V30h16v30h12V48h18v12h8V22h12v38h14V40h16v20h10V52h14v8h12V34h18v26h10V46h14v14h12V56h16v4h14v32z"/></g><g fill="#fefae0" opacity=".85"><path d="M46 36h4v4h-4zM46 46h4v4h-4zM102 28h3v4h-3zM102 40h3v4h-3zM196 40h4v4h-4zM196 50h4v4h-4zM124 46h4v4h-4z"/></g><path fill="#e9c46a" d="M0 84h300v8H0z"/></svg>
+    <span class="gf"><span lang="en">Greetings from</span><span lang="ar">تحيّاتنا من</span></span>
+    <strong class="city"><span lang="en">Melbourne</span><span lang="ar">ملبورن</span></strong>
+    <h2><span lang="en">Laneway Coffee</span><span lang="ar">قهوة الأزقّة</span></h2>
+  </div>
+  <div class="pc back">
+    <div class="bhead">
+      <div class="lbl"><span lang="en">Post Card</span><span lang="ar">بطاقة بريدية</span><small lang="en">Par avion · No. 5</small><small lang="ar">البطاقة الخامسة · ملبورن</small></div>
+      <div class="pm"><span lang="en">Melbourne</span><span lang="ar">ملبورن</span><b>08:45</b><span lang="en">Fitzroy</span><span lang="ar">فيتزروي</span></div>
+      <svg class="cancel" viewBox="0 0 70 50" aria-hidden="true"><use href="#cancel"/></svg>
+      <div class="stamp" style="--sc:#264653"><div><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s-cup"/></svg><b>MEL</b><small>AUSTRALIA</small></div></div>
+    </div>
+    <div class="bbody">
+      <p class="msg" lang="en">They take coffee here the way other cities take football. A tiny laneway, a barista who asked about my day and meant it. Best flat white of my life, and I've had a few.<span class="sig">— Leila</span></p>
+      <p class="msg" lang="ar">يأخذون القهوة هنا بجدّية تأخذ بها مدن أخرى كرة القدم. زقاق صغير، وبارستا سألني عن يومي وكان يقصد السؤال فعلًا. أفضل فلات وايت شربته في حياتي، وقد شربت الكثير.<span class="sig">— ليلى</span></p>
+      <ul class="lines">
+        <li><div class="ln"><h3><span lang="en">Flat White</span><span lang="ar">فلات وايت</span><i class="pick"><span lang="en">must try</span><span lang="ar">لا تفوّته</span></i></h3><b class="pr">$4.50</b></div><p lang="en">Double ristretto under a thin, glossy layer of microfoam.</p><p lang="ar">جرعتا ريستريتو تحت طبقة رقيقة لامعة من رغوة الحليب.</p></li>
+        <li><div class="ln"><h3><span lang="en">Magic</span><span lang="ar">ماجيك</span></h3><b class="pr">$4.50</b></div><p lang="en">Melbourne's secret order: double ristretto, three-quarter milk.</p><p lang="ar">طلب ملبورن السرّي: جرعتا ريستريتو مع ثلاثة أرباع كوب حليب.</p></li>
+        <li><div class="ln"><h3><span lang="en">Long Black</span><span lang="ar">لونغ بلاك</span></h3><b class="pr">$4.00</b></div><p lang="en">Espresso poured over hot water to keep the crema intact.</p><p lang="ar">إسبريسو يُسكب فوق الماء الساخن ليحافظ على الكريما.</p></li>
+        <li><div class="ln"><h3><span lang="en">Batch Brew</span><span lang="ar">قهوة مقطّرة</span></h3><b class="pr">$3.50</b></div><p lang="en">Today's single-origin filter, bottomless until eleven.</p><p lang="ar">قهوة اليوم المقطّرة من محصول واحد، بلا حدود حتى الحادية عشرة.</p></li>
+        <li><div class="ln"><h3><span lang="en">Iced Latte with Wattleseed</span><span lang="ar">لاتيه مثلّج ببذور الواتل</span></h3><b class="pr">$5.50</b></div><p lang="en">Cold espresso and milk with a nutty native-seed syrup.</p><p lang="ar">إسبريسو بارد وحليب مع شراب بذور أسترالية بنكهة المكسّرات.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TICKET -->
+<section class="pc air ticket" id="rtw">
+  <div class="tmain">
+    <div class="k"><span lang="en">Boarding pass · tasting flight</span><span lang="ar">بطاقة صعود · رحلة تذوّق</span></div>
+    <h2><span lang="en">Round-the-World Ticket</span><span lang="ar">تذكرة حول العالم</span></h2>
+    <p class="lede" lang="en">Five stops, five small plates, served in order of sunrise. Best shared between two travellers.</p>
+    <p class="lede" lang="ar">خمس محطات وخمسة أطباق صغيرة، تُقدَّم بترتيب شروق الشمس. الأجمل أن يتقاسمها مسافران.</p>
+    <ol class="legs">
+      <li><b>MEL</b><span lang="en">Flat white</span><span lang="ar">فلات وايت</span></li>
+      <li><b>KIX</b><span lang="en">Matcha cheesecake</span><span lang="ar">تشيز كيك الماتشا</span></li>
+      <li><b>IST</b><span lang="en">Menemen and simit</span><span lang="ar">مينيمين وسميت</span></li>
+      <li><b>LIS</b><span lang="en">Pastel de nata</span><span lang="ar">باستيل دي ناتا</span></li>
+      <li><b>OAX</b><span lang="en">Churros and chocolate</span><span lang="ar">تشوروس وشوكولاتة</span></li>
+    </ol>
+  </div>
+  <div class="stub">
+    <b class="pr">$24</b>
+    <span lang="en">per ticket · seat 6A<br>window, obviously</span><span lang="ar">للتذكرة · المقعد 6A<br>بجانب النافذة طبعًا</span>
+    <i class="bar"></i>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="pc env">
+  <div>
+    <h2><span lang="en">Write back soon</span><span lang="ar">اكتب لنا قريبًا</span></h2>
+    <dl>
+      <dt><span lang="en">Open</span><span lang="ar">الدوام</span></dt><dd><span lang="en">Every day, 7 am – 11 pm</span><span lang="ar">كل يوم، من ٧ صباحًا إلى ١١ مساءً</span></dd>
+      <dt><span lang="en">Address</span><span lang="ar">العنوان</span></dt><dd><span lang="en">60 Departures Lane, Old Port Quarter</span><span lang="ar">٦٠ زقاق المغادرين، حي الميناء القديم</span></dd>
+      <dt><span lang="en">Telephone</span><span lang="ar">الهاتف</span></dt><dd><span dir="ltr">+1 555 0160</span></dd>
+    </dl>
+  </div>
+  <div class="side">
+    <div class="stamp" style="--sc:#1d4f91"><div><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#s-plane"/></svg><b>WYWH</b><small>RETURN</small></div></div>
+    <div class="avion"><span lang="en">Par avion<br>by air mail</span><span lang="ar">بالبريد<br>الجوي</span></div>
+  </div>
+  <p class="ps" lang="en">P.S. Our kitchen works with milk, eggs, wheat, nuts and sesame. Tell us about allergies and we will reroute your order. Prices in US dollars; no alcohol is served, and all meat is halal.</p>
+  <p class="ps" lang="ar">ملاحظة: مطبخنا يستخدم الحليب والبيض والقمح والمكسّرات والسمسم. أخبرنا عن أي حساسية لنغيّر مسار طلبك. الأسعار بالدولار الأمريكي، ولا نقدّم الكحول، وجميع اللحوم حلال.</p>
+</footer>
+
+</div>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

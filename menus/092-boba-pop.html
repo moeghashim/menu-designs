@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Boba Pop · بوبا بوب</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Boba Pop — loud, chewy bubble tea: brown sugar milk teas, fizzy fruit teas, cheese foam and every topping. بوبا بوب — شاي فقاعات صاخب ومطاطي: شاي بالحليب والسكر البني، شاي فواكه فوّار، رغوة الجبن وكل الإضافات.">
+<meta name="theme-color" content="#ff3d9a">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Marhey:wght@500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --ink:#1d0f3f;--pink:#ff3d9a;--blue:#2f6bff;--lime:#c6f432;--yel:#ffe23d;--org:#ff8a2b;--pur:#8a4dff;--mint:#7ff0d0;--cream:#fff6e0;
+  --disp:"Bagel Fat One","Marhey","Arial Black",sans-serif;--body:"Fredoka","Baloo Bhaijaan 2",system-ui,sans-serif;
+  --holo:linear-gradient(115deg,#ff9de6,#9df3ff 22%,#fff59d 40%,#b9a1ff 58%,#9dffcf 76%,#ff9de6);
+  --cut:drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff) drop-shadow(0 4px 0 #fff) drop-shadow(0 -4px 0 #fff) drop-shadow(0 7px 0 rgba(29,15,63,.22));
+}
+html[lang="ar"]{--disp:"Marhey","Bagel Fat One",sans-serif;--body:"Baloo Bhaijaan 2","Fredoka",system-ui,sans-serif}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);font-size:16px;line-height:1.4;color:var(--ink);background:#b9a6ff;-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-size:17px;line-height:1.6}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit;text-decoration:none}
+.wall{position:relative;overflow:clip;background:
+  radial-gradient(circle at 20% 0%,#ff9de6 0,transparent 38%),radial-gradient(circle at 100% 18%,#9df3ff 0,transparent 34%),radial-gradient(circle at 0 62%,#fff59d 0,transparent 30%),radial-gradient(circle at 96% 88%,#ff9de6 0,transparent 34%),
+  radial-gradient(#fff 2.5px,transparent 3px) 0 0/34px 34px,#b9a6ff}
+
+/* stickers */
+.stk{filter:var(--cut);transform:rotate(var(--r,0deg));transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.holo{background:var(--holo);background-size:300% 300%;animation:holo 7s linear infinite}
+@keyframes holo{to{background-position:300% 0}}
+
+/* controls */
+.ctrl{position:fixed;inset-block-start:12px;inset-inline-end:12px;z-index:60;display:flex;gap:8px;filter:drop-shadow(0 4px 0 rgba(29,15,63,.25))}
+.ctrl a,.ctrl button{height:42px;border:4px solid #fff;border-radius:99px;font:700 15px/1 var(--body);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0 16px}
+.ctrl .home-link{width:42px;padding:0;background:var(--yel);transform:rotate(-8deg)}
+.ctrl button{transform:rotate(3deg)}
+.ctrl svg{width:16px;height:16px;fill:var(--ink)}
+.ctrl a:hover,.ctrl button:hover{transform:rotate(0) scale(1.07)}
+
+/* pearls */
+.pearls{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.pearls i{position:absolute;bottom:-60px;width:var(--s,34px);height:var(--s,34px);border-radius:50%;background:radial-gradient(circle at 32% 28%,#a5673a 0 8%,#5a2d14 22%,#22100a 70%);box-shadow:0 0 0 3px rgba(255,255,255,.55);animation:rise var(--t,18s) linear infinite;animation-delay:var(--d,0s);opacity:.9}
+@keyframes rise{to{transform:translate(var(--x,40px),-115vh) rotate(200deg)}}
+
+/* hero */
+.hero{position:relative;z-index:2;min-height:min(100svh,940px);display:grid;place-items:center;padding:96px 18px 50px;text-align:center}
+.bomb>*{position:absolute}
+.title{position:relative;z-index:3}
+.kick{display:inline-block;--r:-5deg;margin-block-end:14px}
+.kick b{display:block;background:var(--ink);color:var(--lime);font:600 clamp(14px,1.5vw,19px)/1 var(--body);letter-spacing:.1em;text-transform:uppercase;padding:11px 20px;border-radius:99px}
+h1{margin:0;font:400 clamp(112px,21vw,300px)/.78 var(--disp);letter-spacing:-.01em;-webkit-text-stroke:.085em #fff;paint-order:stroke fill;filter:drop-shadow(0 .05em 0 var(--ink))}
+h1 span span{display:block}
+h1 .a{color:var(--pink);transform:rotate(-5deg)}
+h1 .b{color:var(--blue);transform:rotate(3deg) translateX(.12em);margin-block-start:-.04em}
+html[lang="ar"] h1{font-weight:700;line-height:1.15;font-size:clamp(100px,18vw,260px)}
+html[lang="ar"] h1 .b{margin-block-start:-.3em}
+.say{display:inline-block;--r:2.5deg;margin-block-start:clamp(8px,2vw,22px);max-width:520px}
+.say div{background:var(--cream);border-radius:28px;padding:16px 22px 18px;position:relative}
+.say div::after{content:"";position:absolute;inset-block-start:-13px;inset-inline-start:22%;border:14px solid transparent;border-block-start:0;border-block-end-color:var(--cream)}
+.say strong{display:block;font:400 clamp(21px,2.5vw,30px)/1.1 var(--disp);color:var(--pur);margin-block-end:6px}
+html[lang="ar"] .say strong{font-weight:700;line-height:1.5}
+.say p{margin:0;font-weight:500;font-size:16px}
+html[lang="ar"] .say p{font-size:17px}
+
+.d-cup{inset-inline-start:7%;inset-block-start:17%;width:clamp(120px,15vw,215px);--r:-13deg;--tea:#e9b98a;--straw:var(--pink)}
+.d-cup2{inset-inline-end:17%;inset-block-end:5%;width:clamp(86px,9vw,130px);--r:14deg;--tea:#c7a6ff;--straw:var(--lime)}
+.d-smile{inset-inline-end:8%;inset-block-start:13%;width:clamp(90px,10vw,150px);--r:11deg}
+.d-star{inset-inline-start:13%;inset-block-end:7%;width:clamp(110px,12vw,170px);--r:-9deg}
+.d-star div{aspect-ratio:1;clip-path:polygon(50% 0,61% 20%,82% 9%,80% 32%,100% 38%,86% 55%,98% 75%,75% 76%,71% 98%,50% 86%,29% 98%,25% 76%,2% 75%,14% 55%,0 38%,20% 32%,18% 9%,39% 20%);display:grid;place-items:center;font:400 clamp(24px,2.6vw,36px)/1 var(--disp);color:var(--ink)}
+html[lang="ar"] .d-star div{font-weight:700}
+.d-daisy{inset-inline-end:4%;inset-block-end:24%;width:clamp(80px,9vw,128px);--r:18deg}
+.d-code{inset-inline-end:2.5%;inset-block-start:44%;--r:7deg}
+.d-code div{background:#fff;border-radius:10px;padding:10px 14px 8px;font:700 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase}
+.d-code div::before{content:"";display:block;height:34px;margin-block-end:7px;background:repeating-linear-gradient(90deg,var(--ink) 0 3px,transparent 3px 5px,var(--ink) 5px 6px,transparent 6px 10px,var(--ink) 10px 14px,transparent 14px 16px)}
+.d-heart{inset-inline-start:3%;inset-block-start:56%;width:clamp(70px,8vw,112px);--r:-16deg}
+.d-qq{inset-inline-start:27%;inset-block-start:9%;--r:9deg}
+.d-qq div{width:clamp(74px,7vw,100px);aspect-ratio:1;border-radius:50%;background:var(--blue);color:var(--yel);display:grid;place-items:center;font:400 clamp(30px,3vw,44px)/1 "Bagel Fat One",sans-serif}
+.d-bolt{inset-inline-end:29%;inset-block-start:8%;width:clamp(54px,5.5vw,80px);--r:14deg}
+.d-globe{inset-inline-start:30%;inset-block-end:3%;width:clamp(70px,7vw,104px);--r:-6deg}
+
+/* tabs */
+.tabs{position:relative;z-index:3;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 10px;padding:6px 16px 30px;margin:0;list-style:none}
+.tabs a{display:block;font:400 clamp(17px,1.6vw,22px)/1 var(--disp);padding:12px 20px 13px;border-radius:99px;background:var(--c,var(--yel));color:var(--ink)}
+html[lang="ar"] .tabs a{font-weight:700;padding-block:9px 12px}
+.tabs li{--r:-3deg}.tabs li:nth-child(2n){--r:2.5deg}.tabs li:nth-child(3n){--r:-1deg}
+.tabs li:hover,.it:hover{transform:rotate(0) scale(1.04);z-index:5}
+
+/* sheets */
+.board{position:relative;z-index:2;max-width:1360px;margin:0 auto;padding:30px clamp(14px,3vw,40px) 70px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(58px,6vw,84px) clamp(22px,2.6vw,38px)}
+.sheet{position:relative;grid-column:span 12;border-radius:clamp(26px,3vw,44px);padding:clamp(54px,5vw,72px) clamp(16px,2.2vw,32px) clamp(26px,3vw,40px);background-color:var(--bg);background-image:var(--pat);border:6px solid #fff;box-shadow:0 12px 0 rgba(29,15,63,.2);transform:rotate(var(--tilt,0deg));scroll-margin-top:70px}
+.sheet{display:flex;flex-direction:column}.sheet>.grid{flex:1;align-content:space-around}
+.w8{grid-column:span 8}.w7{grid-column:span 7}.w5{grid-column:span 5}.w4{grid-column:span 4}
+.sheet>h2{position:absolute;inset-block-start:-34px;inset-inline-start:clamp(14px,2vw,34px);margin:0;--r:-4deg;z-index:4}
+.sheet>h2 b{display:block;font:400 clamp(30px,3.6vw,52px)/1 var(--disp);background:var(--tab,var(--ink));color:var(--tabc,#fff);padding:12px 24px 15px;border-radius:20px}
+html[lang="ar"] .sheet>h2 b{font-weight:700;padding-block:6px 14px}
+.sheet>.note{position:absolute;inset-block-start:-20px;inset-inline-end:clamp(14px,2vw,30px);--r:3deg;z-index:4;margin:0}
+.sheet>.note span{display:block;background:#fff;border-radius:99px;padding:8px 14px;font-weight:600;font-size:14px}
+html[lang="ar"] .sheet>.note span{font-size:15px}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,255px),1fr));gap:26px 20px}
+.it{position:relative;--r:-1.6deg}
+.it:nth-child(3n+2){--r:1.8deg;top:8px}.it:nth-child(3n){--r:-.6deg;top:-4px}.it:nth-child(4n){--r:2.4deg}
+.it .in{height:100%;background:var(--c,var(--cream));border-radius:var(--rad,24px);padding:16px 16px 16px;display:grid;grid-template-columns:54px 1fr;gap:4px 12px;align-items:start}
+.it svg{width:54px;height:81px;grid-row:span 3}
+.it h3{margin:0;font:400 23px/1.02 var(--disp);padding-inline-end:48px}
+html[lang="ar"] .it h3{font-weight:700;font-size:21px;line-height:1.4}
+.it p{margin:0;font-weight:500;font-size:15px;line-height:1.3}
+html[lang="ar"] .it p{font-size:16px;line-height:1.5}
+.tag{justify-self:start;font:700 11.5px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:#fff;padding:5px 9px;border-radius:99px;margin-block-start:4px}
+html[lang="ar"] .tag{font-size:13px}
+.pr{position:absolute;inset-block-start:-14px;inset-inline-end:-8px;width:66px;height:66px;display:grid;place-items:center;font:400 19px/1 "Bagel Fat One",var(--disp);color:var(--ink);background:var(--pc,var(--yel));clip-path:polygon(50% 0,60% 12%,75% 7%,79% 21%,93% 25%,88% 40%,100% 50%,88% 60%,93% 75%,79% 79%,75% 93%,60% 88%,50% 100%,40% 88%,25% 93%,21% 79%,7% 75%,12% 60%,0 50%,12% 40%,7% 25%,21% 21%,25% 7%,40% 12%);transform:rotate(12deg)}
+.blob{--rad:46px 22px 40px 22px}
+.tick .in{-webkit-mask:radial-gradient(circle 11px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 11px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat;mask:radial-gradient(circle 11px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 11px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat;padding-inline:24px}
+.it.holo-s .in{background:var(--holo);background-size:300% 300%;animation:holo 7s linear infinite}
+
+.s-milk{--bg:#ff8fc4;--pat:radial-gradient(circle,rgba(255,255,255,.5) 5px,transparent 6px);background-size:44px 44px;--tab:var(--ink);--tabc:var(--yel);--tilt:-.5deg}
+.s-rules{--bg:var(--lime);--pat:repeating-linear-gradient(45deg,rgba(255,255,255,.4) 0 12px,transparent 12px 30px);--tab:var(--pur);--tilt:1.2deg}
+.s-fruit{--bg:#ffc23d;--pat:repeating-conic-gradient(rgba(255,255,255,.3) 0 25%,transparent 0 50%);background-size:56px 56px;--tab:var(--pink);--tilt:.7deg}
+.s-foam{--bg:#5c8bff;--pat:radial-gradient(circle at 50% 0,rgba(255,255,255,.28) 0 14px,transparent 15px);background-size:52px 30px;--tab:var(--lime);--tabc:var(--ink);--tilt:-.8deg}
+.s-top{--bg:#2a1458;--pat:radial-gradient(circle,rgba(255,255,255,.18) 2px,transparent 3px);background-size:26px 26px;--tab:var(--mint);--tabc:var(--ink);--tilt:.3deg}
+.s-snack{--bg:#7ff0d0;--pat:repeating-linear-gradient(-45deg,rgba(255,255,255,.45) 0 6px,transparent 6px 26px);--tab:var(--org);--tabc:var(--ink);--tilt:-.6deg}
+
+/* rules */
+.rules h3{margin:20px 0 10px;font:400 22px/1 var(--disp)}
+html[lang="ar"] .rules h3{font-weight:700;line-height:1.4}
+.rules h3:first-child{margin-block-start:0}
+.chips{display:flex;flex-wrap:wrap;gap:12px 8px;list-style:none;margin:0;padding:0}
+.chips li{--r:-3deg}.chips li:nth-child(2n){--r:3deg}
+.chips b{display:block;background:#fff;border-radius:99px;padding:8px 14px;font-weight:600;font-size:15px}
+.sug b{width:54px;height:54px;padding:0;display:grid;place-items:center;border-radius:50%;font:400 15px/1 "Bagel Fat One",var(--disp);background:conic-gradient(var(--pink) calc(var(--v)*1%),#fff 0)}
+.sug b span{background:#fff;border-radius:50%;width:36px;height:36px;display:grid;place-items:center}
+
+/* toppings */
+.tops{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:22px 18px}
+.top{--r:-4deg;position:relative}
+.top:nth-child(2n){--r:5deg;top:14px}.top:nth-child(3n){--r:-1deg}
+.top .in{aspect-ratio:1;border-radius:50%;background:var(--c);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14% 12%}
+.top .in.holo{background:var(--holo);background-size:300% 300%}
+.top h3{margin:0;font:400 clamp(17px,1.5vw,22px)/1.02 var(--disp)}
+html[lang="ar"] .top h3{font-weight:700;line-height:1.35;font-size:clamp(16px,1.4vw,20px)}
+.top p{margin:4px 0 0;font-size:13.5px;font-weight:500;line-height:1.2}
+html[lang="ar"] .top p{font-size:14.5px;line-height:1.35}
+.top .pr{inset-block-start:-6px;inset-inline-end:-2px;width:58px;height:58px;font-size:15px}
+
+/* label footer */
+.label{grid-column:span 5;--r:1.5deg;align-self:center}
+.label .in{background:#fff;border-radius:18px;padding:22px 22px 18px;font-weight:500}
+.label h2{margin:0 0 4px;font:400 clamp(28px,3vw,40px)/1 var(--disp);color:var(--pink)}
+html[lang="ar"] .label h2{font-weight:700;line-height:1.4}
+.label dl{margin:14px 0 0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px;border-block:3px dashed var(--ink);padding-block:14px}
+.label dt{font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px;padding-block-start:2px}
+html[lang="ar"] .label dt{font-size:15px}
+.label dd{margin:0}
+.label .bar{height:44px;margin-block:14px 8px;background:repeating-linear-gradient(90deg,var(--ink) 0 4px,transparent 4px 7px,var(--ink) 7px 8px,transparent 8px 13px,var(--ink) 13px 19px,transparent 19px 21px,var(--ink) 21px 23px,transparent 23px 29px)}
+.label small{display:block;font-size:13.5px;line-height:1.4}
+html[lang="ar"] .label small{font-size:14.5px;line-height:1.6}
+
+.w5>.note,.w4>.note{position:static;align-self:flex-start;margin-block-end:18px}
+@media (max-width:1000px){
+  .w8,.w7,.w5,.w4,.label{grid-column:span 12}
+  .tops{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .hero{padding-block:120px 60px;min-height:0}
+  .hm{display:none}
+  .d-cup{inset-inline-start:-18px;inset-block-start:58px;width:104px}
+  .d-smile{inset-inline-end:74px;inset-block-start:66px;width:66px}
+  .d-qq{inset-inline-start:96px;inset-block-start:70px}.d-qq div{width:54px;font-size:24px}
+  .d-bolt{inset-inline-end:-6px;inset-block-start:150px;width:50px}
+  .d-star{inset-inline-start:-22px;inset-block-end:-6px;width:96px}
+  .d-daisy{inset-inline-end:-16px;inset-block-end:4px;width:78px}
+  .say{margin-block-end:54px}
+  .tops{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}
+  .top h3{font-size:18px}
+  .sheet>h2{inset-block-start:-30px}
+  .sheet>.note{position:static;align-self:flex-start;margin-block-end:18px}
+  .sheet{--tilt:0deg}
+  .it:nth-child(n){top:0}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}html{scroll-behavior:auto}.pearls{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="cup" viewBox="0 0 60 90"><rect x="33" y="-2" width="7" height="62" rx="3.5" transform="rotate(9 36 30)" style="fill:var(--straw,#ff3d9a)"/><path d="M8 27Q30-4 52 27z" fill="#fff" opacity=".75"/><path d="M9 31l5 52q16 7 32 0l5-52z" style="fill:var(--tea,#e9b98a)"/><path d="M9 31l5 52q16 7 32 0l5-52z" fill="none" stroke="#1d0f3f" stroke-width="3" stroke-linejoin="round"/><path d="M12.5 50q17.5 7 35 0l-3.5 33q-14 6-28 0z" fill="#fff" opacity=".28"/><g fill="#22100a"><circle cx="20" cy="76" r="4.3"/><circle cx="30" cy="79" r="4.3"/><circle cx="40" cy="76" r="4.3"/><circle cx="25" cy="68" r="4.3"/><circle cx="35" cy="69" r="4.3"/></g><rect x="5" y="24" width="50" height="8" rx="4" fill="#1d0f3f"/></symbol>
+</defs></svg>
+
+<div class="ctrl">
+  <a class="home-link" href="../index.html" aria-label="All menus" title="All menus / كل القوائم"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="2"/><rect x="9" y="1" width="6" height="6" rx="2"/><rect x="1" y="9" width="6" height="6" rx="2"/><rect x="9" y="9" width="6" height="6" rx="2"/></svg></a>
+  <button id="langToggle" type="button" class="holo"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<div class="pearls" aria-hidden="true">
+  <i style="left:6%;--s:30px;--t:19s;--d:-3s"></i><i style="left:18%;--s:44px;--t:25s;--d:-12s;--x:-30px"></i><i style="left:33%;--s:22px;--t:16s;--d:-7s"></i><i style="left:47%;--s:36px;--t:22s;--d:-17s;--x:60px"></i><i style="left:61%;--s:26px;--t:18s;--d:-1s;--x:-50px"></i><i style="left:74%;--s:48px;--t:28s;--d:-9s"></i><i style="left:86%;--s:28px;--t:17s;--d:-14s;--x:-20px"></i><i style="left:94%;--s:38px;--t:23s;--d:-5s;--x:-70px"></i>
+</div>
+
+<div class="wall">
+<header class="hero">
+  <div class="bomb" aria-hidden="true">
+    <svg class="stk d-cup" viewBox="-4 -8 68 102"><use href="#cup"/></svg>
+    <svg class="stk d-cup2 hm" viewBox="-4 -8 68 102"><use href="#cup"/></svg>
+    <svg class="stk d-smile" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#ffe23d"/><ellipse cx="35" cy="40" rx="6" ry="10" fill="#1d0f3f"/><ellipse cx="65" cy="40" rx="6" ry="10" fill="#1d0f3f"/><path d="M24 58q26 30 52 0" fill="none" stroke="#1d0f3f" stroke-width="6" stroke-linecap="round"/><circle cx="20" cy="56" r="6" fill="#ff3d9a" opacity=".6"/><circle cx="80" cy="56" r="6" fill="#ff3d9a" opacity=".6"/></svg>
+    <div class="stk d-star"><div class="holo"><span lang="en">NEW!</span><span lang="ar">جديد!</span></div></div>
+    <svg class="stk d-daisy" viewBox="0 0 100 100"><g fill="#fff"><circle cx="50" cy="20" r="18"/><circle cx="50" cy="80" r="18"/><circle cx="20" cy="50" r="18"/><circle cx="80" cy="50" r="18"/><circle cx="29" cy="29" r="18"/><circle cx="71" cy="29" r="18"/><circle cx="29" cy="71" r="18"/><circle cx="71" cy="71" r="18"/></g><circle cx="50" cy="50" r="19" fill="#ff8a2b"/></svg>
+    <div class="stk d-code hm"><div><span lang="en">100% chewy</span><span lang="ar">مطاطي ١٠٠٪</span></div></div>
+    <svg class="stk d-heart hm" viewBox="0 0 100 92"><path d="M50 90C-20 44 8-6 50 22 92-6 120 44 50 90z" fill="#ff3d9a"/><path d="M24 26q8-8 18-2" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
+    <div class="stk d-qq"><div>QQ</div></div>
+    <svg class="stk d-bolt" viewBox="0 0 60 100"><path d="M36 0L4 56h20L14 100l42-60H34z" fill="#c6f432"/></svg>
+    <svg class="stk d-globe hm" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#8a4dff"/><g fill="none" stroke="#fff" stroke-width="3.5"><ellipse cx="50" cy="50" rx="20" ry="46"/><path d="M4 50h92M11 28h78M11 72h78M50 4v92"/></g></svg>
+  </div>
+  <div class="title">
+    <p class="stk kick"><b><span lang="en">Bubble tea &amp; chewy things</span><span lang="ar">شاي الفقاعات وكل ما هو مطاطي</span></b></p>
+    <h1><span lang="en"><span class="a">Boba</span><span class="b">Pop</span></span><span lang="ar"><span class="a">بوبا</span><span class="b">بوب</span></span></h1>
+    <div class="stk say"><div>
+      <strong><span lang="en">Shake it. Poke it. Pop it.</span><span lang="ar">رُجّه. اثقبه. فرقِعه.</span></strong>
+      <p><span lang="en">Pearls cooked fresh every two hours, real leaf tea shaken by hand, and enough toppings to need a second straw.</span><span lang="ar">لآلئ تابيوكا تُطهى طازجة كل ساعتين، وشاي من أوراق حقيقية يُرَجّ باليد، وإضافات تكفي لتحتاج مصّاصة ثانية.</span></p>
+    </div></div>
+  </div>
+</header>
+
+<ul class="tabs">
+  <li class="stk" style="--c:#ff8fc4"><a href="#milk"><span lang="en">Milk Teas</span><span lang="ar">شاي بالحليب</span></a></li>
+  <li class="stk" style="--c:#ffc23d"><a href="#fruit"><span lang="en">Fruit Teas</span><span lang="ar">شاي الفواكه</span></a></li>
+  <li class="stk" style="--c:#8fb0ff"><a href="#foam"><span lang="en">Foam &amp; Fancy</span><span lang="ar">رغوة ودلال</span></a></li>
+  <li class="stk" style="--c:var(--mint)"><a href="#top"><span lang="en">Toppings</span><span lang="ar">الإضافات</span></a></li>
+  <li class="stk" style="--c:var(--lime)"><a href="#snack"><span lang="en">Snacks</span><span lang="ar">لقيمات</span></a></li>
+</ul>
+
+<main class="board">
+  <section class="sheet s-milk w8" id="milk">
+    <h2 class="stk"><b><span lang="en">Milk Teas</span><span lang="ar">شاي بالحليب</span></b></h2>
+    <p class="stk note"><span><span lang="en">all come with pearls ●</span><span lang="ar">كلّها تأتي مع اللآلئ ●</span></span></p>
+    <ul class="grid">
+      <li class="it stk" style="--c:#fff0c9;--tea:#b97a45"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Brown Sugar Tiger</span><span lang="ar">نمر السكر البنّي</span></h3><p><span lang="en">Warm pearls, tiger stripes of muscovado syrup, cold fresh milk.</span><span lang="ar">لآلئ دافئة وخطوط نمرية من دبس السكر الأسمر مع حليب طازج بارد.</span></p><span class="tag" style="background:var(--pink)"><span lang="en">★ No. 1 seller</span><span lang="ar">★ الأكثر طلبًا</span></span></div><span class="pr">$6.5</span></li>
+      <li class="it stk blob" style="--c:#fff;--tea:#d9a876;--pc:var(--mint)"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">The Classic</span><span lang="ar">الكلاسيكي</span></h3><p><span lang="en">Assam black tea, creamy milk, chewy pearls. The one that started it all.</span><span lang="ar">شاي أسّام أسود مع حليب كريمي ولآلئ مطاطية. المشروب الذي بدأ الحكاية.</span></p></div><span class="pr">$5.5</span></li>
+      <li class="it stk" style="--c:#e9d6ff;--tea:#b88ae6;--pc:var(--lime)"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Taro Cloud</span><span lang="ar">غيمة التارو</span></h3><p><span lang="en">Real mashed taro root, jasmine tea, a purple you can taste.</span><span lang="ar">جذور تارو حقيقية مهروسة مع شاي الياسمين، بنفسجيٌّ له طعم.</span></p></div><span class="pr">$6</span></li>
+      <li class="it stk tick" style="--c:#ffd0a6;--tea:#ff8a2b;--pc:#fff"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Thai Sunset</span><span lang="ar">غروب تايلاندي</span></h3><p><span lang="en">Spiced orange Thai tea swirled with condensed milk.</span><span lang="ar">شاي تايلاندي برتقالي متبّل يتماوج مع الحليب المكثّف.</span></p></div><span class="pr">$6</span></li>
+      <li class="it stk" style="--c:#fff;--tea:#8c5a3c;--pc:var(--org)"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Okinawa Roast</span><span lang="ar">أوكيناوا المحمّص</span></h3><p><span lang="en">Deep roasted Okinawa black sugar, toasty and a little smoky.</span><span lang="ar">سكر أوكيناوا الأسود المحمّص بعمق، بنكهة تحميص ولمسة دخان.</span></p></div><span class="pr">$6</span></li>
+      <li class="it stk blob" style="--c:#d9f7c4;--tea:#8fce5a;--pc:var(--pink)"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Matcha Moo</span><span lang="ar">ماتشا مو</span></h3><p><span lang="en">Stone-ground Uji matcha whisked to order over oat milk.</span><span lang="ar">ماتشا أوجي مطحونة على الحجر تُخفق عند الطلب فوق حليب الشوفان.</span></p><span class="tag"><span lang="en">Vegan</span><span lang="ar">نباتي</span></span></div><span class="pr">$6.5</span></li>
+    </ul>
+  </section>
+
+  <section class="sheet s-rules w4 rules" id="rules">
+    <h2 class="stk"><b><span lang="en">Your Cup</span><span lang="ar">كوبك أنت</span></b></h2>
+    <h3><span lang="en">Sugar level</span><span lang="ar">درجة السكر</span></h3>
+    <ul class="chips sug">
+      <li class="stk"><b style="--v:0"><span>0</span></b></li><li class="stk"><b style="--v:25"><span>25</span></b></li><li class="stk"><b style="--v:50"><span>50</span></b></li><li class="stk"><b style="--v:75"><span>75</span></b></li><li class="stk"><b style="--v:100"><span>100</span></b></li>
+    </ul>
+    <h3><span lang="en">Ice</span><span lang="ar">الثلج</span></h3>
+    <ul class="chips">
+      <li class="stk"><b><span lang="en">No ice</span><span lang="ar">بلا ثلج</span></b></li><li class="stk"><b><span lang="en">Less</span><span lang="ar">قليل</span></b></li><li class="stk"><b><span lang="en">Regular</span><span lang="ar">عادي</span></b></li><li class="stk"><b><span lang="en">Slushy</span><span lang="ar">مجروش</span></b></li>
+    </ul>
+    <h3><span lang="en">Size &amp; milk</span><span lang="ar">الحجم والحليب</span></h3>
+    <ul class="chips">
+      <li class="stk"><b><span lang="en">Medium 500 ml</span><span lang="ar">وسط ٥٠٠ مل</span></b></li><li class="stk"><b style="background:var(--yel)"><span lang="en">Large 700 ml +$1</span><span lang="ar">كبير ٧٠٠ مل ‎+$1</span></b></li><li class="stk"><b><span lang="en">Oat or almond +$0.75</span><span lang="ar">شوفان أو لوز ‎+$0.75</span></b></li>
+    </ul>
+  </section>
+
+  <section class="sheet s-fruit w7" id="fruit">
+    <h2 class="stk"><b><span lang="en">Fruit Teas</span><span lang="ar">شاي الفواكه</span></b></h2>
+    <ul class="grid">
+      <li class="it stk" style="--c:#fff;--tea:#ffc23d;--pc:var(--pink)"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Mango Pomelo Pop</span><span lang="ar">مانجو وبوملي</span></h3><p><span lang="en">Alphonso mango, pomelo pulp, sago and popping mango pearls.</span><span lang="ar">مانجو ألفونسو مع لبّ البوملي والساغو ولآلئ مانجو متفجّرة.</span></p><span class="tag" style="background:var(--pur)"><span lang="en">Fan favourite</span><span lang="ar">معشوق الجماهير</span></span></div><span class="pr">$6.5</span></li>
+      <li class="it stk blob" style="--c:#ffd9ea;--tea:#ff9bc4;--pc:#fff"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Lychee Rose</span><span lang="ar">ليتشي وورد</span></h3><p><span lang="en">Whole lychees, rose petals and cold-brewed green tea.</span><span lang="ar">حبّات ليتشي كاملة وبتلات ورد مع شاي أخضر منقوع على البارد.</span></p></div><span class="pr">$6</span></li>
+      <li class="it stk" style="--c:#ffe9a8;--tea:#ff5d6c;--pc:var(--lime)"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Strawberry Smash</span><span lang="ar">فراولة مهروسة</span></h3><p><span lang="en">Smashed fresh strawberries shaken hard with jasmine tea.</span><span lang="ar">فراولة طازجة مهروسة تُرَجّ بقوة مع شاي الياسمين.</span></p></div><span class="pr">$6</span></li>
+      <li class="it stk tick" style="--c:#fff;--tea:#ffb000;--pc:var(--org)"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Passion QQ</span><span lang="ar">باشن كيو كيو</span></h3><p><span lang="en">Tart passionfruit, coconut jelly and pearls — double chew.</span><span lang="ar">باشن فروت حامض مع هلام جوز الهند واللآلئ: مضغٌ مضاعف.</span></p></div><span class="pr">$6</span></li>
+      <li class="it stk" style="--c:#ffe0cc;--tea:#ffa77a;--pc:var(--mint)"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Peach Oolong Fizz</span><span lang="ar">خوخ وأولونغ فوّار</span></h3><p><span lang="en">White peach, honey-scented oolong, topped with soda.</span><span lang="ar">خوخ أبيض وشاي أولونغ بعبير العسل تعلوه الصودا.</span></p></div><span class="pr">$5.5</span></li>
+      <li class="it stk blob" style="--c:#e3ffb0;--tea:#b6e04a;--pc:var(--pink)"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Kumquat Lime Cooler</span><span lang="ar">كمكوات وليمون منعش</span></h3><p><span lang="en">Crushed kumquat, lime and four-seasons tea over aloe cubes.</span><span lang="ar">كمكوات مهروس وليمون أخضر مع شاي الفصول الأربعة فوق مكعّبات الصبّار.</span></p></div><span class="pr">$5.5</span></li>
+    </ul>
+  </section>
+
+  <section class="sheet s-foam w5" id="foam">
+    <h2 class="stk"><b><span lang="en">Foam &amp; Fancy</span><span lang="ar">رغوة ودلال</span></b></h2>
+    <p class="stk note"><span><span lang="en">sip at 45° for max foam</span><span lang="ar">ارتشف بزاوية ٤٥° لرغوة أكثر</span></span></p>
+    <ul class="grid">
+      <li class="it stk" style="--c:#fff6e0;--tea:#e6c36a"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Salted Cheese Oolong</span><span lang="ar">أولونغ برغوة الجبن</span></h3><p><span lang="en">Roasted oolong under a thick cap of whipped salted cream cheese.</span><span lang="ar">أولونغ محمّص تحت طبقة سميكة من جبن الكريمة المملّح المخفوق.</span></p></div><span class="pr">$6.5</span></li>
+      <li class="it stk holo-s blob" style="--tea:#7b5cff;--pc:#fff"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Ube Galaxy</span><span lang="ar">مجرّة الأوبي</span></h3><p><span lang="en">Purple yam milk, butterfly-pea swirl, edible glitter. Yes, glitter.</span><span lang="ar">حليب البطاطا البنفسجية مع دوّامة زهرة البازلاء وبريق صالح للأكل. نعم، بريق.</span></p><span class="tag"><span lang="en">Holo edition</span><span lang="ar">إصدار هولوغرافي</span></span></div><span class="pr">$7.5</span></li>
+      <li class="it stk" style="--c:#fff;--tea:#f2d28a;--pc:var(--org)"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Crème Brûlée Boba</span><span lang="ar">بوبا الكريم بروليه</span></h3><p><span lang="en">Custard foam torched at the counter until it crackles.</span><span lang="ar">رغوة الكاسترد تُحرق بالشعلة أمامك حتى تتقرمش.</span></p></div><span class="pr">$7</span></li>
+      <li class="it stk tick" style="--c:#ffe3b8;--tea:#a8713f;--pc:var(--pink)"><div class="in"><svg viewBox="-2 -6 64 98" aria-hidden="true"><use href="#cup"/></svg><h3><span lang="en">Dalgona Crunch</span><span lang="ar">دالغونا المقرمشة</span></h3><p><span lang="en">Whipped coffee cream and shards of honeycomb toffee.</span><span lang="ar">كريمة القهوة المخفوقة مع كِسَر توفي قرص العسل.</span></p></div><span class="pr">$6.5</span></li>
+    </ul>
+  </section>
+
+  <section class="sheet s-top" id="top">
+    <h2 class="stk"><b><span lang="en">Toppings</span><span lang="ar">الإضافات</span></b></h2>
+    <p class="stk note"><span><span lang="en">stack as many as you dare</span><span lang="ar">كدِّس منها ما تجرؤ عليه</span></span></p>
+    <ul class="tops">
+      <li class="top stk" style="--c:#fff0c9"><div class="in"><h3><span lang="en">Tapioca Pearls</span><span lang="ar">لآلئ التابيوكا</span></h3><p><span lang="en">warm, honeyed, QQ</span><span lang="ar">دافئة بالعسل ومطاطية</span></p></div><span class="pr">$0.8</span></li>
+      <li class="top stk" style="--c:var(--yel)"><div class="in"><h3><span lang="en">Popping Mango</span><span lang="ar">مانجو متفجّرة</span></h3><p><span lang="en">juice-filled bursts</span><span lang="ar">كرات مليئة بالعصير</span></p></div><span class="pr" style="--pc:var(--pink)">$1</span></li>
+      <li class="top stk" style="--c:var(--mint)"><div class="in"><h3><span lang="en">Grass Jelly</span><span lang="ar">هلام العشب</span></h3><p><span lang="en">cool, herbal, silky</span><span lang="ar">بارد وعشبي وحريري</span></p></div><span class="pr">$0.8</span></li>
+      <li class="top stk"><div class="in holo"><h3><span lang="en">Egg Pudding</span><span lang="ar">بودنغ البيض</span></h3><p><span lang="en">wobbly caramel custard</span><span lang="ar">كاسترد كراميل مرتجف</span></p></div><span class="pr" style="--pc:#fff">$1</span></li>
+      <li class="top stk" style="--c:#ffd9ea"><div class="in"><h3><span lang="en">Lychee Jelly</span><span lang="ar">هلام الليتشي</span></h3><p><span lang="en">coconut cubes, floral</span><span lang="ar">مكعّبات جوز هند عطرية</span></p></div><span class="pr" style="--pc:var(--lime)">$0.8</span></li>
+      <li class="top stk" style="--c:#fff"><div class="in"><h3><span lang="en">Cheese Foam Cap</span><span lang="ar">قبّعة رغوة الجبن</span></h3><p><span lang="en">salty-sweet cloud</span><span lang="ar">غيمة مالحة حلوة</span></p></div><span class="pr" style="--pc:var(--org)">$1.5</span></li>
+    </ul>
+  </section>
+
+  <section class="sheet s-snack w7" id="snack">
+    <h2 class="stk"><b><span lang="en">Snacks</span><span lang="ar">لقيمات</span></b></h2>
+    <ul class="grid">
+      <li class="it stk" style="--c:#fff"><div class="in" style="grid-template-columns:1fr"><h3><span lang="en">Bubble Waffle</span><span lang="ar">وافل الفقاعات</span></h3><p><span lang="en">Hong Kong egg waffle, crisp shell, custardy bubbles, condensed-milk dip.</span><span lang="ar">وافل البيض على طريقة هونغ كونغ: قشرة مقرمشة وفقاعات طرية مع غموس الحليب المكثّف.</span></p></div><span class="pr">$5.5</span></li>
+      <li class="it stk blob" style="--c:#ffd9ea;--pc:var(--lime)"><div class="in" style="grid-template-columns:1fr"><h3><span lang="en">Mochi Donuts ×3</span><span lang="ar">دونات الموتشي ×٣</span></h3><p><span lang="en">Pull-apart chewy rings glazed in matcha, strawberry and black sesame.</span><span lang="ar">حلقات مطاطية تتفكّك باليد، مغطّاة بالماتشا والفراولة والسمسم الأسود.</span></p></div><span class="pr">$6</span></li>
+      <li class="it stk tick" style="--c:var(--yel);--pc:#fff"><div class="in" style="grid-template-columns:1fr"><h3><span lang="en">Popcorn Chicken</span><span lang="ar">دجاج بوب كورن</span></h3><p><span lang="en">Taiwanese night-market bites, five-spice, fried basil, plum salt.</span><span lang="ar">قطع دجاج على طريقة الأسواق الليلية التايوانية، بالبهارات الخمسة والريحان المقلي وملح البرقوق.</span></p><span class="tag" style="background:var(--pink)"><span lang="en">A little spicy</span><span lang="ar">حارّ قليلًا</span></span></div><span class="pr">$7</span></li>
+      <li class="it stk" style="--c:#e9d6ff;--pc:var(--org)"><div class="in" style="grid-template-columns:1fr"><h3><span lang="en">Taro Fries</span><span lang="ar">أصابع التارو</span></h3><p><span lang="en">Crunchy outside, fluffy purple inside, with salted egg-yolk mayo.</span><span lang="ar">مقرمشة من الخارج، بنفسجية هشّة من الداخل، مع مايونيز صفار البيض المملّح.</span></p></div><span class="pr">$5</span></li>
+    </ul>
+  </section>
+
+  <footer class="label stk">
+    <div class="in">
+      <h2><span lang="en">Handle with straw</span><span lang="ar">يُحمَل مع مصّاصة</span></h2>
+      <span lang="en">Boba Pop — Bubble Tea Bar</span><span lang="ar">بوبا بوب — ركن شاي الفقاعات</span>
+      <dl>
+        <dt><span lang="en">Open</span><span lang="ar">الدوام</span></dt><dd><span lang="en">Every day 11 am – midnight · Fri &amp; Sat till 2 am</span><span lang="ar">يوميًا ١١ صباحًا – منتصف الليل · الجمعة والسبت حتى ٢ فجرًا</span></dd>
+        <dt><span lang="en">Where</span><span lang="ar">العنوان</span></dt><dd><span lang="en">Unit 22, Neon Arcade, 88 Pearl Street, Kowloon Row</span><span lang="ar">المحل ٢٢، نيون أركيد، ٨٨ شارع اللؤلؤ، كولون رو</span></dd>
+        <dt><span lang="en">Ping us</span><span lang="ar">راسلنا</span></dt><dd><span dir="ltr">@bobapop.example · +1 555 0192</span></dd>
+      </dl>
+      <div class="bar" aria-hidden="true"></div>
+      <small><span lang="en">Allergens: milk, soy, egg, gluten, sesame and tree nuts are all in play behind the bar. Pearls are chewy — sip carefully, little ones. Prices in US dollars, tax included.</span><span lang="ar">مسبّبات الحساسية: الحليب والصويا والبيض والغلوتين والسمسم والمكسّرات كلها موجودة خلف المنضدة. اللآلئ مطاطية، فليرتشف الصغار بحذر. الأسعار بالدولار الأمريكي وتشمل الضريبة.</span></small>
+    </div>
+  </footer>
+</main>
+</div>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

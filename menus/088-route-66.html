@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Route 66 Drive-In · درايف إن طريق ٦٦</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Route 66 Drive-In — a neon-lit roadside stop for smashed burgers, coney dogs, thick malts and pie, served to your car window. درايف إن طريق ٦٦ — برغر وهوت دوغ ومخفوقات على جانب الطريق.">
+<meta name="theme-color" content="#150f2c">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Yellowtail&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=Lalezar&family=Changa:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--night:#150f2c;--ground:#17121d;--asph:#27272c;--line:#f4c430;--pink:#ff3d7f;--aqua:#46f0dc;--green:#0b6b48;--red:#c9272d;--cream:#f5edd8;--blue:#1f4fa3;--brown:#6a3d1c;--rw:190px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ground);color:var(--cream);font-family:"Barlow","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.45;overflow-x:clip}
+html[lang="ar"] body{font-family:"Changa","Tahoma",sans-serif;font-size:17.5px;line-height:1.6}
+html[lang="ar"] *{letter-spacing:0!important}
+.bg{font-family:"Bungee","Barlow Condensed",Impact,sans-serif;font-weight:400}
+html[lang="ar"] .bg{font-family:"Lalezar","Changa",sans-serif}
+
+/* controls: a little green guide sign */
+.ctl{position:fixed;z-index:40;top:12px;inset-inline-end:12px;display:flex;background:var(--green);border-radius:9px;box-shadow:inset 0 0 0 2px var(--green),inset 0 0 0 4px #fff,0 6px 16px rgba(0,0,0,.5)}
+.ctl button,.ctl a{font:700 14px/1 "Barlow Condensed","Barlow",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:none;border:0;cursor:pointer;text-decoration:none;min-height:42px;padding:0 14px;display:inline-flex;align-items:center}
+.ctl button{font:600 15px/1 "Changa",sans-serif;letter-spacing:0;text-transform:none}
+html[lang="ar"] .ctl button{font:700 14px/1 "Barlow Condensed",sans-serif;letter-spacing:.08em!important;text-transform:uppercase}
+html[lang="ar"] .ctl a{font:600 14px/1 "Changa",sans-serif;text-transform:none}
+.ctl a{border-inline-start:2px solid rgba(255,255,255,.7)}
+.ctl :focus-visible{outline:2px solid var(--line);outline-offset:-6px}
+.ctl button:hover,.ctl a:hover{color:var(--line)}
+
+/* ---------- hero: dusk on the highway ---------- */
+.hero{position:relative;overflow:hidden;isolation:isolate;padding:clamp(70px,8vw,100px) clamp(16px,4vw,48px) 0;
+  background:linear-gradient(180deg,#120c2a 0,#2a1552 34%,#7a2a6b 58%,#e0563c 78%,#f8a640 92%,#ffd070 100%)}
+.hero::before{content:"";position:absolute;inset:0 0 40%;z-index:-3;opacity:.9;
+  background:radial-gradient(1.5px 1.5px at 12% 18%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 28% 42%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 44% 12%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 58% 30%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 72% 16%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 86% 38%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 94% 10%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 6% 52%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 36% 62%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 66% 58%,#fff 50%,transparent 51%)}
+.sun{position:absolute;z-index:-2;left:50%;bottom:40px;width:280px;height:280px;margin-left:-140px;border-radius:50%;background:linear-gradient(180deg,#ffe27a 0,#ff8a4a 45%,#ff3d7f 80%);
+  -webkit-mask:linear-gradient(180deg,#000 0 46%,transparent 46% 49%,#000 49% 58%,transparent 58% 62%,#000 62% 69%,transparent 69% 74%,#000 74% 79%,transparent 79% 85%,#000 85% 88%,transparent 88%);mask:linear-gradient(180deg,#000 0 46%,transparent 46% 49%,#000 49% 58%,transparent 58% 62%,#000 62% 69%,transparent 69% 74%,#000 74% 79%,transparent 79% 85%,#000 85% 88%,transparent 88%)}
+.mesa{position:absolute;z-index:-1;inset:auto 0 168px;width:100%;height:150px;display:block}
+.land{position:absolute;z-index:-1;inset:auto 0 0;height:170px;background:linear-gradient(180deg,#2a1730,var(--ground) 80%)}
+.land i{position:absolute;left:50%;bottom:0;width:var(--rw);height:100%;margin-left:calc(var(--rw)/-2);background:var(--asph);-webkit-mask:linear-gradient(180deg,transparent,#000 70%);mask:linear-gradient(180deg,transparent,#000 70%);background-image:linear-gradient(90deg,transparent 11px,#e9e6dc 11px 15px,transparent 15px calc(100% - 15px),#e9e6dc calc(100% - 15px) calc(100% - 11px),transparent 0)}
+.land i::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:6px;margin-left:-3px;background:repeating-linear-gradient(180deg,var(--line) 0 44px,transparent 44px 96px)}
+.hgrid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(300px,440px) 1fr;gap:clamp(24px,7vw,120px);align-items:start;padding-bottom:140px}
+
+.marquee{position:relative;aspect-ratio:460/600;font-size:clamp(11.5px,1.25vw,16px);width:100%}
+.marquee svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+html[dir="rtl"] .marquee svg{transform:scaleX(-1)}
+.chase{animation:chase 1s steps(3,end) infinite}
+@keyframes chase{to{stroke-dashoffset:-90}}
+.panel{position:absolute;inset-block:14% 30%;inset-inline:3% 20%;background:#0d3a40;border-radius:26px 26px 90px 26px;border:.4em solid var(--cream);box-shadow:0 0 0 .2em #0d3a40,0 0 50px rgba(255,61,127,.35),inset 0 0 30px rgba(0,0,0,.6);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5em;padding:1em;text-align:center}
+html[dir="rtl"] .panel{border-radius:26px 26px 26px 90px}
+h1{font-weight:400;display:block}
+h1>span{display:flex;flex-direction:column;align-items:center;gap:.45em}
+.nz{white-space:nowrap;font-family:"Yellowtail",cursive;font-size:4.1em;line-height:.95;color:#fff;transform:rotate(-6deg);padding:0 .1em .08em;
+  text-shadow:0 0 4px #fff,0 0 12px var(--pink),0 0 26px var(--pink),0 0 60px var(--pink)}
+html[lang="ar"] .nz{font-family:"Lalezar",sans-serif;font-size:3.3em;line-height:1.2;transform:rotate(-4deg)}
+.tiles{display:flex;gap:.25em;direction:ltr}
+.tiles b{font-family:"Bungee",sans-serif;font-weight:400;font-size:1.15em;line-height:1;width:1.3em;height:1.45em;display:grid;place-items:center;border-radius:.15em;color:#1b1420;background:var(--line)}
+.tiles b:nth-child(even){background:var(--cream)}.tiles b:nth-child(6){background:none;color:var(--line);width:.5em}
+.plate{white-space:nowrap;font-family:"Lalezar",sans-serif;font-size:2.3em;line-height:1.25;color:#1b1420;background:var(--line);padding:0 .5em;border-radius:.15em;box-shadow:.14em .14em 0 var(--cream)}
+.open{position:absolute;inset-block-start:73.5%;inset-inline-start:17%;width:44%;text-align:center;font-family:"Bungee",sans-serif;font-size:1.25em;letter-spacing:.08em;line-height:1;padding:.6em .3em;border-radius:.5em;background:#0b0a12;border:.16em solid var(--aqua);color:#eafffb;
+  box-shadow:0 0 14px rgba(70,240,220,.7),inset 0 0 10px rgba(70,240,220,.45);text-shadow:0 0 6px var(--aqua),0 0 16px var(--aqua);animation:flick 5s infinite}
+html[lang="ar"] .open{font-family:"Lalezar",sans-serif;font-size:1.5em}
+@keyframes flick{0%,92%,96%,100%{opacity:1}94%{opacity:.45}98%{opacity:.75}}
+
+.hello{padding-top:clamp(8px,4vw,56px);max-width:520px}
+.shield{width:92px;height:auto;display:block;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5))}
+.kick{font:700 .84rem/1.3 "Barlow Condensed",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#ffd9a0;margin-top:18px}
+html[lang="ar"] .kick{font:600 1rem/1.5 "Changa",sans-serif}
+.tagline{font-size:clamp(2rem,4.2vw,3.5rem);line-height:1.02;margin:10px 0 14px;color:#fff;text-shadow:3px 3px 0 var(--red)}
+html[lang="ar"] .tagline{font-size:clamp(2.3rem,4.6vw,3.9rem);line-height:1.2}
+.hello p.in{font-size:1.06rem;color:#fbe9d2;max-width:44ch;text-shadow:0 1px 8px rgba(40,10,40,.6)}
+.carhop{display:inline-flex;align-items:center;gap:10px;margin-top:20px;background:rgba(15,10,30,.6);border:1px dashed rgba(255,255,255,.5);border-radius:40px;padding:8px 16px;font-size:.95rem}
+.carhop i{flex:none;width:12px;height:12px;border-radius:50%;background:#fff3b0;box-shadow:0 0 10px 4px rgba(255,230,120,.8);animation:flick 2.4s infinite}
+
+/* ---------- the road trip ---------- */
+.trip{position:relative;max-width:1260px;margin:0 auto;padding:10px clamp(16px,3vw,40px) 0}
+.trip::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:var(--rw);margin-left:calc(var(--rw)/-2);background-color:var(--asph);
+  background-image:linear-gradient(90deg,transparent 11px,#e9e6dc 11px 15px,transparent 15px calc(100% - 15px),#e9e6dc calc(100% - 15px) calc(100% - 11px),transparent 0),repeating-linear-gradient(180deg,var(--line) 0 44px,transparent 44px 96px);
+  background-size:100% 100%,6px 100%;background-position:0 0,50% 0;background-repeat:no-repeat,repeat-y;box-shadow:0 0 0 14px rgba(0,0,0,.18)}
+.stop{position:relative;display:grid;grid-template-columns:1fr var(--rw) 1fr;column-gap:clamp(22px,3.4vw,54px);align-items:center;padding-block:clamp(34px,4.6vw,62px);scroll-margin-top:10px}
+.stop .sgn{grid-column:1;grid-row:1}.stop .side{grid-column:3;grid-row:1}.stop .lane{grid-column:2;grid-row:1}
+.stop.flip .sgn{grid-column:3}.stop.flip .side{grid-column:1}
+.side{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.lane{align-self:stretch;position:relative}
+
+/* signs */
+.sgn{position:relative;margin-bottom:54px}
+.sgn::after{content:"";position:absolute;top:100%;height:54px;inset-inline:0;z-index:-1;background:linear-gradient(90deg,#6b6f78,#b9bec8 40%,#5a5e66) 18% 0/11px 100% no-repeat,linear-gradient(90deg,#6b6f78,#b9bec8 40%,#5a5e66) 82% 0/11px 100% no-repeat}
+.sgn h2{font-size:clamp(1.5rem,2.7vw,2.2rem);line-height:1.05;font-weight:400}
+html[lang="ar"] .sgn h2{font-size:clamp(1.9rem,3.2vw,2.7rem);line-height:1.25}
+.sgn .ex{font:700 .82rem/1 "Barlow Condensed",sans-serif;letter-spacing:.2em;text-transform:uppercase}
+html[lang="ar"] .sgn .ex{font:600 .95rem/1.3 "Changa",sans-serif}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:8px}
+.it{display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:center;padding:13px 0;border-top:2px solid rgba(255,255,255,.28)}
+.it h3{font:700 1.2rem/1.2 "Barlow Condensed","Barlow",sans-serif;letter-spacing:.05em;text-transform:uppercase}
+html[lang="ar"] .it h3{font:700 1.18rem/1.4 "Changa",sans-serif;text-transform:none}
+.it p{font-size:.97rem;opacity:.92;grid-column:1}
+.it .mm{grid-column:2;grid-row:1/span 2}
+.star{display:inline-block;font:700 .68rem/1 "Barlow Condensed",sans-serif;letter-spacing:.14em;text-transform:uppercase;background:var(--line);color:#1b1420;padding:4px 7px 3px;border-radius:3px;margin-inline-start:8px;vertical-align:middle;white-space:nowrap}
+html[lang="ar"] .star{font:600 .78rem/1.2 "Changa",sans-serif;padding:2px 7px}
+/* mile-marker price */
+.mm{position:relative;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:56px;padding:5px 7px 6px;background:var(--green);color:#fff;border-radius:5px;box-shadow:inset 0 0 0 2px var(--green),inset 0 0 0 3.5px #fff,0 3px 0 rgba(0,0,0,.35);direction:ltr;margin-bottom:9px}
+.mm::after{content:"";position:absolute;top:100%;left:50%;width:5px;height:9px;margin-left:-2.5px;background:#9a9fa8}
+.mm i{font:700 .62rem/1 "Barlow Condensed",sans-serif;font-style:normal;letter-spacing:.12em}
+.mm b{font:700 1.3rem/1 "Barlow Condensed","Barlow",sans-serif;letter-spacing:.02em}
+
+.green{background:var(--green);border-radius:16px;padding:26px 28px 14px;box-shadow:inset 0 0 0 5px var(--green),inset 0 0 0 9px #fff,0 18px 30px rgba(0,0,0,.4)}
+.green .mm{background:#fff;color:var(--green);box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 3.5px var(--green),0 3px 0 rgba(0,0,0,.35)}
+.arrowup{flex:none;width:44px;height:44px}
+html[dir="rtl"] .arrowup{transform:scaleX(-1)}
+.bill{background:var(--cream);color:#1d1820;border-radius:6px;padding:0 0 12px;box-shadow:0 0 0 6px #3a2a22,0 18px 30px rgba(0,0,0,.4)}
+.bill .hd{background:var(--red);color:#fff;padding:20px 26px 16px;margin:0;border-radius:4px 4px 0 0;position:relative}
+.bill .hd::before{content:"";position:absolute;inset:auto 10% 100%;height:16px;background:radial-gradient(circle at 50% 100%,#fff6c0 0 5px,#3a2a22 6px 9px,transparent 10px) 0 0/25% 100%;filter:drop-shadow(0 6px 8px rgba(255,240,170,.9))}
+.bill .it{margin-inline:26px;border-top-color:rgba(29,24,32,.2)}
+.warn{background:var(--line);color:#17131a;border-radius:16px;padding:24px 28px 14px;box-shadow:inset 0 0 0 4px var(--line),inset 0 0 0 8px #17131a,0 18px 30px rgba(0,0,0,.4)}
+.warn .it{border-top-color:rgba(23,19,26,.35)}
+.warn .mm,.bill .mm{box-shadow:inset 0 0 0 2px var(--green),inset 0 0 0 3.5px #fff,0 3px 0 rgba(0,0,0,.3)}
+.neon{background:#0c0a14;border-radius:22px;padding:26px 28px 14px;border:3px solid var(--pink);box-shadow:0 0 22px rgba(255,61,127,.65),inset 0 0 22px rgba(255,61,127,.3)}
+.neon h2{font-family:"Yellowtail",cursive;font-size:clamp(2.3rem,4vw,3.3rem);color:#fff;text-shadow:0 0 4px #fff,0 0 12px var(--aqua),0 0 30px var(--aqua);transform:rotate(-3deg);transform-origin:0 100%}
+html[lang="ar"] .neon h2{font-family:"Lalezar",sans-serif;transform:none}
+.neon .ex{color:var(--pink);text-shadow:0 0 10px var(--pink)}
+.neon .it{border-top:2px dotted rgba(255,61,127,.6)}
+.brown{background:var(--brown);border-radius:14px;padding:24px 28px 14px;box-shadow:inset 0 0 0 4px var(--brown),inset 0 0 0 7px #fff,0 18px 30px rgba(0,0,0,.4)}
+
+/* roadside furniture */
+.dia{width:150px;height:150px;transform:rotate(45deg);background:var(--line);border-radius:14px;box-shadow:inset 0 0 0 4px var(--line),inset 0 0 0 8px #17131a;display:grid;place-items:center;margin:30px 0 26px}
+.dia span{transform:rotate(-45deg);color:#17131a;font:700 1.1rem/1.05 "Barlow Condensed",sans-serif;letter-spacing:.06em;text-transform:uppercase;text-align:center;max-width:110px}
+html[lang="ar"] .dia span{font:700 1.05rem/1.25 "Changa",sans-serif}
+.dist{background:var(--green);border-radius:12px;padding:16px 22px;box-shadow:inset 0 0 0 4px var(--green),inset 0 0 0 7px #fff;min-width:240px;font:700 1.25rem/1.5 "Barlow Condensed",sans-serif;letter-spacing:.05em;text-transform:uppercase}
+html[lang="ar"] .dist{font:600 1.1rem/1.7 "Changa",sans-serif}
+.dist div{display:flex;justify-content:space-between;gap:26px}
+.limit{background:#fff;color:#111;border-radius:10px;padding:14px 18px 10px;box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 6px #111;font:700 1.05rem/1.1 "Barlow Condensed",sans-serif;letter-spacing:.1em;text-transform:uppercase;width:150px}
+html[lang="ar"] .limit{font:700 1rem/1.35 "Changa",sans-serif}
+.limit b{display:block;font:400 4rem/1 "Bungee",sans-serif}
+.cap{font:600 .86rem/1.3 "Barlow Condensed",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#b8a8c8}
+html[lang="ar"] .cap{font:500 .95rem/1.5 "Changa",sans-serif}
+.cactus{width:130px;height:auto}
+.malt{width:150px;height:auto;filter:drop-shadow(0 0 8px var(--pink)) drop-shadow(0 0 20px rgba(255,61,127,.6))}
+.bigshield{width:190px;height:auto;filter:drop-shadow(0 12px 14px rgba(0,0,0,.5))}
+.post{width:11px;height:70px;background:linear-gradient(90deg,#6b6f78,#b9bec8 40%,#5a5e66);margin-top:-14px}
+.car{position:absolute;width:46px;height:88px;border-radius:15px 15px 11px 11px;background:linear-gradient(180deg,transparent 0 24%,rgba(10,10,25,.75) 24% 38%,transparent 38% 66%,rgba(10,10,25,.75) 66% 76%,transparent 76%),var(--c,#d7352f);box-shadow:inset 0 0 0 2px rgba(255,255,255,.25),0 10px 14px rgba(0,0,0,.5);inset-inline-end:22px;top:20%}
+.car::before{content:"";position:absolute;bottom:100%;left:-12px;right:-12px;height:120px;background:radial-gradient(60% 100% at 50% 100%,rgba(255,240,170,.5),transparent 70%)}
+.car.dn{inset-inline:22px auto;top:auto;bottom:16%;transform:rotate(180deg)}
+
+/* gantry */
+.gantry{position:relative;z-index:2;margin:clamp(40px,5vw,70px) 0 0;padding:0 26px 90px;scroll-margin-top:10px}
+.gantry::before,.gantry::after{content:"";position:absolute;top:0;bottom:0;width:14px;background:linear-gradient(90deg,#5d616a,#c5cad3 40%,#555962)}
+.gantry::before{left:0}.gantry::after{right:0}
+.truss{height:34px;margin:0 -12px;background:repeating-linear-gradient(60deg,transparent 0 13px,#aeb3bd 13px 16px),repeating-linear-gradient(-60deg,transparent 0 13px,#aeb3bd 13px 16px);border-block:5px solid #b9bec8}
+.gh{text-align:center;padding:16px 0 4px}.gh h2{font-size:clamp(1.5rem,2.7vw,2.2rem);color:var(--line)}
+html[lang="ar"] .gh h2{font-size:clamp(1.9rem,3.2vw,2.7rem)}
+.combos{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,26px);margin-top:10px}
+.combo{background:var(--green);border-radius:14px;box-shadow:inset 0 0 0 4px var(--green),inset 0 0 0 7px #fff,0 16px 26px rgba(0,0,0,.5);display:flex;flex-direction:column;overflow:hidden;text-align:center}
+.combo .in{padding:22px 22px 14px;flex:1}
+.combo .ex{font:700 .82rem/1 "Barlow Condensed",sans-serif;letter-spacing:.2em;text-transform:uppercase;opacity:.9}
+html[lang="ar"] .combo .ex{font:600 .95rem/1.3 "Changa",sans-serif}
+.combo h3{font-size:1.45rem;line-height:1.1;margin:6px 0 6px;font-weight:400}
+html[lang="ar"] .combo h3{font-size:1.75rem;line-height:1.3}
+.combo p{font-size:.97rem}
+.combo .only{background:var(--line);color:#17131a;margin:7px;border-radius:0 0 8px 8px;padding:8px 10px 6px;display:flex;align-items:center;justify-content:center;gap:12px;font:700 .9rem/1 "Barlow Condensed",sans-serif;letter-spacing:.14em;text-transform:uppercase}
+html[lang="ar"] .combo .only{font:700 .95rem/1.2 "Changa",sans-serif}
+.combo .only b{font:400 1.5rem/1 "Bungee",sans-serif;direction:ltr;unicode-bidi:isolate}
+.combo .only svg{width:20px;height:20px}
+
+/* footer: blue services sign */
+footer{position:relative;z-index:3;background:linear-gradient(180deg,var(--ground),#0d0a12);padding:clamp(40px,6vw,70px) clamp(16px,3vw,40px) 46px;margin-top:-30px}
+.svc{max-width:1000px;margin:0 auto;background:var(--blue);border-radius:18px;padding:30px clamp(22px,4vw,44px) 26px;box-shadow:inset 0 0 0 5px var(--blue),inset 0 0 0 9px #fff,0 20px 40px rgba(0,0,0,.5);display:grid;grid-template-columns:auto 1fr 1fr 1.3fr;gap:20px 34px;align-items:start}
+.svc .ic{display:flex;flex-direction:column;gap:10px}
+.svc .ic span{width:52px;height:52px;background:#fff;border-radius:8px;display:grid;place-items:center}
+.svc .ic svg{width:34px;height:34px}
+.svc h4{font:700 1.02rem/1 "Barlow Condensed",sans-serif;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;color:#cfe0ff}
+html[lang="ar"] .svc h4{font:600 1.1rem/1.3 "Changa",sans-serif}
+.svc p{font-size:.98rem}
+.end{text-align:center;margin-top:34px;color:#8f84a3;font:600 .84rem/1.4 "Barlow Condensed",sans-serif;letter-spacing:.24em;text-transform:uppercase}
+html[lang="ar"] .end{font:500 .95rem/1.6 "Changa",sans-serif}
+
+@media (max-width:900px){
+  :root{--rw:30px}
+  .hgrid{grid-template-columns:1fr;gap:10px;padding-bottom:240px}
+  .marquee{max-width:330px;margin-inline:auto;font-size:11.6px}
+  .hello{text-align:center;margin-inline:auto;padding-top:0}.shield{margin-inline:auto;width:70px}.hello p.in{margin-inline:auto}
+  .land i{left:auto;inset-inline-start:clamp(16px,3vw,40px);margin:0;width:var(--rw)}.land i{background-image:none}.land i::after{width:4px;margin-left:-2px;background:repeating-linear-gradient(180deg,var(--line) 0 26px,transparent 26px 60px)}
+  html[dir="ltr"] .land i{left:clamp(16px,3vw,40px)}html[dir="rtl"] .land i{right:clamp(16px,3vw,40px)}
+  .land{height:120px}.mesa{bottom:118px;height:90px}.sun{bottom:30px;width:200px;height:200px;margin-left:-100px}
+  .trip::before{left:auto;margin:0;inset-inline-start:clamp(16px,3vw,40px);background-image:repeating-linear-gradient(180deg,var(--line) 0 26px,transparent 26px 60px);background-size:4px 100%;background-position:50% 0;background-repeat:repeat-y;box-shadow:0 0 0 5px rgba(0,0,0,.2)}
+  .stop{display:block;padding-inline-start:calc(var(--rw) + 20px);padding-block:22px}
+  .lane{display:none}
+  .side{flex-direction:row;justify-content:center;flex-wrap:wrap;margin:0 0 26px;gap:14px 20px}
+  .side .post,.side .cap{display:none}
+  .dia{width:104px;height:104px;margin:22px}.dia span{font-size:.86rem;max-width:84px}
+  .bigshield{width:110px}.cactus{width:70px}.malt{width:90px}.limit{width:120px}.limit b{font-size:3rem}.dist{min-width:0}
+  .sgn{margin-bottom:40px}.sgn::after{height:40px}
+  .green,.warn,.neon,.brown{padding:22px 20px 10px}.bill .hd{padding:18px 20px 14px}.bill .it{margin-inline:20px}
+  .gantry{margin-inline-start:calc(var(--rw) + 20px);padding:0 14px 40px}
+  .gantry::before,.gantry::after{width:8px}.truss{margin:0 -6px;height:24px}
+  .combos{grid-template-columns:1fr}
+  .svc{grid-template-columns:1fr 1fr}.svc .ic{flex-direction:row;grid-column:1/-1}.svc .note{grid-column:1/-1}
+}
+@media (max-width:520px){.svc{grid-template-columns:1fr}.it{gap:2px 12px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.chase,.open,.carhop i{animation:none}}
+</style>
+</head>
+<body>
+<div class="ctl">
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+</div>
+
+<header class="hero">
+  <div class="sun" aria-hidden="true"></div>
+  <svg class="mesa" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 150V96l60-4 14-40h120l16 44 90 6 40-62h70l10-22h64l12 24h50l34 58 120 8 60-10 46-70h150l40 72 110 6 26-52h96l30 50 152 6V150z" fill="#3a1a44"/>
+    <path d="M0 150v-30l180-10 70-26h110l60 30 240 10 120-34h130l90 30 200 6 90-20h150v44z" fill="#2a1730"/>
+  </svg>
+  <div class="land" aria-hidden="true"><i></i></div>
+
+  <div class="hgrid">
+    <div class="marquee">
+      <svg viewBox="0 0 460 600" aria-hidden="true">
+        <rect x="176" y="380" width="26" height="320" fill="#4b4f58"/><rect x="176" y="380" width="9" height="320" fill="#8b909a"/>
+        <polygon points="14,14 430,14 430,440 458,440 404,536 350,440 378,440 378,66 14,66" fill="#f4c430" stroke="#a8261f" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M36 40H404V450" fill="none" stroke="#7a5a10" stroke-width="15" stroke-linecap="round" stroke-dasharray="0 30"/>
+        <path class="chase" d="M36 40H404V450" fill="none" stroke="#fffbe0" stroke-width="13" stroke-linecap="round" stroke-dasharray="0 90" style="filter:drop-shadow(0 0 6px #fff3a0)"/>
+        <path d="M66 40H404V450" fill="none" stroke="#fff1b0" stroke-width="9" stroke-linecap="round" stroke-dasharray="0 90" opacity=".55"/>
+      </svg>
+      <div class="panel">
+        <h1>
+          <span lang="en"><span class="nz">Route 66</span><span class="tiles"><b>D</b><b>R</b><b>I</b><b>V</b><b>E</b><b>-</b><b>I</b><b>N</b></span></span>
+          <span lang="ar"><span class="plate">درايف إن</span><span class="nz">طريق ٦٦</span></span>
+        </h1>
+      </div>
+      <div class="open"><span lang="en">Open late</span><span lang="ar">نسهر معكم</span></div>
+    </div>
+
+    <div class="hello">
+      <svg class="shield" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4C40 12 26 12 14 6L6 16c6 10 6 20 2 30-4 16 2 34 42 50 40-16 46-34 42-50-4-10-4-20 2-30L86 6C74 12 60 12 50 4z" fill="#fff" stroke="#111" stroke-width="5" stroke-linejoin="round"/><text x="50" y="68" text-anchor="middle" font-family="Bungee,Impact,sans-serif" font-size="40" fill="#111">66</text></svg>
+      <p class="kick"><span lang="en">Roadside drive-in · Mile 266, Old Highway · Since 1956</span><span lang="ar">مطعم الطريق · الميل ٢٦٦ من الطريق القديم · منذ ١٩٥٦</span></p>
+      <p class="tagline bg"><span lang="en">Pull in. Lights on for service.</span><span lang="ar">اركن سيارتك وأشعل الأنوار.</span></p>
+      <p class="in"><span lang="en">Fresh-ground beef smashed on a seasoned flat-top, malts spun so thick the straw stands up, and pie that never made it past noon. Order from your seat — a carhop brings the tray to your window.</span><span lang="ar">لحم بقري مفروم طازجًا يُهرس على صاج متمرّس، ومخفوقات كثيفة تقف فيها المصّاصة منتصبة، وفطائر قلّما تصمد حتى الظهيرة. اطلب من مقعدك، وسيحمل النادل الصينية إلى نافذتك.</span></p>
+      <p class="carhop"><i></i><span><span lang="en">Flash your headlights and we roll out.</span><span lang="ar">أومض بأنوارك فنأتيك على الزلّاجات.</span></span></p>
+    </div>
+  </div>
+</header>
+
+<main class="trip">
+  <section class="stop" id="burgers">
+    <div class="sgn bill">
+      <div class="hd"><h2 class="bg"><span lang="en">Smashed Burgers</span><span lang="ar">برغر الصاج</span></h2><span class="ex"><span lang="en">Next right</span><span lang="ar">المنعطف القادم</span></span></div>
+      <div class="it"><h3><span lang="en">The Mother Road</span><span lang="ar">الطريق الأمّ</span><span class="star"><span lang="en">Trucker's pick</span><span lang="ar">خيار السائقين</span></span></h3><p><span lang="en">Two smashed beef patties, American cheese, pickles, griddled onion, 66 sauce.</span><span lang="ar">قرصان من اللحم البقري المهروس مع جبن أمريكي ومخلّل وبصل مشوي وصلصة ٦٦.</span></p><span class="mm"><i>$</i><b>9.50</b></span></div>
+      <div class="it"><h3><span lang="en">Tucumcari Green Chile</span><span lang="ar">توكومكاري بالفلفل الأخضر</span></h3><p><span lang="en">Fire-roasted Hatch chiles, pepper jack, charred scallion mayo.</span><span lang="ar">فلفل «هاتش» مشوي على اللهب مع جبن بيبر جاك ومايونيز البصل الأخضر المحمّص.</span></p><span class="mm"><i>$</i><b>10.25</b></span></div>
+      <div class="it"><h3><span lang="en">Patty Melt</span><span lang="ar">باتي ميلت</span></h3><p><span lang="en">Beef patty and Swiss melted between buttered rye with sweet onions.</span><span lang="ar">قرص لحم وجبن سويسري ذائب بين شريحتي خبز الجاودار بالزبدة مع بصل حلو.</span></p><span class="mm"><i>$</i><b>9.75</b></span></div>
+      <div class="it"><h3><span lang="en">Cadillac Ranch</span><span lang="ar">كاديلاك رانش</span></h3><p><span lang="en">Smoked beef bacon, a fat onion ring, cheddar and hickory barbecue.</span><span lang="ar">لحم بقري مقدَّد مدخّن وحلقة بصل سميكة وشيدر وصلصة باربكيو الهيكوري.</span></p><span class="mm"><i>$</i><b>11.50</b></span></div>
+      <div class="it"><h3><span lang="en">The Roadrunner</span><span lang="ar">الرودرانر</span></h3><p><span lang="en">Buttermilk fried chicken, crunchy slaw, pickles and hot honey.</span><span lang="ar">دجاج مقلي بتتبيلة اللبن مع سلطة ملفوف مقرمشة ومخلّل وعسل حارّ.</span></p><span class="mm"><i>$</i><b>9.25</b></span></div>
+    </div>
+    <div class="lane" aria-hidden="true"><i class="car"></i></div>
+    <div class="side" aria-hidden="true">
+      <svg class="bigshield" viewBox="0 0 100 100"><path d="M50 4C40 12 26 12 14 6L6 16c6 10 6 20 2 30-4 16 2 34 42 50 40-16 46-34 42-50-4-10-4-20 2-30L86 6C74 12 60 12 50 4z" fill="#fff" stroke="#111" stroke-width="4" stroke-linejoin="round"/><text x="50" y="70" text-anchor="middle" font-family="Bungee,Impact,sans-serif" font-size="42" fill="#111">66</text></svg>
+      <i class="post"></i>
+      <p class="cap"><span lang="en">Historic route · 2,448 miles of appetite</span><span lang="ar">طريق تاريخي · ٢٤٤٨ ميلًا من الشهيّة</span></p>
+    </div>
+  </section>
+
+  <section class="stop flip" id="dogs">
+    <div class="sgn green">
+      <div class="hd"><div><span class="ex"><span lang="en">Exit 2</span><span lang="ar">المخرج ٢</span></span><h2 class="bg"><span lang="en">Dogs &amp; Sandwiches</span><span lang="ar">هوت دوغ وشطائر</span></h2></div>
+        <svg class="arrowup" viewBox="0 0 44 44" aria-hidden="true"><path d="M10 34L32 12M16 12h16v16" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="square"/></svg></div>
+      <div class="it"><h3><span lang="en">Coney Island Dog</span><span lang="ar">كوني آيلاند دوغ</span></h3><p><span lang="en">All-beef frank, slow chili, yellow mustard, diced white onion.</span><span lang="ar">نقانق بقرية خالصة مع تشيلي مطهوّ على مهل وخردل أصفر وبصل أبيض مفروم.</span></p><span class="mm"><i>$</i><b>6.50</b></span></div>
+      <div class="it"><h3><span lang="en">Corn Dog on a Stick</span><span lang="ar">كورن دوغ على عود</span></h3><p><span lang="en">Hand-dipped in honey cornmeal batter, fried to order.</span><span lang="ar">تُغمس يدويًّا في عجينة دقيق الذرة بالعسل وتُقلى عند الطلب.</span></p><span class="mm"><i>$</i><b>4.75</b></span></div>
+      <div class="it"><h3><span lang="en">Triple-Decker Turkey Club</span><span lang="ar">كلوب الديك الرومي بثلاث طبقات</span></h3><p><span lang="en">Roast turkey, beef bacon, lettuce, tomato, three slices of toast.</span><span lang="ar">ديك رومي مشوي ولحم بقري مقدَّد وخسّ وطماطم بين ثلاث شرائح محمّصة.</span></p><span class="mm"><i>$</i><b>9.95</b></span></div>
+      <div class="it"><h3><span lang="en">Grilled Cheese &amp; Dip</span><span lang="ar">جبن مشوي مع الغموس</span></h3><p><span lang="en">Three cheeses on sourdough with a cup of tomato soup for dunking.</span><span lang="ar">ثلاثة أجبان في خبز العجين المخمّر مع كوب حساء طماطم للتغميس.</span></p><span class="mm"><i>$</i><b>7.25</b></span></div>
+    </div>
+    <div class="lane" aria-hidden="true"><i class="car dn" style="--c:#3aa3c9"></i></div>
+    <div class="side">
+      <div class="dia"><span><span lang="en">Hungry drivers ahead</span><span lang="ar">سائقون جائعون أمامك</span></span></div>
+      <i class="post"></i>
+    </div>
+  </section>
+
+  <section class="stop" id="sides">
+    <div class="sgn warn">
+      <div class="hd"><h2 class="bg"><span lang="en">Sides &amp; Detours</span><span lang="ar">جانبيّات وتحويلات</span></h2><span class="ex"><span lang="en">Slow down</span><span lang="ar">خفِّف السرعة</span></span></div>
+      <div class="it"><h3><span lang="en">Crinkle-Cut Fries</span><span lang="ar">بطاطا مموّجة</span></h3><p><span lang="en">Double-fried, salted the second they leave the basket.</span><span lang="ar">تُقلى مرّتين وتُملَّح لحظة خروجها من السلّة.</span></p><span class="mm"><i>$</i><b>3.75</b></span></div>
+      <div class="it"><h3><span lang="en">Buttermilk Onion Rings</span><span lang="ar">حلقات البصل باللبن</span></h3><p><span lang="en">Thick-cut sweet onion in a shattering golden crust.</span><span lang="ar">بصل حلو سميك في قشرة ذهبية تتكسّر تحت الأسنان.</span></p><span class="mm"><i>$</i><b>4.50</b></span></div>
+      <div class="it"><h3><span lang="en">Chili Cheese Fries</span><span lang="ar">بطاطا بالتشيلي والجبن</span></h3><p><span lang="en">Crinkles buried under beef chili, cheddar sauce and jalapeños.</span><span lang="ar">بطاطا مموّجة تغمرها يخنة التشيلي البقري وصلصة الشيدر والهالابينو.</span></p><span class="mm"><i>$</i><b>6.25</b></span></div>
+      <div class="it"><h3><span lang="en">Fried Pickle Chips</span><span lang="ar">رقائق المخلّل المقلية</span></h3><p><span lang="en">Dill pickles in cornmeal, with cool ranch for dipping.</span><span lang="ar">مخلّل بالشبت مغطّى بدقيق الذرة مع صلصة الرانش الباردة.</span></p><span class="mm"><i>$</i><b>4.95</b></span></div>
+    </div>
+    <div class="lane" aria-hidden="true"></div>
+    <div class="side">
+      <div class="dist"><div><span lang="en">Fries</span><span lang="ar">البطاطا</span><span>0</span></div><div><span lang="en">Tucumcari</span><span lang="ar">توكومكاري</span><span>98</span></div><div><span lang="en">Amarillo</span><span lang="ar">أماريلو</span><span>212</span></div></div>
+      <svg class="cactus" viewBox="0 0 120 170" aria-hidden="true"><path d="M48 168V40c0-16 24-16 24 0v128z" fill="#1f6b46"/><path d="M48 104H30c-10 0-14-6-14-14V66c0-9 14-9 14 0v20c0 3 2 4 4 4h14zM72 120h20c10 0 14-6 14-14V82c0-9-14-9-14 0v20c0 3-2 4-4 4H72z" fill="#1f6b46"/><path d="M60 32v130M23 68v18M99 84v18" stroke="#2f8a5c" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9"/><circle cx="60" cy="26" r="5" fill="#ff3d7f"/></svg>
+    </div>
+  </section>
+
+  <section class="stop flip" id="shakes">
+    <div class="sgn neon">
+      <div class="hd"><h2><span lang="en">Malts &amp; Floats</span><span lang="ar">مخفوقات وعوّامات</span></h2><span class="ex"><span lang="en">Fountain open</span><span lang="ar">ركن الصودا مفتوح</span></span></div>
+      <div class="it"><h3><span lang="en">Black &amp; White Malt</span><span lang="ar">مولت الأبيض والأسود</span><span class="star"><span lang="en">Since '56</span><span lang="ar">منذ ٥٦</span></span></h3><p><span lang="en">Vanilla ice cream, chocolate syrup and a heaped spoon of malt powder.</span><span lang="ar">مثلّجات الفانيلا وشراب الشوكولاتة وملعقة عامرة من مسحوق الشعير المملَّت.</span></p><span class="mm"><i>$</i><b>5.95</b></span></div>
+      <div class="it"><h3><span lang="en">Strawberry Thick Shake</span><span lang="ar">مخفوق الفراولة الكثيف</span></h3><p><span lang="en">Real berries, whole milk, whipped cream and a cherry on top.</span><span lang="ar">فراولة حقيقية وحليب كامل الدسم وكريمة مخفوقة تعلوها حبّة كرز.</span></p><span class="mm"><i>$</i><b>5.75</b></span></div>
+      <div class="it"><h3><span lang="en">Root Beer Float</span><span lang="ar">عوّامة الروت بير</span></h3><p><span lang="en">Frosted mug of sarsaparilla soda with two scoops of vanilla.</span><span lang="ar">كوب مثلَّج من صودا السارسباريلا الخالية من الكحول مع كرتَي فانيلا.</span></p><span class="mm"><i>$</i><b>4.95</b></span></div>
+      <div class="it"><h3><span lang="en">Cherry Lime Rickey</span><span lang="ar">ريكي الكرز والليمون</span></h3><p><span lang="en">Hand-squeezed lime, cherry syrup and fizzing soda water.</span><span lang="ar">ليمون أخضر معصور باليد وشراب الكرز ومياه غازية فوّارة.</span></p><span class="mm"><i>$</i><b>3.95</b></span></div>
+    </div>
+    <div class="lane" aria-hidden="true"><i class="car" style="--c:#f4c430;top:46%"></i></div>
+    <div class="side" aria-hidden="true">
+      <svg class="malt" viewBox="0 0 120 190" fill="none" stroke="#ffd0e0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 62h60l-10 96H40z"/><path d="M28 62c-8-22 8-36 22-32 4-16 28-16 32 0 14-2 22 14 12 32"/><path d="M68 30L92 4"/><circle cx="52" cy="20" r="8" stroke="#46f0dc"/><path d="M34 168h52v14H34z"/><path d="M40 92h40M42 122h36" stroke="#46f0dc"/></svg>
+    </div>
+  </section>
+
+  <section class="stop" id="pie">
+    <div class="sgn brown">
+      <div class="hd"><h2 class="bg"><span lang="en">The Pie Case</span><span lang="ar">خزانة الفطائر</span></h2><span class="ex"><span lang="en">Scenic stop</span><span lang="ar">استراحة تستحقّ</span></span></div>
+      <div class="it"><h3><span lang="en">Apple Pie à la Mode</span><span lang="ar">فطيرة التفاح بالمثلّجات</span></h3><p><span lang="en">Warm cinnamon apples, lattice crust, a scoop of vanilla melting in.</span><span lang="ar">تفاح دافئ بالقرفة تحت شبكة من العجين، وكرة فانيلا تذوب فوقه.</span></p><span class="mm"><i>$</i><b>5.50</b></span></div>
+      <div class="it"><h3><span lang="en">Texas Pecan Pie</span><span lang="ar">فطيرة البيكان التكساسية</span></h3><p><span lang="en">Toasted pecans in dark brown-sugar custard, salted cream.</span><span lang="ar">جوز بيكان محمّص في كاسترد السكّر البنّي الداكن مع كريمة مملّحة.</span></p><span class="mm"><i>$</i><b>5.75</b></span></div>
+      <div class="it"><h3><span lang="en">Banana Cream Pie</span><span lang="ar">فطيرة كريمة الموز</span></h3><p><span lang="en">Graham crust, ripe banana, vanilla pudding, mile-high cream.</span><span lang="ar">قاعدة بسكويت وموز ناضج ومهلبية فانيلا وكريمة شاهقة.</span></p><span class="mm"><i>$</i><b>5.25</b></span></div>
+    </div>
+    <div class="lane" aria-hidden="true"></div>
+    <div class="side">
+      <div class="limit"><span lang="en">Slice limit</span><span lang="ar">الحدّ الأقصى للشرائح</span><b>2</b></div>
+      <i class="post"></i>
+      <p class="cap"><span lang="en">Strictly unenforced</span><span lang="ar">ولا أحد يراقب</span></p>
+    </div>
+  </section>
+
+  <section class="gantry" id="combos">
+    <div class="truss" aria-hidden="true"></div>
+    <div class="gh"><h2 class="bg"><span lang="en">Combo Lanes — Keep Moving</span><span lang="ar">مسارات الوجبات — واصل السير</span></h2></div>
+    <div class="combos">
+      <article class="combo"><div class="in"><span class="ex"><span lang="en">Lane 1</span><span lang="ar">المسار ١</span></span><h3 class="bg"><span lang="en">The Cruiser</span><span lang="ar">الكروزر</span></h3><p><span lang="en">Any burger, crinkle fries and a fountain soda.</span><span lang="ar">أي برغر مع بطاطا مموّجة ومشروب غازي.</span></p></div><div class="only"><span><span lang="en">Exit only</span><span lang="ar">مخرج فقط</span></span><b>$12.66</b><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v14M4 10l6 7 6-7" fill="none" stroke="#17131a" stroke-width="3.2"/></svg></div></article>
+      <article class="combo"><div class="in"><span class="ex"><span lang="en">Lane 2</span><span lang="ar">المسار ٢</span></span><h3 class="bg"><span lang="en">The Long Haul</span><span lang="ar">الرحلة الطويلة</span></h3><p><span lang="en">Mother Road double, onion rings and any malt or shake.</span><span lang="ar">برغر الطريق الأمّ المزدوج مع حلقات البصل وأي مخفوق تختاره.</span></p></div><div class="only"><span><span lang="en">Exit only</span><span lang="ar">مخرج فقط</span></span><b>$16.66</b><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v14M4 10l6 7 6-7" fill="none" stroke="#17131a" stroke-width="3.2"/></svg></div></article>
+      <article class="combo"><div class="in"><span class="ex"><span lang="en">Lane 3 · Kids</span><span lang="ar">المسار ٣ · للصغار</span></span><h3 class="bg"><span lang="en">The Back Seat</span><span lang="ar">المقعد الخلفي</span></h3><p><span lang="en">Corn dog, small fries and a mini strawberry shake.</span><span lang="ar">كورن دوغ وبطاطا صغيرة ومخفوق فراولة صغير.</span></p></div><div class="only"><span><span lang="en">Exit only</span><span lang="ar">مخرج فقط</span></span><b>$8.66</b><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v14M4 10l6 7 6-7" fill="none" stroke="#17131a" stroke-width="3.2"/></svg></div></article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="svc">
+    <div class="ic" aria-hidden="true">
+      <span><svg viewBox="0 0 34 34" fill="#1f4fa3"><path d="M9 3c-1 6-1 9 2 11v17h3V14c3-2 3-5 2-11h-1.5v8h-1.3V3h-1.4v8H10.500V3zM22 3c-3 3-4 9-2 14l2 1v13h3V3z"/></svg></span>
+      <span><svg viewBox="0 0 34 34" fill="#1f4fa3"><path d="M6 13h22l-1 5H7zM9 20h16l-2 11H11zM20 13l3-10h2l-3 10z"/></svg></span>
+    </div>
+    <div><h4><span lang="en">Lights on</span><span lang="ar">الأنوار مضاءة</span></h4><p><span lang="en">Sun – Thu 11 am – 1 am<br>Fri &amp; Sat 11 am – 3 am</span><span lang="ar">الأحد – الخميس ١١ ص – ١ بعد منتصف الليل<br>الجمعة والسبت ١١ ص – ٣ فجرًا</span></p></div>
+    <div><h4><span lang="en">Find the arrow</span><span lang="ar">اتبع السهم</span></h4><p><span lang="en">2660 Old Highway 66, Mesa Roja, New Mexico<br>(505) 555-0188</span><span lang="ar">٢٦٦٠ الطريق القديم ٦٦، ميسا روخا، نيو مكسيكو<br><span dir="ltr">(505) 555-0188</span></span></p></div>
+    <div class="note"><h4><span lang="en">Rules of the road</span><span lang="ar">قواعد الطريق</span></h4><p><span lang="en">All beef and chicken are halal; we serve no pork and no alcohol. Our fryers handle gluten, egg and dairy, and shakes may contain nuts — tell your carhop about allergies. Prices in US dollars, tax included.</span><span lang="ar">جميع لحومنا ودجاجنا حلال، ولا نقدّم لحم الخنزير ولا الكحول. تُستخدم مقالينا لأطعمة تحتوي على الغلوتين والبيض والألبان، وقد تحتوي المخفوقات على مكسّرات — أخبر النادل عن أي حساسية. الأسعار بالدولار الأمريكي شاملة الضريبة.</span></p></div>
+  </div>
+  <p class="end"><span lang="en">Drive safe · See you down the road</span><span lang="ar">قُد بأمان · نلقاك على الطريق</span></p>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

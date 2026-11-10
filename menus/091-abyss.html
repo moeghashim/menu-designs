@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Abyss · الأعماق</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Abyss — a seafood omakase served as a descent, from the sunlit surface to the midnight zone. الأعماق — أوماكاسي بحري يُقدَّم كرحلة غوص من سطح البحر المشمس إلى منطقة منتصف الليل.">
+<meta name="theme-color" content="#0b5f86">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400;500&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --serif:"Cormorant Garamond","Amiri",Georgia,serif;
+  --sans:"Outfit","Tajawal",system-ui,sans-serif;
+  --rope:50%;
+  --ink:#04263f; --foam:#eafcff; --bio:#6ff3ff; --bio2:#b68cff; --ember:#ffb46b;
+}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.6;color:var(--foam);background:#000;-webkit-font-smoothing:antialiased}
+html[lang="ar"]{--serif:"Amiri","Cormorant Garamond",serif;--sans:"Tajawal","Outfit",system-ui,sans-serif}
+html[lang="ar"] body{font-size:17.5px;line-height:1.85;font-weight:400}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+.sea{position:relative;overflow:clip}
+
+/* ───── controls ───── */
+.ctrl{position:fixed;inset-block-start:14px;inset-inline-end:14px;z-index:50;display:flex;gap:8px;align-items:center}
+.ctrl a,.ctrl button{font:500 13px/1 var(--sans);color:#fff;background:rgba(2,20,40,.45);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px;height:38px;padding:0 15px;display:inline-flex;align-items:center;gap:7px;cursor:pointer;text-decoration:none;transition:background .3s,border-color .3s}
+.ctrl a:hover,.ctrl button:hover{background:rgba(111,243,255,.22);border-color:var(--bio)}
+.ctrl .home-link{width:38px;padding:0;justify-content:center}
+.ctrl svg{width:15px;height:15px;fill:currentColor}
+
+/* ───── depth gauge ───── */
+.gauge{position:fixed;z-index:40;inset-inline-start:26px;inset-block-start:50%;transform:translateY(-50%);height:min(58vh,480px);width:86px;pointer-events:none;color:#fff;mix-blend-mode:normal}
+.gauge .scale{position:absolute;inset-block:0;inset-inline-start:0;width:1px;background:rgba(255,255,255,.45)}
+.gauge .scale::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:9px;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.5) 0 1px,transparent 1px 5%)}
+.gauge i{position:absolute;inset-inline-start:0;display:flex;align-items:center;gap:7px;font:normal 400 10.5px/1 var(--sans);letter-spacing:.12em;transform:translateY(-50%);opacity:.8;white-space:nowrap}
+.gauge i::before{content:"";width:16px;height:1px;background:#fff}
+.gauge .mark{position:absolute;inset-inline-start:-5px;inset-block-start:calc(var(--p,0)*100%);width:11px;height:11px;margin-block-start:-5px;border-radius:50%;background:var(--bio);box-shadow:0 0 0 4px rgba(111,243,255,.2),0 0 18px 4px rgba(111,243,255,.75)}
+.read{position:fixed;z-index:40;inset-inline-start:26px;inset-block-end:26px;pointer-events:none;font:200 34px/1 var(--sans);color:#fff;letter-spacing:.02em;font-variant-numeric:tabular-nums;text-shadow:0 0 22px rgba(0,30,60,.6)}
+.read small{display:block;font:400 10.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;opacity:.75;margin-block-end:8px}
+.read b{font-weight:200}
+.read em{font-style:normal;font-size:.45em;margin-inline-start:.25em;opacity:.8}
+html[lang="ar"] .read small{font-size:13px}
+
+/* ───── surface / hero ───── */
+.surface{position:relative;min-height:100svh;display:flex;flex-direction:column;color:var(--ink)}
+.sky{position:relative;flex:0 0 clamp(170px,30vh,300px);background:linear-gradient(#f9d9b0 0%,#fbe9cf 38%,#d9f1ee 78%,#bfeaf0 100%)}
+.sun{position:absolute;inset-block-end:-46px;inset-inline-start:calc(50% - 60px);width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#fffdf2 0 38%,#ffe9a8 60%,rgba(255,220,150,0) 72%)}
+.sky p{position:absolute;inset-block-start:22px;inset-inline-start:clamp(18px,4vw,56px);margin:0;font:400 11px/1.5 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:#7a5a3a}
+html[lang="ar"] .sky p{font-size:14px}
+.under{position:relative;flex:1;background:linear-gradient(#8fe3e6 0%,#5fcdd9 30%,#33b0c8 100%);padding:clamp(48px,9vh,96px) 20px clamp(60px,10vh,110px);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.waves{position:absolute;inset-inline:0;inset-block-start:-22px;height:44px;overflow:hidden;pointer-events:none}
+.waves svg{position:absolute;inset-block-start:0;left:0;width:200%;height:100%;animation:swell 14s linear infinite}
+.waves svg+svg{animation-duration:9s;animation-direction:reverse;opacity:.6;top:6px}
+@keyframes swell{to{transform:translateX(-50%)}}
+.rays{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.rays b{position:absolute;inset-block-start:-10%;height:130%;width:14vw;background:linear-gradient(rgba(255,255,255,.5),rgba(255,255,255,0) 85%);transform:skewX(-16deg);transform-origin:top;animation:ray 9s ease-in-out infinite alternate;filter:blur(6px)}
+.rays b:nth-child(1){left:8%}.rays b:nth-child(2){left:31%;width:7vw;animation-delay:-3s}.rays b:nth-child(3){left:52%;width:18vw;animation-delay:-5s}.rays b:nth-child(4){left:78%;width:9vw;animation-delay:-1s}
+@keyframes ray{from{opacity:.25}to{opacity:.7}}
+.under>*{position:relative}
+.kicker{font:400 12px/1 var(--sans);letter-spacing:.42em;text-transform:uppercase;margin:0 0 18px}
+html[lang="ar"] .kicker{font-size:16px}
+h1{margin:0;font:300 clamp(86px,21vw,300px)/.82 var(--serif);letter-spacing:.14em;margin-inline-end:-.14em;color:transparent;background:linear-gradient(#04263f 5%,#04263f 40%,rgba(4,38,63,.12) 100%);-webkit-background-clip:text;background-clip:text}
+html[lang="ar"] h1{font-weight:700;line-height:1.25;font-size:clamp(84px,19vw,270px);margin-inline-end:0;padding-block-end:.1em}
+.tag{font:italic 400 clamp(22px,3.1vw,38px)/1.25 var(--serif);margin:clamp(14px,3vh,30px) 0 0;max-width:22ch}
+html[lang="ar"] .tag{font-style:normal;line-height:1.6}
+.intro{max-width:54ch;margin:18px auto 0;font-size:clamp(15.5px,1.2vw,18px);font-weight:400}
+.descend{margin-block-start:clamp(26px,5vh,48px);display:inline-flex;flex-direction:column;align-items:center;gap:10px;font:500 11px/1 var(--sans);letter-spacing:.34em;text-transform:uppercase;text-decoration:none}
+html[lang="ar"] .descend{font-size:14px}
+.descend::after{content:"";width:1px;height:54px;background:linear-gradient(currentColor,transparent);animation:sink 2.4s ease-in-out infinite}
+@keyframes sink{0%{transform:scaleY(0);transform-origin:top}60%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(1);opacity:0}}
+
+/* ───── dive plans ───── */
+.plans{position:relative;background:linear-gradient(#33b0c8,#2aa3c0);color:var(--ink);padding:clamp(10px,2vh,24px) clamp(18px,6vw,120px) clamp(50px,8vh,90px)}
+.plans h2{font:400 12px/1 var(--sans);letter-spacing:.4em;text-transform:uppercase;text-align:center;margin:0 0 26px}
+html[lang="ar"] .plans h2{font-size:17px}
+.plans ol{list-style:none;margin:0 auto;padding:0;max-width:1080px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(4,38,63,.45);border-radius:999px;background:rgba(255,255,255,.2)}
+.plans li{padding:22px clamp(18px,3vw,44px);text-align:center;border-inline-start:1px solid rgba(4,38,63,.3)}
+.plans li:first-child{border:0}
+.plans b{display:block;font:500 clamp(22px,2.4vw,30px)/1.1 var(--serif)}
+html[lang="ar"] .plans b{font-weight:700;line-height:1.5}
+.plans li>span{display:block;font-size:14.5px;font-weight:400;margin-block:4px 8px}
+.plans .p{font:400 15px/1 var(--sans);letter-spacing:.08em}
+
+/* ───── zones ───── */
+.zone{position:relative;padding:clamp(70px,12vh,150px) clamp(18px,6vw,120px) clamp(60px,10vh,120px)}
+.z1{background:linear-gradient(#2aa3c0,#1c8fb4 55%,#147aa3);color:var(--ink)}
+.z2{background:linear-gradient(#0a4a78,#06305c 45%,#041c40)}
+.z3{background:linear-gradient(#020d24,#01071a 50%,#00030c)}
+.z4{background:linear-gradient(#00030c,#000 30%)}
+.band{position:relative;height:clamp(240px,38vh,420px)}
+.b12{background:linear-gradient(#147aa3,#0a4a78)}
+.b23{background:linear-gradient(#041c40,#020d24)}
+.b34{background:#00030c;height:clamp(300px,46vh,480px)}
+.zh{position:relative;text-align:center;max-width:780px;margin:0 auto clamp(46px,8vh,90px)}
+.zh .n{font:200 clamp(64px,13vw,190px)/.9 var(--sans);letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1px currentColor;opacity:.55;font-variant-numeric:tabular-nums;display:block;direction:ltr}
+.z1 .zh .n{-webkit-text-stroke-color:#04263f}.z2 .zh .n,.z3 .zh .n,.z4 .zh .n{-webkit-text-stroke-color:#bfefff}
+.zh .n small{font-size:.22em;letter-spacing:.2em;-webkit-text-stroke:0;color:currentColor;margin-inline-start:.4em}
+.z1 .n small{color:#04263f}.z2 .n small,.z3 .n small,.z4 .n small{color:#bfefff}
+.zh h2{font:400 clamp(34px,5vw,64px)/1.05 var(--serif);margin:-.35em 0 12px;position:relative}
+html[lang="ar"] .zh h2{font-weight:700;line-height:1.4;margin-block-start:-.1em}
+.zh p{margin:0 auto;max-width:48ch;font-size:clamp(15.5px,1.15vw,17.5px)}
+.z1 .zh p{font-weight:400}
+.z3 .zh h2{text-shadow:0 0 34px rgba(111,243,255,.55)}
+.z4 .zh h2{color:#e9dcff;text-shadow:0 0 34px rgba(182,140,255,.6)}
+
+.dive{position:relative;list-style:none;margin:0 auto;padding:0;max-width:1120px}
+.dive::before{content:"";position:absolute;inset-block:-40px;inset-inline-start:var(--rope);width:0;border-inline-start:1px dashed currentColor;opacity:.45}
+.dive li{position:relative;display:grid;grid-template-columns:1fr 150px 1fr;align-items:start;padding-block:clamp(18px,3vh,30px)}
+.dive .d{grid-column:2;grid-row:1;justify-self:center;display:flex;flex-direction:column;align-items:center;gap:8px;font:400 12px/1 var(--sans);letter-spacing:.14em;font-variant-numeric:tabular-nums;padding-block-start:8px}
+.dive .d::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor;box-shadow:0 0 0 5px rgba(255,255,255,.14)}
+.dive .d span{padding:5px 9px;border-radius:99px;background:var(--pill,rgba(4,38,63,.14));white-space:nowrap}
+.dive .c{grid-column:1;grid-row:1;text-align:end;max-width:440px;justify-self:end}
+.dive li:nth-child(even) .c{grid-column:3;text-align:start;justify-self:start}
+.dive .k{font:400 11px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;opacity:.7}
+html[lang="ar"] .dive .k{font-size:14px}
+.dive h3{font:500 clamp(25px,2.5vw,34px)/1.12 var(--serif);margin:7px 0 6px}
+html[lang="ar"] .dive h3{font-weight:700;line-height:1.45;font-size:clamp(24px,2.3vw,31px)}
+.dive p{margin:0;font-size:15.5px;opacity:.86}
+html[lang="ar"] .dive p{font-size:17px}
+.z1 .dive p{opacity:1;font-weight:400}
+.pr{display:inline-block;margin-block-start:10px;font:400 15px/1 var(--sans);letter-spacing:.1em;unicode-bidi:isolate}
+.pr u{text-decoration:none;font-size:.72em;opacity:.75;margin-inline-end:.35em}
+.pick{display:inline-block;margin-inline:8px;padding:4px 9px;border:1px solid currentColor;border-radius:99px;font:500 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;vertical-align:middle}
+html[lang="ar"] .pick{font-size:13px}
+.z2{--pill:rgba(160,220,255,.12)}
+.z3{--pill:rgba(111,243,255,.1)}
+.z3 .dive h3{color:#dffcff;text-shadow:0 0 18px rgba(111,243,255,.6)}
+.z3 .dive .d{color:var(--bio)}.z3 .dive .d::before{box-shadow:0 0 14px 3px rgba(111,243,255,.8)}
+.z3 .pick{color:var(--ember);box-shadow:0 0 14px rgba(255,180,107,.35)}
+.z4{--pill:rgba(182,140,255,.12)}
+.z4 .dive h3{color:#efe6ff;text-shadow:0 0 18px rgba(182,140,255,.65)}
+.z4 .dive .d{color:var(--bio2)}.z4 .dive .d::before{box-shadow:0 0 14px 3px rgba(182,140,255,.8)}
+.z3::before,.z4::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(1.2px 1.2px at 12% 18%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 78% 9%,#fff 50%,transparent 51%),radial-gradient(1.4px 1.4px at 44% 62%,#9ff 50%,transparent 51%),radial-gradient(1px 1px at 90% 74%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 23% 88%,#c9f 50%,transparent 51%),radial-gradient(1.3px 1.3px at 63% 34%,#fff 50%,transparent 51%);background-size:420px 520px;animation:snow 40s linear infinite}
+@keyframes snow{to{background-position:0 520px}}
+
+/* ───── creatures ───── */
+.cr{position:absolute;pointer-events:none}
+.school{inset-block-start:5%;inset-inline-start:8%;width:min(46vw,420px);fill:#04263f;opacity:.55;animation:drift 16s ease-in-out infinite alternate}
+.school.s2{inset-block-start:58%;inset-inline-start:auto;inset-inline-end:6%;width:min(30vw,260px);opacity:.35;animation-duration:22s}
+@keyframes drift{from{transform:translateX(-18px)}to{transform:translateX(26px)}}
+.jelly{width:clamp(90px,13vw,170px);filter:drop-shadow(0 0 16px rgba(111,243,255,.75));animation:bob 7s ease-in-out infinite alternate}
+.jelly.j1{inset-block-start:8%;inset-inline-end:16%}
+.jelly.j2{inset-block-start:38%;inset-inline-start:14%;width:clamp(60px,8vw,110px);animation-duration:9s;filter:drop-shadow(0 0 14px rgba(182,140,255,.8))}
+.jelly.j3{inset-block-start:60%;inset-inline-end:38%;width:clamp(40px,5vw,70px);animation-duration:6s;opacity:.7}
+@keyframes bob{from{transform:translateY(14px) scaleY(.96)}to{transform:translateY(-16px) scaleY(1.04)}}
+.angler{inset-block-start:16%;inset-inline-start:50%;width:min(86vw,560px);margin-inline-start:max(-43vw,-280px);animation:lurk 12s ease-in-out infinite alternate}
+@keyframes lurk{from{transform:translate(-12px,6px)}to{transform:translate(14px,-6px)}}
+.lure{animation:pulse 3.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+.spark{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--bio);box-shadow:0 0 12px 3px rgba(111,243,255,.8);animation:pulse 2.6s ease-in-out infinite}
+.spark.v{background:var(--bio2);box-shadow:0 0 12px 3px rgba(182,140,255,.8)}
+
+/* ───── sea floor ───── */
+.floor{position:relative;background:#000;padding:0 clamp(18px,6vw,120px) clamp(90px,12vh,120px);text-align:center}
+.vents{display:block;width:100%;height:clamp(110px,18vw,220px);margin-block-end:-1px}
+.floor .bed{background:#060a12;margin-inline:calc(-1*clamp(18px,6vw,120px));padding:clamp(34px,6vh,60px) clamp(18px,6vw,120px) clamp(90px,12vh,120px);margin-block-end:calc(-1*clamp(90px,12vh,120px))}
+.floor h2{font:400 clamp(30px,4.4vw,52px)/1.1 var(--serif);margin:0 0 6px}
+html[lang="ar"] .floor h2{font-weight:700;line-height:1.5}
+.floor .n{font:400 12px/1 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--bio);margin:0 0 30px}
+html[lang="ar"] .floor .n{font-size:15px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,50px);max-width:1000px;margin:0 auto;text-align:start}
+.facts div{border-block-start:1px solid rgba(190,240,255,.25);padding-block-start:16px}
+.facts h3{font:500 11px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#9fdcec;margin:0 0 10px}
+html[lang="ar"] .facts h3{font-size:15px}
+.facts p{margin:0;font-size:15px;color:#cfe6ee}
+html[lang="ar"] .facts p{font-size:16.5px}
+.fine{margin:36px auto 0;max-width:70ch;font-size:13.5px;color:#8fb0bd}
+html[lang="ar"] .fine{font-size:15px}
+
+/* ───── mobile ───── */
+@media (max-width:860px){
+  :root{--rope:19px}
+  .gauge{display:none}
+  .read{inset-inline-start:50%;inset-block-end:12px;transform:translateX(-50%);font-size:17px;font-weight:400;background:rgba(2,16,34,.72);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:9px 16px 10px;border-radius:99px;display:flex;align-items:baseline;gap:9px;white-space:nowrap}
+  html[dir="rtl"] .read{transform:translateX(50%)}
+  .read small{margin:0;font-size:9.5px;letter-spacing:.2em}
+  html[lang="ar"] .read small{font-size:12px}
+  .read b{font-weight:400}
+  .plans ol{grid-template-columns:1fr;border-radius:26px}
+  .plans li{border-inline-start:0;border-block-start:1px solid rgba(4,38,63,.3);padding:16px 20px}
+  .dive li{grid-template-columns:40px 1fr;padding-block:16px}
+  .dive .d{grid-column:1;justify-self:start;align-items:flex-start;padding-inline-start:15px;padding-block-start:6px}
+  .dive .d span{position:absolute;inset-block-start:10px;inset-inline-start:40px;background:none;padding:0;opacity:.75;font-size:11.5px}
+  .dive .c,.dive li:nth-child(even) .c{grid-column:2;text-align:start;justify-self:start;padding-block-start:24px}
+  .zh{text-align:start;margin-inline:0}
+  .zh p{margin-inline:0}
+  .facts{grid-template-columns:1fr}
+  .angler{inset-block-start:22%}
+  .school.s2{display:none}
+  .sky p{inset-block-start:68px;inset-inline:0;text-align:center;letter-spacing:.24em}
+  .zh h2{margin-block-start:.1em}
+  .school{inset-block-start:3%;inset-inline-start:auto;inset-inline-end:4%;width:150px}
+  .read{opacity:0;transition:opacity .4s}
+  .deep .read{opacity:1}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<div class="ctrl">
+  <a class="home-link" href="../index.html" aria-label="All menus" title="All menus / كل القوائم"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<div class="gauge" aria-hidden="true" id="gauge">
+  <div class="scale"></div>
+  <i style="top:0">0</i><i style="top:25%">200</i><i style="top:50%">1000</i><i style="top:75%">4000</i><i style="top:100%">6000</i>
+  <div class="mark"></div>
+</div>
+<div class="read" aria-hidden="true"><small><span lang="en">Depth</span><span lang="ar">العمق</span></small><span dir="ltr"><b id="depth">0</b><em><span lang="en">m</span><span lang="ar">م</span></em></span></div>
+
+<div class="sea">
+<header class="surface">
+  <div class="sky">
+    <p><span lang="en">Seafood Omakase · Twelve seats</span><span lang="ar">أوماكاسي بحري · اثنا عشر مقعدًا</span></p>
+    <div class="sun"></div>
+  </div>
+  <div class="under">
+    <div class="waves" aria-hidden="true">
+      <svg viewBox="0 0 1200 44" preserveAspectRatio="none"><path fill="#8fe3e6" d="M0 22c50-18 100-18 150 0s100 18 150 0 100-18 150 0 100 18 150 0 100-18 150 0 100 18 150 0 100-18 150 0 100 18 150 0V44H0z"/></svg>
+      <svg viewBox="0 0 1200 44" preserveAspectRatio="none"><path fill="#bff1f1" d="M0 22c50-14 100-14 150 0s100 14 150 0 100-14 150 0 100 14 150 0 100-14 150 0 100 14 150 0 100-14 150 0 100 14 150 0V30c-50 12-100 12-150 0s-100-12-150 0-100 12-150 0-100-12-150 0-100 12-150 0-100-12-150 0-100 12-150 0-100-12-150 0z"/></svg>
+    </div>
+    <div class="rays" aria-hidden="true"><b></b><b></b><b></b><b></b></div>
+    <p class="kicker"><span lang="en">0 m — the surface</span><span lang="ar">٠ م — سطح البحر</span></p>
+    <h1><span lang="en">Abyss</span><span lang="ar">الأعماق</span></h1>
+    <p class="tag"><span lang="en">Dinner is a descent. Hold your breath.</span><span lang="ar">العشاء رحلةُ غوص. احبس أنفاسك.</span></p>
+    <p class="intro"><span lang="en">Twenty-three courses arranged by the depth at which they live — bright and raw in the sunlight, rich in the twilight, fire-kissed in the midnight zone. Scroll down and the water darkens with you.</span><span lang="ar">ثلاثةٌ وعشرون طبقًا مرتّبة بحسب العمق الذي تعيش فيه كائناتها: نيّئة مشرقة في منطقة الضوء، غنيّة في منطقة الشفق، وملفوحة بالنار في منطقة منتصف الليل. انزل بالصفحة، فتُعتِم المياه معك.</span></p>
+    <a class="descend" href="#z1"><span lang="en">Descend</span><span lang="ar">انزل</span></a>
+  </div>
+</header>
+
+<section class="plans" aria-labelledby="pl">
+  <h2 id="pl"><span lang="en">Choose your dive</span><span lang="ar">اختر غطستك</span></h2>
+  <ol>
+    <li><b><span lang="en">The Snorkel</span><span lang="ar">الغطسة الأولى</span></b><span><span lang="en">7 courses · to 200 m</span><span lang="ar">٧ أطباق · حتى ٢٠٠ م</span></span><span class="p" dir="ltr">AED 340</span></li>
+    <li><b><span lang="en">The Free Dive</span><span lang="ar">الغوص الحرّ</span></b><span><span lang="en">12 courses · to 1,000 m</span><span lang="ar">١٢ طبقًا · حتى ١٬٠٠٠ م</span></span><span class="p" dir="ltr">AED 560</span></li>
+    <li><b><span lang="en">The Bathysphere</span><span lang="ar">كرة الأعماق</span></b><span><span lang="en">18 courses · the full 6,000 m</span><span lang="ar">١٨ طبقًا · الستة آلاف متر كاملة</span></span><span class="p" dir="ltr">AED 820</span></li>
+  </ol>
+</section>
+
+<section class="zone z1" id="z1" data-d0="0" data-d1="200">
+  <svg class="cr school" viewBox="0 0 220 90" aria-hidden="true"><defs><path id="f" d="M0 5Q8-1 17 5 8 11 0 5zm16 0 6-4v8z"/></defs><use href="#f" x="10" y="10"/><use href="#f" x="50" y="2"/><use href="#f" x="92" y="14"/><use href="#f" x="34" y="34"/><use href="#f" x="76" y="40"/><use href="#f" x="124" y="30"/><use href="#f" x="160" y="16"/><use href="#f" x="58" y="64"/><use href="#f" x="108" y="62"/><use href="#f" x="150" y="52"/><use href="#f" x="190" y="40"/></svg>
+  <svg class="cr school s2" viewBox="0 0 220 90" aria-hidden="true"><use href="#f" x="10" y="10"/><use href="#f" x="50" y="2"/><use href="#f" x="92" y="14"/><use href="#f" x="34" y="34"/><use href="#f" x="76" y="40"/><use href="#f" x="124" y="30"/><use href="#f" x="58" y="64"/></svg>
+  <div class="zh">
+    <span class="n">0–200<small>m</small></span>
+    <h2><span lang="en">The Sunlight Zone</span><span lang="ar">منطقة الضوء</span></h2>
+    <p><span lang="en">Where the light still reaches. Cold, raw and citrus-bright — fish that were swimming this morning.</span><span lang="ar">حيث ما زال الضوء يصل. أطباق باردة نيّئة بحموضة مشرقة، من أسماكٍ كانت تسبح هذا الصباح.</span></p>
+  </div>
+  <ol class="dive">
+    <li><div class="d"><span><bdi dir="ltr">−5 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 01</span><span lang="ar">الطبق ٠١</span></span><h3><span lang="en">Hokkaido Scallop</span><span lang="ar">أسقلوب هوكايدو</span></h3><p><span lang="en">Sliced raw over yuzu kosho, with sea grapes that pop like the tide.</span><span lang="ar">شرائح نيّئة فوق يوزو كوشو، مع عنب البحر الذي يتفرقع كالمدّ.</span></p><span class="pr" dir="ltr"><u>AED</u>58</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−20 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 02</span><span lang="ar">الطبق ٠٢</span></span><h3><span lang="en">Amberjack Crudo</span><span lang="ar">كرودو الكانباتشي</span></h3><p><span lang="en">Kanpachi in chilled green-tomato water, shiso oil, flakes of smoked salt.</span><span lang="ar">كانباتشي في ماء الطماطم الخضراء المثلّج، مع زيت الشيسو ورقائق ملح مدخّن.</span></p><span class="pr" dir="ltr"><u>AED</u>64</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−45 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 03</span><span lang="ar">الطبق ٠٣</span></span><h3><span lang="en">Dibba Bay Oyster</span><span lang="ar">محار خليج دبا</span></h3><p><span lang="en">One perfect oyster, cucumber-apple granita, finger lime pearls.</span><span lang="ar">محارة واحدة مثالية، غرانيتا الخيار والتفاح، ولآلئ الليمون الإصبعي.</span></p><span class="pr" dir="ltr"><u>AED</u>32</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−90 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 04</span><span lang="ar">الطبق ٠٤</span></span><h3><span lang="en">Sea Bream Usuzukuri</span><span lang="ar">أوسوزوكوري الدنيس</span></h3><p><span lang="en">Cut so thin the plate shows through; ponzu jelly and chive blossom.</span><span lang="ar">شرائح رقيقة حتى يشفّ الصحن من تحتها، مع هلام البونزو وزهر الثوم المعمّر.</span></p><span class="pr" dir="ltr"><u>AED</u>72</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−160 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 05</span><span lang="ar">الطبق ٠٥</span></span><h3><span lang="en">Five-Kelp Salad</span><span lang="ar">سلطة الأعشاب الخمسة</span></h3><p><span lang="en">Wakame, kombu, hijiki, tosaka and sea lettuce, toasted sesame, young ginger.</span><span lang="ar">واكامي وكومبو وهيجيكي وتوساكا وخسّ البحر، مع سمسم محمّص وزنجبيل غضّ.</span></p><span class="pr" dir="ltr"><u>AED</u>38</span></div></li>
+  </ol>
+</section>
+
+<div class="band b12" aria-hidden="true">
+  <svg class="cr jelly j1" viewBox="0 0 80 130"><defs><radialGradient id="jg" cx="50%" cy="30%" r="70%"><stop offset="0" stop-color="#eaffff" stop-opacity=".95"/><stop offset=".6" stop-color="#6ff3ff" stop-opacity=".5"/><stop offset="1" stop-color="#6ff3ff" stop-opacity=".15"/></radialGradient></defs><path fill="url(#jg)" d="M6 44C6 8 74 8 74 44q-9 8-17 0-9 8-17 0-9 8-17 0-9 8-17 0z"/><g fill="none" stroke="#bff9ff" stroke-width="1.4" stroke-linecap="round" opacity=".8"><path d="M16 48q-8 20 0 38t-2 36"/><path d="M30 50q6 22-2 40t4 34"/><path d="M42 50q-6 18 2 36t-4 40"/><path d="M54 50q8 20 0 38t4 30"/><path d="M66 48q6 16-2 34t2 34"/></g></svg>
+  <svg class="cr jelly j2" viewBox="0 0 80 130"><defs><radialGradient id="jv" cx="50%" cy="30%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".6" stop-color="#b68cff" stop-opacity=".55"/><stop offset="1" stop-color="#b68cff" stop-opacity=".15"/></radialGradient></defs><path fill="url(#jv)" d="M6 44C6 8 74 8 74 44q-9 8-17 0-9 8-17 0-9 8-17 0-9 8-17 0z"/><g fill="none" stroke="#e2d2ff" stroke-width="1.4" stroke-linecap="round" opacity=".8"><path d="M16 48q-8 20 0 38t-2 36"/><path d="M30 50q6 22-2 40t4 34"/><path d="M42 50q-6 18 2 36t-4 40"/><path d="M54 50q8 20 0 38t4 30"/><path d="M66 48q6 16-2 34t2 34"/></g></svg>
+  <svg class="cr jelly j3" viewBox="0 0 80 130"><path fill="url(#jg)" d="M6 44C6 8 74 8 74 44q-9 8-17 0-9 8-17 0-9 8-17 0-9 8-17 0z"/><g fill="none" stroke="#bff9ff" stroke-width="1.6" stroke-linecap="round" opacity=".8"><path d="M20 48q-8 20 0 38t-2 30"/><path d="M40 50q6 22-2 40t4 30"/><path d="M60 48q8 20 0 38t4 26"/></g></svg>
+</div>
+
+<section class="zone z2" id="z2" data-d0="200" data-d1="1000">
+  <div class="zh">
+    <span class="n">200–1000<small>m</small></span>
+    <h2><span lang="en">The Twilight Zone</span><span lang="ar">منطقة الشفق</span></h2>
+    <p><span lang="en">The last blue. Nigiri pressed one at a time over warm, red-vinegar rice and handed straight across the counter.</span><span lang="ar">آخر الزُّرقة. نيغيري يُشكَّل قطعةً قطعة فوق أرزّ دافئ بالخلّ الأحمر، ويُناوَل لك مباشرةً عبر المنضدة.</span></p>
+  </div>
+  <ol class="dive">
+    <li><div class="d"><span><bdi dir="ltr">−240 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 06</span><span lang="ar">الطبق ٠٦</span></span><h3><span lang="en">Akami</span><span lang="ar">أكامي</span></h3><p><span lang="en">Lean bluefin loin, ten days aged, brushed with house nikiri soy.</span><span lang="ar">لحم التونة الزرقاء الأحمر، معتّق عشرة أيام ومدهون بصويا نيكيري من صنعنا.</span></p><span class="pr" dir="ltr"><u>AED</u>36</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−380 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 07</span><span lang="ar">الطبق ٠٧</span></span><h3><span lang="en">Chutoro</span><span lang="ar">تشوتورو</span></h3><p><span lang="en">Medium-fatty tuna belly with wasabi grated on sharkskin to order.</span><span lang="ar">بطن التونة متوسط الدسم، مع واسابي طازج يُبشر عند الطلب.</span></p><span class="pr" dir="ltr"><u>AED</u>52</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−520 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 08</span><span lang="ar">الطبق ٠٨</span></span><h3><span lang="en">Otoro, Seared</span><span lang="ar">أوتورو مُلوَّح</span></h3><p><span lang="en">The richest cut, kissed by binchotan until the fat just begins to weep.</span><span lang="ar">أغنى قطعة في التونة، تُلوَّح على فحم البينشوتان حتى يبدأ دهنها بالذوبان.</span></p><span class="pr" dir="ltr"><u>AED</u>68</span><span class="pick"><span lang="en">Chef’s pick</span><span lang="ar">اختيار الشيف</span></span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−640 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 09</span><span lang="ar">الطبق ٠٩</span></span><h3><span lang="en">Kinmedai</span><span lang="ar">كينميداي</span></h3><p><span lang="en">Golden-eye snapper cured in kombu, skin blistered, a drop of sudachi.</span><span lang="ar">سمك النهّاش ذهبي العين متبّل بالكومبو، بجلدٍ ملفوح وقطرة سوداتشي.</span></p><span class="pr" dir="ltr"><u>AED</u>46</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−790 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 10</span><span lang="ar">الطبق ١٠</span></span><h3><span lang="en">Botan Shrimp</span><span lang="ar">روبيان بوتان</span></h3><p><span lang="en">Sweet and raw, crowned with its own roe; the head returns fried.</span><span lang="ar">حلو ونيّئ، متوَّج ببطارخه، ويعود رأسه إليك مقرمشًا مقليًّا.</span></p><span class="pr" dir="ltr"><u>AED</u>48</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−950 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 11</span><span lang="ar">الطبق ١١</span></span><h3><span lang="en">Bafun Uni Gunkan</span><span lang="ar">غونكان قنفذ البحر</span></h3><p><span lang="en">Hokkaido sea urchin piled high in crisp Ariake nori. Eat it in one.</span><span lang="ar">قنفذ بحر هوكايدو متراكم في نوري أرياكي المقرمش. تُؤكل في لقمة واحدة.</span></p><span class="pr" dir="ltr"><u>AED</u>78</span></div></li>
+  </ol>
+</section>
+
+<div class="band b23" aria-hidden="true">
+  <i class="spark" style="top:20%;left:12%"></i><i class="spark v" style="top:64%;left:24%;animation-delay:-1s"></i><i class="spark" style="top:78%;left:70%;animation-delay:-2s"></i><i class="spark v" style="top:14%;left:84%;animation-delay:-.6s"></i><i class="spark" style="top:48%;left:92%;animation-delay:-1.6s"></i>
+  <svg class="cr angler" viewBox="0 0 360 220">
+    <defs><radialGradient id="lg"><stop offset="0" stop-color="#fff"/><stop offset=".25" stop-color="#b9fbff"/><stop offset="1" stop-color="#6ff3ff" stop-opacity="0"/></radialGradient><linearGradient id="bg" x1="0" x2="1"><stop offset="0" stop-color="#16406a"/><stop offset=".5" stop-color="#0a2444"/><stop offset="1" stop-color="#040f22"/></linearGradient></defs>
+    <circle class="lure" cx="52" cy="52" r="50" fill="url(#lg)" opacity=".8"/>
+    <path fill="url(#bg)" stroke="#3f86b8" stroke-opacity=".5" d="M62 104C76 62 130 40 192 50c44 7 72 30 92 52l44-36c-6 26-6 56 4 84l-48-34c-18 34-60 58-112 58-44 0-84-14-106-38l66-22z"/>
+    <path fill="#eafcff" d="M64 104l10 13 6-15 9 16 7-17 9 17 7-17 9 16 7-14 6 8-60 10zM68 144l8-14 8 13 9-16 9 15 10-17 9 15 10-15-9 17-44 12z" opacity=".9"/>
+    <circle cx="150" cy="84" r="9" fill="#02101f"/><circle cx="150" cy="84" r="5" fill="#b9fbff"/><circle cx="148" cy="82" r="1.6" fill="#fff"/>
+    <path fill="none" stroke="#3f86b8" stroke-width="2" stroke-linecap="round" d="M160 50C150 14 96 6 58 44"/>
+    <path fill="#0a2444" stroke="#3f86b8" stroke-opacity=".5" d="M196 52c14-20 44-26 62-14-14 4-22 16-22 30zM214 150c10 16 30 22 48 16-12-6-18-18-16-30z"/>
+    <circle class="lure" cx="54" cy="50" r="6.5" fill="#fff"/>
+  </svg>
+</div>
+
+<section class="zone z3" id="z3" data-d0="1000" data-d1="4000">
+  <div class="zh">
+    <span class="n">1000–4000<small>m</small></span>
+    <h2><span lang="en">The Midnight Zone</span><span lang="ar">منطقة منتصف الليل</span></h2>
+    <p><span lang="en">No sunlight has ever been here. The only glow is charcoal — hot courses from the binchotan hearth behind the counter.</span><span lang="ar">هنا لم تصل شمسٌ قطّ. الوهج الوحيد وهجُ الفحم: أطباق ساخنة من موقد البينشوتان خلف المنضدة.</span></p>
+  </div>
+  <ol class="dive">
+    <li><div class="d"><span><bdi dir="ltr">−1,200 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 12</span><span lang="ar">الطبق ١٢</span></span><h3><span lang="en">Snow Crab Chawanmushi</span><span lang="ar">تشاوانموشي السلطعون الثلجي</span></h3><p><span lang="en">Trembling egg custard, picked crab, black-truffle dashi poured at the table.</span><span lang="ar">كاسترد بيض مرتجف، لحم سلطعون منتقى، ومرق داشي بالكمأة السوداء يُسكب أمامك.</span></p><span class="pr" dir="ltr"><u>AED</u>62</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−1,650 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 13</span><span lang="ar">الطبق ١٣</span></span><h3><span lang="en">Black Cod, Saikyo Miso</span><span lang="ar">القدّ الأسود بميسو سايكيو</span></h3><p><span lang="en">Seventy-two hours in sweet white miso, grilled until lacquered and flaking.</span><span lang="ar">اثنتان وسبعون ساعة في ميسو أبيض حلو، ثم شواء حتى يلمع ويتفتّت.</span></p><span class="pr" dir="ltr"><u>AED</u>135</span><span class="pick"><span lang="en">Chef’s pick</span><span lang="ar">اختيار الشيف</span></span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−2,100 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 14</span><span lang="ar">الطبق ١٤</span></span><h3><span lang="en">Squid-Ink Rice</span><span lang="ar">أرزّ بحبر الحبّار</span></h3><p><span lang="en">Koshihikari cooked black in cuttlefish ink, charred squid, smoked trout roe.</span><span lang="ar">أرزّ كوشيهيكاري مطبوخ بحبر الحبّار حتى السواد، مع حبّار مشوي وبطارخ سلمون مرقّط مدخّنة.</span></p><span class="pr" dir="ltr"><u>AED</u>95</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−2,700 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 15</span><span lang="ar">الطبق ١٥</span></span><h3><span lang="en">King Crab on Charcoal</span><span lang="ar">سلطعون ملكي على الفحم</span></h3><p><span lang="en">A whole leg split and grilled, basted with brown butter and yuzu.</span><span lang="ar">ساقٌ كاملة مشقوقة ومشوية، تُدهن بزبدة بنّية ويوزو.</span></p><span class="pr" dir="ltr"><u>AED</u>160</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−3,300 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 16</span><span lang="ar">الطبق ١٦</span></span><h3><span lang="en">Unagi Kabayaki</span><span lang="ar">أوناغي كابايكي</span></h3><p><span lang="en">Freshwater eel glazed four times over the coals, sansho pepper, pickled cucumber.</span><span lang="ar">أنقليس نهري يُلمَّع أربع مرات فوق الجمر، مع فلفل سانشو وخيار مخلّل.</span></p><span class="pr" dir="ltr"><u>AED</u>88</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−3,900 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 17</span><span lang="ar">الطبق ١٧</span></span><h3><span lang="en">Slow Abalone</span><span lang="ar">أذن البحر على مهل</span></h3><p><span lang="en">Steamed six hours in kombu, sliced warm, with a sauce of its own liver.</span><span lang="ar">تُطهى بالبخار ست ساعات مع الكومبو، وتُقطَّع دافئة مع صلصة من كبدها.</span></p><span class="pr" dir="ltr"><u>AED</u>145</span></div></li>
+  </ol>
+</section>
+
+<div class="band b34" aria-hidden="true">
+  <i class="spark v" style="top:16%;left:18%"></i><i class="spark" style="top:30%;left:44%;animation-delay:-1.2s"></i><i class="spark v" style="top:52%;left:62%;animation-delay:-.4s"></i><i class="spark" style="top:70%;left:30%;animation-delay:-2s"></i><i class="spark" style="top:24%;left:80%;animation-delay:-.9s"></i><i class="spark v" style="top:82%;left:86%;animation-delay:-1.7s"></i><i class="spark" style="top:60%;left:8%;animation-delay:-.2s"></i>
+  <svg class="cr jelly j2" style="inset-block-start:22%;inset-inline-start:auto;inset-inline-end:20%" viewBox="0 0 80 130"><path fill="url(#jv)" d="M6 44C6 8 74 8 74 44q-9 8-17 0-9 8-17 0-9 8-17 0-9 8-17 0z"/><g fill="none" stroke="#e2d2ff" stroke-width="1.4" stroke-linecap="round" opacity=".8"><path d="M16 48q-8 20 0 38t-2 36"/><path d="M30 50q6 22-2 40t4 34"/><path d="M42 50q-6 18 2 36t-4 40"/><path d="M54 50q8 20 0 38t4 30"/><path d="M66 48q6 16-2 34t2 34"/></g></svg>
+</div>
+
+<section class="zone z4" id="z4" data-d0="4000" data-d1="6000">
+  <div class="zh">
+    <span class="n">4000–6000<small>m</small></span>
+    <h2><span lang="en">The Abyssal Plain</span><span lang="ar">السهل السحيق</span></h2>
+    <p><span lang="en">Still, cold and very quiet. Sweet things in the dark, and drinks that make their own light.</span><span lang="ar">سكونٌ وبردٌ وصمتٌ عميق. حلوياتٌ في العتمة، ومشروباتٌ تصنع ضوءها بنفسها.</span></p>
+  </div>
+  <ol class="dive">
+    <li><div class="d"><span><bdi dir="ltr">−4,200 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Course 18</span><span lang="ar">الطبق ١٨</span></span><h3><span lang="en">The Pearl</span><span lang="ar">اللؤلؤة</span></h3><p><span lang="en">A white-chocolate shell you crack open to find yuzu curd and coconut snow.</span><span lang="ar">صدفة من الشوكولاتة البيضاء تكسرها لتجد كريمة اليوزو وثلج جوز الهند.</span></p><span class="pr" dir="ltr"><u>AED</u>48</span><span class="pick"><span lang="en">Signature</span><span lang="ar">توقيع الدار</span></span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−4,600 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Sweet</span><span lang="ar">حلوى</span></span><h3><span lang="en">Black Sesame Ice Cream</span><span lang="ar">مثلّجات السمسم الأسود</span></h3><p><span lang="en">Stone-ground sesame, a charcoal tuile, three grains of sea salt.</span><span lang="ar">سمسم مطحون على الحجر، رقاقة فحمية هشّة، وثلاث حبّات من ملح البحر.</span></p><span class="pr" dir="ltr"><u>AED</u>42</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−5,000 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Sweet</span><span lang="ar">حلوى</span></span><h3><span lang="en">Hojicha Brûlée</span><span lang="ar">بروليه الهوجيتشا</span></h3><p><span lang="en">Roasted green-tea custard under a pane of burnt sugar, salted kumquat.</span><span lang="ar">كاسترد الشاي الأخضر المحمّص تحت لوحٍ من السكر المحروق، مع كُمكوات مملّح.</span></p><span class="pr" dir="ltr"><u>AED</u>44</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−5,300 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Zero-proof</span><span lang="ar">بلا كحول</span></span><h3><span lang="en">Bioluminescence</span><span lang="ar">الوميض الحيوي</span></h3><p><span lang="en">Butterfly-pea tea, yuzu and tonic — it shifts from indigo to violet as you pour.</span><span lang="ar">شاي زهرة البازلاء الزرقاء مع اليوزو والتونيك، يتحوّل من النيلي إلى البنفسجي وأنت تسكبه.</span></p><span class="pr" dir="ltr"><u>AED</u>38</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−5,600 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Zero-proof</span><span lang="ar">بلا كحول</span></span><h3><span lang="en">Smoked Plum Soda</span><span lang="ar">صودا البرقوق المدخّن</span></h3><p><span lang="en">Umeboshi shrub, cherry-wood smoke under a glass dome, very cold soda.</span><span lang="ar">شراب الأوميبوشي الحامض، دخان خشب الكرز تحت قبّة زجاجية، وصودا شديدة البرودة.</span></p><span class="pr" dir="ltr"><u>AED</u>32</span></div></li>
+    <li><div class="d"><span><bdi dir="ltr">−5,900 m</bdi></span></div><div class="c"><span class="k"><span lang="en">Tea</span><span lang="ar">شاي</span></span><h3><span lang="en">Gyokuro, Ice-Brewed</span><span lang="ar">غيوكورو منقوع بالثلج</span></h3><p><span lang="en">Shade-grown leaves steeped drop by drop over melting ice for four hours.</span><span lang="ar">أوراق مزروعة في الظلّ تُنقع قطرةً قطرة فوق ثلجٍ يذوب على مدى أربع ساعات.</span></p><span class="pr" dir="ltr"><u>AED</u>34</span></div></li>
+  </ol>
+</section>
+
+<footer class="floor" id="floor" data-d0="6000" data-d1="6000">
+  <svg class="vents" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="#b68cff" opacity=".7"><circle cx="228" cy="60" r="2.5"/><circle cx="240" cy="30" r="1.8"/><circle cx="222" cy="12" r="1.4"/><circle cx="842" cy="50" r="2.5"/><circle cx="852" cy="22" r="1.6"/></g>
+    <g fill="#6ff3ff" opacity=".8"><circle cx="560" cy="96" r="2.2"/><circle cx="570" cy="70" r="1.6"/><circle cx="1040" cy="110" r="2"/></g>
+    <path fill="#060a12" d="M0 200V150c40-6 60-30 100-28 50 2 60 26 100 22l14-66h28l12 70c50 8 80-22 140-18 60 4 80 34 140 30l12-52h24l10 50c60 6 100-36 170-30 40 4 50 30 70 30l10-80h30l12 84c50 4 80-30 130-26 30 2 50 18 70 22l8-40h20l8 44c30 0 60-14 90-12V200z"/>
+  </svg>
+  <div class="bed">
+    <p class="n"><span lang="en">6,000 m — you have reached the sea floor</span><span lang="ar">٦٬٠٠٠ م — لقد بلغتَ قاع البحر</span></p>
+    <h2><span lang="en">Surface slowly.</span><span lang="ar">اصعد على مهل.</span></h2>
+    <div class="facts">
+      <div><h3><span lang="en">Seatings</span><span lang="ar">مواعيد الجلسات</span></h3><p><span lang="en">Tuesday to Sunday, two dives a night: 18:30 and 21:15. Closed Mondays.</span><span lang="ar">من الثلاثاء إلى الأحد، غطستان كل ليلة: ٦:٣٠ و٩:١٥ مساءً. نغلق يوم الاثنين.</span></p></div>
+      <div><h3><span lang="en">Find us</span><span lang="ar">العنوان</span></h3><p><span lang="en">Level −2, Lantern Pier, Pearl Divers’ Wharf, Dubai. Twelve seats at one cedar counter.</span><span lang="ar">الطابق −٢، رصيف الفانوس، مرسى غوّاصي اللؤلؤ، دبي. اثنا عشر مقعدًا حول منضدة واحدة من خشب الأرز.</span></p></div>
+      <div><h3><span lang="en">Reservations</span><span lang="ar">الحجز</span></h3><p><span lang="en">Booking essential — <span dir="ltr">+971 4 555 0191</span> · dive@abyss.example</span><span lang="ar">الحجز المسبق ضروري — <span dir="ltr">+971 4 555 0191</span> · dive@abyss.example</span></p></div>
+    </div>
+    <p class="fine"><span lang="en">Our menu is built on raw fish, shellfish, soy, sesame, egg and gluten; tell your chef about any allergy before the first course. No alcohol is used in our kitchen. Prices in UAE dirhams, inclusive of VAT.</span><span lang="ar">تعتمد قائمتنا على السمك النيّئ والمحار والصويا والسمسم والبيض والغلوتين؛ نرجو إبلاغ الشيف بأي حساسية قبل الطبق الأول. لا نستخدم الكحول في مطبخنا. الأسعار بالدرهم الإماراتي وتشمل ضريبة القيمة المضافة.</span></p>
+  </div>
+</footer>
+</div>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+(function(){
+  var zs=[].slice.call(document.querySelectorAll('[data-d0]')),out=document.getElementById('depth'),g=document.getElementById('gauge'),tick=false;
+  function upd(){tick=false;
+    var mid=scrollY+innerHeight*.5,d=0,p=0,n=4;
+    for(var i=0;i<zs.length;i++){var r=zs[i].getBoundingClientRect(),t=r.top+scrollY,b=t+r.height,a=+zs[i].dataset.d0,c=+zs[i].dataset.d1;
+      if(mid>=b){d=c;p=Math.min(i+1,n)/n}else if(mid>t){var f=(mid-t)/(b-t);d=a+(c-a)*f;p=Math.min(i+f,n)/n;break}else break}
+    document.body.classList.toggle('deep',d>0);out.textContent=Math.round(d).toLocaleString('en-US');g.style.setProperty('--p',p);
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});addEventListener('resize',upd);upd();
+})();
+</script>
+</body>
+</html>

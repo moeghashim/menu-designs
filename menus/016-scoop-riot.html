@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Scoop Riot · سكوب رايوت</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Scoop Riot — loud, small-batch gelato, sundaes and shakes churned fresh every morning. سكوب رايوت: جيلاتو صاخب يُخفق طازجاً كل صباح.">
+<meta name="theme-color" content="#ff8fb8">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Bowlby+One&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Lalezar&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --pink:#ff8fb8; --blush:#ffd6e4; --mint:#8fe3c8; --sun:#ffd84a; --lilac:#b9a4ff; --blue:#4d7cff; --tom:#ff5a4d;
+  --ink:#121212; --cream:#fff8ea;
+  --disp:"Bowlby One","Lalezar","Arial Black",Impact,sans-serif;
+  --body:"DM Sans","Baloo Bhaijaan 2",system-ui,sans-serif;
+  --sh:6px 6px 0 var(--ink);
+}
+html[lang="ar"]{ --disp:"Lalezar","Bowlby One","Arial Black",sans-serif; --body:"Baloo Bhaijaan 2","DM Sans",system-ui,sans-serif; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-weight:500;color:var(--ink);background:var(--cream);font-size:16px;line-height:1.5;overflow-x:clip}
+html[lang="ar"] body{font-size:17.5px;line-height:1.7}
+html[lang="ar"] *{letter-spacing:0 !important}
+svg{display:block}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,48px)}
+.memphis{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg fill='none' stroke='%23121212' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 40q9-14 18 0t18 0 18 0'/%3E%3Cpath d='M150 200l10-14 10 14 10-14 10 14 10-14'/%3E%3Ccircle cx='210' cy='60' r='11'/%3E%3C/g%3E%3Cpath d='M110 92l22 8-17 16z' fill='%234d7cff' stroke='%23121212' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M40 190h20v20h-20z' fill='%23ffd84a' stroke='%23121212' stroke-width='3' transform='rotate(18 50 200)'/%3E%3Cg fill='%23121212'%3E%3Ccircle cx='150' cy='30' r='4'/%3E%3Ccircle cx='166' cy='40' r='4'/%3E%3Ccircle cx='146' cy='50' r='4'/%3E%3Ccircle cx='86' cy='150' r='4'/%3E%3Ccircle cx='230' cy='150' r='4'/%3E%3Ccircle cx='20' cy='120' r='4'/%3E%3C/g%3E%3Cpath d='M214 226a14 14 0 0 1 28 0z' fill='%23ff5a4d' stroke='%23121212' stroke-width='3'/%3E%3C/svg%3E")}
+
+/* ---- controls ---- */
+.ctrl{position:fixed;inset-block-start:12px;inset-inline-end:12px;z-index:50;display:flex;gap:8px;align-items:center}
+.ctrl a,.ctrl button{font:700 14px/1 var(--body);color:var(--ink);background:var(--sun);border:3px solid var(--ink);border-radius:999px;padding:9px 14px;box-shadow:3px 3px 0 var(--ink);cursor:pointer;text-decoration:none;min-height:40px;display:inline-flex;align-items:center;gap:6px;transition:transform .15s}
+.ctrl a{background:#fff}
+.ctrl button:hover,.ctrl a:hover{transform:translate(-2px,-2px) rotate(-3deg)}
+.ctrl svg{width:14px;height:14px}
+
+/* ---- hero ---- */
+.hero{position:relative;background-color:var(--pink);border-block-end:5px solid var(--ink);overflow:clip}
+.hero::before{content:"";position:absolute;inset:0;opacity:.9}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:clamp(16px,4vw,56px);padding-block:clamp(84px,9vw,120px) clamp(48px,6vw,88px)}
+.kicker{display:inline-block;background:var(--ink);color:var(--sun);font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;transform:rotate(-3deg);margin-block-end:22px}
+.logo{font-family:var(--disp);font-weight:400;line-height:.86;font-size:clamp(64px,13.2vw,196px);letter-spacing:-.02em}
+html[lang="ar"] .logo{line-height:1.05;font-size:clamp(70px,14vw,200px)}
+.logo .w1{display:block;color:var(--cream);-webkit-text-stroke:7px var(--ink);paint-order:stroke fill;text-shadow:7px 7px 0 var(--ink);transform:rotate(-4deg);transform-origin:0 100%}
+html[dir="rtl"] .logo .w1{transform-origin:100% 100%;transform:rotate(3deg)}
+.logo .w2{display:inline-block;background:var(--sun);border:5px solid var(--ink);box-shadow:9px 9px 0 var(--ink);padding:.06em .16em .02em;margin-block-start:.12em;margin-inline-start:.5em;transform:rotate(3deg)}
+html[lang="ar"] .logo .w2{padding:.0em .2em .06em;transform:rotate(-3deg)}
+.tag{font-family:var(--disp);font-size:clamp(20px,2.4vw,32px);line-height:1.15;margin-block:38px 14px;max-width:18ch}
+html[lang="ar"] .tag{line-height:1.35;max-width:22ch}
+.intro{max-width:46ch;font-size:clamp(16px,1.25vw,19px);background:var(--cream);border:3px solid var(--ink);padding:16px 18px;box-shadow:var(--sh);transform:rotate(-1deg)}
+html[lang="ar"] .intro{font-size:clamp(17.5px,1.35vw,20px)}
+.cone{position:relative;justify-self:center;width:min(100%,430px)}
+.cone svg{width:100%;height:auto;overflow:visible}
+.cone .bob{animation:bob 4.5s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes bob{50%{transform:rotate(3deg) translateY(-6px)}}
+.burst{position:absolute;inset-block-start:4%;inset-inline-start:-4%;width:118px;height:118px;display:grid;place-items:center;text-align:center;font-family:var(--disp);font-size:15px;line-height:1.05;color:var(--cream);transform:rotate(-14deg);z-index:2}
+html[lang="ar"] .burst{font-size:18px;line-height:1.2}
+.burst::before,.burst::after,.burst i{content:"";position:absolute;inset:10px;background:var(--blue);border:3px solid var(--ink)}
+.burst::before{transform:rotate(30deg)}.burst::after{transform:rotate(60deg)}
+.burst b{position:relative;z-index:2;font-weight:400;background:var(--blue);padding:6px 2px;border-radius:50%;width:84px}
+
+.tag>span{background:var(--pink);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 .25em;margin-inline-start:-.25em}
+#sundaes .head h2{background:var(--mint);padding:.04em .18em;border:4px solid var(--ink);box-shadow:var(--sh);transform:rotate(-1.5deg)}
+/* ---- ticker ---- */
+.tick{background:var(--ink);color:var(--cream);border-block-end:5px solid var(--ink);overflow:clip;font-family:var(--disp);font-size:clamp(18px,2vw,26px)}
+.tick ul{display:flex;gap:28px;list-style:none;white-space:nowrap;padding-block:12px;width:max-content;animation:slide 30s linear infinite}
+html[dir="rtl"] .tick ul{animation-name:slideR}
+.tick li{display:flex;align-items:center;gap:28px}
+.tick li::after{content:"";width:18px;height:18px;background:var(--sun);transform:rotate(45deg)}
+.tick li:nth-child(3n+1)::after{background:var(--pink);border-radius:50%}
+.tick li:nth-child(3n+2)::after{background:var(--mint);clip-path:polygon(50% 0,100% 100%,0 100%);transform:none}
+@keyframes slide{to{transform:translateX(-50%)}}
+@keyframes slideR{to{transform:translateX(50%)}}
+
+/* ---- section heads ---- */
+section{position:relative;padding-block:clamp(56px,7vw,104px)}
+.head{display:flex;align-items:center;gap:clamp(14px,2vw,26px);margin-block-end:clamp(36px,4.5vw,64px);flex-wrap:wrap}
+.num{flex:none;width:clamp(74px,8vw,112px);aspect-ratio:1;display:grid;place-items:center;font-family:"Bowlby One",var(--disp);font-size:clamp(36px,4.4vw,60px);border:4px solid var(--ink);box-shadow:var(--sh);background:var(--sun);border-radius:50%}
+.num.sq{border-radius:0;background:var(--mint);transform:rotate(-8deg)}
+.num.tri{border:0;box-shadow:none;background:none;position:relative;z-index:0;padding-block-start:22%}
+.num.tri::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--ink);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.num.tri::after{content:"";position:absolute;inset:9% 9% 5%;z-index:-1;background:var(--lilac);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.num.arch{border-radius:999px 999px 0 0;background:var(--pink);transform:rotate(6deg)}
+.head h2{font-family:var(--disp);font-weight:400;font-size:clamp(38px,6.4vw,92px);line-height:.95;letter-spacing:-.01em}
+html[lang="ar"] .head h2{line-height:1.2}
+.head p{flex-basis:100%;max-width:56ch;font-size:clamp(16px,1.3vw,19px)}
+html[lang="ar"] .head p{font-size:clamp(17.5px,1.4vw,20px)}
+.squig{width:clamp(90px,12vw,170px);height:22px;flex:none;color:var(--ink)}
+.price{font-family:"Bowlby One",var(--disp);font-size:19px;white-space:nowrap;unicode-bidi:isolate;direction:ltr;display:inline-block}
+.price small{font:700 12px var(--body);letter-spacing:.06em;margin-inline-start:3px}
+.badge{display:inline-block;font-size:12px;font-weight:700;line-height:1;padding:5px 8px;border:2px solid var(--ink);background:var(--sun);border-radius:999px;transform:rotate(-3deg);white-space:nowrap}
+html[lang="ar"] .badge{font-size:13.5px}
+.badge.v{background:var(--mint)}
+
+/* ---- 01 scoops ---- */
+#scoops{background:var(--cream)}
+.scoops{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(56px,5vw,72px) clamp(18px,2.4vw,36px);padding-block-start:44px}
+.scoop{position:relative;background:#fff;border:3px solid var(--ink);box-shadow:var(--sh);padding:78px 18px 18px;display:flex;flex-direction:column;gap:6px;transition:transform .2s}
+.scoop:nth-child(odd){transform:rotate(-1.6deg)}
+.scoop:nth-child(even){transform:rotate(1.4deg) translateY(18px)}
+.scoop:nth-child(3n){border-radius:0 34px 0 34px}
+.scoop:hover{transform:rotate(0) translateY(-6px)}
+.scoop .ball{position:absolute;inset-block-start:-52px;inset-inline-start:50%;width:150px;margin-inline-start:-75px}
+.scoop .ball svg{width:100%;height:auto;overflow:visible}
+.scoop:hover .ball{animation:wig .5s}
+@keyframes wig{30%{transform:rotate(-7deg)}70%{transform:rotate(6deg)}}
+.scoop h3{color:var(--ink);font-family:var(--disp);font-weight:400;font-size:22px;line-height:1.08}
+html[lang="ar"] .scoop h3{font-size:25px;line-height:1.25}
+.scoop p{font-size:15px;flex:1}
+html[lang="ar"] .scoop p{font-size:16.5px}
+.scoop .row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-block-start:8px;padding-block-start:10px;border-block-start:3px dotted var(--ink)}
+.sizes{margin-block-start:clamp(64px,6vw,84px);display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center;background:var(--ink);color:var(--cream);padding:18px 22px;transform:rotate(-.8deg);box-shadow:8px 8px 0 var(--pink)}
+.sizes strong{font-family:var(--disp);font-weight:400;font-size:22px;color:var(--sun);margin-inline-end:8px}
+.sizes span{display:inline-flex;align-items:center;gap:8px}
+.sizes i{width:14px;height:14px;border-radius:50%;background:var(--mint);display:inline-block}
+.sizes span:nth-of-type(2) i{background:var(--pink)}.sizes span:nth-of-type(3) i{background:var(--sun)}
+
+/* ---- 02 sundaes ---- */
+#sundaes{background-color:var(--mint);border-block:5px solid var(--ink)}
+.sundaes{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(28px,3.4vw,52px)}
+.sun{position:relative;display:grid;grid-template-columns:clamp(120px,15vw,200px) 1fr;background:var(--cream);border:4px solid var(--ink);box-shadow:10px 10px 0 var(--ink);min-height:230px}
+.sun:nth-child(1){transform:rotate(-1.2deg)}.sun:nth-child(2){transform:rotate(1.4deg) translateY(26px)}
+.sun:nth-child(3){transform:rotate(1deg)}.sun:nth-child(4){transform:rotate(-1.6deg) translateY(26px)}
+.sun .art{position:relative;border-inline-end:4px solid var(--ink);overflow:hidden;background:var(--pink)}
+.sun:nth-child(2) .art{background:var(--sun)}.sun:nth-child(3) .art{background:var(--lilac)}.sun:nth-child(4) .art{background:var(--blue)}
+.art i{position:absolute;border:4px solid var(--ink);display:block}
+.art .a{width:86%;aspect-ratio:1;border-radius:50%;background:var(--cream);inset-block-start:-18%;inset-inline-start:-22%}
+.art .b{width:62%;aspect-ratio:1;background:var(--sun);inset-block-end:10%;inset-inline-end:-14%;transform:rotate(20deg)}
+.art .c{width:120%;height:22px;border:0;inset-block-end:38%;inset-inline-start:-10%;background:repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 20px);transform:rotate(-24deg)}
+.sun:nth-child(2) .art .a{background:var(--tom);border-radius:0;transform:rotate(30deg)}
+.sun:nth-child(2) .art .b{background:var(--mint);border-radius:50%}
+.sun:nth-child(3) .art .a{background:var(--sun);border-radius:999px 999px 0 0;inset-block-start:auto;inset-block-end:-6%;inset-inline-start:8%;width:70%}
+.sun:nth-child(3) .art .b{background:var(--pink);border-radius:50%;inset-block-end:auto;inset-block-start:8%;width:44%}
+.sun:nth-child(4) .art .a{background:var(--pink)}
+.sun:nth-child(4) .art .b{background:var(--cream);clip-path:polygon(50% 0,100% 100%,0 100%);border:0;width:70%}
+.sun .txt{padding:clamp(18px,2vw,28px);display:flex;flex-direction:column;gap:8px}
+.sun h3{font-family:var(--disp);font-weight:400;font-size:clamp(26px,2.7vw,38px);line-height:1}
+html[lang="ar"] .sun h3{line-height:1.25}
+.sun p{flex:1}
+.sun .price{align-self:flex-start;background:var(--ink);color:var(--sun);padding:8px 14px;font-size:22px;transform:rotate(-3deg)}
+.sun .badge{position:absolute;inset-block-start:-16px;inset-inline-end:18px;font-size:14px;padding:8px 12px;background:var(--tom);color:#fff;transform:rotate(5deg)}
+
+/* ---- 03 + 04 ---- */
+.duo{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,5vw,84px);align-items:start}
+.duo .head{margin-block-end:32px}
+.duo .head h2{font-size:clamp(36px,4.6vw,64px)}
+.shakes{background:var(--sun);border:4px solid var(--ink);box-shadow:10px 10px 0 var(--blue);padding:8px clamp(18px,2.4vw,32px);list-style:none;position:relative}
+.shakes::before{content:"";position:absolute;inset-inline:22px;inset-block-start:-18px;height:18px;background:var(--ink);clip-path:polygon(0 100%,4% 0,8% 100%,12% 0,16% 100%,20% 0,24% 100%,28% 0,32% 100%,36% 0,40% 100%,44% 0,48% 100%,52% 0,56% 100%,60% 0,64% 100%,68% 0,72% 100%,76% 0,80% 100%,84% 0,88% 100%,92% 0,96% 100%,100% 0,100% 100%)}
+.shakes li{display:grid;grid-template-columns:auto 1fr auto;gap:4px 16px;align-items:center;padding-block:18px;border-block-end:4px solid var(--ink)}
+.shakes li:last-child{border:0}
+.shakes .dot{grid-row:span 2;width:44px;height:58px;border:3px solid var(--ink);border-radius:6px 6px 16px 16px;background:linear-gradient(var(--cream) 0 30%,var(--pink) 30%);position:relative}
+.shakes .dot::before{content:"";position:absolute;width:5px;height:34px;background:var(--ink);inset-block-start:-22px;inset-inline-start:24px;transform:rotate(14deg)}
+.shakes li:nth-child(2) .dot{background:linear-gradient(var(--cream) 0 30%,var(--mint) 30%)}
+.shakes li:nth-child(3) .dot{background:linear-gradient(var(--cream) 0 30%,#7a4a2c 30%)}
+.shakes li:nth-child(4) .dot{background:linear-gradient(var(--cream) 0 30%,#fff3a6 30%)}
+.shakes h3{font-family:var(--disp);font-weight:400;font-size:clamp(21px,2vw,27px);line-height:1.1}
+html[lang="ar"] .shakes h3{line-height:1.3}
+.shakes p{grid-column:2/4;font-size:15.5px}
+html[lang="ar"] .shakes p{font-size:17px}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:16px 14px}
+.chips li{border:3px solid var(--ink);background:#fff;padding:12px 18px;border-radius:999px;box-shadow:4px 4px 0 var(--ink);display:grid;grid-template-columns:1fr auto;gap:0 14px;align-items:center;flex:1 1 240px}
+.chips li:nth-child(4n+1){background:var(--blush);transform:rotate(-2deg)}
+.chips li:nth-child(4n+2){background:var(--mint);border-radius:0;transform:rotate(1.5deg)}
+.chips li:nth-child(4n+3){background:var(--lilac);border-radius:18px 0 18px 0}
+.chips li:nth-child(4n){background:var(--sun);transform:rotate(-1deg)}
+.chips h3{font-weight:800;font-size:17px;line-height:1.2}
+html[lang="ar"] .chips h3{font-size:19px}
+.chips p{font-size:15px;grid-column:1;line-height:1.35}
+html[lang="ar"] .chips p{font-size:16px;line-height:1.55}
+.chips .price{grid-row:1/3;grid-column:2}
+
+/* ---- footer ---- */
+footer{background-color:var(--ink);color:var(--cream);border-block-start:5px solid var(--ink);position:relative;overflow:clip}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:clamp(24px,3vw,48px);padding-block:clamp(48px,6vw,84px)}
+footer .big{font-family:var(--disp);font-size:clamp(40px,5vw,72px);line-height:.95;color:var(--pink)}
+html[lang="ar"] footer .big{line-height:1.2}
+footer h4{font-family:var(--disp);font-weight:400;font-size:20px;color:var(--sun);margin-block-end:8px}
+footer p:not(.big){font-size:15.5px}
+html[lang="ar"] footer p:not(.big){font-size:17px}
+footer .zig{height:20px;background:linear-gradient(135deg,var(--pink) 25%,transparent 25%) -20px 0/40px 20px,linear-gradient(225deg,var(--pink) 25%,transparent 25%) -20px 0/40px 20px,var(--sun)}
+
+@media (max-width:1000px){
+  .scoops{grid-template-columns:repeat(2,1fr)}
+  .sundaes{grid-template-columns:1fr}
+  .sun:nth-child(n){transform:rotate(-.8deg)}.sun:nth-child(even){transform:rotate(.8deg)}
+  .duo{grid-template-columns:1fr}
+  footer .wrap{grid-template-columns:1fr 1fr}
+}
+@media (max-width:700px){
+  :root{--sh:4px 4px 0 var(--ink)}
+  .hero .wrap{grid-template-columns:1fr;padding-block-start:84px}
+  .logo{font-size:20vw}html[lang="ar"] .logo{font-size:23vw}
+  .cone{width:min(74%,300px);order:-1;margin-block-end:4px}
+  .burst{inset-inline-start:-18%;width:104px;height:104px;font-size:13px}
+  .logo .w1{-webkit-text-stroke-width:5px;text-shadow:5px 5px 0 var(--ink)}
+  .logo .w2{box-shadow:6px 6px 0 var(--ink);border-width:4px;margin-inline-start:.25em}
+  .tag{margin-block-start:30px}
+  .scoops{grid-template-columns:1fr;gap:22px;padding-block-start:0}
+  .scoop,.scoop:nth-child(n){padding:14px 14px 14px 14px;padding-inline-start:112px;min-height:118px;transform:rotate(-.7deg)}
+  .scoop:nth-child(even){transform:rotate(.7deg);padding-inline:14px 112px}
+  .scoop .ball{width:104px;margin:0;inset-block-start:50%;margin-block-start:-44px;inset-inline-start:-6px}
+  .scoop:nth-child(even) .ball{inset-inline-start:auto;inset-inline-end:-6px}
+  .sizes{transform:none;margin-block-start:36px;box-shadow:5px 5px 0 var(--pink)}
+  .sun{grid-template-columns:84px 1fr;box-shadow:6px 6px 0 var(--ink);min-height:0}
+  .sun .badge{inset-inline-end:10px}
+  .chips li{flex-basis:100%}
+  footer .wrap{grid-template-columns:1fr}
+  .head h2{flex:1}
+  .squig{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ball" viewBox="0 0 120 100">
+    <path d="M10 62C10 28 34 8 60 8s50 20 50 54c0 10-6 14-12 10-4-2-8 0-8 6 0 10-10 12-12 2-1-6-8-8-12-4s-4 16-12 16-6-12-10-16-10-2-12 4-10 4-10-4c0-4-4-6-8-4-3 1-4-4-4-10Z" fill="currentColor" stroke="#121212" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M30 40c4-12 14-19 26-20" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+    <circle cx="80" cy="34" r="3.5" fill="#121212"/><circle cx="92" cy="50" r="3.5" fill="#121212"/><circle cx="70" cy="52" r="3.5" fill="#121212"/>
+  </symbol>
+  <symbol id="sq" viewBox="0 0 170 22"><path d="M3 11q10-16 20 0t20 0 20 0 20 0 20 0 20 0 20 0 20 0" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></symbol>
+</svg>
+
+<div class="ctrl">
+  <a class="home-link" href="../index.html"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M0 0h6v6H0zM8 0h6v6H8zM0 8h6v6H0zM8 8h6v6H8z" fill="currentColor"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<header class="hero memphis">
+  <div class="wrap">
+    <div>
+      <span class="kicker"><span lang="en">Gelato lab · est. 1986-ish</span><span lang="ar">مختبر الجيلاتو · منذ ١٩٨٦ تقريباً</span></span>
+      <h1 class="logo">
+        <span lang="en"><span class="w1">Scoop</span><span class="w2">Riot</span></span>
+        <span lang="ar"><span class="w1">سكوب</span><span class="w2">رايوت</span></span>
+      </h1>
+      <p class="tag"><span lang="en">Gelato that refuses to sit still.</span><span lang="ar">جيلاتو لا يعرف الهدوء.</span></p>
+      <p class="intro"><span lang="en">Churned at 6 a.m. in small, noisy batches — real pistachio, real fruit, zero beige. Pick a scoop, stack it high, and let it drip on your shoes.</span><span lang="ar">نخفقه في السادسة صباحاً بكميات صغيرة وصاخبة: فستق حقيقي، فاكهة حقيقية، ولا مكان للألوان الباهتة. اختر نكهتك، كدّسها عالياً، ودعها تقطر كما تشاء.</span></p>
+    </div>
+    <div class="cone" aria-hidden="true">
+      <div class="burst"><i></i><b><span lang="en">Churned today!</span><span lang="ar">خُفق اليوم!</span></b></div>
+      <svg viewBox="0 0 400 520">
+        <defs><pattern id="zz" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="28" height="28" fill="#ffd84a"/><path d="M0 0h28M0 14h28" stroke="#121212" stroke-width="4"/><path d="M0 0v28M14 0v28" stroke="#121212" stroke-width="4"/></pattern></defs>
+        <path d="M40 470q14-22 28 0t28 0 28 0" fill="none" stroke="#121212" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="344" cy="402" r="26" fill="#8fe3c8" stroke="#121212" stroke-width="6"/>
+        <path d="M318 96l52 18-40 40z" fill="#4d7cff" stroke="#121212" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M30 150l16-22 16 22 16-22 16 22" fill="none" stroke="#121212" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <g class="bob">
+          <path d="M118 290h172l-86 220z" fill="url(#zz)" stroke="#121212" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M104 262h200v34l-20 14-20-14-20 14-20-14-20 14-20-14-20 14-20-14-20 14-20-14z" fill="#ff5a4d" stroke="#121212" stroke-width="7" stroke-linejoin="round"/>
+          <g color="#8fe3c8"><use href="#ball" x="60" y="110" width="210" height="175"/></g>
+          <g color="#ffd84a"><use href="#ball" x="150" y="96" width="200" height="167"/></g>
+          <g color="#fff8ea"><use href="#ball" x="92" y="0" width="216" height="180"/></g>
+          <circle cx="210" cy="14" r="20" fill="#ff5a4d" stroke="#121212" stroke-width="6"/>
+          <path d="M214 -4q10-26 34-28" fill="none" stroke="#121212" stroke-width="6" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="tick" aria-hidden="true">
+  <ul>
+    <li><span lang="en">Pick it</span><span lang="ar">اختر</span></li><li><span lang="en">Stack it</span><span lang="ar">كدّس</span></li><li><span lang="en">Drip it</span><span lang="ar">قطّر</span></li><li><span lang="en">Repeat</span><span lang="ar">كرّر</span></li><li><span lang="en">No beige allowed</span><span lang="ar">ممنوع الباهت</span></li><li><span lang="en">Churned at 6 a.m.</span><span lang="ar">يُخفق في السادسة</span></li>
+    <li><span lang="en">Pick it</span><span lang="ar">اختر</span></li><li><span lang="en">Stack it</span><span lang="ar">كدّس</span></li><li><span lang="en">Drip it</span><span lang="ar">قطّر</span></li><li><span lang="en">Repeat</span><span lang="ar">كرّر</span></li><li><span lang="en">No beige allowed</span><span lang="ar">ممنوع الباهت</span></li><li><span lang="en">Churned at 6 a.m.</span><span lang="ar">يُخفق في السادسة</span></li>
+    <li><span lang="en">Pick it</span><span lang="ar">اختر</span></li><li><span lang="en">Stack it</span><span lang="ar">كدّس</span></li><li><span lang="en">Drip it</span><span lang="ar">قطّر</span></li><li><span lang="en">Repeat</span><span lang="ar">كرّر</span></li><li><span lang="en">No beige allowed</span><span lang="ar">ممنوع الباهت</span></li><li><span lang="en">Churned at 6 a.m.</span><span lang="ar">يُخفق في السادسة</span></li>
+    <li><span lang="en">Pick it</span><span lang="ar">اختر</span></li><li><span lang="en">Stack it</span><span lang="ar">كدّس</span></li><li><span lang="en">Drip it</span><span lang="ar">قطّر</span></li><li><span lang="en">Repeat</span><span lang="ar">كرّر</span></li><li><span lang="en">No beige allowed</span><span lang="ar">ممنوع الباهت</span></li><li><span lang="en">Churned at 6 a.m.</span><span lang="ar">يُخفق في السادسة</span></li>
+  </ul>
+</div>
+
+<main>
+<section id="scoops">
+  <div class="wrap">
+    <div class="head">
+      <span class="num">1</span>
+      <h2><span lang="en">The Scoops</span><span lang="ar">الكرات</span></h2>
+      <svg class="squig" aria-hidden="true"><use href="#sq"/></svg>
+      <p><span lang="en">Eight flavours on the bar today. Priced per scoop — cup or hand-rolled waffle cone, your call.</span><span lang="ar">ثماني نكهات على الطاولة اليوم. السعر للكرة الواحدة، في كوب أو في قمع وافل ملفوف يدوياً، والقرار لك.</span></p>
+    </div>
+    <ul class="scoops">
+      <li class="scoop" style="color:#a9d67a"><div class="ball"><svg viewBox="0 0 120 100" aria-hidden="true"><use href="#ball"/></svg></div>
+        <h3><span lang="en">Pistachio Bronte</span><span lang="ar">فستق برونتي</span></h3>
+        <p style="color:#121212"><span lang="en">Slow-roasted Sicilian pistachio with a pinch of sea salt.</span><span lang="ar">فستق صقلّي محمّص على مهل مع رشّة ملح بحري.</span></p>
+        <div class="row" style="color:#121212"><span class="badge"><span lang="en">★ Riot fave</span><span lang="ar">★ نجم الرايوت</span></span><span class="price">24<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></div></li>
+      <li class="scoop" style="color:#fff8ea"><div class="ball"><svg viewBox="0 0 120 100" aria-hidden="true"><use href="#ball"/></svg></div>
+        <h3><span lang="en">Stracciatella Static</span><span lang="ar">ستراتشاتيلا</span></h3>
+        <p style="color:#121212"><span lang="en">Fior di latte shattered with shards of dark chocolate.</span><span lang="ar">جيلاتو الحليب الصافي تتخلّله شظايا الشوكولاتة الداكنة.</span></p>
+        <div class="row" style="color:#121212"><span></span><span class="price">20<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></div></li>
+      <li class="scoop" style="color:#ff8fb8"><div class="ball"><svg viewBox="0 0 120 100" aria-hidden="true"><use href="#ball"/></svg></div>
+        <h3><span lang="en">Rose Lokum</span><span lang="ar">ورد وراحة</span></h3>
+        <p style="color:#121212"><span lang="en">Rosewater milk gelato with chewy cubes of Turkish delight.</span><span lang="ar">جيلاتو الحليب بماء الورد مع مكعبات طرية من راحة الحلقوم.</span></p>
+        <div class="row" style="color:#121212"><span></span><span class="price">22<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></div></li>
+      <li class="scoop" style="color:#ffb23e"><div class="ball"><svg viewBox="0 0 120 100" aria-hidden="true"><use href="#ball"/></svg></div>
+        <h3><span lang="en">Mango Chili Zap</span><span lang="ar">مانجو بلسعة حارّة</span></h3>
+        <p style="color:#121212"><span lang="en">Alphonso mango sorbet with a wink of chili and lime.</span><span lang="ar">سوربيه مانجو ألفونسو مع لمسة خفيفة من الفلفل الحار والليمون.</span></p>
+        <div class="row" style="color:#121212"><span class="badge v"><span lang="en">Vegan</span><span lang="ar">نباتي</span></span><span class="price">20<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></div></li>
+      <li class="scoop" style="color:#e8cfa0"><div class="ball"><svg viewBox="0 0 120 100" aria-hidden="true"><use href="#ball"/></svg></div>
+        <h3><span lang="en">Tahini Halva Swirl</span><span lang="ar">دوّامة الطحينة والحلاوة</span></h3>
+        <p style="color:#121212"><span lang="en">Sesame gelato rippled with date molasses and halva crumbs.</span><span lang="ar">جيلاتو السمسم تتموّج فيه خيوط دبس التمر وفتات الحلاوة الطحينية.</span></p>
+        <div class="row" style="color:#121212"><span></span><span class="price">22<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></div></li>
+      <li class="scoop" style="color:#5a3626"><div class="ball"><svg viewBox="0 0 120 100" aria-hidden="true"><use href="#ball"/></svg></div>
+        <h3><span lang="en">Blackout Cocoa</span><span lang="ar">كاكاو العتمة</span></h3>
+        <p style="color:#121212"><span lang="en">A 72% dark chocolate sorbet — no dairy, no mercy.</span><span lang="ar">سوربيه شوكولاتة داكنة ٧٢٪ بلا حليب وبلا رحمة.</span></p>
+        <div class="row" style="color:#121212"><span class="badge v"><span lang="en">Vegan</span><span lang="ar">نباتي</span></span><span class="price">22<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></div></li>
+      <li class="scoop" style="color:#ffd84a"><div class="ball"><svg viewBox="0 0 120 100" aria-hidden="true"><use href="#ball"/></svg></div>
+        <h3><span lang="en">Saffron Milk Crunch</span><span lang="ar">زعفران مقرمش</span></h3>
+        <p style="color:#121212"><span lang="en">Saffron custard folded with caramelised cornflakes.</span><span lang="ar">كاسترد بالزعفران يُقلَّب مع رقائق الذرة المكرملة.</span></p>
+        <div class="row" style="color:#121212"><span class="badge"><span lang="en">★ Riot fave</span><span lang="ar">★ نجم الرايوت</span></span><span class="price">24<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></div></li>
+      <li class="scoop" style="color:#8fe3c8"><div class="ball"><svg viewBox="0 0 120 100" aria-hidden="true"><use href="#ball"/></svg></div>
+        <h3><span lang="en">Lemon Mint Fizz</span><span lang="ar">ليمون ونعناع فوّار</span></h3>
+        <p style="color:#121212"><span lang="en">Sharp lemon sorbet, torn mint and a fistful of popping candy.</span><span lang="ar">سوربيه ليمون لاذع مع نعناع طازج وحفنة من الحلوى الفرقعة.</span></p>
+        <div class="row" style="color:#121212"><span class="badge v"><span lang="en">Vegan</span><span lang="ar">نباتي</span></span><span class="price">20<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></div></li>
+    </ul>
+    <p class="sizes"><strong><span lang="en">Stack discount</span><span lang="ar">خصم التكديس</span></strong>
+      <span><i></i><span lang="en">2 scoops · save 4 AED</span><span lang="ar">كرتان · وفّر ٤ د.إ</span></span>
+      <span><i></i><span lang="en">3 scoops · save 8 AED</span><span lang="ar">٣ كرات · وفّر ٨ د.إ</span></span>
+      <span><i></i><span lang="en">Kids' half-scoop · 12 AED</span><span lang="ar">نصف كرة للصغار · ١٢ د.إ</span></span></p>
+  </div>
+</section>
+
+<section id="sundaes" class="memphis">
+  <div class="wrap">
+    <div class="head">
+      <span class="num sq">2</span>
+      <h2><span lang="en">Sundae Riots</span><span lang="ar">صنداي الشغب</span></h2>
+      <svg class="squig" aria-hidden="true"><use href="#sq"/></svg>
+    </div>
+    <ul class="sundaes">
+      <li class="sun"><div class="art" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+        <div class="txt"><span class="badge"><span lang="en">Most ordered</span><span lang="ar">الأكثر طلباً</span></span>
+        <h3><span lang="en">The Memphis Melt</span><span lang="ar">ذوبان ممفيس</span></h3>
+        <p><span lang="en">Three scoops of your choosing, hot fudge, torched meringue, confetti sprinkles and a zigzag wafer.</span><span lang="ar">ثلاث كرات من اختيارك مع صلصة الشوكولاتة الساخنة، مارينغ محمّر باللهب، رشّات ملوّنة وبسكويت متعرّج.</span></p>
+        <span class="price">42<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></div></li>
+      <li class="sun"><div class="art" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+        <div class="txt">
+        <h3><span lang="en">Kunafa Krash</span><span lang="ar">كنافة كراش</span></h3>
+        <p><span lang="en">Fior di latte in a crisp kunafa nest, pistachio cream and a drizzle of orange-blossom syrup.</span><span lang="ar">جيلاتو الحليب في عشّ كنافة مقرمش، مع كريمة الفستق وخيط من قطر ماء الزهر.</span></p>
+        <span class="price">46<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></div></li>
+      <li class="sun"><div class="art" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+        <div class="txt">
+        <h3><span lang="en">Banana Split Personality</span><span lang="ar">بنانا سبليت بشخصيتين</span></h3>
+        <p><span lang="en">Caramelised banana, three flavours that don't match, salted caramel and roasted peanuts.</span><span lang="ar">موز مكرمل وثلاث نكهات لا تشبه بعضها، مع كراميل مملّح وفول سوداني محمّص.</span></p>
+        <span class="price">44<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></div></li>
+      <li class="sun"><div class="art" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+        <div class="txt">
+        <h3><span lang="en">Affogato Riot</span><span lang="ar">أفوغاتو رايوت</span></h3>
+        <p><span lang="en">A vanilla scoop drowned tableside in double espresso, with amaretti crumble.</span><span lang="ar">كرة فانيلا نُغرقها أمامك بإسبريسو مزدوج، مع فتات بسكويت الأماريتي.</span></p>
+        <span class="price">30<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap duo">
+    <div>
+      <div class="head">
+        <span class="num tri">3</span>
+        <h2><span lang="en">Shakes &amp; Floats</span><span lang="ar">مخفوقات وفلوت</span></h2>
+      </div>
+      <ul class="shakes">
+        <li><i class="dot" aria-hidden="true"></i><h3><span lang="en">Pink Noise Shake</span><span lang="ar">مخفوق الضجيج الوردي</span></h3><span class="price">32<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span>
+          <p><span lang="en">Strawberry gelato, a drop of rose and a cloud of whipped cream.</span><span lang="ar">جيلاتو الفراولة مع قطرة ورد وسحابة من الكريمة المخفوقة.</span></p></li>
+        <li><i class="dot" aria-hidden="true"></i><h3><span lang="en">Mint Condition</span><span lang="ar">نعناع بحالة ممتازة</span></h3><span class="price">32<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span>
+          <p><span lang="en">Mint-chip gelato blitzed thick, served in a chocolate-dipped glass.</span><span lang="ar">جيلاتو النعناع برقائق الشوكولاتة مخفوق بقوام كثيف، في كأس مغموسة حافته بالشوكولاتة.</span></p></li>
+        <li><i class="dot" aria-hidden="true"></i><h3><span lang="en">Cola Float 1984</span><span lang="ar">كولا فلوت ١٩٨٤</span></h3><span class="price">28<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span>
+          <p><span lang="en">Craft cola, one scoop of vanilla and a cherry on top, obviously.</span><span lang="ar">كولا حِرفية وكرة فانيلا تطفو فوقها، وحبّة كرز على القمة طبعاً.</span></p></li>
+        <li><i class="dot" aria-hidden="true"></i><h3><span lang="en">Yuzu Sorbet Spritz</span><span lang="ar">سبريتز اليوزو</span></h3><span class="price">30<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span>
+          <p><span lang="en">Sparkling yuzu soda poured over lemon sorbet — a zero-proof fizz.</span><span lang="ar">صودا يوزو فوّارة تُسكب فوق سوربيه الليمون، انتعاش خالٍ من الكحول.</span></p></li>
+      </ul>
+    </div>
+    <div>
+      <div class="head">
+        <span class="num arch">4</span>
+        <h2><span lang="en">Cones &amp; Chaos</span><span lang="ar">أقماع وفوضى</span></h2>
+      </div>
+      <ul class="chips">
+        <li><h3><span lang="en">Waffle cone</span><span lang="ar">قمع وافل</span></h3><p><span lang="en">Rolled by hand, still warm.</span><span lang="ar">يُلفّ يدوياً ويُقدَّم دافئاً.</span></p><span class="price">6<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></li>
+        <li><h3><span lang="en">Dipped cone</span><span lang="ar">قمع مغموس</span></h3><p><span lang="en">Dark chocolate and sprinkles.</span><span lang="ar">شوكولاتة داكنة ورشّات ملوّنة.</span></p><span class="price">9<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></li>
+        <li><h3><span lang="en">Gelato brioche</span><span lang="ar">بريوش الجيلاتو</span></h3><p><span lang="en">Warm bun, cold scoop, Sicilian style.</span><span lang="ar">خبز دافئ وكرة باردة على الطريقة الصقلّية.</span></p><span class="price">12<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></li>
+        <li><h3><span lang="en">Hot fudge</span><span lang="ar">صلصة شوكولاتة ساخنة</span></h3><p><span lang="en">Ladled, never drizzled.</span><span lang="ar">نسكبها بالمغرفة لا بالقطّارة.</span></p><span class="price">6<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></li>
+        <li><h3><span lang="en">Pistachio cream</span><span lang="ar">كريمة الفستق</span></h3><p><span lang="en">Pure Bronte paste, loosened.</span><span lang="ar">معجون فستق برونتي صافٍ.</span></p><span class="price">9<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></li>
+        <li><h3><span lang="en">Torched meringue</span><span lang="ar">مارينغ باللهب</span></h3><p><span lang="en">Blow-torched to order.</span><span lang="ar">يُحمَّر بالشعلة عند الطلب.</span></p><span class="price">7<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></li>
+        <li><h3><span lang="en">Popping candy</span><span lang="ar">حلوى فرقعة</span></h3><p><span lang="en">Tiny fireworks, big noise.</span><span lang="ar">ألعاب نارية صغيرة بصوت كبير.</span></p><span class="price">4<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></li>
+        <li><h3><span lang="en">Confetti sprinkles</span><span lang="ar">رشّات كونفيتي</span></h3><p><span lang="en">The whole rainbow, no restraint.</span><span lang="ar">قوس قزح كامل بلا تحفّظ.</span></p><span class="price">3<small><span lang="en">AED</span><span lang="ar">د.إ</span></small></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="zig"></div>
+  <div class="wrap">
+    <p class="big"><span lang="en">Stay loud. Eat cold.</span><span lang="ar">عِش بصخب وكُلها باردة.</span></p>
+    <div><h4><span lang="en">Open</span><span lang="ar">أوقات العمل</span></h4><p><span lang="en">Sat–Wed 12 noon – midnight<br>Thu–Fri 12 noon – 2 a.m.</span><span lang="ar">السبت – الأربعاء: ١٢ ظهراً – منتصف الليل<br>الخميس والجمعة: ١٢ ظهراً – ٢ فجراً</span></p></div>
+    <div><h4><span lang="en">Find us</span><span lang="ar">العنوان</span></h4><p><span lang="en">Unit 8, Zigzag Arcade<br>Al Wasl Road, Jumeirah, Dubai</span><span lang="ar">المحل ٨، ممرّ الزقزاق<br>شارع الوصل، جميرا، دبي</span></p></div>
+    <div><h4><span lang="en">Heads up</span><span lang="ar">تنبيه</span></h4><p><span lang="en">Our gelato meets milk, nuts, sesame, egg and gluten daily. Sorbets are vegan. Tell us about allergies before we scoop.</span><span lang="ar">نكهاتنا تحتوي يومياً على الحليب والمكسرات والسمسم والبيض والغلوتين. السوربيه نباتي بالكامل. أخبرنا عن أي حساسية قبل أن نغرف.</span></p></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

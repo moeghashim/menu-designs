@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Grind Tacos · غرايند تاكو</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Grind Tacos — a taco counter under the overpass, with a menu xeroxed, cut up and stapled like a skate zine. Corn tortillas pressed today, salsas that hurt.">
+<meta name="theme-color" content="#0d0d0d">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Abril+Fatface&family=Permanent+Marker&family=Rubik+Mono+One&family=Space+Mono:wght@400;700&family=Lalezar&family=Kufam:wght@700;900&family=Playpen+Sans+Arabic:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;600&family=Blaka&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--k:#0d0d0d;--w:#f1f0ea;--n:#e4ff00;--g:#8b8b86;
+  --mono:"Space Mono","Courier New",monospace;--fat:"Anton","Impact","Arial Narrow Bold",sans-serif;--mark:"Permanent Marker","Comic Sans MS",cursive;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.6 1.02'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+*{box-sizing:border-box}
+body{margin:0;background:var(--k);color:var(--k);font:400 15.5px/1.5 var(--mono);overflow-x:clip;
+  background-image:var(--grain),repeating-linear-gradient(0deg,#161616 0 1px,transparent 1px 38px),repeating-linear-gradient(90deg,#161616 0 1px,transparent 1px 38px)}
+html[lang="ar"] body{font-family:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;font-size:17px;line-height:1.7}
+html[lang="ar"] *{letter-spacing:0 !important}
+html[lang="ar"]{--fat:"Lalezar","Kufam",sans-serif;--mark:"Playpen Sans Arabic","Lalezar",cursive}
+h1,h2,h3,p,ul{margin:0;padding:0}li{list-style:none}
+svg{display:block}
+.pr{position:relative;display:inline-block;font:400 1.5em/1 "Permanent Marker",cursive;padding:.3em .55em;white-space:nowrap;unicode-bidi:isolate;direction:ltr;transform:rotate(-4deg);z-index:0}
+.pr::before{content:"";position:absolute;inset:-2px -4px;z-index:-1;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60' preserveAspectRatio='none'%3E%3Cpath d='M12 34C6 14 34 4 58 5c26 1 40 14 37 28C92 49 66 57 42 55C22 53 6 46 9 30c2-12 20-22 44-23' fill='none' stroke='%230d0d0d' stroke-width='3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.bolt{display:inline-block;width:.62em;height:1em;vertical-align:-.12em;fill:currentColor}
+
+.ctl{position:fixed;inset-block-start:8px;inset-inline-end:8px;z-index:60;display:flex;gap:6px;transform:rotate(-1.5deg)}
+.ctl a,.ctl button{font:700 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--k);background:var(--w);border:2.5px solid var(--k);padding:8px 10px;cursor:pointer;text-decoration:none;box-shadow:3px 3px 0 var(--k),3px 3px 0 1px var(--w)}
+.ctl button{background:var(--n)}
+.ctl [lang="ar"]{font-family:"Kufam",sans-serif;font-size:13px}
+.ctl a:hover,.ctl button:hover{transform:translate(-1px,-1px) rotate(2deg)}
+:focus-visible{outline:3px solid var(--n);outline-offset:2px;box-shadow:0 0 0 6px var(--k)}
+
+.zine{max-width:1320px;margin:0 auto;padding:62px clamp(8px,2.5vw,40px) 50px;display:grid;gap:clamp(26px,4vw,60px)}
+.spread{display:grid;grid-template-columns:1fr 1fr;position:relative;filter:drop-shadow(0 26px 30px rgba(0,0,0,.8))}
+.spread::before,.spread::after{content:"";position:absolute;inset-inline-start:calc(50% - 3px);width:6px;height:34px;background:linear-gradient(90deg,#777,#eee,#888);border-radius:3px;z-index:6;inset-block-start:22%}
+.spread::after{inset-block-start:72%}
+.pg{position:relative;background:var(--w);padding:clamp(18px,3vw,44px) clamp(14px,2.8vw,42px) clamp(40px,4vw,56px);overflow:hidden;isolation:isolate}
+.pg::after{content:"";position:absolute;inset:0;background:var(--grain),linear-gradient(90deg,rgba(0,0,0,.07) 0,transparent 5%,transparent 34%,rgba(0,0,0,.05) 35%,transparent 36%,transparent 92%,rgba(0,0,0,.1));mix-blend-mode:multiply;pointer-events:none;z-index:5;opacity:.42}
+.spread .pg:first-child{box-shadow:inset -26px 0 30px -22px rgba(0,0,0,.5)}
+.spread .pg:last-child{box-shadow:inset 26px 0 30px -22px rgba(0,0,0,.5)}
+html[dir="rtl"] .spread .pg:first-child{box-shadow:inset 26px 0 30px -22px rgba(0,0,0,.5)}
+html[dir="rtl"] .spread .pg:last-child{box-shadow:inset -26px 0 30px -22px rgba(0,0,0,.5)}
+.pg.blk{background:var(--k);color:var(--w)}
+.pg.blk::after{mix-blend-mode:screen;filter:invert(1);opacity:.35}
+.no{position:absolute;inset-block-end:12px;inset-inline-end:18px;font:400 20px/1 "Permanent Marker",cursive;z-index:4}
+.tape{position:absolute;width:92px;height:26px;background:var(--n);opacity:.86;z-index:4;box-shadow:0 1px 0 rgba(0,0,0,.25);clip-path:polygon(0 8%,4% 0,8% 10%,12% 0,100% 0,96% 50%,100% 100%,6% 100%,3% 88%,0 100%)}
+.torn{clip-path:polygon(0.0% 1.2%,4.5% 2.7%,9.1% 1.8%,13.6% 3.0%,18.2% 3.1%,22.7% 0.3%,27.3% 0.1%,31.8% 4.2%,36.4% 1.3%,40.9% 1.2%,45.5% 5.0%,50.0% 2.4%,54.5% 4.2%,59.1% 2.4%,63.6% 3.2%,68.2% 0.8%,72.7% 3.2%,77.3% 4.3%,81.8% 2.6%,86.4% 3.7%,90.9% 3.4%,95.5% 0.3%,100.0% 3.8%,99.5% 14.3%,99.7% 28.6%,100.0% 42.9%,99.2% 57.1%,99.6% 71.4%,99.4% 85.7%,100.0% 95.6%,95.5% 96.4%,90.9% 95.4%,86.4% 98.0%,81.8% 96.0%,77.3% 97.8%,72.7% 95.3%,68.2% 95.6%,63.6% 99.5%,59.1% 99.3%,54.5% 98.9%,50.0% 95.2%,45.5% 97.8%,40.9% 96.9%,36.4% 98.5%,31.8% 97.5%,27.3% 98.1%,22.7% 98.2%,18.2% 97.1%,13.6% 97.1%,9.1% 95.5%,4.5% 96.6%,0.0% 95.4%,0.8% 85.7%,0.9% 71.4%,0.6% 57.1%,0.1% 42.9%,0.8% 28.6%,0.9% 14.3%)}
+.torn2{clip-path:polygon(0.0% 0.5%,3.8% 2.1%,7.7% 0.3%,11.5% 1.6%,15.4% 0.2%,19.2% 0.5%,23.1% 2.2%,26.9% 0.5%,30.8% 1.4%,34.6% 1.0%,38.5% 1.0%,42.3% 1.1%,46.2% 0.4%,50.0% 1.8%,53.8% 0.2%,57.7% 0.5%,61.5% 0.0%,65.4% 0.6%,69.2% 0.9%,73.1% 2.0%,76.9% 0.8%,80.8% 0.3%,84.6% 0.6%,88.5% 2.2%,92.3% 0.1%,96.2% 1.4%,100.0% 0.8%,99.4% 14.3%,99.7% 28.6%,99.4% 42.9%,99.6% 57.1%,99.4% 71.4%,99.2% 85.7%,100.0% 98.7%,96.2% 99.7%,92.3% 99.9%,88.5% 97.9%,84.6% 98.9%,80.8% 99.6%,76.9% 97.9%,73.1% 98.7%,69.2% 98.4%,65.4% 98.1%,61.5% 99.4%,57.7% 99.2%,53.8% 98.1%,50.0% 99.7%,46.2% 98.3%,42.3% 99.8%,38.5% 98.5%,34.6% 98.5%,30.8% 97.9%,26.9% 98.1%,23.1% 98.9%,19.2% 99.6%,15.4% 99.7%,11.5% 98.8%,7.7% 98.9%,3.8% 99.8%,0.0% 98.0%,0.5% 85.7%,0.6% 71.4%,0.2% 57.1%,0.2% 42.9%,0.0% 28.6%,0.3% 14.3%)}
+.dots{background-image:radial-gradient(var(--k) 34%,transparent 36%);background-size:7px 7px}
+
+/* ransom letters */
+.ransom{display:flex;flex-wrap:wrap;gap:.06em .05em;align-items:center;direction:inherit}
+.ransom b{display:inline-block;font:400 1em/1 var(--fat);padding:.06em .13em .02em;background:var(--k);color:var(--w);border:.03em solid var(--k)}
+.ransom b:nth-child(5n+1){background:var(--w);color:var(--k);font-family:"Abril Fatface","Blaka",serif;transform:rotate(-5deg);font-size:1.12em}
+.ransom b:nth-child(5n+2){transform:rotate(3deg) translateY(.05em);font-size:.92em}
+.ransom b:nth-child(5n+3){background:var(--n);color:var(--k);font-family:"Rubik Mono One","Kufam",sans-serif;font-weight:900;transform:rotate(-2deg);font-size:.86em;padding:.16em .14em}
+.ransom b:nth-child(5n+4){background:var(--w);color:var(--k);font-family:"Space Mono","Kufam",monospace;font-weight:700;transform:rotate(6deg);border-style:dashed}
+.ransom b:nth-child(5n){transform:rotate(-3deg) translateY(-.04em);font-size:1.18em;background-image:radial-gradient(#3a3a3a 30%,transparent 32%);background-size:5px 5px}
+.ransom i{flex-basis:100%;height:0}
+html[lang="ar"] .ransom b{padding:.02em .18em .12em;line-height:1.25}
+html[lang="ar"] .ransom b:nth-child(5n+1){font-family:"Blaka","Lalezar",serif}
+html[lang="ar"] .ransom b:nth-child(5n+3),html[lang="ar"] .ransom b:nth-child(5n+4){font-family:"Kufam",sans-serif;font-weight:900}
+
+/* p1 cover */
+.cover{display:flex;flex-direction:column;gap:clamp(12px,1.6vw,20px);justify-content:space-between}
+.issue{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12px;font-weight:700;text-transform:uppercase;border-block-end:4px solid var(--k);padding-block-end:6px}
+html[lang="ar"] .issue{font-size:14px}
+h1{font-size:clamp(50px,7.6vw,112px);line-height:1;margin-block:.06em 0}
+html[lang="ar"] h1{font-size:clamp(50px,7.6vw,112px)}
+.cover>*{flex-shrink:0}
+.art{position:relative;margin-block:clamp(-10px,-1vw,0px) 0}
+.art svg{width:100%;height:auto}
+.shout{align-self:flex-start;background:var(--k);color:var(--w);font:400 clamp(22px,3vw,42px)/1.08 var(--fat);text-transform:uppercase;padding:.5em .7em .42em;transform:rotate(-2.5deg);max-width:13.5em;margin-block-start:-18px;position:relative;z-index:2}
+html[lang="ar"] .shout{line-height:1.35;padding-block:.3em .4em}
+.shout u{text-decoration:none;color:var(--n)}
+.blurb{position:relative;background:#fff;padding:22px 20px 24px;transform:rotate(1.2deg);align-self:flex-end;max-width:36em;filter:none;font-size:.95em}
+.blurb .tape{inset-block-start:-10px;inset-inline-start:38%;transform:rotate(-4deg)}
+.hand{font:400 clamp(20px,2vw,26px)/1.15 var(--mark);transform:rotate(-3deg)}
+html[lang="ar"] .hand{font-weight:700;font-size:clamp(18px,1.8vw,23px);line-height:1.5}
+.burst{position:absolute;inset-block-start:2%;inset-inline-end:0;width:clamp(104px,12vw,150px);aspect-ratio:1;background:var(--n);display:grid;place-items:center;text-align:center;font:400 clamp(13px,1.35vw,17px)/1.05 var(--fat);text-transform:uppercase;transform:rotate(12deg);
+  clip-path:polygon(50.0% 0.0%,59.1% 10.0%,71.7% 5.0%,75.6% 17.9%,89.1% 18.8%,86.9% 32.2%,98.7% 38.9%,91.0% 50.0%,98.7% 61.1%,86.9% 67.8%,89.1% 81.2%,75.6% 82.1%,71.7% 95.0%,59.1% 90.0%,50.0% 100.0%,40.9% 90.0%,28.3% 95.0%,24.4% 82.1%,10.9% 81.2%,13.1% 67.8%,1.3% 61.1%,9.0% 50.0%,1.3% 38.9%,13.1% 32.2%,10.9% 18.8%,24.4% 17.9%,28.3% 5.0%,40.9% 10.0%);padding:20%;z-index:3}
+html[lang="ar"] .burst{line-height:1.25;font-size:clamp(14px,1.4vw,18px)}
+
+.foot{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding-inline-end:40px}
+.bar{direction:ltr;text-align:center;font:700 11px/1.6 var(--mono);letter-spacing:.3em}
+.bar i{display:block;width:130px;height:44px;background:repeating-linear-gradient(90deg,var(--k) 0 2px,transparent 2px 5px,var(--k) 5px 9px,transparent 9px 11px,var(--k) 11px 12px,transparent 12px 16px,var(--k) 16px 19px,transparent 19px 21px)}
+/* p2 tacos */
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-block-end:clamp(14px,2vw,26px)}
+h2{font-size:clamp(46px,6.2vw,86px);line-height:1}
+.hd .hand{max-width:11em;text-align:end}
+.legend{font-size:12px;font-weight:700;text-transform:uppercase;display:flex;gap:6px 16px;flex-wrap:wrap;border-block:2px dashed var(--k);padding-block:6px;margin-block-end:14px}
+html[lang="ar"] .legend{font-size:14px}
+.tk{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center;padding-block:11px 13px;position:relative}
+.tk:nth-child(odd){margin-inline-end:clamp(0px,2vw,26px);transform:rotate(-.6deg)}
+.tk:nth-child(even){margin-inline-start:clamp(0px,2vw,26px);transform:rotate(.7deg)}
+.tk+.tk{border-block-start:3px solid var(--k)}
+.tk h3{font:400 clamp(21px,2.1vw,29px)/1.1 var(--fat);text-transform:uppercase;letter-spacing:.02em}
+.tk h3 span{background:var(--k);color:var(--w);padding:.14em .4em .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+html[lang="ar"] .tk h3{line-height:1.5}
+html[lang="ar"] .tk h3 span{padding:.02em .4em .14em}
+.tk h3 .heat{margin-inline-start:.3em;white-space:nowrap}
+.tk p{grid-column:1;font-size:.93em;max-width:40ch}
+.tk .pr{grid-column:2;grid-row:1/3}
+.tk.pick::after{content:"";position:absolute;inset:4px -6px;background:var(--n);z-index:-1;transform:rotate(-.8deg) skewX(-8deg);clip-path:polygon(0 12%,100% 0,98% 92%,2% 100%)}
+.stk{display:inline-block;font:400 14px/1 var(--mark);background:var(--k);color:var(--n);padding:5px 8px;transform:rotate(-5deg);margin-inline-start:6px;vertical-align:middle}
+html[lang="ar"] .stk{font-weight:700;padding-block:3px 6px}
+.arrow{position:absolute;width:74px;inset-block-end:28px;inset-inline-start:22px;z-index:3}
+html[dir="rtl"] .arrow{transform:scaleX(-1)}
+
+.pain{margin-block-start:clamp(18px,2.4vw,30px);background:var(--k);color:var(--w);padding:20px 18px 22px;transform:rotate(-1deg);position:relative}
+.pain .tape{inset-block-start:-12px;inset-inline-end:18%;transform:rotate(4deg)}
+.pain h3{font:400 clamp(24px,2.6vw,36px)/1.1 var(--fat);text-transform:uppercase;margin-block-end:2px}
+html[lang="ar"] .pain h3{line-height:1.4}
+.pain h3 u{text-decoration:none;color:var(--n)}
+.pain>p{font-size:.86em;color:#cfcfc9;margin-block-end:12px}
+.pain li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:4px 12px;align-items:center;padding-block:6px;border-block-start:1px dashed #666}
+.pain li b{font:400 1.12em/1.2 var(--mark)}
+html[lang="ar"] .pain li b{font-weight:700;font-size:1em}
+.pain li small{display:block;font-size:12.5px;color:#bdbdb7;line-height:1.3}
+html[lang="ar"] .pain li small{font-size:14px;line-height:1.5}
+.pain li i{display:block;height:20px;inline-size:var(--v);background:var(--n);background-image:radial-gradient(var(--k) 28%,transparent 30%);background-size:6px 6px;clip-path:polygon(0 0,100% 8%,97% 55%,100% 100%,0 92%)}
+.rules{margin-block-start:clamp(20px,2.6vw,34px);border:4px solid var(--k);padding:16px 18px 14px;transform:rotate(1deg);position:relative;background:#fff}
+.rules h3{position:absolute;inset-block-start:-.75em;inset-inline-start:14px;font:400 clamp(20px,2vw,26px)/1 var(--fat);text-transform:uppercase;background:var(--n);padding:.18em .5em .1em;transform:rotate(-3deg)}
+html[lang="ar"] .rules h3{line-height:1.3;padding-block:.02em .16em}
+.rules ol{margin:8px 0 0;padding:0;counter-reset:r}
+.rules li{counter-increment:r;display:flex;gap:10px;align-items:baseline;padding-block:4px;font-size:.95em}
+.rules li::before{content:counter(r);font:400 1.5em/1 "Permanent Marker",cursive;min-width:.9em}
+/* p3 gig poster */
+.gig{text-align:center;display:flex;flex-direction:column}
+.gig .top{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;border-block:3px solid var(--w);padding-block:7px}
+html[lang="ar"] .gig .top{font-size:15px}
+.gig h2{margin-block:.25em .1em;display:flex;justify-content:center}
+.gig h2 .ransom{justify-content:center}
+.gig h2 .ransom b{border-color:var(--w)}
+.act{padding-block:clamp(14px,2vw,24px);border-block-end:3px dashed var(--w);position:relative}
+.act:last-of-type{border:0}
+.act h3{font:400 clamp(38px,5.8vw,84px)/.95 var(--fat);text-transform:uppercase;letter-spacing:.01em}
+html[lang="ar"] .act h3{line-height:1.3;font-size:clamp(36px,5vw,72px)}
+.act:nth-of-type(2) h3{color:transparent;-webkit-text-stroke:2px var(--w)}
+.act:nth-of-type(3) h3{color:var(--n);transform:rotate(-1.5deg)}
+.act p{max-width:38ch;margin:8px auto 0;font-size:.95em;color:#d9d8d2}
+.act .pr{color:var(--k);background:var(--n);margin-block-start:10px;transform:rotate(3deg)}
+.act .pr::before{display:none}
+.act small{display:block;font:400 18px/1.2 var(--mark);color:var(--n);margin-block-end:4px}
+html[lang="ar"] .act small{font-weight:700}
+
+/* p4 stickers + notebook */
+.stickers{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(10px,1.4vw,18px);align-items:center;margin-block-end:clamp(22px,3vw,36px)}
+.st{grid-column:span 3;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:16px;position:relative;filter:drop-shadow(2px 3px 0 rgba(0,0,0,.35))}
+.st h3{font:400 clamp(21px,2vw,27px)/1.05 var(--fat);text-transform:uppercase}
+html[lang="ar"] .st h3{line-height:1.35}
+.st p{font-size:.84em;line-height:1.3}
+html[lang="ar"] .st p{font-size:.88em;line-height:1.5}
+.st .pr{font-size:1.25em;padding:.2em .5em}
+.st.s1{background:var(--k);color:var(--w);border-radius:50%;aspect-ratio:1;transform:rotate(-6deg);padding:13%}
+.st.s1 .pr{color:var(--n)}.st.s1 .pr::before{display:none}
+.st.s2{background:#fff;border:4px solid var(--k);padding:0 0 12px;transform:rotate(3deg);border-radius:12px;overflow:hidden}
+.st.s2 small{align-self:stretch;background:var(--k);color:var(--w);font:700 12px/1.2 var(--mono);text-transform:uppercase;padding:7px 4px;margin-block-end:6px}
+html[lang="ar"] .st.s2 small{font:700 14px/1.4 "Kufam",sans-serif}
+.st.s2 h3{font-family:var(--mark);text-transform:none}
+.st.s2 p{padding-inline:12px}
+.st.s3{grid-column:span 2;background:var(--n);clip-path:polygon(50.0% 0.0%,59.1% 10.0%,71.7% 5.0%,75.6% 17.9%,89.1% 18.8%,86.9% 32.2%,98.7% 38.9%,91.0% 50.0%,98.7% 61.1%,86.9% 67.8%,89.1% 81.2%,75.6% 82.1%,71.7% 95.0%,59.1% 90.0%,50.0% 100.0%,40.9% 90.0%,28.3% 95.0%,24.4% 82.1%,10.9% 81.2%,13.1% 67.8%,1.3% 61.1%,9.0% 50.0%,1.3% 38.9%,13.1% 32.2%,10.9% 18.8%,24.4% 17.9%,28.3% 5.0%,40.9% 10.0%);aspect-ratio:1;padding:17%;transform:rotate(-8deg)}
+.st.s3 .pr::before{display:none}
+.st.s4{grid-column:span 2;border:4px solid var(--k);border-radius:50%;background:#fff;padding:22px 12px;transform:rotate(5deg);box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 5px var(--k)}
+.st.s5{grid-column:span 2;background:var(--k);color:var(--w);transform:rotate(-3deg);padding:16px 10px;background-image:repeating-linear-gradient(135deg,transparent 0 10px,rgba(255,255,255,.12) 10px 12px)}
+.st.s5 .pr{color:var(--n)}.st.s5 .pr::before{display:none}
+.note{position:relative;background:#fff;padding:26px 20px 18px;padding-inline-start:54px;transform:rotate(-1.2deg);
+  background-image:linear-gradient(90deg,transparent 40px,#b9b9b4 40px 42px,transparent 42px),repeating-linear-gradient(180deg,transparent 0 37px,#c9c9c4 37px 38.5px);box-shadow:0 3px 0 rgba(0,0,0,.2)}
+html[dir="rtl"] .note{background-image:linear-gradient(270deg,transparent 40px,#b9b9b4 40px 42px,transparent 42px),repeating-linear-gradient(180deg,transparent 0 37px,#c9c9c4 37px 38.5px)}
+.note::before{content:"";position:absolute;inset-block:14px;inset-inline-start:14px;width:14px;background:radial-gradient(circle,var(--k) 5.5px,transparent 6.5px) 0 0/14px 38.5px repeat-y}
+.note .tape{inset-block-start:-12px;inset-inline-end:30px;transform:rotate(5deg)}
+.note h2{font:400 clamp(30px,3.2vw,42px)/38.5px var(--mark);margin-block-end:0}
+html[lang="ar"] .note h2{font-weight:700;font-size:clamp(26px,2.8vw,36px)}
+.note h2 u{text-decoration-thickness:3px;text-underline-offset:4px;text-decoration-color:var(--k);background:linear-gradient(transparent 55%,var(--n) 55%)}
+.note li{display:flex;justify-content:space-between;gap:10px;align-items:baseline;font:400 clamp(17px,1.5vw,20px)/38.5px var(--mark);min-height:38.5px}
+html[lang="ar"] .note li{font-weight:500;font-size:clamp(16px,1.4vw,18px)}
+.note li b{font-weight:400;white-space:nowrap;direction:ltr}
+.note li small{font:400 12.5px/1.2 var(--mono);color:#444;margin-inline-start:6px}
+html[lang="ar"] .note li small{font:400 13.5px/1.2 "IBM Plex Sans Arabic",sans-serif}
+
+/* back page */
+.back{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:clamp(18px,2.6vw,40px);align-items:start;filter:drop-shadow(0 26px 30px rgba(0,0,0,.8))}
+.coupon{background:var(--n);padding:22px 20px 20px;border:4px dashed var(--k);position:relative;transform:rotate(-2deg);text-align:center;margin-block-start:14px}
+.coupon svg{position:absolute;width:34px;inset-block-start:-20px;inset-inline-start:12px;background:var(--n);border-radius:50%;padding:3px}
+html[dir="rtl"] .coupon svg{transform:scaleX(-1)}
+.coupon small{font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.14em}
+html[lang="ar"] .coupon small{font-size:14.5px}
+.coupon h2{font:400 clamp(44px,5vw,70px)/1 var(--fat);text-transform:uppercase;margin-block:6px}
+html[lang="ar"] .coupon h2{line-height:1.3;margin-block:0}
+.coupon .big{font:400 clamp(56px,6vw,84px)/1 "Permanent Marker",cursive;display:block;direction:ltr;margin-block:6px 2px}
+.coupon p{font-size:.92em}
+.sweet{background:var(--w);padding:28px 22px 34px;position:relative;isolation:isolate}
+.sweet h2{font-size:clamp(40px,4.6vw,62px);margin-block-end:14px}
+.sweet li{padding-block:11px;border-block-start:3px solid var(--k);display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center}
+.sweet h3{font:400 clamp(21px,2vw,27px)/1.1 var(--fat);text-transform:uppercase}
+html[lang="ar"] .sweet h3{line-height:1.4}
+.sweet p{grid-column:1;font-size:.92em}
+.sweet .pr{grid-column:2;grid-row:1/3}
+.flyer{background:#fff;padding:22px 18px 0;transform:rotate(1.6deg);position:relative;border:3px solid var(--k)}
+.flyer h2{font:400 clamp(30px,3.2vw,44px)/1 var(--fat);text-transform:uppercase;background:var(--k);color:var(--w);padding:.2em .3em .12em;display:inline-block;transform:rotate(-2deg);margin-block-end:12px}
+html[lang="ar"] .flyer h2{line-height:1.35;padding-block:.05em .2em}
+.flyer p{margin-block-end:9px;font-size:.93em}
+.flyer p b{background:var(--n);padding:0 .3em}
+.flyer .fine{font-size:12.5px;line-height:1.45;border-block-start:2px dashed var(--k);padding-block-start:8px}
+html[lang="ar"] .flyer .fine{font-size:14.5px;line-height:1.6}
+.tabs{display:flex;margin:14px -18px 0;border-block-start:3px dashed var(--k);direction:ltr}
+.tabs span{flex:1;writing-mode:vertical-rl;font:700 12px/1 var(--mono);padding:10px 0 12px;text-align:center;display:flex;align-items:center;justify-content:center;border-inline-end:2px dashed var(--k);height:118px;white-space:nowrap}
+.tabs span:last-child{border:0}
+.tabs span:nth-child(3){transform:rotate(7deg) translateY(8px);transform-origin:top center;background:#fff}
+.tabs span:nth-child(6){visibility:hidden}
+.end{grid-column:1/-1;text-align:center;color:var(--w);font:400 clamp(18px,2vw,24px)/1.3 var(--mark);padding-block-start:10px}
+html[lang="ar"] .end{font-weight:700;font-size:clamp(17px,1.8vw,21px)}
+.end u{text-decoration:none;color:var(--n)}
+
+@media (max-width:900px){
+  h1,html[lang="ar"] h1{font-size:clamp(50px,14.5vw,120px)}
+  .spread{grid-template-columns:1fr;gap:22px;filter:none}
+  .spread::before,.spread::after{display:none}
+  .spread .pg{box-shadow:0 14px 20px rgba(0,0,0,.6) !important}
+  .back{grid-template-columns:1fr 1fr}
+  .sweet{grid-column:1/-1;grid-row:1}
+}
+@media (max-width:600px){
+  .zine{padding-inline:8px;gap:22px}
+  .back{grid-template-columns:1fr;gap:26px;padding-inline:6px}
+  .sweet{margin-inline:-6px}
+  .hd .hand{text-align:start;max-width:none}
+  .note li>span{display:flex;flex-direction:column}
+  .note li small,html[lang="ar"] .note li small{line-height:38.5px;margin:0;font-size:14px}
+  .note{padding-block-end:8px}
+  .tk:nth-child(n){margin-inline:0}
+  .stickers{gap:10px}
+  .st{grid-column:span 3 !important}
+  .st.s3{padding:15%}
+  .st.s5{grid-column:1/-1 !important;justify-self:center;width:72%}
+  .st.s1{padding:10%}
+  .burst{inset-block-start:0}
+  .arrow{display:none}
+  .flyer,.coupon{transform:rotate(-.6deg)}
+}
+@media (prefers-reduced-motion:no-preference){
+  .burst{animation:jit 1.1s steps(2) infinite}
+  @keyframes jit{50%{transform:rotate(9deg) scale(1.03)}}
+}
+</style>
+</head>
+<body>
+<div class="ctl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="bolt" viewBox="0 0 12 20"><path d="M8 0L0 11h5l-2 9 9-12H7z"/></symbol>
+  <pattern id="ht" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1.7" fill="#0d0d0d"/></pattern>
+  <pattern id="ht2" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="2.5" cy="2.5" r="1.5" fill="#0d0d0d"/></pattern>
+</defs></svg>
+
+<main class="zine">
+  <!-- SPREAD 1 -->
+  <div class="spread">
+    <header class="pg cover">
+      <p class="issue"><span lang="en">Issue no. 48 — xeroxed in the back room</span><span lang="ar">العدد ٤٨ — مصوَّر في الغرفة الخلفية</span><span lang="en">Free (the tacos aren't)</span><span lang="ar">مجّاناً (التاكو ليس مجّاناً)</span></p>
+      <h1><span class="ransom" lang="en"><b>G</b><b>R</b><b>I</b><b>N</b><b>D</b><i></i><b>T</b><b>A</b><b>C</b><b>O</b><b>S</b></span><span class="ransom" lang="ar"><b>غر</b><b>ا</b><b>يند</b><i></i><b>تا</b><b>كو</b></span></h1>
+      <div class="art">
+        <div class="burst"><span lang="en">Corn tortillas pressed today</span><span lang="ar">تورتيلا ذرة معجونة اليوم</span></div>
+        <svg viewBox="0 0 560 330" role="img" aria-label="A taco riding a skateboard">
+          <g stroke="#0d0d0d" stroke-linecap="round" stroke-width="6" fill="none"><path d="M18 120h70M6 160h96M30 200h60M40 86h34"/></g>
+          <path d="M150 232C132 120 220 40 322 44C424 48 492 130 478 232Z" fill="#e4ff00" transform="translate(16 -14) rotate(4 314 140)"/>
+          <!-- fillings -->
+          <g fill="#f1f0ea" stroke="#0d0d0d" stroke-width="6" stroke-linejoin="round"><path d="M176 150c-18-22 2-46 24-36c2-26 34-34 48-14c10-24 44-24 52 0c14-22 48-16 50 10c22-14 48 4 40 28c22 0 32 26 16 40L186 190c-18-8-24-28-10-40z"/></g>
+          <g fill="#0d0d0d"><circle cx="232" cy="120" r="9"/><circle cx="300" cy="104" r="11"/><circle cx="356" cy="126" r="8"/><circle cx="402" cy="150" r="9"/><circle cx="262" cy="146" r="6"/></g>
+          <path d="M206 132c10-10 18 6 28-4M316 132c10-8 16 8 28-2M372 160c8-8 14 4 22-2" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+          <!-- shell -->
+          <path d="M150 232C140 150 196 96 250 110C210 140 196 190 204 232Z" fill="#0d0d0d"/>
+          <path d="M150 232C150 160 220 132 314 132C408 132 478 160 478 232Z" fill="#f1f0ea" stroke="#0d0d0d" stroke-width="8" stroke-linejoin="round"/>
+          <path d="M160 228C162 170 226 142 314 142C402 142 466 170 468 228Z" fill="url(#ht)" opacity=".55"/>
+          <path d="M190 228c2-36 30-58 70-66" fill="none" stroke="#f1f0ea" stroke-width="12" stroke-linecap="round"/>
+          <!-- eyes -->
+          <g><circle cx="290" cy="188" r="15" fill="#fff" stroke="#0d0d0d" stroke-width="5"/><circle cx="346" cy="188" r="15" fill="#fff" stroke="#0d0d0d" stroke-width="5"/><circle cx="294" cy="190" r="6"/><circle cx="350" cy="190" r="6"/><path d="M270 166l34 8M366 166l-34 8" stroke="#0d0d0d" stroke-width="6" stroke-linecap="round"/><path d="M296 214c14 10 30 10 44 0" fill="none" stroke="#0d0d0d" stroke-width="6" stroke-linecap="round"/></g>
+          <!-- board -->
+          <path d="M92 226c8 20 26 26 52 26h340c26 0 44-6 52-26" fill="none" stroke="#0d0d0d" stroke-width="14" stroke-linecap="round"/>
+          <path d="M150 252h328" stroke="#e4ff00" stroke-width="5"/>
+          <g stroke="#0d0d0d" stroke-width="8"><path d="M196 258v16M432 258v16"/></g>
+          <g fill="#f1f0ea" stroke="#0d0d0d" stroke-width="8"><circle cx="196" cy="292" r="22"/><circle cx="432" cy="292" r="22"/></g><g fill="#0d0d0d"><circle cx="196" cy="292" r="6"/><circle cx="432" cy="292" r="6"/></g>
+          <path d="M120 322h130M300 322h60M400 322h110" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 12"/>
+          <g fill="#0d0d0d"><path d="M508 70l8 20 22 2-17 14 6 22-19-12-19 12 6-22-17-14 22-2z"/><path d="M110 40l5 12 13 1-10 9 3 13-11-7-11 7 3-13-10-9 13-1z"/></g>
+        </svg>
+      </div>
+      <p class="shout"><span lang="en">Tacos for people who <u>fall down</u> a lot.</span><span lang="ar">تاكو لمن <u>يسقطون</u> كثيراً ثم ينهضون.</span></p>
+      <div class="blurb torn"><span class="tape"></span><p><span lang="en">We are a hole in the wall under the overpass, next to the best bowl in the city. We press corn, char meat and make four salsas that range from “fine” to “call somebody”. That's it. That's the zine.</span><span lang="ar">نحن ثقب في جدار تحت الجسر، بجوار أفضل حوض تزلّج في المدينة. نعجن الذرة ونشوي اللحم ونصنع أربع صلصات تبدأ من «لا بأس» وتنتهي عند «اتّصلوا بأحد». هذا كلّ شيء. هذه هي المجلّة.</span></p></div>
+      <div class="foot"><p class="hand"><span lang="en">eat fast, skate slow →</span><span lang="ar">كُل بسرعة، تزلّج على مهل ←</span></p><div class="bar" aria-hidden="true"><i></i>0 48 5550 148</div></div>
+      <span class="no">1</span>
+    </header>
+
+    <section class="pg" id="tacos">
+      <div class="hd"><h2><span class="ransom" lang="en"><b>T</b><b>A</b><b>C</b><b>O</b><b>S</b></span><span class="ransom" lang="ar"><b>ا</b><b>لتا</b><b>كو</b></span></h2>
+        <p class="hand"><span lang="en">sold by the piece. order three, you coward.</span><span lang="ar">تُباع بالحبّة. اطلب ثلاثاً ولا تتردّد.</span></p></div>
+      <p class="legend"><span><svg class="bolt"><use href="#bolt"/></svg> <span lang="en">= tickles</span><span lang="ar">= دغدغة</span></span><span><svg class="bolt"><use href="#bolt"/></svg><svg class="bolt"><use href="#bolt"/></svg> <span lang="en">= sweating</span><span lang="ar">= تعرّق</span></span><span><svg class="bolt"><use href="#bolt"/></svg><svg class="bolt"><use href="#bolt"/></svg><svg class="bolt"><use href="#bolt"/></svg> <span lang="en">= sign the waiver</span><span lang="ar">= وقّع على الإقرار</span></span></p>
+      <ul>
+        <li class="tk"><h3><span lang="en">Kickflip Carne Asada</span><span lang="ar">كيك فليب كارني أسادا</span><i class="heat"><svg class="bolt"><use href="#bolt"/></svg><svg class="bolt"><use href="#bolt"/></svg></i></h3><p><span lang="en">Charred skirt steak, salsa roja, raw white onion, a fistful of cilantro.</span><span lang="ar">شرائح لحم بقري مشوية على اللهب، صلصة حمراء، بصل أبيض نيّئ وقبضة من الكزبرة.</span></p><b class="pr">$5</b></li>
+        <li class="tk"><h3><span lang="en">Ollie Pollo</span><span lang="ar">أولي بويو</span><i class="heat"><svg class="bolt"><use href="#bolt"/></svg></i></h3><p><span lang="en">Achiote chicken off the grill, pickled red onion, avocado crema.</span><span lang="ar">دجاج متبّل بالأناتو من الشوّاية، بصل أحمر مخلّل وكريمة الأفوكادو.</span></p><b class="pr">$4.5</b></li>
+        <li class="tk pick"><h3><span lang="en">Road Rash Birria</span><span lang="ar">بيريا خدوش الأسفلت</span><i class="heat"><svg class="bolt"><use href="#bolt"/></svg><svg class="bolt"><use href="#bolt"/></svg></i><em class="stk"><span lang="en">staff pick!!</span><span lang="ar">اختيار الطاقم!!</span></em></h3><p><span lang="en">Slow beef birria and melted cheese, griddled till it cracks. Comes with a cup of consommé to dunk.</span><span lang="ar">لحم بقري مطهوّ ببطء مع جبن ذائب، يُحمَّر على الصاج حتى يتقرمش. يأتي معه كوب مرق للتغميس.</span></p><b class="pr">$6</b></li>
+        <li class="tk"><h3><span lang="en">Faceplant Fish</span><span lang="ar">سمك السقطة على الوجه</span><i class="heat"><svg class="bolt"><use href="#bolt"/></svg></i></h3><p><span lang="en">Crisp-battered cod, cabbage slaw, chipotle mayo, too much lime.</span><span lang="ar">سمك قدّ مقرمش، سلطة ملفوف، مايونيز تشيبوتلي وليمون أكثر من اللازم.</span></p><b class="pr">$5.5</b></li>
+        <li class="tk"><h3><span lang="en">Gnarly Nopal</span><span lang="ar">نوبال الجامح</span><i class="heat"><svg class="bolt"><use href="#bolt"/></svg></i></h3><p><span lang="en">Grilled cactus paddle, black beans, queso fresco, salsa verde. No animals were grinded.</span><span lang="ar">ألواح صبّار مشوية، فاصولياء سوداء، جبن أبيض طازج وصلصة خضراء. طبق نباتي بالكامل.</span></p><b class="pr">$4</b></li>
+        <li class="tk"><h3><span lang="en">Wipeout Chorizo</span><span lang="ar">تشوريزو الانقلاب</span><i class="heat"><svg class="bolt"><use href="#bolt"/></svg><svg class="bolt"><use href="#bolt"/></svg><svg class="bolt"><use href="#bolt"/></svg></i></h3><p><span lang="en">Beef chorizo, crisp potato, salsa macha with peanuts and three kinds of chilli.</span><span lang="ar">تشوريزو بقري، بطاطا مقرمشة وصلصة ماتشا بالفول السوداني وثلاثة أنواع من الفلفل.</span></p><b class="pr">$5</b></li>
+        <li class="tk"><h3><span lang="en">Shrimp Shove-It</span><span lang="ar">روبيان شوف-إت</span><i class="heat"><svg class="bolt"><use href="#bolt"/></svg><svg class="bolt"><use href="#bolt"/></svg><svg class="bolt"><use href="#bolt"/></svg></i></h3><p><span lang="en">Garlic shrimp, mango-habanero, fried shallots. Hurts on the way down too.</span><span lang="ar">روبيان بالثوم، مانغو وهابانيرو، كرّاث مقلي. يلسع في طريقه إلى الأسفل أيضاً.</span></p><b class="pr">$6</b></li>
+      </ul>
+      <div class="pain"><span class="tape"></span>
+        <h3><span lang="en">The salsa bar: <u>a pain scale</u></span><span lang="ar">ركن الصلصات: <u>سلّم الألم</u></span></h3>
+        <p><span lang="en">Free with anything. Ladle responsibly.</span><span lang="ar">مجّاناً مع أيّ طلب. اغرف بمسؤولية.</span></p>
+        <ul>
+          <li><span><b><span lang="en">Verde cruda</span><span lang="ar">الخضراء النيّئة</span></b><small><span lang="en">raw tomatillo, bright, harmless</span><span lang="ar">توماتيّو نيّئ، منعشة ومسالمة</span></small></span><i style="--v:25%"></i></li>
+          <li><span><b><span lang="en">Roja asada</span><span lang="ar">الحمراء المشوية</span></b><small><span lang="en">charred tomato, chile de árbol</span><span lang="ar">طماطم محروقة وفلفل أربول</span></small></span><i style="--v:50%"></i></li>
+          <li><span><b><span lang="en">Macha</span><span lang="ar">ماتشا</span></b><small><span lang="en">peanut, sesame, three chillies in oil</span><span lang="ar">فول سوداني وسمسم وثلاثة أنواع فلفل في الزيت</span></small></span><i style="--v:76%"></i></li>
+          <li><span><b><span lang="en">La Abuela</span><span lang="ar">لا أبويلا (الجدّة)</span></b><small><span lang="en">habanero, burnt onion. ask first.</span><span lang="ar">هابانيرو وبصل محروق. اسأل أوّلاً.</span></small></span><i style="--v:100%"></i></li>
+        </ul>
+      </div>
+      <span class="no">2</span>
+    </section>
+  </div>
+
+  <!-- SPREAD 2 -->
+  <div class="spread">
+    <section class="pg blk gig" id="big">
+      <p class="top"><span lang="en">One night only (every night) · all ages</span><span lang="ar">ليلة واحدة فقط (كلّ ليلة) · لجميع الأعمار</span></p>
+      <h2><span class="ransom" lang="en"><b>B</b><b>I</b><b>G</b><i></i><b>S</b><b>T</b><b>U</b><b>F</b><b>F</b></span><span class="ransom" lang="ar"><b>ا</b><b>لحجم</b><i></i><b>ا</b><b>لكبير</b></span></h2>
+      <article class="act"><small><span lang="en">headlining</span><span lang="ar">نجم السهرة</span></small><h3><span lang="en">Half-Pipe Burrito</span><span lang="ar">بوريتو الهاف بايب</span></h3><p><span lang="en">Rice, beans, carne asada and guac rolled tight and sealed on the plancha. As long as your forearm.</span><span lang="ar">أرز وفاصولياء وكارني أسادا وغواكامولي، ملفوفة بإحكام ومختومة على الصاج. بطول ساعدك.</span></p><b class="pr">$12</b></article>
+      <article class="act"><small><span lang="en">with</span><span lang="ar">ومعه</span></small><h3><span lang="en">The Bail Bowl</span><span lang="ar">وعاء القفزة الفاشلة</span></h3><p><span lang="en">Everything that fell off the board: rice, beans, chicken tinga, charred corn, pico, crema.</span><span lang="ar">كلّ ما سقط عن اللوح: أرز، فاصولياء، دجاج تينغا، ذرة محمّصة، بيكو دي غايو وكريمة.</span></p><b class="pr">$11</b></article>
+      <article class="act"><small><span lang="en">plus</span><span lang="ar">وأيضاً</span></small><h3><span lang="en">Quesa-Grind</span><span lang="ar">كيسا-غرايند</span></h3><p><span lang="en">Three cheeses griddled between flour tortillas, with birria or mushrooms.</span><span lang="ar">ثلاثة أجبان محمّصة بين رغيفَي تورتيلا قمح، مع البيريا أو الفطر.</span></p><b class="pr">$10</b></article>
+      <article class="act"><small><span lang="en">and for two</span><span lang="ar">ولشخصين</span></small><h3><span lang="en">Nacho Problem</span><span lang="ar">ناتشو ليست مشكلتك</span></h3><p><span lang="en">A tray of chips buried under queso, beans, smoked beef and pickled jalapeños.</span><span lang="ar">صينية رقائق مدفونة تحت الجبن السائل والفاصولياء واللحم البقري المدخّن والهالبينو المخلّل.</span></p><b class="pr">$13</b></article>
+      <span class="no">3</span>
+    </section>
+
+    <section class="pg" id="sides">
+      <div class="hd"><h2><span class="ransom" lang="en"><b>S</b><b>I</b><b>D</b><b>E</b><b>S</b></span><span class="ransom" lang="ar"><b>جو</b><b>ا</b><b>نب</b></span></h2>
+        <p class="hand"><span lang="en">peel 'em, stick 'em on your tray</span><span lang="ar">انزعها والصقها على صينيتك</span></p></div>
+      <div class="stickers">
+        <article class="st s1"><h3><span lang="en">Guac &amp; Chips</span><span lang="ar">غواكامولي ورقائق</span></h3><p><span lang="en">Smashed to order, lime, serrano</span><span lang="ar">يُهرس عند الطلب، ليمون وسيرانو</span></p><b class="pr">$6</b></article>
+        <article class="st s2"><small><span lang="en">Hello my name is</span><span lang="ar">مرحباً، اسمي</span></small><h3><span lang="en">Elote</span><span lang="ar">إيلوتي</span></h3><p><span lang="en">Charred street corn, crema, cotija, chilli-lime dust</span><span lang="ar">ذرة مشوية، كريمة، جبن كوتيخا وبودرة الفلفل والليمون</span></p><b class="pr">$5</b></article>
+        <article class="st s3"><h3><span lang="en">Salsa flight</span><span lang="ar">رحلة الصلصات</span></h3><p><span lang="en">all four + chips</span><span lang="ar">الأربع + رقائق</span></p><b class="pr">$4</b></article>
+        <article class="st s4"><h3><span lang="en">Charro beans</span><span lang="ar">فاصولياء تشارو</span></h3><p><span lang="en">Smoky, brothy, beef bacon</span><span lang="ar">مدخّنة بمرقها ولحم بقري مقدّد</span></p><b class="pr">$4</b></article>
+        <article class="st s5"><h3><span lang="en">Papas Bravas</span><span lang="ar">باباس برافاس</span></h3><p><span lang="en">Smashed potatoes, lime salt, salsa roja</span><span lang="ar">بطاطا مهروسة مقلية، ملح الليمون وصلصة حمراء</span></p><b class="pr">$5</b></article>
+      </div>
+      <div class="note" id="drinks"><span class="tape"></span>
+        <h2><u><span lang="en">drinks (no booze)</span><span lang="ar">مشروبات (بلا كحول)</span></u></h2>
+        <ul>
+          <li><span><span lang="en">Horchata</span><span lang="ar">أورتشاتا</span><small><span lang="en">rice, cinnamon, ice</span><span lang="ar">أرز وقرفة وثلج</span></small></span><b>$4</b></li>
+          <li><span><span lang="en">Agua de Jamaica</span><span lang="ar">ماء الكركديه</span><small><span lang="en">hibiscus, cold</span><span lang="ar">كركديه بارد</span></small></span><b>$3.5</b></li>
+          <li><span><span lang="en">Tamarindo soda</span><span lang="ar">صودا التمر الهندي</span><small><span lang="en">sour + fizzy</span><span lang="ar">حامضة وفوّارة</span></small></span><b>$3.5</b></li>
+          <li><span><span lang="en">Mango-chile slush</span><span lang="ar">سلاش مانغو بالفلفل</span><small><span lang="en">tajín rim</span><span lang="ar">حافّة تاهين</span></small></span><b>$5</b></li>
+          <li><span><span lang="en">Cola, glass bottle</span><span lang="ar">كولا بقارورة زجاجية</span><small><span lang="en">cane sugar</span><span lang="ar">بسكّر القصب</span></small></span><b>$3</b></li>
+        </ul>
+      </div>
+      <div class="rules">
+        <h3><span lang="en">House rules</span><span lang="ar">قوانين المحل</span></h3>
+        <ol>
+          <li><span lang="en">Order at the hatch. Yell your name, not ours.</span><span lang="ar">اطلب من النافذة. اصرخ باسمك أنت لا باسمنا.</span></li>
+          <li><span lang="en">Boards go under the table, not on it.</span><span lang="ar">الألواح تحت الطاولة لا فوقها.</span></li>
+          <li><span lang="en">Dropped taco? Five-second rule is real here.</span><span lang="ar">سقطت حبّة التاكو؟ قاعدة الخمس ثوانٍ سارية هنا.</span></li>
+          <li><span lang="en">Tip the dishwasher. He rips.</span><span lang="ar">أكرِم غاسل الصحون، فهو أمهر متزلّج بيننا.</span></li>
+        </ol>
+      </div>
+      <span class="no">4</span>
+    </section>
+  </div>
+
+  <!-- BACK -->
+  <div class="back">
+    <aside class="coupon">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"><circle cx="9" cy="10" r="5"/><circle cx="9" cy="30" r="5"/><path d="M13 13l24 16M13 27L37 11"/></g></svg>
+      <small><span lang="en">Cut here. Or don't. We'll know.</span><span lang="ar">قُصّ هنا. أو لا تقصّ. سنعرف.</span></small>
+      <h2><span lang="en">The Slam</span><span lang="ar">الضربة الكاملة</span></h2>
+      <p><span lang="en">Any 3 tacos + 1 side + 1 drink. No substitutions, no whining.</span><span lang="ar">أيّ ٣ حبّات تاكو + طبق جانبي + مشروب. بلا تبديل وبلا تذمّر.</span></p>
+      <b class="big">$16</b>
+    </aside>
+
+    <section class="sweet torn2" id="sweet">
+      <h2><span class="ransom" lang="en"><b>S</b><b>W</b><b>E</b><b>E</b><b>T</b></span><span class="ransom" lang="ar"><b>حلو</b><b>يا</b><b>ت</b></span></h2>
+      <ul>
+        <li><h3><span lang="en">Churros + cajeta</span><span lang="ar">تشوروس مع الكاخيتا</span></h3><p><span lang="en">Fried when you order, rolled in cinnamon sugar, goat's-milk caramel to dip.</span><span lang="ar">تُقلى عند الطلب وتُغمَّس بسكّر القرفة، مع كراميل حليب الماعز للتغميس.</span></p><b class="pr">$6</b></li>
+        <li><h3><span lang="en">Paleta of the day</span><span lang="ar">باليتا اليوم</span></h3><p><span lang="en">Ice pop from the freezer chest. Ask what's in there; we forget.</span><span lang="ar">مثلّجات على عود من صندوق التجميد. اسأل عمّا فيه، فنحن ننسى.</span></p><b class="pr">$3.5</b></li>
+        <li><h3><span lang="en">Tres leches in a cup</span><span lang="ar">تريس ليتشيس في كوب</span></h3><p><span lang="en">Three-milk sponge, whipped cream, burnt cinnamon. Eat it with a taco chip.</span><span lang="ar">كيك الحليب الثلاثي، كريمة مخفوقة وقرفة محروقة. جرّبه برقاقة تاكو.</span></p><b class="pr">$5</b></li>
+      </ul>
+    </section>
+
+    <footer class="flyer">
+      <h2><span lang="en">Session times</span><span lang="ar">مواعيد الجلسات</span></h2>
+      <p><span lang="en"><b>Tue–Sun</b> noon till the tortillas run out (about 11 pm). <b>Mondays</b> we skate.</span><span lang="ar"><b>الثلاثاء–الأحد</b> من الظهر حتى تنفد التورتيلا (نحو ١١ مساءً). <b>الاثنين</b> نتزلّج.</span></p>
+      <p><span lang="en">Unit 4, Dock Street Skatepark, under the Route 9 overpass. Follow the smoke.</span><span lang="ar">الوحدة ٤، حديقة التزلّج في شارع المرفأ، تحت جسر الطريق ٩. اتبع الدخان.</span></p>
+      <p class="fine"><span lang="en">Allergens: gluten (fish batter, churros, flour tortillas), dairy, shellfish, peanuts in the salsa macha. Tell us before you order. No alcohol. No pork. No posers.</span><span lang="ar">مسبّبات الحساسية: الغلوتين (عجينة السمك، التشوروس، تورتيلا القمح)، الألبان، القشريات والفول السوداني في صلصة ماتشا. أخبرنا قبل الطلب. لا كحول. لا لحم خنزير. لا متصنّعين.</span></p>
+      <div class="tabs" aria-hidden="true"><span>555-0148</span><span>555-0148</span><span>555-0148</span><span>555-0148</span><span>555-0148</span><span>555-0148</span><span>555-0148</span><span>555-0148</span></div>
+    </footer>
+    <p class="end"><span lang="en">photocopy this zine. give it to someone who looks hungry. <u>★ grind tacos ★</u></span><span lang="ar">صوِّر هذه المجلّة وأعطِها لمن يبدو جائعاً. <u>★ غرايند تاكو ★</u></span></p>
+  </div>
+</main>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

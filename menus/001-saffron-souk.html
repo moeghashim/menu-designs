@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Saffron Souk · سوق الزعفران</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Saffron Souk — Levantine mezze served stall by stall. سوق الزعفران — مازة شامية تُقدَّم من دكّان إلى دكّان.">
+<meta name="theme-color" content="#b8321f">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Alegreya+Sans:wght@400;500;700&family=Caveat+Brush&family=Rakkas&family=Tajawal:wght@400;500;700&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--sand:#ecd9b4;--paper:#f8eed7;--cream:#f6e9cd;--ink:#3b2416;--saf:#e39a12;--pap:#b8321f;--ind:#25306b;--rope:#8a6a45;
+--disp:'Yeseva One','Rakkas',Georgia,serif;--body:'Alegreya Sans','Tajawal',system-ui,sans-serif;--hand:'Caveat Brush','Aref Ruqaa',cursive}
+html[lang="ar"]{--disp:'Rakkas','Yeseva One',serif;--body:'Tajawal','Alegreya Sans',sans-serif;--hand:'Aref Ruqaa','Caveat Brush',serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);font-size:17px;line-height:1.5;overflow-x:clip;
+background:radial-gradient(circle at 1px 1px,rgba(59,36,22,.13) 1.2px,transparent 1.6px) 0 0/22px 22px,linear-gradient(#f0deb9,#e6cf9f)}
+html[lang="ar"] body{font-size:18px;line-height:1.75}
+a{color:inherit}
+/* controls */
+.ctl{position:fixed;top:10px;inset-inline-end:12px;z-index:20;display:flex;gap:8px;align-items:center}
+.ctl a,.ctl button{font:700 14px/1 var(--body);color:var(--cream);background:var(--ind);border:2px solid var(--ink);border-radius:999px;padding:9px 14px;text-decoration:none;cursor:pointer;box-shadow:0 3px 0 var(--ink)}
+.ctl button{background:var(--saf);color:var(--ink);font-family:'Tajawal','Alegreya Sans',sans-serif}
+.ctl a:hover,.ctl button:hover{transform:translateY(-1px)}
+html[lang="en"] .to-en,html[lang="ar"] .to-ar{display:none}
+/* awnings */
+.awning{height:var(--ah,64px);background:linear-gradient(rgba(40,15,5,.28),transparent 70%),repeating-linear-gradient(90deg,var(--c) 0 36px,var(--cream) 36px 72px);clip-path:polygon(3.5% 0,96.5% 0,100% 100%,0 100%)}
+.valance{height:22px;margin-top:-1px;filter:drop-shadow(0 4px 0 rgba(59,36,22,.22));
+background:radial-gradient(circle at 18px 0,var(--c) 17.5px,transparent 18.5px) 0 0/72px 22px repeat-x,radial-gradient(circle at 18px 0,var(--cream) 17.5px,transparent 18.5px) 36px 0/72px 22px repeat-x}
+/* hero */
+.gate{position:relative;--c:var(--pap);--ah:clamp(70px,9vw,120px);text-align:center;padding-bottom:10px}
+.gate .valance{height:26px;background-size:72px 26px}
+.hang{position:relative;max-width:1180px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr auto 1fr;align-items:start}
+.lantern{width:clamp(30px,4.2vw,52px);height:auto;transform-origin:50% 0;animation:sway 5s ease-in-out infinite alternate}
+.lantern.b{animation-delay:-2s;animation-duration:6.5s}.lantern.c{animation-delay:-3.4s}.lantern.d{animation-delay:-1s;animation-duration:7s}
+.lanterns{display:flex;gap:clamp(14px,5vw,90px);justify-content:center;padding-top:0}
+@keyframes sway{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+.board{position:relative;margin-top:clamp(34px,5vw,64px);background:var(--ind);color:var(--cream);border:4px solid var(--ink);outline:3px solid var(--saf);outline-offset:-12px;border-radius:10px;padding:clamp(26px,4vw,48px) clamp(26px,6vw,84px) clamp(22px,3vw,38px);box-shadow:0 10px 0 rgba(59,36,22,.25);
+background-image:radial-gradient(circle at 50% 120%,rgba(227,154,18,.35),transparent 60%)}
+.board::before,.board::after{content:"";position:absolute;bottom:100%;width:3px;height:clamp(34px,5vw,64px);background:repeating-linear-gradient(180deg,#8a6a45 0 3px,#5b4127 3px 6px)}
+.board::before{inset-inline-start:16%}.board::after{inset-inline-end:16%}
+.board small{font:700 clamp(12px,1.2vw,15px)/1 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--saf)}
+html[lang="ar"] .board small{letter-spacing:0;font-size:clamp(15px,1.4vw,18px)}
+.board h1{font:400 clamp(46px,9.5vw,128px)/.95 var(--disp);margin:.12em 0 .1em;text-shadow:3px 3px 0 var(--ink)}
+html[lang="ar"] .board h1{line-height:1.25;margin:0;font-size:clamp(52px,8vw,108px);white-space:nowrap}
+.board p{font:400 clamp(22px,2.6vw,34px)/1.1 var(--hand);color:#f3c766}
+.crocus{width:clamp(46px,6vw,74px);display:block;margin:0 auto 4px}
+.intro{max-width:60ch;margin:clamp(22px,3vw,36px) auto 0;padding:0 22px;font-size:clamp(17px,1.5vw,20px)}
+.intro b{color:var(--pap)}
+/* heap nav */
+.heapnav{position:relative;max-width:1080px;margin:clamp(18px,3vw,36px) auto 0;padding:0 12px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 0}
+.heapnav .heap{padding:0 8%;border-bottom:13px solid #74491f;box-shadow:0 2.5px 0 var(--ink),inset 0 -2px 0 var(--ink)}
+.heapnav a{flex:0 1 clamp(100px,17vw,180px);text-decoration:none;text-align:center;transition:transform .25s}
+.heapnav a:hover{transform:translateY(-6px)}
+.heap{display:block;width:100%;height:auto;overflow:visible}
+.flag{display:inline-block;font:400 clamp(15px,1.5vw,19px)/1.15 var(--hand);background:var(--paper);border:1.5px solid var(--ink);padding:5px 9px 4px;border-radius:3px;margin-top:6px;transform:rotate(-2deg);box-shadow:2px 2px 0 rgba(59,36,22,.3)}
+.heapnav a:nth-child(even) .flag{transform:rotate(2deg)}
+/* alley of stalls */
+.alley{max-width:1240px;margin:clamp(48px,7vw,96px) auto 0;padding:0 clamp(14px,3vw,36px);display:grid;gap:clamp(48px,6vw,84px) clamp(34px,5vw,80px)}
+.stall{position:relative;scroll-margin-top:20px}
+.stall::before,.stall::after{content:"";position:absolute;top:40px;bottom:0;width:8px;background:linear-gradient(90deg,#5b3a1e,#9a6d40 45%,#5b3a1e);border-radius:3px;z-index:1}
+.stall::before{inset-inline-start:0}.stall::after{inset-inline-end:0}
+.stall .awning,.stall .valance{position:relative;z-index:2}
+.sign{position:relative;z-index:3;width:max-content;max-width:86%;margin:-6px auto 0;padding:10px 26px 12px;text-align:center;background:linear-gradient(#7c5330,#6a4526);color:var(--cream);border:3px solid var(--ink);border-radius:6px;box-shadow:0 5px 0 rgba(59,36,22,.3);transform:rotate(-1.2deg)}
+.stall:nth-of-type(even) .sign{transform:rotate(1.3deg)}
+.sign::before,.sign::after{content:"";position:absolute;top:50%;width:7px;height:7px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px #b08a5a}
+.sign::before{inset-inline-start:8px}.sign::after{inset-inline-end:8px}
+.sign small{display:block;font:700 12px/1.2 var(--body);letter-spacing:.2em;text-transform:uppercase;color:#f3c766}
+html[lang="ar"] .sign small{letter-spacing:0;font-size:15px}
+.sign h2{font:400 clamp(30px,3.6vw,46px)/1.05 var(--disp)}
+html[lang="ar"] .sign h2{line-height:1.3}
+.goods{list-style:none;padding:26px clamp(24px,3.4vw,44px) 8px;margin:-34px 8px 0;background:var(--paper);background-image:repeating-linear-gradient(0deg,transparent 0 5px,rgba(138,106,69,.05) 5px 6px);padding-top:56px;border-inline:1px solid rgba(59,36,22,.15)}
+.item{position:relative;display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:start;padding:20px 0 18px;
+background:repeating-linear-gradient(100deg,#7b5c39 0 4px,#b3905f 4px 8px) top/100% 2.5px no-repeat}
+.item h3{font:400 clamp(21px,1.8vw,25px)/1.2 var(--disp);color:var(--ink)}
+html[lang="ar"] .item h3{font-size:clamp(24px,2vw,28px);line-height:1.35}
+.item p{color:#5d4330;margin-top:3px;max-width:42ch}
+.pick,.veg{display:inline-block;font:400 16px/1 var(--hand);font-style:normal;margin-top:8px;margin-inline-end:8px;padding:4px 9px 3px;border-radius:99px}
+.pick{background:var(--saf);color:var(--ink);transform:rotate(-2deg)}
+.pick::before{content:"✦ "}
+.veg{border:1.5px solid #5f6b2a;color:#4c5720}
+.heat{display:inline-flex;gap:3px;margin-inline-start:9px;vertical-align:middle}
+.heat i{width:9px;height:13px;background:var(--pap);border-radius:60% 60% 50% 50%/40% 40% 70% 70%;transform:rotate(18deg)}
+.tag{position:relative;margin-top:22px;transform-origin:50% -20px;transform:rotate(-5deg);filter:drop-shadow(2px 3px 0 rgba(59,36,22,.28));transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.item:nth-child(even) .tag{transform:rotate(4deg)}
+.item:nth-child(3n) .tag{transform:rotate(-2deg);margin-top:30px}
+.item:hover .tag{transform:rotate(9deg)}
+.tag::before{content:"";position:absolute;inset-inline-start:calc(50% - 1px);bottom:calc(100% - 9px);width:1.5px;height:calc(100% - 4px);max-height:42px;background:#5b4127}
+.tag i{display:flex;flex-direction:column;align-items:center;font-style:normal;min-width:66px;padding:18px 10px 8px;color:var(--ink);
+background:radial-gradient(circle at 50% 9px,var(--paper) 3px,#5b4127 3.4px 4.6px,transparent 5px),#f1cf8b;clip-path:polygon(28% 0,72% 0,100% 20%,100% 100%,0 100%,0 20%);font:400 15px/1 var(--hand)}
+.stall:nth-of-type(odd) .item:nth-child(odd) .tag i{background-color:#f6e2b6}
+.tag b{font:400 32px/1 var(--hand)}
+html[lang="ar"] .tag i{font-size:19px;font-weight:700}html[lang="ar"] .tray .big span{font-size:.62em}
+html[lang="ar"] .tag b{font-family:'Caveat Brush','Aref Ruqaa',cursive}
+.counter{position:relative;display:flex;justify-content:space-evenly;align-items:flex-end;margin:0 8px;padding:0 6% ;height:86px;background:var(--paper);border-inline:1px solid rgba(59,36,22,.15)}
+.counter::after{content:"";position:absolute;inset-inline:-8px;bottom:-14px;height:26px;background:repeating-linear-gradient(90deg,#7c5330 0 46px,#5e3d20 46px 48px);border:2.5px solid var(--ink);border-radius:4px;z-index:2}
+.counter .heap{width:22%;max-width:120px;position:relative;z-index:3;margin-bottom:-4px}
+.counter .heap:nth-child(2){width:27%;max-width:150px}
+/* merchant tray */
+.tray{position:relative;align-self:start;background:var(--ind);color:var(--cream);border:4px solid var(--ink);border-radius:50% 50% 14px 14px/170px 170px 14px 14px;padding:clamp(60px,7vw,90px) clamp(26px,4vw,48px) 34px;text-align:center;box-shadow:0 10px 0 rgba(59,36,22,.25);outline:3px solid var(--saf);outline-offset:-14px}
+.tray small{font:700 13px/1 var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--saf)}
+html[lang="ar"] .tray small{letter-spacing:0;font-size:16px}
+.tray h2{font:400 clamp(34px,4vw,52px)/1.05 var(--disp);margin:.2em 0}
+html[lang="ar"] .tray h2{line-height:1.35}
+.tray ol{list-style:none;padding:0;margin:18px auto;max-width:34ch}
+.tray li{padding:9px 0;border-bottom:1.5px dotted rgba(246,233,205,.4)}
+.tray li b{font:400 22px var(--hand);color:#f3c766;margin-inline-end:6px}
+.tray .big{display:inline-block;margin-top:8px;font:400 clamp(40px,5vw,60px)/1 var(--hand);color:var(--ink);background:var(--saf);padding:10px 26px 6px;border-radius:8px;border:3px solid var(--ink);transform:rotate(-3deg)}
+.tray .big span{font-size:.5em;margin-inline-start:6px}
+.tray p{margin-top:16px;color:#d9cfee;font-size:.95em}
+/* footer */
+footer{margin-top:clamp(70px,9vw,120px);--c:var(--ind)}
+.parcel{background:var(--ink);color:var(--cream);padding:clamp(34px,5vw,60px) clamp(18px,4vw,48px) 40px;margin-top:-1px}
+.parcel div.g{max-width:1180px;margin:0 auto;display:grid;gap:26px 48px}
+.parcel h4{font:400 26px/1.1 var(--hand);color:var(--saf);margin-bottom:6px}
+.parcel p{color:#e9d9bb}
+.parcel .fine{max-width:1180px;margin:30px auto 0;padding-top:18px;border-top:1.5px dotted rgba(246,233,205,.35);font-size:15px;color:#cdb893}
+@media (min-width:860px){
+ .alley{grid-template-columns:1fr 1fr}
+ .stall:nth-of-type(even),.tray{margin-top:110px}
+ .stall:nth-of-type(odd):not(:first-of-type){margin-top:-110px}
+ .parcel div.g{grid-template-columns:1.2fr 1fr 1fr}
+}
+@media (max-width:859px){
+ .hang{grid-template-columns:1fr}.hang .lanterns{display:none}
+ .heapnav a{flex-basis:30%}
+ .gate{padding-top:0}
+ .ctl{top:8px;inset-inline-end:8px}.ctl a,.ctl button{padding:8px 11px;font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="heap" viewBox="0 0 100 78">
+<path d="M8 50Q26 48 40 20q5-10 10-12 5 2 10 12 14 28 32 30z" fill="currentColor"/>
+<path d="M50 8q5 2 10 12 14 28 32 30H56Q66 34 50 8z" fill="#000" opacity=".16"/>
+<path d="M30 40l2 1M44 26l2 1M38 34l2-1M52 20l2 1M60 38l2 1M48 40l2-1M68 44l2 1M24 46l2-1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".5"/>
+<path d="M2 50h96q-3 24-28 26H30Q5 74 2 50z" fill="#b5651d"/><path d="M2 50h96q-1 6-4 10H6q-3-4-4-10z" fill="#d98a3a"/><ellipse cx="50" cy="50" rx="48" ry="4" fill="#3b2416" opacity=".35"/>
+<path d="M22 66q28 8 56 0" stroke="#3b2416" stroke-width="1.5" fill="none" opacity=".5"/></symbol></svg>
+<div class="ctl"><a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a><button id="langToggle" type="button"><span class="to-ar">العربية</span><span class="to-en">English</span></button></div>
+<header class="gate">
+ <div class="awning"></div><div class="valance"></div>
+ <div class="hang">
+  <div class="lanterns"><svg class="lantern a" viewBox="0 0 40 150" aria-hidden="true"><path d="M20 0v30" stroke="#3b2416" stroke-width="1.5"/><g transform="translate(0 30)"><path d="M14 0h12l2 6H12z" fill="#3b2416"/><path d="M12 6h16l6 14-6 26H12L6 20z" fill="#e39a12"/><path d="M12 6l4 40M28 6l-4 40M20 6v40M6 20h28" stroke="#3b2416" stroke-width="1.4" fill="none"/><path d="M12 46h16l-3 7h-10z" fill="#3b2416"/><circle cx="20" cy="24" r="6" fill="#fff3c4" opacity=".85"/></g></svg><svg class="lantern b" viewBox="0 0 40 150" aria-hidden="true"><path d="M20 0v64" stroke="#3b2416" stroke-width="1.5"/><g transform="translate(0 64)"><path d="M14 0h12l2 6H12z" fill="#3b2416"/><path d="M12 6h16l6 14-6 26H12L6 20z" fill="#b8321f"/><path d="M12 6l4 40M28 6l-4 40M20 6v40M6 20h28" stroke="#3b2416" stroke-width="1.4" fill="none"/><path d="M12 46h16l-3 7h-10z" fill="#3b2416"/><circle cx="20" cy="24" r="6" fill="#fff3c4" opacity=".85"/></g></svg></div>
+  <div class="board">
+   <svg class="crocus" viewBox="0 0 80 60" aria-hidden="true"><g fill="#9b7fd1"><path d="M40 56C22 44 20 22 28 8c8 8 12 24 12 48z"/><path d="M40 56c18-12 20-34 12-48-8 8-12 24-12 48z"/><path d="M40 56C30 40 34 14 40 2c6 12 10 38 0 54z" fill="#b79be6"/></g><path d="M40 40c-2-10-6-16-12-20M40 40c2-10 6-16 12-20M40 40V18" stroke="#e8481c" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+   <small><span lang="en">Levantine Mezze · Est. 1987</span><span lang="ar">مازة شامية · منذ ١٩٨٧</span></small>
+   <h1><span lang="en">Saffron Souk</span><span lang="ar">سوق الزعفران</span></h1>
+   <p><span lang="en">Wander stall to stall. Eat with your hands.</span><span lang="ar">تجوّل بين الدكاكين، وكُل بيديك.</span></p>
+  </div>
+  <div class="lanterns"><svg class="lantern c" viewBox="0 0 40 150" aria-hidden="true"><path d="M20 0v52" stroke="#3b2416" stroke-width="1.5"/><g transform="translate(0 52)"><path d="M14 0h12l2 6H12z" fill="#3b2416"/><path d="M12 6h16l6 14-6 26H12L6 20z" fill="#25306b"/><path d="M12 6l4 40M28 6l-4 40M20 6v40M6 20h28" stroke="#3b2416" stroke-width="1.4" fill="none"/><path d="M12 46h16l-3 7h-10z" fill="#3b2416"/><circle cx="20" cy="24" r="6" fill="#fff3c4" opacity=".85"/></g></svg><svg class="lantern d" viewBox="0 0 40 150" aria-hidden="true"><path d="M20 0v22" stroke="#3b2416" stroke-width="1.5"/><g transform="translate(0 22)"><path d="M14 0h12l2 6H12z" fill="#3b2416"/><path d="M12 6h16l6 14-6 26H12L6 20z" fill="#e39a12"/><path d="M12 6l4 40M28 6l-4 40M20 6v40M6 20h28" stroke="#3b2416" stroke-width="1.4" fill="none"/><path d="M12 46h16l-3 7h-10z" fill="#3b2416"/><circle cx="20" cy="24" r="6" fill="#fff3c4" opacity=".85"/></g></svg></div>
+ </div>
+ <p class="intro"><span lang="en">Five stalls, one long table. Our spices are weighed out each morning in the old attarin lane — <b>sumac from the hills, Aleppo pepper, threads of saffron</b> — and everything is made to be passed around, torn with bread and argued over.</span><span lang="ar">خمسة دكاكين وطاولة واحدة طويلة. نزن بهاراتنا كلّ صباح في زقاق العطّارين القديم — <b>سمّاق الجبال وفلفل حلب وخيوط الزعفران</b> — وكلّ ما نقدّمه صُنع ليُتقاسَم ويُغمَّس بالخبز ويدور حوله الحديث.</span></p>
+ <nav class="heapnav" aria-label="Stalls"><a href="#s1"><svg class="heap " viewBox="0 0 100 78" style="color:#b8321f" aria-hidden="true"><use href="#heap"/></svg><span class="flag"><span lang="en">Cold Mezze</span><span lang="ar">مازة باردة</span></span></a><a href="#s2"><svg class="heap " viewBox="0 0 100 78" style="color:#e39a12" aria-hidden="true"><use href="#heap"/></svg><span class="flag"><span lang="en">Hot Mezze</span><span lang="ar">مازة ساخنة</span></span></a><a href="#s3"><svg class="heap " viewBox="0 0 100 78" style="color:#3b2416" aria-hidden="true"><use href="#heap"/></svg><span class="flag"><span lang="en">Charcoal</span><span lang="ar">على الفحم</span></span></a><a href="#s4"><svg class="heap " viewBox="0 0 100 78" style="color:#6f7d2c" aria-hidden="true"><use href="#heap"/></svg><span class="flag"><span lang="en">Garden &amp; Oven</span><span lang="ar">بستان وفرن</span></span></a><a href="#s5"><svg class="heap " viewBox="0 0 100 78" style="color:#a8456b" aria-hidden="true"><use href="#heap"/></svg><span class="flag"><span lang="en">Sweets &amp; Sips</span><span lang="ar">حلو وشراب</span></span></a></nav>
+</header>
+<main class="alley">
+<section class="stall" id="s1" style="--c:#b8321f">
+<div class="awning"></div><div class="valance"></div>
+<header class="sign"><small><span lang="en">No. 1 · Sumac stall</span><span lang="ar">رقم 1 · دكّان السمّاق</span></small><h2><span lang="en">Cold Mezze</span><span lang="ar">مازة باردة</span></h2></header>
+<ul class="goods"><li class="item"><div><h3><span lang="en">Hummus Beiruti</span><span lang="ar">حمّص بيروتي</span></h3><p><span lang="en">Whipped chickpeas, tahini, parsley and a pool of cumin oil</span><span lang="ar">حمّص مخفوق بالطحينة والبقدونس، تعلوه بركة من زيت الكمّون</span></p><em class="veg"><span lang="en">Vegan</span><span lang="ar">نباتي</span></em></div><span class="tag"><i><b>24</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Moutabal</span><span lang="ar">متبّل</span></h3><p><span lang="en">Fire-charred aubergine folded with tahini, ruby pomegranate seeds</span><span lang="ar">باذنجان مشوي على اللهب مع الطحينة وحبّات الرمّان</span></p><em class="veg"><span lang="en">Vegan</span><span lang="ar">نباتي</span></em></div><span class="tag"><i><b>26</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Muhammara</span><span lang="ar">محمّرة</span><em class="heat" aria-hidden="true"><i></i></em></h3><p><span lang="en">Roasted red pepper and walnut, Aleppo chilli, pomegranate molasses</span><span lang="ar">فليفلة حمراء مشوية وجوز مع فلفل حلبي ودبس الرمّان</span></p><em class="pick"><span lang="en">Merchant's pick</span><span lang="ar">اختيار التاجر</span></em></div><span class="tag"><i><b>28</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Labneh &amp; Za’atar</span><span lang="ar">لبنة بالزعتر</span></h3><p><span lang="en">Strained yoghurt, wild mountain thyme, cold-pressed olive oil</span><span lang="ar">لبنة مصفّاة مع زعتر برّي وزيت زيتون بكر</span></p></div><span class="tag"><i><b>22</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Warak Enab</span><span lang="ar">ورق عنب</span></h3><p><span lang="en">Vine leaves rolled by hand with rice, tomato and plenty of lemon</span><span lang="ar">ورق عنب ملفوف باليد بالأرز والبندورة وعصرة ليمون سخيّة</span></p><em class="veg"><span lang="en">Vegan</span><span lang="ar">نباتي</span></em></div><span class="tag"><i><b>27</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li></ul>
+<div class="counter"><svg class="heap " viewBox="0 0 100 78" style="color:#8e1f2f" aria-hidden="true"><use href="#heap"/></svg><svg class="heap " viewBox="0 0 100 78" style="color:#b8321f" aria-hidden="true"><use href="#heap"/></svg><svg class="heap " viewBox="0 0 100 78" style="color:#d9a441" aria-hidden="true"><use href="#heap"/></svg></div>
+</section><section class="stall" id="s2" style="--c:#e39a12">
+<div class="awning"></div><div class="valance"></div>
+<header class="sign"><small><span lang="en">No. 2 · Saffron stall</span><span lang="ar">رقم 2 · دكّان الزعفران</span></small><h2><span lang="en">Hot Mezze</span><span lang="ar">مازة ساخنة</span></h2></header>
+<ul class="goods"><li class="item"><div><h3><span lang="en">Falafel</span><span lang="ar">فلافل</span></h3><p><span lang="en">Crisp chickpea and broad-bean fritters, tarator, pickled turnip</span><span lang="ar">أقراص مقرمشة من الحمّص والفول مع الطراطور ومخلّل اللفت</span></p><em class="veg"><span lang="en">Vegan</span><span lang="ar">نباتي</span></em></div><span class="tag"><i><b>22</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Batata Harra</span><span lang="ar">بطاطا حرّة</span><em class="heat" aria-hidden="true"><i></i><i></i></em></h3><p><span lang="en">Golden potatoes tossed with garlic, coriander and red chilli</span><span lang="ar">بطاطا ذهبية مقلّبة بالثوم والكزبرة والفلفل الأحمر</span></p><em class="veg"><span lang="en">Vegan</span><span lang="ar">نباتي</span></em></div><span class="tag"><i><b>24</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Cheese Rakakat</span><span lang="ar">رقاقات الجبنة</span></h3><p><span lang="en">Paper-thin pastry cigars filled with akkawi and nigella seed</span><span lang="ar">لفائف عجين رقيقة محشوّة بجبنة عكّاوي وحبّة البركة</span></p></div><span class="tag"><i><b>26</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Kibbeh</span><span lang="ar">كبّة مقلية</span></h3><p><span lang="en">Bulgur shells of spiced lamb and toasted pine nuts</span><span lang="ar">كبّة برغل محشوّة بلحم الضأن المتبّل والصنوبر المحمّص</span></p><em class="pick"><span lang="en">Merchant's pick</span><span lang="ar">اختيار التاجر</span></em></div><span class="tag"><i><b>32</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Beef Sujuk</span><span lang="ar">سجق بقري</span><em class="heat" aria-hidden="true"><i></i><i></i></em></h3><p><span lang="en">Spiced beef sausage flamed with tomato, garlic and lemon</span><span lang="ar">سجق بقري متبّل يُقلّى مع البندورة والثوم والليمون</span></p></div><span class="tag"><i><b>36</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li></ul>
+<div class="counter"><svg class="heap " viewBox="0 0 100 78" style="color:#e39a12" aria-hidden="true"><use href="#heap"/></svg><svg class="heap " viewBox="0 0 100 78" style="color:#c9601a" aria-hidden="true"><use href="#heap"/></svg><svg class="heap " viewBox="0 0 100 78" style="color:#f0c75e" aria-hidden="true"><use href="#heap"/></svg></div>
+</section><section class="stall" id="s3" style="--c:#25306b">
+<div class="awning"></div><div class="valance"></div>
+<header class="sign"><small><span lang="en">No. 3 · Ember stall</span><span lang="ar">رقم 3 · دكّان الجمر</span></small><h2><span lang="en">From the Charcoal</span><span lang="ar">على الفحم</span></h2></header>
+<ul class="goods"><li class="item"><div><h3><span lang="en">Shish Taouk</span><span lang="ar">شيش طاووق</span></h3><p><span lang="en">Chicken marinated overnight in yoghurt, garlic and paprika</span><span lang="ar">دجاج منقوع ليلةً كاملة باللبن والثوم والبابريكا</span></p></div><span class="tag"><i><b>58</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Kafta Halabi</span><span lang="ar">كفتة حلبية</span><em class="heat" aria-hidden="true"><i></i></em></h3><p><span lang="en">Minced lamb with parsley and onion, grilled on wide skewers</span><span lang="ar">لحم ضأن مفروم مع البقدونس والبصل، مشوي على أسياخ عريضة</span></p></div><span class="tag"><i><b>62</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Arayes</span><span lang="ar">عرايس</span></h3><p><span lang="en">Saj bread stuffed with spiced kafta and crisped over the coals</span><span lang="ar">خبز صاج محشوّ بالكفتة المتبّلة ومحمّص فوق الجمر</span></p></div><span class="tag"><i><b>48</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Lamb Chops</span><span lang="ar">ريش غنم</span></h3><p><span lang="en">Seven-spice chops with grilled tomato and sumac onions</span><span lang="ar">ريش بالبهارات السبع مع بندورة مشوية وبصل بالسمّاق</span></p><em class="pick"><span lang="en">Merchant's pick</span><span lang="ar">اختيار التاجر</span></em></div><span class="tag"><i><b>96</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">The Souk Mixed Grill</span><span lang="ar">مشاوي السوق المشكّلة</span></h3><p><span lang="en">Taouk, kafta, lamb cubes and chops with garlic toum — for two</span><span lang="ar">طاووق وكفتة وشقف وريش مع ثومية — تكفي شخصين</span></p></div><span class="tag"><i><b>128</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li></ul>
+<div class="counter"><svg class="heap " viewBox="0 0 100 78" style="color:#3b2416" aria-hidden="true"><use href="#heap"/></svg><svg class="heap " viewBox="0 0 100 78" style="color:#b8321f" aria-hidden="true"><use href="#heap"/></svg><svg class="heap " viewBox="0 0 100 78" style="color:#e39a12" aria-hidden="true"><use href="#heap"/></svg></div>
+</section><section class="stall" id="s4" style="--c:#5f6b2a">
+<div class="awning"></div><div class="valance"></div>
+<header class="sign"><small><span lang="en">No. 4 · Za’atar stall</span><span lang="ar">رقم 4 · دكّان الزعتر</span></small><h2><span lang="en">Garden &amp; Oven</span><span lang="ar">من البستان والفرن</span></h2></header>
+<ul class="goods"><li class="item"><div><h3><span lang="en">Fattoush</span><span lang="ar">فتّوش</span></h3><p><span lang="en">Garden leaves, radish, purslane, crisp bread, sumac dressing</span><span lang="ar">خضار البستان والفجل والبقلة مع خبز مقرمش وتتبيلة السمّاق</span></p><em class="veg"><span lang="en">Vegan</span><span lang="ar">نباتي</span></em></div><span class="tag"><i><b>28</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Tabbouleh</span><span lang="ar">تبّولة</span></h3><p><span lang="en">Hand-chopped parsley, mint, tomato and a whisper of bulgur</span><span lang="ar">بقدونس ونعناع وبندورة مفرومة باليد مع رشّة برغل</span></p><em class="veg"><span lang="en">Vegan</span><span lang="ar">نباتي</span></em></div><span class="tag"><i><b>26</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Za’atar Manousheh</span><span lang="ar">منقوشة زعتر</span></h3><p><span lang="en">Stone-oven flatbread, wild thyme, sesame and olive oil</span><span lang="ar">خبز من فرن الحجر بالزعتر البرّي والسمسم وزيت الزيتون</span></p><em class="veg"><span lang="en">Vegan</span><span lang="ar">نباتي</span></em></div><span class="tag"><i><b>18</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Saj Bread Basket</span><span lang="ar">سلّة خبز الصاج</span></h3><p><span lang="en">Blistered and warm from the dome, baked to order</span><span lang="ar">خبز ساخن منتفخ من على الصاج، يُخبز عند الطلب</span></p><em class="veg"><span lang="en">Vegan</span><span lang="ar">نباتي</span></em></div><span class="tag"><i><b>8</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li></ul>
+<div class="counter"><svg class="heap " viewBox="0 0 100 78" style="color:#5f6b2a" aria-hidden="true"><use href="#heap"/></svg><svg class="heap " viewBox="0 0 100 78" style="color:#8a9a3a" aria-hidden="true"><use href="#heap"/></svg><svg class="heap " viewBox="0 0 100 78" style="color:#d9c27a" aria-hidden="true"><use href="#heap"/></svg></div>
+</section><section class="stall" id="s5" style="--c:#a8456b">
+<div class="awning"></div><div class="valance"></div>
+<header class="sign"><small><span lang="en">No. 5 · Rosewater stall</span><span lang="ar">رقم 5 · دكّان ماء الورد</span></small><h2><span lang="en">Sweets &amp; Sips</span><span lang="ar">حلويات ومشروبات</span></h2></header>
+<ul class="goods"><li class="item"><div><h3><span lang="en">Knafeh Nabulsieh</span><span lang="ar">كنافة نابلسية</span></h3><p><span lang="en">Molten cheese under crisp kataifi, orange-blossom syrup, pistachio</span><span lang="ar">جبنة ذائبة تحت شعيرية مقرمشة مع قطر ماء الزهر والفستق</span></p><em class="pick"><span lang="en">Merchant's pick</span><span lang="ar">اختيار التاجر</span></em></div><span class="tag"><i><b>34</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Halawet el Jibn</span><span lang="ar">حلاوة الجبن</span></h3><p><span lang="en">Sweet cheese rolls filled with clotted cream and rose jam</span><span lang="ar">لفائف الجبن الحلوة محشوّة بالقشطة ومربّى الورد</span></p></div><span class="tag"><i><b>32</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Saffron Muhallabia</span><span lang="ar">مهلّبية بالزعفران</span></h3><p><span lang="en">Silky milk pudding scented with saffron and mastic</span><span lang="ar">مهلّبية حريرية معطّرة بالزعفران والمستكة</span></p></div><span class="tag"><i><b>26</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Jallab</span><span lang="ar">جلّاب</span></h3><p><span lang="en">Date and rose syrup over crushed ice, pine nuts and raisins</span><span lang="ar">شراب التمر والورد على ثلج مجروش مع الصنوبر والزبيب</span></p></div><span class="tag"><i><b>18</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Mint Lemonade</span><span lang="ar">ليموناضة بالنعناع</span></h3><p><span lang="en">Whole lemons blitzed with garden mint, frosted glass</span><span lang="ar">ليمون كامل مخفوق مع نعناع طازج في كأس مثلّج</span></p></div><span class="tag"><i><b>20</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li><li class="item"><div><h3><span lang="en">Arabic Coffee Pot</span><span lang="ar">دلّة قهوة عربية</span></h3><p><span lang="en">Cardamom-laced and poured at the table, with Medjool dates</span><span lang="ar">قهوة بالهيل تُسكب على الطاولة مع تمر مجدول</span></p></div><span class="tag"><i><b>22</b><span lang="en">AED</span><span lang="ar">د.إ</span></i></span></li></ul>
+<div class="counter"><svg class="heap " viewBox="0 0 100 78" style="color:#a8456b" aria-hidden="true"><use href="#heap"/></svg><svg class="heap " viewBox="0 0 100 78" style="color:#e39a12" aria-hidden="true"><use href="#heap"/></svg><svg class="heap " viewBox="0 0 100 78" style="color:#f2d6c2" aria-hidden="true"><use href="#heap"/></svg></div>
+</section>
+<aside class="tray">
+ <small><span lang="en">For two to share</span><span lang="ar">لشخصين</span></small>
+ <h2><span lang="en">The Merchant’s Tray</span><span lang="ar">صينية التاجر</span></h2>
+ <ol>
+  <li><b>4</b><span lang="en">cold mezze of your choosing</span><span lang="ar">أطباق مازة باردة من اختيارك</span></li>
+  <li><b>2</b><span lang="en">hot mezze, straight from the pan</span><span lang="ar">طبقان من المازة الساخنة</span></li>
+  <li><b>1</b><span lang="en">Souk mixed grill with toum</span><span lang="ar">مشاوي السوق المشكّلة مع الثومية</span></li>
+  <li><b>1</b><span lang="en">knafeh and a pot of Arabic coffee</span><span lang="ar">كنافة ودلّة قهوة عربية</span></li>
+ </ol>
+ <div class="big"><b>185</b><span><span lang="en">AED</span><span lang="ar">د.إ</span></span></div>
+ <p><span lang="en">Bread from the saj is bottomless. So is the gossip.</span><span lang="ar">خبز الصاج بلا حساب، وكذلك أخبار السوق.</span></p>
+</aside>
+</main>
+<footer><div class="awning" style="clip-path:none;--ah:34px"></div>
+<div class="parcel"><div class="g">
+ <div><h4><span lang="en">Find the stall</span><span lang="ar">أين تجدنا</span></h4><p><span lang="en">14 Khan al-Attarin Lane, behind the copper market, Old Town</span><span lang="ar">١٤ زقاق خان العطّارين، خلف سوق النحّاسين، البلدة القديمة</span></p></div>
+ <div><h4><span lang="en">Shutters up</span><span lang="ar">ساعات العمل</span></h4><p><span lang="en">Daily, noon until midnight<br>Fridays from 1:30 pm</span><span lang="ar">يوميًا من الظهر حتى منتصف الليل<br>الجمعة من الساعة ١:٣٠ ظهرًا</span></p></div>
+ <div><h4><span lang="en">Reserve a table</span><span lang="ar">احجز طاولتك</span></h4><p><span dir="ltr">+971 4 555 0147</span><br><span lang="en">Large trays for 8 or more — ask us</span><span lang="ar">صوانٍ كبيرة لثمانية أشخاص وأكثر — اسألونا</span></p></div>
+ </div>
+ <p class="fine"><span lang="en">Our kitchen works with sesame, nuts, wheat and dairy. Tell your server about any allergy before ordering. All meat is halal. Prices in AED, VAT included.</span><span lang="ar">يستخدم مطبخنا السمسم والمكسّرات والقمح ومشتقّات الحليب. يُرجى إبلاغ النادل بأيّ حساسية قبل الطلب. جميع اللحوم حلال. الأسعار بالدرهم الإماراتي وتشمل الضريبة.</span></p>
+</div></footer>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body></html>

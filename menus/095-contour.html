@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Contour · كونتور</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Contour — a mountain lodge café whose menu is a trail map: pick a route, read the elevation profile, and remember that altitude equals price. كونتور — مقهى جبلي قائمته خريطة مسارات: اختر مسارك، اقرأ مقطع الارتفاع، وتذكّر أنّ الارتفاع هو السعر.">
+<meta name="theme-color" content="#efe9d9">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --paper:#efe9d9;--paper2:#f7f3e8;--ink:#1d1c19;--line:#b07a4e;--soft:#6a655a;--red:#d5432a;
+  --green:#2c7a4b;--blue:#1e6aa8;--black:#1d1c19;--water:#9cc7dd;
+  --cond:"Barlow Condensed","IBM Plex Sans Arabic","Arial Narrow",sans-serif;--body:"Barlow","IBM Plex Sans Arabic",system-ui,sans-serif;--mono:"IBM Plex Mono","IBM Plex Sans Arabic",ui-monospace,monospace;
+  --side:310px;
+}
+html[lang="ar"]{--cond:"IBM Plex Sans Arabic","Barlow Condensed",sans-serif;--body:"IBM Plex Sans Arabic","Barlow",sans-serif;--mono:"IBM Plex Sans Arabic","IBM Plex Mono",sans-serif}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.5 var(--body);-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-size:16.5px;line-height:1.8}
+html[lang="ar"] *{letter-spacing:0 !important}
+h1,h2,h3,p,ul,ol,dl,dd{margin:0;padding:0}ul,ol{list-style:none}a{color:inherit}
+.mono{font:500 11.5px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+html[lang="ar"] .mono{font-size:13.5px;font-weight:500}
+.bgtopo{position:fixed;inset:0;width:100%;height:100%;z-index:0;opacity:.34;pointer-events:none}
+.sheet{position:relative;z-index:1;overflow:clip}
+.tp path{fill:none;stroke:var(--line);stroke-width:1.3}
+.tp .ix{stroke-width:2.6}
+
+/* controls */
+.ctrl{position:fixed;z-index:60;inset-block-start:12px;inset-inline-end:12px;display:flex;gap:6px}
+.ctrl a,.ctrl button{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;height:38px;padding:0 13px;background:var(--paper2);color:var(--ink);border:1.5px solid var(--ink);display:inline-flex;align-items:center;gap:7px;cursor:pointer;text-decoration:none;box-shadow:2px 2px 0 var(--ink)}
+html[lang="ar"] .ctrl a,html[lang="ar"] .ctrl button{font-size:14px}
+.ctrl a:hover,.ctrl button:hover{background:var(--ink);color:var(--paper)}
+
+/* hero map */
+.hero{--hh:clamp(600px,96svh,940px);position:relative;height:var(--hh);overflow:hidden;background:var(--paper2);border-block-end:2px solid var(--ink)}
+.art{position:absolute;top:50%;left:50%;width:max(100%,calc(var(--hh)*1.6));aspect-ratio:1.6;transform:translate(-50%,-50%)}
+.art svg{position:absolute;inset:0;width:100%;height:100%}
+.art .tp path{stroke-width:1.6;stroke:#a56a3c}.art .tp .ix{stroke-width:3.2}
+.lake{fill:var(--water);stroke:#4d8fb0;stroke-width:2}
+.wood{fill:#7fae78;opacity:.55}
+.trail{fill:none;stroke:var(--red);stroke-width:5;stroke-dasharray:14 10;stroke-linecap:round;animation:hike 1.6s linear infinite}
+@keyframes hike{to{stroke-dashoffset:-24}}
+.lab{position:absolute;transform:translate(-50%,0);text-align:center;white-space:nowrap;font:600 13px/1.25 var(--mono);letter-spacing:.04em;text-shadow:0 0 4px var(--paper2),0 0 4px var(--paper2),0 0 4px var(--paper2)}
+html[lang="ar"] .lab{font-size:15px}
+.lab b{display:block;font:700 clamp(17px,1.6vw,23px)/1.1 var(--cond);letter-spacing:.14em;text-transform:uppercase}
+.lab.w{color:#1f5f86;font-style:italic}
+.frame{position:absolute;inset:14px;border:1.5px solid var(--ink);pointer-events:none}
+.frame::before{content:"";position:absolute;inset:5px;border:1px solid var(--ink)}
+.frame i{position:absolute;font:500 10.5px/1 var(--mono);font-style:normal;color:var(--soft);background:var(--paper2);padding:2px 5px}
+.frame i:nth-child(-n+5){top:-7px;transform:translateX(-50%)}
+.frame i:nth-child(n+6){left:-8px;transform:translateY(-50%);padding:4px 2px}
+.cart{position:absolute;left:clamp(26px,4vw,64px);inset-block-end:clamp(26px,4vw,60px);width:min(600px,calc(100% - 52px));background:var(--paper2);border:2px solid var(--ink);box-shadow:6px 6px 0 rgba(29,28,25,.9);padding:clamp(18px,2.4vw,30px) clamp(18px,2.6vw,34px) clamp(16px,2vw,24px)}
+.cart .mono{color:var(--soft);display:flex;flex-wrap:wrap;gap:2px 14px;margin-block-end:8px}
+h1{font:700 clamp(56px,7.6vw,112px)/.86 var(--cond);letter-spacing:.1em;text-transform:uppercase;margin-inline-end:-.1em}
+html[lang="ar"] h1{font-size:clamp(60px,8.4vw,124px);line-height:1.15;margin-inline-end:0}
+.cart .cu{font:600 clamp(18px,1.8vw,24px)/1.2 var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-block:8px 12px;padding-block-end:12px;border-block-end:1.5px solid var(--ink)}
+html[lang="ar"] .cart .cu{font-weight:700}
+.cart .in{font-size:clamp(15.5px,1.15vw,17px);max-width:52ch}
+.scale{display:flex;align-items:center;gap:10px;margin-block-start:14px}
+.scale u{flex:0 0 160px;height:8px;border:1.5px solid var(--ink);background:repeating-linear-gradient(90deg,var(--ink) 0 40px,transparent 40px 80px)}
+
+/* layout */
+.wrap{display:grid;grid-template-columns:var(--side) minmax(0,1fr)}
+.legend{position:sticky;inset-block-start:0;align-self:start;height:100vh;overflow:auto;padding:26px 24px 20px;border-inline-end:2px solid var(--ink);background:rgba(247,243,232,.92);display:flex;flex-direction:column;gap:20px}
+.legend h2{font:700 15px/1 var(--cond);letter-spacing:.24em;text-transform:uppercase;padding-block-end:8px;border-block-end:1.5px solid var(--ink);margin-block-end:10px}
+html[lang="ar"] .legend h2{font-size:17px;line-height:1.4}
+.legend .brand{font:700 30px/1 var(--cond);letter-spacing:.2em;text-transform:uppercase}
+html[lang="ar"] .legend .brand{line-height:1.4}
+.nav a{display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:center;padding:7px 0;text-decoration:none;border-block-end:1px dashed rgba(29,28,25,.35)}
+.nav b{font:600 19px/1.1 var(--cond);letter-spacing:.04em;text-transform:uppercase;display:block}
+html[lang="ar"] .nav b{font-size:17px;line-height:1.5;font-weight:700}
+.nav small{font:400 13px/1.2 var(--body);color:var(--soft);display:block}
+html[lang="ar"] .nav small{font-size:14px;line-height:1.5}
+.nav em{font:500 12px/1 var(--mono);font-style:normal;direction:ltr}
+.nav a:hover b{color:var(--red)}
+.key li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:center;font-size:14.5px;padding:3px 0}
+html[lang="ar"] .key li{font-size:15px}
+.dif{width:16px;height:16px;display:inline-block;flex:none;justify-self:center;background:var(--c,var(--green))}
+.dif.g{border-radius:50%}.dif.b{--c:var(--blue)}.dif.k{--c:var(--black);transform:rotate(45deg) scale(.82)}
+.sym{width:18px;height:18px;justify-self:center;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-4px}
+.sym.v{stroke:var(--green)}.sym.s{stroke:var(--red)}
+.rose{display:flex;align-items:center;gap:14px;margin-block-start:auto}
+.rose svg{width:64px;height:64px;flex:none}
+.rose p{font-size:13.5px;color:var(--soft);line-height:1.45}
+html[lang="ar"] .rose p{font-size:14.5px;line-height:1.6}
+
+/* trails */
+.trails{min-width:0}
+.tr{position:relative;padding:clamp(40px,5vw,72px) clamp(18px,3.4vw,54px) clamp(34px,4vw,56px);border-block-end:2px solid var(--ink);scroll-margin-top:10px}
+.tr:nth-child(even){background:rgba(247,243,232,.55)}
+.th{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px clamp(14px,2vw,26px);align-items:center;margin-block-end:clamp(8px,1.4vw,18px)}
+.th .dif{width:clamp(38px,4vw,56px);height:clamp(38px,4vw,56px)}
+.th h2{font:700 clamp(40px,5.6vw,84px)/.9 var(--cond);letter-spacing:.03em;text-transform:uppercase}
+html[lang="ar"] .th h2{font-size:clamp(34px,4.4vw,64px);line-height:1.3}
+.th .sub{font:600 clamp(16px,1.5vw,21px)/1.2 var(--cond);letter-spacing:.18em;text-transform:uppercase;color:var(--tc)}
+html[lang="ar"] .th .sub{font-weight:700}
+.stats{display:grid;gap:2px;text-align:start;border-inline-start:1.5px solid var(--ink);padding-inline-start:16px;margin:0}
+.stats div{display:grid;grid-template-columns:9.5em auto;gap:10px}
+html[lang="ar"] .stats div{grid-template-columns:6.5em auto}
+.stats dt{color:var(--soft)}
+.stats dd{font:600 13px/1.4 var(--mono);unicode-bidi:plaintext}
+html[lang="ar"] .stats dd{font-size:14.5px}
+.tr>p.note{max-width:66ch;margin-block-end:6px;color:#3b3933}
+.t-g{--tc:var(--green)}.t-b{--tc:var(--blue)}.t-k{--tc:var(--black)}
+
+.climb{position:relative;margin-block-start:10px}
+.prof{position:absolute;inset-block-start:0;inset-inline:0;width:100%;height:180px;overflow:visible}
+[dir="rtl"] .prof{transform:scaleX(-1)}
+.prof .ar{fill:var(--tc);opacity:.13}
+.prof .ln{fill:none;stroke:var(--tc);stroke-width:2.5;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.prof .gl{fill:none;stroke:var(--ink);stroke-width:1;stroke-dasharray:2 5;vector-effect:non-scaling-stroke;opacity:.35}
+.axis span{position:absolute;inset-inline-start:0;top:calc(172px - var(--p)*1.6px);transform:translateY(-110%);font:500 10.5px/1 var(--mono);color:var(--soft)}
+.wps{position:relative;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr))}
+.wp{position:relative;padding:196px clamp(8px,1vw,16px) 0;text-align:center}
+.wp::before{content:"";position:absolute;inset-inline-start:50%;top:calc(172px - var(--p)*1.6px);height:calc(var(--p)*1.6px + 14px);border-inline-start:1.5px dashed var(--tc);opacity:.7}
+.alt{position:absolute;inset-inline-start:50%;top:calc(172px - var(--p)*1.6px);transform:translate(-50%,calc(-100% + 7px));display:flex;flex-direction:column;align-items:center;gap:4px;font:600 17px/1 var(--mono);white-space:nowrap;z-index:2}
+[dir="rtl"] .alt{transform:translate(50%,calc(-100% + 7px))}
+.alt span.v{background:var(--paper2);border:1.5px solid var(--ink);padding:4px 7px 3px;box-shadow:2px 2px 0 var(--ink);direction:ltr}
+.alt small{font-size:.62em;font-weight:500;margin-inline-start:3px}
+.alt::after{content:"";width:14px;height:14px;border-radius:50%;background:var(--paper2);border:3.5px solid var(--tc)}
+.wp .no{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--tc);color:#fff;font:600 12px/1 var(--mono);margin-block-end:8px}
+.wp h3{font:700 clamp(20px,1.7vw,25px)/1.08 var(--cond);letter-spacing:.03em;text-transform:uppercase}
+html[lang="ar"] .wp h3{font-size:clamp(18.5px,1.5vw,21px);line-height:1.45}
+.wp p{font-size:15px;line-height:1.42;margin-block-start:6px;color:#34322d}
+html[lang="ar"] .wp p{font-size:15.5px;line-height:1.7}
+.wp .tags{display:flex;justify-content:center;gap:6px;margin-block-start:8px;min-height:18px}
+.pick{font:600 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;border:1.5px solid var(--red);color:var(--red);padding:3px 6px;align-self:center}
+html[lang="ar"] .pick{font-size:12.5px}
+
+/* footer */
+.foot{padding:clamp(34px,4vw,60px) clamp(18px,3.4vw,54px) 30px;background:var(--ink);color:var(--paper)}
+.foot h2{font:700 clamp(34px,4vw,58px)/.95 var(--cond);letter-spacing:.06em;text-transform:uppercase;margin-block-end:22px}
+html[lang="ar"] .foot h2{line-height:1.35}
+.foot .cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px clamp(20px,3vw,44px)}
+.foot h3{color:#e8b08a;margin-block-end:6px}
+.foot .cols p{font-size:15.5px;color:#e9e3d2}
+.foot .fine{margin-block-start:26px;padding-block-start:16px;border-block-start:1px dashed rgba(239,233,217,.5);font-size:14px;color:#c9c2b0;max-width:110ch}
+html[lang="ar"] .foot .fine{font-size:15px}
+
+@media (max-width:1020px){
+  .wrap{grid-template-columns:1fr}
+  .legend{position:static;height:auto;border-inline-end:0;border-block-end:2px solid var(--ink);padding:22px 18px}
+  .legend .brand,.rose{display:none}
+  .legend>div{min-width:0}
+  .key ul{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+}
+@media (max-width:760px){
+  .hero{--hh:clamp(620px,100svh,780px)}
+  .frame{inset:8px}
+  .frame i:nth-child(n+6){display:none}
+  .cart{inset-inline:18px;width:auto;inset-block-end:20px;box-shadow:4px 4px 0 var(--ink)}
+  .lab.hm{display:none}
+  .th{grid-template-columns:auto minmax(0,1fr)}
+  .stats{grid-column:1/-1;border-inline-start:0;padding-inline-start:0;border-block:1.5px solid var(--ink);padding-block:8px;grid-template-columns:1fr 1fr;gap:8px 14px}
+  .stats div,html[lang="ar"] .stats div{display:block}
+  .climb{margin-block-start:14px}
+  .prof{position:relative;display:block;height:92px;border-block-end:1.5px solid var(--ink)}
+  .axis{display:none}
+  .wps{grid-template-columns:1fr;border-inline-start:2px dashed var(--tc);margin-inline-start:11px;padding-block-start:6px}
+  .wp{text-align:start;padding:14px 0 14px 0;padding-inline-start:26px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:start}
+  .wp::before{display:none}
+  .wp .no{position:absolute;inset-inline-start:-13px;top:14px}
+  .wp h3{grid-column:1;font-size:22px}
+  html[lang="ar"] .wp h3{font-size:20px}
+  .alt,[dir="rtl"] .alt{position:static;transform:none;grid-column:2;grid-row:1;font-size:16px}
+  .alt::after{display:none}
+  .wp p{grid-column:1/-1;font-size:15.5px;margin-block-start:2px}
+  .wp .tags{grid-column:1/-1;justify-content:flex-start;min-height:0;margin-block-start:4px}
+  .wp .tags:empty{display:none}
+  .foot .cols{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.trail{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="topo" viewBox="0 0 1600 1000"><g class="tp"><path d="M217 0Q106 20 90 30Q74 40 72 60Q70 80 78 130Q87 180 81 200Q75 220 55 250Q35 280 32 300Q29 320 32 360Q35 400 27 415Q20 431 0 447M652 1000Q760 956 810 922Q860 889 890 884Q920 879 950 883Q980 887 1010 896Q1040 905 1214 1000M388 0Q211 60 193 70Q176 80 165 100Q155 120 150 180Q145 240 128 280Q111 320 104 380Q98 440 82 460Q66 480 0 515M1600 718Q1540 590 1537 515Q1534 440 1535 420Q1537 400 1543 380Q1550 360 1600 302M528 1000Q560 980 630 951Q700 923 744 891Q788 860 814 851Q840 843 860 841Q880 839 920 842Q960 846 1000 857Q1040 869 1317 1000M1600 185Q1580 127 1560 103Q1540 80 1510 65Q1480 50 1450 44Q1420 39 1260 33Q1100 27 960 28Q820 29 700 21Q580 14 520 21Q460 29 370 55Q280 82 261 91Q243 100 232 110Q222 120 214 140Q206 160 200 210Q195 260 179 310Q164 360 157 410Q151 460 137 480Q123 500 77 530Q32 560 24 570Q16 580 11 600Q6 620 19 680Q32 740 56 782Q80 825 110 852Q140 880 170 900Q200 920 260 946Q320 973 350 976Q380 979 400 975Q420 972 528 936Q636 900 698 860Q760 820 810 813Q860 807 900 809Q940 812 980 821Q1020 830 1150 886Q1280 943 1310 950Q1340 958 1360 958Q1380 958 1401 949Q1422 940 1481 882Q1540 824 1548 812Q1556 800 1558 790Q1561 780 1558 760Q1556 740 1523 670Q1490 600 1483 560Q1476 520 1488 440Q1500 360 1512 340Q1524 320 1552 290Q1581 260 1600 214M730 96Q580 100 490 108Q400 116 370 125Q340 135 323 147Q306 160 297 180Q288 200 285 260Q282 320 265 410Q249 500 235 520Q222 540 178 570Q135 600 122 620Q110 640 110 660Q111 680 125 711Q140 742 160 764Q180 787 210 808Q240 830 270 842Q300 855 340 861Q380 868 420 866Q460 865 490 858Q520 851 540 841Q560 832 600 803Q640 775 680 765Q720 755 830 753Q940 751 980 756Q1020 762 1051 771Q1082 780 1151 807Q1220 835 1260 841Q1300 848 1320 844Q1340 841 1370 827Q1400 814 1420 798Q1440 783 1447 771Q1455 760 1458 750Q1461 740 1459 720Q1457 700 1423 630Q1390 560 1382 530Q1375 500 1394 410Q1413 320 1423 300Q1433 280 1456 253Q1480 227 1486 213Q1493 200 1488 180Q1483 160 1461 144Q1440 128 1410 120Q1380 113 1280 121Q1180 129 1030 110Q880 92 730 96ZM860 119Q820 119 730 128Q640 138 543 139Q446 140 423 144Q400 149 380 158Q360 167 350 177Q340 188 334 204Q328 220 330 280Q332 340 316 430Q300 521 288 540Q277 560 232 590Q187 620 174 640Q162 660 161 670Q161 680 169 700Q177 720 198 744Q220 768 250 786Q280 805 320 816Q360 827 390 828Q420 829 450 823Q480 818 497 809Q515 800 547 774Q580 749 600 741Q620 734 690 729Q760 724 890 723Q1020 722 1050 729Q1080 736 1150 762Q1220 788 1250 792Q1280 797 1310 792Q1340 788 1360 779Q1380 770 1390 761Q1400 752 1407 736Q1415 720 1409 690Q1403 660 1371 600Q1340 540 1333 520Q1327 500 1327 480Q1327 460 1340 400Q1353 340 1352 290Q1352 240 1346 226Q1340 212 1170 172Q1000 132 950 126Q900 120 860 119ZM820 153Q760 160 710 167Q660 174 560 173Q460 172 440 176Q420 181 405 190Q390 200 381 220Q372 240 379 310Q387 380 372 470Q357 560 344 580Q331 600 293 620Q256 640 244 650Q233 660 229 670Q225 680 231 700Q238 720 259 738Q280 757 308 768Q337 780 358 782Q380 785 410 780Q440 775 473 747Q506 720 527 710Q549 700 684 697Q820 694 920 688Q1020 682 1050 687Q1080 693 1150 717Q1220 741 1250 745Q1280 749 1310 740Q1340 732 1350 721Q1360 710 1362 695Q1365 680 1359 660Q1353 640 1316 570Q1279 500 1276 480Q1273 460 1283 400Q1294 340 1288 320Q1283 300 1267 280Q1252 260 1193 230Q1135 200 1067 179Q1000 159 940 152Q880 146 820 153ZM860 214Q820 219 770 227Q720 235 640 241Q560 247 538 253Q516 260 507 270Q499 280 498 290Q497 300 504 350Q512 400 505 460Q498 520 506 540Q514 560 523 570Q533 580 548 590Q564 600 592 610Q620 620 680 627Q740 635 810 627Q880 619 940 614Q1000 609 1090 616Q1180 623 1190 619Q1200 616 1204 608Q1209 600 1208 590Q1207 580 1185 520Q1164 460 1162 400Q1160 340 1151 320Q1142 300 1132 290Q1123 280 1090 260Q1058 240 1019 227Q980 215 940 212Q900 209 860 214ZM840 252Q780 259 704 269Q628 280 604 291Q580 302 572 321Q564 340 570 430Q577 520 592 540Q607 560 643 575Q680 590 720 593Q760 597 840 589Q920 581 1000 573Q1080 565 1090 561Q1100 558 1108 549Q1117 540 1118 520Q1119 500 1103 420Q1088 340 1076 320Q1064 300 1052 290Q1040 281 1010 268Q980 255 940 250Q900 246 840 252ZM770 292Q720 298 686 309Q652 320 641 330Q631 340 627 350Q623 360 626 400Q629 440 644 474Q660 509 680 523Q700 538 730 545Q760 552 860 548Q960 544 998 532Q1037 520 1047 500Q1057 480 1048 435Q1040 391 1020 358Q1000 326 980 314Q960 302 930 295Q900 288 860 287Q820 287 770 292Z"/><path class="ix" d="M690 60Q560 59 450 78Q340 98 315 109Q290 120 275 135Q260 151 254 165Q249 180 244 230Q239 280 219 380Q200 480 186 500Q173 520 129 550Q86 580 73 600Q60 620 59 640Q59 660 64 680Q70 700 91 740Q113 780 136 805Q160 831 190 852Q220 873 260 889Q300 905 330 909Q360 913 410 909Q460 906 510 894Q560 883 584 871Q609 860 651 830Q693 800 726 791Q760 782 850 782Q940 782 970 787Q1000 792 1040 805Q1080 818 1160 852Q1240 887 1280 895Q1320 903 1350 895Q1380 887 1435 843Q1491 800 1499 780Q1508 760 1506 740Q1504 720 1468 640Q1432 560 1428 530Q1425 500 1442 420Q1459 340 1504 280Q1549 220 1550 200Q1551 180 1542 160Q1533 140 1506 118Q1480 97 1430 84Q1380 71 1250 75Q1120 79 970 70Q820 61 690 60ZM900 178Q860 178 780 192Q700 206 610 206Q520 206 486 213Q452 220 442 230Q432 240 429 250Q427 260 438 320Q450 380 438 450Q427 520 430 540Q434 560 444 580Q455 600 467 611Q480 622 502 631Q525 640 572 649Q620 658 670 662Q720 667 760 666Q800 665 850 658Q900 651 940 647Q980 643 1010 644Q1040 646 1140 670Q1240 695 1260 692Q1280 690 1287 685Q1295 680 1299 670Q1303 660 1298 640Q1294 620 1258 550Q1222 480 1219 460Q1217 440 1223 390Q1229 340 1221 320Q1213 300 1204 290Q1196 280 1167 260Q1139 240 1089 219Q1040 199 990 188Q940 178 900 178ZM750 331Q720 338 704 349Q689 360 683 380Q677 400 682 420Q688 440 704 460Q720 481 740 492Q760 503 790 509Q820 516 880 512Q940 508 960 498Q980 489 988 474Q997 460 991 430Q985 400 968 380Q952 360 936 350Q920 340 890 332Q860 325 820 324Q780 324 750 331Z"/></g></symbol>
+<symbol id="leaf" viewBox="0 0 20 20"><path d="M4 16C4 8 9 4 17 3c0 8-4 13-11 13M4 17l7-8"/></symbol>
+<symbol id="hut" viewBox="0 0 20 20"><path d="M2 10l8-7 8 7M4.5 9v8h11V9M8.5 17v-5h3v5"/></symbol>
+<symbol id="fire" viewBox="0 0 20 20"><path d="M10 2c1 4 5 5 5 10a5 5 0 01-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/></symbol>
+</defs></svg>
+<svg class="bgtopo" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1600 1000" aria-hidden="true"><use href="#topo"/></svg>
+
+<div class="ctrl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<div class="sheet">
+<header class="hero">
+  <div class="art">
+    <svg viewBox="0 0 1600 1000" aria-hidden="true">
+      <defs><radialGradient id="hy"><stop offset="0" stop-color="#fffaf0" stop-opacity=".95"/><stop offset=".35" stop-color="#e3b98c" stop-opacity=".75"/><stop offset="1" stop-color="#e3b98c" stop-opacity="0"/></radialGradient></defs>
+      <rect width="1600" height="1000" fill="#dfe5cc"/>
+      <ellipse cx="830" cy="400" rx="560" ry="400" fill="url(#hy)" transform="rotate(-20 830 400)"/><ellipse cx="1290" cy="700" rx="330" ry="270" fill="url(#hy)" opacity=".8"/><ellipse cx="300" cy="720" rx="340" ry="280" fill="url(#hy)" opacity=".75"/><ellipse cx="420" cy="200" rx="280" ry="210" fill="url(#hy)" opacity=".6"/><ellipse cx="1450" cy="180" rx="260" ry="230" fill="url(#hy)" opacity=".5"/>
+      <path class="wood" d="M930 800q70-60 150-24t70 100-80 96-150 0-70-100 80-72zM1130 150q70-40 130 10t20 110-120 50-110-70 80-100z"/>
+      <path class="lake" d="M110 250q50-40 110-18t70 60-40 70-110 14-80-60 50-66z"/>
+      <use href="#topo"/>
+      <path class="trail" d="M1004 812C1010 740 930 720 940 650S860 560 880 500 850 440 834 408"/>
+      <g fill="#1d1c19"><path d="M830 376l17 30h-34z"/><path d="M986 836v-16l18-15 18 15v16z"/><path d="M1290 682l12 22h-24zM300 702l12 22h-24z" opacity=".7"/></g>
+    </svg>
+    <p class="lab" style="left:51.9%;top:29.5%"><b><span lang="en">Juniper Peak</span><span lang="ar">قمّة العرعر</span></b><span dir="ltr">▲ 2,985 m</span></p>
+    <p class="lab hm" style="left:62.8%;top:84.5%"><b><span lang="en">Contour Lodge</span><span lang="ar">نُزُل كونتور</span></b><span dir="ltr">2,410 m</span></p>
+    <p class="lab w hm" style="left:12.5%;top:37%"><span lang="en">Mirror Tarn</span><span lang="ar">بحيرة المرآة</span></p>
+    <p class="lab hm" style="left:80.6%;top:60.5%"><span lang="en">Goat Saddle</span><span lang="ar">سَرْج الماعز</span><br><span dir="ltr">2,640 m</span></p>
+  </div>
+  <div class="frame" aria-hidden="true"><i style="left:10%">A</i><i style="left:30%">B</i><i style="left:50%">C</i><i style="left:70%">D</i><i style="left:90%">E</i><i style="top:25%">1</i><i style="top:50%">2</i><i style="top:75%">3</i></div>
+  <div class="cart">
+    <p class="mono"><span><span lang="en">Sheet 095</span><span lang="ar">اللوحة ٠٩٥</span></span><span dir="ltr">1 : 25 000</span><span dir="ltr">18°12′N 42°22′E</span></p>
+    <h1><span lang="en">Contour</span><span lang="ar">كونتور</span></h1>
+    <p class="cu"><span lang="en">Mountain Lodge Café</span><span lang="ar">مقهى الجبل</span></p>
+    <p class="in"><span lang="en">A stone hut on the shoulder of Juniper Peak, 2,410 metres up. Our menu is a trail map: choose a route by difficulty, follow the waypoints, and note that here altitude equals price — every spot height is in riyals.</span><span lang="ar">كوخٌ حجري على كتف قمّة العرعر، على ارتفاع ٢٬٤١٠ أمتار. قائمتنا خريطة مسارات: اختر مسارك بحسب صعوبته، واتبع نقاط الطريق، وتذكّر أنّ الارتفاع هنا هو السعر، فكل نقطة ارتفاع مقدَّرة بالريال.</span></p>
+    <div class="scale mono"><span>0</span><u></u><span><span lang="en">40 SAR</span><span lang="ar">٤٠ ر.س</span></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+<aside class="legend">
+  <p class="brand"><span lang="en">Contour</span><span lang="ar">كونتور</span></p>
+  <nav class="nav" aria-label="Trails">
+    <h2><span lang="en">Trails</span><span lang="ar">المسارات</span></h2>
+    <a href="#t1"><i class="dif g"></i><span><b><span lang="en">Sunrise Loop</span><span lang="ar">حلقة الشروق</span></b><small><span lang="en">Breakfast &amp; bakes</span><span lang="ar">الفطور والمخبوزات</span></small></span><em>16–42</em></a>
+    <a href="#t2"><i class="dif b"></i><span><b><span lang="en">Ridge Traverse</span><span lang="ar">عبور الحافّة</span></b><small><span lang="en">Soups, sandwiches, bowls</span><span lang="ar">أحسية وشطائر وأوعية</span></small></span><em>22–44</em></a>
+    <a href="#t3"><i class="dif k"></i><span><b><span lang="en">Summit Push</span><span lang="ar">الصعود إلى القمّة</span></b><small><span lang="en">Hearty mountain plates</span><span lang="ar">أطباق جبلية مُشبعة</span></small></span><em>48–96</em></a>
+    <a href="#t4"><i class="dif b"></i><span><b><span lang="en">Sugar Descent</span><span lang="ar">منحدر السكّر</span></b><small><span lang="en">Puddings by the fire</span><span lang="ar">حلويات قرب الموقد</span></small></span><em>26–34</em></a>
+    <a href="#t5"><i class="dif g"></i><span><b><span lang="en">Base Camp</span><span lang="ar">المخيّم الأساسي</span></b><small><span lang="en">Hot &amp; cold drinks</span><span lang="ar">مشروبات ساخنة وباردة</span></small></span><em>12–24</em></a>
+  </nav>
+  <div class="key">
+    <h2><span lang="en">Legend</span><span lang="ar">مفتاح الخريطة</span></h2>
+    <ul>
+      <li><i class="dif g"></i><span><span lang="en">Easy — light going</span><span lang="ar">سهل: خفيف على المعدة</span></span></li>
+      <li><i class="dif b"></i><span><span lang="en">Moderate — a proper meal</span><span lang="ar">متوسّط: وجبة كاملة</span></span></li>
+      <li><i class="dif k"></i><span><span lang="en">Strenuous — bring an appetite</span><span lang="ar">شاقّ: أحضر شهيّتك</span></span></li>
+      <li><svg class="sym v"><use href="#leaf"/></svg><span><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span></li>
+      <li><svg class="sym s"><use href="#fire"/></svg><span><span lang="en">Some heat</span><span lang="ar">فيه حرارة</span></span></li>
+      <li><svg class="sym"><use href="#hut"/></svg><span><span lang="en">Lodge favourite</span><span lang="ar">مفضَّل النُّزُل</span></span></li>
+    </ul>
+  </div>
+  <div class="rose">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="none" stroke="#1d1c19" stroke-width="1.5"/><path d="M32 4l6 28-6 28-6-28z" fill="#1d1c19"/><path d="M4 32l28-5 28 5-28 5z" fill="none" stroke="#1d1c19" stroke-width="1.5"/><path d="M32 4l6 28h-12z" fill="#d5432a"/></svg>
+    <p><span lang="en">Altitude = price. Spot heights ▲ are in Saudi riyals, VAT included.</span><span lang="ar">الارتفاع = السعر. نقاط الارتفاع ▲ بالريال السعودي وتشمل الضريبة.</span></p>
+  </div>
+</aside>
+
+<main class="trails">
+<section class="tr t-g" id="t1">
+  <header class="th"><i class="dif g" aria-hidden="true"></i><div><p class="sub"><span lang="en">Breakfast &amp; bakes</span><span lang="ar">الفطور والمخبوزات</span></p><h2><span lang="en">Sunrise Loop</span><span lang="ar">حلقة الشروق</span></h2></div>
+    <dl class="stats mono"><div><dt><span lang="en">Grade</span><span lang="ar">الدرجة</span></dt><dd><span lang="en">Easy</span><span lang="ar">سهل</span></dd></div><div><dt><span lang="en">Waypoints</span><span lang="ar">نقاط الطريق</span></dt><dd>5</dd></div><div><dt><span lang="en">Climb</span><span lang="ar">الصعود</span></dt><dd dir="ltr">16 → 42 ▲</dd></div><div><dt><span lang="en">Open</span><span lang="ar">متاح</span></dt><dd><span dir="ltr">06:00–11:30</span></dd></div></dl></header>
+  <p class="note"><span lang="en">A gentle circuit to start the day. Bread comes off the wood fire at first light; the honey is from hives on the south slope.</span><span lang="ar">جولة هادئة لبداية اليوم. يخرج الخبز من نار الحطب مع أوّل الضوء، والعسل من خلايا السفح الجنوبي.</span></p>
+  <div class="climb"><svg class="prof" viewBox="0 0 100 180" preserveAspectRatio="none" aria-hidden="true"><path class="gl" d="M0 132.0H100M0 92.0H100M0 52.0H100"/><path class="ar" d="M0 151.4L10.0 146.4L22.0 148.8L30.0 143.2L38.0 135.4L50.0 133.6L62.0 131.2L70.0 120.8L78.0 109.8L90.0 104.8L100 100.8V180H0Z"/><path class="ln" d="M0 151.4L10.0 146.4L22.0 148.8L30.0 143.2L38.0 135.4L50.0 133.6L62.0 131.2L70.0 120.8L78.0 109.8L90.0 104.8L100 100.8"/></svg><div class="axis" aria-hidden="true"><span style="--p:25">25</span><span style="--p:50">50</span><span style="--p:75">75</span></div>
+  <ol class="wps" style="--n:5">
+    <li class="wp" style="--p:16"><span class="alt"><span class="v">▲ 16<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">1</span><h3><span lang="en">Fire Bread &amp; Sidr Honey</span><span lang="ar">خبز النار وعسل السدر</span></h3><p><span lang="en">Blistered flatbread from the hearth, mountain sidr honey, cultured butter.</span><span lang="ar">خبز مسطّح منتفخ من الموقد، مع عسل السدر الجبلي وزبدة مخمّرة.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg></div></li>
+    <li class="wp" style="--p:18"><span class="alt"><span class="v">▲ 18<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">2</span><h3><span lang="en">Cardamom Morning Bun</span><span lang="ar">كعكة الصباح بالهيل</span></h3><p><span lang="en">Laminated dough, green cardamom sugar, baked dark and sticky.</span><span lang="ar">عجين مورَّق بسكّر الهيل الأخضر، يُخبز حتى يسمرّ ويتكرمل.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg></div></li>
+    <li class="wp" style="--p:24"><span class="alt"><span class="v">▲ 24<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">3</span><h3><span lang="en">Trail Granola</span><span lang="ar">غرانولا المسار</span></h3><p><span lang="en">Toasted oats, almonds and dates over thick yoghurt with juniper-blossom honey.</span><span lang="ar">شوفان محمّص ولوز وتمر فوق لبن كثيف مع عسل زهر العرعر.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg></div></li>
+    <li class="wp" style="--p:32"><span class="alt"><span class="v">▲ 32<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">4</span><h3><span lang="en">Skillet Shakshuka</span><span lang="ar">شكشوكة المقلاة</span></h3><p><span lang="en">Two eggs in a smoky tomato and pepper stew, served in the pan with fire bread.</span><span lang="ar">بيضتان في يخنة طماطم وفلفل مدخّنة، تُقدَّم في مقلاتها مع خبز النار.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg><svg class="sym s" aria-hidden="true"><use href="#fire"/></svg></div></li>
+    <li class="wp" style="--p:42"><span class="alt"><span class="v">▲ 42<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">5</span><h3><span lang="en">The Lodge Breakfast</span><span lang="ar">فطور النُّزُل</span></h3><p><span lang="en">Eggs your way, turkey rashers, hash browns, baked beans, grilled tomato, sourdough.</span><span lang="ar">بيض كما تحبّ، شرائح ديك رومي، بطاطا مبشورة مقرمشة، فاصولياء مطهوّة، طماطم مشوية وخبز مخمّر.</span></p><div class="tags"><span class="pick"><span lang="en">Lodge favourite</span><span lang="ar">مفضَّل النُّزُل</span></span></div></li>
+  </ol></div>
+</section>
+<section class="tr t-b" id="t2">
+  <header class="th"><i class="dif b" aria-hidden="true"></i><div><p class="sub"><span lang="en">Soups, sandwiches &amp; bowls</span><span lang="ar">أحسية وشطائر وأوعية</span></p><h2><span lang="en">Ridge Traverse</span><span lang="ar">عبور الحافّة</span></h2></div>
+    <dl class="stats mono"><div><dt><span lang="en">Grade</span><span lang="ar">الدرجة</span></dt><dd><span lang="en">Moderate</span><span lang="ar">متوسّط</span></dd></div><div><dt><span lang="en">Waypoints</span><span lang="ar">نقاط الطريق</span></dt><dd>5</dd></div><div><dt><span lang="en">Climb</span><span lang="ar">الصعود</span></dt><dd dir="ltr">22 → 44 ▲</dd></div><div><dt><span lang="en">Open</span><span lang="ar">متاح</span></dt><dd><span dir="ltr">11:30–17:00</span></dd></div></dl></header>
+  <p class="note"><span lang="en">A steady midday route along the ridge. Everything here fits in one hand or one bowl, so you can keep an eye on the view.</span><span lang="ar">مسار ثابت في منتصف النهار على امتداد الحافّة. كل ما هنا يُحمل بيدٍ واحدة أو في وعاءٍ واحد، لتبقى عينك على المنظر.</span></p>
+  <div class="climb"><svg class="prof" viewBox="0 0 100 180" preserveAspectRatio="none" aria-hidden="true"><path class="gl" d="M0 132.0H100M0 92.0H100M0 52.0H100"/><path class="ar" d="M0 141.8L10.0 136.8L22.0 131.2L30.0 117.6L38.0 111.4L50.0 111.2L62.0 114.4L70.0 109.6L78.0 102.6L90.0 101.6L100 97.6V180H0Z"/><path class="ln" d="M0 141.8L10.0 136.8L22.0 131.2L30.0 117.6L38.0 111.4L50.0 111.2L62.0 114.4L70.0 109.6L78.0 102.6L90.0 101.6L100 97.6"/></svg><div class="axis" aria-hidden="true"><span style="--p:25">25</span><span style="--p:50">50</span><span style="--p:75">75</span></div>
+  <ol class="wps" style="--n:5">
+    <li class="wp" style="--p:22"><span class="alt"><span class="v">▲ 22<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">1</span><h3><span lang="en">Lentil &amp; Cumin Soup</span><span lang="ar">حساء العدس بالكمّون</span></h3><p><span lang="en">Red lentils simmered soft, brown butter, lemon, a fistful of crisp bread.</span><span lang="ar">عدس أحمر مطهوّ حتى يلين، مع زبدة بنّية وليمون وحفنة من الخبز المقرمش.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg></div></li>
+    <li class="wp" style="--p:34"><span class="alt"><span class="v">▲ 34<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">2</span><h3><span lang="en">Halloumi &amp; Fig Toastie</span><span lang="ar">توست الحلّوم والتين</span></h3><p><span lang="en">Grilled halloumi, fig jam and rocket pressed in sourdough.</span><span lang="ar">حلّوم مشوي ومربّى التين وجرجير، مكبوسة في خبز مخمّر.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg></div></li>
+    <li class="wp" style="--p:38"><span class="alt"><span class="v">▲ 38<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">3</span><h3><span lang="en">Juniper Chicken Wrap</span><span lang="ar">لفافة دجاج العرعر</span></h3><p><span lang="en">Chicken smoked over juniper wood, pickled cabbage, garlic toum, warm flatbread.</span><span lang="ar">دجاج مدخّن على حطب العرعر، ملفوف مخلّل، ثومية، وخبز مسطّح دافئ.</span></p><div class="tags"><span class="pick"><span lang="en">Lodge favourite</span><span lang="ar">مفضَّل النُّزُل</span></span></div></li>
+    <li class="wp" style="--p:39"><span class="alt"><span class="v">▲ 39<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">4</span><h3><span lang="en">Highland Grain Bowl</span><span lang="ar">وعاء حبوب المرتفعات</span></h3><p><span lang="en">Freekeh, roast pumpkin, pomegranate, toasted seeds, tahini and chilli oil.</span><span lang="ar">فريكة ويقطين مشوي ورمّان وبذور محمّصة، مع طحينة وزيت الفلفل الحارّ.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg><svg class="sym s" aria-hidden="true"><use href="#fire"/></svg></div></li>
+    <li class="wp" style="--p:44"><span class="alt"><span class="v">▲ 44<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">5</span><h3><span lang="en">Smoked Turkey Melt</span><span lang="ar">شطيرة الديك الرومي المدخّن</span></h3><p><span lang="en">Thick-cut smoked turkey, melted mountain cheese, mustard pickles, griddled rye.</span><span lang="ar">ديك رومي مدخّن بشرائح سميكة، جبن جبلي ذائب، مخلّل بالخردل، وخبز جاودار محمّص.</span></p><div class="tags"></div></li>
+  </ol></div>
+</section>
+<section class="tr t-k" id="t3">
+  <header class="th"><i class="dif k" aria-hidden="true"></i><div><p class="sub"><span lang="en">Hearty mountain plates</span><span lang="ar">أطباق جبلية مُشبعة</span></p><h2><span lang="en">Summit Push</span><span lang="ar">الصعود إلى القمّة</span></h2></div>
+    <dl class="stats mono"><div><dt><span lang="en">Grade</span><span lang="ar">الدرجة</span></dt><dd><span lang="en">Strenuous</span><span lang="ar">شاقّ</span></dd></div><div><dt><span lang="en">Waypoints</span><span lang="ar">نقاط الطريق</span></dt><dd>4</dd></div><div><dt><span lang="en">Climb</span><span lang="ar">الصعود</span></dt><dd dir="ltr">48 → 96 ▲</dd></div><div><dt><span lang="en">Open</span><span lang="ar">متاح</span></dt><dd><span dir="ltr">12:00–21:00</span></dd></div></dl></header>
+  <p class="note"><span lang="en">Steep, serious and worth it. These are the plates you earn after a long day above the tree line. Pace yourself.</span><span lang="ar">شديد الانحدار، جادّ، ويستحقّ العناء. هذه أطباق تستحقّها بعد يومٍ طويل فوق خطّ الأشجار. فتمهَّل.</span></p>
+  <div class="climb"><svg class="prof" viewBox="0 0 100 180" preserveAspectRatio="none" aria-hidden="true"><path class="gl" d="M0 132.0H100M0 92.0H100M0 52.0H100"/><path class="ar" d="M0 100.2L12.5 95.2L27.0 88.0L37.5 72.8L48.0 57.0L62.5 47.2L77.0 36.8L87.5 18.4L100 14.399999999999999V180H0Z"/><path class="ln" d="M0 100.2L12.5 95.2L27.0 88.0L37.5 72.8L48.0 57.0L62.5 47.2L77.0 36.8L87.5 18.4L100 14.399999999999999"/></svg><div class="axis" aria-hidden="true"><span style="--p:25">25</span><span style="--p:50">50</span><span style="--p:75">75</span></div>
+  <ol class="wps" style="--n:4">
+    <li class="wp" style="--p:48"><span class="alt"><span class="v">▲ 48<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">1</span><h3><span lang="en">Three-Cheese Alpine Mac</span><span lang="ar">معكرونة الجبال بثلاثة أجبان</span></h3><p><span lang="en">Baked in cast iron under a crust of crisp shallots and thyme.</span><span lang="ar">تُخبز في مقلاة حديدية تحت قشرة من الكرّاث المقرمش والزعتر.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg></div></li>
+    <li class="wp" style="--p:62"><span class="alt"><span class="v">▲ 62<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">2</span><h3><span lang="en">Hunter’s Beef Stew</span><span lang="ar">يخنة الصيّاد باللحم البقري</span></h3><p><span lang="en">Six-hour beef shin, root vegetables, herb dumplings, a ladle of its own gravy.</span><span lang="ar">ساق بقري مطهوّ ست ساعات مع خضار جذرية وزلابية بالأعشاب ومغرفة من مرقه.</span></p><div class="tags"></div></li>
+    <li class="wp" style="--p:78"><span class="alt"><span class="v">▲ 78<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">3</span><h3><span lang="en">Slow Lamb Haneeth</span><span lang="ar">حنيذ الضأن على مهل</span></h3><p><span lang="en">Asir’s own: lamb shoulder roasted overnight in a sealed pit, on fragrant rice.</span><span lang="ar">من تراث عسير: كتف ضأن يُشوى طوال الليل في حفرة مغلقة، ويُقدَّم على أرزّ عطِر.</span></p><div class="tags"><span class="pick"><span lang="en">Lodge favourite</span><span lang="ar">مفضَّل النُّزُل</span></span></div></li>
+    <li class="wp" style="--p:96"><span class="alt"><span class="v">▲ 96<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">4</span><h3><span lang="en">Cast-Iron Rib-Eye</span><span lang="ar">ريب آي في الحديد الزهر</span></h3><p><span lang="en">350 g, seared hard, basted in juniper butter, with fire-roasted potatoes.</span><span lang="ar">٣٥٠ غرامًا تُحمَّر بقوة وتُدهن بزبدة العرعر، مع بطاطا مشوية على النار.</span></p><div class="tags"></div></li>
+  </ol></div>
+</section>
+<section class="tr t-b" id="t4">
+  <header class="th"><i class="dif b" aria-hidden="true"></i><div><p class="sub"><span lang="en">Puddings by the fire</span><span lang="ar">حلويات قرب الموقد</span></p><h2><span lang="en">Sugar Descent</span><span lang="ar">منحدر السكّر</span></h2></div>
+    <dl class="stats mono"><div><dt><span lang="en">Grade</span><span lang="ar">الدرجة</span></dt><dd><span lang="en">Moderate</span><span lang="ar">متوسّط</span></dd></div><div><dt><span lang="en">Waypoints</span><span lang="ar">نقاط الطريق</span></dt><dd>4</dd></div><div><dt><span lang="en">Climb</span><span lang="ar">الصعود</span></dt><dd dir="ltr">26 → 34 ▲</dd></div><div><dt><span lang="en">Open</span><span lang="ar">متاح</span></dt><dd><span lang="en">All day</span><span lang="ar">طوال اليوم</span></dd></div></dl></header>
+  <p class="note"><span lang="en">The easy way down. Short, sweet and best walked slowly, ideally in the armchair nearest the stove.</span><span lang="ar">طريق النزول السهل. قصير وحلو، ويُستحسن قطعه على مهل، في الكرسيّ الأقرب إلى المدفأة.</span></p>
+  <div class="climb"><svg class="prof" viewBox="0 0 100 180" preserveAspectRatio="none" aria-hidden="true"><path class="gl" d="M0 132.0H100M0 92.0H100M0 52.0H100"/><path class="ar" d="M0 135.4L12.5 130.4L27.0 132.8L37.5 127.2L48.0 121.0L62.5 120.8L77.0 123.2L87.5 117.6L100 113.6V180H0Z"/><path class="ln" d="M0 135.4L12.5 130.4L27.0 132.8L37.5 127.2L48.0 121.0L62.5 120.8L77.0 123.2L87.5 117.6L100 113.6"/></svg><div class="axis" aria-hidden="true"><span style="--p:25">25</span><span style="--p:50">50</span><span style="--p:75">75</span></div>
+  <ol class="wps" style="--n:4">
+    <li class="wp" style="--p:26"><span class="alt"><span class="v">▲ 26<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">1</span><h3><span lang="en">Honeycomb Sundae</span><span lang="ar">صنداي قرص العسل</span></h3><p><span lang="en">Milk ice cream, shards of honeycomb, warm date syrup.</span><span lang="ar">مثلّجات الحليب مع كِسَر قرص العسل ودبس التمر الدافئ.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg></div></li>
+    <li class="wp" style="--p:28"><span class="alt"><span class="v">▲ 28<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">2</span><h3><span lang="en">Campfire S’mores Skillet</span><span lang="ar">مقلاة السمورز</span></h3><p><span lang="en">Dark chocolate and toasted marshmallow, with biscuits to scoop.</span><span lang="ar">شوكولاتة داكنة ومارشميلو محمّص، مع بسكويت للغَرف.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg></div></li>
+    <li class="wp" style="--p:32"><span class="alt"><span class="v">▲ 32<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">3</span><h3><span lang="en">Sticky Date Pudding</span><span lang="ar">بودنغ التمر الدبِق</span></h3><p><span lang="en">Steamed date sponge drowned in toffee sauce, clotted cream.</span><span lang="ar">إسفنجة تمر مطهوّة بالبخار تغرق في صلصة التوفي، مع قشطة.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg><span class="pick"><span lang="en">Lodge favourite</span><span lang="ar">مفضَّل النُّزُل</span></span></div></li>
+    <li class="wp" style="--p:34"><span class="alt"><span class="v">▲ 34<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">4</span><h3><span lang="en">Apple &amp; Walnut Crumble</span><span lang="ar">كرامبل التفاح والجوز</span></h3><p><span lang="en">Mountain apples, cinnamon, walnut crumble, a jug of vanilla custard.</span><span lang="ar">تفّاح جبلي وقرفة تحت فتات الجوز، مع إبريق من كاسترد الفانيلا.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg></div></li>
+  </ol></div>
+</section>
+<section class="tr t-g" id="t5">
+  <header class="th"><i class="dif g" aria-hidden="true"></i><div><p class="sub"><span lang="en">Hot &amp; cold drinks</span><span lang="ar">مشروبات ساخنة وباردة</span></p><h2><span lang="en">Base Camp</span><span lang="ar">المخيّم الأساسي</span></h2></div>
+    <dl class="stats mono"><div><dt><span lang="en">Grade</span><span lang="ar">الدرجة</span></dt><dd><span lang="en">Easy</span><span lang="ar">سهل</span></dd></div><div><dt><span lang="en">Waypoints</span><span lang="ar">نقاط الطريق</span></dt><dd>5</dd></div><div><dt><span lang="en">Climb</span><span lang="ar">الصعود</span></dt><dd dir="ltr">12 → 24 ▲</dd></div><div><dt><span lang="en">Open</span><span lang="ar">متاح</span></dt><dd><span lang="en">All day</span><span lang="ar">طوال اليوم</span></dd></div></dl></header>
+  <p class="note"><span lang="en">Where every route begins and ends. Fill your flask here; refills of mint tea are free for anyone who walked up.</span><span lang="ar">حيث يبدأ كل مسار وينتهي. املأ قارورتك من هنا؛ وإعادة تعبئة شاي النعناع مجّانية لكل من صعد مشيًا.</span></p>
+  <div class="climb"><svg class="prof" viewBox="0 0 100 180" preserveAspectRatio="none" aria-hidden="true"><path class="gl" d="M0 132.0H100M0 92.0H100M0 52.0H100"/><path class="ar" d="M0 157.8L10.0 152.8L22.0 153.6L30.0 146.4L38.0 140.2L50.0 140.0L62.0 142.4L70.0 136.8L78.0 132.2L90.0 133.6L100 129.6V180H0Z"/><path class="ln" d="M0 157.8L10.0 152.8L22.0 153.6L30.0 146.4L38.0 140.2L50.0 140.0L62.0 142.4L70.0 136.8L78.0 132.2L90.0 133.6L100 129.6"/></svg><div class="axis" aria-hidden="true"><span style="--p:25">25</span><span style="--p:50">50</span><span style="--p:75">75</span></div>
+  <ol class="wps" style="--n:5">
+    <li class="wp" style="--p:12"><span class="alt"><span class="v">▲ 12<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">1</span><h3><span lang="en">Mountain Mint Tea</span><span lang="ar">شاي النعناع الجبلي</span></h3><p><span lang="en">Wild mint and habaq picked on the terraces, by the pot.</span><span lang="ar">نعناع برّي وحبق يُقطفان من المدرّجات، ويُقدَّم بالإبريق.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg></div></li>
+    <li class="wp" style="--p:16"><span class="alt"><span class="v">▲ 16<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">2</span><h3><span lang="en">Qahwa &amp; Dates</span><span lang="ar">قهوة عربية وتمر</span></h3><p><span lang="en">Light-roast Saudi coffee with cardamom and saffron, a dallah for the table.</span><span lang="ar">قهوة سعودية شقراء بالهيل والزعفران، في دلّةٍ للطاولة.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg><span class="pick"><span lang="en">Lodge favourite</span><span lang="ar">مفضَّل النُّزُل</span></span></div></li>
+    <li class="wp" style="--p:20"><span class="alt"><span class="v">▲ 20<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">3</span><h3><span lang="en">Wild Berry Lemonade</span><span lang="ar">ليموناضة التوت البرّي</span></h3><p><span lang="en">Crushed berries, lemon and thyme over ice. Cold as the stream.</span><span lang="ar">توت مهروس وليمون وزعتر فوق الثلج. باردة كماء الجدول.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg></div></li>
+    <li class="wp" style="--p:22"><span class="alt"><span class="v">▲ 22<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">4</span><h3><span lang="en">Khawlani Pour-Over</span><span lang="ar">قهوة خولانية مقطّرة</span></h3><p><span lang="en">Single-terrace beans from the Jazan mountains, brewed by hand.</span><span lang="ar">حبوب من مدرَّجٍ واحد في جبال جازان، تُحضَّر يدويًا.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg></div></li>
+    <li class="wp" style="--p:24"><span class="alt"><span class="v">▲ 24<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></span><span class="no">5</span><h3><span lang="en">Fireside Hot Chocolate</span><span lang="ar">شوكولاتة ساخنة قرب النار</span></h3><p><span lang="en">Melted dark chocolate, a pinch of chilli, torched marshmallow.</span><span lang="ar">شوكولاتة داكنة مذابة مع رشّة فلفل حارّ ومارشميلو محمّص بالشعلة.</span></p><div class="tags"><svg class="sym v" aria-hidden="true"><use href="#leaf"/></svg><svg class="sym s" aria-hidden="true"><use href="#fire"/></svg></div></li>
+  </ol></div>
+</section>
+<footer class="foot">
+  <h2><span lang="en">Trailhead information</span><span lang="ar">معلومات نقطة الانطلاق</span></h2>
+  <div class="cols">
+    <div><h3 class="mono"><span lang="en">Hut hours</span><span lang="ar">ساعات الكوخ</span></h3><p><span lang="en">Daily from first light, 06:00, until the fire burns down at 22:00. Kitchen closes at 21:00.</span><span lang="ar">يوميًا من أوّل الضوء، ٦:٠٠ صباحًا، حتى يخبو الموقد في ١٠:٠٠ مساءً. يُغلق المطبخ في ٩:٠٠ مساءً.</span></p></div>
+    <div><h3 class="mono"><span lang="en">Grid reference</span><span lang="ar">الإحداثيات</span></h3><p><span lang="en">Km 14, Cloud Road, Juniper Ridge, Asir Highlands. Last 300 m on foot; boots welcome inside.</span><span lang="ar">الكيلو ١٤، طريق الغيم، حافّة العرعر، مرتفعات عسير. آخر ٣٠٠ متر سيرًا على الأقدام، والأحذية الجبلية مرحَّب بها في الداخل.</span></p></div>
+    <div><h3 class="mono"><span lang="en">Radio the hut</span><span lang="ar">اتّصل بالكوخ</span></h3><p><span dir="ltr">+966 17 555 0195</span><br><span dir="ltr">hut@contour.example</span></p></div>
+  </div>
+  <p class="fine"><span lang="en">Hazards on route: gluten, milk, eggs, tree nuts and sesame appear on most trails; tell the hut keeper about allergies before setting off. All meat is halal; no pork or alcohol on this mountain. Pack out what you pack in.</span><span lang="ar">مخاطر على الطريق: الغلوتين والحليب والبيض والمكسّرات والسمسم تظهر في معظم المسارات؛ أخبر حارس الكوخ بأي حساسية قبل الانطلاق. جميع اللحوم حلال، ولا لحم خنزير ولا كحول على هذا الجبل. وما تحمله صعودًا، احمله نزولًا.</span></p>
+</footer>
+</main>
+</div>
+</div>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

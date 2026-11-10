@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Lata · لاتا</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Lata — a tinned fish bar. Fine conservas opened at your table: sardines, ventresca, cockles and octopus, with bread, butter and crisps. لاتا — معلبات السمك الفاخرة.">
+<meta name="theme-color" content="#1c2f52">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Lalezar&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--cream:#f6ebd0;--red:#d23c27;--mustard:#f2b62c;--teal:#1d7474;--navy:#1c2f52;--green:#5d6d2a;--orange:#e9792c;--pink:#f0b3a2;--ink:#1f1a15;
+  --metal:linear-gradient(135deg,#f4f1e8 0%,#b7b1a5 22%,#fbf9f3 45%,#9c968a 70%,#e2ddd1 100%)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Barlow","Tajawal",system-ui,sans-serif;font-size:16px;line-height:1.45;color:var(--ink);overflow-x:clip;
+  background:repeating-linear-gradient(90deg,rgba(90,60,20,.07) 0 1px,transparent 1px 58px),#f3e6c6}
+html[lang="ar"] body{font-family:"Tajawal","Barlow",system-ui,sans-serif;font-size:17px;line-height:1.65}
+html[lang="ar"] *{letter-spacing:0 !important}
+.fat{font-family:"Abril Fatface","Lalezar",serif;font-weight:400}
+html[lang="ar"] .fat{font-family:"Lalezar","Abril Fatface",sans-serif}
+.cnd{font-family:"Barlow Condensed","Tajawal",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.14em}
+html[lang="ar"] .cnd{font-family:"Tajawal",sans-serif;font-weight:800}
+svg .h{fill:var(--c)} svg .s{fill:none;stroke:var(--c);stroke-width:2;stroke-linecap:round} svg .t{fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round}
+a{color:inherit}
+
+/* ── top rail ── */
+.rail{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:10px;height:50px;padding-inline:clamp(10px,3vw,34px);background:var(--navy);color:var(--cream);border-bottom:4px solid var(--mustard)}
+.rail .brand{font-size:1.45rem;letter-spacing:.06em;color:var(--mustard);flex:none}
+.rail nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0;margin-inline:6px}
+.rail nav::-webkit-scrollbar{display:none}
+.rail nav a{flex:none;text-decoration:none;font-size:.86rem;padding:6px 10px;border-radius:99px;white-space:nowrap}
+html[lang="ar"] .rail nav a{font-size:.95rem}
+.rail nav a:hover{background:var(--cream);color:var(--navy)}
+#langToggle{flex:none;font-family:"Tajawal",sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;background:var(--red);color:var(--cream);border:2px solid var(--cream);border-radius:99px;height:32px;padding:0 13px}
+html[lang="ar"] #langToggle{font-family:"Barlow Condensed",sans-serif;font-weight:700;letter-spacing:.06em !important;font-size:.95rem}
+#langToggle:hover{background:var(--mustard);color:var(--navy)}
+.home-link{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:2px solid var(--cream)}
+.home-link:hover{background:var(--cream);color:var(--navy)}
+.home-link svg{width:13px;height:13px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+
+/* ── hero ── */
+.hero{position:relative;overflow:hidden;text-align:center;color:var(--cream);padding:clamp(70px,10vw,120px) 16px clamp(56px,7vw,90px);
+  background:repeating-conic-gradient(from 0deg at 50% 44%,rgba(90,10,0,.2) 0 5deg,transparent 5deg 10deg),radial-gradient(circle at 50% 44%,#e4553a 0,#c8351f 60%,#a82a17 100%)}
+.bigtin{position:relative;z-index:1;display:flex;width:min(100%,800px);margin:0 auto;padding:clamp(8px,1.4vw,13px);border-radius:clamp(40px,8vw,84px);background:var(--metal);
+  box-shadow:0 14px 0 -1px #918b7f,0 16px 0 0 #5f5a50,0 44px 40px -10px rgba(60,5,0,.55)}
+.open{flex:0 0 27%;position:relative;overflow:hidden;border-start-start-radius:clamp(32px,6.6vw,72px);border-end-start-radius:clamp(32px,6.6vw,72px);
+  background:linear-gradient(180deg,#e2b23a,#b47d17 55%,#8a5a10);box-shadow:inset 0 10px 22px rgba(60,30,0,.55),inset 0 -4px 10px rgba(255,230,150,.35)}
+.open svg{position:absolute;inset:0;width:100%;height:100%}
+html[dir="rtl"] .open svg{transform:scaleX(-1)}
+.roll{flex:0 0 clamp(22px,4.4vw,40px);position:relative;z-index:2;margin-block:-9px;border-radius:99px;
+  background:linear-gradient(90deg,#77726a 0,#f7f4ec 28%,#cfc9bd 45%,#fdfbf5 58%,#8c867b 100%);box-shadow:-8px 0 14px rgba(40,20,0,.45),8px 0 10px rgba(0,0,0,.25)}
+.roll::before{content:"";position:absolute;inset:6% 30%;background:repeating-linear-gradient(180deg,rgba(0,0,0,.18) 0 1px,transparent 1px 7px)}
+.key{position:absolute;left:50%;top:clamp(-66px,-8vw,-42px);width:8px;height:clamp(50px,9vw,76px);margin-left:-4px;background:linear-gradient(90deg,#8c867b,#f7f4ec,#8c867b);border-radius:3px}
+.key::before{content:"";position:absolute;left:50%;bottom:92%;width:clamp(30px,5vw,44px);aspect-ratio:1.5;transform:translateX(-50%);border:6px solid #d9d4c7;border-radius:50%;box-shadow:0 2px 0 #7d776c,inset 0 2px 0 #7d776c}
+.lid{flex:1;min-width:0;position:relative;background:var(--navy);border-start-end-radius:clamp(32px,6.6vw,72px);border-end-end-radius:clamp(32px,6.6vw,72px);padding:clamp(22px,4vw,44px) clamp(14px,3vw,40px) clamp(20px,3.6vw,38px);
+  background-image:repeating-conic-gradient(from 0deg at 50% 120%,rgba(255,255,255,.06) 0 6deg,transparent 6deg 12deg)}
+.lid::before{content:"";position:absolute;inset:clamp(7px,1.2vw,12px);border:2px solid var(--mustard);border-start-end-radius:clamp(26px,5.6vw,62px);border-end-end-radius:clamp(26px,5.6vw,62px);border-start-start-radius:6px;border-end-start-radius:6px;pointer-events:none}
+.lid .cnd{color:var(--mustard);font-size:clamp(.7rem,1.5vw,1rem)}
+html[lang="ar"] .lid .cnd{font-size:clamp(.85rem,1.7vw,1.15rem)}
+h1{font-size:clamp(4.2rem,17vw,11.5rem);line-height:.9;letter-spacing:.03em;margin:.06em 0 .04em;color:var(--cream);text-shadow:.035em .035em 0 var(--red)}
+html[lang="ar"] h1{line-height:1.05;font-size:clamp(4.6rem,18vw,12rem);margin:0}
+.lid .sub{display:inline-block;background:var(--red);color:var(--cream);padding:.25em 1em;border-radius:99px;font-size:clamp(.8rem,1.9vw,1.25rem)}
+.lid .net{margin-top:.8em;font-size:clamp(.68rem,1.2vw,.85rem);opacity:.8}
+html[lang="ar"] .lid .net{font-size:clamp(.8rem,1.3vw,.95rem)}
+.hero .tag{position:relative;font-size:clamp(1.7rem,4.4vw,3.3rem);line-height:1.1;margin-top:clamp(46px,6vw,70px);text-shadow:.05em .05em 0 rgba(90,10,0,.6)}
+html[lang="ar"] .hero .tag{line-height:1.4}
+.hero .intro{position:relative;max-width:56ch;margin:14px auto 0;font-size:clamp(1rem,1.5vw,1.15rem);font-weight:500}
+
+/* ── how it works ── */
+.steps{display:grid;gap:0;background:var(--mustard);color:var(--navy);border-block:4px solid var(--navy)}
+.steps li{list-style:none;display:flex;gap:14px;align-items:center;padding:16px clamp(16px,3vw,34px);border-bottom:2px dashed rgba(28,47,82,.45)}
+.steps li:last-child{border:0}
+.steps b{flex:none;font-size:2.6rem;line-height:1;color:var(--red);-webkit-text-stroke:1.5px var(--navy)}
+html[lang="ar"] .steps b{font-family:"Abril Fatface",serif}
+.steps span.t{font-weight:600}
+@media (min-width:820px){.steps{grid-template-columns:repeat(3,1fr)}.steps li{border-bottom:0;border-inline-end:2px dashed rgba(28,47,82,.45);justify-content:center}}
+
+/* ── shelves ── */
+.shelf{max-width:1400px;margin:0 auto;padding:clamp(54px,7vw,92px) clamp(8px,2vw,24px) 0;scroll-margin-top:50px}
+.sign{position:relative;width:fit-content;max-width:calc(100% - 20px);margin:0 auto 6px;text-align:center;background:var(--navy);color:var(--cream);padding:16px clamp(26px,5vw,56px) 18px;border-radius:99px;
+  box-shadow:inset 0 0 0 4px var(--navy),inset 0 0 0 6px var(--cream),0 8px 0 rgba(40,25,10,.2)}
+.sign::before,.sign::after{content:"";position:absolute;bottom:100%;width:3px;height:clamp(40px,6vw,70px);background:repeating-linear-gradient(180deg,#8a8275 0 6px,#c9c2b3 6px 10px)}
+.sign::before{inset-inline-start:22%} .sign::after{inset-inline-end:22%}
+.sign .cnd{color:var(--mustard);font-size:.82rem}
+html[lang="ar"] .sign .cnd{font-size:.95rem}
+.sign h2{font-size:clamp(1.7rem,4vw,2.7rem);line-height:1.1}
+html[lang="ar"] .sign h2{line-height:1.35}
+.shelf>.blurb{text-align:center;max-width:52ch;margin:12px auto 0;font-weight:500;color:#4a3d2c;padding-inline:10px}
+.row{display:flex;flex-wrap:wrap;justify-content:center}
+.slot{position:relative;flex:0 0 100%;display:flex;justify-content:center;align-items:flex-end;padding:34px clamp(10px,1.6vw,20px) 32px}
+.slot::after{content:"";position:absolute;inset-inline:0;bottom:0;height:22px;background:linear-gradient(180deg,#2b9090 0 5px,var(--teal) 5px 100%);box-shadow:0 12px 14px -4px rgba(40,25,10,.45)}
+.slot::before{content:"";position:absolute;inset-inline:8%;bottom:22px;height:14px;background:radial-gradient(ellipse at 50% 100%,rgba(40,25,10,.4),transparent 70%)}
+
+/* ── the tin ── */
+.tin{--r:44px;position:relative;z-index:1;width:100%;max-width:420px;padding:9px;border-radius:var(--r);background:var(--metal);
+  box-shadow:0 8px 0 -1px #a59f93,0 10px 0 0 #6b665c;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.tin:hover{transform:translateY(-8px) rotate(-1deg)}
+.tin::after{content:"";position:absolute;top:-7px;inset-inline-end:34px;width:26px;height:36px;border-radius:50%;border:5px solid #d6d0c3;transform:rotate(16deg);
+  box-shadow:0 2px 0 #77716a,inset 0 2px 0 #77716a,0 5px 5px rgba(0,0,0,.25)}
+.lbl{position:relative;height:100%;min-height:236px;border-radius:calc(var(--r) - 9px);background-color:var(--c);color:var(--k);padding:24px 24px 20px;overflow:hidden;display:flex;flex-direction:column;gap:6px}
+.lbl::before{content:"";position:absolute;inset:7px;border:1.5px solid currentColor;border-radius:calc(var(--r) - 16px);opacity:.6;pointer-events:none}
+.p-rays .lbl{background-image:repeating-conic-gradient(from 0deg at 50% 110%,rgba(255,255,255,.1) 0 6deg,transparent 6deg 12deg)}
+.p-stripes .lbl{background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 10px,transparent 10px 20px)}
+.p-waves .lbl{background-image:radial-gradient(circle at 50% 100%,transparent 12px,rgba(255,255,255,.12) 12px 14px,transparent 14px);background-size:30px 18px}
+.c-red{--c:var(--red);--k:var(--cream);--a:var(--mustard);--ak:var(--navy)}
+.c-mustard{--c:var(--mustard);--k:var(--navy);--a:var(--red);--ak:var(--cream)}
+.c-teal{--c:var(--teal);--k:var(--cream);--a:var(--mustard);--ak:var(--navy)}
+.c-navy{--c:var(--navy);--k:var(--cream);--a:var(--red);--ak:var(--cream)}
+.c-cream{--c:var(--cream);--k:var(--navy);--a:var(--red);--ak:var(--cream)}
+.c-green{--c:var(--green);--k:var(--cream);--a:var(--mustard);--ak:var(--navy)}
+.c-orange{--c:var(--orange);--k:var(--navy);--a:var(--navy);--ak:var(--cream)}
+.c-pink{--c:var(--pink);--k:var(--navy);--a:var(--red);--ak:var(--cream)}
+.top{display:flex;gap:12px;font-size:.78rem;padding-inline-end:58px}
+html[lang="ar"] .top{font-size:.86rem}
+.round .top,.tall .top{margin-top:10px}
+.top span+span::before{content:"·";margin-inline-end:12px}
+.art{display:block;height:44px;width:auto;max-width:100%;margin-block:4px 2px;align-self:flex-start}
+.tin h3{font-size:clamp(1.55rem,2.2vw,1.9rem);line-height:1.08}
+html[lang="ar"] .tin h3{line-height:1.3;font-size:clamp(1.7rem,2.4vw,2.05rem)}
+.desc{font-size:.96rem;font-weight:500;flex:1}
+.foot{display:flex;justify-content:space-between;align-items:flex-end;gap:8px;margin-top:4px}
+.badge{font-size:.74rem;background:var(--k);color:var(--c);padding:3px 10px 2px;border-radius:4px;transform:rotate(-2deg)}
+html[lang="ar"] .badge{font-size:.84rem}
+.heat{display:inline-flex;gap:3px;align-items:center;font-size:.74rem}
+html[lang="ar"] .heat{font-size:.84rem}
+.heat i{width:9px;height:9px;border-radius:50%;background:currentColor;display:inline-block}
+.heat i.o{background:none;border:1.5px solid currentColor}
+.seal{flex:none;margin-inline-start:auto;display:grid;place-items:center;width:68px;height:68px;background:var(--a);color:var(--ak);font-size:1.32rem;transform:rotate(-8deg);
+  clip-path:polygon(50.0% 0.0%,57.5% 7.7%,67.1% 3.0%,71.5% 12.8%,82.1% 11.7%,82.9% 22.4%,93.3% 25.0%,90.4% 35.3%,99.2% 41.3%,93.0% 50.0%,99.2% 58.7%,90.4% 64.7%,93.3% 75.0%,82.9% 77.6%,82.1% 88.3%,71.5% 87.2%,67.1% 97.0%,57.5% 92.3%,50.0% 100.0%,42.5% 92.3%,32.9% 97.0%,28.5% 87.2%,17.9% 88.3%,17.1% 77.6%,6.7% 75.0%,9.6% 64.7%,0.8% 58.7%,7.0% 50.0%,0.8% 41.3%,9.6% 35.3%,6.7% 25.0%,17.1% 22.4%,17.9% 11.7%,28.5% 12.8%,32.9% 3.0%,42.5% 7.7%)}
+/* round tins */
+.round .tin{--r:50%;width:min(100%,318px);aspect-ratio:1}
+.round .tin::after{inset-inline-end:50%;margin-inline-end:-13px;top:-9px;transform:none}
+.round .lbl{min-height:0;border-radius:50%;padding:13% 12% 9%;text-align:center;align-items:center;gap:3px}
+.round .lbl::before{border-radius:50%}
+.round .lbl::after{content:"";position:absolute;inset:13px;border:1.5px dashed currentColor;border-radius:50%;opacity:.4;pointer-events:none}
+.round .top{padding:0;justify-content:center}
+.round .art{align-self:center;height:36px;flex:none;margin:0}
+.round .tin h3{font-size:1.5rem}
+html[lang="ar"] .round .tin h3{font-size:1.6rem;line-height:1.2}
+.round .desc{font-size:.9rem;flex:0 1 auto;line-height:1.3}
+html[lang="ar"] .round .desc{line-height:1.45;font-size:.95rem}
+.round .foot{flex-direction:column;align-items:center;gap:2px;margin-top:auto}
+.round .seal{margin:0;width:60px;height:60px;font-size:1.2rem}
+/* tall tins */
+.tall .tin{--r:30px}
+.tall .lbl{display:grid;grid-template-columns:1fr 84px;grid-template-areas:"top top" "h art" "d art" "f f";align-content:start;min-height:0}
+.tall .top{grid-area:top}.tall h3{grid-area:h}.tall .desc{grid-area:d}.tall .foot{grid-area:f}
+.tall .art{grid-area:art;height:auto;width:76px;max-height:100px;align-self:center;justify-self:end;margin:0}
+@media (min-width:560px){
+  .tall .slot{flex-basis:50%}
+  .tall .tin{max-width:262px}
+  .tall .lbl{display:flex;min-height:372px;text-align:center;align-items:center}
+  .tall .top{padding:0}
+  .tall .tin::after{inset-inline-end:50%;margin-inline-end:-13px;transform:none}
+  .tall .art{width:auto;height:96px;max-height:none;align-self:center;margin-block:10px 6px}
+  .tall .foot{width:100%}
+}
+@media (min-width:700px){.wide .slot,.round .slot{flex-basis:50%}}
+@media (min-width:840px){.tall .slot{flex-basis:33.333%}}
+@media (min-width:1120px){.wide .slot{flex-basis:33.333%}}
+@media (min-width:1340px){.round .slot{flex-basis:25%}.tall .slot{flex-basis:20%}}
+
+/* ── counter board ── */
+.counter{max-width:1280px;margin:clamp(70px,9vw,120px) auto 0;padding-inline:clamp(12px,3vw,30px);display:grid;gap:26px;scroll-margin-top:70px}
+.board{background:var(--navy);color:var(--cream);border-radius:22px;padding:clamp(22px,3.4vw,44px);box-shadow:inset 0 0 0 5px var(--navy),inset 0 0 0 7px var(--mustard),0 14px 0 rgba(40,25,10,.25);display:grid;gap:26px clamp(26px,4vw,60px)}
+.board>header{grid-column:1/-1;text-align:center}
+.board>header .cnd{color:var(--mustard);font-size:.85rem}
+.board>header h2{font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.1}
+html[lang="ar"] .board>header h2{line-height:1.4}
+.board h3{font-size:1rem;color:var(--mustard);border-bottom:2px solid var(--mustard);padding-bottom:6px;margin-bottom:6px}
+.board li{list-style:none;display:grid;grid-template-columns:1fr auto;gap:0 14px;padding:9px 0;border-bottom:1px dashed rgba(246,235,208,.35)}
+.board li b{font-family:"Abril Fatface","Lalezar",serif;font-weight:400;font-size:1.22rem}
+html[lang="ar"] .board li b{font-family:"Lalezar",sans-serif;font-size:1.35rem}
+.board li .p{font-family:"Abril Fatface",serif;font-size:1.22rem;color:var(--mustard)}
+.board li small{grid-column:1/-1;font-size:.93rem;opacity:.85}
+@media (min-width:720px){.board{grid-template-columns:1fr 1fr}}
+.coupon{position:relative;background:var(--mustard);color:var(--navy);padding:26px 26px 24px;text-align:center;border:3px dashed var(--navy);outline:8px solid var(--mustard);margin:8px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.coupon .cnd{font-size:.85rem;color:var(--red)}
+.coupon h2{font-size:clamp(2.2rem,5vw,3.2rem);line-height:1;color:var(--red);text-shadow:.04em .04em 0 var(--navy)}
+html[lang="ar"] .coupon h2{line-height:1.3}
+.coupon p{font-weight:600}
+.coupon .big{font-size:3.2rem;line-height:1}
+@media (min-width:1040px){.counter{grid-template-columns:1fr 330px;align-items:stretch}}
+
+/* ── back of the tin (footer) ── */
+.back{margin:clamp(70px,9vw,120px) auto 0;padding:0 clamp(10px,3vw,30px) 60px;max-width:1160px}
+.backtin{padding:11px;border-radius:clamp(36px,6vw,64px);background:var(--metal);box-shadow:0 10px 0 -1px #a59f93,0 12px 0 0 #6b665c,0 34px 30px -10px rgba(40,25,10,.4)}
+.backlbl{background:var(--cream);color:var(--navy);border-radius:clamp(26px,5vw,54px);padding:clamp(26px,4.4vw,52px);display:grid;gap:22px 40px;position:relative}
+.backlbl::before{content:"";position:absolute;inset:9px;border:2px solid var(--red);border-radius:clamp(18px,4.2vw,46px);pointer-events:none}
+.backlbl h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--red);grid-column:1/-1;line-height:1.1}
+html[lang="ar"] .backlbl h2{line-height:1.4}
+.backlbl h3{font-size:.86rem;color:var(--red);margin-bottom:3px}
+html[lang="ar"] .backlbl h3{font-size:1rem}
+.backlbl p{font-weight:500}
+.barcode{height:54px;width:170px;background:repeating-linear-gradient(90deg,var(--navy) 0 2px,transparent 2px 5px,var(--navy) 5px 9px,transparent 9px 11px,var(--navy) 11px 12px,transparent 12px 16px,var(--navy) 16px 19px,transparent 19px 21px)}
+.codebox{display:flex;flex-direction:column;gap:4px;font-size:.8rem;letter-spacing:.2em;font-family:"Barlow Condensed",sans-serif}
+.small{grid-column:1/-1;font-size:.92rem;border-top:2px dashed var(--red);padding-top:14px}
+@media (min-width:760px){.backlbl{grid-template-columns:1fr 1fr 1fr}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="fish" viewBox="0 0 120 44"><path fill-rule="evenodd" d="M3 22C18 6 62 2 92 19l22-13c-3 6-4 11-4 16s1 10 4 16L92 25C62 42 18 38 3 22zM13.8 19a3.2 3.2 0 1 0 6.4 0a3.2 3.2 0 1 0 -6.4 0zM29 11c5 7 5 15 0 22 3-7 3-15 0-22zM42 21h38v2H42z"/></symbol>
+  <symbol id="fish3" viewBox="0 0 250 44"><use href="#fish" x="0" y="0" width="120" height="44"/><use href="#fish" x="130" y="0" width="120" height="44"/></symbol>
+  <symbol id="tuna" viewBox="0 0 120 60"><path fill-rule="evenodd" d="M4 30C20 10 58 6 88 25l8-5 18-16c-4 10-5 18-5 26s1 16 5 26L96 40l-8-5C58 54 20 50 4 30zM14.6 27a3.4 3.4 0 1 0 6.8 0a3.4 3.4 0 1 0 -6.8 0zM31 17c6 8 6 18 0 26 3.500-8 3.500-18 0-26zM44 29h36v2.500H44z"/><path d="M44 13L60 1l6 13zM50 47l10 11 4-11z"/></symbol>
+  <symbol id="mussel" viewBox="0 0 60 80"><path fill-rule="evenodd" d="M30 3c22 14 28 46 14 66-6 9-22 9-28 0C2 49 8 17 30 3zM30 12l1.500 56h-3zM27 14c-10 14-13 32-7 48 -3-16 0-32 7-48zM33 14c10 14 13 32 7 48 3-16 0-32-7-48z"/></symbol>
+  <symbol id="cockle" viewBox="0 0 80 72"><path fill-rule="evenodd" d="M40 68C14 66 1 44 6 26 11 9 27 2 40 2s29 7 34 24c5 18-8 40-34 42zM40 62L12 20l3-1.500zM40 62L26 8l3-.800zM40 62L38.500 5h3zM40 62L51 7.200l3 .800zM40 62L65 18.500l3 1.500z"/></symbol>
+  <symbol id="razor" viewBox="0 0 110 50"><path fill-rule="evenodd" d="M5 6h92a7 7 0 010 14H5A7 7 0 015 6zM13 30h92a7 7 0 010 14H13a7 7 0 010-14zM14 12h76v2H14zM22 36h76v2H22z"/></symbol>
+  <symbol id="octo" viewBox="0 0 80 82"><path fill-rule="evenodd" d="M40 4c16 0 24 12 24 24 0 8-4 12-4 20H20c0-8-4-12-4-20C16 16 24 4 40 4zM28.6 27a3.4 3.4 0 1 0 6.8 0a3.4 3.4 0 1 0 -6.8 0zM44.6 27a3.4 3.4 0 1 0 6.8 0a3.4 3.4 0 1 0 -6.8 0z"/><path class="t" d="M22 46c-2 14-16 12-16 22s10 8 10 2M32 48c0 14-8 16-6 28M40 48v28M48 48c0 14 8 16 6 28M58 46c2 14 16 12 16 22s-10 8-10 2"/></symbol>
+  <symbol id="squid" viewBox="0 0 64 92"><path fill-rule="evenodd" d="M32 2c10 12 16 28 16 46H16C16 30 22 14 32 2zM23 38a3 3 0 1 0 6 0a3 3 0 1 0 -6 0zM35 38a3 3 0 1 0 6 0a3 3 0 1 0 -6 0z"/><path d="M17 22L4 36l12 6zM47 22l13 14-12 6z"/><path class="t" d="M22 52c0 12-8 16-4 30M29 52c0 14-4 20-2 34M36 52c0 14 4 20 2 34M43 52c0 12 8 16 4 30"/></symbol>
+  <symbol id="hfish" viewBox="0 0 260 44"><path fill="url(#silv)" d="M4 22C24 2 150 0 260 14v18C150 44 24 42 4 22z"/><path fill="#2c4a6b" opacity=".75" d="M10 17C40 3 150 1 260 14v5C150 8 50 8 10 17z"/><circle cx="24" cy="20" r="4.4" fill="#17202e"/><circle cx="25.2" cy="18.8" r="1.4" fill="#fff"/><path d="M42 9c8 9 8 18 0 27" fill="none" stroke="#51657c" stroke-width="1.6"/></symbol>
+  <linearGradient id="silv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fa5ba"/><stop offset=".45" stop-color="#eef2f4"/><stop offset="1" stop-color="#b9c3cb"/></linearGradient>
+</svg>
+
+<div class="rail">
+  <span class="brand fat"><span lang="en">LATA</span><span lang="ar">لاتا</span></span>
+  <nav aria-label="Shelves">
+    <a href="#s1" class="cnd"><span lang="en">Sardines</span><span lang="ar">السردين</span></a>
+    <a href="#s2" class="cnd"><span lang="en">Tuna</span><span lang="ar">التونة</span></a>
+    <a href="#s3" class="cnd"><span lang="en">Shells</span><span lang="ar">الأصداف</span></a>
+    <a href="#counter" class="cnd"><span lang="en">Counter</span><span lang="ar">المنضدة</span></a>
+    <a href="#back" class="cnd"><span lang="en">Find us</span><span lang="ar">العنوان</span></a>
+  </nav>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html"><svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect width="6" height="6"/><rect x="8" width="6" height="6"/><rect y="8" width="6" height="6"/><rect x="8" y="8" width="6" height="6"/></svg><span class="sr" lang="en">All menus</span><span class="sr" lang="ar">كل القوائم</span></a>
+</div>
+
+<header class="hero">
+  <div class="bigtin">
+    <div class="open" aria-hidden="true"><svg viewBox="0 0 150 200" preserveAspectRatio="xMinYMid slice"><use href="#hfish" x="8" y="12" width="260" height="44"/><use href="#hfish" x="20" y="56" width="260" height="44"/><use href="#hfish" x="6" y="100" width="260" height="44"/><use href="#hfish" x="18" y="144" width="260" height="44"/></svg></div>
+    <div class="roll" aria-hidden="true"><i class="key"></i></div>
+    <div class="lid">
+      <p class="cnd"><span lang="en">Conservas finas · Porto</span><span lang="ar">معلبات فاخرة · بورتو</span></p>
+      <h1 class="fat"><span lang="en">LATA</span><span lang="ar">لاتا</span></h1>
+      <p class="sub cnd"><span lang="en">Tinned Fish Bar</span><span lang="ar">معلبات السمك الفاخرة</span></p>
+      <p class="net cnd"><span lang="en">Net contents: one very good evening</span><span lang="ar">المحتوى الصافي: أمسية طيبة جداً</span></p>
+    </div>
+  </div>
+  <p class="tag fat"><span lang="en">Good things come sealed.</span><span lang="ar">أطيب الأشياء تأتي مُحكمة الإغلاق.</span></p>
+  <p class="intro"><span lang="en">We keep three shelves of the finest tins from the Atlantic coast, caught in season and packed by hand. Choose one, and we will peel back the lid at your table with warm bread, good butter and a bowl of crisps.</span><span lang="ar">على رفوفنا الثلاثة أجود معلبات الساحل الأطلسي، صِيدت في موسمها ورُصّت باليد. اختاروا علبة، ونفتحها أمامكم على الطاولة مع خبز دافئ وزبدة طيبة وطبق من رقائق البطاطا.</span></p>
+</header>
+
+<ol class="steps">
+  <li><b class="fat">1</b><span class="t"><span lang="en">Pick a tin off the shelf.</span><span lang="ar">اختاروا علبة من الرف.</span></span></li>
+  <li><b class="fat">2</b><span class="t"><span lang="en">We open it at your table.</span><span lang="ar">نفتحها أمامكم على الطاولة.</span></span></li>
+  <li><b class="fat">3</b><span class="t"><span lang="en">Mop up the oil with bread. That is the best part.</span><span lang="ar">اغمسوا الخبز في الزيت، فهذا ألذّ ما في الأمر.</span></span></li>
+</ol>
+
+<main>
+<section class="shelf wide" id="s1">
+  <header class="sign"><p class="cnd"><span lang="en">Shelf Nº 1</span><span lang="ar">الرف الأول</span></p><h2 class="fat"><span lang="en">Sardines &amp; Small Fish</span><span lang="ar">السردين وصغار السمك</span></h2></header>
+  <p class="blurb"><span lang="en">The classics. Oily, silvery and better with every year in the tin.</span><span lang="ar">الكلاسيكيات: دسمة فضّية، تزداد طيباً مع كل سنة تقضيها في العلبة.</span></p>
+  <div class="row">
+    <div class="slot"><article class="tin c-red p-rays"><div class="lbl"><p class="top cnd"><span>Nº 01</span><span dir="ltr">120 g</span></p><svg class="art" viewBox="0 0 250 44" fill="currentColor" aria-hidden="true"><use href="#fish3"/></svg><h3 class="fat"><span lang="en">Sardines in Olive Oil</span><span lang="ar">سردين بزيت الزيتون</span></h3><p class="desc"><span lang="en">Plump Atlantic sardines, hand-packed in extra-virgin oil.</span><span lang="ar">سردين أطلسي ممتلئ، مرصوص باليد في زيت زيتون بكر ممتاز.</span></p><div class="foot"><span class="badge cnd"><span lang="en">Start here</span><span lang="ar">ابدأوا من هنا</span></span><span class="seal fat" dir="ltr">€9</span></div></div></article></div>
+    <div class="slot"><article class="tin c-mustard p-stripes"><div class="lbl"><p class="top cnd"><span>Nº 02</span><span dir="ltr">120 g</span></p><svg class="art" viewBox="0 0 250 44" fill="currentColor" aria-hidden="true"><use href="#fish3"/></svg><h3 class="fat"><span lang="en">Piri-Piri Sardines</span><span lang="ar">سردين بالبيري بيري</span></h3><p class="desc"><span lang="en">With bird’s-eye chilli, bay leaf and a clove of garlic.</span><span lang="ar">بفلفل البيري بيري اللاذع وورق الغار وفصّ من الثوم.</span></p><div class="foot"><span class="heat cnd"><span lang="en">Heat</span><span lang="ar">الحرارة</span> <i></i><i></i><i class="o"></i></span><span class="seal fat" dir="ltr">€9.5</span></div></div></article></div>
+    <div class="slot"><article class="tin c-navy p-waves"><div class="lbl"><p class="top cnd"><span>Nº 03</span><span dir="ltr">50 g</span></p><svg class="art" viewBox="0 0 250 44" fill="currentColor" aria-hidden="true" style="height:30px"><use href="#fish3"/></svg><h3 class="fat"><span lang="en">Cantabrian Anchovies</span><span lang="ar">أنشوفة كانتابريا</span></h3><p class="desc"><span lang="en">Salt-cured for twelve months, then filleted by hand.</span><span lang="ar">تُملَّح اثني عشر شهراً ثم تُنزع أشواكها باليد.</span></p><div class="foot"><span class="badge cnd"><span lang="en">House favourite</span><span lang="ar">اختيار الدار</span></span><span class="seal fat" dir="ltr">€14</span></div></div></article></div>
+    <div class="slot"><article class="tin c-teal p-rays"><div class="lbl"><p class="top cnd"><span>Nº 04</span><span dir="ltr">100 g</span></p><svg class="art" viewBox="0 0 250 44" fill="currentColor" aria-hidden="true" style="height:34px"><use href="#fish3"/></svg><h3 class="fat"><span lang="en">Smoked Sprats</span><span lang="ar">إسبرط مدخَّن</span></h3><p class="desc"><span lang="en">Baltic sprats smoked over alder wood, golden and tender.</span><span lang="ar">إسبرط البلطيق مدخَّن على خشب جار الماء، ذهبيّ طريّ.</span></p><div class="foot"><span class="seal fat" dir="ltr">€8</span></div></div></article></div>
+    <div class="slot"><article class="tin c-cream p-stripes"><div class="lbl"><p class="top cnd"><span>Nº 05</span><span dir="ltr">120 g</span></p><svg class="art" viewBox="0 0 250 44" fill="currentColor" aria-hidden="true"><use href="#fish3"/></svg><h3 class="fat"><span lang="en">Baby Mackerel Escabeche</span><span lang="ar">ماكريل صغير بالإسكابيش</span></h3><p class="desc"><span lang="en">In a sweet-sharp vinegar marinade with carrot and peppercorn.</span><span lang="ar">في تتبيلة خلّ حلوة لاذعة مع الجزر وحبّات الفلفل.</span></p><div class="foot"><span class="seal fat" dir="ltr">€10</span></div></div></article></div>
+    <div class="slot"><article class="tin c-orange p-waves"><div class="lbl"><p class="top cnd"><span>Nº 06</span><span dir="ltr">120 g</span></p><svg class="art" viewBox="0 0 250 44" fill="currentColor" aria-hidden="true"><use href="#fish3"/></svg><h3 class="fat"><span lang="en">Sardines in Tomato</span><span lang="ar">سردين بصلصة الطماطم</span></h3><p class="desc"><span lang="en">Slow-cooked tomato, sweet onion and a pinch of oregano.</span><span lang="ar">طماطم مطهوّة على مهل وبصل حلو ورشّة أوريغانو.</span></p><div class="foot"><span class="seal fat" dir="ltr">€9</span></div></div></article></div>
+  </div>
+</section>
+
+<section class="shelf round" id="s2">
+  <header class="sign"><p class="cnd"><span lang="en">Shelf Nº 2</span><span lang="ar">الرف الثاني</span></p><h2 class="fat"><span lang="en">Tuna &amp; Big Fish</span><span lang="ar">التونة وكبار السمك</span></h2></header>
+  <p class="blurb"><span lang="en">Round tins, thick cuts. Line-caught and packed within hours of landing.</span><span lang="ar">علب مستديرة وقطع سميكة، تُصاد بالصنّارة وتُعلَّب خلال ساعات من وصولها إلى المرفأ.</span></p>
+  <div class="row">
+    <div class="slot"><article class="tin c-navy p-rays"><div class="lbl"><p class="top cnd"><span>Nº 07</span><span dir="ltr">115 g</span></p><svg class="art" viewBox="0 0 120 60" fill="currentColor" aria-hidden="true"><use href="#tuna"/></svg><h3 class="fat"><span lang="en">Ventresca</span><span lang="ar">فنتريسكا</span></h3><p class="desc"><span lang="en">Silky tuna belly, layered in olive oil.</span><span lang="ar">بطن التونة الحريري، طبقات في زيت الزيتون.</span></p><div class="foot"><span class="badge cnd"><span lang="en">House favourite</span><span lang="ar">اختيار الدار</span></span><span class="seal fat" dir="ltr">€16</span></div></div></article></div>
+    <div class="slot"><article class="tin c-cream p-rays"><div class="lbl"><p class="top cnd"><span>Nº 08</span><span dir="ltr">110 g</span></p><svg class="art" viewBox="0 0 120 60" fill="currentColor" aria-hidden="true"><use href="#tuna"/></svg><h3 class="fat"><span lang="en">Bonito del Norte</span><span lang="ar">بونيتو الشمال</span></h3><p class="desc"><span lang="en">Line-caught white tuna, firm and clean.</span><span lang="ar">تونة بيضاء مصيدة بالصنّارة، متماسكة ونقيّة الطعم.</span></p><div class="foot"><span class="seal fat" dir="ltr">€12</span></div></div></article></div>
+    <div class="slot"><article class="tin c-mustard p-rays"><div class="lbl"><p class="top cnd"><span>Nº 09</span><span dir="ltr">125 g</span></p><svg class="art" viewBox="0 0 120 44" fill="currentColor" aria-hidden="true"><use href="#fish"/></svg><h3 class="fat"><span lang="en">Mackerel &amp; Lemon</span><span lang="ar">ماكريل بالليمون</span></h3><p class="desc"><span lang="en">Fillets with lemon peel and wild thyme.</span><span lang="ar">شرائح مع قشر الليمون والزعتر البرّي.</span></p><div class="foot"><span class="seal fat" dir="ltr">€9</span></div></div></article></div>
+    <div class="slot"><article class="tin c-green p-rays"><div class="lbl"><p class="top cnd"><span>Nº 10</span><span dir="ltr">120 g</span></p><svg class="art" viewBox="0 0 120 60" fill="currentColor" aria-hidden="true"><use href="#tuna"/></svg><h3 class="fat"><span lang="en">Salt Cod in Garlic Oil</span><span lang="ar">قدّ مملَّح بزيت الثوم</span></h3><p class="desc"><span lang="en">Flaked bacalhau with confit garlic.</span><span lang="ar">رقائق البكلاه مع ثوم مطهوّ في الزيت.</span></p><div class="foot"><span class="seal fat" dir="ltr">€12</span></div></div></article></div>
+  </div>
+</section>
+
+<section class="shelf tall" id="s3">
+  <header class="sign"><p class="cnd"><span lang="en">Shelf Nº 3</span><span lang="ar">الرف الثالث</span></p><h2 class="fat"><span lang="en">Shells &amp; Tentacles</span><span lang="ar">الأصداف والأذرع</span></h2></header>
+  <p class="blurb"><span lang="en">From the cold rías of Galicia, where the shellfish is sweetest.</span><span lang="ar">من خلجان غاليسيا الباردة، حيث أحلى ثمار البحر.</span></p>
+  <div class="row">
+    <div class="slot"><article class="tin c-orange p-stripes"><div class="lbl"><p class="top cnd"><span>Nº 11</span><span dir="ltr">115 g</span></p><svg class="art" viewBox="0 0 60 80" fill="currentColor" aria-hidden="true"><use href="#mussel"/></svg><h3 class="fat"><span lang="en">Mussels Escabeche</span><span lang="ar">بلح البحر بالإسكابيش</span></h3><p class="desc"><span lang="en">Galician mussels, fried and then pickled with paprika and bay.</span><span lang="ar">بلح بحر غاليسي يُقلى ثم يُخلَّل بالبابريكا وورق الغار.</span></p><div class="foot"><span class="seal fat" dir="ltr">€11</span></div></div></article></div>
+    <div class="slot"><article class="tin c-teal p-waves"><div class="lbl"><p class="top cnd"><span>Nº 12</span><span dir="ltr">120 g</span></p><svg class="art" viewBox="0 0 80 72" fill="currentColor" aria-hidden="true"><use href="#cockle"/></svg><h3 class="fat"><span lang="en">Cockles in Brine</span><span lang="ar">الكوكل في مائه</span></h3><p class="desc"><span lang="en">Thirty to the tin, sweet and sea-bright. A squeeze of lemon, nothing else.</span><span lang="ar">ثلاثون صدفة في العلبة، حلوة بنكهة البحر. عصرة ليمون ولا شيء غيرها.</span></p><div class="foot"><span class="badge cnd"><span lang="en">The treat</span><span lang="ar">دلّلوا أنفسكم</span></span><span class="seal fat" dir="ltr">€18</span></div></div></article></div>
+    <div class="slot"><article class="tin c-pink p-stripes"><div class="lbl"><p class="top cnd"><span>Nº 13</span><span dir="ltr">110 g</span></p><svg class="art" viewBox="0 0 110 50" fill="currentColor" aria-hidden="true"><use href="#razor"/></svg><h3 class="fat"><span lang="en">Razor Clams</span><span lang="ar">محار السكّين</span></h3><p class="desc"><span lang="en">Long and tender, packed in nothing but their own liquor.</span><span lang="ar">طويل وطريّ، محفوظ في مائه الطبيعي فحسب.</span></p><div class="foot"><span class="seal fat" dir="ltr">€16</span></div></div></article></div>
+    <div class="slot"><article class="tin c-red p-waves"><div class="lbl"><p class="top cnd"><span>Nº 14</span><span dir="ltr">115 g</span></p><svg class="art" viewBox="0 0 80 82" fill="currentColor" aria-hidden="true"><use href="#octo"/></svg><h3 class="fat"><span lang="en">Octopus in Paprika Oil</span><span lang="ar">أخطبوط بزيت البابريكا</span></h3><p class="desc"><span lang="en">Galician style, with smoked pimentón and sea salt.</span><span lang="ar">على الطريقة الغاليسية بالبابريكا المدخَّنة وملح البحر.</span></p><div class="foot"><span class="heat cnd"><span lang="en">Heat</span><span lang="ar">الحرارة</span> <i></i><i class="o"></i><i class="o"></i></span><span class="seal fat" dir="ltr">€15</span></div></div></article></div>
+    <div class="slot"><article class="tin c-navy p-stripes"><div class="lbl"><p class="top cnd"><span>Nº 15</span><span dir="ltr">110 g</span></p><svg class="art" viewBox="0 0 64 92" fill="currentColor" aria-hidden="true"><use href="#squid"/></svg><h3 class="fat"><span lang="en">Baby Squid in Ink</span><span lang="ar">حبّار صغير في حبره</span></h3><p class="desc"><span lang="en">Stuffed with their own tentacles in a glossy black sauce.</span><span lang="ar">محشوّ بأذرعه ومغمور في صلصة سوداء لامعة.</span></p><div class="foot"><span class="seal fat" dir="ltr">€12</span></div></div></article></div>
+  </div>
+</section>
+
+<section class="counter" id="counter">
+  <div class="board">
+    <header><p class="cnd"><span lang="en">No tin eats alone</span><span lang="ar">لا تُؤكل علبة وحدها</span></p><h2 class="fat"><span lang="en">From the Counter</span><span lang="ar">من على المنضدة</span></h2></header>
+    <div>
+      <h3 class="cnd"><span lang="en">Alongside</span><span lang="ar">إلى جانب العلبة</span></h3>
+      <ul>
+        <li><b><span lang="en">Sourdough &amp; Cultured Butter</span><span lang="ar">خبز العجين المخمَّر وزبدة رائبة</span></b><span class="p" dir="ltr">€4</span><small><span lang="en">Baked each morning, butter churned in-house.</span><span lang="ar">يُخبز كل صباح، والزبدة تُخضّ عندنا.</span></small></li>
+        <li><b><span lang="en">Pan con Tomate</span><span lang="ar">خبز بالطماطم</span></b><span class="p" dir="ltr">€5</span><small><span lang="en">Grilled bread rubbed with garlic, grated tomato, olive oil.</span><span lang="ar">خبز مشوي يُفرك بالثوم ثم الطماطم المبشورة وزيت الزيتون.</span></small></li>
+        <li><b><span lang="en">Guindilla Peppers</span><span lang="ar">فلفل غينديّا المخلَّل</span></b><span class="p" dir="ltr">€4</span><small><span lang="en">Mild Basque pickled chillies, perfect with anchovies.</span><span lang="ar">فلفل باسكي مخلَّل خفيف الحرارة، رفيق الأنشوفة المثالي.</span></small></li>
+        <li><b><span lang="en">Gordal Olives</span><span lang="ar">زيتون غوردال</span></b><span class="p" dir="ltr">€5</span><small><span lang="en">Fat green olives with orange peel and thyme.</span><span lang="ar">زيتون أخضر ممتلئ مع قشر البرتقال والزعتر.</span></small></li>
+        <li><b><span lang="en">Kettle Crisps &amp; Hot Sauce</span><span lang="ar">رقائق البطاطا وصلصة حارّة</span></b><span class="p" dir="ltr">€4</span><small><span lang="en">Fried in olive oil, with our vinegar-chilli sauce.</span><span lang="ar">مقلية بزيت الزيتون، مع صلصتنا بالخلّ والفلفل.</span></small></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="cnd"><span lang="en">To drink</span><span lang="ar">للشرب</span></h3>
+      <ul>
+        <li><b><span lang="en">Lemon &amp; Verbena Soda</span><span lang="ar">صودا الليمون واللويزة</span></b><span class="p" dir="ltr">€5</span><small><span lang="en">House cordial, sparkling water, lots of ice.</span><span lang="ar">شراب مركَّز من صنعنا مع مياه فوّارة وثلج وفير.</span></small></li>
+        <li><b><span lang="en">White Grape Mosto</span><span lang="ar">عصير العنب الأبيض «موستو»</span></b><span class="p" dir="ltr">€6</span><small><span lang="en">Unfermented grape must, served cold with an olive.</span><span lang="ar">عصير عنب غير مخمَّر يُقدَّم بارداً مع حبّة زيتون.</span></small></li>
+        <li><b><span lang="en">Bitter Orange Tonic</span><span lang="ar">تونيك البرتقال المرّ</span></b><span class="p" dir="ltr">€5</span><small><span lang="en">Seville orange, rosemary, dry tonic.</span><span lang="ar">برتقال إشبيلية وإكليل الجبل وتونيك جاف.</span></small></li>
+        <li><b><span lang="en">Espresso</span><span lang="ar">إسبريسو</span></b><span class="p" dir="ltr">€2.5</span><small><span lang="en">Short, dark, Portuguese roast.</span><span lang="ar">قصير وداكن، بتحميص برتغالي.</span></small></li>
+      </ul>
+    </div>
+  </div>
+  <aside class="coupon">
+    <p class="cnd"><span lang="en">The tasting flight</span><span lang="ar">جولة التذوّق</span></p>
+    <h2 class="fat"><span lang="en">Três Latas</span><span lang="ar">ثلاث علب</span></h2>
+    <p><span lang="en">Any three tins from any shelf, with bread, butter and crisps for the table.</span><span lang="ar">أي ثلاث علب من أي رف، مع الخبز والزبدة ورقائق البطاطا للطاولة.</span></p>
+    <p class="big fat" dir="ltr">€29</p>
+    <p class="cnd"><span lang="en">Ask us to choose</span><span lang="ar">دعوا الاختيار لنا</span></p>
+  </aside>
+</section>
+</main>
+
+<footer class="back" id="back">
+  <div class="backtin"><div class="backlbl">
+    <h2 class="fat"><span lang="en">The back of the tin</span><span lang="ar">ظهر العلبة</span></h2>
+    <div><h3 class="cnd"><span lang="en">Opening hours</span><span lang="ar">أوقات العمل</span></h3><p><span lang="en">Tuesday to Sunday, 12:00 – 23:00</span><span lang="ar">من الثلاثاء إلى الأحد، 12:00 – 23:00</span></p><p><span lang="en">Closed Mondays (the boats rest too)</span><span lang="ar">نغلق يوم الاثنين (فالقوارب تستريح أيضاً)</span></p></div>
+    <div><h3 class="cnd"><span lang="en">Where</span><span lang="ar">العنوان</span></h3><p><span lang="en">Rua do Cais 77, Ribeira, Porto</span><span lang="ar">شارع الرصيف 77، ريبيرا، بورتو</span></p><p><span dir="ltr">+351 22 555 0177</span></p></div>
+    <div class="codebox"><div class="barcode" aria-hidden="true"></div><span dir="ltr">5 600077 019340</span><span class="cnd" style="letter-spacing:.1em"><span lang="en">Best before: closing time</span><span lang="ar">يُفضَّل استهلاكه قبل: موعد الإغلاق</span></span></div>
+    <p class="small"><span lang="en"><strong>Ingredients &amp; allergens:</strong> every tin contains fish or molluscs; the counter adds gluten, milk and sulphites. Ask to see the label of any tin. We serve no alcohol. Every tin on the shelf can also be bought sealed to take home.</span><span lang="ar"><strong>المكوّنات ومسبّبات الحساسية:</strong> كل علبة تحتوي على سمك أو رخويات، وأطباق المنضدة قد تحتوي على الغلوتين والحليب والكبريتيت. اطلبوا الاطّلاع على ملصق أي علبة. لا نقدّم الكحول. وكل علبة على الرف تُباع مغلقة لتأخذوها معكم.</span></p>
+  </div></div>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

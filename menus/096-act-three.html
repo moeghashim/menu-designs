@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Act III · الفصل الثالث</title>
+<meta name="description" content="Act III — pre-theatre dining in three acts, curtain down by 7:15. الفصل الثالث — عشاء قبل المسرح في ثلاثة فصول.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1a0508">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Aref+Ruqaa:wght@400;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --velvet:#8f0f1b; --velvet-d:#4a060c; --velvet-l:#c21a2a; --ink:#1a0508; --night:#0e0305;
+  --gold:#d9ab4a; --gold-l:#f6dc93; --gold-d:#8c6520; --paper:#f4e8cf; --paper-d:#e4d2ad; --text:#2b0d0f;
+  --disp:'Limelight','Playfair Display',Georgia,serif; --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--paper);font-family:var(--serif);font-size:16px;line-height:1.5;overflow-x:clip}
+html[lang="ar"] body{font-family:'Amiri','Noto Naskh Arabic','Geeza Pro',serif;font-size:18px;line-height:1.75}
+html[lang="ar"] *{letter-spacing:0 !important}
+html[lang="ar"]{--disp:'Aref Ruqaa','Amiri',serif;--serif:'Amiri','Noto Naskh Arabic',serif}
+a{color:inherit}
+ul{list-style:none}
+
+/* ---- controls: a little gilt usher's badge ---- */
+.usher{position:fixed;z-index:50;top:10px;inset-inline-end:10px;display:flex;gap:6px;align-items:center}
+.usher>*{font:600 13px/1 var(--serif);height:34px;padding:0 13px;display:inline-flex;align-items:center;gap:6px;border-radius:99px;
+  background:linear-gradient(#2a070b,#150305);color:var(--gold-l);border:1px solid var(--gold);text-decoration:none;cursor:pointer;
+  box-shadow:0 0 0 3px rgba(14,3,5,.7),0 4px 14px rgba(0,0,0,.5)}
+.usher>*:hover,.usher>*:focus-visible{background:var(--gold);color:var(--ink);outline:none}
+#langToggle [lang="en"]{font-family:'Amiri',serif;font-size:15px}
+#langToggle [lang="ar"]{font-family:'Playfair Display',serif}
+
+/* ================= THE STAGE ================= */
+.stage{position:relative;height:min(100svh,880px);min-height:620px;overflow:hidden;isolation:isolate;
+  background:radial-gradient(ellipse 60% 55% at 50% 58%,#5b1a1f 0,#2a090d 45%,#0e0305 80%)}
+/* painted backdrop: a faint city of theatres */
+.backdrop{position:absolute;inset:auto 0 15% 0;height:38%;opacity:.35;
+  background:
+   linear-gradient(#0000 60%,#12040699),
+   repeating-linear-gradient(90deg,#0000 0 46px,#d9ab4a22 46px 48px),
+   linear-gradient(90deg,#3d1014 0 8%,#0000 8% 11%,#4b161a 11% 22%,#0000 22% 24%,#33090d 24% 39%,#0000 39% 41%,#521b1e 41% 58%,#0000 58% 60%,#3a0d11 60% 74%,#0000 74% 77%,#49151a 77% 90%,#0000 90% 92%,#33090d 92%);
+  -webkit-mask:linear-gradient(#0000,#000 40%);mask:linear-gradient(#0000,#000 40%)}
+.beam{position:absolute;top:-8%;width:46%;height:120%;z-index:1;mix-blend-mode:screen;pointer-events:none;
+  background:linear-gradient(180deg,#fff3c466,#fff3c400 82%);clip-path:polygon(44% 0,56% 0,100% 100%,0 100%);transform-origin:50% 0;
+  animation:sway 9s ease-in-out infinite alternate}
+.beam.a{left:6%;transform:rotate(-24deg)}
+.beam.b{right:6%;transform:rotate(24deg);animation-name:sway2;animation-duration:11s}
+@keyframes sway{from{transform:rotate(-27deg)}to{transform:rotate(-19deg)}}
+@keyframes sway2{from{transform:rotate(27deg)}to{transform:rotate(18deg)}}
+.pool{position:absolute;left:50%;bottom:9%;width:min(760px,96%);height:120px;transform:translateX(-50%);z-index:1;
+  background:radial-gradient(ellipse at center,#ffe9a855,#ffe9a800 68%)}
+.boards{position:absolute;inset:auto 0 0 0;height:16%;z-index:2;
+  background:linear-gradient(#0000,#0008),repeating-linear-gradient(90deg,#3b1d12 0 70px,#2a140c 70px 73px,#452316 73px 150px,#2a140c 150px 153px);
+  border-top:3px solid var(--gold-d);box-shadow:0 -12px 40px #000a inset}
+.footlights{position:absolute;inset:auto 0 calc(16% - 9px) 0;height:18px;z-index:6;
+  background:radial-gradient(circle at 50% 50%,#fff8d8 0 3px,#ffd25e 4px,#ffb30055 7px,#0000 9px) 0 0/34px 18px repeat-x;
+  animation:twinkle 2.4s steps(2,jump-none) infinite}
+@keyframes twinkle{50%{opacity:.72}}
+
+.curtain{position:absolute;top:0;bottom:0;width:51%;z-index:4;transform:scaleX(.3);will-change:transform;
+  animation:open 1.5s cubic-bezier(.16,.84,.3,1) both}
+.curtain.l{left:0;transform-origin:0 50%}
+.curtain.r{right:0;transform-origin:100% 50%}
+.curtain i{position:absolute;inset:0;display:block;
+  background:
+    linear-gradient(180deg,#0006 0,#0000 18%,#0000 70%,#0009 100%),
+    repeating-linear-gradient(90deg,#4a060c 0,#8f0f1b 2.2%,#d02335 4.2%,#a51422 5.6%,#5a0810 8%,#3a0408 9%);
+}
+.curtain.l i{clip-path:polygon(0 0,100% 0,100% 30%,88% 48%,52% 62%,70% 78%,84% 100%,0 100%)}
+.curtain.r i{clip-path:polygon(100% 0,0 0,0 30%,12% 48%,48% 62%,30% 78%,16% 100%,100% 100%)}
+.curtain b{position:absolute;top:59.5%;height:26px;width:56%;border-radius:13px;
+  background:repeating-linear-gradient(115deg,var(--gold-l) 0 5px,var(--gold) 5px 9px,var(--gold-d) 9px 12px);box-shadow:0 3px 8px #0009}
+.curtain.l b{left:-2%}.curtain.r b{right:-2%}
+@keyframes open{from{transform:scaleX(1)}}
+.valance{position:absolute;inset:0 0 auto 0;height:clamp(84px,15vh,140px);z-index:5;filter:drop-shadow(0 5px 0 var(--gold)) drop-shadow(0 12px 14px #000b)}
+.valance i{position:absolute;inset:0;
+  background:linear-gradient(180deg,#0007,#0000 60%),repeating-linear-gradient(90deg,#5a0810 0,#a51422 16px,#d02335 26px,#8f0f1b 38px,#4a060c 52px);
+  -webkit-mask:radial-gradient(ellipse 50% 100% at 50% 0,#000 98%,#0000 100%) 50% 100%/clamp(90px,12.5vw,180px) 62% repeat-x,linear-gradient(#000,#000) top/100% 40% no-repeat;
+          mask:radial-gradient(ellipse 50% 100% at 50% 0,#000 98%,#0000 100%) 50% 100%/clamp(90px,12.5vw,180px) 62% repeat-x,linear-gradient(#000,#000) top/100% 40% no-repeat}
+.arch{position:absolute;inset:0;z-index:7;pointer-events:none;border:clamp(8px,1.2vw,16px) solid;border-bottom:0;
+  border-image:linear-gradient(135deg,#8c6520,#f6dc93 22%,#b98a32 45%,#f6dc93 62%,#8c6520 80%,#e6c26b) 1;box-shadow:inset 0 0 0 2px #0008,inset 0 0 60px #000a}
+.crest{position:absolute;z-index:8;top:clamp(6px,1vw,14px);left:50%;transform:translateX(-50%);width:clamp(92px,11vw,138px)}
+
+.bill{position:absolute;z-index:3;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;padding:14vh 22% 20%;gap:.35rem}
+.bill .presents{font-style:italic;color:var(--gold-l);font-size:clamp(.95rem,1.6vw,1.2rem)}
+.bill h1{font-family:var(--disp);font-weight:400;font-size:clamp(4.2rem,15vw,11.5rem);line-height:.9;letter-spacing:.02em;
+  background:linear-gradient(180deg,#fff6d6 8%,#f6dc93 34%,#c9952f 58%,#f6dc93 76%,#8c6520);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 4px 0 #3a0408) drop-shadow(0 0 34px #ffcf6a55)}
+html[lang="ar"] .bill h1{font-weight:700;font-size:clamp(3.6rem,12.5vw,9.5rem);line-height:1.45;margin-block:-.12em -.2em}
+.rule{display:flex;align-items:center;gap:.8rem;color:var(--gold);width:min(100%,30rem);font-size:.8rem;letter-spacing:.34em;text-transform:uppercase;margin-top:.5rem}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#0000,var(--gold))}
+.rule::after{transform:scaleX(-1)}
+html[lang="ar"] .rule{font-size:1.15rem}
+.bill .tag{font-size:clamp(1.15rem,2.5vw,1.9rem);font-style:italic;max-width:22ch;line-height:1.25;color:#fff3dc;margin-top:.4rem}
+html[lang="ar"] .bill .tag{font-style:normal;line-height:1.6}
+.bill .call{margin-top:.9rem;display:inline-flex;gap:.6rem;align-items:center;border:1px solid var(--gold);border-radius:3px;padding:.4rem .9rem;font-size:.92rem;color:var(--gold-l);background:#1a0508b0;text-decoration:none}
+.bill .call b{font-family:var(--disp);font-weight:400;font-size:1.15rem;color:#fff}
+
+/* ================= RUNNING ORDER ================= */
+.order{position:relative;z-index:9;background:linear-gradient(#1b0609,#0e0305);border-block:3px double var(--gold-d);padding:1.1rem clamp(.6rem,3vw,2rem)}
+.order ol{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);max-width:1240px;margin:auto;position:relative}
+.order ol::before{content:"";position:absolute;inset-inline:8%;top:9px;height:2px;background:repeating-linear-gradient(90deg,var(--gold-d) 0 6px,#0000 6px 12px)}
+.order li{text-align:center;position:relative;padding-top:26px}
+.order li::before{content:"";position:absolute;top:0;left:50%;margin-left:-10px;width:20px;height:20px;border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#fffbe6 0 22%,#ffd25e 45%,#b9801d 78%);box-shadow:0 0 14px #ffc94a99}
+.order a{text-decoration:none;display:block;padding:.2rem}
+.order time{display:block;font-family:'Limelight',var(--serif);font-size:1.25rem;color:var(--gold-l)}
+.order span{font-size:.86rem;letter-spacing:.14em;text-transform:uppercase;color:#e9d6b2}
+html[lang="ar"] .order span{font-size:1.02rem}
+.order a:hover span{color:#fff;text-decoration:underline}
+
+/* ================= THE PROGRAMME ================= */
+.house{background:
+  radial-gradient(ellipse at 50% 0,#3a0d12 0,#0000 60%),
+  repeating-linear-gradient(90deg,#16050799 0 2px,#0000 2px 9px),#12040699;padding:clamp(1.4rem,4vw,4rem) clamp(.7rem,3vw,2.5rem) 3rem}
+.programme{max-width:1240px;margin:auto;display:grid;grid-template-columns:1fr 1fr;row-gap:clamp(1.4rem,3vw,3rem);filter:drop-shadow(0 20px 30px #000c)}
+.page{position:relative;background:var(--paper);color:var(--text);padding:clamp(1.5rem,3.2vw,3rem) clamp(1.3rem,3.4vw,3.4rem) 3.6rem;
+  background-image:radial-gradient(#b48a4a14 1px,#0000 1.4px),linear-gradient(90deg,#0000 82%,#7a552622);background-size:5px 5px,100% 100%}
+.page:nth-child(even){background-image:radial-gradient(#b48a4a14 1px,#0000 1.4px),linear-gradient(270deg,#0000 82%,#7a552622)}
+html[dir="rtl"] .page{background-image:radial-gradient(#b48a4a14 1px,#0000 1.4px),linear-gradient(270deg,#0000 82%,#7a552622)}
+html[dir="rtl"] .page:nth-child(even){background-image:radial-gradient(#b48a4a14 1px,#0000 1.4px),linear-gradient(90deg,#0000 82%,#7a552622)}
+.page::before{content:"";position:absolute;inset:.7rem;border:1px solid #8c652088;outline:3px double #8c652055;outline-offset:-7px;pointer-events:none}
+.folio{position:absolute;inset:auto 0 1.35rem 0;text-align:center;font-style:italic;font-size:.9rem;color:#7a5526}
+.folio::before{content:"— "}.folio::after{content:" —"}
+.act{text-align:center;margin-bottom:1.5rem}
+.act small{display:block;font-size:.78rem;letter-spacing:.4em;text-transform:uppercase;color:var(--velvet)}
+html[lang="ar"] .act small{font-size:1.05rem}
+.act h2{font-family:var(--disp);font-weight:400;font-size:clamp(2.5rem,5vw,4.2rem);line-height:1;color:var(--velvet-d);margin:.15em 0 .1em}
+html[lang="ar"] .act h2{font-weight:700;line-height:1.5;margin:0}
+.act p{font-style:italic;font-size:1.12rem;color:#5a2a22}
+.act p::before,.act p::after{content:"❦";font-style:normal;color:var(--gold-d);margin-inline:.6em;font-size:.9em}
+.cast li{padding:.72rem 0;border-bottom:1px solid #8c652033}
+.cast li:last-child{border:0}
+.who{display:flex;align-items:baseline;gap:.5rem}
+.who h3{font-size:1.08rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--text)}
+html[lang="ar"] .who h3{font-size:1.3rem;font-weight:700}
+.who i{flex:1;min-width:1.2rem;border-bottom:2px dotted #8c6520;transform:translateY(-.28em)}
+.pr{font-family:'Limelight',var(--serif);font-size:1.22rem;color:var(--velvet);white-space:nowrap}
+.cast p{font-style:italic;color:#56302a;max-width:46ch;font-size:1rem}
+html[lang="ar"] .cast p{font-style:normal;font-size:1.08rem}
+.cast p::before{content:"as ";font-variant:small-caps;font-style:normal;color:#8c6520}
+html[lang="ar"] .cast p::before{content:"في دور: "}
+.lead{display:inline-block;font-style:normal;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;background:var(--velvet);color:var(--gold-l);padding:.16em .6em .2em;border-radius:2px;margin-inline-start:.5em;vertical-align:.18em}
+html[lang="ar"] .lead{font-size:.85rem}
+.v{font-size:.78em;color:#3d6b2a;font-weight:600;font-style:normal;margin-inline-start:.3em;letter-spacing:0}
+
+/* title page */
+.titlepage{display:flex;flex-direction:column;justify-content:center;text-align:center;gap:1rem}
+.titlepage .masks{width:120px;margin:0 auto}
+.titlepage h2{font-family:var(--disp);font-weight:400;font-size:clamp(2rem,3.6vw,3rem);color:var(--velvet-d);line-height:1.1}
+html[lang="ar"] .titlepage h2{font-weight:700;line-height:1.5}
+.titlepage p{max-width:42ch;margin-inline:auto;font-size:1.08rem}
+.titlepage p:not(.sig):first-letter{font-family:var(--disp);font-size:2.4em;color:var(--velvet);float:inline-start;line-height:.8;margin-inline-end:.08em;margin-top:.08em}
+html[lang="ar"] .titlepage p:not(.sig):first-letter{font-size:1em;float:none;margin:0;color:inherit}
+.sig{font-style:italic;color:#7a5526}
+.key{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.4rem;border-top:1px solid #8c652066;padding-top:1rem;font-size:.95rem}
+.encore{margin-top:1.2rem;border:1px solid var(--velvet);padding:.9rem 1rem;text-align:center;background:#8f0f1b0d}
+.encore b{font-family:var(--disp);font-weight:400;font-size:1.5rem;color:var(--velvet-d);display:block}
+html[lang="ar"] .encore b{font-weight:700}
+
+/* ================= TICKETS ================= */
+.boxoffice{max-width:1240px;margin:clamp(2.2rem,5vw,4.5rem) auto 0;text-align:center}
+.boxoffice>h2{font-family:var(--disp);font-weight:400;font-size:clamp(2rem,4.4vw,3.4rem);color:var(--gold-l)}
+html[lang="ar"] .boxoffice>h2{font-weight:700}
+.boxoffice>p{font-style:italic;color:#e9d6b2;margin-bottom:1.6rem}
+.tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.ticket{--n:11px;display:grid;grid-template-columns:1fr 112px;color:var(--text);text-align:start;filter:drop-shadow(0 10px 14px #000a);transition:transform .25s}
+.ticket:hover{transform:rotate(-1.2deg) translateY(-4px)}
+.ticket>div{background:var(--tc,#f1d27c);padding:1.1rem 1.2rem;
+  -webkit-mask:radial-gradient(circle var(--n) at 0 50%,#0000 98%,#000) 0 0/51% 100% no-repeat,radial-gradient(circle var(--n) at 100% 50%,#0000 98%,#000) 100% 0/51% 100% no-repeat;
+          mask:radial-gradient(circle var(--n) at 0 50%,#0000 98%,#000) 0 0/51% 100% no-repeat,radial-gradient(circle var(--n) at 100% 50%,#0000 98%,#000) 100% 0/51% 100% no-repeat}
+.ticket .main{border-inline-end:2px dashed #2b0d0f88;padding-inline:1.7rem 1rem}
+.ticket small{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:#7a2a1c}
+html[lang="ar"] .ticket small{font-size:.95rem}
+.ticket h3{font-family:var(--disp);font-weight:400;font-size:1.7rem;line-height:1.1;color:var(--velvet-d);margin:.15rem 0 .35rem}
+html[lang="ar"] .ticket h3{font-weight:700;line-height:1.5}
+.ticket p{font-size:.98rem;line-height:1.4}
+.ticket .stub{display:grid;place-content:center;justify-items:center;gap:.3rem;padding:.6rem 1.1rem;text-align:center}
+.ticket .stub b{font-family:'Limelight',var(--serif);font-weight:400;font-size:2rem;color:var(--velvet-d);line-height:1}
+.ticket .stub span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+html[lang="ar"] .ticket .stub span{font-size:.9rem}
+.ticket .stub i{width:58px;height:22px;background:repeating-linear-gradient(90deg,#2b0d0f 0 2px,#0000 2px 4px,#2b0d0f 4px 7px,#0000 7px 9px,#2b0d0f 9px 10px,#0000 10px 13px)}
+
+/* ================= HOUSE NOTES ================= */
+footer{position:relative;background:linear-gradient(#0e0305,#1b0609);border-top:8px solid var(--velvet-d);padding:clamp(2rem,4vw,3.5rem) clamp(1rem,4vw,3rem) 4rem;text-align:center;overflow:hidden}
+footer::before{content:"";position:absolute;inset:0 0 auto 0;height:26px;background:radial-gradient(ellipse 50% 100% at 50% 0,var(--velvet) 98%,#0000 100%) 50% 0/70px 26px repeat-x;filter:drop-shadow(0 3px 0 var(--gold-d))}
+.notes{max-width:1100px;margin:1.6rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.notes h4{font-family:var(--disp);font-weight:400;font-size:1.35rem;color:var(--gold-l);margin-bottom:.4rem}
+html[lang="ar"] .notes h4{font-weight:700}
+.notes p{color:#e9d6b2;font-size:1rem}
+.fin{margin-top:2.4rem;font-family:var(--disp);font-size:clamp(2rem,6vw,3.6rem);color:var(--gold);letter-spacing:.2em}
+.small{color:#b89a78;font-size:.9rem;font-style:italic;margin-top:.4rem}
+
+@media (max-width:860px){
+  .curtain{transform:scaleX(.2)}
+  .bill{padding:15vh 13% 22%}
+  .beam{width:70%}
+  .order ol{grid-template-columns:repeat(3,1fr);row-gap:1.1rem}
+  .order ol::before{display:none}
+  .programme{grid-template-columns:1fr}
+  .page,.page:nth-child(even),html[dir="rtl"] .page,html[dir="rtl"] .page:nth-child(even){background-image:radial-gradient(#b48a4a14 1px,#0000 1.4px);background-size:5px 5px}
+  .tickets{grid-template-columns:1fr;max-width:460px;margin-inline:auto}
+  .notes{grid-template-columns:1fr;gap:1.3rem}
+  .usher>*{height:32px;padding:0 10px;font-size:12px}
+}
+@media (max-width:420px){.who h3{font-size:.98rem;letter-spacing:.04em}.ticket{grid-template-columns:1fr 104px}.crest{width:74px}.stage{height:min(100svh,720px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<div class="usher">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<header class="stage">
+  <div class="backdrop"></div>
+  <div class="beam a"></div><div class="beam b"></div><div class="pool"></div>
+  <div class="bill">
+    <p class="presents"><span lang="en">The management proudly presents</span><span lang="ar">تتشرّف الإدارة بأن تقدّم</span></p>
+    <h1><span lang="en">Act III</span><span lang="ar">الفصل الثالث</span></h1>
+    <p class="rule"><span lang="en">Pre-Theatre Dining</span><span lang="ar">عشاء قبل المسرح</span></p>
+    <p class="tag"><span lang="en">A supper in three acts, and not one late curtain.</span><span lang="ar">عشاءٌ في ثلاثة فصول، ولن يفوتك رفعُ الستار.</span></p>
+    <a class="call" href="#programme"><span lang="en">Fed, paid &amp; out the door by</span><span lang="ar">تأكل وتدفع وتغادر قبل</span> <b dir="ltr">7:15</b></a>
+  </div>
+  <div class="boards"></div>
+  <div class="curtain l"><i></i><b></b></div><div class="curtain r"><i></i><b></b></div>
+  <div class="valance"><i></i></div>
+  <div class="footlights"></div>
+  <div class="arch"></div>
+  <svg class="crest" viewBox="0 0 140 84" aria-hidden="true">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6dc93"/><stop offset=".5" stop-color="#c9952f"/><stop offset="1" stop-color="#f6dc93"/></linearGradient></defs>
+    <path d="M4 6h132v24c0 26-28 48-66 50C32 78 4 56 4 30z" fill="#2a070b" stroke="url(#g)" stroke-width="4"/>
+    <g fill="url(#g)"><path d="M26 20c10 5 22 5 34 0 3 22-3 40-17 44-14-4-20-22-17-44z"/><path d="M80 20c12 5 24 5 34 0 3 22-3 40-17 44-14-4-20-22-17-44z"/></g>
+    <g fill="none" stroke="#2a070b" stroke-width="3" stroke-linecap="round"><path d="M32 33q5-5 9 0M46 33q4-5 9 0M34 45q9 10 18 0"/><path d="M86 35q5 4 9 0M100 35q4 4 9 0M88 52q9-9 18 0"/></g>
+  </svg>
+</header>
+
+<nav class="order" aria-label="Running order">
+  <ol>
+    <li><a href="#prologue"><time dir="ltr">5:00</time><span lang="en">Prologue</span><span lang="ar">التمهيد</span></a></li>
+    <li><a href="#act1"><time dir="ltr">5:25</time><span lang="en">Act I</span><span lang="ar">الفصل الأول</span></a></li>
+    <li><a href="#act2"><time dir="ltr">5:55</time><span lang="en">Act II</span><span lang="ar">الفصل الثاني</span></a></li>
+    <li><a href="#interval"><time dir="ltr">6:30</time><span lang="en">Interval</span><span lang="ar">الاستراحة</span></a></li>
+    <li><a href="#act3"><time dir="ltr">6:40</time><span lang="en">Act III</span><span lang="ar">الفصل الثالث</span></a></li>
+    <li><a href="#tickets"><time dir="ltr">7:15</time><span lang="en">Curtain call</span><span lang="ar">تحية الختام</span></a></li>
+  </ol>
+</nav>
+
+<main class="house" id="programme">
+ <div class="programme">
+
+  <section class="page titlepage">
+    <svg class="masks" viewBox="0 0 120 70" aria-hidden="true"><g fill="#8f0f1b"><path d="M8 8c14 6 30 6 44 0 4 30-4 52-22 58C12 60 4 38 8 8z"/><path d="M68 8c14 6 30 6 44 0 4 30-4 52-22 58-18-6-26-28-22-58z" fill="#4a060c"/></g><g fill="none" stroke="#f4e8cf" stroke-width="3.5" stroke-linecap="round"><path d="M17 25q6-6 11 0M33 25q5-6 11 0M19 40q11 13 23 0"/><path d="M77 27q6 5 11 0M93 27q5 5 11 0M79 50q11-12 23 0"/></g></svg>
+    <h2><span lang="en">A note from the director</span><span lang="ar">كلمة المُخرج</span></h2>
+    <p><span lang="en">Our kitchen keeps theatre hours. Every plate has a cue, every course a running time, and the pass is called like a stage. Sit down at five, and we will have you fed, fussed over and across the road before the house lights dim.</span><span lang="ar">مطبخنا يعمل بتوقيت المسرح. لكل طبق إشارة دخول، ولكل فصل زمنه المحسوب، والأطباق تُنادى كما تُنادى المشاهد. اجلس في الخامسة، ونعدك أن تكون قد شبعت ودُلّلت وعبرت الشارع قبل أن تُطفأ أنوار الصالة.</span></p>
+    <p class="sig"><span lang="en">— Chef Imogen Farr, director of the kitchen</span><span lang="ar">— الشيف إيموجن فار، مُخرجة المطبخ</span></p>
+    <div class="key">
+      <span><em class="lead" style="margin:0"><span lang="en">★ Leading role</span><span lang="ar">★ دور البطولة</span></em> <span lang="en">the chef’s pick</span><span lang="ar">اختيار الشيف</span></span>
+      <span><b class="v" style="margin:0">(v)</b> <span lang="en">vegetarian</span><span lang="ar">نباتي</span></span>
+      <span><span lang="en">Performed nightly, 5 pm to 11 pm</span><span lang="ar">يُعرض كل ليلة من ٥ مساءً حتى ١١ ليلاً</span></span>
+    </div>
+    <span class="folio">i</span>
+  </section>
+
+  <section class="page" id="prologue">
+    <header class="act"><small><span lang="en">Before the curtain</span><span lang="ar">قبل رفع الستار</span></small><h2><span lang="en">Prologue</span><span lang="ar">التمهيد</span></h2><p><span lang="en">Nibbles for the foyer</span><span lang="ar">لقيمات البهو</span></p></header>
+    <ul class="cast">
+      <li><div class="who"><h3><span lang="en">The Sourdough</span><span lang="ar">خبز العجين المخمَّر</span><b class="v">(v)</b></h3><i></i><span class="pr" dir="ltr">£5</span></div><p><span lang="en">a warm loaf with whipped brown butter and sea salt</span><span lang="ar">رغيف دافئ مع زبدة بنّية مخفوقة وملح البحر</span></p></li>
+      <li><div class="who"><h3><span lang="en">Nocellara Olives</span><span lang="ar">زيتون نوتشيلارا</span><b class="v">(v)</b></h3><i></i><span class="pr" dir="ltr">£4.5</span></div><p><span lang="en">the green chorus, marinated in orange peel and thyme</span><span lang="ar">جوقة خضراء منقوعة بقشر البرتقال والزعتر</span></p></li>
+      <li><div class="who"><h3><span lang="en">Smoked Almonds</span><span lang="ar">لوز مدخَّن</span><b class="v">(v)</b></h3><i></i><span class="pr" dir="ltr">£4</span></div><p><span lang="en">a crunchy walk-on, glazed in rosemary honey</span><span lang="ar">ظهور خاطف ومقرمش، مغطّى بعسل إكليل الجبل</span></p></li>
+      <li><div class="who"><h3><span lang="en">Gougères, a Trio</span><span lang="ar">ثلاثي الغوجير</span><b class="v">(v)</b></h3><i></i><span class="pr" dir="ltr">£6.5</span></div><p><span lang="en">three hot cheese puffs filled with truffled Gruyère</span><span lang="ar">ثلاث كرات جبن ساخنة محشوّة بالغرويير والكمأة</span></p></li>
+    </ul>
+    <span class="folio">ii</span>
+  </section>
+
+  <section class="page" id="act1">
+    <header class="act"><small><span lang="en">Scene: the opening number</span><span lang="ar">المشهد: لحن الافتتاح</span></small><h2><span lang="en">Act I</span><span lang="ar">الفصل الأول</span></h2><p><span lang="en">Starters</span><span lang="ar">المقبلات</span></p></header>
+    <ul class="cast">
+      <li><div class="who"><h3><span lang="en">Burrata</span><span lang="ar">بوراتا</span><b class="v">(v)</b></h3><i></i><span class="pr" dir="ltr">£11</span></div><p><span lang="en">the ingénue, with heritage tomatoes, basil oil and sourdough crumb</span><span lang="ar">الوجه الجديد، مع طماطم بلدية وزيت الريحان وفتات الخبز المحمّص</span> <em class="lead"><span lang="en">★ Leading role</span><span lang="ar">★ دور البطولة</span></em></p></li>
+      <li><div class="who"><h3><span lang="en">Celeriac Velouté</span><span lang="ar">فيلوتيه الكرفس اللفتي</span><b class="v">(v)</b></h3><i></i><span class="pr" dir="ltr">£8.5</span></div><p><span lang="en">a silky roast-celeriac soup with hazelnut and chive</span><span lang="ar">حساء مخملي من جذور الكرفس المشوية مع البندق والثوم المعمّر</span></p></li>
+      <li><div class="who"><h3><span lang="en">Smoked Trout</span><span lang="ar">سلمون مرقّط مدخَّن</span></h3><i></i><span class="pr" dir="ltr">£10.5</span></div><p><span lang="en">rillettes on rye toast, upstaged by pickled cucumber</span><span lang="ar">ريّيت على خبز الجاودار، يسرق منه الخيار المخلّل الأضواء</span></p></li>
+      <li><div class="who"><h3><span lang="en">Beef Carpaccio</span><span lang="ar">كارباتشيو البقر</span></h3><i></i><span class="pr" dir="ltr">£12.5</span></div><p><span lang="en">paper-thin fillet with parmesan, rocket and lemon</span><span lang="ar">شرائح فيليه رقيقة كالورق مع البارميزان والجرجير والليمون</span></p></li>
+      <li><div class="who"><h3><span lang="en">Beetroot Tartare</span><span lang="ar">تارتار الشمندر</span><b class="v">(v)</b></h3><i></i><span class="pr" dir="ltr">£9</span></div><p><span lang="en">the understudy who steals the show, with horseradish cream and capers</span><span lang="ar">البديل الذي يخطف العرض، مع كريمة الفجل الحار والكبر</span></p></li>
+    </ul>
+    <span class="folio">iii</span>
+  </section>
+
+  <section class="page" id="act2">
+    <header class="act"><small><span lang="en">Scene: the showstopper</span><span lang="ar">المشهد: ذروة العرض</span></small><h2><span lang="en">Act II</span><span lang="ar">الفصل الثاني</span></h2><p><span lang="en">Main courses</span><span lang="ar">الأطباق الرئيسية</span></p></header>
+    <ul class="cast">
+      <li><div class="who"><h3><span lang="en">Short Rib of Beef</span><span lang="ar">ضلع بقري مطهوّ ببطء</span></h3><i></i><span class="pr" dir="ltr">£26</span></div><p><span lang="en">the brooding lead, braised six hours, with shallot jus and glazed carrot</span><span lang="ar">البطل المتأمّل، مطهوّ ست ساعات، مع مرق الكرّاث والجزر اللامع</span> <em class="lead"><span lang="en">★ Leading role</span><span lang="ar">★ دور البطولة</span></em></p></li>
+      <li><div class="who"><h3><span lang="en">Corn-fed Chicken</span><span lang="ar">دجاج مُغذّى بالذرة</span></h3><i></i><span class="pr" dir="ltr">£21</span></div><p><span lang="en">a crisp-skinned breast in tarragon cream on pommes purée</span><span lang="ar">صدر بجلد مقرمش في كريمة الطرخون فوق هريس البطاطا</span></p></li>
+      <li><div class="who"><h3><span lang="en">Sea Bass</span><span lang="ar">قاروص البحر</span></h3><i></i><span class="pr" dir="ltr">£24</span></div><p><span lang="en">pan-roasted, with braised fennel and saffron butter sauce</span><span lang="ar">محمَّر في المقلاة مع الشمر المطهوّ وصلصة الزبدة بالزعفران</span></p></li>
+      <li><div class="who"><h3><span lang="en">Mushroom Risotto</span><span lang="ar">ريزوتو الفطر</span><b class="v">(v)</b></h3><i></i><span class="pr" dir="ltr">£18</span></div><p><span lang="en">wild mushrooms and pearl barley under aged parmesan</span><span lang="ar">فطر برّي وشعير لؤلؤي تحت بارميزان معتّق</span></p></li>
+      <li><div class="who"><h3><span lang="en">Steak Frites</span><span lang="ar">ستيك فريت</span></h3><i></i><span class="pr" dir="ltr">£27</span></div><p><span lang="en">the crowd-pleaser: 28-day rump, peppercorn sauce, skinny fries</span><span lang="ar">معشوق الجماهير: رمب معتّق ٢٨ يوماً، صلصة الفلفل وبطاطا رفيعة مقلية</span></p></li>
+    </ul>
+    <span class="folio">iv</span>
+  </section>
+
+  <section class="page" id="interval">
+    <header class="act"><small><span lang="en">Fifteen minutes, bells will ring</span><span lang="ar">خمس عشرة دقيقة ثم تُقرع الأجراس</span></small><h2><span lang="en">Interval</span><span lang="ar">الاستراحة</span></h2><p><span lang="en">Mocktails from the stalls bar</span><span lang="ar">موكتيلات من بار الصالة</span></p></header>
+    <ul class="cast">
+      <li><div class="who"><h3><span lang="en">The Understudy</span><span lang="ar">البديل</span></h3><i></i><span class="pr" dir="ltr">£7.5</span></div><p><span lang="en">crushed raspberry, verjus and a long pour of soda</span><span lang="ar">توت مهروس وعصير الحصرم وصودا بسخاء</span></p></li>
+      <li><div class="who"><h3><span lang="en">Stage Left Spritz</span><span lang="ar">سبريتز يسار الخشبة</span></h3><i></i><span class="pr" dir="ltr">£7.5</span></div><p><span lang="en">bitter orange, tonic and a torched sprig of rosemary</span><span lang="ar">برتقال مُرّ وتونيك وغصن إكليل جبل محمَّص</span></p></li>
+      <li><div class="who"><h3><span lang="en">Ghost Light</span><span lang="ar">ضوء الشبح</span></h3><i></i><span class="pr" dir="ltr">£8</span></div><p><span lang="en">lychee and cold-brewed jasmine tea, lit with lime</span><span lang="ar">ليتشي وشاي ياسمين منقوع على البارد، يضيئه الليمون الأخضر</span></p></li>
+      <li><div class="who"><h3><span lang="en">Standing Ovation</span><span lang="ar">تصفيق وقوفاً</span></h3><i></i><span class="pr" dir="ltr">£8</span></div><p><span lang="en">sparkling white grape with elderflower, served in a coupe</span><span lang="ar">عنب أبيض فوّار مع زهر البيلسان في كأس عريضة</span></p></li>
+    </ul>
+    <span class="folio">v</span>
+  </section>
+
+  <section class="page" id="act3">
+    <header class="act"><small><span lang="en">Scene: the finale, our namesake</span><span lang="ar">المشهد: الختام الذي حملنا اسمه</span></small><h2><span lang="en">Act III</span><span lang="ar">الفصل الثالث</span></h2><p><span lang="en">Desserts</span><span lang="ar">الحلويات</span></p></header>
+    <ul class="cast">
+      <li><div class="who"><h3><span lang="en">Chocolate Fondant</span><span lang="ar">فوندان الشوكولاتة</span></h3><i></i><span class="pr" dir="ltr">£9.5</span></div><p><span lang="en">the diva; nine minutes to enter, with crème fraîche ice cream</span><span lang="ar">النجمة المدلّلة؛ تسع دقائق لتدخل، ومعها آيس كريم الكريمة الطازجة</span> <em class="lead"><span lang="en">★ Leading role</span><span lang="ar">★ دور البطولة</span></em></p></li>
+      <li><div class="who"><h3><span lang="en">Lemon Posset</span><span lang="ar">بوسيت الليمون</span></h3><i></i><span class="pr" dir="ltr">£8</span></div><p><span lang="en">a bright soprano, with shortbread and fresh raspberries</span><span lang="ar">سوبرانو مشرقة مع بسكويت الزبدة والتوت الطازج</span></p></li>
+      <li><div class="who"><h3><span lang="en">Sticky Toffee Pudding</span><span lang="ar">بودينغ التوفي والتمر</span></h3><i></i><span class="pr" dir="ltr">£8.5</span></div><p><span lang="en">the national treasure, drowned in toffee, with clotted cream</span><span lang="ar">كنز وطني يغرق في صلصة التوفي مع القشدة المتخثّرة</span></p></li>
+      <li><div class="who"><h3><span lang="en">The Cheese Plate</span><span lang="ar">طبق الأجبان</span></h3><i></i><span class="pr" dir="ltr">£12</span></div><p><span lang="en">three British character actors, with quince and oatcakes</span><span lang="ar">ثلاثة ممثلين بريطانيين مخضرمين، مع السفرجل وبسكويت الشوفان</span></p></li>
+    </ul>
+    <div class="encore"><b><span lang="en">Encore</span><span lang="ar">مرة أخرى!</span></b><span lang="en">Filter coffee or Assam tea with two salted-caramel truffles</span><span lang="ar">قهوة مقطّرة أو شاي أسام مع حبّتَي ترافل بالكراميل المملّح</span> · <span class="pr" dir="ltr">£5</span></div>
+    <span class="folio">vi</span>
+  </section>
+ </div>
+
+ <section class="boxoffice" id="tickets">
+  <h2><span lang="en">The Box Office</span><span lang="ar">شبّاك التذاكر</span></h2>
+  <p><span lang="en">Set menus, served 5:00 to 6:45. Choose any dish from each act.</span><span lang="ar">قوائم ثابتة تُقدَّم من ٥:٠٠ حتى ٦:٤٥، واختر أي طبق من كل فصل.</span></p>
+  <div class="tickets">
+    <article class="ticket"><div class="main"><small><span lang="en">Admit one</span><span lang="ar">دخول شخص واحد</span></small><h3><span lang="en">The Matinée</span><span lang="ar">عرض النهار</span></h3><p><span lang="en">Two acts of your choosing: I &amp; II, or II &amp; III.</span><span lang="ar">فصلان من اختيارك: الأول والثاني، أو الثاني والثالث.</span></p></div><div class="stub"><b dir="ltr">£32</b><span><span lang="en">Stalls</span><span lang="ar">الصالة</span></span><i></i></div></article>
+    <article class="ticket" style="--tc:#f4e8cf"><div class="main"><small><span lang="en">Admit one</span><span lang="ar">دخول شخص واحد</span></small><h3><span lang="en">The Full Performance</span><span lang="ar">العرض الكامل</span></h3><p><span lang="en">All three acts, with bread from the Prologue.</span><span lang="ar">الفصول الثلاثة كاملة، مع خبز التمهيد.</span></p></div><div class="stub"><b dir="ltr">£39</b><span><span lang="en">Dress circle</span><span lang="ar">الشرفة الأولى</span></span><i></i></div></article>
+    <article class="ticket" style="--tc:#e9a5a0"><div class="main"><small><span lang="en">Admit one</span><span lang="ar">دخول شخص واحد</span></small><h3><span lang="en">The Royal Box</span><span lang="ar">المقصورة الملكية</span></h3><p><span lang="en">Three acts, an Interval mocktail and the Encore.</span><span lang="ar">ثلاثة فصول وموكتيل الاستراحة وقهوة الختام.</span></p></div><div class="stub"><b dir="ltr">£46</b><span><span lang="en">Box A</span><span lang="ar">مقصورة أ</span></span><i></i></div></article>
+  </div>
+ </section>
+</main>
+
+<footer>
+  <div class="notes">
+    <div><h4><span lang="en">House opens</span><span lang="ar">مواعيد الصالة</span></h4><p><span lang="en">Monday to Saturday, 5 pm – 11 pm. Matinée days (Wed &amp; Sat) from 12 noon. Dark on Sundays.</span><span lang="ar">من الاثنين إلى السبت، ٥ مساءً – ١١ ليلاً. أيام العروض النهارية (الأربعاء والسبت) من ١٢ ظهراً. نُسدل الستار أيام الأحد.</span></p></div>
+    <div><h4><span lang="en">Stage door</span><span lang="ar">باب الكواليس</span></h4><p><span lang="en">14 Drury Passage, Covent Garden, London WC2. Four minutes’ walk from six theatres. Reservations: 020 7946 0113.</span><span lang="ar">١٤ دروري باسج، كوفنت غاردن، لندن WC2. على بُعد أربع دقائق مشياً من ستة مسارح. للحجز: <span dir="ltr">020 7946 0113</span></span></p></div>
+    <div><h4><span lang="en">House notes</span><span lang="ar">ملاحظات الصالة</span></h4><p><span lang="en">Tell your usher about allergies before the curtain rises; our kitchen handles nuts, gluten and dairy. No alcohol is served. A discretionary 12.5% ovation is added to the bill.</span><span lang="ar">أخبر المُرشد عن أي حساسية قبل رفع الستار؛ فمطبخنا يستخدم المكسرات والغلوتين والألبان. لا نقدّم الكحول. تُضاف إلى الفاتورة تحية اختيارية بنسبة ١٢٫٥٪.</span></p></div>
+  </div>
+  <p class="fin"><span lang="en">FIN</span><span lang="ar">النهاية</span></p>
+  <p class="small"><span lang="en">Latecomers will be seated at a suitable break in the soup.</span><span lang="ar">يُجلَس المتأخرون عند أول استراحة مناسبة بين ملعقتَي حساء.</span></p>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

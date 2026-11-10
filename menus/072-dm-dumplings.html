@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>DM Dumplings · دمبلنغ دي إم</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="DM Dumplings — a dumpling bar you order from like a chat: steamed, pan-fried, soupy and sweet, folded by hand. دمبلنغ دي إم — قائمة على هيئة محادثة.">
+<meta name="theme-color" content="#16110f">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;900&family=Figtree:wght@400;500;600;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--bg:#16110f;--red:#ff4a36;--red2:#e2331f;--cream:#fff4e3;--wall:#f3e7d6;--ink:#1d1714;--mute:#8a7d72;--in:#fff;--green:#1faa59;--chili:#ff4a36;--jade:#2f9e77;--gold:#f6b93b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.45 'Figtree','IBM Plex Sans Arabic',system-ui,sans-serif;overflow-x:clip;
+  background-image:radial-gradient(60vw 50vw at 0% 0%,rgba(255,74,54,.22),transparent 60%),radial-gradient(50vw 40vw at 100% 100%,rgba(246,185,59,.13),transparent 60%)}
+html[lang="ar"] body{font-family:'IBM Plex Sans Arabic','Figtree',Tahoma,sans-serif;font-size:16.5px;line-height:1.7}
+h1,h2,h3,p,ul,figure{margin:0;padding:0} ul{list-style:none} a{color:inherit;text-decoration:none}
+svg{display:block}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+
+.app{display:grid;grid-template-columns:minmax(0,1fr);max-width:1420px;margin-inline:auto}
+
+/* ---------- left: brand as two giant bubbles + thread list ---------- */
+.side{padding:26px 18px 22px;color:var(--cream)}
+.brand{display:flex;flex-direction:column;gap:8px}
+.brand span.b{font:900 clamp(54px,17vw,112px)/.95 'Figtree',sans-serif;letter-spacing:-.045em;padding:.16em .3em .2em;border-radius:.42em;width:fit-content;max-width:100%}
+html[lang="ar"] .brand span.b{font:900 clamp(46px,14.5vw,96px)/1.25 'Alexandria',sans-serif;letter-spacing:0;padding:.08em .34em .2em}
+.brand .b1{background:var(--red);color:#fff;align-self:flex-end;border-end-end-radius:.08em;box-shadow:0 14px 40px -10px rgba(255,74,54,.7)}
+.brand .b2{background:var(--cream);color:var(--ink);border-end-start-radius:.08em}
+.brand small{align-self:flex-end;font:500 12.5px/1 'Figtree','IBM Plex Sans Arabic',sans-serif;color:#b8a99a;display:flex;gap:5px;align-items:center}
+.brand small svg{width:17px;height:11px;fill:none;stroke:#5fc4ff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tag{margin-block-start:18px;font-size:clamp(17px,2.2vw,21px);font-weight:600;line-height:1.35;color:#ffe1c9;max-width:26ch}
+html[lang="ar"] .tag{line-height:1.7}
+.intro{margin-block-start:10px;color:#c5b6a8;max-width:44ch;font-size:15px}
+.threads{margin-block-start:22px;display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.threads a{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#f4e3d2;text-align:center;line-height:1.2;min-width:0}
+html[lang="ar"] .threads a{font-size:12.5px}
+.threads .av{width:50px;height:50px;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,var(--red),var(--gold),var(--red));display:grid}
+.threads .av i{border-radius:50%;background:var(--c,#2a211d);border:2.5px solid var(--bg);display:grid;place-items:center}
+.threads .av svg{width:30px;height:30px}
+.threads .pv,.threads time,.threads .n{display:none}
+
+/* ---------- phone ---------- */
+.phone{position:relative;min-width:0;background-color:var(--wall);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' fill='none' stroke='%23b99c78' stroke-opacity='.3' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M14 40q22-30 44 0q-22 10-44 0zM24 30l3 6M34 25l1 7M44 27l-2 7'/%3E%3Ccircle cx='110' cy='34' r='15'/%3E%3Cpath d='M103 30q7-9 14 0M110 24v6'/%3E%3Cpath d='M82 96q22-30 44 0q-22 10-44 0zM28 100l14 26M38 96l14 26M20 112h12'/%3E%3Cpath d='M70 62l4 4-4 4-4-4zM136 132l3 3-3 3-3-3zM8 78l3 3-3 3-3-3z'/%3E%3C/svg%3E");
+  border-start-start-radius:26px;border-start-end-radius:26px}
+.island{display:none}
+.chat-head{position:sticky;inset-block-start:0;z-index:20;display:flex;align-items:center;gap:8px;padding:9px 10px;background:rgba(255,250,243,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid rgba(60,40,20,.12);border-start-start-radius:26px;border-start-end-radius:26px}
+.home-link{display:flex;align-items:center;gap:2px;color:var(--red2);font-weight:600;font-size:14.5px;min-height:40px;padding-inline-end:4px;white-space:nowrap}
+.home-link svg{width:11px;height:20px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+[dir="rtl"] .home-link svg{transform:scaleX(-1)}
+.who{display:flex;align-items:center;gap:9px;flex:1;min-width:0}
+.avatar{flex:none;width:40px;height:40px;border-radius:50%;background:var(--red);display:grid;place-items:center;position:relative}
+.avatar svg{width:28px;height:28px}
+.avatar::after{content:"";position:absolute;inset-block-end:0;inset-inline-end:0;width:11px;height:11px;border-radius:50%;background:var(--green);border:2px solid #fffaf3}
+.who b{display:block;font-size:15.5px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.who em{display:block;font-style:normal;font-size:12.5px;color:var(--green);font-weight:600;line-height:1.3}
+#langToggle{flex:none;font:700 14px/1 'IBM Plex Sans Arabic','Figtree',sans-serif;color:#fff;background:var(--ink);border:0;border-radius:999px;padding:0 15px;min-height:38px;cursor:pointer}
+#langToggle [lang="ar"]{font-family:'Figtree',sans-serif}
+#langToggle:hover,#langToggle:focus-visible{background:var(--red2);outline:0}
+.home-link:focus-visible,.threads a:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:8px}
+
+.chat{padding:14px 12px 10px;display:flex;flex-direction:column;gap:5px}
+.day{align-self:center;margin-block:14px 8px;font-size:12.5px;font-weight:600;color:#6e5f52;background:rgba(255,255,255,.75);padding:4px 13px;border-radius:999px;scroll-margin-top:76px;display:flex;gap:7px;align-items:center}
+.day b{color:var(--ink);font-size:13.5px}
+.day i{width:4px;height:4px;border-radius:50%;background:var(--red)}
+.m{position:relative;max-width:82%;padding:8px 12px 7px;border-radius:19px;font-size:15.5px;box-shadow:0 1px 1px rgba(60,40,20,.12)}
+html[lang="ar"] .m{font-size:16px}
+.m.in{align-self:flex-start;background:var(--in);border-end-start-radius:5px}
+.m.out{align-self:flex-end;background:var(--red);color:#fff;border-end-end-radius:5px}
+.m.out+.m.in,.m.in+.m.out{margin-block-start:7px}
+.m time{float:inline-end;margin-inline-start:10px;margin-block-start:7px;font-size:11px;opacity:.6;display:flex;gap:3px;align-items:center;line-height:1;direction:ltr}
+.m.out time svg{width:15px;height:10px;fill:none;stroke:#bfe9ff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.typing{align-self:flex-start;background:var(--in);border-radius:19px;border-end-start-radius:5px;padding:13px 14px;display:flex;gap:5px;margin-block:2px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#b5a798;animation:blink 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+
+/* dish card message */
+.card{align-self:flex-start;width:min(100%,330px);background:var(--in);border-radius:20px;border-end-start-radius:6px;position:relative;margin-block-end:16px;box-shadow:0 1px 1px rgba(60,40,20,.12),0 10px 22px -14px rgba(60,40,20,.4)}
+.card .ph{position:relative;height:124px;border-radius:17px;margin:4px 4px 0;overflow:hidden;display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 56%,var(--p2) 0 56px,transparent 57px),radial-gradient(circle at 50% 56%,var(--p3) 0 66px,transparent 67px),var(--p1)}
+.card .ph>svg{width:210px;height:104px;filter:drop-shadow(0 4px 3px rgba(0,0,0,.18));transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.card:hover .ph>svg{transform:scale(1.07) rotate(-3deg)}
+.t-steam{--p1:#dff0e4;--p2:#f5e3b8;--p3:#c79a55}
+.t-fry{--p1:#ffe2bf;--p2:#3a332f;--p3:#1f1b19}
+.t-soup{--p1:#ffd4cb;--p2:#fff;--p3:#e2331f}
+.t-sweet{--p1:#f6dcec;--p2:#fff7df;--p3:#e9b5cf}
+.pin{position:absolute;inset-block-start:8px;inset-inline-start:8px;background:var(--ink);color:#fff;font-size:11.5px;font-weight:700;padding:4px 9px 4px 7px;border-radius:999px;display:flex;gap:4px;align-items:center}
+.pin svg{width:11px;height:11px;fill:var(--gold);filter:none!important;transform:none!important}
+.card .bd{padding:9px 13px 13px}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+h3{font-size:17px;font-weight:700;line-height:1.25;letter-spacing:-.01em}
+html[lang="ar"] h3{font-size:17.5px;letter-spacing:0;line-height:1.5}
+.pr{font-weight:700;color:var(--red2);white-space:nowrap;font-size:15.5px;unicode-bidi:isolate}
+.card p,.list p,.tile p{color:#5d5148;font-size:15px;margin-block-start:2px}
+.meta{display:flex;gap:6px;flex-wrap:wrap;margin-block-start:8px;font-size:12.5px;font-weight:600}
+.meta span{background:#f4ece2;color:#5d5148;border-radius:999px;padding:2px 9px;display:flex;align-items:center;gap:4px}
+.meta .v{background:#dcf3e6;color:#1c7a4d}
+.heat{display:inline-flex;gap:2px}
+.heat i{width:8px;height:8px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#e4d8cb}
+.heat[data-h="1"] i:nth-child(-n+1),.heat[data-h="2"] i:nth-child(-n+2),.heat[data-h="3"] i{background:var(--chili)}
+.rx{position:absolute;inset-block-end:-13px;inset-inline-end:12px;background:#fff;border:1px solid #efe5d8;border-radius:999px;padding:3px 9px 3px 7px;font-size:12.5px;font-weight:700;color:#5d5148;display:flex;gap:4px;align-items:center;box-shadow:0 2px 5px rgba(60,40,20,.14)}
+.rx svg{width:13px;height:13px;fill:var(--red)}
+.rx.fire svg{fill:var(--gold)}
+
+/* list message + album */
+.list{align-self:flex-start;width:min(100%,340px);background:var(--in);border-radius:20px;border-end-start-radius:6px;padding:4px 14px;box-shadow:0 1px 1px rgba(60,40,20,.12)}
+.list li{padding:10px 0;border-bottom:1px dashed #e6dccf}
+.list li:last-child{border:0}
+.album{align-self:flex-start;width:min(100%,340px);display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--in);padding:4px;border-radius:20px;border-end-start-radius:6px;box-shadow:0 1px 1px rgba(60,40,20,.12)}
+.tile{border-radius:16px;padding:10px 10px 11px;background:var(--tc,#fff1dc);min-width:0}
+.tile svg{width:54px;height:62px;margin-block-end:6px}
+.tile h3{font-size:15.5px}
+html[lang="ar"] .tile h3{font-size:16px}
+.tile p{font-size:13.5px;line-height:1.35}
+html[lang="ar"] .tile p{font-size:14px;line-height:1.55}
+.tile .pr{display:block;margin-block-start:5px}
+
+/* voice note */
+.voice{display:flex;align-items:center;gap:9px;min-width:210px}
+.voice .play{flex:none;width:32px;height:32px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.voice .play::before{content:"";border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent var(--red);margin-inline-start:3px}
+.wave{flex:1;height:26px;background:repeating-linear-gradient(90deg,#fff 0 3px,transparent 3px 6px);
+  -webkit-mask:linear-gradient(#000,#000) center/100% 30% no-repeat,radial-gradient(closest-side,#000 98%,transparent) 0 50%/38% 100% no-repeat,radial-gradient(closest-side,#000 98%,transparent) 55% 50%/30% 80% no-repeat,radial-gradient(closest-side,#000 98%,transparent) 100% 50%/26% 60% no-repeat;
+  mask:linear-gradient(#000,#000) center/100% 30% no-repeat,radial-gradient(closest-side,#000 98%,transparent) 0 50%/38% 100% no-repeat,radial-gradient(closest-side,#000 98%,transparent) 55% 50%/30% 80% no-repeat,radial-gradient(closest-side,#000 98%,transparent) 100% 50%/26% 60% no-repeat;opacity:.9}
+.voice span{font-size:12px;font-weight:600;opacity:.85}
+.scale{display:grid;gap:5px;margin-block-start:4px}
+.scale div{display:flex;gap:8px;align-items:center}
+
+/* poll / combo */
+.poll{align-self:flex-start;width:min(100%,340px);background:var(--ink);color:var(--cream);border-radius:20px;border-end-start-radius:6px;padding:14px 14px 12px;margin-block-end:14px;position:relative}
+.poll h3{font-size:19px} .poll p{color:#cdbfb1;font-size:14.5px;margin-block:3px 10px}
+.poll ul{display:grid;gap:6px}
+.poll li{position:relative;border-radius:11px;background:#33291f;padding:7px 11px;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:8px;overflow:hidden;isolation:isolate}
+.poll li::before{content:"";position:absolute;z-index:-1;inset-block:0;inset-inline-start:0;width:var(--w);background:linear-gradient(90deg,var(--red2),var(--red));opacity:.9}
+[dir="rtl"] .poll li::before{background:linear-gradient(270deg,var(--red2),var(--red))}
+.poll .tot{display:flex;justify-content:space-between;align-items:center;margin-block-start:11px;font-weight:700}
+.poll .tot .pr{color:var(--gold);font-size:22px}
+
+/* location */
+.loc{align-self:flex-start;width:min(100%,330px);background:var(--in);border-radius:20px;border-end-start-radius:6px;padding:4px;box-shadow:0 1px 1px rgba(60,40,20,.12)}
+.loc svg{width:100%;height:auto;border-radius:16px}
+.loc div{padding:8px 10px 9px}
+.loc b{display:block;font-size:16px}
+.loc span{font-size:14.5px;color:#5d5148}
+
+.composer{display:flex;align-items:center;gap:8px;padding:10px 12px calc(12px + env(safe-area-inset-bottom));background:rgba(255,250,243,.92);border-top:1px solid rgba(60,40,20,.12);margin-block-start:10px}
+.composer .plus{flex:none;width:34px;height:34px;border-radius:50%;background:#eaddcc;position:relative}
+.composer .plus::before,.composer .plus::after{content:"";position:absolute;inset:50% auto auto 50%;width:14px;height:2.4px;border-radius:2px;background:#6e5f52;transform:translate(-50%,-50%)}
+.composer .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.composer .field{flex:1;min-width:0;border:1.5px solid #e2d5c4;background:#fff;border-radius:999px;padding:8px 14px;color:#9a8c7f;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.composer .send{flex:none;width:38px;height:38px;border-radius:50%;background:var(--red);display:grid;place-items:center}
+.composer .send svg{width:18px;height:18px;fill:#fff}
+[dir="rtl"] .composer .send svg{transform:scaleX(-1)}
+
+/* ---------- right: contact info ---------- */
+.info{background:#fffaf3;padding:28px 18px 34px;display:grid;gap:16px;justify-items:center;text-align:center}
+.info .big{width:92px;height:92px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(255,74,54,.7)}
+.info .big svg{width:64px;height:64px}
+.info h2{font:900 26px/1.1 'Figtree',sans-serif;letter-spacing:-.02em}
+html[lang="ar"] .info h2{font:900 23px/1.5 'Alexandria',sans-serif;letter-spacing:0}
+.info .st{color:var(--mute);font-size:14.5px;margin-block-start:2px}
+.acts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;max-width:400px}
+.acts span{background:#f4ece2;border-radius:14px;padding:10px 4px 8px;font-size:12.5px;font-weight:700;color:var(--red2);display:grid;gap:5px;justify-items:center}
+.acts svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rows{width:100%;max-width:400px;background:#f4ece2;border-radius:16px;text-align:start;padding:2px 14px}
+.rows li{padding:11px 0;border-bottom:1px solid #e7dccd}
+.rows li:last-child{border:0}
+.rows small{display:block;font-size:12.5px;font-weight:700;color:var(--red2);letter-spacing:.06em;text-transform:uppercase}
+html[lang="ar"] .rows small{letter-spacing:0;font-size:13.5px}
+.rows span.l{font-size:15.5px}
+.media{width:100%;max-width:400px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.media i{aspect-ratio:1;border-radius:12px;background:var(--c);display:grid;place-items:center}
+.media svg{width:74%;height:auto}
+.fine{font-size:13px;color:var(--mute);max-width:44ch}
+
+/* ---------- desktop: three panes around a phone ---------- */
+@media (min-width:1000px){
+  .app{grid-template-columns:minmax(0,1.3fr) 452px minmax(0,.9fr);gap:44px;padding:36px 44px 60px;align-items:start}
+  .side{position:sticky;inset-block-start:28px;padding:0}
+  .brand span.b{font-size:clamp(56px,5.5vw,104px)}
+  html[lang="ar"] .brand span.b{font-size:clamp(58px,6.3vw,98px)}
+  .brand{max-width:520px}
+  .intro{font-size:16px}
+  .tag{font-size:22px;margin-block-start:24px}
+  .threads{grid-template-columns:1fr 1fr;gap:6px 10px;margin-block-start:26px;max-width:540px}
+  .threads a{flex-direction:row;text-align:start;gap:11px;padding:8px 10px;border-radius:16px;position:relative;font-size:16px;align-items:center;transition:background .2s}
+  html[lang="ar"] .threads a{font-size:16px}
+  .threads a:hover{background:rgba(255,244,227,.08)}
+  .threads .tx{flex:1;min-width:0}
+  .threads .pv{display:block;font-weight:400;font-size:13.5px;color:#a8998b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .threads .n{display:grid;place-items:center;flex:none;min-width:22px;height:22px;border-radius:11px;background:var(--red);color:#fff;font-size:12px;font-weight:700}
+  .threads .av{flex:none}
+  .phone{border:13px solid #050404;border-radius:62px;overflow:clip;box-shadow:0 0 0 2px #3a302a,0 50px 90px -30px #000,0 0 120px -30px rgba(255,74,54,.45)}
+  .island{display:block;position:sticky;inset-block-start:0;z-index:30;height:0}
+  .island::before{content:"";position:absolute;inset-block-start:11px;inset-inline-start:50%;width:108px;height:30px;margin-inline-start:-54px;border-radius:20px;background:#050404}
+  .chat-head{padding:50px 16px 10px;border-radius:0}
+  .chat{padding-inline:16px}
+  .composer{padding:12px 18px 26px}
+  .info{position:sticky;inset-block-start:28px;border-radius:30px;padding:26px 20px 24px;gap:13px}
+  .info .big{width:76px;height:76px}.info .big svg{width:52px;height:52px}
+}
+@media (min-width:1000px) and (max-width:1240px){
+  .app{grid-template-columns:minmax(0,1fr) 430px;gap:32px;padding-inline:28px}
+  .info{grid-column:1/-1;position:static;grid-template-columns:auto 1fr 1fr;text-align:start;justify-items:start;align-items:start}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.typing i{animation:none}.card .ph svg{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- shared dumpling drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cres" viewBox="0 0 70 44"><path d="M4 32C10 10 28 3 36 3s26 7 30 29c-12 9-50 9-62 0z" fill="var(--f,#fff8ea)" stroke="var(--s,#d9b98a)" stroke-width="2"/><path d="M14 20l3 7M22 13l2 8M31 9l1 9M40 9l-1 9M49 13l-2 8M57 20l-3 7" stroke="var(--s,#d9b98a)" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M8 33c14 7 40 7 54 0" stroke="var(--b,transparent)" stroke-width="6" stroke-linecap="round" fill="none"/></symbol>
+    <symbol id="bao" viewBox="0 0 60 50"><path d="M5 34C5 16 18 6 30 6s25 10 25 28c0 8-12 11-25 11S5 42 5 34z" fill="var(--f,#fff8ea)" stroke="var(--s,#d9b98a)" stroke-width="2"/><path d="M30 6c-2 6-9 9-13 15M30 6c0 7-3 10-4 17M30 6c1 7 3 10 4 17M30 6c2 6 9 9 13 15" stroke="var(--s,#d9b98a)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="30" cy="7" r="3" fill="var(--s,#d9b98a)"/></symbol>
+    <symbol id="sm" viewBox="0 0 50 50"><path d="M7 20c0-4 8-9 18-9s18 5 18 9l-2 20c-1 5-31 5-32 0z" fill="#ffe08a" stroke="#d6a93c" stroke-width="2"/><path d="M7 20c3-3 5 3 9 0s5 3 9 0 5 3 9 0 6 3 9 0" fill="none" stroke="#d6a93c" stroke-width="2"/><circle cx="25" cy="15" r="6" fill="#ff7a3c"/><path d="M14 26v14M25 28v15M36 26v14" stroke="#d6a93c" stroke-width="1.6" opacity=".6"/></symbol>
+    <symbol id="bowl" viewBox="0 0 80 56"><path d="M27 12c-4-5 4-6 0-11M40 12c-4-5 4-6 0-11M53 12c-4-5 4-6 0-11" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".9"/><ellipse cx="40" cy="24" rx="35" ry="8" fill="var(--br,#c0281a)"/><path d="M20 23q8-9 16 0q-8 4-16 0zM42 24q8-9 16 0q-8 4-16 0z" fill="#fff8ea" stroke="#d9b98a" stroke-width="1.5"/><path d="M5 24c0 18 14 28 35 28s35-10 35-28c-10 6-60 6-70 0z" fill="#fff" stroke="#e6d7c2" stroke-width="2"/><path d="M14 36c8 6 44 6 52 0" stroke="var(--red)" stroke-width="3" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="cup" viewBox="0 0 54 62"><path d="M34 2l-6 16" stroke="var(--st,#ff4a36)" stroke-width="5" stroke-linecap="round"/><path d="M8 18h38l-5 38c-.500 4-27.500 4-28 0z" fill="var(--f,#e9c9a0)" stroke="#fff" stroke-width="2.5"/><path d="M6 17h42" stroke="#fff" stroke-width="5" stroke-linecap="round"/><g fill="var(--d,#3a2416)"><circle cx="19" cy="50" r="3.2"/><circle cx="27" cy="52" r="3.2"/><circle cx="35" cy="50" r="3.2"/><circle cx="23" cy="44" r="3.2"/><circle cx="31" cy="44" r="3.2"/></g></symbol>
+    <symbol id="face" viewBox="0 0 60 50"><path d="M5 34C5 16 18 6 30 6s25 10 25 28c0 8-12 11-25 11S5 42 5 34z" fill="#fff8ea"/><path d="M30 6c-2 5-8 7-11 12M30 6c0 6-2 8-3 13M30 6c1 6 2 8 3 13M30 6c2 5 8 7 11 12" stroke="#e7c9a2" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="21" cy="31" r="2.600" fill="#1d1714"/><circle cx="39" cy="31" r="2.600" fill="#1d1714"/><path d="M26 35q4 4 8 0" stroke="#1d1714" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="15" cy="36" r="3" fill="#ff9d8f"/><circle cx="45" cy="36" r="3" fill="#ff9d8f"/></symbol>
+    <symbol id="heart" viewBox="0 0 24 24"><path d="M12 21C3 14 2 8 6 5c3-2 5 0 6 2 1-2 3-4 6-2 4 3 3 9-6 16z"/></symbol>
+    <symbol id="star" viewBox="0 0 24 24"><path d="M12 2l3 7 7 .700-5.300 4.800L18.300 22 12 18.200 5.700 22l1.600-7.500L2 9.700 9 9z"/></symbol>
+    <symbol id="ticks" viewBox="0 0 18 11"><path d="M1 6l3.500 3.500L11 2M7 6l3.500 3.500L17 2"/></symbol>
+  </defs>
+</svg>
+
+<div class="app">
+
+<header class="side">
+  <h1 class="brand">
+    <span class="b b1"><span lang="en">DM</span><span lang="ar">دي إم</span></span>
+    <small><span lang="en">Delivered</span><span lang="ar">تم التسليم</span><svg><use href="#ticks"/></svg></small>
+    <span class="b b2"><span lang="en">Dumplings</span><span lang="ar">دمبلنغ</span></span>
+  </h1>
+  <p class="tag"><span lang="en">Slide into our DMs. Leave with thirty-two pleats per dumpling.</span><span lang="ar">راسلونا على الخاص، واخرجوا باثنتين وثلاثين طيّة في كل حبّة دمبلنغ.</span></p>
+  <p class="intro"><span lang="en">A twelve-seat dumpling bar in Al Quoz where the whole menu is one long conversation. Everything is folded by hand each morning, steamed or seared to order, and halal. Scroll the chat, pick what makes you hungry, tell the counter.</span><span lang="ar">مطعم دمبلنغ صغير باثني عشر مقعدًا في القوز، قائمته محادثة واحدة طويلة. نطوي كل حبّة باليد كل صباح، ونطهوها بالبخار أو على الصاج عند الطلب، وكل ما نقدّمه حلال. تصفّحوا المحادثة، اختاروا ما يفتح شهيّتكم، وأخبروا من يقف خلف المنضدة.</span></p>
+  <nav class="threads" aria-label="Sections">
+    <a href="#steamed"><span class="av"><i style="--c:#dff0e4"><svg><use href="#cres"/></svg></i></span><span class="tx"><span lang="en">Steamed</span><span lang="ar">بالبخار</span><span class="pv"><span lang="en">Har gow, siu mai, soup buns…</span><span lang="ar">هار غاو، شو ماي، خبز الحساء…</span></span></span><b class="n">4</b></a>
+    <a href="#fried"><span class="av"><i style="--c:#ffd9a8"><svg style="--b:#b9651b"><use href="#cres"/></svg></i></span><span class="tx"><span lang="en">Pan-fried</span><span lang="ar">على الصاج</span><span class="pv"><span lang="en">Crispy skirts &amp; juicy middles</span><span lang="ar">قاعدة مقرمشة وقلب غنيّ</span></span></span><b class="n">4</b></a>
+    <a href="#soup"><span class="av"><i style="--c:#ffc9bd"><svg><use href="#bowl"/></svg></i></span><span class="tx"><span lang="en">Soupy</span><span lang="ar">بالمرق</span><span class="pv"><span lang="en">Chilli oil, broth, slurping</span><span lang="ar">زيت الفلفل والمرق الساخن</span></span></span><b class="n">4</b></a>
+    <a href="#sides"><span class="av"><i style="--c:#d9efc7"><svg><use href="#sm"/></svg></i></span><span class="tx"><span lang="en">Sides</span><span lang="ar">جانبية</span><span class="pv"><span lang="en">Cucumber, pancake, rice</span><span lang="ar">خيار، فطيرة، أرز</span></span></span><b class="n">4</b></a>
+    <a href="#sweet"><span class="av"><i style="--c:#f6dcec"><svg style="--f:#ffe9a8;--s:#e0b24a"><use href="#bao"/></svg></i></span><span class="tx"><span lang="en">Sweet</span><span lang="ar">حلو</span><span class="pv"><span lang="en">Custard lava incoming</span><span lang="ar">كاسترد يسيل كالحمم</span></span></span><b class="n">3</b></a>
+    <a href="#drinks"><span class="av"><i style="--c:#ffe6b0"><svg><use href="#cup"/></svg></i></span><span class="tx"><span lang="en">Drinks</span><span lang="ar">مشروبات</span><span class="pv"><span lang="en">Boba, fizz, tea</span><span lang="ar">بوبا، فوّار، شاي</span></span></span><b class="n">4</b></a>
+  </nav>
+</header>
+
+<main class="phone">
+  <div class="island" aria-hidden="true"></div>
+  <div class="chat-head">
+    <a class="home-link" href="../index.html"><svg viewBox="0 0 11 20" aria-hidden="true"><path d="M9 2L2 10l7 8"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <div class="who"><span class="avatar"><svg><use href="#face"/></svg></span><div><b><span lang="en">DM Dumplings</span><span lang="ar">دمبلنغ دي إم</span></b><em><span lang="en">online · steaming</span><span lang="ar">متصل · على البخار</span></em></div></div>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+
+  <div class="chat">
+    <div class="day"><span lang="en">Today</span><span lang="ar">اليوم</span></div>
+    <p class="m out"><span lang="en">hey, are you open?</span><span lang="ar">مرحبًا، هل أنتم فاتحون؟</span><time>12:04<svg><use href="#ticks"/></svg></time></p>
+    <p class="m in"><span lang="en">Always. Well — 11:30 till midnight.</span><span lang="ar">دائمًا. أو بالأحرى — من ١١:٣٠ حتى منتصف الليل.</span><time>12:04</time></p>
+    <p class="m in"><span lang="en">The steamers are already going. What are you craving?</span><span lang="ar">السلال على البخار منذ الصباح. ماذا تشتهون؟</span><time>12:04</time></p>
+    <p class="m out"><span lang="en">start me with the classics</span><span lang="ar">لنبدأ بالكلاسيكيات</span><time>12:05<svg><use href="#ticks"/></svg></time></p>
+
+    <h2 class="day" id="steamed"><b><span lang="en">Steamed</span><span lang="ar">بالبخار</span></b><i></i><span lang="en">baskets of 6</span><span lang="ar">السلّة ٦ حبّات</span></h2>
+
+    <article class="card t-steam">
+      <div class="ph"><svg viewBox="0 0 210 104"><use href="#cres" x="14" y="38" width="70" height="44"/><use href="#cres" x="126" y="38" width="70" height="44"/><use href="#cres" x="66" y="20" width="78" height="50" style="--f:#fff;--s:#f3a9a0"/></svg><span class="pin"><svg><use href="#star"/></svg><span lang="en">Pinned</span><span lang="ar">مثبّتة</span></span></div>
+      <div class="bd"><div class="row"><h3><span lang="en">Crystal prawn har gow</span><span lang="ar">هار غاو الروبيان الشفّاف</span></h3><b class="pr"><span lang="en">AED 32</span><span lang="ar">32 د.إ</span></b></div>
+        <p><span lang="en">A whole prawn and a sliver of bamboo shoot under a wrapper thin enough to read through.</span><span lang="ar">روبيانة كاملة وشريحة من براعم الخيزران داخل عجينة رقيقة تكاد تُقرأ من خلالها.</span></p>
+        <div class="meta"><span><span lang="en">6 pcs</span><span lang="ar">٦ حبّات</span></span><span><span lang="en">chef's pick</span><span lang="ar">اختيار الشيف</span></span></div></div>
+      <span class="rx"><svg><use href="#heart"/></svg>482</span>
+    </article>
+    <article class="card t-steam">
+      <div class="ph"><svg viewBox="0 0 210 104"><use href="#sm" x="18" y="34" width="52" height="52"/><use href="#sm" x="140" y="34" width="52" height="52"/><use href="#sm" x="75" y="22" width="60" height="60"/></svg></div>
+      <div class="bd"><div class="row"><h3><span lang="en">Chicken &amp; shiitake siu mai</span><span lang="ar">شو ماي الدجاج والشيتاكي</span></h3><b class="pr"><span lang="en">AED 28</span><span lang="ar">28 د.إ</span></b></div>
+        <p><span lang="en">Open-topped and juicy, hand-chopped thigh, mushroom, a dot of carrot on each.</span><span lang="ar">مفتوحة من الأعلى وغنيّة بالعصارة، بلحم فخذ الدجاج المفروم باليد والفطر، وفوق كل حبّة نقطة جزر.</span></p>
+        <div class="meta"><span><span lang="en">6 pcs</span><span lang="ar">٦ حبّات</span></span></div></div>
+      <span class="rx"><svg><use href="#heart"/></svg>301</span>
+    </article>
+    <article class="card t-steam">
+      <div class="ph"><svg viewBox="0 0 210 104"><use href="#bao" x="16" y="36" width="60" height="50"/><use href="#bao" x="134" y="36" width="60" height="50"/><use href="#bao" x="70" y="20" width="70" height="58"/></svg></div>
+      <div class="bd"><div class="row"><h3><span lang="en">Beef xiao long bao</span><span lang="ar">شياو لونغ باو باللحم البقري</span></h3><b class="pr"><span lang="en">AED 34</span><span lang="ar">34 د.إ</span></b></div>
+        <p><span lang="en">Soup dumplings: a spoonful of hot beef broth sealed inside. Nibble, sip, then eat. Black vinegar and ginger.</span><span lang="ar">دمبلنغ الحساء: ملعقة من مرق اللحم الساخن محبوسة في الداخل. اقضموا، ارتشفوا، ثم كلوا. مع الخل الأسود والزنجبيل.</span></p>
+        <div class="meta"><span><span lang="en">6 pcs</span><span lang="ar">٦ حبّات</span></span><span><span lang="en">careful, hot inside</span><span lang="ar">انتبهوا، ساخنة من الداخل</span></span></div></div>
+      <span class="rx fire"><svg><use href="#star"/></svg>377</span>
+    </article>
+    <article class="card t-steam">
+      <div class="ph"><svg viewBox="0 0 210 104" style="--f:#bfe6c4;--s:#5fae7a"><use href="#cres" x="14" y="38" width="70" height="44"/><use href="#cres" x="126" y="38" width="70" height="44"/><use href="#cres" x="66" y="20" width="78" height="50"/></svg></div>
+      <div class="bd"><div class="row"><h3><span lang="en">Jade spinach &amp; tofu</span><span lang="ar">دمبلنغ اليشم بالسبانخ والتوفو</span></h3><b class="pr"><span lang="en">AED 26</span><span lang="ar">26 د.إ</span></b></div>
+        <p><span lang="en">Spinach-juice wrappers, silken tofu, water chestnut for crunch, toasted sesame oil.</span><span lang="ar">عجينة بعصير السبانخ، توفو حريري، كستناء الماء للقرمشة، وزيت السمسم المحمّص.</span></p>
+        <div class="meta"><span><span lang="en">6 pcs</span><span lang="ar">٦ حبّات</span></span><span class="v"><span lang="en">vegan</span><span lang="ar">نباتي</span></span></div></div>
+      <span class="rx"><svg><use href="#heart"/></svg>164</span>
+    </article>
+
+    <p class="m out"><span lang="en">ok now something that crunches</span><span lang="ar">والآن شيء يقرمش</span><time>12:07<svg><use href="#ticks"/></svg></time></p>
+    <div class="typing" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <h2 class="day" id="fried"><b><span lang="en">Pan-fried</span><span lang="ar">على الصاج</span></b><i></i><span lang="en">seared, then steamed</span><span lang="ar">تُحمَّر ثم تُبخَّر</span></h2>
+
+    <article class="card t-fry">
+      <div class="ph"><svg viewBox="0 0 210 104" style="--b:#b9651b"><use href="#cres" x="14" y="36" width="70" height="44"/><use href="#cres" x="126" y="36" width="70" height="44"/><use href="#cres" x="66" y="22" width="78" height="50"/></svg><span class="pin"><svg><use href="#star"/></svg><span lang="en">Pinned</span><span lang="ar">مثبّتة</span></span></div>
+      <div class="bd"><div class="row"><h3><span lang="en">Beef &amp; chive potstickers</span><span lang="ar">بوت ستيكرز باللحم والثوم المعمّر</span></h3><b class="pr"><span lang="en">AED 30</span><span lang="ar">30 د.إ</span></b></div>
+        <p><span lang="en">Flipped out of the pan wearing a lacy, crackling skirt. Soy, vinegar and chilli crisp for dipping.</span><span lang="ar">تُقلب من المقلاة بتنّورة مخرّمة مقرمشة. للتغميس: صويا وخل ورقائق الفلفل.</span></p>
+        <div class="meta"><span><span lang="en">6 pcs</span><span lang="ar">٦ حبّات</span></span><span><span lang="en">chef's pick</span><span lang="ar">اختيار الشيف</span></span></div></div>
+      <span class="rx"><svg><use href="#heart"/></svg>455</span>
+    </article>
+    <article class="card t-fry">
+      <div class="ph"><svg viewBox="0 0 210 104" style="--b:#c98a2b;--f:#fff3c9"><use href="#cres" x="10" y="40" width="62" height="40"/><use href="#cres" x="74" y="40" width="62" height="40"/><use href="#cres" x="138" y="40" width="62" height="40"/></svg></div>
+      <div class="bd"><div class="row"><h3><span lang="en">Chicken &amp; sweetcorn gyoza</span><span lang="ar">غيوزا الدجاج والذرة</span></h3><b class="pr"><span lang="en">AED 27</span><span lang="ar">27 د.إ</span></b></div>
+        <p><span lang="en">The gentle one. Ginger, spring onion, pops of sweetcorn; kids steal them.</span><span lang="ar">ألطف ما في القائمة. زنجبيل وبصل أخضر وحبّات ذرة حلوة؛ يخطفها الأطفال.</span></p>
+        <div class="meta"><span><span lang="en">6 pcs</span><span lang="ar">٦ حبّات</span></span></div></div>
+      <span class="rx"><svg><use href="#heart"/></svg>212</span>
+    </article>
+    <article class="card t-fry">
+      <div class="ph"><svg viewBox="0 0 210 104" style="--f:#f6d9a6;--s:#b9792b"><use href="#bao" x="16" y="36" width="60" height="50"/><use href="#bao" x="134" y="36" width="60" height="50"/><use href="#bao" x="70" y="20" width="70" height="58"/></svg></div>
+      <div class="bd"><div class="row"><h3><span lang="en">Sheng jian bao</span><span lang="ar">شنغ جيان باو</span></h3><b class="pr"><span lang="en">AED 33</span><span lang="ar">33 د.إ</span></b></div>
+        <p><span lang="en">Fluffy buns with a soupy beef middle and a crunchy golden base, showered in sesame.</span><span lang="ar">خبز هشّ بقلب من اللحم البقري ومرقه وقاعدة ذهبية مقرمشة، مرشوش بالسمسم.</span></p>
+        <div class="meta"><span><span lang="en">4 pcs</span><span lang="ar">٤ حبّات</span></span></div></div>
+      <span class="rx fire"><svg><use href="#star"/></svg>298</span>
+    </article>
+    <article class="card t-fry">
+      <div class="ph"><svg viewBox="0 0 210 104" style="--b:#c0441b;--f:#ffd9c9;--s:#e2836a"><use href="#cres" x="14" y="36" width="70" height="44"/><use href="#cres" x="126" y="36" width="70" height="44"/><use href="#cres" x="66" y="22" width="78" height="50"/></svg></div>
+      <div class="bd"><div class="row"><h3><span lang="en">Kimchi &amp; glass-noodle mandu</span><span lang="ar">ماندو الكيمتشي والشعيرية الزجاجية</span></h3><b class="pr"><span lang="en">AED 28</span><span lang="ar">28 د.إ</span></b></div>
+        <p><span lang="en">House kimchi, sweet-potato noodles and tofu. Tangy, a bit fiery, entirely plant-based.</span><span lang="ar">كيمتشي من صنعنا مع شعيرية البطاطا الحلوة والتوفو. حامض، حارّ قليلًا، ونباتي بالكامل.</span></p>
+        <div class="meta"><span><span lang="en">6 pcs</span><span lang="ar">٦ حبّات</span></span><span class="v"><span lang="en">vegan</span><span lang="ar">نباتي</span></span><span><span class="heat" data-h="2"><i></i><i></i><i></i></span></span></div></div>
+      <span class="rx"><svg><use href="#heart"/></svg>189</span>
+    </article>
+
+    <div class="m out voice"><i class="play"></i><i class="wave"></i><span>0:07</span></div>
+    <p class="m out"><span lang="en">(that was me asking how spicy "spicy" is)</span><span lang="ar">(كنت أسأل: «حارّ» عندكم يعني حارّ إلى أيّ حدّ؟)</span><time>12:10<svg><use href="#ticks"/></svg></time></p>
+    <div class="m in"><span lang="en">Fair question. Our scale:</span><span lang="ar">سؤال في محلّه. هذا مقياسنا:</span>
+      <div class="scale">
+        <div><span class="heat" data-h="1"><i></i><i></i><i></i></span><span lang="en">a friendly tingle</span><span lang="ar">وخزة لطيفة</span></div>
+        <div><span class="heat" data-h="2"><i></i><i></i><i></i></span><span lang="en">you'll want a drink</span><span lang="ar">ستحتاجون مشروبًا</span></div>
+        <div><span class="heat" data-h="3"><i></i><i></i><i></i></span><span lang="en">Sichuan numbing, no refunds</span><span lang="ar">خَدَر سيتشواني، ولا تراجع</span></div>
+      </div><time>12:10</time></div>
+
+    <h2 class="day" id="soup"><b><span lang="en">Soupy &amp; saucy</span><span lang="ar">بالمرق والصلصة</span></b><i></i><span lang="en">bring a spoon</span><span lang="ar">أحضروا ملعقة</span></h2>
+
+    <article class="card t-soup">
+      <div class="ph"><svg viewBox="0 0 210 104"><use href="#bowl" x="45" y="10" width="120" height="84"/></svg><span class="pin"><svg><use href="#star"/></svg><span lang="en">Pinned</span><span lang="ar">مثبّتة</span></span></div>
+      <div class="bd"><div class="row"><h3><span lang="en">Sichuan chilli-oil wontons</span><span lang="ar">ونتون بزيت الفلفل السيتشواني</span></h3><b class="pr"><span lang="en">AED 31</span><span lang="ar">31 د.إ</span></b></div>
+        <p><span lang="en">Silky chicken-and-prawn wontons sitting in red oil, black vinegar, garlic and crushed peanuts.</span><span lang="ar">ونتون حريري بالدجاج والروبيان يسبح في زيت أحمر مع الخل الأسود والثوم والفول السوداني المجروش.</span></p>
+        <div class="meta"><span><span lang="en">8 pcs</span><span lang="ar">٨ حبّات</span></span><span><span class="heat" data-h="3"><i></i><i></i><i></i></span></span></div></div>
+      <span class="rx fire"><svg><use href="#star"/></svg>521</span>
+    </article>
+    <ul class="list">
+      <li><div class="row"><h3><span lang="en">Wonton noodle soup</span><span lang="ar">حساء الونتون بالنودلز</span></h3><b class="pr"><span lang="en">AED 36</span><span lang="ar">36 د.إ</span></b></div><p><span lang="en">Clear chicken broth simmered for eight hours, thin egg noodles, bok choy, five wontons.</span><span lang="ar">مرق دجاج صافٍ يُطهى ثماني ساعات، نودلز بيض رفيعة، بوك تشوي، وخمس حبّات ونتون.</span></p></li>
+      <li><div class="row"><h3><span lang="en">Hot &amp; sour dumpling soup</span><span lang="ar">حساء الدمبلنغ الحارّ الحامض</span></h3><b class="pr"><span lang="en">AED 29</span><span lang="ar">29 د.إ</span></b></div><p><span lang="en">White pepper heat, vinegar tang, wood-ear mushroom, egg ribbons and vegetable dumplings.</span><span lang="ar">لذعة الفلفل الأبيض وحموضة الخل، مع فطر أذن الخشب وخيوط البيض ودمبلنغ الخضار.</span></p><div class="meta"><span><span class="heat" data-h="2"><i></i><i></i><i></i></span></span></div></li>
+      <li><div class="row"><h3><span lang="en">Lamb &amp; cumin in garlic yoghurt</span><span lang="ar">دمبلنغ الضأن والكمّون باللبن والثوم</span></h3><b class="pr"><span lang="en">AED 34</span><span lang="ar">34 د.إ</span></b></div><p><span lang="en">Our Silk Road one: boiled lamb dumplings, cold garlicky yoghurt, sizzling chilli butter.</span><span lang="ar">تحيّتنا لطريق الحرير: دمبلنغ ضأن مسلوق، لبن بارد بالثوم، وزبدة فلفل تئزّ فوقه.</span></p><div class="meta"><span><span class="heat" data-h="1"><i></i><i></i><i></i></span></span></div></li>
+    </ul>
+
+    <p class="m out"><span lang="en">we're four people btw</span><span lang="ar">بالمناسبة، نحن أربعة</span><time>12:14<svg><use href="#ticks"/></svg></time></p>
+    <p class="m in"><span lang="en">Then you want the group chat.</span><span lang="ar">إذن تريدون «المجموعة».</span><time>12:14</time></p>
+    <div class="poll">
+      <h3><span lang="en">The Group Chat box</span><span lang="ar">علبة «المجموعة»</span></h3>
+      <p><span lang="en">24 dumplings, any four flavours, two sides. What regulars put in it:</span><span lang="ar">٢٤ حبّة من أربع نكهات تختارونها، مع طبقين جانبيين. وهذا ما يختاره زبائننا الدائمون:</span></p>
+      <ul>
+        <li style="--w:86%"><span lang="en">Har gow</span><span lang="ar">هار غاو</span><span>86%</span></li>
+        <li style="--w:74%"><span lang="en">Potstickers</span><span lang="ar">بوت ستيكرز</span><span>74%</span></li>
+        <li style="--w:61%"><span lang="en">Xiao long bao</span><span lang="ar">شياو لونغ باو</span><span>61%</span></li>
+        <li style="--w:48%"><span lang="en">Chilli-oil wontons</span><span lang="ar">ونتون زيت الفلفل</span><span>48%</span></li>
+      </ul>
+      <div class="tot"><span><span lang="en">feeds 3–4</span><span lang="ar">تكفي ٣–٤ أشخاص</span></span><b class="pr"><span lang="en">AED 119</span><span lang="ar">119 د.إ</span></b></div>
+      <span class="rx"><svg><use href="#heart"/></svg>1.2k</span>
+    </div>
+
+    <h2 class="day" id="sides"><b><span lang="en">Sides</span><span lang="ar">أطباق جانبية</span></b><i></i><span lang="en">for the table</span><span lang="ar">لوسط الطاولة</span></h2>
+    <ul class="list">
+      <li><div class="row"><h3><span lang="en">Smashed cucumber</span><span lang="ar">خيار مهروس</span></h3><b class="pr"><span lang="en">AED 16</span><span lang="ar">16 د.إ</span></b></div><p><span lang="en">Bashed, not sliced. Garlic, black vinegar, sesame, a little chilli.</span><span lang="ar">يُهرس ولا يُقطَّع. ثوم وخل أسود وسمسم وقليل من الفلفل.</span></p></li>
+      <li><div class="row"><h3><span lang="en">Scallion pancake</span><span lang="ar">فطيرة البصل الأخضر</span></h3><b class="pr"><span lang="en">AED 18</span><span lang="ar">18 د.إ</span></b></div><p><span lang="en">Flaky, layered, pan-crisped; tear it and dunk it.</span><span lang="ar">مورّقة بطبقات ومحمّرة على الصاج؛ مزّقوها وغمّسوها.</span></p></li>
+      <li><div class="row"><h3><span lang="en">Edamame, chilli salt</span><span lang="ar">إدامامي بملح الفلفل</span></h3><b class="pr"><span lang="en">AED 14</span><span lang="ar">14 د.إ</span></b></div><p><span lang="en">Warm pods tossed with Sichuan pepper salt and lime.</span><span lang="ar">قرون دافئة مقلّبة بملح الفلفل السيتشواني والليمون الأخضر.</span></p></li>
+      <li><div class="row"><h3><span lang="en">Egg fried rice</span><span lang="ar">أرز مقلي بالبيض</span></h3><b class="pr"><span lang="en">AED 19</span><span lang="ar">19 د.إ</span></b></div><p><span lang="en">Day-old jasmine rice, wok smoke, spring onion, white pepper.</span><span lang="ar">أرز ياسمين بائت، نكهة دخان الووك، بصل أخضر وفلفل أبيض.</span></p></li>
+    </ul>
+
+    <p class="m out"><span lang="en">don't let me leave without dessert</span><span lang="ar">لا تدعوني أخرج بلا حلوى</span><time>12:19<svg><use href="#ticks"/></svg></time></p>
+    <h2 class="day" id="sweet"><b><span lang="en">Sweet</span><span lang="ar">حلو</span></b><i></i><span lang="en">yes, dessert dumplings</span><span lang="ar">نعم، دمبلنغ للتحلية</span></h2>
+    <article class="card t-sweet">
+      <div class="ph"><svg viewBox="0 0 210 104" style="--f:#ffe9a8;--s:#e0b24a"><use href="#bao" x="16" y="36" width="60" height="50"/><use href="#bao" x="134" y="36" width="60" height="50"/><use href="#bao" x="70" y="20" width="70" height="58"/></svg><span class="pin"><svg><use href="#star"/></svg><span lang="en">Pinned</span><span lang="ar">مثبّتة</span></span></div>
+      <div class="bd"><div class="row"><h3><span lang="en">Custard lava bao</span><span lang="ar">باو الكاسترد السائل</span></h3><b class="pr"><span lang="en">AED 22</span><span lang="ar">22 د.إ</span></b></div>
+        <p><span lang="en">Steamed golden buns that spill warm salted-egg custard the second you tear them.</span><span lang="ar">خبز ذهبي مبخّر يسيل منه كاسترد صفار البيض المملّح الدافئ لحظة تمزيقه.</span></p>
+        <div class="meta"><span><span lang="en">3 pcs</span><span lang="ar">٣ حبّات</span></span></div></div>
+      <span class="rx"><svg><use href="#heart"/></svg>640</span>
+    </article>
+    <ul class="list">
+      <li><div class="row"><h3><span lang="en">Chocolate-hazelnut potstickers</span><span lang="ar">بوت ستيكرز الشوكولاتة والبندق</span></h3><b class="pr"><span lang="en">AED 24</span><span lang="ar">24 د.إ</span></b></div><p><span lang="en">Seared crisp, dusted with sugar, a scoop of vanilla ice cream melting alongside.</span><span lang="ar">محمّرة ومرشوشة بالسكّر، وبجانبها كرة آيس كريم فانيلا تذوب.</span></p></li>
+      <li><div class="row"><h3><span lang="en">Sesame balls</span><span lang="ar">كرات السمسم</span></h3><b class="pr"><span lang="en">AED 20</span><span lang="ar">20 د.إ</span></b></div><p><span lang="en">Chewy rice-flour puffs filled with red bean, rolled in sesame, fried till hollow.</span><span lang="ar">كرات مطّاطية من دقيق الأرز محشوّة بالفاصولياء الحمراء، مغطّاة بالسمسم ومقلية حتى تنتفخ.</span></p></li>
+    </ul>
+
+    <h2 class="day" id="drinks"><b><span lang="en">Drinks</span><span lang="ar">مشروبات</span></b><i></i><span lang="en">shared album · 4</span><span lang="ar">ألبوم مشترك · ٤</span></h2>
+    <div class="album">
+      <div class="tile" style="--tc:#f3e1c8"><svg><use href="#cup"/></svg><h3><span lang="en">Brown sugar boba</span><span lang="ar">بوبا السكّر البنّي</span></h3><p><span lang="en">Fresh milk, tiger-stripe syrup, warm pearls.</span><span lang="ar">حليب طازج وخطوط شراب السكّر ولآلئ دافئة.</span></p><b class="pr"><span lang="en">AED 21</span><span lang="ar">21 د.إ</span></b></div>
+      <div class="tile" style="--tc:#ffe0e6"><svg style="--f:#ffb3c4;--d:#fff;--st:#2f9e77"><use href="#cup"/></svg><h3><span lang="en">Lychee rose fizz</span><span lang="ar">فوّار الليتشي والورد</span></h3><p><span lang="en">Lychee, rose water, soda, popping pearls.</span><span lang="ar">ليتشي وماء ورد وصودا ولآلئ تنفجر في الفم.</span></p><b class="pr"><span lang="en">AED 19</span><span lang="ar">19 د.إ</span></b></div>
+      <div class="tile" style="--tc:#e6f2c9"><svg style="--f:#d7e88f;--d:#f6b93b;--st:#1d1714"><use href="#cup"/></svg><h3><span lang="en">Iced jasmine yuzu</span><span lang="ar">ياسمين مثلّج باليوزو</span></h3><p><span lang="en">Cold-brewed jasmine tea, yuzu, honey.</span><span lang="ar">شاي ياسمين منقوع على البارد مع اليوزو والعسل.</span></p><b class="pr"><span lang="en">AED 16</span><span lang="ar">16 د.إ</span></b></div>
+      <div class="tile" style="--tc:#ffe7bd"><svg style="--f:#f2b55a;--d:transparent;--st:#e2331f"><use href="#cup"/></svg><h3><span lang="en">Ginger lemongrass pot</span><span lang="ar">إبريق الزنجبيل وعشبة الليمون</span></h3><p><span lang="en">Hot, sharp, good after chilli oil. For two.</span><span lang="ar">ساخن ولاذع، ممتاز بعد زيت الفلفل. يكفي اثنين.</span></p><b class="pr"><span lang="en">AED 15</span><span lang="ar">15 د.إ</span></b></div>
+    </div>
+
+    <p class="m out"><span lang="en">sold. where are you exactly?</span><span lang="ar">اقتنعت. أين أنتم بالضبط؟</span><time>12:23<svg><use href="#ticks"/></svg></time></p>
+    <div class="loc">
+      <svg viewBox="0 0 320 130" aria-hidden="true"><rect width="320" height="130" fill="#e9efe0"/><path d="M0 92h320M0 38h320M70 0v130M210 0v130" stroke="#fff" stroke-width="13"/><path d="M0 130L130 0" stroke="#ffe3a6" stroke-width="16"/><rect x="88" y="52" width="46" height="28" rx="4" fill="#d5dfc6"/><rect x="226" y="50" width="70" height="30" rx="4" fill="#d5dfc6"/><rect x="226" y="104" width="50" height="26" rx="4" fill="#cfe3f2"/><rect x="10" y="6" width="44" height="22" rx="4" fill="#d5dfc6"/><path d="M160 26c-13 0-22 10-22 21 0 15 22 35 22 35s22-20 22-35c0-11-9-21-22-21z" fill="#ff4a36"/><circle cx="160" cy="47" r="9" fill="#fff"/></svg>
+      <div><b><span lang="en">DM Dumplings</span><span lang="ar">دمبلنغ دي إم</span></b><span lang="en">Warehouse 7, Street 4B, Al Quoz 1, Dubai</span><span lang="ar">المستودع ٧، شارع ٤ب، القوز ١، دبي</span></div>
+    </div>
+    <p class="m in"><span lang="en">Red door, steam on the windows. See you in a bit.</span><span lang="ar">باب أحمر وبخار على الزجاج. نراكم بعد قليل.</span><time>12:23</time></p>
+    <p class="m out"><span lang="en">omw</span><span lang="ar">في الطريق</span><time>12:24<svg><use href="#ticks"/></svg></time></p>
+  </div>
+  <div class="composer" aria-hidden="true"><i class="plus"></i><span class="field"><span lang="en">Say it at the counter…</span><span lang="ar">قولوها عند المنضدة…</span></span><i class="send"><svg viewBox="0 0 24 24"><path d="M3 20l19-8L3 4v6l12 2-12 2z"/></svg></i></div>
+</main>
+
+<footer class="info">
+  <span class="big"><svg><use href="#face"/></svg></span>
+  <div><h2><span lang="en">DM Dumplings</span><span lang="ar">دمبلنغ دي إم</span></h2><p class="st"><span lang="en">Dumpling bar · 12 seats · folding since 2019</span><span lang="ar">مطعم دمبلنغ · ١٢ مقعدًا · نطوي منذ ٢٠١٩</span></p></div>
+  <div class="acts">
+    <span><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><span lang="en">Call</span><span lang="ar">اتصال</span></span>
+    <span><svg viewBox="0 0 24 24"><path d="M12 21s7-6.500 7-12a7 7 0 10-14 0c0 5.500 7 12 7 12z"/><circle cx="12" cy="9" r="2.500"/></svg><span lang="en">Map</span><span lang="ar">الخريطة</span></span>
+    <span><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg><span lang="en">Takeaway</span><span lang="ar">سفري</span></span>
+  </div>
+  <ul class="rows">
+    <li><small><span lang="en">Hours</span><span lang="ar">ساعات العمل</span></small><span class="l"><span lang="en">Every day 11:30 am – midnight. Last basket 11:30 pm.</span><span lang="ar">يوميًا من ١١:٣٠ صباحًا حتى منتصف الليل. آخر سلّة ١١:٣٠ مساءً.</span></span></li>
+    <li><small><span lang="en">Address</span><span lang="ar">العنوان</span></small><span class="l"><span lang="en">Warehouse 7, Street 4B, Al Quoz 1, Dubai</span><span lang="ar">المستودع ٧، شارع ٤ب، القوز ١، دبي</span></span></li>
+    <li><small><span lang="en">Phone</span><span lang="ar">الهاتف</span></small><span class="l" dir="ltr">+971 4 555 0172</span></li>
+    <li><small><span lang="en">Allergens</span><span lang="ar">مسبّبات الحساسية</span></small><span class="l"><span lang="en">Wrappers contain wheat; many fillings contain soy, sesame, egg, shellfish or peanuts. Tell us and we'll steer you right. All meat is halal; no alcohol in the kitchen.</span><span lang="ar">العجينة تحتوي على القمح، وكثير من الحشوات فيه صويا أو سمسم أو بيض أو قشريات أو فول سوداني. أخبرونا لنرشدكم إلى ما يناسبكم. جميع اللحوم حلال ولا كحول في مطبخنا.</span></span></li>
+  </ul>
+  <div class="media" aria-hidden="true">
+    <i style="--c:#dff0e4"><svg viewBox="0 0 70 44"><use href="#cres"/></svg></i>
+    <i style="--c:#ffd4cb"><svg viewBox="0 0 80 56"><use href="#bowl"/></svg></i>
+    <i style="--c:#ffe6b0"><svg viewBox="0 0 60 50"><use href="#bao"/></svg></i>
+  </div>
+  <p class="fine"><span lang="en">Prices in UAE dirhams, VAT included. Dumplings are made fresh daily, so favourites do sell out.</span><span lang="ar">الأسعار بالدرهم الإماراتي وتشمل ضريبة القيمة المضافة. نصنع الدمبلنغ طازجًا كل يوم، لذا قد تنفد الأصناف المحبوبة.</span></p>
+</footer>
+
+</div>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

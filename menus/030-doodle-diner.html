@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Doodle Diner · مطعم الشخبطة</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Doodle Diner — a kids' menu you can colour in: mini burgers, rainbow pasta, build-a-sundae and a free box of crayons. مطعم الشخبطة — قائمة أطفال تُلوَّن بالألوان.">
+<meta name="theme-color" content="#ffc928">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Marhey:wght@500;700&family=Patrick+Hand&family=Playpen+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--paper:#fffdf4;--k:#2b2b2b;--red:#e8402a;--blue:#2f6fe4;--yel:#ffc928;--grn:#3fae49;--org:#ff8a1f;--pur:#8d4bd6;--pnk:#ff6fa8;--pick:#e8402a;
+  --wob:14px 24px 12px 28px/24px 12px 28px 14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Patrick Hand","Comic Sans MS","Chalkboard SE",cursive;font-size:1.28rem;line-height:1.3;color:var(--k);background:var(--paper);overflow-x:clip;
+  background-image:radial-gradient(rgba(60,40,0,.05) 1px,transparent 1.2px),radial-gradient(rgba(60,40,0,.04) 1px,transparent 1.2px);background-size:7px 7px,11px 11px;background-position:0 0,3px 5px}
+html[lang="ar"] body{font-family:"Playpen Sans Arabic","Tahoma",sans-serif;font-size:1.1rem;line-height:1.75}
+html[lang="ar"] *{letter-spacing:0 !important}
+h1,h2,.sk{font-family:"Cabin Sketch","Patrick Hand",cursive;font-weight:700}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] .sk{font-family:"Marhey","Playpen Sans Arabic",sans-serif;font-weight:700}
+a{color:inherit}
+ul{list-style:none}
+svg{display:block;overflow:visible}
+.defs{position:absolute;width:0;height:0}
+.d{fill:none;stroke:var(--k);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;filter:url(#wob)}
+.ink{fill:#fff;cursor:pointer;transition:fill .25s}
+.ink:hover{fill:#fff3c4}
+.nf{fill:var(--k);stroke:none}
+
+/* crayon tray */
+.tray{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:.5rem;padding:.4rem clamp(.5rem,2.5vw,1.6rem) .5rem;background:var(--yel);border-bottom:4px solid var(--k);border-radius:0 0 26px 18px/0 0 10px 14px}
+.home-link,#langToggle{font:inherit;font-size:1.1rem;line-height:1;min-height:40px;padding:.2rem .8rem;background:#fff;color:var(--k);border:3px solid var(--k);border-radius:var(--wob);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;white-space:nowrap;box-shadow:3px 3px 0 var(--k)}
+#langToggle{background:var(--blue);color:#fff}
+#langToggle [lang="ar"]{font-family:"Playpen Sans Arabic",sans-serif;font-weight:600;font-size:1rem}
+#langToggle [lang="en"]{font-family:"Patrick Hand",cursive;font-size:1.2rem}
+.home-link:hover,#langToggle:hover,.home-link:focus-visible,#langToggle:focus-visible{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--k);outline:none}
+.home-link svg{width:18px;height:18px;flex:none}
+.box{margin-inline:auto;display:flex;align-items:flex-end;gap:clamp(2px,.8vw,7px);height:44px;padding:0 .3rem}
+.cr{width:clamp(20px,5.4vw,28px);height:40px;border:0;background:var(--c);cursor:pointer;clip-path:polygon(50% 0,78% 22%,78% 30%,100% 30%,100% 100%,0 100%,0 30%,22% 30%,22% 22%);transition:transform .2s;position:relative}
+.cr::after{content:"";position:absolute;inset:52% 0 18% 0;background:rgba(0,0,0,.22)}
+.cr:hover,.cr:focus-visible{transform:translateY(-4px);outline:none}
+.cr[aria-pressed="true"]{transform:translateY(-10px) rotate(-6deg)}
+
+/* hero */
+.hero{position:relative;max-width:1360px;margin-inline:auto;padding:clamp(1.4rem,4vw,3.5rem) clamp(1rem,4vw,3rem) 1rem;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:1rem 2rem;align-items:center}
+.hi{font-size:1.3rem;display:inline-block;background:var(--pnk);color:#fff;padding:.1rem 1rem;border:3px solid var(--k);border-radius:var(--wob);transform:rotate(-3deg)}
+h1{font-size:clamp(3.6rem,10.4vw,9rem);line-height:.92;margin:.25em 0 .15em}
+h1 [lang="en"]{display:block}
+h1 b{display:inline-block;font-weight:700}
+h1 b:nth-child(7n+1){color:var(--red);transform:rotate(-6deg)}
+h1 b:nth-child(7n+2){color:var(--org);transform:rotate(4deg) translateY(.04em)}
+h1 b:nth-child(7n+3){color:var(--grn);transform:rotate(-3deg)}
+h1 b:nth-child(7n+4){color:var(--blue);transform:rotate(5deg) translateY(-.03em)}
+h1 b:nth-child(7n+5){color:var(--pur);transform:rotate(-4deg)}
+h1 b:nth-child(7n+6){color:var(--pnk);transform:rotate(3deg) translateY(.05em)}
+h1 b:nth-child(7n){color:var(--red);transform:rotate(-2deg)}
+html[lang="ar"] h1{font-size:clamp(3.2rem,9vw,7.6rem);line-height:1.25;margin:.2em 0 .1em}
+h1 [lang="ar"] i{font-style:normal;display:inline-block;color:var(--red);transform:rotate(-3deg)}
+h1 [lang="ar"] i+i{color:var(--blue);transform:rotate(2deg)}
+.tag{font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.2;position:relative;display:inline-block;padding-bottom:.5rem}
+.tag svg{position:absolute;inset-inline:0;bottom:-6px;width:100%;height:16px}
+.intro{margin-top:1rem;max-width:30em;font-size:1.3rem}
+html[lang="ar"] .intro{font-size:1.12rem}
+.scene{position:relative;min-height:340px}
+.scene .sun{position:absolute;top:-10px;inset-inline-end:0;width:clamp(110px,13vw,170px)}
+.scene .cloud{position:absolute;top:42px;inset-inline-start:2%;width:clamp(110px,13vw,170px)}
+.scene .mon{width:min(100%,360px);margin:60px auto 0}
+.bub{position:absolute;inset-inline-start:0;bottom:8%;background:#fff;border:3px solid var(--k);border-radius:var(--wob);padding:.3rem .9rem;transform:rotate(-5deg);font-size:1.25rem;box-shadow:3px 3px 0 var(--k);max-width:11rem;text-align:center}
+html[lang="ar"] .bub{font-size:1.05rem}
+
+/* jump links */
+.jump{max-width:1360px;margin-inline:auto;padding:1rem clamp(1rem,4vw,3rem) 0;display:flex;flex-wrap:wrap;gap:.7rem}
+.jump a{text-decoration:none;font-size:1.3rem;padding:.25rem 1.1rem;min-height:44px;display:inline-flex;align-items:center;border:3px solid var(--k);border-radius:var(--wob);background:var(--c);color:#fff;box-shadow:3px 3px 0 var(--k)}
+html[lang="ar"] .jump a{font-size:1.1rem}
+.jump a:nth-child(odd){transform:rotate(-2deg)} .jump a:nth-child(even){transform:rotate(2deg)}
+.jump a.dk{color:var(--k)}
+
+/* placemat */
+main{max-width:1360px;margin-inline:auto;padding:clamp(1.5rem,3vw,2.5rem) clamp(.7rem,4vw,3rem) 2rem;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(1.4rem,3vw,2.6rem);align-items:start}
+.isl{--c:var(--red);position:relative;padding:clamp(1.5rem,3vw,2.4rem) clamp(1.3rem,3vw,2.4rem) clamp(1.4rem,3vw,2.2rem);scroll-margin-top:5rem;border-radius:34px;
+  background:repeating-linear-gradient(-52deg,transparent 0 9px,color-mix(in srgb,var(--c) 9%,transparent) 9px 12px)}
+.fr{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.fr rect{fill:none;stroke:var(--c);stroke-width:6;stroke-linecap:round;filter:url(#cray);x:5px;y:5px;width:calc(100% - 10px);height:calc(100% - 10px);rx:30px}
+.fr rect+rect{stroke-width:3;x:10px;y:9px;width:calc(100% - 17px);height:calc(100% - 19px);rx:26px;opacity:.75}
+#big{grid-column:1/9;transform:rotate(-.5deg)}
+#nib{grid-column:9/13;--c:var(--grn);transform:rotate(.8deg);margin-top:2.4rem}
+#box{grid-column:1/13}
+#swt{grid-column:1/7;--c:var(--pur);transform:rotate(.6deg)}
+#sip{grid-column:7/13;--c:var(--blue);transform:rotate(-.7deg);margin-top:2.6rem}
+.ih{display:flex;align-items:center;gap:1rem;margin-bottom:.6rem}
+.ih .pic{flex:none;width:clamp(92px,11vw,136px)}
+.ih .pic svg{width:100%;height:auto}
+h2{font-size:clamp(2.3rem,4.6vw,3.6rem);line-height:1;color:var(--c);position:relative;display:inline-block}
+html[lang="ar"] h2{font-size:clamp(2rem,4vw,3rem);line-height:1.4}
+.ih p{font-size:1.2rem;margin-top:.2rem}
+html[lang="ar"] .ih p{font-size:1.05rem}
+.list{display:grid;gap:0 2.2rem}
+#big .list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.it{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 .8rem;align-items:center;padding:.8rem 0;border-bottom:3px dashed color-mix(in srgb,var(--c) 55%,transparent)}
+.list .it:last-child{border-bottom:0}
+#big .list .it:nth-last-child(2):nth-child(odd){border-bottom:0}
+.it h3{font-family:inherit;font-weight:400;font-size:1.62rem;line-height:1.1}
+html[lang="ar"] .it h3{font-weight:600;font-size:1.3rem;line-height:1.5}
+.it p{grid-column:1;font-size:1.18rem;color:#4a4a4a}
+html[lang="ar"] .it p{font-size:1.02rem}
+.pr{grid-row:1/3;grid-column:2;position:relative;width:4.5rem;height:4.5rem;display:grid;place-items:center;font-family:"Patrick Hand",cursive;font-weight:400;font-size:1.45rem;color:var(--k);unicode-bidi:isolate;direction:ltr}
+.pr svg{position:absolute;inset:0;width:100%;height:100%}
+.pr svg circle{fill:none;stroke:var(--c);stroke-width:4;filter:url(#cray)}
+.pr span{position:relative}
+.st{display:inline-block;font-size:1.02rem;line-height:1.2;padding:0 .55rem;border:2px solid var(--k);border-radius:var(--wob);vertical-align:middle;margin-inline-start:.35rem;background:var(--yel);transform:rotate(-3deg)}
+html[lang="ar"] .st{font-size:.85rem;font-weight:400;line-height:1.6}
+.st.v{background:#c9f2c4}
+
+/* doodle box */
+.note{position:relative;background:#fff;border:4px solid var(--k);border-radius:22px 30px 20px 34px/30px 20px 34px 22px;box-shadow:7px 7px 0 var(--k);padding:clamp(1.4rem,3vw,2.2rem) clamp(1.2rem,4vw,3rem) clamp(1.4rem,3vw,2.2rem) clamp(3.2rem,7vw,6rem);
+  background-image:linear-gradient(90deg,transparent calc(clamp(2.4rem,5vw,4.4rem) - 2px),#ff9aa8 0,#ff9aa8 clamp(2.4rem,5vw,4.4rem),transparent 0),repeating-linear-gradient(transparent 0 2.35rem,#b9d4ff 2.35rem calc(2.35rem + 2px));
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem 2rem;align-items:center}
+[dir="rtl"] .note{padding:clamp(1.4rem,3vw,2.2rem) clamp(3.2rem,7vw,6rem) clamp(1.4rem,3vw,2.2rem) clamp(1.2rem,4vw,3rem);background-image:linear-gradient(270deg,transparent calc(clamp(2.4rem,5vw,4.4rem) - 2px),#ff9aa8 0,#ff9aa8 clamp(2.4rem,5vw,4.4rem),transparent 0),repeating-linear-gradient(transparent 0 2.35rem,#b9d4ff 2.35rem calc(2.35rem + 2px))}
+.note::before{content:"";position:absolute;inset-block:12%;inset-inline-start:clamp(.6rem,1.6vw,1.4rem);width:18px;background:radial-gradient(circle,var(--paper) 0 7px,var(--k) 7.5px 9px,transparent 9.5px) 50% 0/18px 33.33% repeat-y}
+.note h2{color:var(--org);font-size:clamp(2.4rem,5.4vw,4.2rem)}
+.steps{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .7rem;margin:.6rem 0;font-size:1.45rem}
+html[lang="ar"] .steps{font-size:1.15rem}
+.steps>span{background:var(--c);color:#fff;border:3px solid var(--k);border-radius:var(--wob);padding:.05rem .9rem}
+.steps>span.dk{color:var(--k)}
+.steps em{font-style:normal;font-family:"Cabin Sketch",cursive;font-size:1.8rem}
+.note .tot{position:relative;width:clamp(8.5rem,16vw,11.5rem);aspect-ratio:1;display:grid;place-items:center;text-align:center;transform:rotate(8deg)}
+.note .tot svg{position:absolute;inset:0;width:100%;height:100%}
+.note .tot div{position:relative;line-height:1}
+.note .tot b{display:block;font-family:"Cabin Sketch",cursive;font-size:clamp(1.9rem,3.2vw,2.3rem);unicode-bidi:isolate;direction:ltr}
+.note .tot small{font-size:1.05rem}
+
+/* grass footer */
+footer{position:relative;margin-top:3rem;padding:0 clamp(1rem,4vw,3rem) 2.4rem}
+.grass{height:70px;margin-inline:calc(-1 * clamp(1rem,4vw,3rem));overflow:hidden}
+.grass svg{width:100%;height:100%}
+.notes{max-width:1260px;margin:1rem auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem}
+.sticky{padding:1.1rem 1.2rem 1.3rem;border:3px solid var(--k);box-shadow:5px 5px 0 rgba(0,0,0,.18);background:var(--c);border-radius:4px 4px 30px 4px/4px 4px 14px 4px}
+.sticky:nth-child(1){transform:rotate(-2deg)} .sticky:nth-child(2){transform:rotate(1.5deg)} .sticky:nth-child(3){transform:rotate(-1deg)}
+.sticky h3{font-family:"Cabin Sketch",cursive;font-size:1.7rem;line-height:1.1;margin-bottom:.3rem}
+html[lang="ar"] .sticky h3{font-family:"Marhey",sans-serif;font-size:1.4rem;line-height:1.5}
+.sticky b{font-weight:400;unicode-bidi:isolate;direction:ltr;display:inline-block}
+html[lang="ar"] .sticky b{font-family:"Patrick Hand",cursive;font-size:1.3rem}
+.bye{text-align:center;margin-top:2rem;font-size:1.3rem}
+
+@media (max-width:1000px){
+  #big,#nib,#swt,#sip{grid-column:1/13;margin-top:0}
+  .notes{grid-template-columns:1fr;max-width:30rem}
+}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr}
+  .scene{min-height:0;height:250px;order:-1}
+  .scene .mon{width:210px;margin-top:30px}
+  .bub{inset-inline-start:2%;bottom:4%}
+  #big .list{grid-template-columns:1fr}
+  #big .list .it:nth-last-child(2):nth-child(odd){border-bottom:3px dashed color-mix(in srgb,var(--c) 55%,transparent)}
+  .isl{transform:none !important}
+  .note{grid-template-columns:1fr;box-shadow:5px 5px 0 var(--k)}
+  .note .tot{margin-inline:auto;width:8.5rem}
+  .home-link span{display:none}
+  .home-link{padding-inline:.6rem}
+  .pr{width:4.2rem;height:4.2rem;font-size:1.35rem}
+}
+@media (prefers-reduced-motion:no-preference){
+  .sun .rays{transform-origin:70px 70px;animation:spin 40s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .cloud{animation:drift 7s ease-in-out infinite alternate}
+  @keyframes drift{to{translate:18px 0}}
+  .mon{animation:bob 2.6s ease-in-out infinite alternate}
+  @keyframes bob{to{transform:translateY(-8px) rotate(1.5deg)}}
+  .jump a{transition:transform .2s}
+  .jump a:hover{transform:rotate(0) scale(1.08)}
+  .ink.pop{animation:pop .35s}
+  @keyframes pop{50%{transform:scale(1.04)}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg class="defs" aria-hidden="true">
+  <defs>
+    <filter id="wob" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter>
+    <filter id="cray" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".022" numOctaves="2" seed="7" result="w"/><feDisplacementMap in="SourceGraphic" in2="w" scale="7" result="dd"/><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="1" seed="2" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.4 1.75" result="m"/><feComposite in="dd" in2="m" operator="in"/></filter>
+  </defs>
+</svg>
+
+<div class="tray">
+  <a class="home-link" href="../index.html" aria-label="All menus"><svg viewBox="0 0 18 18" aria-hidden="true"><rect width="8" height="8" rx="2" fill="#e8402a"/><rect x="10" width="8" height="8" rx="2" fill="#2f6fe4"/><rect y="10" width="8" height="8" rx="2" fill="#3fae49"/><rect x="10" y="10" width="8" height="8" rx="2" fill="#ff8a1f"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <div class="box" role="group" aria-label="Crayons">
+    <button class="cr" type="button" style="--c:#e8402a" data-c="#e8402a" aria-pressed="true" aria-label="Red"></button>
+    <button class="cr" type="button" style="--c:#ff8a1f" data-c="#ff8a1f" aria-pressed="false" aria-label="Orange"></button>
+    <button class="cr" type="button" style="--c:#ffd84a" data-c="#ffd84a" aria-pressed="false" aria-label="Yellow"></button>
+    <button class="cr" type="button" style="--c:#3fae49" data-c="#3fae49" aria-pressed="false" aria-label="Green"></button>
+    <button class="cr" type="button" style="--c:#2f6fe4" data-c="#2f6fe4" aria-pressed="false" aria-label="Blue"></button>
+    <button class="cr" type="button" style="--c:#8d4bd6" data-c="#8d4bd6" aria-pressed="false" aria-label="Purple"></button>
+    <button class="cr" type="button" style="--c:#ff6fa8" data-c="#ff6fa8" aria-pressed="false" aria-label="Pink"></button>
+    <button class="cr" type="button" style="--c:#8a5a2b" data-c="#8a5a2b" aria-pressed="false" aria-label="Brown"></button>
+  </div>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<header class="hero">
+  <div>
+    <p class="hi"><span lang="en">Kids’ menu · ages 2 to 12</span><span lang="ar">قائمة الأطفال · من ٢ إلى ١٢ سنة</span></p>
+    <h1><span lang="en"><b>D</b><b>o</b><b>o</b><b>d</b><b>l</b><b>e</b></span><span lang="en"><b>D</b><b>i</b><b>n</b><b>e</b><b>r</b></span><span lang="ar"><i>مطعم</i> <i>الشخبطة</i></span></h1>
+    <p class="tag"><span lang="en">Eat your greens. Colour your reds.</span><span lang="ar">كُلْ خضارك… ولوِّنْ بأحمرك!</span><svg viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9C40 2 70 14 110 7S190 3 230 9S280 6 298 8" fill="none" stroke="#ffc928" stroke-width="7" stroke-linecap="round" filter="url(#cray)"/></svg></p>
+    <p class="intro"><span lang="en">Every drawing on this menu is waiting for you. Pick a crayon from the box at the top, then tap a picture to colour it in while the kitchen cooks.</span><span lang="ar">كلّ رسمة في هذه القائمة تنتظرك. اختر لونًا من العلبة في الأعلى، ثم المس الرسمة لتلوّنها ريثما يجهّز المطبخ طعامك.</span></p>
+  </div>
+  <div class="scene">
+    <svg class="sun" viewBox="0 0 140 140" aria-hidden="true"><g class="rays" stroke="#ff8a1f" stroke-width="6" stroke-linecap="round" filter="url(#cray)"><path d="M70 6v18M70 116v18M6 70h18M116 70h18M25 25l13 13M102 102l13 13M25 115l13-13M102 38l13-13"/></g><g class="d"><circle class="ink" cx="70" cy="70" r="34"/><path d="M57 76q13 12 26 0"/></g><circle class="nf" cx="58" cy="63" r="4"/><circle class="nf" cx="82" cy="63" r="4"/></svg>
+    <svg class="cloud" viewBox="0 0 150 90" aria-hidden="true"><g class="d"><path class="ink" d="M30 78C6 78 4 48 28 44C28 18 64 12 74 32C92 16 124 30 116 54C142 54 142 80 118 78Z"/></g></svg>
+    <svg class="mon" viewBox="0 0 240 220" aria-hidden="true"><g class="d">
+      <path class="ink" d="M62 46L50 12L84 34Z"/><path class="ink" d="M178 46L190 12L156 34Z"/>
+      <path class="ink" d="M36 196C10 110 50 34 120 34C190 34 230 110 204 196Z"/>
+      <ellipse class="ink" cx="84" cy="200" rx="28" ry="13"/><ellipse class="ink" cx="158" cy="200" rx="28" ry="13"/>
+      <circle class="ink" cx="120" cy="92" r="32"/>
+      <path class="ink" d="M72 142Q120 190 168 142Z"/>
+      <path d="M92 144l8 12l8-12M132 144l8 12l8-12"/>
+      <circle class="ink" cx="62" cy="120" r="9"/><circle class="ink" cx="182" cy="126" r="11"/><circle class="ink" cx="172" cy="84" r="7"/>
+      <path d="M204 150C226 140 232 120 226 104"/><path class="ink" d="M218 108L228 60L240 64L234 110Z"/><path class="ink" d="M228 60L236 44L240 64Z"/>
+      <path d="M36 150C16 146 8 160 12 174"/>
+    </g><circle class="nf" cx="126" cy="96" r="12"/><circle cx="130" cy="92" r="4" fill="#fff"/></svg>
+    <p class="bub"><span lang="en">Colour me in!</span><span lang="ar">لوِّنّي!</span></p>
+  </div>
+</header>
+
+<nav class="jump" aria-label="Sections">
+  <a href="#big" style="--c:var(--red)"><span lang="en">Big Bites</span><span lang="ar">لقمات كبيرة</span></a>
+  <a href="#nib" style="--c:var(--grn)"><span lang="en">Little Nibbles</span><span lang="ar">قضمات صغيرة</span></a>
+  <a href="#box" class="dk" style="--c:var(--yel)"><span lang="en">The Doodle Box</span><span lang="ar">علبة الشخبطة</span></a>
+  <a href="#swt" style="--c:var(--pur)"><span lang="en">Sweet Stuff</span><span lang="ar">حلويات</span></a>
+  <a href="#sip" style="--c:var(--blue)"><span lang="en">Sippy Sips</span><span lang="ar">رشفات</span></a>
+</nav>
+
+<main>
+<section class="isl" id="big">
+  <svg class="fr" aria-hidden="true"><rect/><rect/></svg>
+  <div class="ih">
+    <div class="pic"><svg viewBox="0 0 160 140" aria-hidden="true"><g class="d">
+      <path class="ink" d="M22 104H138C138 130 22 130 22 104Z"/>
+      <rect class="ink" x="16" y="78" width="128" height="24" rx="12"/>
+      <path class="ink" d="M30 74H132L104 96Z"/>
+      <path class="ink" d="M12 62q11 16 22 0q11 16 22 0q11 16 22 0q11 16 22 0q11 16 22 0q11 16 22 0L146 76H14Z"/>
+      <path class="ink" d="M18 62C18 14 142 14 142 62Z"/>
+      <path d="M68 46q12 10 24 0M50 28l6 3M104 26l6-3M80 20h6"/></g><circle class="nf" cx="66" cy="38" r="3.5"/><circle class="nf" cx="94" cy="38" r="3.5"/></svg></div>
+    <div><h2><span lang="en">Big Bites</span><span lang="ar">لقمات كبيرة</span></h2><p><span lang="en">For tummies that rumble like trucks.</span><span lang="ar">للبطون التي تقرقر مثل الشاحنات.</span></p></div>
+  </div>
+  <div class="list">
+    <article class="it"><h3><span lang="en">Mini Cheeseburger</span><span lang="ar">برغر الجبن الصغير</span><span class="st" lang="en">★ favourite</span><span class="st" lang="ar">★ المفضّل</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£6.50</span></div><p><span lang="en">Soft bun, beef patty, melty cheese and a ketchup smile.</span><span lang="ar">خبز طريّ وقرص لحم بقري وجبن ذائب وابتسامة من الكاتشب.</span></p></article>
+    <article class="it"><h3><span lang="en">Rainbow Pasta</span><span lang="ar">معكرونة قوس قزح</span><span class="st v" lang="en">veggie</span><span class="st v" lang="ar">نباتي</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£5.50</span></div><p><span lang="en">Twirly pasta in tomato sauce with six sneaky hidden vegetables.</span><span lang="ar">معكرونة لولبية بصلصة الطماطم فيها ستّ خضراوات متخفّية.</span></p></article>
+    <article class="it"><h3><span lang="en">Chicken Dippers</span><span lang="ar">أصابع الدجاج</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£6.00</span></div><p><span lang="en">Crunchy oven-baked chicken strips with a honey dip for dunking.</span><span lang="ar">شرائح دجاج مقرمشة مخبوزة في الفرن مع غموس العسل.</span></p></article>
+    <article class="it"><h3><span lang="en">Pizza Moon</span><span lang="ar">بيتزا القمر</span><span class="st v" lang="en">veggie</span><span class="st v" lang="ar">نباتي</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£5.80</span></div><p><span lang="en">A cheesy tomato pizza folded into a half moon you can hold.</span><span lang="ar">بيتزا بالجبن والطماطم مطويّة على شكل نصف قمر تمسكها بيدك.</span></p></article>
+    <article class="it"><h3><span lang="en">Fish Fingers of Fun</span><span lang="ar">أصابع السمك المرحة</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£6.20</span></div><p><span lang="en">Golden cod fingers, a pile of peas and a wedge of lemon.</span><span lang="ar">أصابع سمك القدّ الذهبية مع كومة بازلاء وشريحة ليمون.</span></p></article>
+    <article class="it"><h3><span lang="en">Meatball Mountain</span><span lang="ar">جبل كرات اللحم</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£6.40</span></div><p><span lang="en">Beef meatballs stacked on buttery rice with a tomato river.</span><span lang="ar">كرات لحم بقري فوق أرز بالزبدة يجري حولها نهر من الطماطم.</span></p></article>
+  </div>
+</section>
+
+<section class="isl" id="nib">
+  <svg class="fr" aria-hidden="true"><rect/><rect/></svg>
+  <div class="ih">
+    <div class="pic"><svg viewBox="0 0 140 150" aria-hidden="true"><g class="d">
+      <rect class="ink" x="34" y="22" width="14" height="74" rx="3" transform="rotate(-13 41 96)"/>
+      <rect class="ink" x="50" y="10" width="14" height="84" rx="3" transform="rotate(-5 57 94)"/>
+      <rect class="ink" x="66" y="16" width="14" height="78" rx="3"/>
+      <rect class="ink" x="82" y="8" width="14" height="86" rx="3" transform="rotate(6 89 94)"/>
+      <rect class="ink" x="97" y="24" width="14" height="72" rx="3" transform="rotate(14 104 96)"/>
+      <path class="ink" d="M24 72Q70 88 116 72L106 142H34Z"/>
+      <path d="M56 114q14 12 28 0"/></g><circle class="nf" cx="56" cy="102" r="3.5"/><circle class="nf" cx="84" cy="102" r="3.5"/></svg></div>
+    <div><h2><span lang="en">Little Nibbles</span><span lang="ar">قضمات صغيرة</span></h2><p><span lang="en">Sides for sharing. Or not.</span><span lang="ar">أطباق جانبية للمشاركة… أو لا.</span></p></div>
+  </div>
+  <div class="list">
+    <article class="it"><h3><span lang="en">Smiley Fries</span><span lang="ar">بطاطا مبتسمة</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£2.80</span></div><p><span lang="en">Skin-on fries that are always happy to see you.</span><span lang="ar">بطاطا مقلية بقشرها تفرح دائمًا برؤيتك.</span></p></article>
+    <article class="it"><h3><span lang="en">Carrot Sticks &amp; Hummus</span><span lang="ar">أصابع الجزر مع الحمّص</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£2.50</span></div><p><span lang="en">Crunchy orange swords and a creamy dip.</span><span lang="ar">سيوف برتقالية مقرمشة مع غموس كريمي.</span></p></article>
+    <article class="it"><h3><span lang="en">Corn Wheels</span><span lang="ar">عجلات الذرة</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£2.60</span></div><p><span lang="en">Buttery sweetcorn cut into little yellow wheels.</span><span lang="ar">ذرة حلوة بالزبدة مقطّعة إلى عجلات صفراء صغيرة.</span></p></article>
+    <article class="it"><h3><span lang="en">Cheesy Bread Soldiers</span><span lang="ar">جنود الخبز بالجبن</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£2.90</span></div><p><span lang="en">Warm garlic bread fingers, marching in a row.</span><span lang="ar">أصابع خبز دافئة بالثوم تمشي في صفّ واحد.</span></p></article>
+  </div>
+</section>
+
+<section class="note" id="box">
+  <div>
+    <h2><span lang="en">The Doodle Box</span><span lang="ar">علبة الشخبطة</span></h2>
+    <p class="steps"><span style="--c:var(--red)"><span lang="en">1 Big Bite</span><span lang="ar">لقمة كبيرة</span></span><em>+</em><span style="--c:var(--grn)"><span lang="en">1 Nibble</span><span lang="ar">قضمة صغيرة</span></span><em>+</em><span style="--c:var(--blue)"><span lang="en">1 Sip</span><span lang="ar">رشفة</span></span><em>+</em><span class="dk" style="--c:var(--yel)"><span lang="en">a sweet surprise</span><span lang="ar">مفاجأة حلوة</span></span></p>
+    <p><span lang="en">Comes in a box you can draw on, with four crayons to take home.</span><span lang="ar">تأتي في علبة ترسم عليها، مع أربعة أقلام تلوين تأخذها إلى البيت.</span></p>
+  </div>
+  <div class="tot"><svg viewBox="0 0 120 120" aria-hidden="true"><g filter="url(#wob)"><path class="ink" d="M60 4l13 22l25-6l-4 26l22 12l-20 16l8 24l-26-2l-10 22l-16-20l-25 6l6-25L8 64l22-12l-6-26l26 4Z" stroke="#2b2b2b" stroke-width="4" stroke-linejoin="round"/></g></svg><div><small><span lang="en">all for</span><span lang="ar">الكلّ بـ</span></small><b>£9.50</b></div></div>
+</section>
+
+<section class="isl" id="swt">
+  <svg class="fr" aria-hidden="true"><rect/><rect/></svg>
+  <div class="ih">
+    <div class="pic"><svg viewBox="0 0 120 170" aria-hidden="true"><g class="d">
+      <path class="ink" d="M32 90H88L60 164Z"/><path d="M44 98L72 132M76 98L50 128M58 96l22 22M62 96L40 116"/>
+      <circle class="ink" cx="42" cy="70" r="24"/><circle class="ink" cx="78" cy="70" r="24"/><circle class="ink" cx="60" cy="42" r="24"/>
+      <circle class="ink" cx="60" cy="14" r="8"/><path d="M62 6q4-8 12-6"/></g></svg></div>
+    <div><h2><span lang="en">Sweet Stuff</span><span lang="ar">حلويات</span></h2><p><span lang="en">Only after three more bites of dinner.</span><span lang="ar">بعد ثلاث لقمات أخرى من العشاء فقط.</span></p></div>
+  </div>
+  <div class="list">
+    <article class="it"><h3><span lang="en">Build-a-Sundae</span><span lang="ar">اصنع الصنداي بنفسك</span><span class="st" lang="en">★ favourite</span><span class="st" lang="ar">★ المفضّل</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£4.20</span></div><p><span lang="en">Two scoops, a jug of sauce and a pot of sprinkles. You’re the chef.</span><span lang="ar">كرتان من الآيس كريم وإبريق صلصة ووعاء رشّات ملوّنة. أنت الطاهي.</span></p></article>
+    <article class="it"><h3><span lang="en">Chocolate Mud Puddle</span><span lang="ar">بركة الوحل بالشوكولاتة</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£3.90</span></div><p><span lang="en">A warm squidgy brownie sitting in a pool of chocolate sauce.</span><span lang="ar">براوني دافئ طريّ يجلس في بركة من صلصة الشوكولاتة.</span></p></article>
+    <article class="it"><h3><span lang="en">Fruit Rainbow Kebab</span><span lang="ar">سيخ قوس قزح بالفواكه</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£3.50</span></div><p><span lang="en">Strawberry, orange, pineapple, kiwi and grape with yoghurt clouds.</span><span lang="ar">فراولة وبرتقال وأناناس وكيوي وعنب مع غيوم من اللبن.</span></p></article>
+    <article class="it"><h3><span lang="en">Pancake Faces</span><span lang="ar">وجوه البان كيك</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£4.00</span></div><p><span lang="en">Two fluffy pancakes with banana eyes and a berry smile.</span><span lang="ar">قطعتان هشّتان من البان كيك بعيون من الموز وابتسامة من التوت.</span></p></article>
+  </div>
+</section>
+
+<section class="isl" id="sip">
+  <svg class="fr" aria-hidden="true"><rect/><rect/></svg>
+  <div class="ih">
+    <div class="pic"><svg viewBox="0 0 130 160" aria-hidden="true"><g class="d">
+      <path class="ink" d="M62 40L74 4L96 4L96 12L80 12L72 40Z"/>
+      <path class="ink" d="M24 52H92L84 152H32Z"/>
+      <rect class="ink" x="18" y="38" width="80" height="14" rx="5"/>
+      <circle class="ink" cx="100" cy="74" r="22"/><path d="M100 54v40M80 74h40M86 60l28 28M114 60L86 88"/>
+      <path class="ink" d="M58 98C48 86 34 98 58 122C82 98 68 86 58 98Z"/></g></svg></div>
+    <div><h2><span lang="en">Sippy Sips</span><span lang="ar">رشفات</span></h2><p><span lang="en">Slurping is allowed here.</span><span lang="ar">الشفط بصوت عالٍ مسموح هنا.</span></p></div>
+  </div>
+  <div class="list">
+    <article class="it"><h3><span lang="en">Squeezy Orange Juice</span><span lang="ar">عصير برتقال معصور</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£2.50</span></div><p><span lang="en">Three whole oranges squeezed while you count to twenty.</span><span lang="ar">ثلاث برتقالات كاملة تُعصر وأنت تعدّ إلى العشرين.</span></p></article>
+    <article class="it"><h3><span lang="en">Milkshake Moustache</span><span lang="ar">شارب الميلك شيك</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£3.20</span></div><p><span lang="en">Strawberry or banana. Pink moustache comes free.</span><span lang="ar">بالفراولة أو بالموز، والشارب الوردي هديّة.</span></p></article>
+    <article class="it"><h3><span lang="en">Bubbly Apple Fizz</span><span lang="ar">فوّار التفاح</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£2.40</span></div><p><span lang="en">Cloudy apple juice with tickly sparkling water.</span><span lang="ar">عصير تفاح طبيعي مع ماء فوّار يدغدغ الأنف.</span></p></article>
+    <article class="it"><h3><span lang="en">Warm Choccy Milk</span><span lang="ar">حليب دافئ بالشوكولاتة</span></h3><div class="pr"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="30"/></svg><span>£2.80</span></div><p><span lang="en">Not too hot, with exactly five mini marshmallows.</span><span lang="ar">ليس ساخنًا جدًّا، ومعه خمس حبّات مارشميلو صغيرة بالضبط.</span></p></article>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="grass" aria-hidden="true"><svg viewBox="0 0 1200 70" preserveAspectRatio="none"><path d="M0 70L10 28L22 66L36 18L50 64L62 30L76 68L92 14L104 62L118 26L134 66L148 20L160 64L176 30L190 68L204 16L220 62L234 28L250 66L262 22L278 64L292 32L306 68L322 14L336 62L350 26L366 66L380 20L394 64L408 30L424 68L438 16L452 62L468 28L482 66L496 22L510 64L526 32L540 68L554 14L570 62L584 26L598 66L612 20L628 64L642 30L656 68L670 16L686 62L700 28L714 66L728 22L744 64L758 32L772 68L786 14L802 62L816 26L830 66L844 20L860 64L874 30L888 68L902 16L918 62L932 28L946 66L960 22L976 64L990 32L1004 68L1018 14L1034 62L1048 26L1062 66L1076 20L1092 64L1106 30L1120 68L1134 16L1150 62L1164 28L1178 66L1200 24V70Z" fill="none" stroke="#3fae49" stroke-width="5" stroke-linejoin="round" filter="url(#cray)" vector-effect="non-scaling-stroke"/></svg></div>
+  <div class="notes">
+    <div class="sticky" style="--c:#fff3a6"><h3><span lang="en">We’re open</span><span lang="ar">نفتح أبوابنا</span></h3><p><span lang="en">Every day</span><span lang="ar">كلّ يوم</span> <b>8:00 – 20:00</b><br><span lang="en">Pancake breakfast until</span><span lang="ar">فطور البان كيك حتى</span> <b>11:30</b></p></div>
+    <div class="sticky" style="--c:#c9ecff"><h3><span lang="en">Find us</span><span lang="ar">أين نحن؟</span></h3><p><span lang="en">30 Crayon Lane, Papertown, next to the big slide</span><span lang="ar">٣٠ زقاق الألوان، بلدة الورق، بجانب الزحليقة الكبيرة</span><br><b>020 5550 0130</b></p></div>
+    <div class="sticky" style="--c:#ffd3e3"><h3><span lang="en">For grown-ups</span><span lang="ar">للكبار</span></h3><p><span lang="en">Our kitchen is nut-free and all meat is halal. Dishes may contain milk, egg, gluten and fish — please tell us about any allergy. Crayons are free. Please don’t eat them.</span><span lang="ar">مطبخنا خالٍ من المكسّرات وجميع اللحوم حلال. قد تحتوي الأطباق على حليب وبيض وغلوتين وسمك، فأخبرونا بأيّ حساسية. الألوان مجّانية… لكنها ليست للأكل.</span></p></div>
+  </div>
+  <p class="bye sk"><span lang="en">Thank you for drawing with us!</span><span lang="ar">شكرًا لأنك رسمت معنا!</span></p>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+(function(){
+  var cur='#e8402a',crs=[].slice.call(document.querySelectorAll('.cr'));
+  crs.forEach(function(b){b.addEventListener('click',function(){cur=b.getAttribute('data-c');crs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})})});
+  document.addEventListener('click',function(e){var t=e.target;if(t&&t.classList&&t.classList.contains('ink')){t.style.fill=(t.style.fill&&t.getAttribute('data-f')===cur)?'':cur;t.setAttribute('data-f',t.style.fill?cur:'');t.classList.remove('pop');void t.getBoundingClientRect();t.classList.add('pop')}});
+})();
+</script>
+</body>
+</html>

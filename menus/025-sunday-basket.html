@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Sunday Basket · سلة الأحد</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sunday Basket — picnic fare packed fresh: sandwiches, savoury bakes, jars, cakes and lemonade, pinned to a gingham scrapbook. قائمة سلة الأحد لمأكولات النزهات.">
+<meta name="theme-color" content="#d93a3a">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Lemonada:wght@600;700&family=Patrick+Hand&family=Playpen+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --red:#d93a3a; --ink:#3b2416; --pen:#1f4fa3; --paper:#fffdf4; --kraft:#c9a06c; --leaf:#5c9a4a; --sun:#ffd23f;
+  --hand:"Patrick Hand","Playpen Sans Arabic","Comic Sans MS",cursive;
+  --brush:"Caveat Brush","Lemonada","Patrick Hand",cursive;
+  --dir:1;
+}
+html[dir="rtl"]{--dir:-1}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 1.12rem/1.35 var(--hand);color:var(--ink);background-color:#fff;
+  background-image:
+    repeating-linear-gradient(45deg,rgba(255,255,255,.09) 0 2px,transparent 2px 5px),
+    linear-gradient(90deg,rgba(217,58,58,.56) 50%,transparent 50%),
+    linear-gradient(rgba(217,58,58,.56) 50%,transparent 50%);
+  background-size:auto,clamp(56px,7vw,96px) clamp(56px,7vw,96px),clamp(56px,7vw,96px) clamp(56px,7vw,96px)}
+html[lang="ar"] body{font:400 1rem/1.7 "Playpen Sans Arabic","Patrick Hand",Tahoma,sans-serif}
+html[lang="ar"] *{letter-spacing:0!important}
+a{color:inherit}
+.cloth{overflow-x:clip;padding-inline:clamp(12px,3vw,40px);max-width:1400px;margin-inline:auto}
+svg.d{stroke:var(--ink);stroke-width:3;stroke-linejoin:round;stroke-linecap:round;fill:none}
+
+/* controls: two strips of masking tape */
+.ctl{position:fixed;top:10px;inset-inline-end:10px;z-index:30;display:flex;gap:8px}
+.ctl>*{font:400 1.05rem/1 var(--hand);color:var(--ink);border:0;cursor:pointer;text-decoration:none;min-height:40px;padding:0 16px;display:inline-flex;align-items:center;
+  background:repeating-linear-gradient(45deg,rgba(255,255,255,.4) 0 6px,transparent 6px 12px),#ffe08a;box-shadow:0 2px 5px rgba(0,0,0,.25);
+  clip-path:polygon(0 0,5% 25%,0 50%,5% 75%,0 100%,100% 100%,95% 75%,100% 50%,95% 25%,100% 0);transform:rotate(-2deg)}
+#langToggle{font-family:"Playpen Sans Arabic","Patrick Hand",sans-serif;font-size:.95rem}
+.home-link{background-color:#a9dcc3!important;transform:rotate(1.5deg)}
+html[lang="ar"] .home-link{font-size:.92rem}
+.ctl>*:hover,.ctl>*:focus-visible{filter:brightness(1.08);outline:none;transform:rotate(0)}
+
+/* paper bits */
+.sheet{position:relative;background:repeating-linear-gradient(var(--paper) 0 33px,#bcd6ec 33px 34px);box-shadow:0 10px 24px rgba(59,36,22,.3),0 1px 2px rgba(59,36,22,.3)}
+.sheet::before{content:"";position:absolute;inset-block:0;inset-inline-start:clamp(26px,4vw,48px);border-inline-start:2px solid #f2a2a2}
+.tape{position:absolute;z-index:3;top:-13px;left:50%;width:96px;height:27px;margin-left:-48px;transform:rotate(var(--tr,-3deg));opacity:.88;
+  background:repeating-linear-gradient(45deg,rgba(255,255,255,.4) 0 6px,transparent 6px 12px),var(--tc,#ffd23f);
+  clip-path:polygon(0 0,4% 50%,0 100%,100% 100%,96% 50%,100% 0)}
+
+/* hero */
+.hero{display:grid;gap:26px;padding-top:clamp(70px,8vw,96px);align-items:center;position:relative}
+.cover{padding:clamp(30px,4.4vw,58px) clamp(20px,4vw,54px) clamp(30px,4vw,48px);padding-inline-start:clamp(42px,6.4vw,80px);transform:rotate(calc(-1.6deg*var(--dir)));max-width:720px}
+.kick{font-size:1.2rem;color:var(--pen)}
+h1{font:400 clamp(4rem,12.5vw,9rem)/.82 var(--brush);color:var(--red);margin:.12em 0 .16em;letter-spacing:-.01em}
+h1 b{font-weight:400;color:var(--ink);display:block}
+html[lang="ar"] h1{font:700 clamp(3rem,9.4vw,6.4rem)/1.35 "Lemonada",cursive;margin:.1em 0}
+.tagline{font:400 clamp(1.5rem,3vw,2.1rem)/1.15 var(--brush);color:var(--pen);display:inline-block;position:relative}
+html[lang="ar"] .tagline{font:600 clamp(1.2rem,2.3vw,1.6rem)/1.6 "Lemonada",cursive}
+.tagline::after{content:"";position:absolute;inset-inline:0;bottom:-8px;height:8px;border-bottom:3px solid var(--red);border-radius:0 0 60% 40%/0 0 100% 100%}
+.cover .intro{margin-top:24px;font-size:1.22rem;line-height:1.5;max-width:44ch}
+html[lang="ar"] .cover .intro{font-size:1.05rem;line-height:1.9}
+.scene{position:relative;justify-self:center;width:min(100%,520px)}
+.basket{width:100%;height:auto;display:block;filter:drop-shadow(0 16px 14px rgba(59,36,22,.35))}
+.snap{position:absolute;inset-inline-start:-4%;bottom:-6%;width:44%;background:#fff;padding:7px 7px 0;box-shadow:0 8px 18px rgba(59,36,22,.35);transform:rotate(calc(-9deg*var(--dir)))}
+.snap svg{display:block;width:100%;height:auto}
+.snap span{display:block;text-align:center;font-size:1rem;padding:3px 0 6px;color:var(--pen)}
+html[lang="ar"] .snap span{font-size:.9rem}
+
+/* ants */
+.ants{height:44px;position:relative;margin:clamp(22px,4vw,46px) -40px;overflow:hidden;transform:scaleX(var(--dir))}
+.ants svg{position:absolute;left:-40px;width:30px;height:16px;fill:#2b1a12;stroke:#2b1a12;stroke-width:1.2;stroke-linecap:round;animation:march 26s linear infinite}
+.ants svg:nth-child(odd){top:8px}.ants svg:nth-child(even){top:20px}.ants svg:nth-child(3n){top:14px}
+@keyframes march{to{transform:translateX(calc(100vw + 120px))}}
+
+/* sections: polaroids scattered on the cloth */
+.pile{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(18px,2.6vw,38px) clamp(14px,2.2vw,34px);padding-block:10px 26px;position:relative;scroll-margin-top:70px}
+.card{flex:0 0 auto;width:clamp(238px,21.5vw,292px);position:relative;transform:rotate(calc(var(--rot,0deg)*var(--dir))) translateY(var(--dy,0px));transition:transform .3s}
+.card:hover{transform:rotate(0) translateY(-6px) scale(1.03);z-index:5}
+.card:nth-child(6n+1){--rot:-3.2deg;--dy:0px;--tc:#ffd23f;--tr:-4deg}
+.card:nth-child(6n+2){--rot:2.2deg;--dy:16px;--tc:#8fd3c1;--tr:3deg}
+.card:nth-child(6n+3){--rot:-1.4deg;--dy:-6px;--tc:#f6a6b2;--tr:-2deg}
+.card:nth-child(6n+4){--rot:3.4deg;--dy:12px;--tc:#a9c8f5;--tr:5deg}
+.card:nth-child(6n+5){--rot:-2.4deg;--dy:-10px;--tc:#ffb46b;--tr:-5deg}
+.card:nth-child(6n){--rot:1.6deg;--dy:8px;--tc:#c5e08a;--tr:2deg}
+.note{padding:26px 20px 24px;padding-inline-start:clamp(44px,5vw,62px);align-self:center;min-height:238px}
+.note .no{font-size:1.1rem;color:var(--red)}
+.note h2{font:400 clamp(2.5rem,4vw,3.3rem)/.95 var(--brush);margin:.1em 0 .25em;color:var(--ink)}
+html[lang="ar"] .note h2{font:700 clamp(1.7rem,2.7vw,2.2rem)/1.5 "Lemonada",cursive}
+.note p{color:var(--pen);font-size:1.15rem;line-height:1.3}
+html[lang="ar"] .note p{font-size:1rem;line-height:1.75}
+.pol{background:#fff;padding:11px 11px 16px;box-shadow:0 10px 22px rgba(59,36,22,.32),0 1px 2px rgba(59,36,22,.3)}
+.ph{position:relative;aspect-ratio:4/3.1;background:linear-gradient(var(--bg,#cfe8f5) 0 66%,var(--tb,#e9d3a6) 66%);box-shadow:inset 0 0 26px rgba(59,36,22,.22)}
+.ph svg{position:absolute;inset:6% 12% 4%;width:76%;height:90%}
+.tag{position:absolute;z-index:2;inset-inline-end:-14px;bottom:-16px;min-width:4.1rem;height:4.1rem;padding:0 6px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font:400 1.5rem/1 var(--brush);color:var(--ink);box-shadow:0 3px 6px rgba(59,36,22,.3);outline:2px dashed rgba(59,36,22,.5);outline-offset:-6px;transform:rotate(calc(9deg*var(--dir)));direction:ltr;unicode-bidi:isolate}
+.pol h3{font:400 1.75rem/1 var(--brush);margin:15px 0 4px;padding-inline-end:46px}
+html[lang="ar"] .pol h3{font:700 1.18rem/1.55 "Lemonada",cursive;margin-top:12px}
+.pol p{font-size:1.1rem;line-height:1.25}
+html[lang="ar"] .pol p{font-size:.98rem;line-height:1.7}
+.fav{position:absolute;z-index:4;top:-14px;inset-inline-start:-12px;background:var(--red);color:#fff;font-size:1rem;line-height:1;padding:8px 11px;border-radius:50% 46% 52% 48%/48% 54% 46% 52%;transform:rotate(calc(-12deg*var(--dir)));box-shadow:0 3px 6px rgba(59,36,22,.3)}
+html[lang="ar"] .fav{font-size:.88rem;padding:9px 11px}
+.veg{color:var(--leaf);font-size:1rem;display:inline-flex;align-items:center;gap:4px;margin-top:5px}
+html[lang="ar"] .veg{font-size:.92rem}
+.veg::before{content:"";width:13px;height:13px;background:var(--leaf);border-radius:0 80% 0 80%}
+.doodle{position:absolute;pointer-events:none;z-index:1}
+
+/* basket deal: a kraft luggage tag */
+.deal{display:grid;gap:26px;justify-items:center;align-items:center;margin-block:clamp(20px,3vw,40px)}
+.ktag{position:relative;background:var(--kraft);background-image:repeating-linear-gradient(100deg,rgba(255,255,255,.07) 0 3px,transparent 3px 7px);color:var(--ink);width:min(100%,640px);
+  padding:30px clamp(20px,4vw,44px) 30px;padding-inline-start:clamp(64px,10vw,110px);transform:rotate(calc(1.6deg*var(--dir)));filter:drop-shadow(0 10px 12px rgba(59,36,22,.35));
+  clip-path:polygon(9% 0,100% 0,100% 100%,9% 100%,0 72%,0 28%)}
+html[dir="rtl"] .ktag{clip-path:polygon(0 0,91% 0,100% 28%,100% 72%,91% 100%,0 100%)}
+.ktag::before{content:"";position:absolute;inset-inline-start:clamp(22px,4vw,40px);top:50%;width:24px;height:24px;margin-top:-12px;border-radius:50%;background:#fff;box-shadow:inset 0 2px 4px rgba(0,0,0,.4),0 0 0 5px rgba(59,36,22,.25)}
+.ktag h2{font:400 clamp(2.4rem,5.4vw,3.8rem)/.95 var(--brush)}
+html[lang="ar"] .ktag h2{font:700 clamp(1.7rem,3.8vw,2.6rem)/1.5 "Lemonada",cursive}
+.ktag ul{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 18px;font-size:1.2rem}
+html[lang="ar"] .ktag ul{font-size:1rem}
+.ktag li{display:flex;gap:8px;align-items:baseline}
+.ktag li::before{content:"";flex:none;width:15px;height:15px;border:2px solid var(--ink);border-radius:3px;background:linear-gradient(135deg,transparent 46%,var(--red) 46% 58%,transparent 58%),linear-gradient(45deg,transparent 46%,var(--red) 46% 58%,transparent 58%);transform:translateY(2px) rotate(-4deg)}
+.ktag .tag{position:static;display:inline-grid;margin-top:16px;min-width:5.4rem;height:5.4rem;font-size:2.1rem;background:#fff}
+.ktag .per{font-size:1.15rem;margin-inline-start:12px}
+.list{width:min(100%,340px);padding:26px 22px 26px;padding-inline-start:clamp(46px,6vw,66px);transform:rotate(calc(-3deg*var(--dir)))}
+.list h3{font:400 2rem/1 var(--brush);color:var(--red);margin-bottom:8px}
+html[lang="ar"] .list h3{font:700 1.4rem/1.5 "Lemonada",cursive}
+.list li{list-style:none;line-height:34px;font-size:1.2rem;color:var(--pen)}
+html[lang="ar"] .list li{font-size:1rem}
+.list ul{padding:0}
+.list s{text-decoration-color:var(--red);text-decoration-thickness:2px}
+
+/* footer: brown paper parcel */
+footer{margin-top:clamp(30px,5vw,60px);padding-bottom:50px;display:grid;justify-items:center}
+.parcel{position:relative;background:#b98a55;background-image:repeating-linear-gradient(95deg,rgba(255,255,255,.06) 0 3px,transparent 3px 8px);width:min(100%,1040px);padding:clamp(34px,5vw,56px) clamp(22px,5vw,60px);display:grid;gap:26px;box-shadow:0 14px 28px rgba(59,36,22,.4);transform:rotate(calc(-.8deg*var(--dir)))}
+.parcel::before,.parcel::after{content:"";position:absolute;background:repeating-linear-gradient(90deg,#f5efe0 0 6px,#d93a3a 6px 12px);box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.parcel::before{inset-inline:0;top:14px;height:5px}
+.parcel::after{inset-block:0;inset-inline-start:22px;width:5px;background:repeating-linear-gradient(#f5efe0 0 6px,#d93a3a 6px 12px)}
+.parcel>div{background:var(--paper);padding:16px 18px;box-shadow:0 3px 8px rgba(59,36,22,.3);position:relative;z-index:1}
+.parcel>div:nth-child(1){transform:rotate(calc(-1.5deg*var(--dir)))}.parcel>div:nth-child(2){transform:rotate(calc(1.2deg*var(--dir)))}.parcel>div:nth-child(3){transform:rotate(calc(-.6deg*var(--dir)))}
+.parcel h3{font:400 1.9rem/1 var(--brush);color:var(--red);margin-bottom:6px}
+html[lang="ar"] .parcel h3{font:700 1.3rem/1.5 "Lemonada",cursive}
+.parcel .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.bye{font:400 clamp(2.6rem,7vw,4.6rem)/1 var(--brush);color:#fff;background:var(--red);padding:.18em .7em .22em;margin-top:34px;transform:rotate(calc(-3deg*var(--dir)));box-shadow:0 8px 18px rgba(59,36,22,.35);border-radius:6px 30px 8px 26px/28px 6px 30px 8px}
+html[lang="ar"] .bye{font:700 clamp(1.7rem,5vw,3rem)/1.6 "Lemonada",cursive}
+
+@media (min-width:900px){
+  .hero{grid-template-columns:1.25fr 1fr}
+  .deal{grid-template-columns:auto auto;justify-content:center;gap:50px}
+  .parcel{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:599px){
+  .pile{display:grid;grid-template-columns:minmax(0,1fr);gap:0;padding-inline:2px}
+  .card{width:min(84%,320px);margin-top:26px;--dy:0px}
+  .card:nth-child(odd){justify-self:start}.card:nth-child(even){justify-self:end}
+  .card.note{width:92%;justify-self:center;margin:0 0 30px;min-height:0}
+  .ph{aspect-ratio:4/2.6}
+  .pile .card:nth-child(2){margin-top:6px}
+  .scene{width:80%}
+  .doodle.big{display:none}
+  .ktag ul{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<pattern id="ging" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#fff"/><rect width="12" height="24" fill="#d93a3a" opacity=".55"/><rect width="24" height="12" fill="#d93a3a" opacity=".55"/></pattern>
+<symbol id="ant" viewBox="0 0 30 16"><ellipse cx="7" cy="9" rx="6" ry="4.200"/><ellipse cx="15" cy="9" rx="3.400" ry="2.800"/><ellipse cx="22" cy="8.500" rx="3.400" ry="3"/><path d="M13 9l-3 6M15 9v6M17 9l3 6M13 9l-3-6M17 9l3-6M24 6l4-4M24 7l5-1" fill="none"/></symbol>
+<symbol id="i-sand" viewBox="0 0 120 90"><path d="M18 66H102L98 78H22Z" fill="#e9c48a"/><path d="M14 60Q28 50 42 59T70 59T98 59L106 60L102 67H18Z" fill="var(--f1,#7fb069)"/><rect x="18" y="45" width="84" height="11" rx="5" fill="var(--f2,#f6d365)"/><path d="M18 46Q18 22 60 20Q102 22 102 46Z" fill="#f0d29c"/><path d="M44 30l4 2M62 27l4 1M78 32l4 2" /></symbol>
+<symbol id="i-fing" viewBox="0 0 120 90"><g transform="rotate(-8 60 45)"><rect x="18" y="22" width="84" height="14" rx="3" fill="#fff8e6"/><rect x="18" y="36" width="84" height="9" fill="var(--f1,#f6d365)"/><rect x="18" y="45" width="84" height="14" rx="3" fill="#fff8e6"/></g><g transform="rotate(10 60 60)"><rect x="24" y="50" width="78" height="12" rx="3" fill="#fff8e6"/><rect x="24" y="62" width="78" height="8" fill="var(--f2,#7fb069)"/><rect x="24" y="70" width="78" height="12" rx="3" fill="#fff8e6"/></g></symbol>
+<symbol id="i-egg" viewBox="0 0 120 90"><circle cx="60" cy="46" r="34" fill="#b8733a"/><ellipse cx="60" cy="46" rx="23" ry="26" fill="#fffaf0"/><circle cx="60" cy="50" r="11" fill="#f5a623"/><path d="M34 26l2 3M88 30l-2 3M30 56l3 1M90 60l-3 1M56 16l1 3" /></symbol>
+<symbol id="i-roll" viewBox="0 0 120 90"><rect x="14" y="30" width="86" height="36" rx="18" fill="#e2a85a"/><ellipse cx="96" cy="48" rx="11" ry="17" fill="#b56b4a"/><path d="M30 34l10 26M46 32l10 30M62 32l10 30" /></symbol>
+<symbol id="i-pie" viewBox="0 0 120 90"><path d="M14 68Q60 0 106 68Z" fill="#e8b866"/><path d="M14 68q7-9 13 0q7-9 13 0q7-9 13 0q7-9 13 0q7-9 13 0q7-9 13 0q7-9 14 0" fill="#d9a04e"/><path d="M52 40l-4 10M62 36v12M72 40l4 10"/></symbol>
+<symbol id="i-qui" viewBox="0 0 120 90"><path d="M14 54L100 26L108 50Z" fill="#f4d774"/><path d="M14 54L108 50V66L14 68Z" fill="#e2a85a"/><circle cx="62" cy="46" r="4" fill="#7fb069"/><circle cx="82" cy="42" r="4" fill="#7fb069"/><circle cx="46" cy="50" r="3.500" fill="#7fb069"/><path d="M88 34l8 10" stroke="#5c9a4a"/></symbol>
+<symbol id="i-drum" viewBox="0 0 120 90"><g transform="rotate(-24 60 45)"><rect x="70" y="40" width="36" height="12" rx="6" fill="#fff7e0"/><circle cx="106" cy="40" r="7" fill="#fff7e0"/><circle cx="106" cy="52" r="7" fill="#fff7e0"/><ellipse cx="46" cy="46" rx="34" ry="24" fill="#c9722e"/><path d="M26 38q8-10 20-10M34 58q8 4 16 2" stroke="#f2b36b"/></g></symbol>
+<symbol id="i-jar" viewBox="0 0 120 90"><rect x="32" y="24" width="56" height="58" rx="9" fill="var(--f1,#f6d365)"/><rect x="32" y="24" width="56" height="16" rx="6" fill="#fff" opacity=".6" stroke="none"/><rect x="36" y="10" width="48" height="14" rx="4" fill="#d9534f"/><rect x="42" y="48" width="36" height="20" rx="2" fill="#fffdf4"/><path d="M48 55h24M48 61h16" stroke-width="2"/><circle cx="44" cy="76" r="2.500" fill="var(--f2,#5c9a4a)" stroke="none"/><circle cx="78" cy="74" r="2.500" fill="var(--f2,#5c9a4a)" stroke="none"/></symbol>
+<symbol id="i-bowl" viewBox="0 0 120 90"><path d="M20 42H100C100 70 80 80 60 80S20 70 20 42Z" fill="#fff"/><ellipse cx="60" cy="42" rx="40" ry="11" fill="var(--f1,#c2477a)"/><path d="M60 40q8-6 14 0" stroke="#fff"/><path d="M84 36L104 10M90 38L112 20" stroke="#f08a24" stroke-width="5"/><path d="M36 36L22 12" stroke="#7fb069" stroke-width="5"/></symbol>
+<symbol id="i-cake" viewBox="0 0 120 90"><path d="M16 40L96 20L106 40Z" fill="var(--f2,#fff3d6)"/><path d="M16 40H106V76H16Z" fill="var(--f1,#f3d28a)"/><path d="M16 57H106" stroke="var(--f3,#d93a3a)" stroke-width="7"/><path d="M16 57H106" stroke="#fff" stroke-width="2" stroke-dasharray="1 9"/><circle cx="84" cy="24" r="6" fill="#d93a3a"/></symbol>
+<symbol id="i-berry" viewBox="0 0 120 90"><path d="M44 30C60 22 78 34 72 52C68 64 54 76 46 82C38 76 26 64 22 52C18 36 30 24 44 30Z" fill="#e0353a"/><path d="M34 26l12 8 12-8-10 2-2-8-2 8z" fill="#5c9a4a"/><path d="M36 46v2M50 44v2M44 56v2M56 58v2M34 60v2M46 68v2" stroke="#ffd23f"/><path d="M70 54C70 38 108 38 108 58C108 74 76 78 70 68Z" fill="#fffaf0"/><path d="M80 52q8-6 18 2" /></symbol>
+<symbol id="i-loaf" viewBox="0 0 120 90"><path d="M16 74V44C16 22 104 22 104 44V74Z" fill="#f0c75e"/><path d="M18 42C26 26 94 26 102 42L98 50q-7 10-13 0q-7 10-13 0q-7 10-13 0q-7 10-13 0q-7 10-13 0q-7 10-13 0Z" fill="#fffdf4"/><path d="M40 34l4-2M60 30l4-1M78 34l4-1" stroke="#f08a24"/></symbol>
+<symbol id="i-brow" viewBox="0 0 120 90"><path d="M20 40L60 26L100 40L60 54Z" fill="#7a4a2e"/><path d="M20 40V62L60 78V54Z" fill="#4e2b19"/><path d="M100 40V62L60 78V54Z" fill="#603620"/><path d="M48 38l2 1M62 34l2 1M72 42l2 1M56 44l2 1" stroke="#fff"/></symbol>
+<symbol id="i-scone" viewBox="0 0 120 90"><ellipse cx="60" cy="62" rx="34" ry="16" fill="#e8b866"/><ellipse cx="60" cy="52" rx="32" ry="12" fill="#d93a3a"/><ellipse cx="60" cy="46" rx="30" ry="12" fill="#fffaf0"/><path d="M30 38C30 16 90 16 90 38C90 50 30 50 30 38Z" fill="#f0c98a"/></symbol>
+<symbol id="i-bott" viewBox="0 0 120 90"><path d="M52 12H68V26C68 34 80 36 80 50V82H40V50C40 36 52 34 52 26Z" fill="var(--f1,#fff3a8)"/><rect x="50" y="4" width="20" height="9" rx="2" fill="#d9534f"/><rect x="40" y="52" width="40" height="18" fill="#fffdf4"/><path d="M48 61h24" stroke-width="2"/><circle cx="98" cy="64" r="15" fill="var(--f2,#ffd23f)"/><path d="M98 49v30M83 64h30" stroke-width="2"/></symbol>
+<symbol id="i-glass" viewBox="0 0 120 90"><path d="M36 18H84L77 82H43Z" fill="var(--f1,#f8c9a0)"/><path d="M39 34H81" stroke="#fff"/><rect x="48" y="40" width="12" height="12" rx="2" fill="#fff" opacity=".7"/><rect x="62" y="54" width="12" height="12" rx="2" fill="#fff" opacity=".7"/><path d="M66 18L78 0" stroke="#d93a3a" stroke-width="5"/><path d="M40 20q-10-12 4-16q10 0 8 14" fill="#7fb069"/></symbol>
+<symbol id="i-flask" viewBox="0 0 120 90"><rect x="30" y="26" width="34" height="56" rx="6" fill="#4f7f6a"/><rect x="33" y="8" width="28" height="18" rx="4" fill="#d9534f"/><path d="M30 44H64" stroke="#fff"/><path d="M74 54H102V70C102 82 74 82 74 70Z" fill="#fffdf4"/><path d="M102 58q12 0 10 8q-2 6-10 4"/><path d="M82 46q-4-6 0-10M92 46q-4-6 0-10" stroke="#9a8a7a" stroke-width="2"/></symbol>
+<symbol id="daisy" viewBox="0 0 60 60"><g fill="#fff" stroke="#3b2416" stroke-width="2"><ellipse cx="30" cy="12" rx="6" ry="11"/><ellipse cx="30" cy="48" rx="6" ry="11"/><ellipse cx="12" cy="30" rx="11" ry="6"/><ellipse cx="48" cy="30" rx="11" ry="6"/><ellipse cx="17" cy="17" rx="6" ry="11" transform="rotate(-45 17 17)"/><ellipse cx="43" cy="43" rx="6" ry="11" transform="rotate(-45 43 43)"/><ellipse cx="43" cy="17" rx="6" ry="11" transform="rotate(45 43 17)"/><ellipse cx="17" cy="43" rx="6" ry="11" transform="rotate(45 17 43)"/></g><circle cx="30" cy="30" r="8" fill="#ffd23f" stroke="#3b2416" stroke-width="2"/></symbol>
+</defs></svg>
+
+<div class="ctl">
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+</div>
+
+<div class="cloth">
+<header class="hero">
+  <div class="sheet cover">
+    <span class="tape" style="left:22%;--tc:#8fd3c1"></span><span class="tape" style="left:80%;--tc:#f6a6b2;--tr:4deg"></span>
+    <p class="kick"><span lang="en">Picnic fare, packed fresh every weekend</span><span lang="ar">مأكولات النزهات، تُحضَّر طازجة كل نهاية أسبوع</span></p>
+    <h1><span lang="en">Sunday <b>Basket</b></span><span lang="ar">سلّة <b>الأحد</b></span></h1>
+    <p class="tagline"><span lang="en">grab a blanket, we'll bring the rest</span><span lang="ar">أحضِروا البساط وعلينا الباقي</span></p>
+    <p class="intro"><span lang="en">Everything here is made to be eaten outdoors with your fingers: proper sandwiches, warm things from the tin, salads in jars and cake that survives a bicycle ride. Order at the hatch, we pack it in a wicker basket, you find the shade.</span><span lang="ar">كل ما في هذه القائمة يؤكل في الهواء الطلق وبالأصابع: شطائر كما يجب، ومخبوزات دافئة من الصينية، وسلطات في مرطبانات، وكعك يصمد في رحلة على الدرّاجة. اطلبوا من النافذة، ونحن نرتّب السلّة، وعليكم إيجاد الظلّ.</span></p>
+  </div>
+  <div class="scene" aria-hidden="true">
+    <svg class="basket" viewBox="0 0 400 350">
+      <g stroke="#3b2416" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M74 196C74 30 326 30 326 196" fill="none" stroke-width="22"/><path d="M74 196C74 30 326 30 326 196" fill="none" stroke="#c98d4b" stroke-width="14"/>
+        <g transform="rotate(-20 150 150)"><rect x="126" y="40" width="46" height="190" rx="23" fill="#e2a85a"/><path d="M134 80l30 14M134 112l30 14M134 144l30 14" /></g>
+        <rect x="232" y="46" width="18" height="40" fill="#8fd3c1"/><rect x="228" y="36" width="26" height="12" rx="3" fill="#d9534f"/><path d="M232 86C218 100 214 110 214 126V200H268V126C268 110 264 100 250 86Z" fill="#8fd3c1"/><rect x="214" y="132" width="54" height="34" fill="#fffdf4"/>
+        <circle cx="304" cy="166" r="30" fill="#e0353a"/><path d="M304 138q2-12 12-14" fill="none"/><path d="M308 132q14-12 22 0q-10 8-22 0z" fill="#5c9a4a"/>
+        <path d="M52 196H348L322 330H78Z" fill="#c98d4b"/>
+        <path d="M58 226H342M64 256H336M70 286H330" stroke="#8a5a2b" fill="none"/><path d="M90 196l8 134M130 196l5 134M170 196l3 134M210 196v134M250 196l-4 134M290 196l-7 134" stroke="#8a5a2b" stroke-width="3" fill="none"/>
+        <path d="M60 190H340L318 232L282 252L252 222L200 270L150 222L116 250L84 232Z" fill="url(#ging)"/>
+        <rect x="40" y="182" width="320" height="22" rx="11" fill="#b0783a"/>
+      </g>
+    </svg>
+    <div class="snap"><svg viewBox="0 0 120 96"><rect width="120" height="96" fill="#bfe3f7"/><circle cx="92" cy="24" r="13" fill="#ffd23f"/><path d="M0 70Q30 44 62 64T120 54V96H0Z" fill="#8cc56a"/><path d="M0 80Q40 62 80 80T120 76V96H0Z" fill="#6aa84f"/><path d="M30 60v-18" stroke="#6b4423" stroke-width="3"/><circle cx="30" cy="36" r="12" fill="#4f8a3a"/><rect x="56" y="74" width="26" height="12" fill="url(#ging)" stroke="#3b2416" stroke-width="1"/></svg><span><span lang="en">our spot</span><span lang="ar">مكاننا المفضّل</span></span></div>
+  </div>
+</header>
+
+<div class="ants" aria-hidden="true">
+  <svg style="animation-delay:-1s"><use href="#ant"/></svg><svg style="animation-delay:-3.200s"><use href="#ant"/></svg><svg style="animation-delay:-5s"><use href="#ant"/></svg><svg style="animation-delay:-7.400s"><use href="#ant"/></svg><svg style="animation-delay:-9s"><use href="#ant"/></svg><svg style="animation-delay:-11.300s"><use href="#ant"/></svg><svg style="animation-delay:-13s"><use href="#ant"/></svg><svg style="animation-delay:-15.600s"><use href="#ant"/></svg><svg style="animation-delay:-17.200s"><use href="#ant"/></svg><svg style="animation-delay:-19.500s"><use href="#ant"/></svg><svg style="animation-delay:-21.400s"><use href="#ant"/></svg><svg style="animation-delay:-23.800s"><use href="#ant"/></svg>
+</div>
+
+<main>
+<section class="pile" id="bread">
+  <div class="card note sheet"><span class="tape"></span><span class="no"><span lang="en">page one</span><span lang="ar">الصفحة الأولى</span></span><h2><span lang="en">Between Bread</span><span lang="ar">بين رغيفين</span></h2><p><span lang="en">Made to order on bread from the bakery next door. Wrapped in paper and string.</span><span lang="ar">تُحضَّر عند الطلب بخبز المخبز المجاور، وتُلفّ بالورق والخيط.</span></p></div>
+  <article class="card pol"><span class="tape"></span><span class="fav"><span lang="en">our favourite!</span><span lang="ar">المفضّلة عندنا!</span></span><div class="ph" style="--bg:#fde7a8"><svg class="d" viewBox="0 0 120 90"><use href="#i-sand" style="--f1:#f2b441;--f2:#8cc56a"/></svg><span class="tag">£7.50</span></div><h3><span lang="en">Coronation Chicken Bap</span><span lang="ar">خبزة دجاج التتويج</span></h3><p><span lang="en">Gently curried chicken, apricot, toasted almonds, in a soft floury bap.</span><span lang="ar">دجاج بالكاري الخفيف مع المشمش واللوز المحمّص في خبزة طرية مرشوشة بالطحين.</span></p></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#d6ecc4"><svg class="d" viewBox="0 0 120 90"><use href="#i-fing" style="--f1:#f6d365;--f2:#8cc56a"/></svg><span class="tag">£5.50</span></div><h3><span lang="en">Egg &amp; Cress Fingers</span><span lang="ar">أصابع البيض والرشاد</span></h3><p><span lang="en">Free-range egg mayonnaise and mustard cress on white, crusts off, obviously.</span><span lang="ar">بيض بلدي بالمايونيز مع الرشاد على خبز أبيض، وبلا أطراف طبعاً.</span></p><span class="veg"><span lang="en">vegetarian</span><span lang="ar">نباتي</span></span></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#f9d5cf"><svg class="d" viewBox="0 0 120 90"><use href="#i-sand" style="--f1:#b5523f;--f2:#6aa84f"/></svg><span class="tag">£8.50</span></div><h3><span lang="en">Roast Beef &amp; Horseradish</span><span lang="ar">روست بيف بالفجل الحار</span></h3><p><span lang="en">Rare topside, peppery watercress and a good smear of horseradish on sourdough.</span><span lang="ar">لحم بقري وردي مع جرجير الماء اللاذع ومسحة سخيّة من الفجل الحار على خبز العجين المخمّر.</span></p></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#cfe8f5"><svg class="d" viewBox="0 0 120 90"><use href="#i-sand" style="--f1:#ffd23f;--f2:#a8623a"/></svg><span class="tag">£7.00</span></div><h3><span lang="en">Cheddar Ploughman's</span><span lang="ar">شطيرة الفلّاح بالشيدر</span></h3><p><span lang="en">Mature cheddar, apple chutney, pickled onion and crisp lettuce on granary.</span><span lang="ar">شيدر معتّق مع مربّى التفاح الحامض وبصل مخلّل وخسّ مقرمش على خبز الحبوب.</span></p><span class="veg"><span lang="en">vegetarian</span><span lang="ar">نباتي</span></span></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#e5dcf5"><svg class="d" viewBox="0 0 120 90"><use href="#i-fing" style="--f1:#f6a58f;--f2:#b9e0a5"/></svg><span class="tag">£8.00</span></div><h3><span lang="en">Smoked Trout &amp; Cucumber</span><span lang="ar">سلمون مرقّط مدخَّن وخيار</span></h3><p><span lang="en">Flaked smoked trout, dill cream cheese and ribbons of cucumber on dark rye.</span><span lang="ar">سمك التراوت المدخّن مع جبن كريمي بالشبت وشرائح خيار رفيعة على خبز الجاودار.</span></p></article>
+  <svg class="doodle big" style="inset-inline-end:1%;bottom:4%;width:74px" viewBox="0 0 60 60" aria-hidden="true"><use href="#daisy"/></svg>
+</section>
+
+<div class="ants" aria-hidden="true">
+  <svg style="animation-delay:-2s"><use href="#ant"/></svg><svg style="animation-delay:-6.500s"><use href="#ant"/></svg><svg style="animation-delay:-8s"><use href="#ant"/></svg><svg style="animation-delay:-12.700s"><use href="#ant"/></svg><svg style="animation-delay:-14.200s"><use href="#ant"/></svg><svg style="animation-delay:-18.900s"><use href="#ant"/></svg><svg style="animation-delay:-20.300s"><use href="#ant"/></svg><svg style="animation-delay:-24.600s"><use href="#ant"/></svg>
+</div>
+
+<section class="pile" id="tin">
+  <div class="card note sheet"><span class="tape"></span><span class="no"><span lang="en">page two</span><span lang="ar">الصفحة الثانية</span></span><h2><span lang="en">From the Tin</span><span lang="ar">من الصينية</span></h2><p><span lang="en">Baked before breakfast, still warm at eleven. Brilliant cold, too.</span><span lang="ar">تُخبز قبل الفطور وتبقى دافئة حتى الحادية عشرة، وهي لذيذة باردة أيضاً.</span></p></div>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#d6ecc4"><svg class="d" viewBox="0 0 120 90"><use href="#i-egg"/></svg><span class="tag">£5.00</span></div><h3><span lang="en">Scotch Egg</span><span lang="ar">البيضة الإسكتلندية</span></h3><p><span lang="en">Soft-yolked egg in herby turkey sausage and golden crumbs. Mustard pot included.</span><span lang="ar">بيضة بصفار طريّ مغلّفة بنقانق الديك الرومي بالأعشاب وفتات ذهبي، ومعها علبة خردل.</span></p></article>
+  <article class="card pol"><span class="tape"></span><span class="fav"><span lang="en">sells out by noon</span><span lang="ar">تنفد قبل الظهر</span></span><div class="ph" style="--bg:#fde7a8"><svg class="d" viewBox="0 0 120 90"><use href="#i-roll"/></svg><span class="tag">£4.50</span></div><h3><span lang="en">Beef &amp; Onion Roll</span><span lang="ar">لفافة اللحم والبصل</span></h3><p><span lang="en">Our sausage roll: peppered beef and sweet onion in flaky all-butter pastry.</span><span lang="ar">لفافتنا الشهيرة: لحم بقري بالفلفل وبصل حلو في عجينة مورّقة بالزبدة.</span></p></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#cfe8f5"><svg class="d" viewBox="0 0 120 90"><use href="#i-pie"/></svg><span class="tag">£5.50</span></div><h3><span lang="en">Cheese &amp; Leek Hand Pie</span><span lang="ar">فطيرة الجبن والكرّاث</span></h3><p><span lang="en">A crimped half-moon of buttery leeks and sharp cheddar that fits in a pocket.</span><span lang="ar">فطيرة هلالية محشوّة بالكرّاث المطهوّ بالزبدة وشيدر لاذع، وتدخل في الجيب.</span></p><span class="veg"><span lang="en">vegetarian</span><span lang="ar">نباتي</span></span></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#f9d5cf"><svg class="d" viewBox="0 0 120 90"><use href="#i-qui"/></svg><span class="tag">£6.00</span></div><h3><span lang="en">Asparagus &amp; Pea Quiche</span><span lang="ar">كيش الهليون والبازلاء</span></h3><p><span lang="en">A deep, wobbly slice with spring greens, mint and crumbly goat's cheese.</span><span lang="ar">شريحة سميكة مرتجّة بخضار الربيع والنعناع وجبن الماعز المفتّت.</span></p><span class="veg"><span lang="en">vegetarian</span><span lang="ar">نباتي</span></span></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#e5dcf5"><svg class="d" viewBox="0 0 120 90"><use href="#i-drum"/></svg><span class="tag">£6.50</span></div><h3><span lang="en">Devilled Drumsticks</span><span lang="ar">أفخاذ الدجاج الحارّة</span></h3><p><span lang="en">Three sticky chicken drumsticks in mustard, honey and a wink of cayenne.</span><span lang="ar">ثلاثة أفخاذ دجاج لزجة بالخردل والعسل ولمسة من فلفل الكايين.</span></p></article>
+  <svg class="doodle big" style="inset-inline-start:0;top:-4%;width:60px;transform:rotate(18deg)" viewBox="0 0 60 60" aria-hidden="true"><use href="#daisy"/></svg>
+</section>
+
+<section class="deal" aria-labelledby="deal">
+  <div class="ktag">
+    <h2 id="deal"><span lang="en">The Basket for Two</span><span lang="ar">السلّة لشخصين</span></h2>
+    <ul>
+      <li><span lang="en">two sandwiches</span><span lang="ar">شطيرتان</span></li>
+      <li><span lang="en">two things from the tin</span><span lang="ar">قطعتان من الصينية</span></li>
+      <li><span lang="en">one jar to share</span><span lang="ar">مرطبان للمشاركة</span></li>
+      <li><span lang="en">two sweet things</span><span lang="ar">قطعتا حلوى</span></li>
+      <li><span lang="en">a bottle of lemonade</span><span lang="ar">زجاجة ليموناضة</span></li>
+      <li><span lang="en">strawberries, always</span><span lang="ar">فراولة، دائماً</span></li>
+    </ul>
+    <span class="tag">£38</span><span class="per"><span lang="en">basket, blanket and cups on loan</span><span lang="ar">السلّة والبساط والأكواب إعارة</span></span>
+  </div>
+  <div class="sheet list"><span class="tape" style="--tc:#a9c8f5"></span>
+    <h3><span lang="en">don't forget!</span><span lang="ar">لا تنسوا!</span></h3>
+    <ul>
+      <li><span lang="en">sun hat</span><span lang="ar">قبّعة الشمس</span></li>
+      <li><span lang="en">a good book</span><span lang="ar">كتاب ممتع</span></li>
+      <li><span lang="en">frisbee</span><span lang="ar">قرص الفريسبي</span></li>
+      <li><s><span lang="en">the ants</span><span lang="ar">النمل</span></s> <span lang="en">(they'll find you)</span><span lang="ar">(سيجدكم بنفسه)</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="pile" id="jars">
+  <div class="card note sheet"><span class="tape"></span><span class="no"><span lang="en">page three</span><span lang="ar">الصفحة الثالثة</span></span><h2><span lang="en">Jars &amp; Tubs</span><span lang="ar">مرطبانات وعلب</span></h2><p><span lang="en">Salads that travel well. Bring the jar back for 50p off the next one.</span><span lang="ar">سلطات تتحمّل الطريق. أعيدوا المرطبان واحصلوا على خصم 50 بنساً على التالي.</span></p></div>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#cfe8f5"><svg class="d" viewBox="0 0 120 90"><use href="#i-jar" style="--f1:#f6e7a8;--f2:#5c9a4a"/></svg><span class="tag">£4.50</span></div><h3><span lang="en">New Potato Salad</span><span lang="ar">سلطة البطاطا الجديدة</span></h3><p><span lang="en">Waxy potatoes, dill, capers and spring onion in a lemony dressing. No gloop.</span><span lang="ar">بطاطا صغيرة مع الشبت والكَبَر والبصل الأخضر بتتبيلة ليمونية خفيفة.</span></p><span class="veg"><span lang="en">vegetarian</span><span lang="ar">نباتي</span></span></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#fde7a8"><svg class="d" viewBox="0 0 120 90"><use href="#i-jar" style="--f1:#a9d98b;--f2:#fff"/></svg><span class="tag">£5.00</span></div><h3><span lang="en">Minted Pea &amp; Feta</span><span lang="ar">بازلاء بالنعناع والفيتا</span></h3><p><span lang="en">Crushed peas, broad beans, mint, lemon zest and salty feta crumbs.</span><span lang="ar">بازلاء مهروسة مع الفول الأخضر والنعناع وبشر الليمون وفتات الفيتا المالح.</span></p><span class="veg"><span lang="en">vegetarian</span><span lang="ar">نباتي</span></span></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#d6ecc4"><svg class="d" viewBox="0 0 120 90"><use href="#i-bowl" style="--f1:#c2477a"/></svg><span class="tag">£5.50</span></div><h3><span lang="en">Beetroot Hummus</span><span lang="ar">حمّص الشمندر</span></h3><p><span lang="en">Shocking-pink hummus with carrot, celery and radish sticks for dunking.</span><span lang="ar">حمّص وردي فاقع مع أعواد الجزر والكرفس والفجل للتغميس.</span></p><span class="veg"><span lang="en">vegetarian</span><span lang="ar">نباتي</span></span></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#f9d5cf"><svg class="d" viewBox="0 0 120 90"><use href="#i-jar" style="--f1:#f58b6b;--f2:#5c9a4a"/></svg><span class="tag">£5.50</span></div><h3><span lang="en">Tomato, Peach &amp; Basil</span><span lang="ar">طماطم ودرّاق وريحان</span></h3><p><span lang="en">Ripe tomatoes and peaches, torn basil, olive oil. Summer in a jar.</span><span lang="ar">طماطم ودرّاق ناضجان مع ريحان مقطّع باليد وزيت الزيتون. الصيف في مرطبان.</span></p><span class="veg"><span lang="en">vegetarian</span><span lang="ar">نباتي</span></span></article>
+</section>
+
+<div class="ants" aria-hidden="true">
+  <svg style="animation-delay:-.500s"><use href="#ant"/></svg><svg style="animation-delay:-4s"><use href="#ant"/></svg><svg style="animation-delay:-5.800s"><use href="#ant"/></svg><svg style="animation-delay:-10s"><use href="#ant"/></svg><svg style="animation-delay:-11.600s"><use href="#ant"/></svg><svg style="animation-delay:-16s"><use href="#ant"/></svg><svg style="animation-delay:-17.900s"><use href="#ant"/></svg><svg style="animation-delay:-22s"><use href="#ant"/></svg><svg style="animation-delay:-23.500s"><use href="#ant"/></svg>
+</div>
+
+<section class="pile" id="sweet">
+  <div class="card note sheet"><span class="tape"></span><span class="no"><span lang="en">page four</span><span lang="ar">الصفحة الرابعة</span></span><h2><span lang="en">Sweet Things</span><span lang="ar">حلويات</span></h2><p><span lang="en">Cake first is allowed. It's Sunday.</span><span lang="ar">يُسمح بالبدء بالكعك. اليوم أحد.</span></p></div>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#f9d5cf"><svg class="d" viewBox="0 0 120 90"><use href="#i-cake" style="--f1:#f3d28a;--f2:#fff6dc;--f3:#d93a3a"/></svg><span class="tag">£4.50</span></div><h3><span lang="en">Victoria Sponge</span><span lang="ar">كعكة فيكتوريا الإسفنجية</span></h3><p><span lang="en">A tall wedge with raspberry jam, whipped cream and a snowfall of icing sugar.</span><span lang="ar">شريحة عالية بمربّى توت العلّيق والكريمة المخفوقة ورشّة سكّر ناعم كالثلج.</span></p></article>
+  <article class="card pol"><span class="tape"></span><span class="fav"><span lang="en">in season</span><span lang="ar">في موسمها</span></span><div class="ph" style="--bg:#d6ecc4"><svg class="d" viewBox="0 0 120 90"><use href="#i-berry"/></svg><span class="tag">£5.00</span></div><h3><span lang="en">Strawberries &amp; Cream</span><span lang="ar">فراولة وقشدة</span></h3><p><span lang="en">A punnet picked this morning at Hollow Farm, with a pot of thick clotted cream.</span><span lang="ar">سلّة صغيرة قُطفت هذا الصباح من مزرعة هولو، مع علبة قشدة كثيفة.</span></p></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#cfe8f5"><svg class="d" viewBox="0 0 120 90"><use href="#i-loaf"/></svg><span class="tag">£3.80</span></div><h3><span lang="en">Lemon Drizzle Loaf</span><span lang="ar">كعكة الليمون المسقيّة</span></h3><p><span lang="en">Sticky, sharp and soaked through, with a crackly sugar crust.</span><span lang="ar">لزجة ولاذعة ومشبّعة بالشراب حتى القلب، بقشرة سكّر مقرمشة.</span></p></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#fde7a8"><svg class="d" viewBox="0 0 120 90"><use href="#i-brow"/></svg><span class="tag">£3.80</span></div><h3><span lang="en">Salted Brownie</span><span lang="ar">براوني بالملح</span></h3><p><span lang="en">Dense, dark and fudgy with flakes of sea salt. Melts politely in the sun.</span><span lang="ar">كثيف وداكن وطريّ مع رقائق ملح البحر. يذوب بأدب تحت الشمس.</span></p></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#e5dcf5"><svg class="d" viewBox="0 0 120 90"><use href="#i-scone"/></svg><span class="tag">£4.20</span></div><h3><span lang="en">Scone, Jam &amp; Cream</span><span lang="ar">سكون بالمربّى والقشدة</span></h3><p><span lang="en">One big buttermilk scone with strawberry jam. Jam first or cream first: your fight.</span><span lang="ar">قطعة سكون كبيرة باللبن المخيض مع مربّى الفراولة. المربّى أولاً أم القشدة؟ القرار لكم.</span></p></article>
+  <svg class="doodle big" style="inset-inline-end:2%;top:0;width:64px;transform:rotate(-14deg)" viewBox="0 0 60 60" aria-hidden="true"><use href="#daisy"/></svg>
+</section>
+
+<section class="pile" id="flask">
+  <div class="card note sheet"><span class="tape"></span><span class="no"><span lang="en">page five</span><span lang="ar">الصفحة الخامسة</span></span><h2><span lang="en">Flask &amp; Bottle</span><span lang="ar">ترمس وزجاجة</span></h2><p><span lang="en">Cold things in glass bottles, hot things in a flask you can keep till Monday.</span><span lang="ar">المشروبات الباردة في زجاجات، والساخنة في ترمس تحتفظون به حتى الاثنين.</span></p></div>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#d6ecc4"><svg class="d" viewBox="0 0 120 90"><use href="#i-bott" style="--f1:#fff3a8;--f2:#ffd23f"/></svg><span class="tag">£3.50</span></div><h3><span lang="en">Cloudy Lemonade</span><span lang="ar">ليموناضة عَكِرة</span></h3><p><span lang="en">Whole lemons, a little sugar, lots of ice. Squeezed at the hatch.</span><span lang="ar">ليمون كامل وقليل من السكّر وكثير من الثلج، تُعصر أمامكم عند النافذة.</span></p></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#fde7a8"><svg class="d" viewBox="0 0 120 90"><use href="#i-bott" style="--f1:#e8f3c8;--f2:#fff"/></svg><span class="tag">£3.80</span></div><h3><span lang="en">Elderflower Fizz</span><span lang="ar">فوّار زهر البيلسان</span></h3><p><span lang="en">Homemade elderflower cordial topped with very cold sparkling water.</span><span lang="ar">شراب زهر البيلسان من صنعنا مع ماء فوّار شديد البرودة.</span></p></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#cfe8f5"><svg class="d" viewBox="0 0 120 90"><use href="#i-glass" style="--f1:#f8b98a"/></svg><span class="tag">£3.50</span></div><h3><span lang="en">Iced Peach Tea</span><span lang="ar">شاي الدرّاق المثلّج</span></h3><p><span lang="en">Black tea steeped overnight with ripe peaches and a sprig of mint.</span><span lang="ar">شاي أسود منقوع طوال الليل مع درّاق ناضج وغصن نعناع.</span></p></article>
+  <article class="card pol"><span class="tape"></span><div class="ph" style="--bg:#f9d5cf"><svg class="d" viewBox="0 0 120 90"><use href="#i-flask"/></svg><span class="tag">£3.00</span></div><h3><span lang="en">Flask of Tea</span><span lang="ar">ترمس شاي</span></h3><p><span lang="en">Strong breakfast tea for two, milk in a tiny bottle, two enamel mugs.</span><span lang="ar">شاي فطور قويّ لشخصين، مع حليب في زجاجة صغيرة وكوبين من المينا.</span></p></article>
+</section>
+</main>
+
+<div class="ants" aria-hidden="true">
+  <svg style="animation-delay:-1.500s"><use href="#ant"/></svg><svg style="animation-delay:-3s"><use href="#ant"/></svg><svg style="animation-delay:-7s"><use href="#ant"/></svg><svg style="animation-delay:-9.500s"><use href="#ant"/></svg><svg style="animation-delay:-13.400s"><use href="#ant"/></svg><svg style="animation-delay:-15s"><use href="#ant"/></svg><svg style="animation-delay:-19s"><use href="#ant"/></svg><svg style="animation-delay:-21s"><use href="#ant"/></svg><svg style="animation-delay:-25s"><use href="#ant"/></svg>
+</div>
+
+<footer>
+  <div class="parcel">
+    <div><h3><span lang="en">The hatch is open</span><span lang="ar">النافذة مفتوحة</span></h3><p><span lang="en">Saturdays, Sundays and bank holidays, 9 till 5, or until the baskets run out. Rain or shine.</span><span lang="ar">أيام السبت والأحد والعطل الرسمية، من ٩ صباحاً حتى ٥ مساءً أو حتى تنفد السلال. تحت المطر أو الشمس.</span></p></div>
+    <div><h3><span lang="en">Find us</span><span lang="ar">أين تجدوننا</span></h3><p><span lang="en">The Old Boathouse, Meadow Lane, Little Wickham, by the park's east gate.</span><span lang="ar">بيت القوارب القديم، درب المرج، ليتل ويكهام، عند البوّابة الشرقية للحديقة.</span><br><span class="ltr">01632 960 025</span></p></div>
+    <div><h3><span lang="en">Small print</span><span lang="ar">ملاحظات صغيرة</span></h3><p><span lang="en">All our meat is halal; no pork, no alcohol. Our kitchen uses nuts, wheat, eggs, milk, fish and mustard, so do tell us about allergies.</span><span lang="ar">كل لحومنا حلال، ولا نستخدم لحم الخنزير ولا الكحول. مطبخنا يستعمل المكسرات والقمح والبيض والحليب والسمك والخردل، فأخبرونا عن أي حساسية.</span></p></div>
+  </div>
+  <p class="bye"><span lang="en">see you Sunday!</span><span lang="ar">نلتقي يوم الأحد!</span></p>
+</footer>
+</div>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>

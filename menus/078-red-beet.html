@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Red Beet · الشمندر الأحمر</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Red Beet — a dumpling and borscht canteen. Four borschts, seven dumplings by the half-dozen, zakuski and samovar tea. الشمندر الأحمر — زلابية وبورش.">
+<meta name="theme-color" content="#d7261e">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=Kufam:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--red:#d7261e;--blk:#141210;--cream:#efe5cd;--d:6vw;--bar:0px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--blk);color:var(--blk);font-family:"IBM Plex Sans Condensed","IBM Plex Sans Arabic",system-ui,sans-serif;font-size:17px;line-height:1.4;overflow-x:clip}
+html[lang="ar"] body{font-family:"IBM Plex Sans Arabic","IBM Plex Sans Condensed",system-ui,sans-serif;font-size:17px;line-height:1.7}
+html[lang="ar"] *{letter-spacing:0 !important}
+.A{font-family:"Anton","Kufam",Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+html[lang="ar"] .A{font-family:"Kufam","Anton",sans-serif;font-weight:900;line-height:1.25}
+a{color:inherit}
+ul,ol{list-style:none}
+body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.16;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+.arw{display:inline-block;width:1.5em;height:1em;vertical-align:-.12em;fill:currentColor}
+html[dir="rtl"] .arw{transform:scaleX(-1)}
+.price{font-family:"Anton",sans-serif;letter-spacing:.02em;white-space:nowrap}
+
+/* ── nav bar ── */
+.bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:8px;height:48px;background:var(--blk);color:var(--cream);padding-inline:12px 8px;border-bottom:4px solid var(--red)}
+.bar nav{display:flex;gap:2px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{flex:none;text-decoration:none;font-size:1rem;padding:8px 9px;white-space:nowrap}
+html[lang="ar"] .bar nav a{font-size:.9rem;font-weight:700}
+.bar nav a:hover{background:var(--red)}
+#langToggle{flex:none;cursor:pointer;border:0;background:var(--red);color:var(--cream);height:32px;padding:0 12px;font-family:"Kufam",sans-serif;font-weight:700;font-size:.85rem;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+html[lang="ar"] #langToggle{font-family:"Anton",sans-serif;font-weight:400;font-size:.95rem;letter-spacing:.05em !important}
+#langToggle:hover{background:var(--cream);color:var(--blk)}
+.home-link{flex:none;display:grid;place-items:center;width:32px;height:32px;border:2px solid var(--cream)}
+.home-link:hover{background:var(--cream);color:var(--blk)}
+.home-link svg{width:13px;height:13px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media (min-width:1000px){
+  :root{--bar:62px}
+  body{padding-inline-start:var(--bar)}
+  .bar{position:fixed;inset-block:0;inset-inline-start:0;width:var(--bar);height:auto;flex-direction:column;padding:14px 0;border-bottom:0;border-inline-end:5px solid var(--red);gap:10px}
+  .bar nav{flex-direction:column;align-items:center;justify-content:center;gap:6px;order:3;overflow:visible}
+  .bar nav a{writing-mode:vertical-rl;transform:rotate(180deg);padding:12px 6px;font-size:1.15rem;letter-spacing:.08em}
+  html[lang="ar"] .bar nav a{font-size:1rem}
+  #langToggle{width:54px;padding:0;font-size:.74rem;clip-path:none;height:30px}
+  html[lang="ar"] #langToggle{font-size:.82rem}
+}
+
+/* ── hero poster ── */
+.poster{position:relative;container-type:inline-size;background:var(--cream);overflow:hidden}
+.art{position:relative;height:150cqw}
+html[dir="rtl"] .art{transform:scaleX(-1)}
+html[dir="rtl"] .art .tx{transform:scaleX(-1)}
+.art>*{position:absolute}
+.ring{left:56cqw;top:92cqw;width:64cqw;aspect-ratio:1;border-radius:50%;border:5cqw solid var(--red);opacity:.9}
+.tri{left:0;top:0;width:0;height:0;border-top:0 solid var(--blk);border-right:0 solid transparent}
+.wedge{left:24cqw;top:90cqw;width:132cqw;height:56cqw;background:var(--blk);clip-path:polygon(0 42%,100% 0,100% 100%,0 58%);transform-origin:0 50%;transform:rotate(-52deg);display:flex;align-items:center;padding-left:44cqw}
+.wedge::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 3.2cqw,rgba(239,229,205,.09) 3.2cqw 3.6cqw);pointer-events:none}
+.wedge{direction:ltr}
+h1{color:var(--cream);white-space:nowrap;display:block}
+html[dir="rtl"] h1{direction:rtl}
+h1 .w{display:flex;align-items:center;gap:.6cqw;line-height:.9 !important}
+h1 .w i{font-style:normal;display:block}
+h1 [lang="en"] i:nth-child(1){font-size:10cqw} h1 [lang="en"] i:nth-child(2){font-size:12.5cqw} h1 [lang="en"] i:nth-child(3){font-size:15cqw;margin-right:1.8cqw}
+h1 [lang="en"] i:nth-child(4){font-size:18.5cqw;color:var(--red)} h1 [lang="en"] i:nth-child(5){font-size:22cqw;color:var(--red)} h1 [lang="en"] i:nth-child(6){font-size:26cqw;color:var(--red)} h1 [lang="en"] i:nth-child(7){font-size:30cqw;color:var(--red)}
+h1 [lang="ar"] i:nth-child(1){font-size:6.6cqw;margin-left:1.6cqw} h1 [lang="ar"] i:nth-child(2){font-size:10.4cqw;color:var(--red)}
+html[lang="ar"] h1 .w{gap:0;line-height:1.3 !important}
+.beet{left:-7cqw;top:70cqw;width:62cqw;z-index:2;filter:drop-shadow(1.2cqw 1.2cqw 0 rgba(20,18,16,.9))}
+.strip{left:0;right:0;bottom:0;height:16cqw;background:var(--red);color:var(--cream);z-index:3;display:flex;align-items:flex-start;padding-top:2.6cqw;overflow:hidden;white-space:nowrap}
+.strip .tx{font-size:3.5cqw;width:100%;text-align:center}
+html[lang="ar"] .strip .tx{font-size:3.3cqw}
+.stamp{left:6cqw;top:5cqw;z-index:2;border-top:1.4cqw solid var(--blk);padding-top:1.2cqw;font-weight:700;font-size:max(13px,3.3cqw);text-transform:uppercase;letter-spacing:.14em;line-height:1.25}
+.shout{left:6cqw;top:25cqw;width:42cqw;font-size:8cqw;z-index:2}
+.shout b{color:var(--red);font-weight:inherit}
+html[lang="ar"] .shout{font-size:6.6cqw}
+.dot{left:78cqw;top:116cqw;width:13cqw;aspect-ratio:1;border-radius:50%;background:var(--blk)}
+@media (min-width:800px){
+  .art{height:55cqw}
+  .ring{left:66cqw;top:26cqw;width:44cqw;border-width:3cqw}
+  .tri{border-top-width:13cqw;border-right-width:13cqw}
+  .wedge{left:20cqw;top:16.5cqw;width:84cqw;height:35cqw;transform:rotate(-9deg);padding-left:19cqw}
+  .stamp{left:40cqw}
+  h1 [lang="en"] i:nth-child(1){font-size:6.5cqw} h1 [lang="en"] i:nth-child(2){font-size:8cqw} h1 [lang="en"] i:nth-child(3){font-size:9.6cqw;margin-right:1.4cqw}
+  h1 [lang="en"] i:nth-child(4){font-size:11.6cqw} h1 [lang="en"] i:nth-child(5){font-size:13.6cqw} h1 [lang="en"] i:nth-child(6){font-size:15.8cqw} h1 [lang="en"] i:nth-child(7){font-size:18.4cqw}
+  h1 [lang="ar"] i:nth-child(1){font-size:5.5cqw} h1 [lang="ar"] i:nth-child(2){font-size:9.4cqw}
+  .beet{left:2cqw;top:8cqw;width:35cqw;filter:drop-shadow(.6cqw .6cqw 0 rgba(20,18,16,.9))}
+  .strip{left:-6cqw;right:-6cqw;bottom:auto;top:45.5cqw;height:4.2cqw;align-items:center;padding-top:0;transform:rotate(-9deg);transform-origin:26cqw 50%}
+  .strip .tx,html[lang="ar"] .strip .tx{font-size:2.1cqw;text-align:start;padding-inline-start:44cqw}
+  .stamp{left:40cqw;top:3.4cqw;font-size:max(13px,1.15cqw);border-top-width:.6cqw;padding-top:.6cqw}
+  .shout{left:auto;right:4cqw;top:auto;bottom:3cqw;width:34cqw;font-size:4.5cqw;text-align:end}
+  html[lang="ar"] .shout{font-size:3.5cqw}
+  .dot{left:47cqw;top:45cqw;width:5cqw}
+}
+
+/* ── lede band ── */
+.band{position:relative;clip-path:polygon(0 0,100% var(--d),100% 100%,0 100%);margin-top:calc(var(--d) * -1);padding:calc(var(--d) + clamp(36px,5vw,70px)) clamp(18px,5vw,80px) clamp(50px,7vw,100px);container-type:inline-size;overflow:hidden;scroll-margin-top:30px}
+.band.flip{clip-path:polygon(0 var(--d),100% 0,100% 100%,0 100%)}
+html[dir="rtl"] .band{clip-path:polygon(0 var(--d),100% 0,100% 100%,0 100%)}
+html[dir="rtl"] .band.flip{clip-path:polygon(0 0,100% var(--d),100% 100%,0 100%)}
+.in{position:relative;max-width:1240px;margin:0 auto}
+.lede{background:var(--blk);color:var(--cream)}
+.lede .in{display:grid;gap:36px}
+.lede p.big{font-size:clamp(1.25rem,2.3vw,1.85rem);font-weight:500;line-height:1.3;max-width:30ch}
+html[lang="ar"] .lede p.big{line-height:1.65;font-size:clamp(1.2rem,2.1vw,1.7rem)}
+.lede p.big b{color:var(--red);font-weight:700}
+.plan{border:4px solid var(--cream);padding:18px 18px 20px;position:relative}
+.plan .cap{position:absolute;top:-.8em;inset-inline-start:14px;background:var(--red);color:var(--cream);padding:.25em .7em;font-size:.95rem;letter-spacing:.08em}
+.plan ol{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:14px}
+.plan li{font-size:clamp(1.25rem,2.4vw,1.9rem)}
+.plan li.blk{background:var(--cream);color:var(--blk);padding:.28em .5em .22em}
+.plan li.op{color:var(--red);font-family:"Anton",sans-serif;font-size:2.2rem;line-height:1}
+.plan li.sum{background:var(--red);color:var(--cream);padding:.2em .5em .14em;font-size:clamp(1.8rem,3.4vw,2.7rem);transform:rotate(-4deg)}
+.plan small{display:block;margin-top:12px;font-size:.95rem;opacity:.85}
+@media (min-width:900px){.lede .in{grid-template-columns:1fr 1.05fr;align-items:center;gap:60px}}
+
+/* ── section headings ── */
+.shead{position:relative;z-index:1;margin-bottom:clamp(26px,4vw,56px)}
+.shead h2{font-size:clamp(4.4rem,17cqw,15rem);transform:rotate(-5deg);transform-origin:0 100%;white-space:nowrap;line-height:.86}
+html[lang="ar"] .shead h2{font-size:clamp(3.6rem,14cqw,12rem);line-height:1.15;transform-origin:100% 100%;transform:rotate(5deg)}
+.shead p{font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.95rem;margin-top:1.2em;max-width:44ch}
+html[lang="ar"] .shead p{font-size:1.05rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.12em .55em;border:2px solid currentColor;vertical-align:.25em;margin-inline-start:.5em;white-space:nowrap}
+html[lang="ar"] .tag{font-size:.8rem;vertical-align:.1em}
+
+/* ── borscht ── */
+.soup{background:var(--red);color:var(--cream)}
+.soup::before{content:"";position:absolute;inset-inline-end:-12cqw;top:-6cqw;width:58cqw;aspect-ratio:1;border-radius:50%;background:var(--blk)}
+.soup::after{content:"";position:absolute;inset-inline:-10%;top:52%;height:9cqw;background:var(--blk);opacity:.16;transform:rotate(-12deg)}
+.bowl{position:absolute;z-index:1;inset-inline-end:2cqw;top:calc(var(--d) + 1cqw);width:36cqw;max-width:420px}
+.soup .shead h2{color:var(--cream);text-shadow:.045em .045em 0 var(--blk)}
+.soup .shead{padding-top:26cqw}
+.soup ol{position:relative;z-index:1;display:grid;gap:26px 44px;counter-reset:s}
+.soup li{position:relative;counter-increment:s;display:grid;grid-template-columns:auto 1fr auto;gap:4px 16px;align-items:start;border-top:6px solid var(--blk);padding-top:12px}
+.soup li::before{content:"0" counter(s);font-family:"Anton",sans-serif;font-size:3.4rem;line-height:.9;color:var(--blk);grid-row:span 2}
+.soup li::after{content:"";position:absolute;inset-inline:0;top:-6px;height:1.5px;background:var(--cream);opacity:.55}
+.soup h3{font-size:clamp(1.6rem,2.6vw,2.2rem)}
+.soup li p{grid-column:2/4;font-weight:500;font-size:1.05rem;max-width:42ch}
+.soup .price{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--blk);color:var(--cream);font-size:1.3rem;box-shadow:0 0 0 3px var(--cream)}
+@media (min-width:860px){.soup ol{grid-template-columns:1fr 1fr}.soup .shead{padding-top:4cqw}.bowl{width:26cqw}}
+
+/* ── dumplings ── */
+.dump{background:var(--cream)}
+.dump::before{content:"";position:absolute;inset-inline-start:-20%;inset-inline-end:-20%;top:17cqw;height:11cqw;background:var(--red);transform:rotate(7deg)}
+.dump::after{content:"";position:absolute;inset-inline-end:0;bottom:0;border-bottom:34cqw solid var(--blk);border-inline-start:34cqw solid transparent;opacity:.08}
+.dump .shead{text-align:end}
+.dump .shead h2{transform:rotate(7deg);transform-origin:100% 100%;color:var(--blk)}
+html[lang="ar"] .dump .shead h2{transform:rotate(-7deg);transform-origin:0 100%}
+.dump .shead p{margin-inline-start:auto}
+.march{display:flex;gap:1.2cqw;position:relative;z-index:1;margin-bottom:10px}
+.march svg{width:clamp(34px,6cqw,70px);height:auto;fill:var(--blk);stroke:var(--blk);flex:none}
+.march svg:nth-child(3n){fill:var(--red);stroke:var(--red)}
+.tbl{position:relative;z-index:1}
+.tbl .hd,.tbl li{display:grid;grid-template-columns:1fr 3.4rem 3.4rem;gap:2px 12px;align-items:baseline}
+.tbl .hd{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;border-bottom:8px solid var(--blk);padding-bottom:6px}
+html[lang="ar"] .tbl .hd{font-size:.95rem}
+.tbl .hd span:not(:first-child),.tbl .price{text-align:center}
+.tbl li{border-bottom:3px solid var(--blk);padding:14px 0 12px}
+.tbl h3{font-size:clamp(1.5rem,2.6vw,2.1rem)}
+.tbl li p{grid-column:1;grid-row:2;font-weight:500;max-width:52ch}
+.tbl .price{font-size:1.5rem}
+.tbl .price.x{background:var(--red);color:var(--cream);padding:.1em 0 .02em}
+.tbl .how{margin-top:16px;font-weight:700;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tbl .how span.k{background:var(--blk);color:var(--cream);padding:.2em .6em}
+@media (min-width:900px){.tbl{transform:rotate(-1.4deg);max-width:980px}.tbl .hd,.tbl li{grid-template-columns:1fr 5.5rem 5.5rem}.tbl .price{font-size:1.9rem}}
+
+/* ── zakuski ── */
+.zak{background:var(--blk);color:var(--cream)}
+.zak::before{content:"";position:absolute;inset-inline-start:-8cqw;bottom:-14cqw;width:50cqw;aspect-ratio:1;border-radius:50%;border:6cqw solid var(--red)}
+.zak .shead h2{color:var(--red)}
+.cards{position:relative;z-index:1;display:grid;gap:20px}
+.card{background:var(--cream);color:var(--blk);padding:20px 20px 18px;position:relative;box-shadow:8px 8px 0 var(--red)}
+.card:nth-child(odd){transform:rotate(-1.2deg)} .card:nth-child(even){transform:rotate(1deg)}
+.card h3{font-size:clamp(1.5rem,2.2vw,1.9rem);padding-inline-end:3.2rem}
+.card p{font-weight:500;margin-top:6px}
+.card .price{position:absolute;top:0;right:0;background:var(--red);color:var(--cream);font-size:1.4rem;padding:.3em .5em .22em}
+html[dir="rtl"] .card .price{right:auto;left:0}
+@media (min-width:700px){.cards{grid-template-columns:repeat(6,1fr);gap:30px}.card{grid-column:span 2}.card:nth-child(4){grid-column:2/span 2}.card:nth-child(n+4){margin-top:-6px}}
+
+/* ── sweet + drink ── */
+.duo{background:var(--cream);padding-inline:0;padding-bottom:0}
+.duo .in{max-width:none;display:grid}
+.duo .half{padding:10px clamp(18px,5vw,80px) clamp(50px,7vw,90px);position:relative}
+.duo .half.b{background:var(--red);color:var(--cream);clip-path:polygon(0 var(--d),100% 0,100% 100%,0 100%) !important;padding-top:calc(var(--d) + 30px);margin-top:calc(var(--d) * -.4)}
+.duo h2{font-size:clamp(3.6rem,13cqw,8rem);transform:rotate(-4deg);transform-origin:0 100%;margin-bottom:.3em;line-height:.9}
+html[lang="ar"] .duo h2{transform:rotate(4deg);transform-origin:100% 100%;line-height:1.2;font-size:clamp(3rem,11cqw,7rem)}
+.duo .b h2{text-shadow:.045em .045em 0 var(--blk)}
+.duo li{display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:12px 0;border-top:3px solid currentColor;align-items:baseline}
+.duo h3{font-size:clamp(1.4rem,2.2vw,1.8rem)}
+.duo li p{grid-column:1/-1;font-weight:500}
+.duo .price{font-size:1.5rem}
+@media (min-width:900px){
+  .duo{padding-top:calc(var(--d) + 30px);background:linear-gradient(101deg,var(--cream) 0 45.5%,var(--blk) 45.5% 46.5%,var(--red) 46.5%)}
+  html[dir="rtl"] .duo{background:linear-gradient(-101deg,var(--cream) 0 45.5%,var(--blk) 45.5% 46.5%,var(--red) 46.5%)}
+  .duo .in{grid-template-columns:40% 1fr;gap:10%;padding-inline:clamp(18px,5vw,80px)}
+  .duo .half{padding-inline:0}
+  .duo .half.b{background:none;clip-path:none;margin:0;padding-top:10px}
+}
+
+/* ── footer ── */
+.end{background:var(--blk);color:var(--cream);position:relative;overflow:hidden;padding:clamp(60px,9vw,130px) clamp(18px,5vw,80px) clamp(40px,5vw,60px);container-type:inline-size;border-top:10px solid var(--cream)}
+.end::before{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 0 100%,var(--red) 0 4deg,transparent 4deg 9deg);opacity:.5;-webkit-mask-image:linear-gradient(60deg,#000,transparent 55%);mask-image:linear-gradient(60deg,#000,transparent 55%)}
+html[dir="rtl"] .end::before{transform:scaleX(-1)}
+.end .slogan{font-size:clamp(3.4rem,13cqw,11rem);line-height:.9;transform:rotate(-3deg);margin-bottom:.5em}
+html[lang="ar"] .end .slogan{line-height:1.2;transform:rotate(3deg);font-size:clamp(3rem,11cqw,9.4rem)}
+.end .slogan b{color:var(--red);font-weight:inherit;display:block}
+.info{display:grid;gap:26px 50px}
+.info h3{font-size:1.3rem;color:var(--red);margin-bottom:6px;letter-spacing:.06em}
+.info p{font-weight:500}
+.info .fine{grid-column:1/-1;border-top:4px solid var(--cream);padding-top:14px;font-size:.98rem;font-weight:400;max-width:90ch}
+@media (min-width:800px){.info{grid-template-columns:repeat(3,1fr)}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="arw" viewBox="0 0 66 44"><path d="M0 14h38V0l28 22-28 22V30H0z"/></symbol>
+  <symbol id="dmp" viewBox="0 0 64 42"><path d="M3 36C3 16 16 6 32 6s29 10 29 30z" stroke="none"/><path d="M3 36C3 16 16 6 32 6s29 10 29 30" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray=".1 9.6"/></symbol>
+  <pattern id="ht" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="3.5" cy="3.5" r="2" fill="#141210"/></pattern>
+</svg>
+
+<div class="bar">
+  <nav aria-label="Sections">
+    <a class="A" href="#soup"><span lang="en">Borscht</span><span lang="ar">بورش</span></a>
+    <a class="A" href="#dump"><span lang="en">Dumplings</span><span lang="ar">زلابية</span></a>
+    <a class="A" href="#zak"><span lang="en">Zakuski</span><span lang="ar">مقبّلات</span></a>
+    <a class="A" href="#duo"><span lang="en">Sweet + Drink</span><span lang="ar">حلو + شراب</span></a>
+  </nav>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html"><svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect width="6" height="6"/><rect x="8" width="6" height="6"/><rect y="8" width="6" height="6"/><rect x="8" y="8" width="6" height="6"/></svg><span class="sr" lang="en">All menus</span><span class="sr" lang="ar">كل القوائم</span></a>
+</div>
+
+<header class="poster">
+  <div class="art">
+    <i class="ring"></i><i class="tri"></i><i class="dot"></i>
+    <div class="wedge"><h1 class="A tx"><span class="w" lang="en"><i>R</i><i>E</i><i>D</i><i>B</i><i>E</i><i>E</i><i>T</i></span><span class="w" lang="ar"><i>الشمندر</i><i>الأحمر</i></span></h1></div>
+    <svg class="beet" viewBox="0 0 200 250" aria-hidden="true" focusable="false">
+      <path fill="#141210" d="M96 96C70 70 40 60 14 20c34 4 70 22 90 62zM100 92C92 56 96 26 112 2c18 30 16 62 2 92zM108 96c14-34 40-56 78-64-10 36-34 56-70 70z"/>
+      <path fill="none" stroke="#efe5cd" stroke-width="2.2" d="M96 92C76 68 52 50 24 28M106 88c2-28 4-52 6-76M112 94c18-22 40-40 66-54"/>
+      <path fill="#d7261e" d="M100 84c44 0 76 30 76 72 0 40-34 62-62 70-8 3-10 14-14 24-4-10-6-21-14-24-28-8-62-30-62-70 0-42 32-72 76-72z"/>
+      <path fill="url(#ht)" opacity=".5" d="M100 84c44 0 76 30 76 72 0 40-34 62-62 70-8 3-10 14-14 24 0-60 30-110 0-166z"/>
+      <path fill="none" stroke="#efe5cd" stroke-width="3" stroke-linecap="round" d="M46 150c2-22 16-38 36-44"/>
+    </svg>
+    <p class="stamp"><span class="tx" style="display:block"><span lang="en">Canteen № 78<br>Dumplings &amp; Borscht<br>Berlin</span><span lang="ar">مطعم الشعب رقم 78<br>زلابية وبورش<br>برلين</span></span></p>
+    <p class="shout A"><span class="tx" style="display:block"><span lang="en">Dumplings of the world, <b>unite!</b></span><span lang="ar">يا زلابية العالم، <b>اتّحدي!</b></span></span></p>
+    <div class="strip A"><span class="tx"><span lang="en">Hot from the pot · Folded by hand · Every single day</span><span lang="ar">ساخن من القِدر · يُطوى باليد · كل يوم بلا استثناء</span></span></div>
+  </div>
+</header>
+
+<section class="band lede">
+  <div class="in">
+    <p class="big"><span lang="en">One pot of borscht has simmered here since morning. Around it, six pairs of hands fold dumplings from <b>five republics</b> — pinched, pleated, boiled and buttered to order. Sit down, comrade. <b>Lunch is a right.</b></span><span lang="ar">قِدر البورش يغلي هنا منذ الصباح، وحوله ستّة أزواج من الأيدي تطوي زلابية من <b>خمس جمهوريات</b>: تُقرَص وتُثنى وتُسلق وتُدهن بالزبدة عند الطلب. تفضّل بالجلوس يا رفيق، <b>فالغداء حقّ للجميع.</b></span></p>
+    <div class="plan">
+      <span class="cap A"><span lang="en">The lunch plan · Mon–Fri 12–15</span><span lang="ar">خطة الغداء · الإثنين–الجمعة 12–15</span></span>
+      <ol>
+        <li class="blk A"><span lang="en">Bowl of borscht</span><span lang="ar">طبق بورش</span></li><li class="op">+</li>
+        <li class="blk A"><span lang="en">½ dozen dumplings</span><span lang="ar">ست حبّات زلابية</span></li><li class="op">+</li>
+        <li class="blk A"><span lang="en">Kompot</span><span lang="ar">كومبوت</span></li><li class="op">=</li>
+        <li class="sum price" dir="ltr">€14</li>
+      </ol>
+      <small><span lang="en">Any borscht, any dumpling. Black rye and sour cream are on the table and on the house.</span><span lang="ar">أي بورش وأي زلابية. خبز الجاودار الأسود والقشدة الحامضة على الطاولة وعلى حسابنا.</span></small>
+    </div>
+  </div>
+</section>
+
+<section class="band flip soup" id="soup">
+  <svg class="bowl" viewBox="0 0 240 200" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="#efe5cd" stroke-width="7" stroke-linecap="round"><path d="M84 66c-12-14 12-22 0-38M120 60c-12-16 12-26 0-44M156 66c-12-14 12-22 0-38"/></g>
+    <path fill="#efe5cd" d="M14 96h212c0 54-44 92-106 92S14 150 14 96z"/>
+    <ellipse cx="120" cy="96" rx="106" ry="18" fill="#d7261e" stroke="#efe5cd" stroke-width="7"/>
+    <ellipse cx="132" cy="95" rx="22" ry="6" fill="#efe5cd"/>
+    <path fill="url(#ht)" opacity=".35" d="M120 188c62 0 106-38 106-92h-60c0 50-20 80-46 92z"/>
+  </svg>
+  <div class="in">
+    <header class="shead"><h2 class="A"><span lang="en">Borscht!</span><span lang="ar">بورش!</span></h2><p><span lang="en">Four pots. Ladled deep, served with black rye, garlic and smetana.</span><span lang="ar">أربعة قدور. تُغرف بسخاء وتُقدَّم مع خبز الجاودار الأسود والثوم والقشدة الحامضة.</span></p></header>
+    <ol>
+      <li><h3 class="A"><span lang="en">Red Borscht</span><span lang="ar">البورش الأحمر</span><span class="tag"><span lang="en">People’s choice</span><span lang="ar">اختيار الشعب</span></span></h3><span class="price" dir="ltr">€9</span><p><span lang="en">Beetroot, beef shin and cabbage, cooked for five hours and finished with a spoon of sour cream.</span><span lang="ar">شمندر وموزات البقر وملفوف، يُطهى خمس ساعات ويُتوَّج بملعقة من القشدة الحامضة.</span></p></li>
+      <li><h3 class="A"><span lang="en">Green Borscht</span><span lang="ar">البورش الأخضر</span></h3><span class="price" dir="ltr">€8</span><p><span lang="en">Sorrel, potato and a soft-boiled egg. Sharp, bright, spring in a bowl.</span><span lang="ar">حمّاض وبطاطا وبيضة نصف مسلوقة. لاذع ومشرق، كأنه الربيع في طبق.</span></p></li>
+      <li><h3 class="A"><span lang="en">Cold Borscht</span><span lang="ar">البورش البارد</span></h3><span class="price" dir="ltr">€7</span><p><span lang="en">Chilled beet and kefir with cucumber, radish and a snowfall of dill.</span><span lang="ar">شمندر مبرَّد بالكفير مع الخيار والفجل ووابل من الشبت.</span></p></li>
+      <li><h3 class="A"><span lang="en">Lenten Borscht</span><span lang="ar">بورش الصيام</span><span class="tag"><span lang="en">Vegan</span><span lang="ar">نباتي</span></span></h3><span class="price" dir="ltr">€8</span><p><span lang="en">Wild mushrooms, white beans and prunes. No meat, no compromise.</span><span lang="ar">فطر برّي وفاصولياء بيضاء وخوخ مجفَّف. بلا لحم وبلا تنازلات.</span></p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band dump" id="dump">
+  <div class="in">
+    <header class="shead"><h2 class="A"><span lang="en">Dumplings!</span><span lang="ar">زلابية!</span></h2><p><span lang="en">Seven kinds from five republics. Order by the half-dozen or the dozen.</span><span lang="ar">سبعة أنواع من خمس جمهوريات. اطلبوها بالستّ أو بالاثنتي عشرة.</span></p></header>
+    <div class="march" aria-hidden="true"><svg viewBox="0 0 64 42"><use href="#dmp"/></svg><svg viewBox="0 0 64 42"><use href="#dmp"/></svg><svg viewBox="0 0 64 42"><use href="#dmp"/></svg><svg viewBox="0 0 64 42"><use href="#dmp"/></svg><svg viewBox="0 0 64 42"><use href="#dmp"/></svg><svg viewBox="0 0 64 42"><use href="#dmp"/></svg><svg viewBox="0 0 64 42"><use href="#dmp"/></svg></div>
+    <div class="tbl">
+      <div class="hd"><span><span lang="en">Kind &amp; filling</span><span lang="ar">النوع والحشوة</span></span><span><span lang="en">× 6</span><span lang="ar">6 حبّات</span></span><span><span lang="en">× 12</span><span lang="ar">12 حبّة</span></span></div>
+      <ul>
+        <li><h3 class="A"><span lang="en">Siberian Pelmeni</span><span lang="ar">بيلميني سيبيريا</span><span class="tag"><span lang="en">People’s choice</span><span lang="ar">اختيار الشعب</span></span></h3><span class="price" dir="ltr">€8</span><span class="price x" dir="ltr">€14</span><p><span lang="en">Beef and onion, in clear broth or tossed in butter and black pepper.</span><span lang="ar">لحم بقري وبصل، في مرق صافٍ أو مقلَّبة بالزبدة والفلفل الأسود.</span></p></li>
+        <li><h3 class="A"><span lang="en">Turkey &amp; Dill Pelmeni</span><span lang="ar">بيلميني الديك الرومي والشبت</span></h3><span class="price" dir="ltr">€8</span><span class="price x" dir="ltr">€14</span><p><span lang="en">Pan-fried until the edges crackle, with garlic yoghurt.</span><span lang="ar">تُحمَّر في المقلاة حتى تتقرمش أطرافها، مع لبن بالثوم.</span></p></li>
+        <li><h3 class="A"><span lang="en">Potato Vareniki</span><span lang="ar">فارينيكي البطاطا</span><span class="tag"><span lang="en">Meat-free</span><span lang="ar">بلا لحم</span></span></h3><span class="price" dir="ltr">€7</span><span class="price x" dir="ltr">€12</span><p><span lang="en">Buttery mash inside, a mountain of fried onion on top.</span><span lang="ar">بطاطا مهروسة بالزبدة في الداخل، وجبل من البصل المقلي في الأعلى.</span></p></li>
+        <li><h3 class="A"><span lang="en">Pierogi Ruskie</span><span lang="ar">بيروغي روسكي</span><span class="tag"><span lang="en">Meat-free</span><span lang="ar">بلا لحم</span></span></h3><span class="price" dir="ltr">€7</span><span class="price x" dir="ltr">€12</span><p><span lang="en">Farmer’s cheese and potato, browned butter, cracked pepper.</span><span lang="ar">جبن قريش وبطاطا مع زبدة محمَّرة وفلفل مجروش.</span></p></li>
+        <li><h3 class="A"><span lang="en">Khinkali</span><span lang="ar">خينكالي</span></h3><span class="price" dir="ltr">€9</span><span class="price x" dir="ltr">€16</span><p><span lang="en">Georgian soup dumplings of beef and coriander. Hold by the knot, bite, sip.</span><span lang="ar">زلابية جورجية بالمرق محشوّة بلحم البقر والكزبرة. أمسكوها من عقدتها، اقضموا، ثم ارتشفوا.</span></p></li>
+        <li><h3 class="A"><span lang="en">Manti</span><span lang="ar">مانتي</span></h3><span class="price" dir="ltr">€9</span><span class="price x" dir="ltr">€16</span><p><span lang="en">Steamed lamb and pumpkin parcels, yoghurt and chilli butter.</span><span lang="ar">صُرر من الضأن واليقطين على البخار، مع اللبن وزبدة الفلفل الحار.</span></p></li>
+        <li><h3 class="A"><span lang="en">Sour Cherry Vareniki</span><span lang="ar">فارينيكي الكرز الحامض</span><span class="tag"><span lang="en">Sweet</span><span lang="ar">حلوة</span></span></h3><span class="price" dir="ltr">€7</span><span class="price x" dir="ltr">€12</span><p><span lang="en">Cherries, sugar, sour cream. Dessert or not — the people decide.</span><span lang="ar">كرز وسكر وقشدة حامضة. حلوى أم طبق رئيسي؟ القرار للشعب.</span></p></li>
+      </ul>
+      <p class="how"><span class="k A"><span lang="en">Your way</span><span lang="ar">على طريقتكم</span></span><span><span lang="en">Boiled</span><span lang="ar">مسلوقة</span></span><svg class="arw" viewBox="0 0 66 44"><use href="#arw"/></svg><span><span lang="en">Fried in butter</span><span lang="ar">محمَّرة بالزبدة</span></span><svg class="arw" viewBox="0 0 66 44"><use href="#arw"/></svg><span><span lang="en">In broth (+€1)</span><span lang="ar">في المرق (+€1)</span></span></p>
+    </div>
+  </div>
+</section>
+
+<section class="band flip zak" id="zak">
+  <div class="in">
+    <header class="shead"><h2 class="A"><span lang="en">Zakuski</span><span lang="ar">مقبّلات</span></h2><p><span lang="en">Small plates for the middle of the table. Order several, argue over the last bite.</span><span lang="ar">أطباق صغيرة لوسط الطاولة. اطلبوا عدداً منها وتنازعوا على اللقمة الأخيرة.</span></p></header>
+    <div class="cards">
+      <article class="card"><h3 class="A"><span lang="en">Herring under a Fur Coat</span><span lang="ar">رنجة تحت معطف الفرو</span></h3><span class="price" dir="ltr">€8</span><p><span lang="en">Layers of salted herring, potato, carrot, beet and egg.</span><span lang="ar">طبقات من الرنجة المملَّحة والبطاطا والجزر والشمندر والبيض.</span></p></article>
+      <article class="card"><h3 class="A"><span lang="en">Olivier Salad</span><span lang="ar">سلطة أوليفييه</span></h3><span class="price" dir="ltr">€7</span><p><span lang="en">Smoked turkey, peas, pickles and potato in mayonnaise.</span><span lang="ar">ديك رومي مدخَّن وبازلاء ومخلل وبطاطا بالمايونيز.</span></p></article>
+      <article class="card"><h3 class="A"><span lang="en">Draniki</span><span lang="ar">درانيكي</span></h3><span class="price" dir="ltr">€8</span><p><span lang="en">Crisp potato pancakes with sour cream and chives.</span><span lang="ar">فطائر بطاطا مقرمشة مع القشدة الحامضة والثوم المعمَّر.</span></p></article>
+      <article class="card"><h3 class="A"><span lang="en">Pickle Plate</span><span lang="ar">طبق المخللات</span></h3><span class="price" dir="ltr">€6</span><p><span lang="en">Cucumbers, cabbage, tomatoes and garlic from our own barrels.</span><span lang="ar">خيار وملفوف وطماطم وثوم من براميلنا.</span></p></article>
+      <article class="card"><h3 class="A"><span lang="en">Black Rye &amp; Beet Butter</span><span lang="ar">خبز الجاودار وزبدة الشمندر</span></h3><span class="price" dir="ltr">€4</span><p><span lang="en">A warm Borodinsky loaf, whipped beet butter, coarse salt.</span><span lang="ar">رغيف بوروديني دافئ مع زبدة شمندر مخفوقة وملح خشن.</span></p></article>
+    </div>
+  </div>
+</section>
+
+<section class="band duo" id="duo">
+  <div class="in">
+    <div class="half a">
+      <h2 class="A"><span lang="en">Sweet</span><span lang="ar">حلو</span></h2>
+      <ul>
+        <li><h3 class="A"><span lang="en">Medovik</span><span lang="ar">ميدوفيك</span></h3><span class="price" dir="ltr">€6</span><p><span lang="en">Eight thin layers of honey cake with sour cream frosting.</span><span lang="ar">ثماني طبقات رقيقة من كعكة العسل مع كريمة القشدة الحامضة.</span></p></li>
+        <li><h3 class="A"><span lang="en">Syrniki</span><span lang="ar">سيرنيكي</span></h3><span class="price" dir="ltr">€7</span><p><span lang="en">Golden cottage-cheese fritters with blackcurrant jam.</span><span lang="ar">أقراص ذهبية من الجبن القريش مع مربّى الكشمش الأسود.</span></p></li>
+      </ul>
+    </div>
+    <div class="half b">
+      <h2 class="A"><span lang="en">Drink</span><span lang="ar">شراب</span></h2>
+      <ul>
+        <li><h3 class="A"><span lang="en">Kompot</span><span lang="ar">كومبوت</span></h3><span class="price" dir="ltr">€3.5</span><p><span lang="en">Dried apple, pear and apricot, simmered and served cold.</span><span lang="ar">تفاح وكمّثرى ومشمش مجفَّف، تُغلى ثم تُقدَّم باردة.</span></p></li>
+        <li><h3 class="A"><span lang="en">Cranberry Mors</span><span lang="ar">مورس التوت البرّي</span></h3><span class="price" dir="ltr">€4</span><p><span lang="en">Tart pressed cranberries, barely sweetened.</span><span lang="ar">توت برّي معصور لاذع، محلّى قليلاً.</span></p></li>
+        <li><h3 class="A"><span lang="en">Tarragon Lemonade</span><span lang="ar">ليموناضة الطرخون</span></h3><span class="price" dir="ltr">€4</span><p><span lang="en">Emerald green, fizzy, made with fresh tarragon.</span><span lang="ar">خضراء زمرّدية فوّارة، تُحضَّر بالطرخون الطازج.</span></p></li>
+        <li><h3 class="A"><span lang="en">Sea-Buckthorn Tea</span><span lang="ar">شاي النبق البحري</span></h3><span class="price" dir="ltr">€5</span><p><span lang="en">Hot orange berries, ginger and honey by the pot.</span><span lang="ar">ثمار برتقالية ساخنة مع الزنجبيل والعسل في إبريق.</span></p></li>
+        <li><h3 class="A"><span lang="en">Samovar Tea</span><span lang="ar">شاي السماور</span></h3><span class="price" dir="ltr">€4</span><p><span lang="en">Strong black tea with lemon and a saucer of cherry jam.</span><span lang="ar">شاي أسود قوي مع الليمون وصحن صغير من مربّى الكرز.</span></p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="end">
+  <div class="in">
+    <p class="slogan A"><span lang="en">All power <b>to the soup!</b></span><span lang="ar">كل السلطة <b>للحساء!</b></span></p>
+    <div class="info">
+      <div><h3 class="A"><span lang="en">Hours</span><span lang="ar">أوقات العمل</span></h3><p><span lang="en">Every day, 11:30 – 22:30</span><span lang="ar">كل يوم، 11:30 – 22:30</span></p><p><span lang="en">The pot is empty when it is empty.</span><span lang="ar">وحين يفرغ القِدر، فقد فرغ.</span></p></div>
+      <div><h3 class="A"><span lang="en">Address</span><span lang="ar">العنوان</span></h3><p><span lang="en">Oderberger Hof 78, Prenzlauer Berg, Berlin</span><span lang="ar">أودربرغر هوف 78، برينتسلاور بيرغ، برلين</span></p><p><span dir="ltr">+49 30 555 0178</span></p></div>
+      <div><h3 class="A"><span lang="en">The rules</span><span lang="ar">النظام</span></h3><p><span lang="en">No reservations. Share the long tables. Bread is free, always.</span><span lang="ar">لا حجوزات. تقاسموا الطاولات الطويلة. والخبز مجاني دائماً.</span></p></div>
+      <p class="fine"><span lang="en">Allergens: our dumplings contain gluten and egg; many dishes contain milk, fish or mustard. Ask at the counter for the full list. All beef, lamb and turkey are halal; we cook no pork and serve no alcohol. Prices in euros, service included.</span><span lang="ar">مسبّبات الحساسية: تحتوي الزلابية على الغلوتين والبيض، وكثير من الأطباق على الحليب أو السمك أو الخردل. اطلبوا القائمة الكاملة عند المنضدة. لحوم البقر والضأن والديك الرومي حلال، ولا نطهو لحم الخنزير ولا نقدّم الكحول. الأسعار باليورو شاملة الخدمة.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

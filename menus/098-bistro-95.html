@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Bistro 95 · بيسترو ٩٥</title>
+<meta name="description" content="Bistro 95 — retro comfort food served on a 1995 desktop: meatloaf, pot pie, malts and floats. بيسترو ٩٥ — أطباق كلاسيكية بروح التسعينيات.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#008080">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;700&family=Handjet:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--face:#c0c0c0;--hi:#fff;--lo:#808080;--dk:#0a0a0a;--navy:#000080;--teal:#008080;
+  --out:inset -1px -1px var(--dk),inset 1px 1px #dfdfdf,inset -2px -2px var(--lo),inset 2px 2px var(--hi);
+  --in:inset -1px -1px var(--hi),inset 1px 1px var(--lo),inset -2px -2px #dfdfdf,inset 2px 2px var(--dk);
+  --ui:'Pixelify Sans','Tahoma','Verdana',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--teal);font-family:var(--ui);font-size:16px;line-height:1.3;color:#000;padding-bottom:52px;overflow-x:clip;-webkit-font-smoothing:none}
+html[lang="ar"]{--ui:'Handjet','Tahoma','Segoe UI',sans-serif}
+html[lang="ar"] body{font-size:20px;font-weight:500;line-height:1.25}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit;text-decoration:none}
+svg.px{shape-rendering:crispEdges;flex:none}
+u{text-underline-offset:2px}
+
+/* ---------- desktop ---------- */
+.desk{display:grid;grid-template-columns:108px minmax(0,1fr);gap:8px;max-width:1500px;margin:auto;padding:14px 14px 24px}
+.icons{display:flex;flex-direction:column;gap:18px;align-items:center;padding-top:6px}
+.icons a{display:grid;justify-items:center;gap:4px;color:#fff;text-align:center;font-size:14px;width:96px;padding:3px}
+html[lang="ar"] .icons a{font-size:18px}
+.icons a span{padding:0 3px}
+.icons a:hover span,.icons a:focus span{background:var(--navy);outline:1px dotted #fff}
+.icons svg{width:40px;height:40px}
+.wins{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px 16px;align-items:start}
+
+/* ---------- window chrome ---------- */
+.win{background:var(--face);box-shadow:var(--out);padding:3px;min-width:0;scroll-margin-top:12px}
+.tb{background:linear-gradient(90deg,var(--navy),#1084d0);color:#fff;font-weight:700;display:flex;align-items:center;gap:6px;padding:3px 3px 3px 5px;min-height:26px}
+html[dir="rtl"] .tb{background:linear-gradient(270deg,var(--navy),#1084d0)}
+.tb.off{background:var(--lo);color:#c0c0c0}
+.tb>span:not(.btns){min-width:0;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb svg{width:16px;height:16px}
+.btns{display:flex;gap:2px;direction:ltr}
+.btns i{width:18px;height:16px;background:var(--face);box-shadow:var(--out);position:relative;display:block}
+.btns i::after{content:"";position:absolute;background:#000}
+.btns .mn::after{left:4px;bottom:3px;width:7px;height:2px}
+.btns .mx::after{inset:2px 3px 3px 3px;background:none;border:1px solid #000;border-top-width:2px}
+.btns .cl{margin-left:2px}
+.btns .cl::after{inset:0;background:linear-gradient(45deg,#0000 44%,#000 44% 56%,#0000 56%),linear-gradient(-45deg,#0000 44%,#000 44% 56%,#0000 56%);margin:3px 4px}
+.mb{display:flex;gap:14px;padding:3px 7px 4px;font-size:15px}
+html[lang="ar"] .mb{font-size:19px}
+.sb{display:flex;gap:2px;margin-top:3px;font-size:14px}
+html[lang="ar"] .sb{font-size:18px}
+.sb span{box-shadow:inset 1px 1px var(--lo),inset -1px -1px var(--hi);padding:3px 7px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb span:last-child{flex:0 0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-width:86px;min-height:30px;padding:3px 14px;background:var(--face);box-shadow:var(--out);font:inherit;color:#000;cursor:pointer;border:0}
+.btn:active{box-shadow:var(--in)}
+.btn.def{outline:1px solid #000;outline-offset:0}
+.btn:focus-visible{outline:1px dotted #000;outline-offset:-5px}
+
+/* ---------- explorer list ---------- */
+.list{background:#fff;box-shadow:var(--in);padding:2px}
+.lh,.row{display:grid;grid-template-columns:26px minmax(8.5rem,1fr) minmax(0,1.9fr) 4.6rem;align-items:center}
+.lh span{background:var(--face);box-shadow:var(--out);padding:3px 8px;font-size:14px}
+html[lang="ar"] .lh span{font-size:18px}
+.lh span:nth-child(-n+2){grid-column:1/3}
+.row{padding:7px 4px 7px 2px;column-gap:0;border-bottom:1px dotted #c0c0c0}
+.row:last-child{border:0}
+.row svg{width:18px;height:18px;margin-inline:4px}
+.row b{font-weight:700;padding:1px 4px;justify-self:start;font-size:17px}
+html[lang="ar"] .row b{font-size:21px}
+.row .d{padding-inline:8px;color:#222}
+.row .p{font-family:'VT323','Courier New',monospace;font-size:22px;line-height:1;text-align:end;padding-inline-end:6px;white-space:nowrap}
+.row.sel b{background:var(--navy);color:#fff;outline:1px dotted #ff0;outline-offset:-1px}
+.row:hover{background:#ffffe1}
+.tag{display:inline-block;background:#ffff00;border:1px solid #000;font-size:12px;font-weight:700;padding:0 5px;margin-inline-start:6px;vertical-align:1px;white-space:nowrap}
+html[lang="ar"] .tag{font-size:16px}
+
+/* ---------- welcome ---------- */
+.welcome .body{display:grid;grid-template-columns:minmax(0,1fr) 172px;gap:14px;padding:16px 14px 12px}
+.logo{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.logo svg{width:clamp(70px,9vw,112px);height:auto}
+html[dir="rtl"] .logo svg{transform:scaleX(-1)}
+.logo h1{font-size:clamp(2.6rem,6.4vw,5.2rem);line-height:.82;font-weight:700;letter-spacing:-.02em}
+.logo h1 em{font-style:normal;color:#fff;-webkit-text-stroke:2px #000;text-shadow:4px 4px 0 var(--teal),5px 5px 0 #000}
+html[lang="ar"] .logo h1 em{-webkit-text-stroke:0;color:var(--teal);text-shadow:3px 3px 0 #000}
+html[lang="ar"] .logo h1{font-size:clamp(3.2rem,7.4vw,6rem);line-height:.9}
+.logo small{display:block;font-size:.95rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;margin-bottom:.5rem}
+html[lang="ar"] .logo small{font-size:1.25rem}
+.tip{background:#ffffe1;box-shadow:var(--in);padding:14px;display:grid;grid-template-columns:40px 1fr;gap:10px;min-height:150px;align-content:start}
+.tip svg{width:36px;height:36px}
+.tip h2{font-size:1.3rem;margin-bottom:6px}
+html[lang="ar"] .tip h2{font-size:1.6rem}
+.tip p+p{margin-top:.5rem}
+.side{display:flex;flex-direction:column;gap:7px}
+.side .btn{width:100%;justify-content:flex-start;gap:8px;min-height:34px}
+.side .btn svg{width:18px;height:18px}
+.chk{grid-column:1/-1;display:flex;align-items:center;gap:8px;font-size:15px;border-top:1px solid var(--lo);box-shadow:0 1px var(--hi);padding-bottom:10px;padding-top:10px;border-top:0;border-bottom:1px solid var(--lo);margin-bottom:-2px}
+html[lang="ar"] .chk{font-size:19px}
+.chk i{width:15px;height:15px;background:#fff;box-shadow:var(--in);display:grid;place-items:center;font-style:normal;font-size:13px;font-weight:700;line-height:1}
+
+/* ---------- dialogs ---------- */
+.dlg .body{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 14px 6px;align-items:start}
+.dlg .body svg{width:40px;height:40px}
+.dlg h3{font-size:1.2rem;margin-bottom:4px}
+html[lang="ar"] .dlg h3{font-size:1.5rem}
+.dlg .big{font-family:'VT323',monospace;font-size:2.4rem;line-height:1;color:var(--navy);display:block;margin-top:6px}
+.acts{display:flex;justify-content:center;gap:8px;padding:10px 10px 10px;flex-wrap:wrap}
+.prog{height:22px;background:#fff;box-shadow:var(--in);padding:3px;margin:10px 0 6px}
+.prog i{display:block;height:100%;width:72%;background:repeating-linear-gradient(90deg,var(--navy) 0 10px,#0000 10px 12px);animation:load 6s steps(18) infinite}
+@keyframes load{from{width:4%}to{width:96%}}
+.fly{display:flex;align-items:center;gap:6px;direction:ltr;margin-bottom:2px}
+.fly svg{width:28px;height:28px}
+.fly span{flex:1;height:14px;position:relative;overflow:hidden}
+.fly span::after{content:"";position:absolute;top:1px;left:0;width:12px;height:12px;background:#ffcc00;border:1px solid #000;animation:fly 1.6s linear infinite}
+@keyframes fly{from{left:0}to{left:calc(100% - 12px)}}
+
+/* ---------- wizard ---------- */
+.wiz .body{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:12px}
+.wiz .pic{box-shadow:var(--in);background:linear-gradient(160deg,#008080,#004a4a);display:grid;place-items:center;min-height:210px}
+.wiz .pic svg{width:76px;height:76px}
+.wiz h3{font-size:1.25rem;margin-bottom:6px}
+html[lang="ar"] .wiz h3{font-size:1.55rem}
+.opt{display:grid;grid-template-columns:20px 1fr auto;gap:8px;padding:7px 0;align-items:start}
+.opt i{width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:inset 1px 1px var(--lo),inset -1px -1px var(--hi),inset 2px 2px #000;margin-top:3px;position:relative}
+.opt.on i::after{content:"";position:absolute;inset:4px;border-radius:50%;background:#000}
+.opt b{display:block}
+.opt .p{font-family:'VT323',monospace;font-size:22px;line-height:1}
+.wiz .acts{justify-content:flex-end;border-top:1px solid var(--lo);box-shadow:inset 0 1px var(--hi);margin:0 8px;padding-inline:0}
+
+/* ---------- properties + notepad ---------- */
+.tabs{display:flex;padding:8px 8px 0;gap:0}
+.tabs span{padding:4px 12px;background:var(--face);box-shadow:inset 1px 1px var(--hi),inset -1px 0 var(--dk),inset 2px 2px #dfdfdf,inset -2px 0 var(--lo);margin-top:3px;font-size:15px}
+html[lang="ar"] .tabs span{font-size:19px}
+.tabs span.on{margin-top:0;padding-bottom:7px;position:relative;z-index:1;margin-bottom:-2px}
+.panel{box-shadow:var(--out);margin:0 8px 8px;padding:14px}
+.panel dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px}
+.panel dt{color:#000;font-weight:700}
+.panel hr{grid-column:1/-1;border:0;border-top:1px solid var(--lo);border-bottom:1px solid var(--hi)}
+.pad{background:#fff;box-shadow:var(--in);padding:10px 12px;font-family:'VT323','Courier New',monospace;font-size:20px;line-height:1.15;min-height:200px;white-space:pre-line}
+html[lang="ar"] .pad{font-family:'Handjet',Tahoma,sans-serif;font-size:21px;line-height:1.3}
+.pad::after{content:"";display:inline-block;width:2px;height:1em;background:#000;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* placement */
+.c7{grid-column:span 7}.c6{grid-column:span 6}.c5{grid-column:span 5}.c4{grid-column:span 4}.c3{grid-column:span 3}.c8{grid-column:span 8}
+.dn{margin-top:46px}.dn2{margin-top:22px}.up{margin-top:-10px}
+
+/* ---------- taskbar ---------- */
+.task{position:fixed;z-index:80;inset:auto 0 0 0;height:44px;background:var(--face);box-shadow:inset 0 1px #dfdfdf,inset 0 2px var(--hi);display:flex;align-items:center;gap:5px;padding:4px 4px 2px}
+.start{font-weight:700;gap:6px;min-width:0;padding-inline:6px 10px;height:34px;font-size:17px}
+html[lang="ar"] .start{font-size:21px}
+.start svg{width:24px;height:22px}
+.tasks{flex:1;display:flex;gap:4px;min-width:0;overflow:hidden}
+.tasks a{flex:0 1 150px;min-width:0;height:34px;display:flex;align-items:center;gap:6px;padding:0 8px;box-shadow:var(--out);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:15px}
+html[lang="ar"] .tasks a{font-size:19px}
+.tasks a:first-child{box-shadow:var(--in);background:repeating-conic-gradient(#fff 0 25%,var(--face) 0 50%) 0 0/2px 2px;font-weight:700}
+.tasks svg{width:16px;height:16px}
+.tray{display:flex;align-items:center;gap:8px;height:34px;padding:0 8px;box-shadow:inset 1px 1px var(--lo),inset -1px -1px var(--hi);margin-inline-start:auto;font-size:15px}
+.tray a,.tray button{font:inherit;font-size:15px;background:none;border:0;color:#000;cursor:pointer;display:inline-flex;align-items:center;gap:5px;height:30px;padding:0 3px}
+html[lang="ar"] .tray a,html[lang="ar"] .tray button{font-size:19px}
+#langToggle{background:var(--navy);color:#fff;padding:0 7px;height:22px}
+#langToggle [lang="en"]{font-family:'Handjet',Tahoma,sans-serif;font-size:18px;font-weight:500}
+#langToggle [lang="ar"]{font-family:'Pixelify Sans',Tahoma,sans-serif;font-size:14px}
+.tray a:hover,.tray a:focus-visible{outline:1px dotted #000}
+#langToggle:hover,#langToggle:focus-visible{outline:1px dotted #000;outline-offset:2px}
+.tray svg{width:16px;height:16px}
+#clock{font-family:'VT323',monospace;font-size:20px;direction:ltr}
+
+@media (max-width:1050px){
+  .wins{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .c7,.c8,.c6,.c5{grid-column:span 6}.c4,.c3{grid-column:span 3}
+  .dn,.dn2,.up{margin-top:0}
+}
+@media (max-width:720px){
+  .desk{grid-template-columns:1fr;padding:8px 6px 16px}
+  .icons{flex-direction:row;justify-content:space-between;gap:2px;padding:4px 0 6px}
+  .icons a{width:auto;flex:1;font-size:12.5px}
+  html[lang="ar"] .icons a{font-size:16px}
+  .icons svg{width:34px;height:34px}
+  .wins{gap:12px}
+  .c4,.c3{grid-column:span 6}
+  .welcome .body{grid-template-columns:1fr;padding:12px 10px}
+  .side{flex-direction:row;flex-wrap:wrap}
+  .side .btn{width:auto;flex:1 1 44%;min-height:40px}
+  .lh{display:none}
+  .row{grid-template-columns:26px 1fr auto;grid-template-areas:"i n p" ". d d";row-gap:2px;padding-block:9px}
+  .row svg{grid-area:i}.row b{grid-area:n}.row .p{grid-area:p}
+  .row .d{grid-area:d;padding-inline:4px 8px;font-size:15px}
+  html[lang="ar"] .row .d{font-size:19px}
+  .mb{gap:12px}
+  .wiz .body{grid-template-columns:1fr}.wiz .pic{display:none}
+  .tasks{display:none}
+  .btn{min-height:36px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="flag" viewBox="0 0 28 24"><g transform="skewY(-8) translate(0 5)"><rect x="9" y="1" width="8" height="8" fill="#e8281d"/><rect x="18" y="1" width="8" height="8" fill="#22a33a"/><rect x="9" y="10" width="8" height="8" fill="#1f5bd8"/><rect x="18" y="10" width="8" height="8" fill="#f5c400"/><g fill="#000"><rect x="5" y="2" width="2" height="2"/><rect x="5" y="6" width="2" height="2"/><rect x="5" y="11" width="2" height="2"/><rect x="5" y="15" width="2" height="2"/><rect x="1" y="4" width="2" height="2" opacity=".6"/><rect x="1" y="13" width="2" height="2" opacity=".6"/></g></g></symbol>
+  <symbol id="i-folder" viewBox="0 0 16 16"><path d="M1 3h5l1 2h8v9H1z" fill="#f5c400" stroke="#000"/><path d="M1 6h14" stroke="#fff"/></symbol>
+  <symbol id="i-bowl" viewBox="0 0 16 16"><path d="M1 7h14c0 4-3 7-7 7S1 11 1 7z" fill="#e8281d" stroke="#000"/><path d="M5 4V2M8 5V1M11 4V2" stroke="#808080"/></symbol>
+  <symbol id="i-plate" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="#fff" stroke="#000"/><circle cx="8" cy="8" r="3.5" fill="#9a5a1e" stroke="#000"/></symbol>
+  <symbol id="i-burger" viewBox="0 0 16 16"><path d="M2 7c0-3 3-5 6-5s6 2 6 5z" fill="#e0a040" stroke="#000"/><rect x="1.5" y="8" width="13" height="2" fill="#7a3b12" stroke="#000" stroke-width=".6"/><path d="M1.5 10.5h13" stroke="#22a33a" stroke-width="1.4"/><path d="M2 12h12v1a1.5 1.5 0 0 1-1.5 1.500h-9A1.500 1.500 0 0 1 2 13z" fill="#e0a040" stroke="#000"/></symbol>
+  <symbol id="i-cake" viewBox="0 0 16 16"><path d="M2 14L8 3l6 11z" fill="#f7d9a0" stroke="#000"/><path d="M4.500 10h7" stroke="#e8281d" stroke-width="2"/><circle cx="8" cy="3" r="1.500" fill="#e8281d"/></symbol>
+  <symbol id="i-cup" viewBox="0 0 16 16"><path d="M4 5h8l-1 9H5z" fill="#fff" stroke="#000"/><path d="M4.500 8h7l-.5 5h-6z" fill="#e06aa8"/><path d="M9 5l2-4" stroke="#e8281d" stroke-width="1.500"/></symbol>
+  <symbol id="i-pc" viewBox="0 0 32 32"><rect x="4" y="3" width="24" height="18" fill="#c0c0c0" stroke="#000"/><rect x="7" y="6" width="18" height="12" fill="#008080" stroke="#000"/><path d="M10 12h5M10 9h9M10 15h7" stroke="#fff"/><rect x="2" y="23" width="28" height="6" fill="#c0c0c0" stroke="#000"/><rect x="21" y="25" width="6" height="2" fill="#22a33a"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 32 32"><path d="M7 10h18l2 19H5z" fill="#c9954a" stroke="#000"/><path d="M7 10l3-5h12l3 5" fill="#e3b26a" stroke="#000"/><path d="M11 17h10M11 21h7" stroke="#000"/></symbol>
+  <symbol id="i-exe" viewBox="0 0 32 32"><rect x="3" y="5" width="26" height="22" fill="#fff" stroke="#000"/><rect x="3" y="5" width="26" height="5" fill="#000080"/><path d="M16 13l2.300 4.700 5.200.7-3.800 3.600.9 5.100L16 24.700l-4.600 2.400.9-5.100-3.800-3.600 5.200-.7z" fill="#f5c400" stroke="#000" transform="translate(0 -1.500) scale(1 .92)"/></symbol>
+  <symbol id="i-soda" viewBox="0 0 32 32"><path d="M9 10h14l-2 19H11z" fill="#fff" stroke="#000"/><path d="M10 16h12l-1.300 12h-9.400z" fill="#e06aa8"/><path d="M18 10l4-8h4" fill="none" stroke="#e8281d" stroke-width="2"/><circle cx="13" cy="8" r="3" fill="#fff" stroke="#000"/><circle cx="18" cy="7" r="3" fill="#fff" stroke="#000"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="#1f5bd8" stroke="#000"/><path d="M8 10c4 0 5 3 8 3s3-4 7-4M6 19c3-2 6 0 8 3s6 2 10-1" fill="none" stroke="#22a33a" stroke-width="3"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 32 32"><path d="M16 3l14 26H2z" fill="#f5c400" stroke="#000" stroke-width="1.500"/><rect x="14.500" y="11" width="3" height="10"/><rect x="14.500" y="23" width="3" height="3"/></symbol>
+  <symbol id="i-err" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#e8281d" stroke="#000"/><path d="M10 10l12 12M22 10L10 22" stroke="#fff" stroke-width="4"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 32 32"><path d="M16 3a9 9 0 0 0-5 16.500V23h10v-3.500A9 9 0 0 0 16 3z" fill="#f5c400" stroke="#000"/><rect x="11.500" y="24" width="9" height="4" fill="#c0c0c0" stroke="#000"/><path d="M13 13l3 4 3-4" fill="none" stroke="#000"/></symbol>
+  <symbol id="i-note" viewBox="0 0 16 16"><rect x="2.500" y="1.500" width="11" height="13" fill="#fff" stroke="#000"/><path d="M4.500 5h7M4.500 8h7M4.500 11h5" stroke="#1f5bd8"/></symbol>
+  <symbol id="i-fries" viewBox="0 0 32 32"><path d="M9 6h3v14H9zM13 3h3v17h-3zM17 5h3v15h-3zM21 7h3v13h-3z" fill="#f5c400" stroke="#000"/><path d="M7 14h18l-2 15H9z" fill="#e8281d" stroke="#000"/></symbol>
+</svg>
+
+<div class="desk">
+  <nav class="icons" aria-label="Desktop">
+    <a href="#welcome"><svg class="px"><use href="#i-pc"/></svg><span lang="en">My Menu</span><span lang="ar">قائمتي</span></a>
+    <a href="#special"><svg class="px"><use href="#i-exe"/></svg><span lang="en">Specials.exe</span><span lang="ar">العروض.exe</span></a>
+    <a href="#soda"><svg class="px"><use href="#i-soda"/></svg><span lang="en">Soda Fountain</span><span lang="ar">نافورة الصودا</span></a>
+    <a href="#props"><svg class="px"><use href="#i-globe"/></svg><span lang="en">Find Us</span><span lang="ar">موقعنا</span></a>
+    <a href="#readme"><svg class="px"><use href="#i-bag"/></svg><span lang="en">Doggy Bag</span><span lang="ar">سلّة البواقي</span></a>
+  </nav>
+
+  <main class="wins">
+    <!-- WELCOME -->
+    <section class="win welcome c8" id="welcome">
+      <div class="tb"><svg class="px"><use href="#flag"/></svg><span lang="en">Welcome</span><span lang="ar">مرحباً بك</span><span class="btns" aria-hidden="true"><i class="cl"></i></span></div>
+      <div class="body">
+        <div>
+          <div class="logo"><svg class="px" viewBox="0 0 28 24"><use href="#flag"/></svg><div><small><span lang="en">Retro Comfort Food</span><span lang="ar">أطباق كلاسيكية</span></small><h1><span lang="en">Bistro <em>95</em></span><span lang="ar">بيسترو <em>٩٥</em></span></h1></div></div>
+          <div class="tip"><svg class="px"><use href="#i-bulb"/></svg><div><h2><span lang="en">Did you know…</span><span lang="ar">هل تعلم…</span></h2><p><span lang="en">Everything here is cooked the way it was in 1995: from scratch, in butter, with nobody counting. Meatloaf like Mom’s, malts thick enough to bend a straw, and a soup of the day that has never once been “foam”.</span><span lang="ar">كل ما هنا يُطهى كما كان يُطهى عام ١٩٩٥: من الصفر، بالزبدة، ومن غير أن يحسب أحد السعرات. رغيف لحم كالذي تصنعه الأمهات، ومخفوق شعير يثني المصّاصة من كثافته، وحساء يومي لم يتحوّل يوماً إلى «رغوة».</span></p><p><span lang="en">It is now safe to loosen your belt.</span><span lang="ar">يمكنك الآن إرخاء حزامك بأمان.</span></p></div></div>
+        </div>
+        <nav class="side">
+          <a class="btn" href="#starters"><svg class="px"><use href="#i-bowl"/></svg><span lang="en"><u>S</u>tarters</span><span lang="ar">المقبلات</span></a>
+          <a class="btn" href="#mains"><svg class="px"><use href="#i-plate"/></svg><span lang="en"><u>M</u>ains</span><span lang="ar">الرئيسية</span></a>
+          <a class="btn" href="#buns"><svg class="px"><use href="#i-burger"/></svg><span lang="en"><u>B</u>urgers</span><span lang="ar">البرغر</span></a>
+          <a class="btn" href="#desserts"><svg class="px"><use href="#i-cake"/></svg><span lang="en"><u>D</u>esserts</span><span lang="ar">الحلويات</span></a>
+          <a class="btn" href="#soda"><svg class="px"><use href="#i-cup"/></svg><span lang="en">S<u>o</u>das</span><span lang="ar">الصودا</span></a>
+          <a class="btn def" href="#wizard"><span lang="en">Combo <u>W</u>izard</span><span lang="ar">معالج الوجبات</span></a>
+        </nav>
+        <p class="chk"><i>✓</i><span lang="en">Show this Welcome Screen every time I get hungry</span><span lang="ar">أظهِر شاشة الترحيب هذه كلما شعرتُ بالجوع</span></p>
+      </div>
+    </section>
+
+    <!-- BLUE PLATE -->
+    <section class="win dlg c4 dn" id="special">
+      <div class="tb"><span><span lang="en">Specials.exe</span><span lang="ar">العروض.exe</span></span><span class="btns" aria-hidden="true"><i class="cl"></i></span></div>
+      <div class="body"><svg class="px"><use href="#i-warn"/></svg><div><h3><span lang="en">Blue Plate Special</span><span lang="ar">عرض الطبق الأزرق</span></h3><p><span lang="en">Mon–Fri, 11 to 3: Mom’s Meatloaf, mash and gravy, soup of the day and a bottomless soda.</span><span lang="ar">من الاثنين إلى الجمعة، ١١ – ٣: رغيف لحم الأم، بطاطا مهروسة بالمرق، حساء اليوم وصودا بلا حدود.</span></p><span class="big" dir="ltr">$12.95</span><p style="margin-top:8px"><span lang="en">Are you sure you want to order anything else?</span><span lang="ar">هل أنت متأكد أنك تريد طلب شيء آخر؟</span></p></div></div>
+      <div class="acts"><a class="btn def" href="#mains"><span lang="en"><u>N</u>o</span><span lang="ar">لا</span></a><a class="btn" href="#mains"><span lang="en"><u>S</u>till no</span><span lang="ar">قطعاً لا</span></a></div>
+    </section>
+
+    <!-- STARTERS -->
+    <section class="win c6" id="starters">
+      <div class="tb"><svg class="px"><use href="#i-folder"/></svg><span lang="en">C:\MENU\STARTERS</span><span lang="ar">المقبلات – مستكشف القائمة</span><span class="btns" aria-hidden="true"><i class="mn"></i><i class="mx"></i><i class="cl"></i></span></div>
+      <div class="mb"><span lang="en"><u>F</u>ile</span><span lang="ar">ملف</span><span lang="en"><u>E</u>at</span><span lang="ar">أكل</span><span lang="en"><u>V</u>iew</span><span lang="ar">عرض</span><span lang="en"><u>H</u>elp</span><span lang="ar">تعليمات</span></div>
+      <div class="list">
+        <div class="lh"><span lang="en">Name</span><span lang="ar">الاسم</span><span lang="en">Description</span><span lang="ar">الوصف</span><span lang="en">Price</span><span lang="ar">السعر</span></div>
+        <div class="row sel"><svg class="px"><use href="#i-bowl"/></svg><b><span lang="en">Tomato Soup &amp; Dippers</span><span lang="ar">حساء الطماطم مع أصابع الجبن</span></b><span class="d"><span lang="en">Slow-roasted tomato soup with grilled cheddar soldiers for dunking</span><span lang="ar">حساء طماطم مشوية على مهل مع أصابع توست بالشيدر للتغميس</span><em class="tag"><span lang="en">★ Chef’s pick</span><span lang="ar">★ اختيار الشيف</span></em></span><span class="p" dir="ltr">$7.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-plate"/></svg><b><span lang="en">Loaded Potato Skins</span><span lang="ar">قوارب البطاطا المحشوّة</span></b><span class="d"><span lang="en">Cheddar, crispy beef bacon bits, sour cream and chives</span><span lang="ar">شيدر، مقرمشات لحم بقري مقدّد، كريمة حامضة وثوم معمّر</span></span><span class="p" dir="ltr">$8.50</span></div>
+        <div class="row"><svg class="px"><use href="#i-plate"/></svg><b><span lang="en">Buffalo Wings (8)</span><span lang="ar">أجنحة بافلو (٨)</span></b><span class="d"><span lang="en">Tossed in hot sauce, with blue cheese dip and celery</span><span lang="ar">مغموسة بالصلصة الحارة مع غموس الجبن الأزرق وأعواد الكرفس</span></span><span class="p" dir="ltr">$9.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-bowl"/></svg><b><span lang="en">Spinach Artichoke Dip</span><span lang="ar">غموس السبانخ والخرشوف</span></b><span class="d"><span lang="en">Served bubbling in a skillet with warm tortilla chips</span><span lang="ar">يُقدَّم فائراً في مقلاة حديد مع رقائق تورتيلا دافئة</span></span><span class="p" dir="ltr">$8.25</span></div>
+        <div class="row"><svg class="px"><use href="#i-plate"/></svg><b><span lang="en">Mozzarella Sticks</span><span lang="ar">أصابع الموزاريلا</span></b><span class="d"><span lang="en">Six golden sticks, stretchy inside, with marinara</span><span lang="ar">ست أصابع ذهبية تمطّ من الداخل، مع صلصة المارينارا</span></span><span class="p" dir="ltr">$6.95</span></div>
+      </div>
+      <div class="sb"><span lang="en">5 object(s)</span><span lang="ar">٥ عناصر</span><span lang="en">1 selected</span><span lang="ar">محدَّد: ١</span></div>
+    </section>
+
+    <!-- MAINS -->
+    <section class="win c6 dn2" id="mains">
+      <div class="tb"><svg class="px"><use href="#i-folder"/></svg><span lang="en">C:\MENU\MAINS</span><span lang="ar">الأطباق الرئيسية – مستكشف القائمة</span><span class="btns" aria-hidden="true"><i class="mn"></i><i class="mx"></i><i class="cl"></i></span></div>
+      <div class="mb"><span lang="en"><u>F</u>ile</span><span lang="ar">ملف</span><span lang="en"><u>E</u>at</span><span lang="ar">أكل</span><span lang="en"><u>V</u>iew</span><span lang="ar">عرض</span><span lang="en"><u>H</u>elp</span><span lang="ar">تعليمات</span></div>
+      <div class="list">
+        <div class="lh"><span lang="en">Name</span><span lang="ar">الاسم</span><span lang="en">Description</span><span lang="ar">الوصف</span><span lang="en">Price</span><span lang="ar">السعر</span></div>
+        <div class="row sel"><svg class="px"><use href="#i-plate"/></svg><b><span lang="en">Mom’s Meatloaf</span><span lang="ar">رغيف لحم الأم</span></b><span class="d"><span lang="en">Beef meatloaf with ketchup glaze, buttery mash, gravy and peas</span><span lang="ar">رغيف لحم بقري بطبقة كاتشب لامعة، بطاطا مهروسة بالزبدة، مرق وبازلاء</span><em class="tag"><span lang="en">★ Chef’s pick</span><span lang="ar">★ اختيار الشيف</span></em></span><span class="p" dir="ltr">$14.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-plate"/></svg><b><span lang="en">Chicken Pot Pie</span><span lang="ar">فطيرة الدجاج</span></b><span class="d"><span lang="en">A flaky lid over chicken, carrots and peas in thyme cream</span><span lang="ar">غطاء مورَّق فوق دجاج وجزر وبازلاء في كريمة الزعتر</span></span><span class="p" dir="ltr">$13.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-bowl"/></svg><b><span lang="en">Mac &amp; Cheese Deluxe</span><span lang="ar">معكرونة بالجبن ديلوكس</span></b><span class="d"><span lang="en">Three cheeses, baked in a skillet under toasted crumbs</span><span lang="ar">ثلاثة أجبان تُخبز في مقلاة تحت فتات خبز محمّص</span></span><span class="p" dir="ltr">$11.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-plate"/></svg><b><span lang="en">Chicken-Fried Steak</span><span lang="ar">ستيك مقلي على طريقة الدجاج</span></b><span class="d"><span lang="en">Crisp-coated beef steak, peppery country gravy, buttered corn</span><span lang="ar">شريحة بقر بغلاف مقرمش، مرق ريفي بالفلفل وذرة بالزبدة</span></span><span class="p" dir="ltr">$15.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-plate"/></svg><b><span lang="en">Fish &amp; Chips</span><span lang="ar">سمك وبطاطا</span></b><span class="d"><span lang="en">Soda-battered cod, thick fries, tartar sauce and a lemon wedge</span><span lang="ar">قدّ بعجينة الصودا، بطاطا سميكة، صلصة التارتار وشريحة ليمون</span></span><span class="p" dir="ltr">$14.50</span></div>
+      </div>
+      <div class="sb"><span lang="en">5 object(s)</span><span lang="ar">٥ عناصر</span><span lang="en">1 selected</span><span lang="ar">محدَّد: ١</span></div>
+    </section>
+
+    <!-- BURGERS -->
+    <section class="win c7" id="buns">
+      <div class="tb"><svg class="px"><use href="#i-folder"/></svg><span lang="en">C:\MENU\BURGERS &amp; MELTS</span><span lang="ar">البرغر والساندويتشات – مستكشف القائمة</span><span class="btns" aria-hidden="true"><i class="mn"></i><i class="mx"></i><i class="cl"></i></span></div>
+      <div class="mb"><span lang="en"><u>F</u>ile</span><span lang="ar">ملف</span><span lang="en"><u>E</u>at</span><span lang="ar">أكل</span><span lang="en"><u>V</u>iew</span><span lang="ar">عرض</span><span lang="en"><u>H</u>elp</span><span lang="ar">تعليمات</span></div>
+      <div class="list">
+        <div class="lh"><span lang="en">Name</span><span lang="ar">الاسم</span><span lang="en">Description</span><span lang="ar">الوصف</span><span lang="en">Price</span><span lang="ar">السعر</span></div>
+        <div class="row sel"><svg class="px"><use href="#i-burger"/></svg><b><span lang="en">The 95 Burger</span><span lang="ar">برغر ٩٥</span></b><span class="d"><span lang="en">Smashed beef patty, American cheese, pickles and our pink special sauce</span><span lang="ar">قرص لحم بقري مهروس، جبن أمريكي، مخلّل وصلصتنا الوردية الخاصة</span><em class="tag"><span lang="en">★ Chef’s pick</span><span lang="ar">★ اختيار الشيف</span></em></span><span class="p" dir="ltr">$12.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-burger"/></svg><b><span lang="en">Patty Melt</span><span lang="ar">باتي ميلت</span></b><span class="d"><span lang="en">Beef patty griddled in rye with Swiss and caramelised onions</span><span lang="ar">قرص لحم يُحمَّر داخل خبز الجاودار مع جبن سويسري وبصل مكرمل</span></span><span class="p" dir="ltr">$12.50</span></div>
+        <div class="row"><svg class="px"><use href="#i-burger"/></svg><b><span lang="en">Turkey Club</span><span lang="ar">كلوب الحبش</span></b><span class="d"><span lang="en">Triple-decker: roast turkey, beef bacon, lettuce, tomato, mayo</span><span lang="ar">ثلاث طبقات: حبش مشوي، لحم بقري مقدّد، خس وطماطم ومايونيز</span></span><span class="p" dir="ltr">$11.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-burger"/></svg><b><span lang="en">Tuna Melt</span><span lang="ar">تونة ميلت</span></b><span class="d"><span lang="en">Albacore salad and sharp cheddar, melted on sourdough</span><span lang="ar">سلطة تونة بيضاء وشيدر حادّ يذوبان على خبز العجين المخمَّر</span></span><span class="p" dir="ltr">$10.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-burger"/></svg><b><span lang="en">Sloppy Joe</span><span lang="ar">سلوبي جو</span></b><span class="d"><span lang="en">Saucy minced beef on a soft bun. Napkins are a system requirement.</span><span lang="ar">لحم مفروم غارق بالصلصة في خبز طري. المناديل من متطلّبات التشغيل.</span></span><span class="p" dir="ltr">$10.50</span></div>
+      </div>
+      <div class="sb"><span lang="en">5 object(s) · all sandwiches come with fries or slaw</span><span lang="ar">٥ عناصر · مع كل ساندويتش بطاطا مقلية أو سلطة ملفوف</span><span lang="en">1 selected</span><span lang="ar">محدَّد: ١</span></div>
+    </section>
+
+    <!-- WIZARD -->
+    <section class="win wiz c5 dn" id="wizard">
+      <div class="tb"><span><span lang="en">Combo Wizard – Step 1 of 1</span><span lang="ar">معالج الوجبات – الخطوة ١ من ١</span></span><span class="btns" aria-hidden="true"><i class="cl"></i></span></div>
+      <div class="body">
+        <div class="pic"><svg class="px"><use href="#i-pc"/></svg></div>
+        <div>
+          <h3><span lang="en">Which combo would you like to install?</span><span lang="ar">أيّ وجبة تريد تثبيتها؟</span></h3>
+          <div class="opt on"><i></i><span><b><span lang="en">Typical: The Lunch Break</span><span lang="ar">نموذجي: استراحة الغداء</span></b><span lang="en">Cup of soup, half a sandwich, a soda</span><span lang="ar">كوب حساء ونصف ساندويتش وصودا</span></span><span class="p" dir="ltr">$13.95</span></div>
+          <div class="opt"><i></i><span><b><span lang="en">Full: The Complete Install</span><span lang="ar">كامل: التثبيت الكامل</span></b><span lang="en">Any starter, any main, any dessert</span><span lang="ar">أي مقبّل وأي طبق رئيسي وأي حلوى</span></span><span class="p" dir="ltr">$24.95</span></div>
+          <div class="opt"><i></i><span><b><span lang="en">Custom: Family Pack for 4</span><span lang="ar">مخصّص: الباقة العائلية لأربعة</span></b><span lang="en">Two starters, four mains, a pie to share</span><span lang="ar">مقبّلان وأربعة أطباق رئيسية وفطيرة للمشاركة</span></span><span class="p" dir="ltr">$74.95</span></div>
+        </div>
+      </div>
+      <div class="acts"><span class="btn" aria-disabled="true" style="color:#808080;text-shadow:1px 1px #fff"><span lang="en">&lt; Back</span><span lang="ar">&lt; السابق</span></span><a class="btn def" href="#desserts"><span lang="en">Next &gt;</span><span lang="ar">التالي &gt;</span></a><a class="btn" href="#welcome"><span lang="en">Cancel</span><span lang="ar">إلغاء</span></a></div>
+    </section>
+
+    <!-- DESSERTS -->
+    <section class="win c6" id="desserts">
+      <div class="tb"><svg class="px"><use href="#i-folder"/></svg><span lang="en">C:\MENU\DESSERTS</span><span lang="ar">الحلويات – مستكشف القائمة</span><span class="btns" aria-hidden="true"><i class="mn"></i><i class="mx"></i><i class="cl"></i></span></div>
+      <div class="mb"><span lang="en"><u>F</u>ile</span><span lang="ar">ملف</span><span lang="en"><u>E</u>at</span><span lang="ar">أكل</span><span lang="en"><u>V</u>iew</span><span lang="ar">عرض</span><span lang="en"><u>H</u>elp</span><span lang="ar">تعليمات</span></div>
+      <div class="list">
+        <div class="lh"><span lang="en">Name</span><span lang="ar">الاسم</span><span lang="en">Description</span><span lang="ar">الوصف</span><span lang="en">Price</span><span lang="ar">السعر</span></div>
+        <div class="row sel"><svg class="px"><use href="#i-cake"/></svg><b><span lang="en">Apple Pie à la Mode</span><span lang="ar">فطيرة التفاح مع الآيس كريم</span></b><span class="d"><span lang="en">Warm cinnamon apple pie under a scoop of vanilla</span><span lang="ar">فطيرة تفاح دافئة بالقرفة تعلوها كرة فانيلا</span><em class="tag"><span lang="en">★ Chef’s pick</span><span lang="ar">★ اختيار الشيف</span></em></span><span class="p" dir="ltr">$6.50</span></div>
+        <div class="row"><svg class="px"><use href="#i-cup"/></svg><b><span lang="en">Hot Fudge Sundae</span><span lang="ar">صنداي الفدج الساخن</span></b><span class="d"><span lang="en">Vanilla ice cream, hot fudge, whipped cream, one cherry</span><span lang="ar">آيس كريم فانيلا، صلصة شوكولاتة ساخنة، كريمة مخفوقة وكرزة واحدة</span></span><span class="p" dir="ltr">$6.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-cup"/></svg><b><span lang="en">Banana Split</span><span lang="ar">بنانا سبليت</span></b><span class="d"><span lang="en">Three scoops, three sauces, toasted peanuts. A two-spoon job.</span><span lang="ar">ثلاث كرات وثلاث صلصات وفول سوداني محمّص. مهمّة لملعقتين.</span></span><span class="p" dir="ltr">$7.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-cake"/></svg><b><span lang="en">Dirt Cup</span><span lang="ar">كوب التراب</span></b><span class="d"><span lang="en">Chocolate pudding, crushed cookies and gummy worms</span><span lang="ar">بودينغ شوكولاتة وبسكويت مطحون وديدان جيلاتينية</span></span><span class="p" dir="ltr">$4.95</span></div>
+      </div>
+      <div class="sb"><span lang="en">4 object(s)</span><span lang="ar">٤ عناصر</span><span lang="en">1 selected</span><span lang="ar">محدَّد: ١</span></div>
+    </section>
+
+    <!-- SODA -->
+    <section class="win c6 dn2" id="soda">
+      <div class="tb"><svg class="px"><use href="#i-folder"/></svg><span lang="en">C:\MENU\SODA FOUNTAIN</span><span lang="ar">نافورة الصودا – مستكشف القائمة</span><span class="btns" aria-hidden="true"><i class="mn"></i><i class="mx"></i><i class="cl"></i></span></div>
+      <div class="mb"><span lang="en"><u>F</u>ile</span><span lang="ar">ملف</span><span lang="en"><u>D</u>rink</span><span lang="ar">شرب</span><span lang="en"><u>V</u>iew</span><span lang="ar">عرض</span><span lang="en"><u>H</u>elp</span><span lang="ar">تعليمات</span></div>
+      <div class="list">
+        <div class="lh"><span lang="en">Name</span><span lang="ar">الاسم</span><span lang="en">Description</span><span lang="ar">الوصف</span><span lang="en">Price</span><span lang="ar">السعر</span></div>
+        <div class="row sel"><svg class="px"><use href="#i-cup"/></svg><b><span lang="en">Chocolate Malt</span><span lang="ar">مخفوق الشوكولاتة بالشعير</span></b><span class="d"><span lang="en">Hand-spun, extra thick, the spare served in the steel cup</span><span lang="ar">يُخفق يدوياً بقوام كثيف، والباقي يُقدَّم في الكوب المعدني</span><em class="tag"><span lang="en">★ Chef’s pick</span><span lang="ar">★ اختيار الشيف</span></em></span><span class="p" dir="ltr">$5.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-cup"/></svg><b><span lang="en">Cherry Cola Float</span><span lang="ar">كولا الكرز العائمة</span></b><span class="d"><span lang="en">Cherry cola poured over two scoops of vanilla</span><span lang="ar">كولا بالكرز تُسكب فوق كرتَي فانيلا</span></span><span class="p" dir="ltr">$5.50</span></div>
+        <div class="row"><svg class="px"><use href="#i-cup"/></svg><b><span lang="en">Vanilla Cream Soda</span><span lang="ar">صودا الكريمة بالفانيلا</span></b><span class="d"><span lang="en">Made at the fountain with real vanilla syrup</span><span lang="ar">تُحضَّر على النافورة بشراب الفانيلا الحقيقي</span></span><span class="p" dir="ltr">$3.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-cup"/></svg><b><span lang="en">Pink Lemonade</span><span lang="ar">ليموناضة وردية</span></b><span class="d"><span lang="en">Fresh-squeezed lemons, a splash of raspberry</span><span lang="ar">ليمون معصور طازجاً مع رشّة توت</span></span><span class="p" dir="ltr">$3.95</span></div>
+        <div class="row"><svg class="px"><use href="#i-cup"/></svg><b><span lang="en">Bottomless Coffee</span><span lang="ar">قهوة بلا حدود</span></b><span class="d"><span lang="en">Diner filter coffee. We refill until you say “when”.</span><span lang="ar">قهوة مقطّرة على طريقة المطاعم الأمريكية، نملأ كوبك حتى تقول «كفى».</span></span><span class="p" dir="ltr">$2.95</span></div>
+      </div>
+      <div class="sb"><span lang="en">5 object(s)</span><span lang="ar">٥ عناصر</span><span lang="en">1 selected</span><span lang="ar">محدَّد: ١</span></div>
+    </section>
+
+    <!-- PROPERTIES -->
+    <section class="win c5" id="props">
+      <div class="tb"><span><span lang="en">Bistro 95 Properties</span><span lang="ar">خصائص بيسترو ٩٥</span></span><span class="btns" aria-hidden="true"><i class="cl"></i></span></div>
+      <div class="tabs"><span lang="en">General</span><span lang="ar">عام</span><span lang="en">Hours</span><span lang="ar">الأوقات</span><span lang="en">Location</span><span lang="ar">الموقع</span></div>
+      <div class="panel"><dl>
+        <dt><span lang="en">Open:</span><span lang="ar">الدوام:</span></dt><dd><span lang="en">Sunday – Thursday, 11:00 AM – 11:00 PM</span><span lang="ar">الأحد – الخميس، ١١:٠٠ ص – ١١:٠٠ م</span></dd>
+        <dt><span lang="en">Weekends:</span><span lang="ar">نهاية الأسبوع:</span></dt><dd><span lang="en">Friday &amp; Saturday, 9:00 AM – 1:00 AM (brunch until 2)</span><span lang="ar">الجمعة والسبت، ٩:٠٠ ص – ١:٠٠ ص (فطور متأخر حتى ٢)</span></dd>
+        <hr>
+        <dt><span lang="en">Location:</span><span lang="ar">العنوان:</span></dt><dd><span lang="en">1995 Floppy Disk Drive, Suite 3.11, Redwood Falls, WA</span><span lang="ar">١٩٩٥ طريق فلوبي ديسك، جناح ٣٫١١، ريدوود فولز، واشنطن</span></dd>
+        <dt><span lang="en">Dial-up:</span><span lang="ar">الهاتف:</span></dt><dd dir="ltr" style="text-align:start">(555) 019-9595</dd>
+        <hr>
+        <dt><span lang="en">Free space:</span><span lang="ar">المساحة الحرة:</span></dt><dd><span lang="en">There is always room for pie.</span><span lang="ar">هناك دائماً متّسع للفطيرة.</span></dd>
+      </dl></div>
+      <div class="acts" style="justify-content:flex-end"><a class="btn def" href="#welcome"><span lang="en">OK</span><span lang="ar">موافق</span></a><a class="btn" href="#welcome"><span lang="en">Cancel</span><span lang="ar">إلغاء</span></a></div>
+    </section>
+
+    <!-- NOTEPAD -->
+    <section class="win c4 dn2" id="readme">
+      <div class="tb"><svg class="px"><use href="#i-note"/></svg><span lang="en">Allergens.txt – Notepad</span><span lang="ar">الحساسية.txt – المفكّرة</span><span class="btns" aria-hidden="true"><i class="mn"></i><i class="mx"></i><i class="cl"></i></span></div>
+      <div class="mb"><span lang="en"><u>F</u>ile</span><span lang="ar">ملف</span><span lang="en"><u>E</u>dit</span><span lang="ar">تحرير</span><span lang="en"><u>S</u>earch</span><span lang="ar">بحث</span><span lang="en"><u>H</u>elp</span><span lang="ar">تعليمات</span></div>
+      <div class="pad"><span lang="en">READ ME FIRST
+-------------
+Our kitchen uses wheat, milk, eggs, peanuts, tree nuts, fish and sesame. Please tell your server before you order.
+
+No pork. No alcohol. All beef and poultry are halal.
+
+Prices in US dollars, tax not included. Parties of 6+ : 18% service.</span><span lang="ar">اقرأني أولاً
+-------------
+يستخدم مطبخنا القمح والحليب والبيض والفول السوداني والمكسرات والسمك والسمسم. نرجو إخبار النادل قبل الطلب.
+
+لا لحم خنزير ولا كحول. جميع اللحوم والدواجن حلال.
+
+الأسعار بالدولار الأمريكي ولا تشمل الضريبة. للمجموعات من ٦ أشخاص فأكثر: خدمة ١٨٪.</span> </div>
+    </section>
+
+    <!-- ERROR + PROGRESS -->
+    <div class="c3" style="display:grid;gap:14px">
+      <section class="win dlg">
+        <div class="tb"><span><span lang="en">Copying…</span><span lang="ar">جارٍ النسخ…</span></span><span class="btns" aria-hidden="true"><i class="cl"></i></span></div>
+        <div style="padding:12px 12px 8px"><div class="fly" aria-hidden="true"><svg class="px"><use href="#i-fries"/></svg><span></span><svg class="px"><use href="#i-plate"/></svg></div><p><span lang="en">Copying fries to Table 9…</span><span lang="ar">جارٍ نسخ البطاطا إلى الطاولة ٩…</span></p><div class="prog"><i></i></div><p style="font-size:.9em"><span lang="en">A fresh batch drops every 12 minutes.</span><span lang="ar">دفعة طازجة تُقلى كل ١٢ دقيقة.</span></p></div>
+      </section>
+      <section class="win dlg">
+        <div class="tb off"><span><span lang="en">Bistro 95</span><span lang="ar">بيسترو ٩٥</span></span><span class="btns" aria-hidden="true"><i class="cl"></i></span></div>
+        <div class="body"><svg class="px"><use href="#i-err"/></svg><p><span lang="en">This table has performed an illegal operation and will be served dessert. Free pie on your birthday.</span><span lang="ar">نفّذت هذه الطاولة عملية غير مسموحة وستُقدَّم لها الحلوى. فطيرة مجانية في عيد ميلادك.</span></p></div>
+        <div class="acts"><a class="btn def" href="#desserts"><span lang="en">OK</span><span lang="ar">موافق</span></a></div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer class="task">
+  <a class="btn start" href="#welcome"><svg class="px"><use href="#flag"/></svg><span lang="en">Start</span><span lang="ar">ابدأ</span></a>
+  <nav class="tasks">
+    <a href="#welcome"><svg class="px"><use href="#flag"/></svg><span lang="en">Welcome</span><span lang="ar">مرحباً بك</span></a>
+    <a href="#starters"><svg class="px"><use href="#i-folder"/></svg><span lang="en">Starters</span><span lang="ar">المقبلات</span></a>
+    <a href="#mains"><svg class="px"><use href="#i-folder"/></svg><span lang="en">Mains</span><span lang="ar">الرئيسية</span></a>
+    <a href="#buns"><svg class="px"><use href="#i-folder"/></svg><span lang="en">Burgers</span><span lang="ar">البرغر</span></a>
+    <a href="#desserts"><svg class="px"><use href="#i-folder"/></svg><span lang="en">Desserts</span><span lang="ar">الحلويات</span></a>
+    <a href="#soda"><svg class="px"><use href="#i-folder"/></svg><span lang="en">Sodas</span><span lang="ar">الصودا</span></a>
+  </nav>
+  <div class="tray">
+    <a class="home-link" href="../index.html"><svg class="px" viewBox="0 0 16 16"><path d="M1 1h6v6H1zM9 1h6v6H9zM1 9h6v6H1zM9 9h6v6H9z" fill="#000080"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+    <span id="clock">19:95</span>
+  </div>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+(function(){var c=document.getElementById('clock');function t(){var n=new Date(),h=n.getHours(),m=n.getMinutes();c.textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m}t();setInterval(t,20000)})();
+</script>
+</body>
+</html>

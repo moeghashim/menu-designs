@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Ivory &amp; Thyme · عاج وزعتر</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ivory &amp; Thyme — banquet and wedding catering, composed like a letterpress stationery suite: reception canapés, plated feasts, family tables and sweet tables priced per guest. عاج وزعتر — ولائم ومناسبات.">
+<meta name="theme-color" content="#d8d1c3">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --table:#d8d1c3; --paper:#f8f4ea; --paper2:#f2ecdf; --ink:#56664a; --inkD:#3f4c36; --grey:#6d695e; --soft:#8a8576;
+  --hi:#fffdf6; --lo:rgba(96,84,60,.28);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .4 0 0 0 0 .3 0 0 0 .22 -.05'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--table);color:var(--grey);font-family:"Cormorant Garamond","Hoefler Text",Georgia,serif;font-size:19px;line-height:1.45;font-weight:500;overflow-x:clip;
+  background-image:var(--grain),repeating-linear-gradient(0deg,rgba(255,255,255,.16) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(90,80,60,.07) 0 1px,transparent 1px 3px),radial-gradient(120% 80% at 30% 0,#e6e0d4,#cfc7b7)}
+html[lang="ar"] body{font-family:"Amiri","Noto Naskh Arabic",serif;font-size:19px;line-height:1.75;font-weight:400}
+html[lang="ar"] *{letter-spacing:0!important;text-transform:none!important}
+.script{font-family:"Pinyon Script","Cormorant Garamond",cursive;font-weight:400}
+html[lang="ar"] .script{font-family:"Aref Ruqaa","Amiri",serif}
+.caps{text-transform:uppercase;letter-spacing:.22em}
+
+/* controls: a small paper place-tag */
+.tagc{position:fixed;z-index:20;top:14px;inset-inline-end:14px;display:flex;align-items:center;background:var(--paper) var(--grain);border-radius:3px;
+  box-shadow:0 1px 0 var(--hi) inset,0 6px 14px rgba(70,60,40,.28),0 1px 2px rgba(70,60,40,.3)}
+.tagc button,.tagc a{font:500 13px/1 "Cormorant Garamond",serif;letter-spacing:.16em;text-transform:uppercase;color:var(--inkD);background:none;border:0;padding:0 14px;min-height:40px;display:inline-flex;align-items:center;cursor:pointer;text-decoration:none}
+.tagc button{font:400 17px/1 "Amiri",serif;letter-spacing:0;text-transform:none}
+html[lang="ar"] .tagc button{font:500 13px/1 "Cormorant Garamond",serif;letter-spacing:.16em!important;text-transform:uppercase!important}
+html[lang="ar"] .tagc a{font:400 16px/1 "Amiri",serif}
+.tagc a{border-inline-start:1px solid rgba(86,102,74,.35)}
+.tagc :focus-visible{outline:1px solid var(--ink);outline-offset:-4px}
+.tagc button:hover,.tagc a:hover{color:#000}
+
+/* ---------- paper ---------- */
+.card{position:relative;background:var(--paper);background-image:var(--grain),linear-gradient(135deg,#fbf8f0,#f3eee2);text-align:center;
+  box-shadow:0 1px 0 var(--hi) inset,0 -1px 0 rgba(120,105,80,.18) inset,0 1px 1px rgba(60,50,30,.25),0 14px 22px -8px rgba(60,50,30,.35),0 40px 60px -30px rgba(60,50,30,.4)}
+/* blind-embossed frame: no ink, only light and shadow */
+.emb::before{content:"";position:absolute;inset:var(--f,16px);border:1px solid transparent;border-radius:1px;pointer-events:none;
+  box-shadow:-1px -1px 0 var(--lo),1px 1px 0 var(--hi),inset 1px 1px 0 var(--hi),inset -1px -1px 0 var(--lo),0 0 0 5px var(--paper),-1px -1px 0 5px rgba(96,84,60,.2),1px 1px 0 5px var(--hi)}
+.bead{height:9px;margin:18px auto;width:min(70%,220px);background:radial-gradient(circle at 4.5px 4.5px,rgba(96,84,60,.3) 0 1.2px,var(--hi) 1.6px 3px,transparent 3.4px) 0 0/14px 9px repeat-x}
+.blind{color:#efe9db;text-shadow:-1px -1px 1px rgba(96,84,60,.45),1px 1px 0 var(--hi)}
+h1,h2,h3{font-weight:500;color:var(--inkD)}
+
+.suite{max-width:1320px;margin:0 auto;padding:clamp(70px,7vw,96px) clamp(14px,3vw,40px) 30px}
+
+/* row A: invitation + enclosure cards */
+.rowA{display:grid;grid-template-columns:1fr minmax(440px,560px) 1fr;gap:clamp(18px,2.4vw,36px);align-items:center}
+.invite{--f:20px;padding:clamp(52px,6vw,76px) clamp(30px,5vw,64px) clamp(48px,5vw,64px);z-index:2}
+.mono{width:132px;height:160px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;position:relative;
+  box-shadow:inset 2px 2px 3px rgba(96,84,60,.34),inset -2px -2px 2px var(--hi),0 0 0 6px var(--paper),-1px -1px 0 6px rgba(96,84,60,.25),1px 1px 0 6px var(--hi);background:linear-gradient(135deg,#efe9db,#f6f1e6)}
+.mono span{font-size:3.3rem;line-height:1;font-style:italic;font-weight:400}
+html[lang="ar"] .mono span{font-family:"Aref Ruqaa",serif;font-style:normal;font-size:3rem}
+.mono i{position:absolute;inset:9px;border-radius:50%;border:1px dotted rgba(96,84,60,.4)}
+.invite .pre{font-size:.78rem;color:var(--soft)}
+html[lang="ar"] .invite .pre{font-size:1.05rem}
+.invite h1{font-size:clamp(2.6rem,5.6vw,4.3rem);line-height:1.02;letter-spacing:.14em;text-transform:uppercase;margin:16px 0 4px;font-weight:400;color:var(--ink)}
+.invite h1 em{font-family:"Pinyon Script",cursive;font-style:normal;text-transform:none;letter-spacing:0;font-size:.9em;display:block;line-height:.7;margin:.08em 0 .14em;color:var(--soft)}
+html[lang="ar"] .invite h1{font-family:"Aref Ruqaa","Amiri",serif;font-size:clamp(3.2rem,7vw,5.2rem);line-height:1.25;font-weight:700;margin-bottom:.35em}
+html[lang="ar"] .invite h1 em{font-family:"Aref Ruqaa",serif;display:inline;font-size:.7em;font-weight:400}
+.invite .cuis{font-size:.86rem;color:var(--inkD)}
+html[lang="ar"] .invite .cuis{font-size:1.2rem}
+.sprig{display:block;width:74px;height:auto;margin:20px auto 14px}
+.invite .tagline{font-size:1.8rem;line-height:1.1;color:var(--inkD);text-wrap:balance}.intro,.dish p{text-wrap:balance}
+html[lang="ar"] .invite .tagline{font-size:1.6rem;line-height:1.5}
+.invite .intro{max-width:36ch;margin:14px auto 0;font-style:italic;font-size:1.08rem}
+html[lang="ar"] .invite .intro{font-style:normal;font-size:1.1rem}
+.invite .date{margin-top:22px;font-size:.76rem;color:var(--soft)}
+html[lang="ar"] .invite .date{font-size:1rem}
+
+.detail{--f:12px;padding:44px 30px 40px;transform:rotate(-2.6deg);justify-self:end;max-width:330px;width:100%}
+.detail h2,.reply h2{font-size:.84rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+html[lang="ar"] .detail h2,html[lang="ar"] .reply h2{font-family:"Aref Ruqaa",serif;font-size:1.45rem}
+.detail ol{list-style:none;margin-top:6px}
+.detail li{padding:13px 0;border-bottom:1px solid rgba(86,102,74,.22)}
+.detail li:last-child{border:0;padding-bottom:0}
+.detail li b{display:block;font-family:"Pinyon Script",cursive;font-weight:400;font-size:1.7rem;line-height:1;color:var(--ink)}
+html[lang="ar"] .detail li b{font-family:"Aref Ruqaa",serif;font-size:1.6rem;line-height:1.5}
+.detail li>span{font-size:1rem}
+
+.reply{--f:12px;padding:42px 28px 36px;transform:rotate(2.2deg);max-width:350px;width:100%}
+.reply .m{font-size:1.5rem;color:var(--soft);display:flex;align-items:flex-end;gap:8px;margin:12px 6px 16px;text-align:start}
+.reply .m::after{content:"";flex:1;border-bottom:1px solid var(--soft);margin-bottom:.35em}
+.opt{display:grid;grid-template-columns:20px 1fr;gap:4px 12px;text-align:start;padding:11px 4px;border-top:1px solid rgba(86,102,74,.22)}
+.opt .box{width:15px;height:15px;border:1px solid var(--ink);margin-top:.35em}
+.opt h3{font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+html[lang="ar"] .opt h3{font-size:1.15rem;font-weight:700}
+.opt p{grid-column:2;font-size:.98rem;line-height:1.3;font-style:italic}
+html[lang="ar"] .opt p{font-style:normal;line-height:1.6;font-size:.98rem}
+.pr{white-space:nowrap;unicode-bidi:isolate;color:var(--ink);font-weight:600;letter-spacing:.04em;font-variant-numeric:lining-nums}
+.pr small{font-size:.68em;font-weight:500;letter-spacing:.14em;margin-inline-start:.3em}
+html[lang="ar"] .pr small{font-size:.8em}
+.reply .fine{font-size:.86rem;margin-top:12px;color:var(--soft)}
+
+/* row B: three long menu cards */
+.band{text-align:center;margin:clamp(60px,8vw,104px) auto clamp(26px,3vw,40px);color:var(--inkD)}
+.band .script{font-size:clamp(2.2rem,4.4vw,3.2rem);line-height:1;display:block;color:var(--ink)}
+html[lang="ar"] .band .script{font-size:clamp(2rem,4vw,2.8rem);line-height:1.5}
+.band .caps{font-size:.76rem;display:block;margin-top:6px}
+html[lang="ar"] .band .caps{font-size:1.02rem}
+.rowB{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,40px);align-items:start}
+.menu{--f:14px;padding:54px clamp(22px,2.6vw,38px) 46px}
+.menu:nth-child(2){margin-top:46px}.menu:nth-child(1){transform:rotate(-.8deg)}.menu:nth-child(3){transform:rotate(.9deg)}
+.menu .no{font-size:.72rem;letter-spacing:.3em;color:var(--soft)}
+html[lang="ar"] .menu .no{font-size:.95rem}
+.menu h2{font-size:1.5rem;letter-spacing:.2em;text-transform:uppercase;font-weight:400;margin-top:8px;color:var(--ink)}
+html[lang="ar"] .menu h2{font-family:"Aref Ruqaa",serif;font-size:2.1rem;font-weight:700;line-height:1.3}
+.menu .sub{font-size:1.5rem;line-height:1.1;color:var(--soft);margin-top:2px}
+html[lang="ar"] .menu .sub{font-size:1.15rem;line-height:1.6}
+.course{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--soft);margin:26px 0 -6px;display:flex;align-items:center;gap:12px;justify-content:center}
+.course::before,.course::after{content:"";width:34px;border-top:1px solid currentColor;opacity:.6}
+html[lang="ar"] .course{font-size:1rem}
+.dish{margin-top:24px}
+.dish h3{font-size:.9rem;letter-spacing:.2em;text-transform:uppercase;line-height:1.35}
+html[lang="ar"] .dish h3{font-size:1.28rem;font-weight:700;line-height:1.5}
+.dish p{font-style:italic;font-size:1.06rem;max-width:30ch;margin:3px auto 4px;line-height:1.3}
+html[lang="ar"] .dish p{font-style:normal;font-size:1.04rem;line-height:1.65}
+.dish .pr{font-size:.98rem}
+.or{font-size:1.5rem;color:var(--soft);line-height:1;margin-top:16px;display:block}
+html[lang="ar"] .or{font-size:1.15rem}
+.pick{display:inline-block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);border:1px solid var(--ink);padding:1px 8px 0;border-radius:20px;margin-bottom:6px}
+html[lang="ar"] .pick{font-size:.85rem;padding:0 10px}
+
+/* row C: sweet table (landscape) + place card */
+.rowC{display:grid;grid-template-columns:1.9fr 1fr;gap:clamp(18px,2.6vw,40px);align-items:center;margin-top:clamp(40px,5vw,70px)}
+.sweet{--f:14px;padding:50px clamp(24px,4vw,56px) 44px}
+.sweet h2,.bev h2{font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase;font-weight:400;color:var(--ink)}
+html[lang="ar"] .sweet h2,html[lang="ar"] .bev h2{font-family:"Aref Ruqaa",serif;font-size:2rem;font-weight:700}
+.sweet .grid{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(24px,4vw,60px);position:relative}
+.sweet .grid::before{content:"";position:absolute;top:28px;bottom:4px;left:50%;border-inline-start:1px solid rgba(86,102,74,.25)}
+.bev{text-align:center;background:none;box-shadow:none;transform:rotate(1.6deg);filter:drop-shadow(0 18px 18px rgba(60,50,30,.3))}
+.bev .tent{background:var(--paper);background-image:var(--grain),linear-gradient(180deg,#fdfaf3,#f1ebde);padding:40px 26px 34px;position:relative;box-shadow:0 1px 0 var(--hi) inset}
+.bev .fold{height:26px;background:linear-gradient(180deg,#e6dfcf,#d6cebd);transform:perspective(300px) rotateX(-38deg);transform-origin:top;margin:0 4px}
+.bev .dish{margin-top:18px}
+
+/* row D: the envelope */
+.env{position:relative;max-width:980px;margin:clamp(70px,9vw,120px) auto 0;filter:drop-shadow(0 26px 30px rgba(60,50,30,.34))}
+.flap{position:relative;height:clamp(120px,19vw,210px);background:var(--ink);clip-path:polygon(0 100%,50% 0,100% 100%);
+  background-image:radial-gradient(circle at 12px 12px,rgba(255,255,255,.2) 0 1.5px,transparent 2px),radial-gradient(circle at 36px 30px,rgba(255,255,255,.14) 0 1.5px,transparent 2px),linear-gradient(180deg,#63745a,#4d5c43);background-size:48px 36px,48px 36px,auto}
+.flap::after{content:"";position:absolute;inset:0;background:var(--paper2);background-image:var(--grain);clip-path:polygon(0 100%,50% 0,100% 100%,calc(100% - 26px) 100%,50% 18%,26px 100%)}
+.pocket{background:var(--paper2);background-image:var(--grain),linear-gradient(180deg,#f4efe3,#ebe4d4);padding:clamp(34px,5vw,56px) clamp(22px,5vw,64px) 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px 40px;text-align:center;position:relative;box-shadow:0 1px 0 var(--hi) inset}
+.seal{position:absolute;top:0;left:50%;width:74px;height:74px;margin:-42px 0 0 -37px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7a8c6c,#4c5a41 70%);display:grid;place-items:center;color:#dfe6d2;font-size:1.7rem;font-style:italic;
+  box-shadow:0 3px 6px rgba(40,50,30,.5),inset 0 0 0 5px rgba(255,255,255,.08),inset 0 0 0 6px rgba(0,0,0,.18);text-shadow:0 -1px 0 rgba(0,0,0,.4)}
+html[lang="ar"] .seal{font-family:"Aref Ruqaa",serif;font-style:normal;font-size:1.3rem}
+.pocket h4{font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:6px}
+html[lang="ar"] .pocket h4{font-family:"Aref Ruqaa",serif;font-size:1.3rem}
+.pocket p{font-size:1.02rem}
+.pocket .note{grid-column:1/-1;font-style:italic;font-size:.98rem;max-width:74ch;margin:0 auto;padding-top:20px;border-top:1px solid rgba(86,102,74,.25)}
+html[lang="ar"] .pocket .note{font-style:normal}
+.colophon{text-align:center;padding:34px 16px 44px;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:#7b7566}
+html[lang="ar"] .colophon{font-size:1rem}
+
+@media (max-width:1080px){
+  .rowA{grid-template-columns:1fr 1fr}.invite{order:-1;grid-column:1/-1;max-width:600px;margin-inline:auto;width:100%}
+  .detail,.reply{justify-self:center;max-width:none}
+  .rowB{grid-template-columns:1fr 1fr}.menu:nth-child(2){margin-top:0}.menu:nth-child(3){grid-column:1/-1;max-width:560px;margin-inline:auto;width:100%}
+  .rowC{grid-template-columns:1fr}.bev{max-width:420px;margin-inline:auto;width:100%}
+}
+@media (max-width:680px){
+  body{font-size:18.5px}
+  .suite{padding-top:74px}
+  .rowA,.rowB{grid-template-columns:1fr;gap:22px}
+  .card,.bev{transform:none!important}
+  .invite{padding:54px 26px 46px;--f:13px}
+  .detail,.reply,.menu{--f:10px}
+  .menu{padding:46px 22px 40px}
+  .menu:nth-child(even){margin-inline:8px -2px}.menu:nth-child(odd){margin-inline:-2px 8px}
+  .detail{margin-inline:-2px 14px;width:auto}.reply{margin-inline:14px -2px;width:auto}
+  .sweet .grid{grid-template-columns:1fr}.sweet .grid::before{display:none}
+  .pocket{grid-template-columns:1fr}
+  .flap::after{clip-path:polygon(0 100%,50% 0,100% 100%,calc(100% - 14px) 100%,50% 16%,14px 100%)}
+}
+@media (prefers-reduced-motion:no-preference){
+  .card,.bev{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  @media (hover:hover){.detail:hover,.reply:hover,.menu:hover,.bev:hover{transform:rotate(0) translateY(-4px)}}
+}
+</style>
+</head>
+<body>
+<div class="tagc">
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+</div>
+
+<div class="suite">
+  <header class="rowA">
+    <aside class="card emb detail">
+      <h2><span lang="en">The Particulars</span><span lang="ar">تفاصيل الخدمة</span></h2>
+      <div class="bead" aria-hidden="true"></div>
+      <ol>
+        <li><b><span lang="en">a tasting</span><span lang="ar">جلسة تذوّق</span></b><span><span lang="en">Six weeks before, at our studio table, for up to four.</span><span lang="ar">قبل المناسبة بستة أسابيع، على مائدة مشغلنا، لأربعة أشخاص.</span></span></li>
+        <li><b><span lang="en">a table plan</span><span lang="ar">مخطّط المائدة</span></b><span><span lang="en">Linen, china, silver and candlelight, chosen with you.</span><span lang="ar">المفارش والخزف والفضّيات وضوء الشموع، نختارها معكم.</span></span></li>
+        <li><b><span lang="en">a quiet brigade</span><span lang="ar">فريق لا يُسمع له صوت</span></b><span><span lang="en">One server to every eight guests, from first tray to last cup.</span><span lang="ar">نادل لكل ثمانية ضيوف، من أول صينية إلى آخر فنجان.</span></span></li>
+      </ol>
+    </aside>
+
+    <div class="card emb invite">
+      <div class="mono blind" aria-hidden="true"><i></i><span lang="en">I&amp;T</span><span lang="ar">ع ز</span></div>
+      <p class="pre caps"><span lang="en">Together with their families</span><span lang="ar">بكل المحبّة والسرور</span></p>
+      <h1><span lang="en">Ivory <em>&amp;</em> Thyme</span><span lang="ar">عاج <em>و</em>زعتر</span></h1>
+      <p class="cuis caps"><span lang="en">Banquet &amp; Catering</span><span lang="ar">ولائم ومناسبات</span></p>
+      <svg class="sprig" viewBox="0 0 80 120" aria-hidden="true">
+        <path d="M40 118C38 86 44 52 40 6" fill="none" stroke="#56664a" stroke-width="1.6" stroke-linecap="round"/>
+        <g fill="#56664a">
+          <ellipse cx="40" cy="7" rx="3.2" ry="6.5"/>
+          <ellipse cx="31" cy="20" rx="3.4" ry="8" transform="rotate(-48 31 20)"/><ellipse cx="50" cy="19" rx="3.4" ry="8" transform="rotate(46 50 19)"/>
+          <ellipse cx="30" cy="35" rx="3.6" ry="9" transform="rotate(-56 30 35)"/><ellipse cx="52" cy="33" rx="3.6" ry="9" transform="rotate(54 52 33)"/>
+          <ellipse cx="29" cy="51" rx="3.8" ry="10" transform="rotate(-60 29 51)"/><ellipse cx="54" cy="49" rx="3.8" ry="10" transform="rotate(58 54 49)"/>
+          <ellipse cx="28" cy="68" rx="3.8" ry="10.5" transform="rotate(-62 28 68)"/><ellipse cx="54" cy="66" rx="3.8" ry="10.5" transform="rotate(60 54 66)"/>
+          <ellipse cx="28" cy="85" rx="3.6" ry="10" transform="rotate(-64 28 85)"/><ellipse cx="52" cy="83" rx="3.6" ry="10" transform="rotate(62 52 83)"/>
+          <ellipse cx="30" cy="100" rx="3.2" ry="8" transform="rotate(-66 30 100)"/><ellipse cx="50" cy="99" rx="3.2" ry="8" transform="rotate(64 50 99)"/>
+        </g>
+      </svg>
+      <p class="tagline script"><span lang="en">request the pleasure of feeding your guests</span><span lang="ar">يتشرّفان بإطعام ضيوفكم</span></p>
+      <p class="intro"><span lang="en">Weddings, majlis dinners and garden luncheons for forty to four hundred — cooked on site, served on bone china, and remembered long after the candles burn down.</span><span lang="ar">أعراس وولائم مجالس وغداء في الحدائق، من أربعين ضيفًا إلى أربعمئة — تُطهى في موقع الحفل وتُقدَّم على خزف عاجيّ، وتبقى في الذاكرة بعد أن تنطفئ الشموع.</span></p>
+      <div class="bead" aria-hidden="true"></div>
+      <p class="date caps"><span lang="en">Riyadh · By appointment · Est. 2009</span><span lang="ar">الرياض · بموعد مسبق · منذ ٢٠٠٩</span></p>
+    </div>
+
+    <aside class="card emb reply">
+      <h2><span lang="en">Kindly Reply</span><span lang="ar">نرجو الردّ</span></h2>
+      <p class="m script"><span lang="en">M</span><span lang="ar">السادة</span></p>
+      <div class="opt"><i class="box"></i><h3><span><span lang="en">The Garden Luncheon</span><span lang="ar">غداء الحديقة</span></span><span class="pr">285<small lang="en">SAR</small><small lang="ar">ر.س</small></span></h3><p><span lang="en">Three canapés, two plated courses, coffee and dates.</span><span lang="ar">ثلاثة أصناف مقبّلات، طبقان على المائدة، قهوة وتمر.</span></p></div>
+      <div class="opt"><i class="box"></i><h3><span><span lang="en">The Ivory Feast</span><span lang="ar">وليمة العاج</span></span><span class="pr">420<small lang="en">SAR</small><small lang="ar">ر.س</small></span></h3><p><span lang="en">Five canapés, three plated courses, the full sweet table.</span><span lang="ar">خمسة أصناف مقبّلات، ثلاثة أطباق، ومائدة الحلوى كاملة.</span></p></div>
+      <div class="opt"><i class="box"></i><h3><span><span lang="en">The Grand Majlis</span><span lang="ar">المجلس الكبير</span></span><span class="pr">560<small lang="en">SAR</small><small lang="ar">ر.س</small></span></h3><p><span lang="en">Reception, family table with whole ouzi, sweets and tea cart.</span><span lang="ar">استقبال، ثم مائدة العائلة بالأوزي الكامل، فالحلوى وعربة الشاي.</span></p></div>
+      <p class="fine"><span lang="en">per guest · forty guests or more</span><span lang="ar">للضيف الواحد · أربعون ضيفًا فأكثر</span></p>
+    </aside>
+  </header>
+
+  <div class="band"><span class="script"><span lang="en">or compose your own</span><span lang="ar">أو ألِّفوا قائمتكم بأنفسكم</span></span><span class="caps"><span lang="en">Every dish priced per guest, in Saudi riyals</span><span lang="ar">سعر كل طبق للضيف الواحد، بالريال السعودي</span></span></div>
+
+  <main>
+  <div class="rowB">
+    <section class="card emb menu">
+      <p class="no"><span lang="en">CARD I</span><span lang="ar">البطاقة الأولى</span></p>
+      <h2><span lang="en">The Reception</span><span lang="ar">الاستقبال</span></h2>
+      <p class="sub script"><span lang="en">passed on silver trays</span><span lang="ar">تُدار على صوانٍ فضّية</span></p>
+      <div class="bead" aria-hidden="true"></div>
+      <div class="dish"><span class="pick"><span lang="en">Our signature</span><span lang="ar">توقيع البيت</span></span><h3><span lang="en">Labneh &amp; Thyme Tartlet</span><span lang="ar">تارتليت اللبنة والزعتر</span></h3><p><span lang="en">Strained labneh, wild za'atar leaves, a bead of green olive oil.</span><span lang="ar">لبنة مصفّاة وأوراق زعتر برّي وقطرة من زيت الزيتون الأخضر.</span></p><span class="pr">18<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      <div class="dish"><h3><span lang="en">Smoked Salmon Blini</span><span lang="ar">بليني السلمون المدخّن</span></h3><p><span lang="en">Buckwheat blini, crème fraîche, dill and lemon zest.</span><span lang="ar">فطيرة حنطة سوداء صغيرة بالكريمة الحامضة والشبت وبرش الليمون.</span></p><span class="pr">24<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      <div class="dish"><h3><span lang="en">Medjool &amp; Chèvre</span><span lang="ar">تمر مجدول بجبن الماعز</span></h3><p><span lang="en">A soft date filled with whipped goat's cheese and toasted pistachio.</span><span lang="ar">تمرة طريّة محشوّة بجبن الماعز المخفوق والفستق المحمّص.</span></p><span class="pr">16<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      <div class="dish"><h3><span lang="en">Lamb Kofta Skewer</span><span lang="ar">سيخ كفتة الضأن</span></h3><p><span lang="en">Charcoal-grilled, glazed with pomegranate molasses and mint.</span><span lang="ar">مشوية على الفحم ومدهونة بدبس الرمّان والنعناع.</span></p><span class="pr">22<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      <div class="dish"><h3><span lang="en">Mushroom Vol-au-Vent</span><span lang="ar">فول-أو-فان بالفطر</span></h3><p><span lang="en">Butter pastry, wild mushrooms in thyme cream, chive.</span><span lang="ar">عجينة مورّقة بالزبدة وفطر برّي في كريمة الزعتر مع الثوم المعمّر.</span></p><span class="pr">18<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+    </section>
+
+    <section class="card emb menu">
+      <p class="no"><span lang="en">CARD II</span><span lang="ar">البطاقة الثانية</span></p>
+      <h2><span lang="en">The Feast</span><span lang="ar">الوليمة</span></h2>
+      <p class="sub script"><span lang="en">plated, course by course</span><span lang="ar">تُقدَّم طبقًا بعد طبق</span></p>
+      <div class="bead" aria-hidden="true"></div>
+      <p class="course"><span lang="en">To begin</span><span lang="ar">البداية</span></p>
+      <div class="dish"><h3><span lang="en">Heirloom Beetroot</span><span lang="ar">شمندر بلدي مشوي</span></h3><p><span lang="en">Salt-roasted beets, whipped feta, candied walnut, thyme honey.</span><span lang="ar">شمندر مشوي في الملح مع فيتا مخفوقة وجوز مُسكَّر وعسل الزعتر.</span></p><span class="pr">46<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      <span class="or script"><span lang="en">or</span><span lang="ar">أو</span></span>
+      <div class="dish" style="margin-top:8px"><h3><span lang="en">Saffron Seafood Bisque</span><span lang="ar">حساء ثمار البحر بالزعفران</span></h3><p><span lang="en">Gulf prawn, braised fennel, a thread of cream.</span><span lang="ar">روبيان الخليج وشمر مطهوّ على مهل وخيط من الكريمة.</span></p><span class="pr">52<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      <p class="course"><span lang="en">To follow</span><span lang="ar">الطبق الرئيس</span></p>
+      <div class="dish"><span class="pick"><span lang="en">Most requested</span><span lang="ar">الأكثر طلبًا</span></span><h3><span lang="en">Seven-Hour Lamb Shoulder</span><span lang="ar">كتف ضأن سبع ساعات</span></h3><p><span lang="en">Smoked freekeh, roasted apricots, its own glossy jus.</span><span lang="ar">فريكة مدخّنة ومشمش مشوي ومرق اللحم المركَّز اللامع.</span></p><span class="pr">138<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      <span class="or script"><span lang="en">or</span><span lang="ar">أو</span></span>
+      <div class="dish" style="margin-top:8px"><h3><span lang="en">Fillet of Sea Bass</span><span lang="ar">فيليه القاروص</span></h3><p><span lang="en">Lemon beurre blanc, green asparagus, crushed new potatoes.</span><span lang="ar">صلصة الزبدة بالليمون وهليون أخضر وبطاطا صغيرة مهروسة.</span></p><span class="pr">126<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      <span class="or script"><span lang="en">or</span><span lang="ar">أو</span></span>
+      <div class="dish" style="margin-top:8px"><h3><span lang="en">Wild Mushroom Wellington</span><span lang="ar">ويلينغتون الفطر البرّي</span></h3><p><span lang="en">Spinach, chestnut and thyme in golden pastry. Vegetarian.</span><span lang="ar">سبانخ وكستناء وزعتر في عجينة ذهبية. طبق نباتي.</span></p><span class="pr">98<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+    </section>
+
+    <section class="card emb menu">
+      <p class="no"><span lang="en">CARD III</span><span lang="ar">البطاقة الثالثة</span></p>
+      <h2><span lang="en">The Family Table</span><span lang="ar">مائدة العائلة</span></h2>
+      <p class="sub script"><span lang="en">great platters, carved before you</span><span lang="ar">أطباق كبيرة تُقطَّع أمامكم</span></p>
+      <div class="bead" aria-hidden="true"></div>
+      <div class="dish"><span class="pick"><span lang="en">For the grand occasion</span><span lang="ar">للمناسبات الكبرى</span></span><h3><span lang="en">Whole Lamb Ouzi</span><span lang="ar">أوزي الخروف الكامل</span></h3><p><span lang="en">Spiced rice, toasted almonds and pine nuts, yoghurt and cucumber.</span><span lang="ar">أرزّ مبهَّر ولوز وصنوبر محمّص، مع لبن بالخيار.</span></p><span class="pr">165<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      <div class="dish"><h3><span lang="en">Herb-Crusted Tenderloin</span><span lang="ar">فيليه بقري بقشرة الأعشاب</span></h3><p><span lang="en">Carved at the table, thyme butter, roasted shallots.</span><span lang="ar">يُقطَّع عند المائدة مع زبدة الزعتر وكرّاث مشوي.</span></p><span class="pr">158<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      <div class="dish"><h3><span lang="en">Sumac Roast Chicken</span><span lang="ar">دجاج مشوي بالسمّاق</span></h3><p><span lang="en">Caramelised onions, taboon bread to catch the juices.</span><span lang="ar">بصل مكرمل وخبز طابون يتشرّب العصارة.</span></p><span class="pr">92<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      <div class="dish"><h3><span lang="en">The Garden Platter</span><span lang="ar">طبق الحديقة</span></h3><p><span lang="en">Fire-roasted vegetables, jewelled bulgur, tahini and herbs.</span><span lang="ar">خضار مشوية على النار وبرغل مرصَّع بالرمّان مع الطحينة والأعشاب.</span></p><span class="pr">64<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+    </section>
+  </div>
+
+  <div class="rowC">
+    <section class="card emb sweet">
+      <h2><span lang="en">The Sweet Table</span><span lang="ar">مائدة الحلوى</span></h2>
+      <div class="bead" aria-hidden="true"></div>
+      <div class="grid">
+        <div class="dish"><h3><span lang="en">The Ivory Cake</span><span lang="ar">كعكة العاج</span></h3><p><span lang="en">Vanilla sponge, orange-blossom buttercream, sugared thyme.</span><span lang="ar">كيك الفانيلا بكريمة زبدة ماء الزهر وزعتر مُسكَّر.</span></p><span class="pr">38<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+        <div class="dish"><h3><span lang="en">Rose Muhallabia</span><span lang="ar">مهلبية الورد</span></h3><p><span lang="en">Milk pudding cups, rose syrup, crushed pistachio.</span><span lang="ar">كؤوس مهلبية بشراب الورد والفستق المجروش.</span></p><span class="pr">22<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+        <div class="dish"><h3><span lang="en">Lemon-Thyme Posset</span><span lang="ar">بوسيت الليمون والزعتر</span></h3><p><span lang="en">Set lemon cream with a finger of butter shortbread.</span><span lang="ar">كريمة ليمون متماسكة مع إصبع بسكويت بالزبدة.</span></p><span class="pr">24<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+        <div class="dish"><h3><span lang="en">Baklava Tower</span><span lang="ar">برج البقلاوة</span></h3><p><span lang="en">Hand-rolled walnut and pistachio baklava, light syrup.</span><span lang="ar">بقلاوة ملفوفة باليد بالجوز والفستق وقَطر خفيف.</span></p><span class="pr">26<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      </div>
+    </section>
+    <section class="bev">
+      <div class="tent">
+        <h2><span lang="en">To Drink</span><span lang="ar">المشروبات</span></h2>
+        <div class="bead" aria-hidden="true"></div>
+        <div class="dish"><h3><span lang="en">Welcome Cordial</span><span lang="ar">شراب الترحيب</span></h3><p><span lang="en">Elderflower, cucumber and garden mint.</span><span lang="ar">زهر البيلسان والخيار ونعناع الحديقة.</span></p><span class="pr">16<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+        <div class="dish"><h3><span lang="en">Saudi Coffee Service</span><span lang="ar">ضيافة القهوة السعودية</span></h3><p><span lang="en">Cardamom coffee poured from the dallah, Sukkari dates.</span><span lang="ar">قهوة بالهيل تُصبّ من الدلّة مع تمر سكّري.</span></p><span class="pr">18<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+        <div class="dish"><h3><span lang="en">The Tea Cart</span><span lang="ar">عربة الشاي</span></h3><p><span lang="en">Loose-leaf teas and fresh thyme, sage and mint infusions.</span><span lang="ar">أنواع شاي فاخرة ومنقوع الزعتر والمريمية والنعناع الطازج.</span></p><span class="pr">20<small lang="en">SAR</small><small lang="ar">ر.س</small></span></div>
+      </div>
+      <div class="fold" aria-hidden="true"></div>
+    </section>
+  </div>
+  </main>
+
+  <footer class="env">
+    <div class="flap" aria-hidden="true"></div>
+    <div class="pocket">
+      <span class="seal" aria-hidden="true"><span lang="en">I&amp;T</span><span lang="ar">ع ز</span></span>
+      <div><h4><span lang="en">The Studio</span><span lang="ar">المشغل</span></h4><p><span lang="en">Studio 7, Al Wurud Lane<br>As-Sulimaniyah, Riyadh</span><span lang="ar">مشغل ٧، زقاق الورود<br>السليمانية، الرياض</span></p></div>
+      <div><h4><span lang="en">Tastings &amp; Enquiries</span><span lang="ar">التذوّق والاستفسار</span></h4><p><span lang="en">Saturday to Thursday<br>10 am – 6 pm, by appointment</span><span lang="ar">من السبت إلى الخميس<br>١٠ صباحًا – ٦ مساءً، بموعد مسبق</span></p></div>
+      <div><h4><span lang="en">Write to us</span><span lang="ar">راسلونا</span></h4><p><span lang="en">+966 11 555 0187<br>table@ivoryandthyme.example</span><span lang="ar"><span dir="ltr">+966 11 555 0187</span><br><span dir="ltr">table@ivoryandthyme.example</span></span></p></div>
+      <p class="note"><span lang="en">All meat is halal and no alcohol is used in our kitchen. Dishes may contain nuts, dairy, gluten, egg, fish and shellfish; a full allergen card is prepared for every event. Prices are per guest for parties of forty or more and include service staff, china and linen; VAT is added at 15%.</span><span lang="ar">جميع اللحوم حلال ولا يُستخدم الكحول في مطبخنا. قد تحتوي الأطباق على المكسّرات والألبان والغلوتين والبيض والأسماك والقشريات؛ ونُعدّ لكل مناسبة بطاقة كاملة بمسبّبات الحساسية. الأسعار للضيف الواحد في المناسبات من أربعين ضيفًا فأكثر وتشمل طاقم الخدمة والخزف والمفارش؛ وتُضاف ضريبة القيمة المضافة بنسبة ١٥٪.</span></p>
+    </div>
+  </footer>
+  <p class="colophon"><span lang="en">Pressed by hand on cotton paper · Ivory &amp; Thyme</span><span lang="ar">طُبعت يدويًّا على ورق قطني · عاج وزعتر</span></p>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

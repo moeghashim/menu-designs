@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Classified Kitchen · المطبخ السرّي</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Classified Kitchen — a secret supper club. The menu is a declassified dossier: hover or tap the black bars to reveal what the kitchen would rather you did not know.">
+<meta name="theme-color" content="#231b15">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Noto+Naskh+Arabic:wght@400;600;700&family=Rakkas&family=Reenie+Beanie&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --desk:#231b15; --manila:#dcb978; --manila-d:#c79f5c; --manila-l:#e9cc94;
+  --paper:#f4efe2; --paper2:#ece5d3; --ink:#1d1a17; --faint:#6b6257; --red:#b3261e; --blue:#27408b;
+  --type:"Courier Prime","Courier New",Courier,monospace;
+  --elite:"Special Elite","Courier Prime","Courier New",monospace;
+  --hand:"Reenie Beanie","Bradley Hand",cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--desk);color:var(--ink);font:400 15.5px/1.55 var(--type);
+  background-image:
+    radial-gradient(120% 80% at 50% -10%,rgba(255,214,150,.20),transparent 60%),
+    repeating-linear-gradient(92deg,rgba(0,0,0,.16) 0 2px,transparent 2px 9px),
+    repeating-linear-gradient(88deg,rgba(255,255,255,.025) 0 1px,transparent 1px 23px);
+  overflow-x:clip}
+html[lang="ar"] body{font-family:"Noto Naskh Arabic","Geeza Pro","Segoe UI",Tahoma,serif;font-size:17px;line-height:1.8}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+h1,h2,h3,p,ul,ol,dl,dd{margin:0;padding:0}
+li{list-style:none}
+.pr{unicode-bidi:isolate;direction:ltr;white-space:nowrap;font-weight:700}
+html[lang="ar"] .pr{direction:rtl;font-family:var(--type)}
+
+/* label-maker controls */
+.ctl{position:fixed;inset-block-start:10px;inset-inline-end:10px;z-index:50;display:flex;gap:6px}
+.ctl a,.ctl button{font:700 12px/1 var(--type);letter-spacing:.14em;text-transform:uppercase;color:#f3ecd9;background:#14110f;
+  border:0;border-radius:2px;padding:9px 11px;cursor:pointer;text-decoration:none;box-shadow:0 2px 0 #000,0 6px 14px rgba(0,0,0,.45);
+  background-image:linear-gradient(180deg,rgba(255,255,255,.14),transparent 40%)}
+.ctl button{background-color:var(--red)}
+.ctl [lang="ar"]{font-family:"Noto Naskh Arabic",serif;font-size:14px;font-weight:700}
+.ctl a:hover,.ctl button:hover{transform:translateY(-1px)}
+.ctl a:focus-visible,.ctl button:focus-visible,.rx:focus-visible,.tabs a:focus-visible,.declass:focus-visible{outline:2px dashed var(--red);outline-offset:3px}
+
+/* the folder */
+.wrap{overflow-x:clip;max-width:1320px;margin:0 auto;padding:64px clamp(8px,2.4vw,36px) 60px}
+.tabs{display:flex;gap:4px;padding-inline:clamp(10px,3vw,48px);align-items:flex-end;position:relative;z-index:2}
+.tabs a{flex:0 1 auto;min-width:0;text-decoration:none;background:var(--manila-d);color:#3a2a12;padding:9px clamp(8px,1.4vw,20px) 8px;
+  border-radius:9px 9px 0 0;font:400 13px/1.2 var(--elite);letter-spacing:.06em;box-shadow:inset 0 2px 0 rgba(255,255,255,.25),inset 0 -6px 8px -6px rgba(0,0,0,.35);
+  display:flex;gap:.5em;align-items:baseline;white-space:nowrap;transition:transform .2s}
+.tabs a:nth-child(odd){background:var(--manila)}
+.tabs a:first-child{background:var(--manila-l);padding-block-start:13px}
+.tabs a b{font-size:1.25em;color:var(--red)}
+.tabs a:hover{transform:translateY(-4px)}
+.tabs [lang="ar"]{font-family:"Noto Naskh Arabic",serif;font-weight:700;font-size:14px}
+.folder{position:relative;background:var(--manila);border-radius:6px 14px 10px 10px;padding:clamp(14px,2.6vw,40px);
+  box-shadow:0 1px 0 #f3d9a4 inset,0 40px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(90,60,20,.4);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .05 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E"),
+    linear-gradient(90deg,transparent 49.6%,rgba(90,60,20,.28) 49.9%,rgba(255,240,200,.35) 50.2%,transparent 50.6%)}
+.folder::before{content:"";position:absolute;inset:10px;border:1px dashed rgba(90,60,20,.3);border-radius:6px;pointer-events:none}
+.spread{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(18px,2.4vw,34px);align-items:start}
+
+/* paper */
+.sheet{position:relative;background:var(--paper);padding:clamp(20px,3vw,42px) clamp(16px,2.8vw,40px);
+  box-shadow:0 1px 1px rgba(0,0,0,.25),0 10px 22px -8px rgba(40,20,0,.5);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.3' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .25 0 0 0 0 .2 0 0 0 0 .1 0 0 0 .13 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.sheet::after{content:"";position:absolute;inset-block-end:0;inset-inline:0;height:3px;background:rgba(0,0,0,.06)}
+.r1{transform:rotate(-.55deg)}.r2{transform:rotate(.7deg)}.r3{transform:rotate(-.3deg)}.r4{transform:rotate(.45deg)}
+.docno{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);
+  border-block-end:1.5px solid var(--ink);padding-block-end:8px;margin-block-end:18px}
+html[lang="ar"] .docno{font-size:14px}
+h2{font:400 clamp(24px,2.7vw,36px)/1.1 var(--elite);letter-spacing:.02em;margin-block-end:4px}
+html[lang="ar"] h2,html[lang="ar"] h3{font-family:"Noto Naskh Arabic",serif;font-weight:700;line-height:1.45}
+.sub{color:var(--faint);font-style:italic;margin-block-end:20px;max-width:52ch}
+html[lang="ar"] .sub{font-style:normal}
+
+/* redaction */
+.rx{background:#15120f;color:transparent;cursor:pointer;padding:.06em .3em;border-radius:1px;-webkit-box-decoration-break:clone;box-decoration-break:clone;
+  transition:background .35s,color .35s;user-select:none;box-shadow:0 0 0 1px #15120f;text-shadow:none}
+.rx:hover,.rx:focus,.rx.on,body.open .rx{background:#ffe86a;color:var(--ink);box-shadow:0 0 0 1px #ffe86a;user-select:auto}
+.rx ::selection{color:transparent}
+
+/* stamps */
+.stamp{position:absolute;font:400 clamp(20px,2.6vw,34px)/1 var(--elite);letter-spacing:.14em;color:var(--red);border:4px double var(--red);padding:.36em .6em .26em;
+  border-radius:6px;opacity:.78;mix-blend-mode:multiply;pointer-events:none;text-transform:uppercase;white-space:nowrap;
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.2 1.75'/%3E%3C/filter%3E%3Crect width='120' height='60' filter='url(%23g)'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.2 1.75'/%3E%3C/filter%3E%3Crect width='120' height='60' filter='url(%23g)'/%3E%3C/svg%3E")}
+.stamp[lang="ar"],.stamp [lang="ar"]{font-family:"Rakkas","Noto Naskh Arabic",serif;font-size:1.25em;padding-block:.1em}
+.stamp.blue{color:var(--blue);border-color:var(--blue);border-style:solid;border-width:3px;border-radius:50px}
+.clip{position:absolute;width:30px;height:78px;z-index:3;filter:drop-shadow(1px 2px 1px rgba(0,0,0,.35))}
+
+/* cover */
+.cover{grid-column:1/8;padding-block-end:clamp(30px,4vw,60px)}
+.cover .eyes{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--red);font-weight:700}
+html[lang="ar"] .cover .eyes{font-size:15px}
+h1{font:400 clamp(44px,8.2vw,112px)/.92 var(--elite);letter-spacing:-.01em;margin:18px 0 10px;text-shadow:1px 0 0 rgba(29,26,23,.5)}
+html[lang="ar"] h1{font-family:"Aref Ruqaa","Noto Naskh Arabic",serif;font-weight:700;line-height:1.25;font-size:clamp(52px,7.2vw,98px);line-height:1.2;margin-block:6px 4px}
+h1 i{font-style:normal;position:relative;inset-block-start:.04em}
+.tag{font-size:clamp(16px,1.5vw,19px);border-block:1px solid var(--ink);padding-block:9px;margin-block:14px 22px;display:flex;gap:1em;flex-wrap:wrap;justify-content:space-between}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:5px 18px;margin-block-end:22px}
+.meta dt{color:var(--faint);text-transform:uppercase;letter-spacing:.1em;font-size:.84em;padding-block-start:.15em}
+.brief{max-width:60ch}
+.brief+.brief{margin-block-start:.9em}
+.cover .stamp{inset-block-end:250px;inset-inline-end:clamp(8px,3vw,44px);transform:rotate(-11deg);font-size:clamp(22px,3.6vw,48px)}
+.howto{margin-block-start:26px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;border:1.5px dashed var(--ink);padding:12px 14px}
+.howto p{flex:1 1 220px;font-size:.92em}
+.declass{font:700 13px/1 var(--type);letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);border:0;padding:12px 14px;cursor:pointer;border-radius:2px}
+.declass [lang="ar"]{font-family:"Noto Naskh Arabic",serif;font-size:15px}
+.declass:hover{background:var(--red)}
+body:not(.open) .declass .off,body.open .declass .onn{display:none}
+
+/* side stack next to cover */
+.side{grid-column:8/13;display:grid;gap:clamp(18px,2.4vw,30px);padding-block-start:clamp(0px,2vw,30px)}
+.photo{position:relative;background:#fbf8f0;padding:12px 12px 14px;box-shadow:0 12px 24px -8px rgba(40,20,0,.6);transform:rotate(2.2deg);max-width:420px;justify-self:center;width:100%}
+.photo>svg:not(.clip){display:block;width:100%;height:auto;filter:contrast(1.1)}
+.photo figcaption{font:400 clamp(22px,2vw,27px)/1.1 var(--hand);color:var(--blue);padding-block-start:8px;text-align:center}
+html[lang="ar"] .photo figcaption{font-family:"Aref Ruqaa",serif;font-size:19px;line-height:1.5}
+.photo .clip{inset-block-start:-26px;inset-inline-start:26px;transform:rotate(-6deg)}
+figure{margin:0}
+.idcard{background:var(--paper2);padding:16px 18px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;transform:rotate(-1.4deg);
+  box-shadow:0 8px 18px -8px rgba(40,20,0,.55);border:1px solid rgba(0,0,0,.18);position:relative}
+.idcard h3{font:400 15px/1.2 var(--elite);letter-spacing:.14em;text-transform:uppercase;margin-block-end:8px;border-block-end:1px solid var(--ink);padding-block-end:6px}
+.idcard li{display:flex;justify-content:space-between;gap:10px;border-block-end:1px dotted rgba(0,0,0,.35);padding-block:3px;font-size:.9em}
+.idcard li span:first-child{color:var(--faint)}
+.fp{width:92px;height:118px;border:1px solid var(--ink);padding:5px;background:#fbf8f0}
+.fp svg{width:100%;height:100%;display:block}
+.fp+small,.fpc small{display:block;text-align:center;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin-block-start:4px;color:var(--faint)}
+html[lang="ar"] .fpc small{font-size:13px}
+
+/* operation (set menu) */
+.op{background:#1b1815;color:#efe7d4;padding:22px 22px 20px;position:relative;transform:rotate(.8deg);box-shadow:0 12px 24px -8px rgba(0,0,0,.7);
+  background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 6px,transparent 6px 12px)}
+.op::before{content:"";position:absolute;inset:6px;border:1px solid rgba(239,231,212,.35);pointer-events:none}
+.op h3{font:400 clamp(22px,2.2vw,30px)/1.1 var(--elite);margin-block:4px 8px}
+.op small{letter-spacing:.24em;text-transform:uppercase;font-size:11px;color:#e8b04a}
+html[lang="ar"] .op small{font-size:14px}
+.op p{font-size:.93em;color:#d8cfbb}
+.op .rx{background:#efe7d4;box-shadow:0 0 0 1px #efe7d4}
+.op .rx:hover,.op .rx:focus,.op .rx.on,body.open .op .rx{background:#e8b04a;box-shadow:0 0 0 1px #e8b04a;color:#1b1815}
+.op .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-block-start:14px;padding-block-start:12px;border-block-start:1px dashed rgba(239,231,212,.4)}
+.op .row .pr{font-size:1.5em;color:#e8b04a;font-family:var(--elite);font-weight:400}
+
+/* A — surveillance log */
+#a{grid-column:1/7;overflow:hidden;padding-block-end:70px}
+.log li{display:grid;grid-template-columns:4.2em 1fr auto;gap:4px 14px;padding-block:12px;border-block-end:1px dashed rgba(0,0,0,.35);align-items:baseline}
+.log time{font-weight:700;color:var(--red);direction:ltr;unicode-bidi:isolate}
+.log h3,.rep h3,.tagc h3,.asset h3{font:700 1.06em/1.3 var(--type);text-transform:uppercase;letter-spacing:.04em}
+.log p{grid-column:2/4;font-size:.95em;color:#3b352e}
+#a .stamp{inset-block-end:18px;inset-inline-end:16px;transform:rotate(7deg);font-size:15px}
+.ring{position:absolute;width:150px;height:150px;border-radius:50%;inset-block-start:-34px;inset-inline-end:-30px;pointer-events:none;
+  background:radial-gradient(closest-side,transparent 78%,rgba(110,70,20,.26) 80%,rgba(110,70,20,.10) 88%,transparent 90%)}
+
+/* B — field reports */
+#b{grid-column:7/13;margin-block-start:clamp(0px,5vw,70px);background-color:#f7f3e9}
+.rep{counter-reset:r}
+.rep li{counter-increment:r;position:relative;padding:14px 0 14px 0;border-block-start:1.5px solid var(--ink)}
+.rep li::before{content:"REPORT 0" counter(r);font-size:11px;letter-spacing:.2em;color:var(--faint);display:block;margin-block-end:4px}
+html[lang="ar"] .rep li::before{content:"تقرير رقم " counter(r);font-size:14px}
+.rep .hd{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.rep dl{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;margin-block-start:6px;font-size:.95em}
+.rep dt{color:var(--faint);text-transform:uppercase;font-size:.82em;letter-spacing:.1em;padding-block-start:.2em}
+html[lang="ar"] .rep dt{font-size:.9em}
+.rep .hot{display:inline-block;font:400 12px/1 var(--elite);letter-spacing:.14em;text-transform:uppercase;color:var(--red);border:2px solid var(--red);border-radius:50px;
+  padding:5px 10px 3px;transform:rotate(-4deg);margin-inline-start:8px;vertical-align:middle;mix-blend-mode:multiply}
+html[lang="ar"] .rep .hot{font-family:"Rakkas",serif;font-size:15px;padding-block:2px 4px}
+#b .clip{inset-block-start:-24px;inset-inline-end:44%;transform:rotate(4deg)}
+
+/* C — cables */
+#c{grid-column:1/6;background:#e7dcc0;padding-block-end:34px}
+.cable li{margin-block-start:14px}
+.cable .strip{display:inline;background:#fbf7ea;padding:.22em .5em;-webkit-box-decoration-break:clone;box-decoration-break:clone;box-shadow:1px 2px 0 rgba(0,0,0,.22);line-height:2.15;
+  text-transform:uppercase;letter-spacing:.05em;font-size:.93em}
+html[lang="ar"] .cable .strip{line-height:2.5}
+.cable .strip b{color:var(--red)}
+.cable .stop{color:var(--faint);font-weight:700}
+#c .stamp{inset-block-start:60px;inset-inline-end:14px;transform:rotate(5deg);font-size:13px}
+
+/* D — evidence tags */
+#d{grid-column:6/13;background:transparent;box-shadow:none;padding:0;background-image:none}
+#d::after{display:none}
+#d .hdr{background:var(--paper);padding:16px 22px 12px;box-shadow:0 8px 16px -8px rgba(40,20,0,.5);margin-block-end:18px;transform:rotate(-.4deg);
+  display:flex;justify-content:space-between;gap:14px;align-items:baseline;flex-wrap:wrap}
+#d .hdr h2{margin:0}
+.tags{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.tagc{position:relative;background:#f1dfae;padding:46px 18px 18px;clip-path:polygon(18% 0,82% 0,100% 13%,100% 100%,0 100%,0 13%);
+  filter:drop-shadow(0 6px 6px rgba(40,20,0,.4))}
+.tagw{filter:drop-shadow(0 8px 8px rgba(40,20,0,.38))}
+.tagw:nth-child(1){transform:rotate(-1.6deg)}.tagw:nth-child(2){transform:rotate(1.2deg)}.tagw:nth-child(3){transform:rotate(.9deg)}.tagw:nth-child(4){transform:rotate(-1deg)}
+.tagc::before{content:"";position:absolute;inset-block-start:12px;inset-inline-start:calc(50% - 9px);width:18px;height:18px;border-radius:50%;background:var(--manila-d);
+  box-shadow:inset 0 2px 3px rgba(0,0,0,.55),0 0 0 4px #e3c98a}
+.tagc small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);border-block-end:1.5px solid var(--ink);padding-block-end:5px;margin-block-end:8px}
+html[lang="ar"] .tagc small{font-size:14px}
+.tagc p{font-size:.92em;margin-block:6px 12px}
+.tagc .pr{display:block;border-block-start:1px dashed var(--ink);padding-block-start:8px;text-align:end}
+
+/* E — liquid assets */
+#e{grid-column:2/9}
+.asset{width:100%;border-collapse:collapse}
+.asset th{font:700 11px/1.2 var(--type);text-transform:uppercase;letter-spacing:.16em;text-align:start;color:var(--faint);border-block:1.5px solid var(--ink);padding:8px 8px 8px 0}
+html[lang="ar"] .asset th{font-family:inherit;font-size:14px}
+.asset td{padding:12px 0;border-block-end:1px dashed rgba(0,0,0,.35);vertical-align:top;padding-inline-end:12px}
+.asset td:last-child,.asset th:last-child{text-align:end;padding-inline-end:0}
+.asset td:first-child{color:var(--faint);white-space:nowrap;font-size:.86em;padding-block-start:15px}
+.asset p{font-size:.94em;color:#3b352e}
+#e .stamp{inset-block-start:66px;inset-inline-end:18px;transform:rotate(-6deg);font-size:14px}
+
+/* memo */
+.memo{grid-column:9/13;background:#fff7b8;padding:26px 22px 30px;transform:rotate(2deg);box-shadow:0 14px 20px -10px rgba(40,20,0,.6);position:relative;
+  font:400 clamp(21px,1.75vw,25px)/1.25 var(--hand);color:#22306b;margin-block-start:26px;background-image:linear-gradient(180deg,rgba(0,0,0,.06),transparent 26px)}
+html[lang="ar"] .memo{font-family:"Aref Ruqaa","Noto Naskh Arabic",serif;font-size:17.5px;line-height:1.7}
+.memo h2{font:inherit;font-size:1.25em;text-decoration:underline;margin-block-end:8px}
+.memo p+p{margin-block-start:8px}
+.memo .rx{background:#22306b;box-shadow:0 0 0 1px #22306b}
+.memo .rx:hover,.memo .rx:focus,.memo .rx.on,body.open .memo .rx{background:transparent;box-shadow:none;color:var(--red)}
+.fine{grid-column:1/13;display:flex;justify-content:space-between;gap:12px 30px;flex-wrap:wrap;font-size:12.5px;color:#4e3a18;letter-spacing:.04em;
+  border-block-start:1px dashed rgba(90,60,20,.6);padding-block-start:14px}
+html[lang="ar"] .fine{font-size:15px}
+
+@media (max-width:1020px){
+  .cover,.side,#a,#b,#c,#d,#e,.memo{grid-column:1/13}
+  #b{margin-block-start:0}
+  .side{grid-template-columns:1fr 1fr;align-items:start}
+  .side .op{grid-column:1/3}
+  .memo{max-width:440px;justify-self:center}
+  .folder{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .05 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+}
+@media (max-width:620px){
+  .wrap{padding-block-start:58px}
+  .tabs{gap:3px;padding-inline:6px}
+  .tabs a{padding:8px 9px 6px;flex:1 1 0;justify-content:center}
+  .tabs a span{display:none}
+  .tabs a:first-child{flex:2 1 0}.tabs a:first-child span{display:inline}
+  .folder{padding:12px 9px 18px;border-radius:4px 8px 8px 8px}
+  .folder::before{display:none}
+  .r1,.r2,.r3,.r4{transform:none}
+  .side{grid-template-columns:1fr}
+  .side .op{grid-column:auto}
+  .photo{max-width:300px;margin-block-start:14px}
+  .log li{grid-template-columns:3.6em 1fr auto;gap:2px 8px}
+  .tags{gap:12px}
+  .tagc{padding:42px 12px 14px}
+  .asset td:first-child,.asset th:first-child{display:none}
+  .cover .stamp{inset-block-end:215px;opacity:.55}
+  .memo{margin-block-start:8px}
+}
+@media (max-width:400px){.tags{grid-template-columns:1fr}.tagc{clip-path:polygon(14% 0,86% 0,100% 16%,100% 100%,0 100%,0 16%)}}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;scroll-behavior:auto !important}}
+@media print{.ctl{display:none}.rx{background:none;color:inherit;box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="ctl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="pclip" viewBox="0 0 30 78"><path d="M9 22v38a6 6 0 0 0 12 0V14a9 9 0 0 0-18 0v48a12 12 0 0 0 24 0V22" fill="none" stroke="#8d9299" stroke-width="2.6" stroke-linecap="round"/><path d="M9 22v38a6 6 0 0 0 12 0V14" fill="none" stroke="#e9edf2" stroke-width=".8" stroke-linecap="round"/></symbol>
+</defs></svg>
+
+<div class="wrap">
+  <nav class="tabs" aria-label="Sections">
+    <a href="#top"><b>CK</b><span lang="en">File 046</span><span lang="ar">الملف ٠٤٦</span></a>
+    <a href="#a"><b>A</b><span lang="en">Openers</span><span lang="ar">المقبّلات</span></a>
+    <a href="#b"><b>B</b><span lang="en">Mains</span><span lang="ar">الرئيسية</span></a>
+    <a href="#c"><b>C</b><span lang="en">Sides</span><span lang="ar">الجانبية</span></a>
+    <a href="#d"><b>D</b><span lang="en">Sweets</span><span lang="ar">الحلويات</span></a>
+    <a href="#e"><b>E</b><span lang="en">Drinks</span><span lang="ar">المشروبات</span></a>
+  </nav>
+
+  <main class="folder" id="top">
+    <div class="spread">
+
+      <header class="sheet cover r1">
+        <div class="docno"><span lang="en">Dossier № CK-046 / Copy 3 of 12</span><span lang="ar">الملف رقم CK-046 / النسخة ٣ من ١٢</span><span lang="en">Do not photocopy</span><span lang="ar">يُمنع النسخ</span></div>
+        <p class="eyes"><span lang="en">Eyes only — Secret Supper Club</span><span lang="ar">للاطّلاع الشخصي فقط — نادي العشاء السرّي</span></p>
+        <h1><span lang="en">Classified<br>Kitchen<i>.</i></span><span lang="ar">المطبخ<br>السرّي</span></h1>
+        <p class="tag"><span lang="en">Twelve seats. One table. No sign on the door.</span><span lang="ar">اثنا عشر مقعداً. طاولة واحدة. ولا لافتة على الباب.</span><span lang="en">Est. <span class="rx" tabindex="0">2019</span></span><span lang="ar">تأسّس عام <span class="rx" tabindex="0">٢٠١٩</span></span></p>
+        <dl class="meta">
+          <dt><span lang="en">Subject</span><span lang="ar">الموضوع</span></dt>
+          <dd><span lang="en">Tonight's menu, in full</span><span lang="ar">قائمة الليلة كاملةً</span></dd>
+          <dt><span lang="en">Head of station</span><span lang="ar">رئيسة المحطّة</span></dt>
+          <dd><span lang="en">Chef <span class="rx" tabindex="0">Noor Al-Khatib</span>, alias “The Saucier”</span><span lang="ar">الشيف <span class="rx" tabindex="0">نور الخطيب</span>، الملقّبة بـ«صانعة الصلصات»</span></dd>
+          <dt><span lang="en">Location</span><span lang="ar">الموقع</span></dt>
+          <dd><span lang="en">Behind the <span class="rx" tabindex="0">tailor's shop</span>, second bell</span><span lang="ar">خلف <span class="rx" tabindex="0">دكّان الخيّاط</span>، الجرس الثاني</span></dd>
+          <dt><span lang="en">Clearance</span><span lang="ar">درجة التصريح</span></dt>
+          <dd><span lang="en">Level 4 — hungry</span><span lang="ar">المستوى الرابع — جائع</span></dd>
+        </dl>
+        <p class="brief"><span lang="en">BRIEFING. What follows is everything our kitchen is prepared to admit. Certain ingredients have been withheld in the interest of flavour security. Agents with a need to know may lift the redactions themselves.</span><span lang="ar">إحاطة: ما يلي هو كلّ ما يقبل مطبخنا الاعتراف به. حُجبت بعض المكوّنات حفاظاً على أمن النكهة، ويحقّ للعملاء المخوَّلين رفع الحجب بأنفسهم.</span></p>
+        <p class="brief"><span lang="en">Memorise your order. Tell no one what you ate.</span><span lang="ar">احفظ طلبك عن ظهر قلب، ولا تخبر أحداً بما أكلت.</span></p>
+        <div class="howto">
+          <p><span lang="en">▮▮▮ Hover over or tap any black bar to declassify it.</span><span lang="ar">▮▮▮ مرّر المؤشّر على أيّ شريط أسود أو المسه لرفع السرّية عنه.</span></p>
+          <button class="declass" type="button" id="declass"><span class="onn"><span lang="en">Declassify all</span><span lang="ar">ارفع السرّية عن الكل</span></span><span class="off"><span lang="en">Re-seal the file</span><span lang="ar">أعِد ختم الملف</span></span></button>
+        </div>
+        <span class="stamp" lang="en">Confidential</span><span class="stamp" lang="ar">سرّي للغاية</span>
+      </header>
+
+      <aside class="side">
+        <figure class="photo">
+          <svg class="clip" aria-hidden="true"><use href="#pclip"/></svg>
+          <svg viewBox="0 0 400 300" style="direction:ltr" role="img" aria-label="Surveillance photograph of a covered dish under a lamp">
+            <defs>
+              <radialGradient id="lamp" cx="50%" cy="0%" r="95%"><stop offset="0" stop-color="#e9e6dd"/><stop offset=".45" stop-color="#8a877f"/><stop offset="1" stop-color="#191816"/></radialGradient>
+              <linearGradient id="dome" x1="0" x2="1"><stop offset="0" stop-color="#3a3936"/><stop offset=".3" stop-color="#f1efe8"/><stop offset=".55" stop-color="#9a978f"/><stop offset="1" stop-color="#2a2927"/></linearGradient>
+              <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0"/></filter>
+            </defs>
+            <rect width="400" height="300" fill="#141312"/>
+            <path d="M200 -10 L20 300 H380 Z" fill="url(#lamp)" opacity=".9"/>
+            <rect y="228" width="400" height="72" fill="#0f0e0d" opacity=".75"/>
+            <ellipse cx="200" cy="236" rx="150" ry="16" fill="#000" opacity=".55"/>
+            <ellipse cx="200" cy="228" rx="138" ry="13" fill="#d9d6cd"/>
+            <path d="M92 226 A108 104 0 0 1 308 226 Z" fill="url(#dome)"/>
+            <path d="M118 200 A84 80 0 0 1 176 132" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+            <rect x="188" y="106" width="24" height="10" rx="3" fill="#bdbab2"/><circle cx="200" cy="100" r="11" fill="#e8e5dd"/>
+            <path d="M0 0H400V300H0Z" filter="url(#grain)" opacity=".55"/>
+            <g fill="none" stroke="#fff" stroke-width="1.5" opacity=".7"><path d="M14 30V14H30M370 14h16v16M386 270v16h-16M30 286H14v-16"/><path d="M190 150h20M200 140v20"/></g>
+            <text x="386" y="282" text-anchor="end" font-family="Courier New,monospace" font-size="11" fill="#fff" opacity=".8" dir="ltr">21:47:03 CAM-2</text>
+          </svg>
+          <figcaption><span lang="en">Fig. 1 — contents unknown. Do not lift.</span><span lang="ar">الصورة ١ — المحتوى مجهول. لا ترفع الغطاء.</span></figcaption>
+        </figure>
+
+        <div class="idcard">
+          <div>
+            <h3><span lang="en">Agent's card</span><span lang="ar">بطاقة العميل</span></h3>
+            <ul>
+              <li><span lang="en">Seating</span><span lang="ar">الجلسة</span><span dir="ltr">20:00</span></li>
+              <li><span lang="en">Nights</span><span lang="ar">الليالي</span><span lang="en">Thu – Sat</span><span lang="ar">الخميس – السبت</span></li>
+              <li><span lang="en">Password</span><span lang="ar">كلمة السرّ</span><span><span class="rx" tabindex="0"><span lang="en">“Is the soup hot?”</span><span lang="ar">«هل الحساء ساخن؟»</span></span></span></li>
+            </ul>
+          </div>
+          <div class="fpc">
+            <div class="fp"><svg viewBox="0 0 80 106" aria-hidden="true"><defs><clipPath id="fpc"><ellipse cx="40" cy="54" rx="34" ry="48"/></clipPath></defs>
+              <g clip-path="url(#fpc)" fill="none" stroke="#1d1a17" stroke-width="2.1" stroke-linecap="round">
+                <ellipse cx="40" cy="60" rx="4" ry="7" stroke-dasharray="14 3"/><ellipse cx="40" cy="60" rx="9" ry="14" stroke-dasharray="22 4 9 3"/>
+                <ellipse cx="40" cy="60" rx="14" ry="21" stroke-dasharray="30 5 12 4"/><ellipse cx="40" cy="60" rx="19" ry="28" stroke-dasharray="17 3 40 5"/>
+                <ellipse cx="40" cy="61" rx="24" ry="35" stroke-dasharray="50 6 20 4"/><ellipse cx="40" cy="62" rx="29" ry="42" stroke-dasharray="26 4 60 6"/>
+                <ellipse cx="40" cy="63" rx="34" ry="49" stroke-dasharray="70 7 30 5"/><ellipse cx="40" cy="64" rx="39" ry="56" stroke-dasharray="40 5 80 6"/>
+                <ellipse cx="40" cy="66" rx="44" ry="63" stroke-dasharray="90 8"/>
+              </g></svg></div>
+            <small><span lang="en">R. thumb</span><span lang="ar">الإبهام الأيمن</span></small>
+          </div>
+        </div>
+
+        <div class="op">
+          <small><span lang="en">Set menu · sealed orders</span><span lang="ar">قائمة مغلقة · أوامر مختومة</span></small>
+          <h3><span lang="en">Operation Nightfall</span><span lang="ar">عمليّة حلول الليل</span></h3>
+          <p><span lang="en">Seven courses served blind, in an order known only to the kitchen. Course four is always <span class="rx" tabindex="0">eaten with your hands</span>. Paired mocktails included.</span><span lang="ar">سبعة أطباق تُقدَّم دون إعلان، بترتيب لا يعرفه سوى المطبخ. الطبق الرابع <span class="rx" tabindex="0">يؤكل باليدين</span> دائماً. تشمل مشروبات مرافقة خالية من الكحول.</span></p>
+          <div class="row"><span lang="en">per agent</span><span lang="ar">للعميل الواحد</span><span class="pr"><span lang="en">SAR 420</span><span lang="ar">٤٢٠ ر.س</span></span></div>
+        </div>
+      </aside>
+
+      <!-- A -->
+      <section class="sheet r2" id="a">
+        <span class="ring" aria-hidden="true"></span>
+        <div class="docno"><span lang="en">Exhibit A</span><span lang="ar">المستند أ</span><span lang="en">Surveillance log</span><span lang="ar">سجلّ المراقبة</span></div>
+        <h2><span lang="en">Openers, as observed</span><span lang="ar">المقبّلات كما رُصدت</span></h2>
+        <p class="sub"><span lang="en">Time-stamped sightings from the pass, first hour of service.</span><span lang="ar">مشاهدات موثّقة بالتوقيت من نافذة المطبخ خلال الساعة الأولى.</span></p>
+        <ul class="log">
+          <li><time>19:04</time><h3><span lang="en">Smoked Labneh Drop</span><span lang="ar">لبنة مدخّنة تحت الطلب</span></h3><span class="pr"><span lang="en">SAR 38</span><span lang="ar">٣٨ ر.س</span></span>
+            <p><span lang="en">Labneh smoked over olive wood, a pool of <span class="rx" tabindex="0">burnt honey</span>, za'atar oil, warm bread for cover.</span><span lang="ar">لبنة مدخّنة على حطب الزيتون، مع بركة من <span class="rx" tabindex="0">العسل المحروق</span> وزيت الزعتر وخبز ساخن للتمويه.</span></p></li>
+          <li><time>19:11</time><h3><span lang="en">Codename: Carpaccio</span><span lang="ar">الاسم الحركي: كارباتشيو</span></h3><span class="pr"><span lang="en">SAR 56</span><span lang="ar">٥٦ ر.س</span></span>
+            <p><span lang="en">Paper-thin beef fillet, pickled mustard seed, aged parmesan, a dusting of <span class="rx" tabindex="0">black lime</span>.</span><span lang="ar">شرائح رقيقة من فيليه البقر، بذور خردل مخلّلة، بارميزان معتّق ورشّة من <span class="rx" tabindex="0">اللومي الأسود</span>.</span></p></li>
+          <li><time>19:19</time><h3><span lang="en">The Informant's Soup</span><span lang="ar">حساء المُخبِر</span></h3><span class="pr"><span lang="en">SAR 34</span><span lang="ar">٣٤ ر.س</span></span>
+            <p><span lang="en">Roasted tomato broth poured at the table over <span class="rx" tabindex="0">frozen basil snow</span>. It talks.</span><span lang="ar">مرق طماطم مشويّة يُسكب أمامك فوق <span class="rx" tabindex="0">ثلج الريحان المجمّد</span>. حساء يبوح بكلّ شيء.</span></p></li>
+          <li><time>19:26</time><h3><span lang="en">Fig &amp; Halloumi Handoff</span><span lang="ar">تسليم التين والحلّوم</span></h3><span class="pr"><span lang="en">SAR 44</span><span lang="ar">٤٤ ر.س</span></span>
+            <p><span lang="en">Seared halloumi passed to roasted figs under a glaze of <span class="rx" tabindex="0">date molasses and chilli</span>, pistachio.</span><span lang="ar">حلّوم محمّر يلتقي تيناً مشوياً تحت طبقة لامعة من <span class="rx" tabindex="0">دبس التمر والفلفل الحار</span> مع الفستق.</span></p></li>
+          <li><time>19:33</time><h3><span lang="en">Tuna, Unmarked</span><span lang="ar">تونة بلا علامات</span></h3><span class="pr"><span lang="en">SAR 62</span><span lang="ar">٦٢ ر.س</span></span>
+            <p><span lang="en">Yellowfin tartare, toasted sesame, crisp rice paper, and a slow fuse of <span class="rx" tabindex="0">fermented green chilli</span>.</span><span lang="ar">تارتار تونة صفراء الزعنفة، سمسم محمّص، ورق أرز مقرمش وفتيل بطيء من <span class="rx" tabindex="0">الفلفل الأخضر المخمّر</span>.</span></p></li>
+        </ul>
+        <span class="stamp blue" lang="en">Verified · Pass</span><span class="stamp blue" lang="ar">تمّ التحقّق</span>
+      </section>
+
+      <!-- B -->
+      <section class="sheet r3" id="b">
+        <svg class="clip" aria-hidden="true"><use href="#pclip"/></svg>
+        <div class="docno"><span lang="en">Exhibit B</span><span lang="ar">المستند ب</span><span lang="en">Field reports</span><span lang="ar">تقارير ميدانية</span></div>
+        <h2><span lang="en">Main targets</span><span lang="ar">الأهداف الرئيسية</span></h2>
+        <p class="sub"><span lang="en">Filed by agents who made contact and lived to order dessert.</span><span lang="ar">رفعها عملاء تواصلوا مع الهدف وعاشوا ليطلبوا الحلوى.</span></p>
+        <ol class="rep">
+          <li><div class="hd"><h3><span lang="en">The Double Agent</span><span lang="ar">العميل المزدوج</span><span class="hot"><span lang="en">Priority target</span><span lang="ar">هدف ذو أولوية</span></span></h3><span class="pr"><span lang="en">SAR 128</span><span lang="ar">١٢٨ ر.س</span></span></div>
+            <dl><dt><span lang="en">Intel</span><span lang="ar">المعلومات</span></dt><dd><span lang="en">Beef short rib braised twelve hours, working for both sides: lacquered in <span class="rx" tabindex="0">coffee and pomegranate</span>, resting on smoked potato.</span><span lang="ar">ضلع بقري مطهوّ اثنتي عشرة ساعة يعمل لصالح الطرفين: مطليّ بـ<span class="rx" tabindex="0">القهوة والرمّان</span> ومستلقٍ على بطاطا مدخّنة.</span></dd></dl></li>
+          <li><div class="hd"><h3><span lang="en">Midnight Sea Bass</span><span lang="ar">قاروص منتصف الليل</span></h3><span class="pr"><span lang="en">SAR 112</span><span lang="ar">١١٢ ر.س</span></span></div>
+            <dl><dt><span lang="en">Intel</span><span lang="ar">المعلومات</span></dt><dd><span lang="en">Charcoal-black skin, white flesh, saffron butter sauce and a trace of <span class="rx" tabindex="0">preserved-lemon ash</span>.</span><span lang="ar">جلد أسود كالفحم ولحم أبيض ناصع، صلصة زبدة بالزعفران وأثر من <span class="rx" tabindex="0">رماد الليمون المخلّل</span>.</span></dd></dl></li>
+          <li><div class="hd"><h3><span lang="en">Duck, Undercover</span><span lang="ar">بطّة متخفّية</span></h3><span class="pr"><span lang="en">SAR 118</span><span lang="ar">١١٨ ر.س</span></span></div>
+            <dl><dt><span lang="en">Intel</span><span lang="ar">المعلومات</span></dt><dd><span lang="en">Seven-day aged breast hidden beneath charred cabbage, betrayed by a <span class="rx" tabindex="0">sour cherry and sumac</span> jus.</span><span lang="ar">صدر بطّ معتّق سبعة أيام مختبئ تحت ملفوف متفحّم، تفضحه صلصة <span class="rx" tabindex="0">الكرز الحامض والسمّاق</span>.</span></dd></dl></li>
+          <li><div class="hd"><h3><span lang="en">The Sleeper Cell</span><span lang="ar">الخليّة النائمة</span></h3><span class="pr"><span lang="en">SAR 74</span><span lang="ar">٧٤ ر.س</span></span></div>
+            <dl><dt><span lang="en">Intel</span><span lang="ar">المعلومات</span></dt><dd><span lang="en">A whole roasted cauliflower, innocent to look at, concealing <span class="rx" tabindex="0">truffle tahini</span> at its core. Vegetarian.</span><span lang="ar">قرنبيطة كاملة مشويّة، بريئة المظهر، تخفي في قلبها <span class="rx" tabindex="0">طحينة بالكمأة</span>. طبق نباتي.</span></dd></dl></li>
+          <li><div class="hd"><h3><span lang="en">Lamb, Off the Record</span><span lang="ar">خروف خارج المحضر</span></h3><span class="pr"><span lang="en">SAR 134</span><span lang="ar">١٣٤ ر.س</span></span></div>
+            <dl><dt><span lang="en">Intel</span><span lang="ar">المعلومات</span></dt><dd><span lang="en">Herb-rolled saddle over smoked freekeh. The gloss on the plate is <span class="rx" tabindex="0">black garlic</span>; we never said so.</span><span lang="ar">سرج خروف ملفوف بالأعشاب فوق فريكة مدخّنة. اللمعة التي في الطبق <span class="rx" tabindex="0">ثوم أسود</span>، ونحن لم نقل ذلك.</span></dd></dl></li>
+        </ol>
+      </section>
+
+      <!-- C -->
+      <section class="sheet r4" id="c">
+        <div class="docno"><span lang="en">Exhibit C</span><span lang="ar">المستند ج</span><span lang="en">Intercepted cables</span><span lang="ar">برقيات معترَضة</span></div>
+        <h2><span lang="en">Sides, by wire</span><span lang="ar">أطباق جانبية بالبرق</span></h2>
+        <ul class="cable">
+          <li><span class="strip"><b><span lang="en">Fries thrice cooked</span><span lang="ar">بطاطا مقليّة ثلاث مرّات</span></b> <span lang="en">salted with <span class="rx" tabindex="0">sumac and lemon zest</span></span><span lang="ar">مملّحة بـ<span class="rx" tabindex="0">السمّاق وبشر الليمون</span></span> <span class="stop"><span lang="en">STOP</span><span lang="ar">انتهى</span></span> <span class="pr"><span lang="en">SAR 24</span><span lang="ar">٢٤ ر.س</span></span></span></li>
+          <li><span class="strip"><b><span lang="en">Broccolini charred</span><span lang="ar">بروكوليني متفحّم</span></b> <span lang="en">under a crumb of <span class="rx" tabindex="0">smoked almonds</span></span><span lang="ar">تحت فتات من <span class="rx" tabindex="0">اللوز المدخّن</span></span> <span class="stop"><span lang="en">STOP</span><span lang="ar">انتهى</span></span> <span class="pr"><span lang="en">SAR 28</span><span lang="ar">٢٨ ر.س</span></span></span></li>
+          <li><span class="strip"><b><span lang="en">Saffron rice crisp bottom</span><span lang="ar">أرز بالزعفران بقاع مقرمش</span></b> <span lang="en">scattered with <span class="rx" tabindex="0">barberries</span></span><span lang="ar">منثور عليه <span class="rx" tabindex="0">البرباريس</span></span> <span class="stop"><span lang="en">STOP</span><span lang="ar">انتهى</span></span> <span class="pr"><span lang="en">SAR 26</span><span lang="ar">٢٦ ر.س</span></span></span></li>
+          <li><span class="strip"><b><span lang="en">Flatbread from the embers</span><span lang="ar">خبز من الجمر</span></b> <span lang="en">brushed with <span class="rx" tabindex="0">brown butter and nigella</span></span><span lang="ar">مدهون بـ<span class="rx" tabindex="0">الزبدة البنّية وحبّة البركة</span></span> <span class="stop"><span lang="en">STOP</span><span lang="ar">انتهى</span></span> <span class="pr"><span lang="en">SAR 18</span><span lang="ar">١٨ ر.س</span></span></span></li>
+        </ul>
+        <span class="stamp" lang="en">Decoded</span><span class="stamp" lang="ar">فُكّت الشيفرة</span>
+      </section>
+
+      <!-- D -->
+      <section class="sheet" id="d">
+        <div class="hdr"><h2><span lang="en">Sweet evidence</span><span lang="ar">أدلّة حلوة</span></h2><span lang="en">Exhibit D — bagged &amp; tagged</span><span lang="ar">المستند د — محرَّزة ومرقّمة</span></div>
+        <div class="tags">
+          <div class="tagw"><article class="tagc"><small><span lang="en">Item 01</span><span lang="ar">الحرز ٠١</span></small><h3><span lang="en">Burn After Eating</span><span lang="ar">يُحرق بعد الأكل</span></h3>
+            <p><span lang="en">Crème brûlée torched at your seat; the custard is scented with <span class="rx" tabindex="0">cardamom and orange blossom</span>.</span><span lang="ar">كريم بروليه يُشعل أمام مقعدك، والكاسترد معطّر بـ<span class="rx" tabindex="0">الهيل وماء الزهر</span>.</span></p><span class="pr"><span lang="en">SAR 38</span><span lang="ar">٣٨ ر.س</span></span></article></div>
+          <div class="tagw"><article class="tagc"><small><span lang="en">Item 02</span><span lang="ar">الحرز ٠٢</span></small><h3><span lang="en">The Black Box</span><span lang="ar">الصندوق الأسود</span></h3>
+            <p><span lang="en">A sealed cube of dark chocolate. Crack it to recover <span class="rx" tabindex="0">salted tahini caramel</span>.</span><span lang="ar">مكعّب محكم من الشوكولاتة الداكنة. اكسره لتستخرج <span class="rx" tabindex="0">كراميل الطحينة المملّح</span>.</span></p><span class="pr"><span lang="en">SAR 46</span><span lang="ar">٤٦ ر.س</span></span></article></div>
+          <div class="tagw"><article class="tagc"><small><span lang="en">Item 03</span><span lang="ar">الحرز ٠٣</span></small><h3><span lang="en">Cold Case</span><span lang="ar">قضيّة باردة</span></h3>
+            <p><span lang="en">Yoghurt sorbet, green olive oil, sea salt and a single clue of <span class="rx" tabindex="0">pink peppercorn</span>.</span><span lang="ar">سوربيه لبن، زيت زيتون أخضر، ملح بحري ودليل وحيد من <span class="rx" tabindex="0">الفلفل الوردي</span>.</span></p><span class="pr"><span lang="en">SAR 32</span><span lang="ar">٣٢ ر.س</span></span></article></div>
+          <div class="tagw"><article class="tagc"><small><span lang="en">Item 04</span><span lang="ar">الحرز ٠٤</span></small><h3><span lang="en">Dead Drop Date Cake</span><span lang="ar">كعكة التمر في نقطة التسليم</span></h3>
+            <p><span lang="en">Warm date pudding left for you under a pour of <span class="rx" tabindex="0">Arabic-coffee toffee</span>.</span><span lang="ar">كعكة تمر دافئة تُترك لك تحت سكبة من <span class="rx" tabindex="0">توفي القهوة العربية</span>.</span></p><span class="pr"><span lang="en">SAR 40</span><span lang="ar">٤٠ ر.س</span></span></article></div>
+        </div>
+      </section>
+
+      <!-- E -->
+      <section class="sheet r1" id="e">
+        <div class="docno"><span lang="en">Exhibit E</span><span lang="ar">المستند هـ</span><span lang="en">Ledger of liquid assets</span><span lang="ar">سجلّ الأصول السائلة</span></div>
+        <h2><span lang="en">Liquid assets</span><span lang="ar">أصول سائلة</span></h2>
+        <p class="sub"><span lang="en">All zero-proof. Nothing here will loosen your tongue.</span><span lang="ar">كلّها خالية من الكحول. لا شيء هنا سيحلّ عقدة لسانك.</span></p>
+        <table class="asset">
+          <thead><tr><th><span lang="en">Ref.</span><span lang="ar">المرجع</span></th><th><span lang="en">Asset &amp; composition</span><span lang="ar">الأصل ومكوّناته</span></th><th><span lang="en">Value</span><span lang="ar">القيمة</span></th></tr></thead>
+          <tbody>
+            <tr><td>LA-01</td><td><h3><span lang="en">Alibi</span><span lang="ar">حجّة غياب</span></h3><p><span lang="en">Hibiscus, pomegranate, lime and a sprig of <span class="rx" tabindex="0">smoked rosemary</span>.</span><span lang="ar">كركديه ورمّان وليمون أخضر وغصن من <span class="rx" tabindex="0">إكليل الجبل المدخّن</span>.</span></p></td><td><span class="pr"><span lang="en">SAR 30</span><span lang="ar">٣٠ ر.س</span></span></td></tr>
+            <tr><td>LA-02</td><td><h3><span lang="en">Smoke Screen</span><span lang="ar">ستار دخان</span></h3><p><span lang="en">Smoked black tea and pressed apple, served under a glass of <span class="rx" tabindex="0">cinnamon smoke</span>.</span><span lang="ar">شاي أسود مدخّن وعصير تفّاح، يُقدَّم تحت كأس مملوءة بـ<span class="rx" tabindex="0">دخان القرفة</span>.</span></p></td><td><span class="pr"><span lang="en">SAR 32</span><span lang="ar">٣٢ ر.س</span></span></td></tr>
+            <tr><td>LA-03</td><td><h3><span lang="en">Cover Story</span><span lang="ar">قصّة تغطية</span></h3><p><span lang="en">Cucumber, basil and soda, sharpened with <span class="rx" tabindex="0">sour grape verjuice</span>.</span><span lang="ar">خيار وريحان وصودا، يزيدها حدّةً <span class="rx" tabindex="0">عصير الحصرم</span>.</span></p></td><td><span class="pr"><span lang="en">SAR 28</span><span lang="ar">٢٨ ر.س</span></span></td></tr>
+            <tr><td>LA-04</td><td><h3><span lang="en">Truth Serum</span><span lang="ar">مصل الحقيقة</span></h3><p><span lang="en">Cold brew over ice, date syrup, and the oil of <span class="rx" tabindex="0">a burnt orange peel</span>.</span><span lang="ar">قهوة باردة على الثلج، دبس تمر وزيت <span class="rx" tabindex="0">قشرة برتقال محروقة</span>.</span></p></td><td><span class="pr"><span lang="en">SAR 26</span><span lang="ar">٢٦ ر.س</span></span></td></tr>
+          </tbody>
+        </table>
+        <span class="stamp" lang="en">0% proof</span><span class="stamp" lang="ar">بلا كحول</span>
+      </section>
+
+      <aside class="memo">
+        <h2><span lang="en">Rendezvous</span><span lang="ar">موعد اللقاء</span></h2>
+        <p><span lang="en">Thu–Sat. Doors 19:30, one seating at 20:00 sharp.</span><span lang="ar">من الخميس إلى السبت. يُفتح الباب ١٩:٣٠ والجلسة الوحيدة ٢٠:٠٠ تماماً.</span></p>
+        <p><span lang="en">14 Tinsmiths' Lane, Old Quarter — <span class="rx" tabindex="0">grey door, no handle</span>.</span><span lang="ar">١٤ زقاق السمكريّة، الحيّ القديم — <span class="rx" tabindex="0">باب رمادي بلا مقبض</span>.</span></p>
+        <p><span lang="en">Book by message only: <span dir="ltr">+966 55 010 0460</span></span><span lang="ar">الحجز بالرسائل فقط: <span dir="ltr">+966 55 010 0460</span></span></p>
+        <p><span lang="en">Burn after reading. — N.</span><span lang="ar">أحرِق الورقة بعد قراءتها. — ن.</span></p>
+      </aside>
+
+      <footer class="fine">
+        <span lang="en">Allergen disclosure: our kitchen handles nuts, sesame, dairy, gluten and fish. Declare your weaknesses to your handler before service.</span><span lang="ar">إفصاح عن مسبّبات الحساسية: يتعامل مطبخنا مع المكسّرات والسمسم والألبان والغلوتين والأسماك. صرِّح بنقاط ضعفك لمسؤول الطاولة قبل بدء الخدمة.</span>
+        <span lang="en">Prices in Saudi riyals, VAT included. No alcohol, no pork, no questions.</span><span lang="ar">الأسعار بالريال السعودي شاملة الضريبة. لا كحول، لا لحم خنزير، ولا أسئلة.</span>
+      </footer>
+    </div>
+  </main>
+</div>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+document.addEventListener('click',function(e){var r=e.target.closest&&e.target.closest('.rx');if(r){r.classList.toggle('on');r.blur()}});
+document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('rx')){e.preventDefault();e.target.classList.toggle('on')}});
+document.getElementById('declass').addEventListener('click',function(){document.body.classList.toggle('open')});
+</script>
+</body>
+</html>

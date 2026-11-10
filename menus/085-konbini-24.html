@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Konbini 24 · كونبيني ٢٤</title>
+<meta name="description" content="Konbini 24 — Japanese convenience bites served from one glowing vending machine: onigiri, sando, hot case, sweets and drinks. كونبيني ٢٤ — وجبات الكونبيني اليابانية من آلة بيع واحدة متوهّجة.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#e8321f">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Dela+Gothic+One&family=DotGothic16&family=Handjet:wght@500;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --red:#e8321f; --red2:#b81f10; --teal:#00a99d; --yel:#ffd200; --ink:#141a33; --night:#080b20; --steel:#cdd3dc; --amber:#ffb000; --hot:#ff3d2e; --cold:#1e9bff;
+  --disp:"Dela Gothic One","Arial Black",Impact,sans-serif; --body:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Helvetica Neue",Arial,sans-serif; --led:"DotGothic16","Courier New",monospace;
+}
+html[lang="ar"]{ --disp:"Baloo Bhaijaan 2","Tahoma",sans-serif; --body:"Baloo Bhaijaan 2","Segoe UI",Tahoma,sans-serif; --led:"Handjet","DotGothic16",monospace; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{color:var(--ink);font-family:var(--body);font-weight:500;font-size:16px;line-height:1.45;overflow-x:clip;-webkit-font-smoothing:antialiased;padding:clamp(0px,2.4vw,36px) clamp(0px,2.4vw,36px) 0;
+  background:radial-gradient(700px 480px at 4% 6%,rgba(255,50,120,.3),transparent 70%),radial-gradient(800px 600px at 100% 34%,rgba(0,200,220,.24),transparent 70%),radial-gradient(700px 500px at 0 78%,rgba(255,200,0,.14),transparent 70%),var(--night)}
+html[lang="ar"] body{font-size:17px;line-height:1.6}
+html[lang="ar"] *{letter-spacing:0 !important}
+ul{list-style:none}
+button{font:inherit;cursor:pointer}
+
+/* ───── the machine ───── */
+.machine{max-width:1320px;margin-inline:auto;background:linear-gradient(90deg,var(--red2) 0,var(--red) 3%,#f2452f 50%,var(--red) 97%,var(--red2));border-radius:clamp(0px,2vw,26px) clamp(0px,2vw,26px) 0 0;padding:clamp(10px,1.6vw,22px);box-shadow:0 0 0 3px #7d1309,0 0 140px rgba(255,255,255,.2),0 0 60px rgba(255,80,60,.35);position:relative}
+/* lightbox sign */
+.sign{position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(#fff,#f3f6fb);box-shadow:inset 0 0 0 3px #fff,inset 0 0 40px rgba(255,210,0,.25),0 0 30px rgba(255,255,255,.45);display:grid;grid-template-columns:1fr auto;gap:10px 30px;align-items:center;padding:clamp(18px,3vw,40px) clamp(16px,3vw,44px) clamp(26px,3.4vw,50px)}
+.sign::after{content:"";position:absolute;inset-inline:0;inset-block-end:0;height:clamp(10px,1.2vw,16px);background:linear-gradient(90deg,var(--teal) 0 33.3%,var(--yel) 33.3% 66.6%,var(--red) 66.6%)}
+.sign .jp{font-family:"Dela Gothic One",sans-serif;font-size:clamp(.8rem,1.3vw,1.1rem);color:var(--teal);letter-spacing:.3em}
+.sign h1{font-family:var(--disp);font-weight:400;color:var(--red);font-size:clamp(2.7rem,9.4vw,8.6rem);line-height:.95;letter-spacing:-.02em;display:flex;flex-wrap:wrap;align-items:center;gap:.06em .16em}
+html[lang="ar"] .sign h1{font-weight:800;line-height:1.1;font-size:clamp(3rem,10vw,9rem)}
+.sign h1 b{display:inline-grid;place-items:center;font-weight:inherit;font-family:"Dela Gothic One",sans-serif;font-size:.62em;width:1.7em;height:1.7em;border-radius:50%;background:var(--teal);color:#fff;box-shadow:inset 0 0 0 .09em #fff,0 0 0 .07em var(--teal);letter-spacing:0;line-height:1;animation:hum 3.2s steps(1) infinite}
+@keyframes hum{0%,93%,97%{opacity:1}95%,99%{opacity:.6}}
+.sign .lede{font-size:clamp(1rem,1.5vw,1.25rem);font-weight:700;max-width:40ch;margin-block-start:8px}
+.sign .promo{justify-self:end;transform:rotate(4deg);background:var(--yel);color:var(--ink);border-radius:50%;width:clamp(128px,15vw,190px);aspect-ratio:1;display:grid;place-content:center;text-align:center;padding:10px;box-shadow:0 0 0 4px #fff,0 0 0 7px var(--red),0 8px 14px rgba(0,0,0,.2);font-weight:800;font-size:.8rem;line-height:1.2}
+[dir="rtl"] .sign .promo{transform:rotate(-4deg)}
+.sign .promo b{display:block;font-family:"Dela Gothic One",sans-serif;font-weight:400;font-size:clamp(1.6rem,2.6vw,2.4rem);color:var(--red);line-height:1;unicode-bidi:isolate}
+html[lang="ar"] .sign .promo{font-size:.9rem}
+@media (max-width:640px){.sign{grid-template-columns:1fr}.sign .promo{justify-self:start;border-radius:12px;aspect-ratio:auto;width:auto;display:flex;gap:10px;align-items:center;text-align:start;padding:8px 14px;transform:rotate(-1.5deg)}.sign .promo b{font-size:1.5rem}}
+
+/* LED bar */
+.bar{position:sticky;top:0;z-index:30;margin:clamp(10px,1.4vw,18px) calc(-1*clamp(10px,1.6vw,22px)) 0;padding:8px clamp(10px,1.6vw,22px);background:#0c0c10;display:flex;gap:8px;align-items:center;box-shadow:0 6px 14px rgba(0,0,0,.4)}
+.led{flex:1;min-width:0;height:42px;display:flex;align-items:center;gap:.6em;padding-inline:12px;border-radius:6px;background:#160a00 radial-gradient(circle,rgba(255,176,0,.08) 1px,transparent 1.4px) 0 0/4px 4px;box-shadow:inset 0 0 0 2px #2c2c33,inset 0 0 14px #000;color:var(--amber);font-family:var(--led);font-size:1.1rem;white-space:nowrap;overflow:hidden;text-shadow:0 0 8px rgba(255,176,0,.8)}
+html[lang="ar"] .led{font-size:1.35rem;font-weight:700}
+.led b{font-family:"DotGothic16",monospace;font-weight:400;color:#fff3c4;unicode-bidi:isolate}
+.led .blink{animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.led h3,.led span{font:inherit;display:inline}
+.cred{font-family:"DotGothic16",monospace;color:#5dff7a;text-shadow:0 0 8px rgba(93,255,122,.7);background:#03130a;box-shadow:inset 0 0 0 2px #2c2c33;border-radius:6px;height:42px;display:none;align-items:center;padding-inline:12px;white-space:nowrap}
+@media (min-width:560px){.cred{display:flex}}
+.home-link,#langToggle{height:42px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding-inline:13px;border-radius:8px;border:0;text-decoration:none;font:800 .9rem var(--body);color:var(--ink);background:linear-gradient(#fff,#d5dae2);box-shadow:0 3px 0 #8e96a3,inset 0 1px 0 #fff}
+#langToggle{background:linear-gradient(#ffe45c,#ffc400);box-shadow:0 3px 0 #b88a00,inset 0 1px 0 #fff3a8;font-family:"Baloo Bhaijaan 2","M PLUS Rounded 1c",sans-serif}
+.home-link:active,#langToggle:active{transform:translateY(2px);box-shadow:0 1px 0 #8e96a3}
+.home-link i{width:14px;height:14px;background:radial-gradient(circle,var(--ink) 0 2.4px,transparent 2.8px) 0 0/7px 7px}
+.home-link span{display:none}
+@media (min-width:860px){.home-link span{display:inline}}
+
+/* body: glass + panel */
+.guts{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:clamp(10px,1.6vw,22px);margin-block-start:clamp(10px,1.6vw,22px);align-items:start}
+.glass{position:relative;border-radius:12px;background:linear-gradient(#f6faff,#e3ecf8);box-shadow:inset 0 0 0 4px #20232b,inset 0 0 0 7px #8e96a3,inset 0 18px 40px rgba(255,255,255,.9);padding:clamp(14px,2vw,28px) clamp(12px,1.8vw,26px);overflow:hidden;isolation:isolate}
+.glass::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(112deg,transparent 0 24%,rgba(255,255,255,.4) 24% 30%,transparent 30% 34%,rgba(255,255,255,.22) 34% 36%,transparent 36% 100%) 0 0/100% 1100px repeat-y;mix-blend-mode:soft-light}
+.glass::before{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(112deg,transparent 0 24%,rgba(255,255,255,.07) 24% 30%,transparent 30% 34%,rgba(255,255,255,.04) 34% 36%,transparent 36% 100%) 0 0/100% 1100px repeat-y}
+.shelf + .shelf{margin-block-start:clamp(22px,3vw,40px)}
+.sh{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:center;margin-block-end:14px}
+.sh .rw{grid-row:span 2;width:56px;height:56px;border-radius:12px;background:var(--ink);color:var(--yel);display:grid;place-items:center;font:400 2rem "Dela Gothic One",sans-serif;box-shadow:inset 0 0 0 3px #3a4266}
+.sh h2{font-family:var(--disp);font-weight:400;font-size:clamp(1.5rem,2.6vw,2.2rem);line-height:1.1;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+html[lang="ar"] .sh h2{font-weight:800;line-height:1.3}
+.sh h2 small{font-family:"Dela Gothic One",sans-serif;font-size:.5em;color:var(--red);letter-spacing:.2em}
+.sh p{font-size:.95rem;max-width:68ch;color:#3a4266}
+.cells{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:clamp(8px,1vw,14px)}
+.cell{position:relative;display:grid;grid-template-rows:auto auto 1fr;border-radius:10px;background:#fff;box-shadow:0 0 0 2px #c5cedd,0 5px 0 #aab4c6;transition:box-shadow .2s,transform .2s}
+.cell.on{box-shadow:0 0 0 3px var(--yel),0 0 26px 4px rgba(255,210,0,.9),0 5px 0 #aab4c6;transform:translateY(-3px)}
+.win{position:relative;height:clamp(104px,10vw,132px);display:grid;place-items:end center;padding-block-end:10px;border-radius:10px 10px 0 0;background:radial-gradient(ellipse 44% 9% at 50% calc(100% - 9px),transparent 78%,#aeb8c9 80% 96%,transparent 98%),linear-gradient(#eaf1fb,#fff 70%,#dfe7f3 70%)}
+.pd{width:clamp(66px,6.4vw,86px);height:clamp(66px,6.4vw,86px);filter:drop-shadow(0 4px 3px rgba(20,26,51,.22));transition:transform .3s}
+.cell:hover .pd{transform:translateY(-4px) rotate(-3deg)}
+.cell.drop .pd{animation:drop .9s cubic-bezier(.5,0,.9,.4)}
+@keyframes drop{0%{transform:none}25%{transform:translateY(-6px) rotate(-8deg)}100%{transform:translateY(160px) rotate(40deg);opacity:0}}
+.bdg{position:absolute;inset-block-start:7px;inset-inline-start:7px;z-index:1;font-weight:800;font-size:.68rem;line-height:1;padding:5px 8px 4px;border-radius:99px;background:var(--red);color:#fff;transform:rotate(-6deg);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+[dir="rtl"] .bdg{transform:rotate(6deg)}
+html[lang="ar"] .bdg{font-size:.8rem}
+.bdg.new{background:var(--teal)}.bdg.pick{background:var(--yel);color:var(--ink)}
+.rail{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:6px;background:#15161c;padding:5px 7px;direction:ltr}
+.code{font:400 .8rem "Dela Gothic One",sans-serif;color:#15161c;background:#fff;border-radius:4px;padding:2px 6px 1px;line-height:1.2}
+.ledp{font-family:"DotGothic16",monospace;font-size:1.12rem;line-height:1;color:var(--amber);text-shadow:0 0 6px rgba(255,176,0,.85);text-align:center;background:#160a00;border-radius:4px;padding:4px 2px 3px}
+.sel{width:26px;height:26px;border-radius:50%;border:2px solid #fff;background:radial-gradient(circle at 35% 30%,#b6ffc4,#19c24a 60%,#0b7a2c);box-shadow:0 0 10px rgba(25,194,74,.8)}
+.hot .sel{background:radial-gradient(circle at 35% 30%,#ffc2b8,var(--hot) 60%,#a31408);box-shadow:0 0 10px rgba(255,61,46,.85)}
+.cold .sel{background:radial-gradient(circle at 35% 30%,#c9ecff,var(--cold) 60%,#0a5fb0);box-shadow:0 0 10px rgba(30,155,255,.85)}
+.sel:hover,.sel:focus-visible{outline:3px solid var(--yel);outline-offset:1px}
+.tag{padding:9px 10px 12px}
+.tag h3{font-weight:800;font-size:1rem;line-height:1.2;display:inline}
+html[lang="ar"] .tag h3{font-size:1.08rem;line-height:1.35}
+.tp{display:inline-block;vertical-align:.12em;margin-inline-start:6px;font-weight:800;font-size:.62rem;line-height:1;padding:3px 6px 2px;border-radius:4px;color:#fff;background:var(--hot);text-transform:uppercase;letter-spacing:.06em}
+html[lang="ar"] .tp{font-size:.74rem}
+.cold .tp{background:var(--cold)}
+.tag p{font-size:.9rem;line-height:1.35;margin-block-start:3px;color:#39415f}
+html[lang="ar"] .tag p{font-size:.95rem;line-height:1.5}
+
+/* control panel */
+.panel{position:sticky;top:74px;border-radius:12px;background:linear-gradient(90deg,#b9c0cb,var(--steel) 12%,#e6e9ee 50%,var(--steel) 88%,#b9c0cb);box-shadow:inset 0 0 0 3px #8e96a3;padding:16px;display:grid;gap:14px}
+.step{display:grid;gap:8px}
+.step > b{display:flex;align-items:center;gap:8px;font-weight:800;font-size:.86rem}
+.step > b i{font-style:normal;width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:.78rem;font-family:"M PLUS Rounded 1c",sans-serif}
+.money{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.money button{border:0;border-radius:8px;background:#1a1c24;color:#fff;padding:9px 6px 8px;display:grid;justify-items:center;gap:5px;font-weight:700;font-size:.78rem;box-shadow:inset 0 0 0 2px #454b5c,0 3px 0 #7d8594}
+.money button:active{transform:translateY(2px);box-shadow:inset 0 0 0 2px #454b5c,0 1px 0 #7d8594}
+.money button::before{content:"";width:8px;height:34px;border-radius:4px;background:#000;box-shadow:0 0 0 3px #c9ced6,0 0 0 5px #6b7280}
+.money button.bill::before{width:54px;height:8px;margin-block:13px;box-shadow:0 0 0 3px #c9ced6,0 0 0 5px #6b7280,0 0 12px 4px rgba(93,255,122,.55)}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;direction:ltr;background:#1a1c24;padding:8px;border-radius:10px}
+.keys button{height:40px;border:0;border-radius:6px;background:linear-gradient(#fdfdfd,#cfd4dc);box-shadow:0 3px 0 #6b7280;font:400 1rem "Dela Gothic One",sans-serif;color:var(--ink)}
+.keys button:active{transform:translateY(2px);box-shadow:0 1px 0 #6b7280}
+.keys .clr{background:linear-gradient(#ffd9d4,#ff8a7d);font-size:.72rem}
+.keys .vend{grid-column:span 4;height:46px;background:linear-gradient(#b6ffc4,#19c24a);color:#04310f;box-shadow:0 3px 0 #0b7a2c,0 0 16px rgba(25,194,74,.6);font:800 1rem var(--body)}
+.ic{display:flex;align-items:center;gap:12px;background:#1a1c24;color:#fff;border-radius:10px;padding:10px 12px;font-size:.82rem;font-weight:700;line-height:1.25}
+.ic::before{content:"";flex:none;width:44px;height:44px;border-radius:10px;background:radial-gradient(circle,transparent 0 5px,var(--cold) 6px 8px,transparent 9px 12px,var(--cold) 13px 15px,transparent 16px),#0c2540;box-shadow:0 0 12px rgba(30,155,255,.7)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:.8rem;font-weight:700}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:14px;border-radius:50%;border:2px solid #fff;background:#19c24a}
+.legend .h i{background:var(--hot)}.legend .c i{background:var(--cold)}
+.stick{background:var(--yel);border-radius:6px;padding:9px 11px;font-size:.82rem;font-weight:700;line-height:1.35;transform:rotate(-1.2deg);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+[dir="rtl"] .stick{transform:rotate(1.2deg)}
+
+/* pickup + kickplate */
+.tray{margin-block-start:clamp(10px,1.6vw,22px);border-radius:12px;background:linear-gradient(#0d0e13,#23252e);box-shadow:inset 0 0 0 4px #000,inset 0 0 0 7px #5b6270,inset 0 26px 30px rgba(0,0,0,.8);height:clamp(110px,12vw,150px);position:relative;display:grid;place-items:center;overflow:hidden}
+.tray .flap{font:400 clamp(1.1rem,2.2vw,1.7rem) var(--disp);color:#5b6270;letter-spacing:.3em;display:flex;gap:1em;align-items:center}
+html[lang="ar"] .tray .flap{font-weight:800}
+.tray .flap::before,.tray .flap::after{content:"";width:0;height:0;border:9px solid transparent;border-block-start-color:#5b6270;border-block-end:0}
+.tray .got{position:absolute;inset-block-end:8px;inset-inline-start:50%;width:84px;height:84px;margin-inline-start:-42px;animation:land .6s cubic-bezier(.3,1.4,.6,1) both}
+@keyframes land{from{transform:translateY(-160px) rotate(-50deg)}to{transform:rotate(-12deg)}}
+.kick{margin-block-start:clamp(10px,1.6vw,22px);color:#fff;display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:22px 32px;padding:clamp(14px,2vw,26px) clamp(6px,1.4vw,18px) clamp(26px,3vw,44px)}
+.kick h2{font-family:var(--disp);font-weight:400;font-size:clamp(1.7rem,3vw,2.6rem);line-height:1.05}
+html[lang="ar"] .kick h2{font-weight:800;line-height:1.3}
+.kick h4{font-weight:800;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--yel);margin-block-end:5px}
+html[lang="ar"] .kick h4{font-size:.95rem}
+.kick p{font-size:.96rem}
+.kick .fine{grid-column:1/-1;border-block-start:2px dashed rgba(255,255,255,.4);padding-block-start:14px;font-size:.9rem}
+.pave{height:54px;margin-inline:calc(-1*clamp(0px,2.4vw,36px));background:linear-gradient(#1a1d33,#0a0c1c);box-shadow:inset 0 30px 40px -18px rgba(255,90,60,.35)}
+
+@media (max-width:1180px){.cells{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){
+  .guts{grid-template-columns:1fr}
+  .panel{position:static;grid-template-columns:1fr 1fr;align-items:start}
+  .panel .wide{grid-column:1/-1}
+  .kick{grid-template-columns:1fr 1fr}.kick>div:first-child{grid-column:1/-1}
+}
+@media (max-width:640px){
+  html{scroll-padding-top:66px}
+  .cells{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cell:last-child:nth-child(odd){grid-column:span 2;grid-template-columns:44% 1fr;grid-template-rows:auto 1fr}
+  .cell:last-child:nth-child(odd) .win{grid-row:span 2;height:auto;min-height:118px;border-radius:10px 0 0 10px}
+  [dir="rtl"] .cell:last-child:nth-child(odd) .win{border-radius:0 10px 10px 0}
+  .sh .rw{width:46px;height:46px;font-size:1.6rem}
+  .sh p{grid-column:1/-1;margin-block-start:6px}
+  .panel{grid-template-columns:1fr}
+  .tag p{font-size:.94rem}
+}
+@media (max-width:480px){.kick{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="p-oni" viewBox="0 0 100 100"><path d="M50 8q8 0 13 9l28 52q8 22-12 24H21Q1 91 9 69l28-52q5-9 13-9Z" fill="var(--r,#fff)" stroke="#cfd6e2" stroke-width="2"/><rect x="31" y="60" width="38" height="33" rx="3" fill="#1d2b24"/><circle cx="50" cy="40" r="9" fill="var(--a)"/></symbol>
+<symbol id="p-san" viewBox="0 0 100 100"><path d="M8 90V22q0-10 9-4l76 62q6 10-6 10Z" fill="#fff6e0" stroke="#d9b98a" stroke-width="2.5"/><path d="M18 82V36l56 46Z" fill="var(--a)"/><circle cx="30" cy="68" r="6" fill="var(--b)"/><circle cx="46" cy="76" r="4.5" fill="var(--b)"/><circle cx="27" cy="52" r="3.5" fill="var(--b)"/></symbol>
+<symbol id="p-dom" viewBox="0 0 100 100"><path d="M8 74q0-52 42-52t42 52q0 14-42 14T8 74Z" fill="var(--a)" stroke="rgba(0,0,0,.15)" stroke-width="2"/><path d="M50 22v20M34 28l6 16M66 28l-6 16M22 42l10 10M78 42 68 52" stroke="rgba(0,0,0,.18)" stroke-width="2.5" stroke-linecap="round" fill="none"/></symbol>
+<symbol id="p-box" viewBox="0 0 100 100"><circle cx="34" cy="34" r="13" fill="var(--b)"/><circle cx="56" cy="28" r="14" fill="var(--b)"/><circle cx="70" cy="40" r="11" fill="var(--b)"/><path d="M18 40h64l-9 54H27Z" fill="var(--a)"/><path d="M24 60h52l-2 12H26Z" fill="#fff" opacity=".9"/></symbol>
+<symbol id="p-ova" viewBox="0 0 100 100"><ellipse cx="50" cy="40" rx="34" ry="26" fill="var(--a)"/><path d="M30 32l3 3M48 26l3 3M64 34l3 3M40 42l3 3M58 44l3 3" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linecap="round"/><path d="M14 50h72l-8 44H22Z" fill="#fff" stroke="#cfd6e2" stroke-width="2"/><path d="M21 68h58" stroke="var(--b)" stroke-width="7"/></symbol>
+<symbol id="p-yak" viewBox="0 0 100 100"><path d="M50 4v94" stroke="#c9a46a" stroke-width="4" stroke-linecap="round"/><rect x="32" y="12" width="36" height="20" rx="8" fill="var(--a)"/><rect x="30" y="36" width="40" height="20" rx="8" fill="var(--a)"/><rect x="33" y="60" width="34" height="18" rx="8" fill="var(--a)"/><path d="M38 18h16M38 42h18M40 66h14" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/></symbol>
+<symbol id="p-dan" viewBox="0 0 100 100"><path d="M50 4v94" stroke="#c9a46a" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="22" r="15" fill="var(--a)"/><circle cx="50" cy="50" r="15" fill="var(--a)"/><circle cx="50" cy="78" r="15" fill="var(--a)"/><path d="M40 14q10-8 20 0M40 42q10-8 20 0M40 70q10-8 20 0" stroke="var(--b)" stroke-width="5" stroke-linecap="round" fill="none"/></symbol>
+<symbol id="p-cup" viewBox="0 0 100 100"><path d="M36 16q-6-6 0-12M52 18q-6-7 0-14M68 16q-6-6 0-12" stroke="#b9c2d0" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M16 32h68l-8 62H24Z" fill="#fff" stroke="#cfd6e2" stroke-width="2"/><path d="M19 50h62l-3 24H22Z" fill="var(--a)"/><ellipse cx="50" cy="32" rx="36" ry="7" fill="#f3e2b8" stroke="#cfd6e2" stroke-width="2"/></symbol>
+<symbol id="p-pud" viewBox="0 0 100 100"><ellipse cx="50" cy="86" rx="44" ry="8" fill="#fff" stroke="#cfd6e2" stroke-width="2"/><path d="M28 28h44l12 56H16Z" fill="var(--a)"/><path d="M28 28h44l3 15q-25 8-50 0Z" fill="var(--b)"/></symbol>
+<symbol id="p-moc" viewBox="0 0 100 100"><path d="M8 64q0-44 42-44t42 44q0 24-42 24T8 64Z" fill="var(--a)" stroke="rgba(0,0,0,.1)" stroke-width="2"/><path d="M34 40q16-24 32 0q-16 12-32 0Z" fill="var(--b)"/><circle cx="46" cy="36" r="2" fill="#fff"/><circle cx="56" cy="34" r="2" fill="#fff"/></symbol>
+<symbol id="p-rol" viewBox="0 0 100 100"><circle cx="50" cy="52" r="40" fill="var(--a)"/><circle cx="50" cy="52" r="28" fill="var(--b)"/><path d="M36 52a14 14 0 1 0 28 0a20 20 0 1 0-40 0" fill="none" stroke="var(--a)" stroke-width="6" stroke-linecap="round"/></symbol>
+<symbol id="p-bot" viewBox="0 0 100 100"><rect x="40" y="2" width="20" height="10" rx="2" fill="var(--b)"/><path d="M42 12h16v8q14 6 14 20v50q0 8-8 8H36q-8 0-8-8V40q0-14 14-20Z" fill="var(--a)"/><rect x="28" y="46" width="44" height="26" fill="#fff"/><rect x="28" y="54" width="44" height="8" fill="var(--b)"/><path d="M34 30v60" stroke="#fff" stroke-opacity=".45" stroke-width="4" stroke-linecap="round"/></symbol>
+<symbol id="p-can" viewBox="0 0 100 100"><rect x="26" y="8" width="48" height="86" rx="7" fill="var(--a)"/><rect x="26" y="8" width="48" height="8" rx="4" fill="#c9ced6"/><rect x="26" y="86" width="48" height="8" rx="4" fill="#c9ced6"/><rect x="26" y="38" width="48" height="26" fill="var(--b)"/><path d="M34 18v66" stroke="#fff" stroke-opacity=".4" stroke-width="4" stroke-linecap="round"/></symbol>
+</defs></svg>
+<div class="machine">
+  <header class="sign">
+    <div>
+      <span class="jp" aria-hidden="true">コンビニ ２４</span>
+      <h1><span lang="en">Konbini</span><span lang="ar">كونبيني</span><b>24</b></h1>
+      <p class="lede"><span lang="en">Japanese convenience bites from one very bright machine. Punch in a code, any hour of the night.</span><span lang="ar">وجبات الكونبيني اليابانية من آلةٍ واحدة شديدة التوهّج. أدخِل الرمز في أي ساعة من الليل.</span></p>
+    </div>
+    <div class="promo"><span><span lang="en">Midnight set</span><span lang="ar">وجبة منتصف الليل</span></span><b dir="ltr">¥600</b><span><span lang="en">2 onigiri + 1 hot + tea</span><span lang="ar">٢ أونيغيري + طبق ساخن + شاي</span></span></div>
+  </header>
+
+  <div class="bar">
+    <div class="led" id="led" aria-live="polite"><span lang="en">Welcome! Choose a code</span><span lang="ar">أهلًا بك! اختر رمز المنتج</span><span class="blink">▮</span></div>
+    <span class="cred" dir="ltr" id="cred">¥0</span>
+    <a class="home-link" href="../index.html"><i aria-hidden="true"></i><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+
+  <div class="guts">
+    <main class="glass">
+
+      <section class="shelf" id="rowA" style="--n:5">
+        <header class="sh"><span class="rw">A</span><h2><span lang="en">Onigiri</span><span lang="ar">أونيغيري</span><small aria-hidden="true">おにぎり</small></h2><p><span lang="en">Rice balls pressed by hand at 5 am and wrapped so the nori stays crisp until you open it.</span><span lang="ar">كرات أرز تُشكَّل باليد عند الخامسة فجرًا وتُغلَّف بحيث يبقى النوري مقرمشًا حتى تفتحها.</span></p></header>
+        <ul class="cells">
+          <li class="cell " id="A1" data-price="160"><div class="win"><svg class="pd" style="--a:#f2c9a0" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-oni"/></svg><span class="bdg no1"><span lang="en">No.1</span><span lang="ar">الأول</span></span></div><div class="rail"><span class="code">A1</span><span class="ledp" dir="ltr">¥160</span><button class="sel" type="button" data-code="A1" aria-label="A1"></button></div><div class="tag"><h3><span lang="en">Tuna Mayo</span><span lang="ar">تونة بالمايونيز</span></h3><p><span lang="en">Flaked tuna, Japanese mayo, a touch of soy.</span><span lang="ar">تونة مفتّتة مع مايونيز ياباني ولمسة من الصويا.</span></p></div></li>
+          <li class="cell " id="A2" data-price="190"><div class="win"><svg class="pd" style="--a:#ff8f6b" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-oni"/></svg></div><div class="rail"><span class="code">A2</span><span class="ledp" dir="ltr">¥190</span><button class="sel" type="button" data-code="A2" aria-label="A2"></button></div><div class="tag"><h3><span lang="en">Salted Salmon</span><span lang="ar">سلمون مملّح</span></h3><p><span lang="en">Grilled salmon flakes, toasted nori.</span><span lang="ar">رقائق سلمون مشوي ونوري محمّص.</span></p></div></li>
+          <li class="cell " id="A3" data-price="150"><div class="win"><svg class="pd" style="--a:#d81e5b" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-oni"/></svg></div><div class="rail"><span class="code">A3</span><span class="ledp" dir="ltr">¥150</span><button class="sel" type="button" data-code="A3" aria-label="A3"></button></div><div class="tag"><h3><span lang="en">Umeboshi</span><span lang="ar">أوميبوشي</span></h3><p><span lang="en">Sour pickled plum and shiso leaf.</span><span lang="ar">برقوق مخلّل حامض مع ورق الشيسو.</span></p></div></li>
+          <li class="cell " id="A4" data-price="150"><div class="win"><svg class="pd" style="--a:#3d5a3a" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-oni"/></svg></div><div class="rail"><span class="code">A4</span><span class="ledp" dir="ltr">¥150</span><button class="sel" type="button" data-code="A4" aria-label="A4"></button></div><div class="tag"><h3><span lang="en">Kombu</span><span lang="ar">كومبو</span></h3><p><span lang="en">Kelp simmered slowly in sweet soy.</span><span lang="ar">عشب بحري مطهوّ بالصويا وتحلية خفيفة.</span></p></div></li>
+          <li class="cell hot" id="A5" data-price="170"><div class="win"><svg class="pd" style="--a:#8a4b14;--r:#e0a75e" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-oni"/></svg></div><div class="rail"><span class="code">A5</span><span class="ledp" dir="ltr">¥170</span><button class="sel" type="button" data-code="A5" aria-label="A5"></button></div><div class="tag"><h3><span lang="en">Yaki Onigiri</span><span lang="ar">ياكي أونيغيري</span></h3><span class="tp"><span lang="en">Hot</span><span lang="ar">ساخن</span></span><p><span lang="en">Soy-brushed and grilled until the crust crackles.</span><span lang="ar">يُدهن بالصويا ويُشوى حتى تتقرمش قشرته.</span></p></div></li>
+        </ul>
+      </section>
+
+      <section class="shelf" id="rowB" style="--n:4">
+        <header class="sh"><span class="rw">B</span><h2><span lang="en">Sando &amp; Bread</span><span lang="ar">ساندو ومخبوزات</span><small aria-hidden="true">サンド</small></h2><p><span lang="en">Milk-bread sandwiches with the crusts cut off, and something sweet from the bakery tray.</span><span lang="ar">شطائر من خبز الحليب بلا أطراف، وشيءٌ حلو من صينية المخبز.</span></p></header>
+        <ul class="cells">
+          <li class="cell " id="B1" data-price="280"><div class="win"><svg class="pd" style="--a:#ffd84d;--b:#fff" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-san"/></svg><span class="bdg pick"><span lang="en">Staff pick</span><span lang="ar">اختيار الطاقم</span></span></div><div class="rail"><span class="code">B1</span><span class="ledp" dir="ltr">¥280</span><button class="sel" type="button" data-code="B1" aria-label="B1"></button></div><div class="tag"><h3><span lang="en">Tamago Sando</span><span lang="ar">تاماغو ساندو</span></h3><p><span lang="en">Creamy egg salad on cloud-soft milk bread.</span><span lang="ar">سلطة بيض كريمية في خبز حليب بنعومة الغيم.</span></p></div></li>
+          <li class="cell " id="B2" data-price="420"><div class="win"><svg class="pd" style="--a:#c9853a;--b:#8fcf6a" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-san"/></svg></div><div class="rail"><span class="code">B2</span><span class="ledp" dir="ltr">¥420</span><button class="sel" type="button" data-code="B2" aria-label="B2"></button></div><div class="tag"><h3><span lang="en">Chicken Katsu Sando</span><span lang="ar">ساندو كاتسو الدجاج</span></h3><p><span lang="en">Panko chicken cutlet, tangy brown sauce, cabbage.</span><span lang="ar">شريحة دجاج مقرمشة بالبانكو، صلصة بنّية لاذعة وملفوف.</span></p></div></li>
+          <li class="cell cold" id="B3" data-price="380"><div class="win"><svg class="pd" style="--a:#fffdf8;--b:#ff5a7a" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-san"/></svg><span class="bdg new"><span lang="en">New</span><span lang="ar">جديد</span></span></div><div class="rail"><span class="code">B3</span><span class="ledp" dir="ltr">¥380</span><button class="sel" type="button" data-code="B3" aria-label="B3"></button></div><div class="tag"><h3><span lang="en">Fruit Sando</span><span lang="ar">ساندو الفواكه</span></h3><span class="tp"><span lang="en">Cold</span><span lang="ar">بارد</span></span><p><span lang="en">Strawberries and kiwi set in whipped cream.</span><span lang="ar">فراولة وكيوي وسط كريمة مخفوقة.</span></p></div></li>
+          <li class="cell " id="B4" data-price="180"><div class="win"><svg class="pd" style="--a:#f6e58a" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-dom"/></svg></div><div class="rail"><span class="code">B4</span><span class="ledp" dir="ltr">¥180</span><button class="sel" type="button" data-code="B4" aria-label="B4"></button></div><div class="tag"><h3><span lang="en">Melonpan</span><span lang="ar">ميلون بان</span></h3><p><span lang="en">Sweet bun under a crisp cookie crust.</span><span lang="ar">كعكة حلوة تعلوها قشرة بسكويت مقرمشة.</span></p></div></li>
+        </ul>
+      </section>
+
+      <section class="shelf" id="rowC" style="--n:5">
+        <header class="sh"><span class="rw">C</span><h2><span lang="en">Hot Case</span><span lang="ar">الخزانة الساخنة</span><small aria-hidden="true">ホット</small></h2><p><span lang="en">Kept at 65°C behind the counter glass. Fried, steamed or simmered, and best eaten on the way home.</span><span lang="ar">تُحفظ عند ٦٥ درجة مئوية خلف زجاج المنضدة. مقلية أو مبخّرة أو مطهوّة، وألذّ ما تكون في طريق العودة إلى البيت.</span></p></header>
+        <ul class="cells">
+          <li class="cell hot" id="C1" data-price="260"><div class="win"><svg class="pd" style="--a:#ff4b2b;--b:#c9853a" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-box"/></svg><span class="bdg no1"><span lang="en">No.1</span><span lang="ar">الأول</span></span></div><div class="rail"><span class="code">C1</span><span class="ledp" dir="ltr">¥260</span><button class="sel" type="button" data-code="C1" aria-label="C1"></button></div><div class="tag"><h3><span lang="en">Karaage Cup</span><span lang="ar">كوب كاراغي</span></h3><span class="tp"><span lang="en">Hot</span><span lang="ar">ساخن</span></span><p><span lang="en">Five pieces of ginger-soy fried chicken.</span><span lang="ar">خمس قطع دجاج مقلي بالزنجبيل والصويا.</span></p></div></li>
+          <li class="cell hot" id="C2" data-price="210"><div class="win"><svg class="pd" style="--a:#fffaf0" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-dom"/></svg></div><div class="rail"><span class="code">C2</span><span class="ledp" dir="ltr">¥210</span><button class="sel" type="button" data-code="C2" aria-label="C2"></button></div><div class="tag"><h3><span lang="en">Beef Nikuman</span><span lang="ar">نيكومان باللحم</span></h3><span class="tp"><span lang="en">Hot</span><span lang="ar">ساخن</span></span><p><span lang="en">Fluffy steamed bun, beef and sweet onion.</span><span lang="ar">خبز مبخّر هشّ محشوّ بلحم بقري وبصل حلو.</span></p></div></li>
+          <li class="cell hot" id="C3" data-price="120"><div class="win"><svg class="pd" style="--a:#d99a3d;--b:#00a99d" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-ova"/></svg></div><div class="rail"><span class="code">C3</span><span class="ledp" dir="ltr">¥120</span><button class="sel" type="button" data-code="C3" aria-label="C3"></button></div><div class="tag"><h3><span lang="en">Korokke</span><span lang="ar">كوروكّيه</span></h3><span class="tp"><span lang="en">Hot</span><span lang="ar">ساخن</span></span><p><span lang="en">Potato croquette in a paper sleeve.</span><span lang="ar">كروكيت البطاطا في جيب ورقي.</span></p></div></li>
+          <li class="cell hot" id="C4" data-price="180"><div class="win"><svg class="pd" style="--a:#b8651f" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-yak"/></svg></div><div class="rail"><span class="code">C4</span><span class="ledp" dir="ltr">¥180</span><button class="sel" type="button" data-code="C4" aria-label="C4"></button></div><div class="tag"><h3><span lang="en">Yakitori Momo</span><span lang="ar">ياكيتوري مومو</span></h3><span class="tp"><span lang="en">Hot</span><span lang="ar">ساخن</span></span><p><span lang="en">Chicken thigh skewer lacquered with tare.</span><span lang="ar">سيخ فخذ دجاج ملمَّع بصلصة التاري.</span></p></div></li>
+          <li class="cell hot" id="C5" data-price="350"><div class="win"><svg class="pd" style="--a:#00a99d" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-cup"/></svg></div><div class="rail"><span class="code">C5</span><span class="ledp" dir="ltr">¥350</span><button class="sel" type="button" data-code="C5" aria-label="C5"></button></div><div class="tag"><h3><span lang="en">Oden Cup</span><span lang="ar">كوب أودِن</span></h3><span class="tp"><span lang="en">Hot</span><span lang="ar">ساخن</span></span><p><span lang="en">Daikon, egg and fish cake in dashi broth.</span><span lang="ar">فجل أبيض وبيضة وكعكة سمك في مرق الداشي.</span></p></div></li>
+        </ul>
+      </section>
+
+      <section class="shelf" id="rowD" style="--n:4">
+        <header class="sh"><span class="rw">D</span><h2><span lang="en">Sweets</span><span lang="ar">حلويات</span><small aria-hidden="true">スイーツ</small></h2><p><span lang="en">The chilled shelf by the register: wobbling, creamy, chewy.</span><span lang="ar">الرفّ المبرَّد بجانب الصندوق: ما يرتجف وما يذوب وما يُمضغ.</span></p></header>
+        <ul class="cells">
+          <li class="cell cold" id="D1" data-price="220"><div class="win"><svg class="pd" style="--a:#ffd66b;--b:#8a4b14" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-pud"/></svg><span class="bdg pick"><span lang="en">Staff pick</span><span lang="ar">اختيار الطاقم</span></span></div><div class="rail"><span class="code">D1</span><span class="ledp" dir="ltr">¥220</span><button class="sel" type="button" data-code="D1" aria-label="D1"></button></div><div class="tag"><h3><span lang="en">Purin</span><span lang="ar">بورين</span></h3><span class="tp"><span lang="en">Cold</span><span lang="ar">بارد</span></span><p><span lang="en">Custard pudding with bitter caramel.</span><span lang="ar">بودينغ الكاسترد مع كراميل مائل للمرارة.</span></p></div></li>
+          <li class="cell cold" id="D2" data-price="240"><div class="win"><svg class="pd" style="--a:#ffe3ec;--b:#ff4b6e" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-moc"/></svg></div><div class="rail"><span class="code">D2</span><span class="ledp" dir="ltr">¥240</span><button class="sel" type="button" data-code="D2" aria-label="D2"></button></div><div class="tag"><h3><span lang="en">Ichigo Daifuku</span><span lang="ar">إيتشيغو دايفوكو</span></h3><span class="tp"><span lang="en">Cold</span><span lang="ar">بارد</span></span><p><span lang="en">A whole strawberry in mochi and red bean.</span><span lang="ar">حبة فراولة كاملة في الموتشي ومعجون الفاصولياء الحمراء.</span></p></div></li>
+          <li class="cell cold" id="D3" data-price="260"><div class="win"><svg class="pd" style="--a:#f1c97c;--b:#fffdf5" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-rol"/></svg></div><div class="rail"><span class="code">D3</span><span class="ledp" dir="ltr">¥260</span><button class="sel" type="button" data-code="D3" aria-label="D3"></button></div><div class="tag"><h3><span lang="en">Hokkaido Roll Cake</span><span lang="ar">رول كيك هوكايدو</span></h3><span class="tp"><span lang="en">Cold</span><span lang="ar">بارد</span></span><p><span lang="en">Sponge wrapped around fresh milk cream.</span><span lang="ar">كيك إسفنجي يلتفّ حول كريمة الحليب الطازج.</span></p></div></li>
+          <li class="cell " id="D4" data-price="160"><div class="win"><svg class="pd" style="--a:#f3e3c0;--b:#a8641a" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-dan"/></svg></div><div class="rail"><span class="code">D4</span><span class="ledp" dir="ltr">¥160</span><button class="sel" type="button" data-code="D4" aria-label="D4"></button></div><div class="tag"><h3><span lang="en">Mitarashi Dango</span><span lang="ar">ميتاراشي دانغو</span></h3><p><span lang="en">Rice dumplings with sweet soy glaze.</span><span lang="ar">كرات أرز لزجة بصلصة الصويا الحلوة.</span></p></div></li>
+        </ul>
+      </section>
+
+      <section class="shelf" id="rowE" style="--n:6">
+        <header class="sh"><span class="rw">E</span><h2><span lang="en">Drinks</span><span lang="ar">مشروبات</span><small aria-hidden="true">ドリンク</small></h2><p><span lang="en">Blue button for ice cold, red button for hot. All soft drinks, all year round.</span><span lang="ar">الزر الأزرق للبارد جدًا والأحمر للساخن. مشروبات خالية من الكحول على مدار السنة.</span></p></header>
+        <ul class="cells">
+          <li class="cell cold" id="E1" data-price="130"><div class="win"><svg class="pd" style="--a:#b5793a;--b:#3a7d44" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-bot"/></svg></div><div class="rail"><span class="code">E1</span><span class="ledp" dir="ltr">¥130</span><button class="sel" type="button" data-code="E1" aria-label="E1"></button></div><div class="tag"><h3><span lang="en">Mugicha</span><span lang="ar">موغيتشا</span></h3><span class="tp"><span lang="en">Cold</span><span lang="ar">بارد</span></span><p><span lang="en">Roasted barley tea, no sugar.</span><span lang="ar">شاي الشعير المحمّص بلا سكّر.</span></p></div></li>
+          <li class="cell cold" id="E2" data-price="160"><div class="win"><svg class="pd" style="--a:#3ddc84;--b:#0b8f4d" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-bot"/></svg></div><div class="rail"><span class="code">E2</span><span class="ledp" dir="ltr">¥160</span><button class="sel" type="button" data-code="E2" aria-label="E2"></button></div><div class="tag"><h3><span lang="en">Melon Soda</span><span lang="ar">صودا الشمّام</span></h3><span class="tp"><span lang="en">Cold</span><span lang="ar">بارد</span></span><p><span lang="en">Neon green and proudly fizzy.</span><span lang="ar">خضراء فاقعة وفوّارة بكل فخر.</span></p></div></li>
+          <li class="cell cold" id="E3" data-price="200"><div class="win"><svg class="pd" style="--a:#9be7ff;--b:#1e88e5" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-bot"/></svg><span class="bdg new"><span lang="en">New</span><span lang="ar">جديد</span></span></div><div class="rail"><span class="code">E3</span><span class="ledp" dir="ltr">¥200</span><button class="sel" type="button" data-code="E3" aria-label="E3"></button></div><div class="tag"><h3><span lang="en">Ramune</span><span lang="ar">رامونيه</span></h3><span class="tp"><span lang="en">Cold</span><span lang="ar">بارد</span></span><p><span lang="en">Lemon-lime soda sealed with a glass marble.</span><span lang="ar">صودا الليمون المغلقة بكرة زجاجية.</span></p></div></li>
+          <li class="cell hot" id="E4" data-price="140"><div class="win"><svg class="pd" style="--a:#1b1b1f;--b:#d4af37" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-can"/></svg></div><div class="rail"><span class="code">E4</span><span class="ledp" dir="ltr">¥140</span><button class="sel" type="button" data-code="E4" aria-label="E4"></button></div><div class="tag"><h3><span lang="en">Black Coffee</span><span lang="ar">قهوة سوداء</span></h3><span class="tp"><span lang="en">Hot</span><span lang="ar">ساخن</span></span><p><span lang="en">Canned drip coffee, served hot.</span><span lang="ar">قهوة مقطّرة معلّبة تُقدَّم ساخنة.</span></p></div></li>
+          <li class="cell hot" id="E5" data-price="150"><div class="win"><svg class="pd" style="--a:#e8cfa6;--b:#c2185b" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-can"/></svg></div><div class="rail"><span class="code">E5</span><span class="ledp" dir="ltr">¥150</span><button class="sel" type="button" data-code="E5" aria-label="E5"></button></div><div class="tag"><h3><span lang="en">Royal Milk Tea</span><span lang="ar">شاي الحليب الملكي</span></h3><span class="tp"><span lang="en">Hot</span><span lang="ar">ساخن</span></span><p><span lang="en">Assam tea simmered with milk.</span><span lang="ar">شاي أسام مغليّ مع الحليب.</span></p></div></li>
+          <li class="cell hot" id="E6" data-price="170"><div class="win"><svg class="pd" style="--a:#ffd200;--b:#ff8f00" viewBox="0 0 100 100" aria-hidden="true"><use href="#p-can"/></svg></div><div class="rail"><span class="code">E6</span><span class="ledp" dir="ltr">¥170</span><button class="sel" type="button" data-code="E6" aria-label="E6"></button></div><div class="tag"><h3><span lang="en">Yuzu Honey</span><span lang="ar">يوزو بالعسل</span></h3><span class="tp"><span lang="en">Hot</span><span lang="ar">ساخن</span></span><p><span lang="en">Hot citrus and honey for cold nights.</span><span lang="ar">حمضيات ساخنة بالعسل لليالي الباردة.</span></p></div></li>
+        </ul>
+      </section>
+
+    </main>
+
+    <aside class="panel">
+      <div class="step"><b><i>1</i><span lang="en">Insert money</span><span lang="ar">أدخِل النقود</span></b>
+        <div class="money"><button type="button" data-add="100"><span><span lang="en">Coin</span><span lang="ar">عملة</span> <span dir="ltr">¥100</span></span></button><button type="button" class="bill" data-add="1000"><span><span lang="en">Note</span><span lang="ar">ورقة</span> <span dir="ltr">¥1000</span></span></button></div>
+      </div>
+      <div class="step"><b><i>2</i><span lang="en">Key in the slot code</span><span lang="ar">اكتب رمز الخانة</span></b>
+        <div class="keys" id="keys"><button type="button">A</button><button type="button">B</button><button type="button">C</button><button type="button">D</button><button type="button">E</button><button type="button">1</button><button type="button">2</button><button type="button">3</button><button type="button">4</button><button type="button">5</button><button type="button">6</button><button type="button" class="clr" data-k="clr">CLR</button><button type="button" class="vend" data-k="vend"><span lang="en">Vend</span><span lang="ar">اشترِ</span></button></div>
+      </div>
+      <div class="step wide"><b><i>3</i><span lang="en">Collect below</span><span lang="ar">استلم من الأسفل</span></b>
+        <div class="legend"><span class="c"><i></i><span lang="en">Ice cold</span><span lang="ar">بارد جدًا</span></span><span class="h"><i></i><span lang="en">Hot</span><span lang="ar">ساخن</span></span><span><i></i><span lang="en">Room temp.</span><span lang="ar">حرارة الغرفة</span></span></div>
+      </div>
+      <div class="ic"><span><span lang="en">Tap your IC card or phone here. Exact change is never required.</span><span lang="ar">مرِّر بطاقتك أو هاتفك هنا. لا حاجة إلى المبلغ بالضبط.</span></span></div>
+      <div class="stick"><span lang="en">Hot items are heated to order: please wait for the beep, about 40 seconds.</span><span lang="ar">الأطباق الساخنة تُسخَّن عند الطلب: انتظر الصافرة من فضلك، نحو ٤٠ ثانية.</span></div>
+    </aside>
+  </div>
+
+  <div class="tray" id="tray"><span class="flap"><span lang="en">PUSH</span><span lang="ar">ادفع</span></span></div>
+
+  <footer class="kick">
+    <div><h2><span lang="en">Always on. Always warm.</span><span lang="ar">مضاءة دائمًا. دافئة دائمًا.</span></h2></div>
+    <div><h4><span lang="en">Hours</span><span lang="ar">ساعات العمل</span></h4><p><span lang="en">24 hours, 365 days.<br>Restocked at 5:00, 11:00 and 17:00.</span><span lang="ar">٢٤ ساعة، ٣٦٥ يومًا.<br>تُعاد التعبئة عند ٥:٠٠ و١١:٠٠ و١٧:٠٠.</span></p></div>
+    <div><h4><span lang="en">Find the glow</span><span lang="ar">اتبع الضوء</span></h4><p><span lang="en">3-24 Hoshimachi, Nakano<br>Tokyo, under the railway arch</span><span lang="ar">٣-٢٤ هوشيماتشي، ناكانو<br>طوكيو، تحت قنطرة السكة الحديدية</span></p></div>
+    <div><h4><span lang="en">Good manners</span><span lang="ar">آداب المكان</span></h4><p><span lang="en">Bins are sorted: cans, bottles, paper. Please eat beside the machine, not on the move.</span><span lang="ar">سلال المهملات مفروزة: علب، قوارير، ورق. تفضّل بالأكل قرب الآلة لا أثناء المشي.</span></p></div>
+    <p class="fine"><span lang="en">Nothing here contains pork or alcohol. Items may contain wheat, egg, milk, soy, sesame, fish and shellfish; full allergen cards hang on the side of the machine. Prices in Japanese yen (¥), tax included.</span><span lang="ar">لا يحتوي أي منتج على لحم الخنزير أو الكحول. قد تحتوي المنتجات على قمح أو بيض أو حليب أو صويا أو سمسم أو سمك أو قشريات؛ وبطاقات مسبّبات الحساسية الكاملة معلّقة على جانب الآلة. الأسعار بالين الياباني (¥) شاملةً الضريبة.</span></p>
+  </footer>
+</div>
+<div class="pave" aria-hidden="true"></div>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+(function(){
+  var led=document.getElementById('led'),cred=document.getElementById('cred'),tray=document.getElementById('tray'),sel=null,credit=0,buf='';
+  function m(en,ar){return '<span lang="en">'+en+'</span><span lang="ar">'+ar+'</span>'}
+  function show(h){led.innerHTML=h}
+  function money(){cred.textContent='¥'+credit}
+  function pick(code,scroll){var c=document.getElementById(code);
+    [].forEach.call(document.querySelectorAll('.cell.on'),function(x){x.classList.remove('on')});
+    if(!c||!c.classList.contains('cell')){sel=null;show('<b>'+code+'</b> '+m('Empty slot','خانة فارغة'));return}
+    c.classList.add('on');sel=c;show('<b>'+code+'</b> '+c.querySelector('h3').innerHTML+' <b>¥'+c.dataset.price+'</b>');
+    if(scroll&&c.scrollIntoView)c.scrollIntoView({block:'center',behavior:'smooth'})}
+  function vend(){if(!sel){show(m('Choose a code first','اختر رمزًا أولًا'));return}
+    var p=+sel.dataset.price;if(credit<p){show(m('Insert','أدخِل')+' <b>¥'+(p-credit)+'</b> '+m('more','إضافية'));return}
+    credit-=p;money();var c=sel;c.classList.remove('drop');void c.offsetWidth;c.classList.add('drop');
+    setTimeout(function(){c.classList.remove('drop');var o=tray.querySelector('.got');if(o)o.remove();var g=c.querySelector('.pd').cloneNode(true);g.setAttribute('class','got');tray.appendChild(g)},850);
+    show(m('Thank you! Change','شكرًا لك! الباقي')+' <b>¥'+credit+'</b>');credit=0;setTimeout(money,1600)}
+  document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('button');if(!t)return;
+    if(t.classList.contains('sel')){buf='';pick(t.dataset.code,false)}
+    else if(t.dataset.add){credit+=+t.dataset.add;money();show(m('Credit','الرصيد')+' <b>¥'+credit+'</b>')}
+    else if(t.parentNode.id==='keys'){var k=t.dataset.k||t.textContent;
+      if(k==='clr'){buf='';sel=null;pick('--');show(m('Welcome! Choose a code','أهلًا بك! اختر رمز المنتج'))}
+      else if(k==='vend')vend();
+      else if(/[A-E]/.test(k)){buf=k;show('<b>'+k+'_</b>')}
+      else if(buf){pick(buf+k,true);buf=''}
+      else show(m('Letter first','الحرف أولًا'))}
+  });
+})();
+</script>
+</body>
+</html>

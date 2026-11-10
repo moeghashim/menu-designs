@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Atomic Lounge · صالة الذرّة</title>
+<meta name="description" content="Atomic Lounge — zero-proof cocktails and small plates in a 1950s mid-century lounge. صالة الذرّة: موكتيلات وأطباق صغيرة بروح الخمسينيات.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14676a">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Josefin+Sans:wght@400;600;700&family=Lemonada:wght@400;600;700&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --cream:#f7eed8; --cream2:#efe2c2; --ink:#2a2826; --teal:#1c8686; --teal-d:#125d60; --teal-l:#8fcfc6; --mus:#e6ab2c; --coral:#ee6a4a; --coral-d:#c94a2d; --wal:#7b4a2a; --wal-d:#55301a;
+  --sans:"Josefin Sans","Almarai",system-ui,sans-serif; --script:"Yellowtail","Lemonada",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-size:17px;line-height:1.5;color:var(--ink);overflow-x:clip;background:var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='240'%3E%3Cg fill='none' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M20 46c18-28 54-34 84-12-28-6-52 4-62 34-4-10-12-18-22-22z' fill='%231c8686' fill-opacity='.13'/%3E%3Cpath d='M150 170c26 14 40 44 28 76-2-26-18-44-46-48 9-7 14-17 18-28z' fill='%23e6ab2c' fill-opacity='.22'/%3E%3Cpath d='M206 40c-10 22-34 32-58 22 20-2 34-14 38-36 6 7 12 11 20 14z' fill='%23ee6a4a' fill-opacity='.15'/%3E%3Cg stroke='%232a2826' stroke-opacity='.16'%3E%3Cpath d='M70 150v24M58 162h24M62 154l16 16M78 154l-16 16'/%3E%3Cpath d='M228 120v14M221 127h14'/%3E%3Cpath d='M120 96v10M115 101h10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+html[lang="ar"] body{font-family:"Almarai","Josefin Sans",system-ui,sans-serif;line-height:1.8}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}ul{list-style:none}svg{display:block}
+
+.ctl{position:fixed;inset-block-start:14px;inset-inline-end:14px;z-index:50;display:flex;gap:8px}
+.ctl a,.ctl button{font:700 14px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--cream);border:2.5px solid var(--ink);border-radius:999px 999px 999px 6px;padding:11px 15px 8px;min-height:40px;cursor:pointer;text-decoration:none;display:flex;align-items:center;box-shadow:3px 3px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.ctl button{background:var(--mus);border-radius:999px 999px 6px 999px}
+html[dir="rtl"] .ctl a{border-radius:999px 999px 6px 999px}html[dir="rtl"] .ctl button{border-radius:999px 999px 999px 6px}
+html[lang="ar"] .ctl a,html[lang="en"] .ctl button{font:700 15px/1 "Almarai",sans-serif;padding-block:9px}
+.ctl a:hover,.ctl button:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+
+/* ---------- hero: the googie sign ---------- */
+.hero{position:relative;padding:clamp(84px,9vw,130px) clamp(16px,5vw,80px) 0;max-width:1500px;margin-inline:auto}
+.hero,.nib,.side,footer{overflow-x:clip}
+.burst{position:absolute;color:var(--ink)}
+.hero .b1{inset-block-start:clamp(54px,5vw,70px);inset-inline-start:clamp(4px,3vw,60px);width:clamp(70px,10vw,150px);animation:tw 9s linear infinite}
+.hero .b2{inset-block-end:40%;inset-inline-end:clamp(6px,2vw,30px);width:clamp(54px,7vw,110px);color:var(--coral);animation:tw 14s linear infinite reverse}
+@keyframes tw{to{transform:rotate(360deg)}}
+.est{display:block;text-align:center;font:700 clamp(13px,1.2vw,16px)/1 var(--sans);letter-spacing:.42em;text-transform:uppercase;margin-block-end:clamp(22px,3vw,40px)}
+html[lang="ar"] .est{font:700 clamp(16px,1.5vw,20px)/1.4 "Almarai",sans-serif}
+h1{position:relative;z-index:1}
+.tiles{display:flex;justify-content:center;gap:clamp(5px,1.1vw,16px);direction:ltr}
+.tile{flex:1 1 0;max-width:200px;aspect-ratio:.74;display:grid;place-items:center;font:700 clamp(44px,11.5vw,176px)/1 var(--sans);color:var(--cream);background:var(--c);border:clamp(2.5px,.3vw,4px) solid var(--ink);border-radius:18% 6% 18% 6% / 12% 5% 12% 5%;box-shadow:clamp(4px,.6vw,9px) clamp(4px,.6vw,9px) 0 var(--ink);transform:rotate(var(--r)) translateY(var(--y));padding-block-start:.14em}
+.tile:nth-child(1){--c:var(--teal);--r:-5deg;--y:6%}.tile:nth-child(2){--c:var(--mus);--r:4deg;--y:-5%;color:var(--ink)}.tile:nth-child(3){--c:var(--coral);--r:-2deg;--y:8%}
+.tile:nth-child(4){--c:var(--ink);--r:5deg;--y:-3%}.tile:nth-child(5){--c:var(--mus);--r:-4deg;--y:7%;color:var(--ink)}.tile:nth-child(6){--c:var(--teal);--r:3deg;--y:-6%}
+.tiles.ar{direction:rtl;gap:clamp(8px,2vw,30px)}
+.tiles.ar .tile{aspect-ratio:auto;max-width:none;flex:0 1 auto;font:700 clamp(38px,10.5vw,170px)/1.5 "Lemonada",cursive;padding:.06em .32em .2em;border-radius:14% 5% 14% 5% / 22% 8% 22% 8%}
+.tiles.ar .tile:nth-child(1){--c:var(--coral);--r:-4deg;--y:4%}.tiles.ar .tile:nth-child(2){--c:var(--teal);--r:3deg;--y:-4%;color:var(--cream)}
+.lounge{display:block;font:400 clamp(84px,17vw,270px)/.8 var(--script);color:var(--coral);text-shadow:.02em .025em 0 var(--ink);transform:rotate(-7deg);margin-block-start:-.16em;margin-inline-start:28%;position:relative;z-index:2;text-align:start;width:max-content;max-width:72%}
+.lounge.ar{font:700 clamp(27px,4vw,62px)/1.5 "Lemonada",cursive;color:var(--ink);text-shadow:none;transform:rotate(-4deg);margin:.5em auto 0;background:var(--mus);border:clamp(2.5px,.3vw,4px) solid var(--ink);border-radius:999px 999px 999px 12px;padding:.05em .7em .2em;max-width:96%;box-shadow:5px 5px 0 var(--ink);text-align:center}
+
+/* arrow marquee */
+.arrow{position:relative;margin:clamp(26px,3vw,44px) auto 0;max-width:1100px;background:var(--ink);color:var(--cream);padding:17px clamp(20px,4vw,60px) 14px;clip-path:polygon(0 0,calc(100% - 44px) 0,100% 50%,calc(100% - 44px) 100%,0 100%,22px 50%);display:flex;justify-content:center;gap:10px 26px;flex-wrap:wrap;font:700 clamp(13.5px,1.3vw,17px)/1.2 var(--sans);letter-spacing:.24em;text-transform:uppercase;text-align:center;
+  background-image:radial-gradient(circle,var(--mus) 0 3px,transparent 3.6px),radial-gradient(circle,var(--mus) 0 3px,transparent 3.6px);background-size:22px 8px,22px 8px;background-position:0 3px,11px calc(100% - 3px);background-repeat:repeat-x}
+html[dir="rtl"] .arrow{transform:scaleX(-1)}html[dir="rtl"] .arrow>*{transform:scaleX(-1)}
+html[lang="ar"] .arrow{font:700 clamp(15.5px,1.5vw,19px)/1.5 "Almarai",sans-serif;padding-block:14px}
+.arrow span:nth-child(even){color:var(--mus)}
+
+.lede{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:clamp(20px,4vw,70px);align-items:center;padding-block:clamp(40px,6vw,90px)}
+.lede h2{font:700 clamp(30px,4vw,60px)/1.02 var(--sans);letter-spacing:-.01em}
+.lede h2 em{font:400 1.25em/.8 var(--script);color:var(--teal);font-style:normal}
+html[lang="ar"] .lede h2{font:800 clamp(28px,3.6vw,52px)/1.4 "Almarai",sans-serif}
+html[lang="ar"] .lede h2 em{font:700 .95em/1.4 "Lemonada",cursive}
+.lede p{font-size:clamp(17px,1.35vw,20px)}
+.clockb{position:relative;width:clamp(170px,17vw,230px);aspect-ratio:1;display:grid;place-content:center;text-align:center;justify-self:center}
+.clockb svg{position:absolute;inset:-16%;width:132%;height:132%;color:var(--ink);animation:tw 40s linear infinite}
+.clockb div{position:relative;width:clamp(138px,13.5vw,186px);aspect-ratio:1;border-radius:50%;background:var(--coral);border:4px solid var(--ink);display:grid;place-content:center;color:var(--cream);padding:10px;box-shadow:5px 5px 0 var(--ink)}
+.clockb b{font:400 clamp(30px,2.9vw,42px)/.9 var(--script)}
+html[lang="ar"] .clockb b{font:700 clamp(19px,1.8vw,25px)/1.5 "Lemonada",cursive}
+.clockb small{font:700 13px/1.25 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-block-start:5px}
+html[lang="ar"] .clockb small{font:700 14px/1.5 "Almarai",sans-serif}
+
+/* ---------- shared heading ---------- */
+.hd{display:flex;align-items:flex-end;gap:14px 26px;flex-wrap:wrap;margin-block-end:clamp(24px,3vw,44px)}
+.hd h2{font:400 clamp(58px,7.6vw,118px)/.86 var(--script);color:var(--hc,var(--coral));text-shadow:.03em .03em 0 var(--hs,var(--ink));padding-inline-end:.1em}
+html[lang="ar"] .hd h2{font:700 clamp(38px,5vw,76px)/1.5 "Lemonada",cursive;text-shadow:.04em .04em 0 var(--hs,var(--ink))}
+.hd p{font:700 14.5px/1.5 var(--sans);letter-spacing:.2em;text-transform:uppercase;max-width:28em;padding-block-end:.5em}
+html[lang="ar"] .hd p{font:700 17px/1.7 "Almarai",sans-serif}
+.pr{font:700 21px/1 var(--sans);white-space:nowrap;unicode-bidi:isolate}
+.pr i{font-style:normal;font-size:.56em;letter-spacing:.1em;margin-inline-start:.25em}
+html[lang="ar"] .pr i{font:700 .66em "Almarai",sans-serif}
+h3{font:700 clamp(19px,1.55vw,23px)/1.15 var(--sans);letter-spacing:.03em;text-transform:uppercase}
+html[lang="ar"] h3{font:800 clamp(19px,1.6vw,23px)/1.5 "Almarai",sans-serif}
+
+/* ---------- 1 · the bar ---------- */
+.bar{position:relative;background:var(--teal-d);color:var(--cream);padding:clamp(60px,7vw,110px) clamp(16px,5vw,80px) clamp(70px,8vw,120px);border-block:6px solid var(--ink);--hc:var(--mus);--hs:#0a3537;overflow:clip}
+.bar::before{content:"";position:absolute;inset-block-start:-120px;inset-inline-end:-80px;width:420px;height:420px;border-radius:44% 56% 62% 38% / 52% 40% 60% 48%;background:var(--teal);opacity:.6}
+.bar>*{position:relative;max-width:1340px;margin-inline:auto}
+.drinks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(26px,3vw,50px) clamp(20px,3vw,50px)}
+.dr{display:grid;grid-template-columns:clamp(84px,8vw,112px) minmax(0,1fr);gap:16px;align-items:center}
+.gl{position:relative;aspect-ratio:.72;display:grid;place-items:end center}
+.gl::before{content:"";position:absolute;inset:8% 0 0;border-radius:52% 48% 44% 56% / 60% 54% 46% 40%;background:var(--bl,var(--teal));transform:rotate(var(--br,0deg))}
+.gl svg{position:relative;width:74%;height:auto;color:var(--cream);transition:transform .35s}
+.dr:hover .gl svg{transform:rotate(-7deg) translateY(-4px)}
+.dr:nth-child(2n) .gl{--br:40deg}.dr:nth-child(3n) .gl{--br:-70deg}
+.dr p{color:#d6ebe4;margin-block:5px 9px;font-size:16.5px}
+.dr .pr{color:var(--mus)}
+.mood{display:inline-block;font:700 12.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;border:1.5px solid currentColor;border-radius:999px;padding:6px 10px 3px;margin-inline-start:10px;color:var(--teal-l);vertical-align:2px}
+html[lang="ar"] .mood{font:700 14px/1.2 "Almarai",sans-serif;padding:3px 11px 5px}
+.mood.sig{background:var(--coral);border-color:var(--coral);color:#fff}
+
+/* ---------- 2 · kidney table ---------- */
+.nib{position:relative;padding:clamp(60px,7vw,110px) clamp(10px,4vw,70px);max-width:1500px;margin-inline:auto}
+.nib .hd{padding-inline:clamp(6px,3vw,50px);--hc:var(--teal)}
+.kidney{position:relative;background:var(--mus);border:5px solid var(--ink);border-radius:38% 62% 55% 45% / 46% 40% 60% 54%;padding:clamp(70px,9vw,130px) clamp(60px,11vw,190px) clamp(80px,8vw,120px);box-shadow:12px 14px 0 var(--ink)}
+html[dir="rtl"] .kidney{border-radius:62% 38% 45% 55% / 40% 46% 54% 60%;box-shadow:-12px 14px 0 var(--ink)}
+.kidney ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2vw,30px) clamp(30px,5vw,80px)}
+.pl{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;align-items:baseline}
+.pl p{grid-column:1/-1;font-size:16.5px;color:#3a3020}
+.pl .dots{grid-column:1/-1}
+.pl:last-child{grid-column:1/-1;max-width:30em;justify-self:center;text-align:center;grid-template-columns:1fr}
+.vg{display:inline-block;font:700 12px/1 var(--sans);letter-spacing:.14em;background:var(--teal-d);color:var(--cream);border-radius:999px;padding:5px 9px 2px;margin-inline-start:8px;vertical-align:3px}
+html[lang="ar"] .vg{font:700 13px/1.2 "Almarai",sans-serif;padding:3px 10px 5px}
+.nib .b3{inset-block-start:clamp(110px,14vw,220px);inset-inline-end:clamp(0px,3vw,60px);width:clamp(80px,11vw,170px);z-index:2;color:var(--coral)}
+.nib .b4{inset-block-end:clamp(20px,4vw,70px);inset-inline-start:clamp(0px,5vw,100px);width:clamp(60px,7vw,110px);z-index:2;color:var(--teal)}
+
+/* ---------- 3 · sideboard ---------- */
+.side{padding:clamp(30px,4vw,60px) clamp(16px,5vw,80px) clamp(40px,5vw,70px);max-width:1500px;margin-inline:auto}
+.cred{position:relative;background:linear-gradient(180deg,#8d5631,var(--wal) 30%,var(--wal-d));border:5px solid var(--ink);border-radius:20px;padding:clamp(10px,1.3vw,18px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(8px,1vw,14px);box-shadow:0 18px 0 -8px rgba(42,40,38,.25)}
+.door{position:relative;background:var(--dc,var(--cream));color:var(--df,var(--ink));border:3px solid var(--ink);border-radius:10px;padding:clamp(18px,1.8vw,28px) clamp(16px,1.6vw,24px) 58px;display:flex;flex-direction:column;gap:8px}
+.door::after{content:"";position:absolute;inset-block-end:18px;inset-inline-end:18px;width:18px;height:18px;border-radius:50%;background:var(--mus);border:3px solid var(--ink)}
+.door:nth-child(even)::after{inset-inline:18px auto}
+.door:nth-child(1){--dc:var(--teal);--df:var(--cream)}.door:nth-child(3){--dc:var(--coral);--df:#fff}.door:nth-child(4){--dc:var(--cream2)}
+.door:nth-child(1)::after,.door:nth-child(3)::after{background:var(--cream)}
+.door p{font-size:16.5px;flex:1}
+.door small{font:700 12.5px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+html[lang="ar"] .door small{font:700 14.5px/1.5 "Almarai",sans-serif}
+.door .pr{font-size:26px}
+.legs{display:flex;justify-content:space-between;padding-inline:11%;height:clamp(50px,6vw,86px)}
+.legs i{width:20px;background:var(--ink);clip-path:polygon(0 0,100% 0,70% 100%,30% 100%);transform:rotate(9deg);transform-origin:top}
+.legs i:last-child{transform:rotate(-9deg)}
+.floor{height:5px;background:var(--ink);border-radius:3px;margin-inline:4%}
+
+/* ---------- 4 · after dark ---------- */
+.dark{position:relative;background:var(--ink);color:var(--cream);margin-block-start:clamp(40px,5vw,80px);padding:clamp(60px,7vw,110px) clamp(16px,5vw,80px);--hc:var(--coral);--hs:#000;overflow:clip;
+  background-image:linear-gradient(135deg,rgba(247,238,216,.045) 25%,transparent 25%),linear-gradient(225deg,rgba(247,238,216,.045) 25%,transparent 25%),linear-gradient(45deg,rgba(247,238,216,.045) 25%,transparent 25%),linear-gradient(315deg,rgba(247,238,216,.045) 25%,transparent 25%);background-size:64px 64px;background-position:32px 0,32px 0,0 0,0 0}
+.dark>*{max-width:1340px;margin-inline:auto}
+.sweets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(22px,2.6vw,40px);padding-inline:clamp(0px,1.4vw,22px)}
+.sw{position:relative;padding:clamp(22px,2.2vw,32px) clamp(18px,1.8vw,26px);color:var(--ink);display:flex;flex-direction:column;gap:8px;min-height:230px;z-index:0}
+.sw::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--c);border:3px solid var(--cream);border-radius:22px 6px 22px 6px;transform:skewX(-7deg) rotate(var(--r,0deg));box-shadow:7px 7px 0 var(--coral-d)}
+html[dir="rtl"] .sw::before{transform:skewX(7deg) rotate(var(--r,0deg));box-shadow:-7px 7px 0 var(--coral-d)}
+.sw:nth-child(1){--c:var(--mus);--r:-1.5deg}.sw:nth-child(2){--c:var(--cream);--r:1.2deg;margin-block-start:26px}.sw:nth-child(3){--c:var(--teal-l);--r:-1deg}.sw:nth-child(4){--c:var(--coral);--r:1.6deg;margin-block-start:26px}
+.sw p{font-size:16.5px;flex:1}
+.sw small{font:700 12.5px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+html[lang="ar"] .sw small{font:700 14.5px/1.5 "Almarai",sans-serif}
+
+/* ---------- footer ---------- */
+footer{position:relative;padding:clamp(50px,6vw,90px) clamp(16px,5vw,80px) 40px;max-width:1500px;margin-inline:auto}
+.foot{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,70px);align-items:start}
+.tv{position:relative;width:clamp(250px,24vw,330px);background:var(--wal);border:5px solid var(--ink);border-radius:26px;padding:16px 16px 14px;margin-block-start:54px;box-shadow:8px 8px 0 var(--ink)}
+.tv::before,.tv::after{content:"";position:absolute;inset-block-end:100%;left:50%;width:4px;height:56px;background:var(--ink);transform-origin:bottom;transform:rotate(-32deg)}
+.tv::after{transform:rotate(32deg)}
+.screen{background:radial-gradient(ellipse at 50% 40%,#2f9c9a,var(--teal-d));color:var(--cream);border:4px solid var(--ink);border-radius:44% / 20%;padding:26px 24px 22px;text-align:center}
+.screen h4{font:400 34px/1 var(--script);color:var(--mus);margin-block-end:6px}
+html[lang="ar"] .screen h4{font:700 23px/1.5 "Lemonada",cursive}
+.screen li{display:flex;justify-content:space-between;gap:10px;font-size:15.5px;border-bottom:1px dashed rgba(247,238,216,.4);padding-block:4px}
+.screen li span:last-child{white-space:nowrap}
+.knobs{display:flex;gap:8px;justify-content:flex-end;margin-block-start:10px}
+.knobs i{width:16px;height:16px;border-radius:50%;background:var(--mus);border:3px solid var(--ink)}
+.foot h4.t{font:700 15px/1.3 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--coral-d);margin-block-end:8px}
+html[lang="ar"] .foot h4.t{font:800 19px/1.5 "Almarai",sans-serif}
+.foot p{margin-block-end:10px}
+.bye{font:400 clamp(44px,6vw,92px)/1 var(--script);color:var(--teal);text-shadow:.03em .03em 0 var(--ink);text-align:center;margin-block-start:clamp(36px,5vw,70px);transform:rotate(-3deg)}
+html[lang="ar"] .bye{font:700 clamp(30px,4.2vw,62px)/1.6 "Lemonada",cursive}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .drinks{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cred{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sweets{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lede{grid-template-columns:1fr 1fr}.lede h2{grid-column:1/-1}
+  .foot{grid-template-columns:auto 1fr}.foot>div:last-child{grid-column:1/-1}
+  .kidney{padding-inline:clamp(40px,9vw,120px)}
+}
+@media (max-width:700px){
+  .lede{grid-template-columns:1fr}
+  .drinks{grid-template-columns:1fr}
+  .kidney{border-radius:90px 150px 110px 170px / 120px 100px 170px 130px;padding:74px 30px 96px;border-width:4px;box-shadow:7px 9px 0 var(--ink)}
+  html[dir="rtl"] .kidney{border-radius:150px 90px 170px 110px / 100px 120px 130px 170px;box-shadow:-7px 9px 0 var(--ink)}
+  .kidney ul{grid-template-columns:1fr}
+  .pl:last-child{text-align:start;max-width:none}
+  .cred{grid-template-columns:1fr}
+  .legs{padding-inline:16%}
+  .sweets{grid-template-columns:1fr;gap:26px;padding-inline:8px}
+  .sw{min-height:0}.sw:nth-child(n){margin-block-start:0}
+  .foot{grid-template-columns:1fr}.tv{margin-inline:auto}
+  .lounge{margin-inline-start:20%}
+  .tiles:not(.ar){display:grid;grid-template-columns:repeat(3,1fr);gap:14px 10px;max-width:340px;margin-inline:auto}
+  .tiles:not(.ar) .tile{font-size:clamp(64px,23vw,104px);aspect-ratio:.86;max-width:none}
+  .est{letter-spacing:.16em;line-height:1.5;padding-inline:30px}
+  .lounge:not(.ar){font-size:clamp(76px,24vw,130px);margin-block-start:-.08em;margin-inline-start:10%;max-width:none}
+  .hero .b2{display:none}
+  .hero .b1{inset-block-start:44px;inset-inline-start:-14px;opacity:.6}
+  .arrow{clip-path:polygon(0 0,calc(100% - 24px) 0,100% 50%,calc(100% - 24px) 100%,0 100%,12px 50%);letter-spacing:.14em;padding-inline:30px}
+  .ctl a,.ctl button{padding-inline:12px;font-size:13px}
+  .hd p{letter-spacing:.12em}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="burst" viewBox="-50 -50 100 100"><g stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M0-46V46M-46 0H46M-33-33 33 33M-33 33 33-33"/><path d="M-12-29 12 29M12-29-12 29M-29-12 29 12M-29 12 29-12" stroke-width="1.4"/></g><g fill="currentColor"><circle r="7"/><circle cy="-46" r="4"/><circle cy="46" r="4"/><circle cx="-46" r="4"/><circle cx="46" r="4"/><circle cx="-33" cy="-33" r="3"/><circle cx="33" cy="33" r="3"/><circle cx="-33" cy="33" r="3"/><circle cx="33" cy="-33" r="3"/></g></symbol>
+  <symbol id="g-coupe" viewBox="0 0 60 100"><path d="M9 22q21 34 42 0z" fill="var(--liq)"/><path d="M6 16q24 44 48 0zM30 44v42M16 90h28" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="20" r="5" fill="#c9302c" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="g-high" viewBox="0 0 60 100"><path d="M17 30h26l-2 56H19z" fill="var(--liq)"/><path d="M15 10h30l-3 78H18z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M36 4 28 60" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M22 40h8v8h-8zM31 54h8v8h-8z" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".8"/><circle cx="46" cy="12" r="8" fill="#f2a23a" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="g-rocks" viewBox="0 0 60 100"><path d="M12 58h36l-2 28H14z" fill="var(--liq)"/><path d="M9 42h42l-4 46H13z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M20 62h10v10H20zM32 70h9v9h-9z" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".8"/><path d="M34 30q10 4 6 18" fill="none" stroke="#4d8a3b" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="g-mart" viewBox="0 0 60 100"><path d="M11 20h38L30 46z" fill="var(--liq)"/><path d="M5 12h50L30 48zM30 48v38M16 90h28" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 6 30 30" stroke="currentColor" stroke-width="2"/><circle cx="38" cy="18" r="4.5" fill="#6f8f3a" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="g-tulip" viewBox="0 0 60 100"><path d="M15 24q-2 22 15 34 17-12 15-34z" fill="var(--liq)"/><path d="M16 8q-12 34 14 52 26-18 14-52zM30 60v26M17 90h26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 2 30 40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+  <symbol id="g-flute" viewBox="0 0 60 100"><path d="M22 22h16q0 26-8 36-8-10-8-36z" fill="var(--liq)"/><path d="M20 6h20q3 40-10 54Q17 46 20 6zM30 60v26M18 90h24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><circle cx="27" cy="34" r="1.6"/><circle cx="32" cy="42" r="1.4"/><circle cx="30" cy="27" r="1.2"/></g></symbol>
+</defs></svg>
+
+<div class="ctl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<header class="hero">
+  <svg class="burst b1" aria-hidden="true"><use href="#burst"/></svg>
+  <svg class="burst b2" aria-hidden="true"><use href="#burst"/></svg>
+  <span class="est"><span lang="en">Est. 1957 · Seventh floor, the Stardust Building</span><span lang="ar">منذ 1957 · الطابق السابع، مبنى ستاردست</span></span>
+  <h1>
+    <span lang="en" class="tiles" aria-label="Atomic"><i class="tile" style="font-style:normal">A</i><i class="tile" style="font-style:normal">T</i><i class="tile" style="font-style:normal">O</i><i class="tile" style="font-style:normal">M</i><i class="tile" style="font-style:normal">I</i><i class="tile" style="font-style:normal">C</i></span>
+    <span lang="ar" class="tiles ar"><i class="tile" style="font-style:normal">صالة</i><i class="tile" style="font-style:normal">الذرّة</i></span>
+    <span lang="en" class="lounge">Lounge</span>
+    <span lang="ar" class="lounge ar">موكتيلات وأطباق صغيرة</span>
+  </h1>
+  <div class="arrow"><span lang="en">Mocktails</span><span lang="ar">موكتيلات</span><span lang="en">Small plates</span><span lang="ar">أطباق صغيرة</span><span lang="en">Hi-fi records</span><span lang="ar">أسطوانات هاي فاي</span><span lang="en">Open late</span><span lang="ar">نسهر حتى وقت متأخر</span></div>
+
+  <div class="lede">
+    <h2><span lang="en">The future, as promised in <em>1957.</em></span><span lang="ar">المستقبل كما وُعِدنا به عام <em>1957.</em></span></h2>
+    <p><span lang="en">Sink into a low teak chair, let the hi-fi warm up and order something tall and cold. Every drink on this card is zero-proof and shaken by hand; every plate is small enough to hold in one hand at a party.</span><span lang="ar">استرخوا على كرسي منخفض من خشب الساج، ودعوا جهاز الأسطوانات يسخن، واطلبوا كأسًا طويلة باردة. كل مشروب في هذه القائمة خالٍ من الكحول ويُخفق يدويًا، وكل طبق صغير بما يكفي لحمله بيد واحدة في أي سهرة.</span></p>
+    <div class="clockb"><svg aria-hidden="true"><use href="#burst"/></svg><div><b><span lang="en">Happy Hour</span><span lang="ar">الساعة السعيدة</span></b><small><span lang="en">5 to 7 pm<br>two drinks · 60 SAR</span><span lang="ar">من 5 إلى 7 مساءً<br>كأسان بـ 60 ر.س</span></small></div></div>
+  </div>
+</header>
+
+<main>
+<section class="bar" id="bar">
+  <div class="hd"><h2><span lang="en">Shaken &amp; Stirred</span><span lang="ar">مخفوق ومُحرَّك</span></h2><p><span lang="en">Zero-proof cocktails from the bar cart, built to order</span><span lang="ar">موكتيلات بلا كحول من عربة المشروبات، تُحضَّر عند الطلب</span></p></div>
+  <ul class="drinks">
+    <li class="dr" style="--liq:#ee6a4a;--bl:#1c8686"><div class="gl"><svg viewBox="0 0 60 100" aria-hidden="true"><use href="#g-high"/></svg></div><div><h3><span lang="en">Sputnik Spritz</span><span lang="ar">سبوتنيك سبريتز</span></h3><p><span lang="en">Blood orange, a bitter gentian aperitif, soda and one green olive in orbit.</span><span lang="ar">برتقال أحمر ومشروب مُرّ من جذور الجنطيانا مع الصودا وحبّة زيتون خضراء تدور في الكأس.</span></p><b class="pr">38<i lang="en">SAR</i><i lang="ar">ر.س</i></b><span class="mood"><span lang="en">Bitter · fizzy</span><span lang="ar">مُرّ · فوّار</span></span></div></li>
+    <li class="dr" style="--liq:#5bb9e0;--bl:#0d4648"><div class="gl"><svg viewBox="0 0 60 100" aria-hidden="true"><use href="#g-tulip"/></svg></div><div><h3><span lang="en">Kidney Pool</span><span lang="ar">المسبح المنحني</span></h3><p><span lang="en">Butterfly pea tea, coconut water and lime under a cloud of pineapple foam.</span><span lang="ar">شاي زهرة البازلاء الزرقاء وماء جوز الهند والليمون الأخضر تحت غيمة من رغوة الأناناس.</span></p><b class="pr">36<i lang="en">SAR</i><i lang="ar">ر.س</i></b><span class="mood"><span lang="en">Tropical</span><span lang="ar">استوائي</span></span></div></li>
+    <li class="dr" style="--liq:#f3c64f;--bl:#ee6a4a"><div class="gl"><svg viewBox="0 0 60 100" aria-hidden="true"><use href="#g-rocks"/></svg></div><div><h3><span lang="en">Atomic No. 5</span><span lang="ar">الذرّة رقم 5</span></h3><p><span lang="en">Smoked pineapple, jalapeño and lime over one big rock, with a sprig of charred rosemary.</span><span lang="ar">أناناس مدخّن وهالبينو وليمون أخضر فوق مكعّب ثلج كبير، مع غصن إكليل الجبل المحروق.</span></p><b class="pr">42<i lang="en">SAR</i><i lang="ar">ر.س</i></b><span class="mood sig"><span lang="en">House signature</span><span lang="ar">توقيع الصالة</span></span></div></li>
+    <li class="dr" style="--liq:#4a2c1a;--bl:#e6ab2c"><div class="gl"><svg viewBox="0 0 60 100" aria-hidden="true"><use href="#g-mart"/></svg></div><div><h3><span lang="en">The Jetsetter</span><span lang="ar">المسافر النفّاث</span></h3><p><span lang="en">Cold-brew coffee shaken hard with date syrup and orange peel, served straight up.</span><span lang="ar">قهوة باردة التخمير تُخفق بقوة مع دبس التمر وقشر البرتقال، وتُقدَّم بلا ثلج.</span></p><b class="pr">34<i lang="en">SAR</i><i lang="ar">ر.س</i></b><span class="mood"><span lang="en">Bold</span><span lang="ar">قويّ</span></span></div></li>
+    <li class="dr" style="--liq:#f2b632;--bl:#1c8686"><div class="gl"><svg viewBox="0 0 60 100" aria-hidden="true"><use href="#g-flute"/></svg></div><div><h3><span lang="en">Miss Mustard</span><span lang="ar">الآنسة خردل</span></h3><p><span lang="en">Fresh turmeric, ginger, honey and lemon, topped with sparkling white grape.</span><span lang="ar">كركم طازج وزنجبيل وعسل وليمون، يُكمَّل بعصير العنب الأبيض الفوّار.</span></p><b class="pr">34<i lang="en">SAR</i><i lang="ar">ر.س</i></b><span class="mood"><span lang="en">Spiced · fizzy</span><span lang="ar">متبّل · فوّار</span></span></div></li>
+    <li class="dr" style="--liq:#f08a9b;--bl:#0d4648"><div class="gl"><svg viewBox="0 0 60 100" aria-hidden="true"><use href="#g-coupe"/></svg></div><div><h3><span lang="en">Coral Reef</span><span lang="ar">الشِّعب المرجاني</span></h3><p><span lang="en">Watermelon, hibiscus and rose water in a coupe with a pink salt rim.</span><span lang="ar">بطيخ وكركديه وماء ورد في كأس واسعة بحافة من الملح الوردي.</span></p><b class="pr">36<i lang="en">SAR</i><i lang="ar">ر.س</i></b><span class="mood"><span lang="en">Sweet-tart</span><span lang="ar">حلو حامض</span></span></div></li>
+  </ul>
+</section>
+
+<section class="nib" id="nibbles">
+  <svg class="burst b3" aria-hidden="true"><use href="#burst"/></svg>
+  <svg class="burst b4" aria-hidden="true"><use href="#burst"/></svg>
+  <div class="hd"><h2><span lang="en">Canapé Hour</span><span lang="ar">ساعة المقبّلات</span></h2><p><span lang="en">Small plates for passing around the coffee table</span><span lang="ar">أطباق صغيرة تدور حول طاولة القهوة</span></p></div>
+  <div class="kidney"><ul>
+    <li class="pl"><h3><span lang="en">Devilled Eggs</span><span lang="ar">بيض محشو بالتوابل</span></h3><b class="pr">24<i lang="en">SAR</i><i lang="ar">ر.س</i></b><p><span lang="en">Six halves piped with mustard yolk cream, smoked paprika and chives.</span><span lang="ar">ستة أنصاف بيض محشوّة بكريمة الصفار والخردل مع بابريكا مدخّنة وثوم معمّر.</span></p></li>
+    <li class="pl"><h3><span lang="en">Prawn Cocktail</span><span lang="ar">كوكتيل الروبيان</span></h3><b class="pr">48<i lang="en">SAR</i><i lang="ar">ر.س</i></b><p><span lang="en">Chilled poached prawns hooked over a coupe of Marie Rose sauce and crisp lettuce.</span><span lang="ar">روبيان مسلوق ومبرّد يتدلّى على حافة كأس من صلصة ماري روز والخس المقرمش.</span></p></li>
+    <li class="pl"><h3><span lang="en">The Cheese Ball</span><span lang="ar">كرة الجبن</span></h3><b class="pr">32<i lang="en">SAR</i><i lang="ar">ر.س</i></b><p><span lang="en">Sharp cheddar and labneh rolled in pistachio and parsley, with salted crackers.</span><span lang="ar">شيدر حادّ ولبنة تُدحرج في الفستق والبقدونس، مع بسكويت مملّح.</span></p></li>
+    <li class="pl"><h3><span lang="en">Cocktail Meatballs</span><span lang="ar">كرات اللحم على الأعواد</span></h3><b class="pr">38<i lang="en">SAR</i><i lang="ar">ر.س</i></b><p><span lang="en">Beef meatballs on sticks in cream gravy, with a spoon of cranberry relish.</span><span lang="ar">كرات لحم بقري على أعواد بصلصة الكريمة، مع ملعقة من مربّى التوت البرّي.</span></p></li>
+    <li class="pl"><h3><span lang="en">Devils on Horseback</span><span lang="ar">تمر محشو ملفوف</span></h3><b class="pr">34<i lang="en">SAR</i><i lang="ar">ر.س</i></b><p><span lang="en">Medjool dates stuffed with almonds, wrapped in smoked beef bacon and grilled.</span><span lang="ar">تمر مجدول محشو باللوز وملفوف بلحم البقر المدخّن ثم مشوي.</span></p></li>
+    <li class="pl"><h3><span lang="en">Stuffed Mushrooms</span><span lang="ar">فطر محشو</span><span class="vg"><span lang="en">VEG</span><span lang="ar">نباتي</span></span></h3><b class="pr">28<i lang="en">SAR</i><i lang="ar">ر.س</i></b><p><span lang="en">Button mushrooms filled with spinach, garlic and parmesan crumbs.</span><span lang="ar">فطر صغير محشو بالسبانخ والثوم وفتات البارميزان.</span></p></li>
+    <li class="pl"><h3><span lang="en">Crudités &amp; Green Goddess</span><span lang="ar">خضار نيئة وصلصة غرين غودِس</span><span class="vg"><span lang="en">VEG</span><span lang="ar">نباتي</span></span></h3><p><span lang="en">Iced radish, carrot and celery around a bowl of herb and avocado dip.</span><span lang="ar">فجل وجزر وكرفس على الثلج حول وعاء من صلصة الأعشاب والأفوكادو.</span></p><b class="pr">26<i lang="en">SAR</i><i lang="ar">ر.س</i></b></li>
+  </ul></div>
+</section>
+
+<section class="side" id="sideboard">
+  <div class="hd" style="--hc:var(--coral)"><h2><span lang="en">On the Sideboard</span><span lang="ar">على البوفيه</span></h2><p><span lang="en">Bigger things to share, carried out with ceremony</span><span lang="ar">أطباق أكبر للمشاركة، تُقدَّم باحتفاء</span></p></div>
+  <ul class="cred">
+    <li class="door"><small><span lang="en">For two · lit at the table</span><span lang="ar">لشخصين · يُشعل على الطاولة</span></small><h3><span lang="en">Fondue Set</span><span lang="ar">طقم الفوندو</span></h3><p><span lang="en">Gruyère and Emmental melted with sparkling apple, with bread cubes, new potatoes and cornichons.</span><span lang="ar">جبن غرويير وإيمنتال مذاب مع عصير التفاح الفوّار، يُقدَّم مع مكعبات الخبز والبطاطا الصغيرة والخيار المخلّل.</span></p><b class="pr">96<i lang="en">SAR</i><i lang="ar">ر.س</i></b></li>
+    <li class="door"><small><span lang="en">For two or three</span><span lang="ar">لشخصين أو ثلاثة</span></small><h3><span lang="en">The Lazy Susan</span><span lang="ar">الصينية الدوّارة</span></h3><p><span lang="en">A turning tray of olives, pickles, three cheeses, beef bresaola, grapes and crackers.</span><span lang="ar">صينية دوّارة من الزيتون والمخللات وثلاثة أجبان وبريزاولا البقر والعنب والبسكويت المملّح.</span></p><b class="pr">78<i lang="en">SAR</i><i lang="ar">ر.س</i></b></li>
+    <li class="door"><small><span lang="en">Chef's favourite</span><span lang="ar">المفضّل لدى الشيف</span></small><h3><span lang="en">TV Dinner Tray</span><span lang="ar">صينية عشاء التلفاز</span></h3><p><span lang="en">Four compartments: three beef sliders, crinkle fries, creamy slaw and a warm brownie square.</span><span lang="ar">أربع خانات: ثلاث شطائر برغر صغيرة، بطاطا مموّجة، سلطة ملفوف بالكريمة، ومربّع براوني دافئ.</span></p><b class="pr">88<i lang="en">SAR</i><i lang="ar">ر.س</i></b></li>
+    <li class="door"><small><span lang="en">Six pieces</span><span lang="ar">ست قطع</span></small><h3><span lang="en">Chicken à la King</span><span lang="ar">دجاج «ألا كينغ»</span></h3><p><span lang="en">Vol-au-vent pastry cases filled with chicken, mushroom and pimento in cream sauce.</span><span lang="ar">سلال من العجين المورّق محشوّة بالدجاج والفطر والفلفل الحلو في صلصة الكريمة.</span></p><b class="pr">64<i lang="en">SAR</i><i lang="ar">ر.س</i></b></li>
+  </ul>
+  <div class="legs" aria-hidden="true"><i></i><i></i></div><div class="floor" aria-hidden="true"></div>
+</section>
+
+<section class="dark" id="sweets">
+  <div class="hd"><h2><span lang="en">After Dark</span><span lang="ar">حلوى آخر السهرة</span></h2><p style="color:var(--teal-l)"><span lang="en">Desserts your grandmother would recognise</span><span lang="ar">حلويات كانت جدّاتنا يعرفنها جيدًا</span></p></div>
+  <ul class="sweets">
+    <li class="sw"><h3><span lang="en">Pineapple Upside-Down</span><span lang="ar">كعكة الأناناس المقلوبة</span></h3><p><span lang="en">Caramelised pineapple rings and glacé cherries over warm butter sponge.</span><span lang="ar">حلقات أناناس مكرملة وكرز مسكّر فوق كعكة زبدة دافئة.</span></p><b class="pr">28<i lang="en">SAR</i><i lang="ar">ر.س</i></b></li>
+    <li class="sw"><small><span lang="en">For two · torched tableside</span><span lang="ar">لشخصين · تُحمَّص أمامكم</span></small><h3><span lang="en">Baked Alaska</span><span lang="ar">بيكد ألاسكا</span></h3><p><span lang="en">Raspberry and vanilla ice cream on sponge under a dome of toasted meringue.</span><span lang="ar">آيس كريم التوت والفانيلا على كعكة إسفنجية تحت قبّة من المرنغ المحمّص.</span></p><b class="pr">42<i lang="en">SAR</i><i lang="ar">ر.س</i></b></li>
+    <li class="sw"><h3><span lang="en">Grasshopper Pie</span><span lang="ar">فطيرة النعناع والشوكولاتة</span></h3><p><span lang="en">Cool mint cream in a dark chocolate biscuit crust. No spirits, all sparkle.</span><span lang="ar">كريمة النعناع الباردة في قاعدة من بسكويت الشوكولاتة الداكنة. بلا كحول وبكل البريق.</span></p><b class="pr">30<i lang="en">SAR</i><i lang="ar">ر.س</i></b></li>
+    <li class="sw"><h3><span lang="en">Ambrosia Coupe</span><span lang="ar">كأس الأمبروزيا</span></h3><p><span lang="en">Mandarin, coconut, toasted marshmallow and whipped cream in a tall glass.</span><span lang="ar">يوسفي وجوز هند ومارشميلو محمّص وكريمة مخفوقة في كأس طويلة.</span></p><b class="pr">26<i lang="en">SAR</i><i lang="ar">ر.س</i></b></li>
+  </ul>
+</section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div class="tv"><div class="screen"><h4><span lang="en">On tonight</span><span lang="ar">برنامج الليلة</span></h4><ul>
+      <li><span lang="en">Sun – Wed</span><span lang="ar">الأحد – الأربعاء</span><span dir="ltr">5 pm – 1 am</span></li>
+      <li><span lang="en">Thu – Sat</span><span lang="ar">الخميس – السبت</span><span dir="ltr">5 pm – 3 am</span></li>
+      <li><span lang="en">Live vibraphone</span><span lang="ar">فيبرافون حيّ</span><span lang="en">Thu, 9 pm</span><span lang="ar">الخميس 9 م</span></li></ul></div><div class="knobs" aria-hidden="true"><i></i><i></i><i></i></div></div>
+    <div><h4 class="t"><span lang="en">Find the sign</span><span lang="ar">ابحثوا عن اللافتة</span></h4>
+      <p><span lang="en">Seventh floor, the Stardust Building<br>57 Satellite Boulevard, Al Olaya, Riyadh</span><span lang="ar">الطابق السابع، مبنى ستاردست<br>57 جادّة القمر الصناعي، العليا، الرياض</span></p>
+      <p><span lang="en">Tables are held for fifteen minutes. Dress as if someone might take your photograph.</span><span lang="ar">نحتفظ بالطاولة خمس عشرة دقيقة. تأنّقوا كأن أحدًا سيلتقط لكم صورة.</span></p>
+      <p dir="ltr" style="unicode-bidi:plaintext;font-weight:700">+966 11 555 0139</p></div>
+    <div><h4 class="t"><span lang="en">The small print</span><span lang="ar">ملاحظات</span></h4>
+      <p><span lang="en">Every drink is alcohol-free and no pork is used in the kitchen. Dishes may contain nuts, dairy, egg, gluten, sesame and shellfish; please tell your host about any allergy.</span><span lang="ar">جميع المشروبات خالية من الكحول ولا يُستخدم لحم الخنزير في المطبخ. قد تحتوي الأطباق على مكسرات أو ألبان أو بيض أو غلوتين أو سمسم أو قشريات، فأخبروا المضيف بأي حساسية.</span></p>
+      <p><span lang="en">Prices in Saudi riyals, VAT included.</span><span lang="ar">الأسعار بالريال السعودي وتشمل ضريبة القيمة المضافة.</span></p></div>
+  </div>
+  <p class="bye"><span lang="en">See you after dark!</span><span lang="ar">نلقاكم بعد الغروب!</span></p>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

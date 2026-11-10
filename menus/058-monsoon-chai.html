@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Monsoon Chai · شاي المونسون</title>
+<meta name="description" content="Monsoon Chai — a chai and snacks menu read like a weather forecast: hourly chai, a snack outlook and a cold front of iced drinks. شاي المونسون: قائمة تُقرأ كنشرة الطقس.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1b2738">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500;600&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --sky1:#141d2c; --sky2:#22344a; --sky3:#3d566b; --sky4:#5d7684;
+  --glass:rgba(255,255,255,.10); --glass2:rgba(255,255,255,.16); --line:rgba(255,255,255,.18);
+  --txt:#f4f7fa; --dim:rgba(244,247,250,.72); --faint:rgba(244,247,250,.5);
+  --chai:#f0a856; --chai-d:#d9782d; --cool:#7fd1e8; --hot:#ff7a59; --leaf:#9fe0a8;
+  --font:"Outfit", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+html[lang="ar"]{ --font:"IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif; }
+*{box-sizing:border-box}
+body{margin:0; font-family:var(--font); font-size:16px; line-height:1.45; color:var(--txt); background:var(--sky1); -webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-size:17px; line-height:1.6}
+svg{display:block}
+ul,ol{list-style:none; margin:0; padding:0}
+h1,h2,h3,p{margin:0}
+
+/* ---------- sky ---------- */
+.page{position:relative; overflow:clip; min-height:100vh}
+.sky{position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none;
+  background:
+    radial-gradient(90% 600px at 78% 100%, rgba(240,168,86,.34), transparent 70%),
+    linear-gradient(170deg, var(--sky1) 0%, var(--sky2) 34%, var(--sky3) 70%, var(--sky4) 100%)}
+.cloud{position:absolute; border-radius:50%; background:radial-gradient(closest-side, rgba(200,214,226,.26), transparent); filter:blur(6px)}
+.cloud.c1{width:70vw; height:300px; top:-100px; left:-12vw}
+.cloud.c2{width:60vw; height:280px; top:-70px; right:-10vw; background:radial-gradient(closest-side, rgba(150,170,190,.3), transparent)}
+.cloud.c3{width:90vw; height:240px; top:150px; left:20vw; background:radial-gradient(closest-side, rgba(20,29,44,.5), transparent)}
+.rain{position:absolute; inset:-240px 0 0; opacity:.5;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg stroke='%23cfe6f5' stroke-width='1.3' stroke-linecap='round' opacity='.7'%3E%3Cpath d='M30 10l-6 26M110 60l-6 26M190 20l-6 26M70 130l-6 26M150 150l-6 26M220 110l-6 26M20 200l-6 26M120 215l-5 20'/%3E%3C/g%3E%3C/svg%3E")}
+.rain.r2{opacity:.3; background-size:150px 150px; inset:-150px 0 0}
+.flash{position:absolute; inset:0 0 auto; height:900px; background:radial-gradient(60% 50% at 30% 0%, rgba(210,230,255,.5), transparent 70%); opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  .rain{animation:fall .62s linear infinite}
+  .rain.r2{animation:fall2 .9s linear infinite}
+  @keyframes fall{to{transform:translateY(240px)}}
+  @keyframes fall2{to{transform:translateY(150px)}}
+  .flash{animation:flash 11s linear infinite 3s}
+  @keyframes flash{0%,92%,100%{opacity:0}93%{opacity:.9}94%{opacity:.1}95.5%{opacity:.7}97%{opacity:0}}
+  .cloud.c1{animation:drift 60s ease-in-out infinite alternate}
+  .cloud.c2{animation:drift 80s ease-in-out infinite alternate-reverse}
+  @keyframes drift{to{transform:translateX(8vw)}}
+  .live i{animation:pulse 1.8s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.25}}
+  .steam path{animation:steam 3s ease-in-out infinite}
+  .steam path:nth-child(2){animation-delay:.6s}.steam path:nth-child(3){animation-delay:1.2s}
+  @keyframes steam{0%{opacity:0; transform:translateY(6px)}40%{opacity:.9}100%{opacity:0; transform:translateY(-10px)}}
+}
+
+/* ---------- app shell ---------- */
+.app{position:relative; z-index:1; max-width:1400px; margin:0 auto; padding:14px clamp(12px,2.4vw,32px) 40px}
+.bar{display:flex; align-items:center; gap:10px; margin-bottom:16px}
+.loc{display:flex; align-items:center; gap:8px; font-weight:500; margin-inline-end:auto; min-width:0}
+.loc svg{width:18px; flex:none}
+.loc span{white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.unit{font-size:13px; color:var(--dim); padding:7px 12px; border-radius:999px; background:var(--glass); border:1px solid var(--line); white-space:nowrap}
+html[lang="ar"] .unit{font-size:14px}
+#langToggle,.home-link{font:500 14px/1 var(--font); color:var(--txt); background:var(--glass2); border:1px solid var(--line); border-radius:999px; min-height:40px; padding:0 14px; display:inline-flex; align-items:center; gap:7px; cursor:pointer; text-decoration:none; -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px)}
+#langToggle{background:var(--chai); color:#2a1806; border-color:transparent; font-weight:600}
+#langToggle:hover,#langToggle:focus-visible{background:#ffc27a; outline:0}
+.home-link:hover,.home-link:focus-visible{background:rgba(255,255,255,.28); outline:0}
+.home-link svg{width:14px}
+
+.grid{display:grid; grid-template-columns:minmax(320px,410px) minmax(0,1fr); gap:16px; align-items:start}
+.w{background:var(--glass); border:1px solid var(--line); border-radius:24px; padding:18px 20px; -webkit-backdrop-filter:blur(18px) saturate(1.2); backdrop-filter:blur(18px) saturate(1.2); min-width:0}
+.cap{display:flex; align-items:center; gap:7px; font-size:12px; font-weight:500; letter-spacing:.09em; text-transform:uppercase; color:var(--faint); margin-bottom:10px}
+html[lang="ar"] .cap{letter-spacing:0; text-transform:none; font-size:14.5px}
+.cap svg{width:15px; flex:none; opacity:.8}
+.cap em{font-style:normal; margin-inline-start:auto; text-transform:none; letter-spacing:0; font-size:12.5px}
+html[lang="ar"] .cap em{font-size:13.5px}
+.t{direction:ltr; unicode-bidi:isolate; display:inline-block; font-variant-numeric:tabular-nums}
+
+/* ---------- NOW ---------- */
+.now{position:sticky; top:14px; padding:26px 26px 22px; overflow:hidden;
+  background:linear-gradient(165deg, rgba(255,255,255,.17), rgba(255,255,255,.06))}
+.live{display:inline-flex; align-items:center; gap:7px; font-size:13px; color:var(--dim)}
+html[lang="ar"] .live{font-size:14.5px}
+.live i{width:8px; height:8px; border-radius:50%; background:var(--leaf); box-shadow:0 0 0 4px rgba(159,224,168,.2)}
+h1{font-weight:500; font-size:clamp(30px,2.6vw,38px); line-height:1.1; margin-top:10px}
+html[lang="ar"] h1{line-height:1.35; font-weight:600}
+.sub{color:var(--dim); margin-top:2px}
+.big{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin:18px 0 0}
+.big .t{font-weight:200; font-size:clamp(120px,11vw,168px); line-height:.86; letter-spacing:-.04em}
+.big svg{width:clamp(110px,10vw,150px); flex:none; margin-top:-6px; overflow:visible}
+.cond{font-size:1.32em; font-weight:500; margin-top:14px; line-height:1.25}
+.cond small{display:block; font-size:.68em; font-weight:400; color:var(--chai); margin-bottom:3px}
+html[lang="ar"] .cond small{font-size:.74em}
+.hl{display:flex; gap:16px; color:var(--dim); margin-top:6px; font-size:.95em}
+.feels{margin-top:18px; padding-top:16px; border-top:1px solid var(--line)}
+.feels p{color:var(--dim); font-size:.97em}
+.feels p b{color:var(--txt); font-weight:500}
+.outlook{margin-top:14px; font-size:.95em; color:var(--dim)}
+
+/* ---------- main bento ---------- */
+.main{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px}
+.s4{grid-column:span 4} .s2{grid-column:span 2}
+.col{grid-column:span 2; display:flex; flex-direction:column; gap:16px; min-width:0}
+.alert{display:flex; align-items:center; gap:14px; background:linear-gradient(100deg, rgba(240,168,86,.34), rgba(255,122,89,.2)); border-color:rgba(240,168,86,.55)}
+html[dir="rtl"] .alert{background:linear-gradient(260deg, rgba(240,168,86,.34), rgba(255,122,89,.2))}
+.alert svg{width:38px; flex:none}
+.alert h2{font-size:1.06em; font-weight:600}
+.alert p{color:var(--dim); font-size:.95em}
+.alert .t{margin-inline-start:auto; font-size:40px; font-weight:300; line-height:1; flex:none}
+
+h2.ttl{font-size:1.5em; font-weight:500; line-height:1.15; margin-bottom:2px}
+html[lang="ar"] h2.ttl{line-height:1.4; font-weight:600}
+.lede{color:var(--dim); font-size:.95em; margin-bottom:14px; max-width:64ch}
+
+/* hourly strip */
+.hours{display:flex; gap:10px; overflow-x:auto; padding:4px 2px 12px; margin:0 -6px; scroll-snap-type:x proximity; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.3) transparent}
+.hr{flex:1 0 148px; scroll-snap-align:start; display:flex; flex-direction:column; align-items:center; text-align:center; gap:4px; padding:14px 10px 14px; border-radius:20px; border:1px solid transparent}
+.hr:hover{background:var(--glass); border-color:var(--line)}
+.hr.is-now{background:var(--glass2); border-color:rgba(240,168,86,.7)}
+.hr time{font-size:13.5px; color:var(--dim); font-weight:500}
+html[lang="ar"] .hr time{font-size:15px}
+.hr svg{width:46px; margin:2px 0}
+.hr h3{font-size:1.04em; font-weight:500; line-height:1.2}
+.hr p{font-size:13.5px; color:var(--dim); line-height:1.3; flex:1}
+html[lang="ar"] .hr p{font-size:14.5px; line-height:1.45}
+.hr .t{font-size:27px; font-weight:300; line-height:1; margin-top:6px}
+
+/* forecast list */
+.fr{display:grid; grid-template-columns:38px minmax(0,1fr) 52px minmax(140px,.62fr); align-items:center; gap:4px 12px; padding:11px 0; border-top:1px solid var(--line)}
+.fr svg{width:34px}
+.fr h3{font-size:1.06em; font-weight:500; line-height:1.25}
+.fr p{font-size:14px; color:var(--dim); line-height:1.35}
+html[lang="ar"] .fr p{font-size:15px; line-height:1.5}
+.pc{font-size:13px; color:var(--cool); font-weight:500; text-align:center; line-height:1.15}
+.pc span{display:block; font-size:11px; color:var(--faint); font-weight:400}
+html[lang="ar"] .pc span{font-size:12.5px}
+.rg{display:flex; align-items:center; gap:8px}
+.rg .t{font-size:19px; font-weight:400; min-width:2.2ch; text-align:center}
+.rg .t:first-child{color:var(--faint)}
+.track{position:relative; flex:1; height:6px; border-radius:6px; background:rgba(0,0,0,.28)}
+.track i{position:absolute; top:0; bottom:0; border-radius:6px; inset-inline-start:calc(var(--lo) / 30 * 100%); width:calc((var(--hi) - var(--lo)) / 30 * 100%); background:linear-gradient(90deg, #8fd4c7, var(--chai), var(--hot)); background-size:calc(100% * 30 / (var(--hi) - var(--lo))) 100%; background-position:calc(var(--lo) / (30 - (var(--hi) - var(--lo))) * 100%) 0}
+html[dir="rtl"] .track i{background-image:linear-gradient(270deg, #8fd4c7, var(--chai), var(--hot)); background-position:calc(100% - var(--lo) / (30 - (var(--hi) - var(--lo))) * 100%) 0}
+
+/* small square widgets */
+.minis{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-content:start}
+.mini{display:flex; flex-direction:column; min-height:176px}
+.mini .n{font-size:38px; font-weight:300; line-height:1}
+.mini .n small{font-size:.45em; color:var(--dim); margin-inline-start:4px}
+.mini h3{font-size:1.06em; font-weight:500; margin-top:2px}
+.mini p{font-size:13.5px; color:var(--dim); margin-top:auto; padding-top:8px; line-height:1.35}
+html[lang="ar"] .mini p{font-size:14.5px; line-height:1.5}
+.scale{position:relative; height:6px; border-radius:6px; margin-top:12px; background:linear-gradient(90deg, #8fd4c7, #f3d36b, var(--chai), var(--hot), #c9366b)}
+html[dir="rtl"] .scale{background:linear-gradient(270deg, #8fd4c7, #f3d36b, var(--chai), var(--hot), #c9366b)}
+.scale i{position:absolute; top:-3px; inset-inline-start:var(--at); width:12px; height:12px; border-radius:50%; background:#fff; box-shadow:0 0 0 3px rgba(20,29,44,.6); transform:translateX(-50%)}
+html[dir="rtl"] .scale i{transform:translateX(50%)}
+.dial{width:92px; margin:0 auto}
+.steps{display:flex; gap:4px; margin-top:10px}
+.steps i{flex:1; height:22px; border-radius:6px; background:rgba(255,255,255,.14)}
+.steps i.on{background:var(--chai)}
+
+/* rows used by cold front + sweets */
+.rows li{display:grid; grid-template-columns:36px minmax(0,1fr) auto; gap:2px 12px; align-items:center; padding:11px 0; border-top:1px solid var(--line)}
+.rows svg{width:32px}
+.rows h3{font-size:1.06em; font-weight:500; line-height:1.25}
+.rows p{font-size:14px; color:var(--dim); line-height:1.35}
+html[lang="ar"] .rows p{font-size:15px; line-height:1.5}
+.rows .t{font-size:26px; font-weight:300}
+.tag{display:inline-block; font-size:11px; font-weight:500; letter-spacing:.06em; text-transform:uppercase; padding:2px 8px; border-radius:999px; background:rgba(240,168,86,.26); color:#ffd9a8; margin-inline-start:6px; vertical-align:2px}
+html[lang="ar"] .tag{letter-spacing:0; text-transform:none; font-size:12.5px}
+.radarbox{display:grid; grid-template-columns:150px minmax(0,1fr); gap:6px 20px; align-items:center}
+.radar{width:150px; border-radius:50%; overflow:visible}
+@media (prefers-reduced-motion:no-preference){ .sweep{transform-origin:75px 75px; animation:sweep 5s linear infinite} @keyframes sweep{to{transform:rotate(360deg)}} }
+
+/* footer widgets */
+.arc{width:100%; max-width:340px; margin:4px auto 0}
+.times{display:flex; justify-content:space-between; gap:10px; margin-top:4px}
+.times div{font-size:13.5px; color:var(--dim)} .times div:last-child{text-align:end}
+html[lang="ar"] .times div{font-size:14.5px}
+.times b{display:block; font-size:22px; font-weight:400; color:var(--txt); direction:ltr; unicode-bidi:isolate}
+html[dir="rtl"] .times b{text-align:inherit}
+.map{height:96px; border-radius:14px; margin-bottom:12px; position:relative; overflow:hidden; background:
+  linear-gradient(0deg, transparent 46%, rgba(255,255,255,.2) 46% 54%, transparent 54%),
+  linear-gradient(90deg, transparent 30%, rgba(255,255,255,.14) 30% 34%, transparent 34% 68%, rgba(255,255,255,.14) 68% 71%, transparent 71%),
+  linear-gradient(35deg, transparent 58%, rgba(127,209,232,.35) 58% 66%, transparent 66%), rgba(0,0,0,.22)}
+.map::after{content:""; position:absolute; left:50%; top:50%; width:16px; height:16px; margin:-8px; border-radius:50%; background:var(--chai); box-shadow:0 0 0 6px rgba(240,168,86,.3), 0 0 0 14px rgba(240,168,86,.14)}
+.foot p{font-size:.95em; color:var(--dim)} .foot p b{color:var(--txt); font-weight:500}
+.sig{grid-column:1/-1; text-align:center; color:var(--faint); font-size:13.5px; padding-top:8px}
+html[lang="ar"] .sig{font-size:14.5px}
+
+/* ---------- responsive ---------- */
+@media (max-width:1180px){
+  .grid{grid-template-columns:1fr}
+  .now{position:relative; top:0; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:0 34px; align-items:center}
+  .now .feels{margin-top:0; padding-top:0; border-top:0; border-inline-start:1px solid var(--line); padding-inline-start:34px}
+}
+@media (max-width:820px){
+  .main{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .s4,.s2{grid-column:span 2}
+  .col{display:contents}
+  .col > *,.minis{grid-column:span 2}
+  .foot{order:5}
+  .now{display:block; padding:22px 20px; text-align:center}
+  .now .big{justify-content:center; align-items:center; gap:4px}
+  .now .big .t{font-size:124px}
+  .now .big svg{width:104px}
+  .hl{justify-content:center}
+  .now .feels{margin-top:18px; padding-top:16px; border-top:1px solid var(--line); border-inline-start:0; padding-inline-start:0; text-align:start}
+  .now .cap{justify-content:flex-start}
+  .w{border-radius:22px; padding:16px}
+  .hr{flex-basis:132px}
+  .fr{grid-template-columns:36px minmax(0,1fr) 54px}
+  .fr .rg{grid-column:2/-1}
+  .radarbox{grid-template-columns:1fr}
+  .radar{width:120px; margin:0 auto 6px}
+  .unit{display:none}
+  .bar{gap:6px}
+  #langToggle,.home-link{padding:0 12px; font-size:13.5px}
+  .alert{flex-wrap:wrap}
+  .alert > div{flex:1 1 60%}
+}
+@media (max-width:400px){ .mini{min-height:168px} .mini .n{font-size:34px} }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-cloud" viewBox="0 0 64 64"><path fill="#e6eef5" d="M20 46a12 12 0 0 1-1-24 17 17 0 0 1 32 4 10 10 0 0 1-1 20z"/></symbol>
+  <symbol id="i-rain" viewBox="0 0 64 64"><path fill="#dbe6ee" d="M20 40a12 12 0 0 1-1-24 17 17 0 0 1 32 4 10 10 0 0 1-1 20z"/><path stroke="#7fd1e8" stroke-width="3.4" stroke-linecap="round" d="M24 47l-3 9M35 47l-3 9M46 47l-3 9"/></symbol>
+  <symbol id="i-drizzle" viewBox="0 0 64 64"><path fill="#dbe6ee" d="M20 40a12 12 0 0 1-1-24 17 17 0 0 1 32 4 10 10 0 0 1-1 20z"/><path stroke="#7fd1e8" stroke-width="3.4" stroke-linecap="round" d="M26 48v2M36 48v2M46 48v2M31 56v2M41 56v2"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 64 64"><circle cx="24" cy="24" r="11" fill="#f6c453"/><path stroke="#f6c453" stroke-width="3.4" stroke-linecap="round" d="M24 5v4M24 39v4M5 24h4M39 24h4M10.5 10.5l3 3M34.5 10.5l-3 3M10.5 37.500l3-3"/><path fill="#eef3f7" d="M26 52a10 10 0 0 1-1-20 14 14 0 0 1 27 3 8.5 8.5 0 0 1-1 17z"/></symbol>
+  <symbol id="i-clear" viewBox="0 0 64 64"><circle cx="32" cy="32" r="13" fill="#f6c453"/><path stroke="#f6c453" stroke-width="3.6" stroke-linecap="round" d="M32 8v6M32 50v6M8 32h6M50 32h6M15 15l4.3 4.300M49 15l-4.3 4.300M15 49l4.3-4.300M49 49l-4.3-4.3"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 64 64"><path fill="#c9d6e0" d="M20 38a12 12 0 0 1-1-24 17 17 0 0 1 32 4 10 10 0 0 1-1 20z"/><path fill="#f6c453" d="M34 32l-10 15h7l-3 12 11-16h-7z"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 64 64"><path fill="#f3e7b8" d="M40 10a18 18 0 1 0 12 30A15 15 0 0 1 40 10z"/><path fill="#dbe6ee" d="M24 54a8.5 8.5 0 0 1-1-17 12 12 0 0 1 23 3 7 7 0 0 1-1 14z"/></symbol>
+  <symbol id="i-fog" viewBox="0 0 64 64"><path fill="#dbe6ee" d="M20 36a12 12 0 0 1-1-24 17 17 0 0 1 32 4 10 10 0 0 1-1 20z"/><path stroke="#f0a856" stroke-width="3.4" stroke-linecap="round" d="M14 45h36M20 53h28"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 64 64"><path fill="#dbe6ee" d="M20 38a12 12 0 0 1-1-24 17 17 0 0 1 32 4 10 10 0 0 1-1 20z"/><g fill="#bfeaf6"><circle cx="24" cy="48" r="3"/><circle cx="36" cy="54" r="3"/><circle cx="46" cy="47" r="3"/></g></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c4 5 7 8.5 7 12.500a7 7 0 0 1-14 0C5 10.5 8 7 12 2z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-therm" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 3a2.5 2.5 0 0 0-2.5 2.500v8.200a4.5 4.5 0 1 0 5 0V5.500A2.5 2.5 0 0 0 12 3z"/><circle cx="12" cy="17" r="2" fill="currentColor"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 9h11a3 3 0 1 0-3-3M3 14h15a3 3 0 1 1-3 3M3 19h6"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 17a8 8 0 1 1 16 0M12 17l4-6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.500A2.5 2.5 0 1 1 12 6.500a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="M12 3l10 18H2zM12 10v5M12 18v.500"/></symbol>
+</defs></svg>
+
+<div class="page">
+<div class="sky" aria-hidden="true"><i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i><i class="rain"></i><i class="rain r2"></i><i class="flash"></i></div>
+
+<div class="app">
+  <nav class="bar">
+    <div class="loc"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg><span lang="en">Al Karama, Dubai</span><span lang="ar">الكرامة، دبي</span></div>
+    <span class="unit"><span lang="en">1° = 1 AED</span><span lang="ar">١° = درهم واحد (د.إ)</span></span>
+    <a class="home-link" href="../index.html"><svg viewBox="0 0 14 14" aria-hidden="true"><path fill="currentColor" d="M0 0h6v6H0zM8 0h6v6H8zM0 8h6v6H0zM8 8h6v6H8z"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </nav>
+
+  <div class="grid">
+    <!-- NOW -->
+    <header class="w now">
+      <div>
+        <span class="live"><i></i><span lang="en">Brewing now · updated 2 min ago</span><span lang="ar">يُخمَّر الآن · آخر تحديث قبل دقيقتين</span></span>
+        <h1><span lang="en">Monsoon Chai</span><span lang="ar">شاي المونسون</span></h1>
+        <p class="sub"><span lang="en">Chai &amp; Snacks</span><span lang="ar">شاي ومقرمشات</span></p>
+        <div class="big">
+          <b class="t">8°</b>
+          <svg viewBox="0 0 150 150" aria-hidden="true">
+            <g class="steam" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".8"><path d="M52 44c-8-10 8-14 0-26"/><path d="M75 40c-8-10 8-16 0-28"/><path d="M98 44c-8-10 8-14 0-26"/></g>
+            <path fill="#c96a34" d="M30 58h90l-12 74a10 10 0 0 1-10 8H52a10 10 0 0 1-10-8z"/>
+            <path fill="#e08a4b" d="M30 58h90l-2.5 16H32.500z"/>
+            <ellipse cx="75" cy="58" rx="45" ry="9" fill="#8a4a22"/><ellipse cx="75" cy="59" rx="38" ry="6" fill="#d9a066"/>
+            <path stroke="#8a4a22" stroke-width="3" opacity=".45" d="M38 92h74M41 110h68"/>
+          </svg>
+        </div>
+        <p class="cond"><small lang="en">Masala Chai · the house pour</small><small lang="ar">شاي ماسالا · كوب البيت</small><span lang="en">Heavy cardamom showers</span><span lang="ar">زخّات غزيرة من الهيل</span></p>
+        <div class="hl"><span><span lang="en">High</span><span lang="ar">العظمى</span> <b class="t">24°</b></span><span><span lang="en">Low</span><span lang="ar">الصغرى</span> <b class="t">5°</b></span><span><span lang="en">° = AED</span><span lang="ar">° = د.إ</span></span></div>
+      </div>
+      <div class="feels">
+        <div class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-therm"/></svg><span lang="en">Feels like</span><span lang="ar">الإحساس الفعلي</span></div>
+        <p lang="en"><b>A wool shawl on a wet verandah.</b> Ginger heat up front, cardamom on the breeze, a slow jaggery finish. Boiled three times, never rushed.</p>
+        <p lang="ar"><b>شال صوف على شرفة مبلّلة بالمطر.</b> حرارة الزنجبيل في البداية، ونسمة هيل، وختام هادئ من سكر الجاغري. يُغلى ثلاث مرات ولا نستعجله أبدًا.</p>
+        <p class="outlook" lang="en">Today's outlook: every price on this menu is a temperature. The hotter the number, the bigger the treat. Steady chai all day, scattered pakoras towards evening.</p>
+        <p class="outlook" lang="ar">توقّعات اليوم: كل سعر في هذه القائمة درجة حرارة، وكلما ارتفعت الدرجة كبرت المتعة. شاي مستمر طوال النهار، وباكورا متفرقة مع حلول المساء.</p>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="w alert s4">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="color:var(--chai)"><use href="#i-warn"/></svg>
+        <div><h2><span lang="en">Monsoon advisory: stay in, order the combo</span><span lang="ar">تنبيه المونسون: ابقَ في الداخل واطلب الكومبو</span></h2>
+        <p lang="en">Any hot chai, a plate of onion pakoras and a bun maska. In effect whenever it looks like rain.</p><p lang="ar">أي شاي ساخن مع صحن باكورا البصل وخبز بَن مَسكا. يسري كلما تلبّدت السماء بالغيوم.</p></div>
+        <b class="t">24°</b>
+      </aside>
+
+      <!-- HOURLY CHAI -->
+      <section class="w s4">
+        <div class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"/></svg><span lang="en">Hourly forecast</span><span lang="ar">التوقّعات كل ساعة</span><em lang="en">swipe →</em><em lang="ar">اسحب ←</em></div>
+        <h2 class="ttl"><span lang="en">Chai, hour by hour</span><span lang="ar">الشاي ساعةً بساعة</span></h2>
+        <p class="lede" lang="en">There is a right cup for every hour of a rainy day. All served in clay kulhads, 150 ml.</p>
+        <p class="lede" lang="ar">لكل ساعة من اليوم الماطر كوبها المناسب. تُقدَّم كلها في أكواب الفخار «كُلهَر»، ١٥٠ مل.</p>
+        <ol class="hours">
+          <li class="hr"><time><span lang="en">6 AM</span><span lang="ar">٦ ص</span></time><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-fog"/></svg><h3><span lang="en">Kadak Chai</span><span lang="ar">شاي كَرَك</span></h3><p lang="en">Feels like a strong handshake: dark, milky, double-boiled.</p><p lang="ar">كمصافحة قوية: داكن، غنيّ بالحليب، ومغليّ مرتين.</p><b class="t">6°</b></li>
+          <li class="hr is-now"><time><span lang="en">Now</span><span lang="ar">الآن</span></time><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-rain"/></svg><h3><span lang="en">Masala Chai</span><span lang="ar">شاي ماسالا</span></h3><p lang="en">Feels like the first rain: cardamom, clove, cinnamon, pepper.</p><p lang="ar">كأول المطر: هيل وقرنفل وقرفة وفلفل أسود.</p><b class="t">8°</b></li>
+          <li class="hr"><time><span lang="en">10 AM</span><span lang="ar">١٠ ص</span></time><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-bolt"/></svg><h3><span lang="en">Adrak Chai</span><span lang="ar">شاي الزنجبيل</span></h3><p lang="en">Feels like thunder in the throat: crushed fresh ginger.</p><p lang="ar">كالرعد في الحلق: زنجبيل طازج مدقوق.</p><b class="t">8°</b></li>
+          <li class="hr"><time><span lang="en">12 PM</span><span lang="ar">١٢ ظ</span></time><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-sun"/></svg><h3><span lang="en">Elaichi Chai</span><span lang="ar">شاي الهيل</span></h3><p lang="en">Feels like a break in the clouds: green cardamom, light milk.</p><p lang="ar">كانفراج بين الغيوم: هيل أخضر وحليب خفيف.</p><b class="t">8°</b></li>
+          <li class="hr"><time><span lang="en">2 PM</span><span lang="ar">٢ م</span></time><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-snow"/></svg><h3><span lang="en">Kashmiri Pink</span><span lang="ar">الشاي الكشميري الوردي</span></h3><p lang="en">Feels like mountain mist: salted noon chai, crushed pistachio.</p><p lang="ar">كضباب الجبال: شاي وردي مملّح مع فستق مجروش.</p><b class="t">14°</b></li>
+          <li class="hr"><time><span lang="en">4 PM</span><span lang="ar">٤ م</span></time><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-drizzle"/></svg><h3><span lang="en">Irani Chai</span><span lang="ar">الشاي الإيراني</span></h3><p lang="en">Feels like a slow drizzle: sweet reduced milk poured over.</p><p lang="ar">كرذاذ هادئ: حليب محلّى مكثّف يُسكب فوق الشاي.</p><b class="t">10°</b></li>
+          <li class="hr"><time><span lang="en">6 PM</span><span lang="ar">٦ م</span></time><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-clear"/></svg><h3><span lang="en">Kesar Chai</span><span lang="ar">شاي الزعفران</span></h3><p lang="en">Feels like sunset after rain: saffron strands and rose.</p><p lang="ar">كغروب بعد المطر: خيوط زعفران وماء ورد.</p><b class="t">12°</b></li>
+          <li class="hr"><time><span lang="en">8 PM</span><span lang="ar">٨ م</span></time><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-cloud"/></svg><h3><span lang="en">Tandoori Chai</span><span lang="ar">شاي التندور</span></h3><p lang="en">Feels like bonfire smoke: poured into a red-hot clay cup.</p><p lang="ar">كدخان نار المخيّم: يُسكب في كوب فخار متّقد.</p><b class="t">14°</b></li>
+          <li class="hr"><time><span lang="en">11 PM</span><span lang="ar">١١ م</span></time><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-moon"/></svg><h3><span lang="en">Sulaimani</span><span lang="ar">شاي سليماني</span></h3><p lang="en">Feels like a clear night: black tea, lemon, mint, no milk.</p><p lang="ar">كليلة صافية: شاي أسود بالليمون والنعناع، بلا حليب.</p><b class="t">5°</b></li>
+        </ol>
+      </section>
+
+
+
+
+      <div class="col">
+      <!-- SNACK OUTLOOK -->
+      <section class="w s2">
+        <div class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cal"/></svg><span lang="en">8-plate outlook</span><span lang="ar">توقّعات ٨ أطباق</span><em lang="en">half — full</em><em lang="ar">نصف — كامل</em></div>
+        <h2 class="ttl"><span lang="en">Snack forecast</span><span lang="ar">نشرة المقرمشات</span></h2>
+        <p class="lede" lang="en">Fried to order. The bar runs from a half plate to a full one.</p>
+        <p class="lede" lang="ar">تُقلى عند الطلب. الشريط يمتد من نصف الصحن إلى الصحن الكامل.</p>
+        <ul>
+          <li class="fr"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-rain"/></svg><div><h3><span lang="en">Onion Pakora</span><span lang="ar">باكورا البصل</span><span class="tag"><span lang="en">rain favourite</span><span lang="ar">رفيق المطر</span></span></h3><p lang="en">Crisp chickpea-batter fritters, green chutney.</p><p lang="ar">أقراص مقرمشة بعجينة الحمّص مع صلصة خضراء.</p></div><div class="pc">95%<span lang="en">crunch</span><span lang="ar">قرمشة</span></div><div class="rg"><b class="t">8°</b><span class="track"><i style="--lo:8;--hi:14"></i></span><b class="t">14°</b></div></li>
+          <li class="fr"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-sun"/></svg><div><h3><span lang="en">Punjabi Samosa</span><span lang="ar">سمبوسة بنجابية</span></h3><p lang="en">Spiced potato and peas, tamarind dip.</p><p lang="ar">بطاطا وبازلاء متبّلة مع غموس التمر الهندي.</p></div><div class="pc">90%<span lang="en">crunch</span><span lang="ar">قرمشة</span></div><div class="rg"><b class="t">5°</b><span class="track"><i style="--lo:5;--hi:9"></i></span><b class="t">9°</b></div></li>
+          <li class="fr"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-bolt"/></svg><div><h3><span lang="en">Vada Pav</span><span lang="ar">فادا باف</span></h3><p lang="en">Potato fritter in a soft bun, dry garlic chutney.</p><p lang="ar">كرة بطاطا مقلية في خبز طري مع مسحوق الثوم الحار.</p></div><div class="pc">70%<span lang="en">crunch</span><span lang="ar">قرمشة</span></div><div class="rg"><b class="t">7°</b><span class="track"><i style="--lo:7;--hi:12"></i></span><b class="t">12°</b></div></li>
+          <li class="fr"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-cloud"/></svg><div><h3><span lang="en">Bun Maska</span><span lang="ar">بَن مَسكا</span></h3><p lang="en">Pillowy milk bun, a reckless amount of butter. For dunking.</p><p lang="ar">خبز حليب هشّ بكمية سخيّة من الزبدة، يُغمَّس في الشاي.</p></div><div class="pc">10%<span lang="en">crunch</span><span lang="ar">قرمشة</span></div><div class="rg"><b class="t">5°</b><span class="track"><i style="--lo:5;--hi:8"></i></span><b class="t">8°</b></div></li>
+          <li class="fr"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-drizzle"/></svg><div><h3><span lang="en">Masala Maggi</span><span lang="ar">ماغي ماسالا</span></h3><p lang="en">Hill-station noodles with onion, chilli and coriander.</p><p lang="ar">نودلز على طريقة المصايف الجبلية بالبصل والفلفل والكزبرة.</p></div><div class="pc">15%<span lang="en">crunch</span><span lang="ar">قرمشة</span></div><div class="rg"><b class="t">9°</b><span class="track"><i style="--lo:9;--hi:14"></i></span><b class="t">14°</b></div></li>
+          <li class="fr"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-clear"/></svg><div><h3><span lang="en">Aloo Tikki Chaat</span><span lang="ar">شات ألو تِكّي</span></h3><p lang="en">Potato patties, yoghurt, chutneys, pomegranate, sev.</p><p lang="ar">أقراص بطاطا مع لبن وصلصات ورمّان وشعيرية مقرمشة.</p></div><div class="pc">60%<span lang="en">crunch</span><span lang="ar">قرمشة</span></div><div class="rg"><b class="t">10°</b><span class="track"><i style="--lo:10;--hi:16"></i></span><b class="t">16°</b></div></li>
+          <li class="fr"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-fog"/></svg><div><h3><span lang="en">Paneer Kathi Roll</span><span lang="ar">لفافة كاثي بالبانير</span></h3><p lang="en">Griddled paratha, tandoori paneer, pickled onion.</p><p lang="ar">خبز باراثا مشوي مع بانير تندوري وبصل مخلّل.</p></div><div class="pc">40%<span lang="en">crunch</span><span lang="ar">قرمشة</span></div><div class="rg"><b class="t">13°</b><span class="track"><i style="--lo:13;--hi:20"></i></span><b class="t">20°</b></div></li>
+          <li class="fr"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-bolt"/></svg><div><h3><span lang="en">Keema Pav</span><span lang="ar">كيما باف</span><span class="tag"><span lang="en">warmest</span><span lang="ar">الأعلى حرارة</span></span></h3><p lang="en">Spiced minced beef, buttered buns, lime and raw onion.</p><p lang="ar">لحم بقري مفروم متبّل مع خبز بالزبدة وليمون وبصل نيء.</p></div><div class="pc">30%<span lang="en">crunch</span><span lang="ar">قرمشة</span></div><div class="rg"><b class="t">16°</b><span class="track"><i style="--lo:16;--hi:24"></i></span><b class="t">24°</b></div></li>
+        </ul>
+      </section>
+      <!-- FOOTER WIDGETS -->
+      <footer class="s2 minis foot">
+        <div class="w" style="grid-column:1/-1">
+          <div class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clear"/></svg><span lang="en">First pour · last pour</span><span lang="ar">أول كوب · آخر كوب</span></div>
+          <svg class="arc" viewBox="0 0 340 96" aria-hidden="true"><path d="M10 86h320" stroke="rgba(255,255,255,.25)"/><path d="M30 86C80 -14 260 -14 310 86" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2" stroke-dasharray="3 6"/><path d="M30 86C60 26 130 4 190 12" fill="none" stroke="#f0a856" stroke-width="3" stroke-linecap="round"/><circle cx="190" cy="12" r="8" fill="#f6c453"/><circle cx="190" cy="12" r="14" fill="#f6c453" opacity=".25"/></svg>
+          <div class="times"><div><span lang="en">Opens daily</span><span lang="ar">نفتح يوميًا</span><b>6:00 AM</b></div><div><span lang="en">Closes</span><span lang="ar">نغلق</span><b>1:00 AM</b></div></div>
+        </div>
+        <div class="w">
+          <div class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg><span lang="en">Location</span><span lang="ar">الموقع</span></div>
+          <div class="map"></div>
+          <p lang="en"><b>Shop 7, 18B Street</b><br>Al Karama, Dubai<br><span dir="ltr">+971 4 555 0158</span></p>
+          <p lang="ar"><b>محل ٧، شارع 18B</b><br>الكرامة، دبي<br><span dir="ltr">+971 4 555 0158</span></p>
+        </div>
+        <div class="w">
+          <div class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-warn"/></svg><span lang="en">Air quality</span><span lang="ar">جودة الهواء</span></div>
+          <div class="n" style="font-size:34px;font-weight:300;line-height:1">100%<small style="font-size:.42em;color:var(--dim);margin-inline-start:4px" lang="en">veg fryer</small><small style="font-size:.46em;color:var(--dim);margin-inline-start:4px" lang="ar">مقلاة نباتية</small></div>
+          <p style="margin-top:10px" lang="en">Allergens in the air: milk, wheat, nuts, mustard. Tell us before you order and we will reroute the storm.</p>
+          <p style="margin-top:10px" lang="ar">مسبّبات الحساسية في الأجواء: الحليب والقمح والمكسّرات والخردل. أخبرنا قبل الطلب لنغيّر مسار العاصفة.</p>
+        </div>
+        <p class="sig"><span lang="en">Forecast accuracy not guaranteed. The chai is.</span><span lang="ar">دقة التوقّعات غير مضمونة. أما الشاي فمضمون.</span></p>
+      </footer>
+      </div>
+      <div class="col">
+      <!-- MINI WIDGETS + COLD FRONT -->
+      <div class="s2 minis">
+        <div class="w mini">
+          <div class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-therm"/></svg><span lang="en">Heat index</span><span lang="ar">مؤشر الحرارة</span></div>
+          <div class="n">3<small lang="en">of 5</small><small lang="ar">من ٥</small></div>
+          <h3><span lang="en">Moderate</span><span lang="ar">معتدل</span></h3>
+          <div class="scale" style="--at:55%"><i></i></div>
+          <p lang="en">Ask for "teekha" and we push it to 5.</p><p lang="ar">قل «تيكها» فنرفعه إلى ٥.</p>
+        </div>
+        <div class="w mini">
+          <div class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wind"/></svg><span lang="en">Spice wind</span><span lang="ar">رياح البهارات</span></div>
+          <svg class="dial" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="6" stroke-dasharray="1.5 5.4"/><path d="M50 4v10M50 86v10M4 50h10M86 50h10" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><g transform="rotate(48 50 50)"><path d="M50 82V22" stroke="#f0a856" stroke-width="3.5" stroke-linecap="round"/><path d="M50 14l-8 13h16z" fill="#f0a856"/><circle cx="50" cy="82" r="4.5" fill="#f0a856"/></g><circle cx="50" cy="50" r="15" fill="#22344a"/><text x="50" y="56" text-anchor="middle" font-size="17" font-weight="500" fill="#fff" font-family="Outfit, sans-serif">12</text></svg>
+          <p lang="en">Ginger gusts from the kitchen, 12 pods of cardamom an hour.</p><p lang="ar">هبّات زنجبيل من المطبخ، و١٢ حبّة هيل في الساعة.</p>
+        </div>
+        <div class="w mini">
+          <div class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-drop"/></svg><span lang="en">Milk humidity</span><span lang="ar">رطوبة الحليب</span></div>
+          <div class="n">60<small>%</small></div>
+          <h3><span lang="en">Creamy</span><span lang="ar">كريمي</span></h3>
+          <p lang="en">Full-fat buffalo milk. Oat milk on request, <span class="t">+2°</span>.</p><p lang="ar">حليب جاموس كامل الدسم. حليب الشوفان عند الطلب، <span class="t">+2°</span>.</p>
+        </div>
+        <div class="w mini">
+          <div class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gauge"/></svg><span lang="en">Sugar pressure</span><span lang="ar">ضغط السكّر</span></div>
+          <div class="n">2<small lang="en">spoons</small><small lang="ar">ملعقتان</small></div>
+          <div class="steps"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <p lang="en">None, less, regular or meetha. You set the needle.</p><p lang="ar">بلا سكّر، خفيف، عادي أو «ميتها». أنت تحدّد المؤشر.</p>
+        </div>
+
+        <section class="w" style="grid-column:1/-1">
+          <div class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-drop"/></svg><span lang="en">Precipitation</span><span lang="ar">الهطول</span><em lang="en">100% chance of ice</em><em lang="ar">احتمال الثلج ١٠٠٪</em></div>
+          <h2 class="ttl"><span lang="en">Cold front</span><span lang="ar">جبهة باردة</span></h2>
+          <ul class="rows">
+            <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-snow"/></svg><div><h3><span lang="en">Iced Masala Chai</span><span lang="ar">شاي ماسالا مثلّج</span></h3><p lang="en">The house blend, shaken cold over ice with a cinnamon rim.</p><p lang="ar">خلطة البيت مخفوقة مع الثلج وحافة من القرفة.</p></div><b class="t">14°</b></li>
+            <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-clear"/></svg><div><h3><span lang="en">Alphonso Mango Lassi</span><span lang="ar">لاسي مانجو ألفونسو</span></h3><p lang="en">Thick yoghurt, ripe mango pulp, a pinch of cardamom.</p><p lang="ar">لبن كثيف مع لبّ المانجو الناضجة ورشّة هيل.</p></div><b class="t">15°</b></li>
+            <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-drizzle"/></svg><div><h3><span lang="en">Rose Falooda</span><span lang="ar">فالودة بالورد</span></h3><p lang="en">Rose milk, vermicelli, basil seeds and a scoop of kulfi.</p><p lang="ar">حليب بالورد مع الشعيرية وبذور الريحان وكرة من القلفي.</p></div><b class="t">20°</b></li>
+            <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-rain"/></svg><div><h3><span lang="en">Masala Nimbu Soda</span><span lang="ar">صودا الليمون بالماسالا</span></h3><p lang="en">Fresh lime, black salt and roasted cumin, fizzed to order.</p><p lang="ar">ليمون طازج وملح أسود وكمّون محمّص مع الصودا الفوّارة.</p></div><b class="t">10°</b></li>
+          </ul>
+        </section>
+      </div>
+      <!-- SWEETS RADAR -->
+      <section class="w s2">
+        <div class="cap"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wind"/></svg><span lang="en">Radar</span><span lang="ar">الرادار</span><em lang="en">sweet spells approaching</em><em lang="ar">موجات حلوة تقترب</em></div>
+        <div class="radarbox">
+          <svg class="radar" viewBox="0 0 150 150" aria-hidden="true">
+            <circle cx="75" cy="75" r="73" fill="rgba(0,0,0,.25)" stroke="rgba(255,255,255,.25)"/><circle cx="75" cy="75" r="49" fill="none" stroke="rgba(255,255,255,.18)"/><circle cx="75" cy="75" r="25" fill="none" stroke="rgba(255,255,255,.18)"/><path d="M75 2v146M2 75h146" stroke="rgba(255,255,255,.14)"/>
+            <path class="sweep" d="M75 75L75 2A73 73 0 0 1 138 38z" fill="rgba(240,168,86,.3)"/>
+            <g fill="#f0a856"><circle cx="104" cy="50" r="9" opacity=".8"/><circle cx="46" cy="96" r="12" opacity=".55"/><circle cx="96" cy="108" r="6"/><circle cx="52" cy="42" r="5" fill="#ff7a59"/></g>
+            <circle cx="75" cy="75" r="4" fill="#fff"/>
+          </svg>
+          <div><h2 class="ttl"><span lang="en">Sweet spells</span><span lang="ar">موجات حلوة</span></h2>
+          <p class="lede" style="margin-bottom:0" lang="en">Four systems moving in from the halwai's counter.</p><p class="lede" style="margin-bottom:0" lang="ar">أربع منخفضات قادمة من واجهة الحلواني.</p></div>
+        </div>
+        <ul class="rows" style="margin-top:12px">
+          <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-clear"/></svg><div><h3><span lang="en">Jalebi &amp; Rabri</span><span lang="ar">جليبي مع الرابري</span><span class="tag"><span lang="en">hot</span><span lang="ar">ساخن</span></span></h3><p lang="en">Hot saffron spirals over chilled thickened milk.</p><p lang="ar">حلزونات زعفران ساخنة فوق حليب مكثّف بارد.</p></div><b class="t">14°</b></li>
+          <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-moon"/></svg><div><h3><span lang="en">Gulab Jamun</span><span lang="ar">غلاب جامون</span></h3><p lang="en">Two warm milk dumplings in rose and cardamom syrup.</p><p lang="ar">كرتان دافئتان من الحليب في قطر الورد والهيل.</p></div><b class="t">12°</b></li>
+          <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-sun"/></svg><div><h3><span lang="en">Gajar Halwa</span><span lang="ar">حلوى الجزر</span></h3><p lang="en">Slow-cooked carrot pudding, ghee, cashews, khoya.</p><p lang="ar">جزر مطهو على مهل بالسمن والكاجو والخويا.</p></div><b class="t">14°</b></li>
+          <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-snow"/></svg><div><h3><span lang="en">Malai Kulfi</span><span lang="ar">قلفي بالقشطة</span></h3><p lang="en">Dense frozen cream on a stick, pistachio dust.</p><p lang="ar">قشطة مجمّدة كثيفة على عود مع غبار الفستق.</p></div><b class="t">11°</b></li>
+          <li><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-cloud"/></svg><div><h3><span lang="en">Rusk &amp; Biscuit Plate</span><span lang="ar">صحن البقسماط والبسكويت</span></h3><p lang="en">Cumin rusks, Osmania biscuits, khari twists for dipping.</p><p lang="ar">بقسماط بالكمّون وبسكويت عثمانية وأعواد خاري للتغميس.</p></div><b class="t">6°</b></li>
+        </ul>
+      </section>
+      </div>
+    </main>
+  </div>
+</div>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

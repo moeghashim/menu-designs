@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Beit El-Nil · بيت النيل</title>
+<meta name="description" content="Beit El-Nil — an Egyptian kitchen on the river: koshari, charcoal grills, clay-pot tagines and hibiscus coolers. بيت النيل — مطبخ مصري على ضفة النهر.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14275f">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Spectral:ital,wght@0,400;0,600;1,400&family=El+Messiri:wght@500;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --pap:#ecdcae; --pap2:#f4e8c4; --pap3:#dcc68d; --ink:#2b1c0c; --ink2:#5b4526;
+  --lapis:#1c3484; --lapis2:#14275f; --night:#0d1a45; --gold:#c8962a; --gold2:#e9c35c;
+  --turq:#1f9d95; --terra:#b24a25; --cw:54px;
+  --disp:"Cinzel","Times New Roman",serif; --body:"Spectral",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--body);color:var(--ink);font-size:17px;line-height:1.5;
+  background-color:var(--pap);
+  background-image:
+    repeating-linear-gradient(0deg,rgba(120,84,30,.07) 0 1px,transparent 1px 5px),
+    repeating-linear-gradient(90deg,rgba(120,84,30,.09) 0 2px,transparent 2px 9px),
+    repeating-linear-gradient(90deg,rgba(255,250,225,.25) 0 1px,transparent 1px 23px),
+    radial-gradient(120% 60% at 50% 0,#f3e6c0,transparent 70%);
+}
+html[lang="ar"] body{font-family:"Amiri","Noto Naskh Arabic","Geeza Pro",serif;font-size:19px;line-height:1.7}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+.wrap{overflow:clip}
+svg.defs{position:absolute;width:0;height:0}
+
+/* ---------- controls ---------- */
+.ctl{position:absolute;inset-block-start:14px;inset-inline-end:14px;z-index:20;display:flex;gap:8px;align-items:center}
+.ctl a,.ctl button{
+  font:700 12px/1 var(--disp);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;
+  color:var(--gold2);background:rgba(13,26,69,.85);border:1.5px solid var(--gold);border-radius:999px;
+  padding:9px 14px;min-height:36px;display:inline-flex;align-items:center;position:relative;
+}
+.ctl button::after{content:"";position:absolute;inset-block:3px;inset-inline-end:-6px;width:2px;background:var(--gold);border-radius:2px}
+.ctl a:hover,.ctl button:hover{background:var(--gold);color:var(--night)}
+html[lang="ar"] .ctl a,html[lang="ar"] .ctl button{font-family:"El Messiri",sans-serif;font-size:14px;text-transform:none}
+.ctl button [lang="ar"]{font-family:"El Messiri",sans-serif;font-size:14px;letter-spacing:0}
+.ctl button [lang="en"]{font-family:var(--disp);letter-spacing:.14em}
+
+/* ---------- pylon hero ---------- */
+.pylon{position:relative;display:grid;grid-template-columns:minmax(0,1fr);background:var(--night)}
+.tower{display:none}
+.gate{
+  position:relative;text-align:center;color:#f6ecd0;padding:70px 20px 0;
+  background:
+    radial-gradient(circle,var(--gold2) 0 1.3px,transparent 1.6px) 0 0/46px 46px,
+    radial-gradient(circle,rgba(233,195,92,.7) 0 1px,transparent 1.3px) 23px 23px/46px 46px,
+    linear-gradient(180deg,var(--night),var(--lapis) 62%,#35539f 86%,#c57a4a 100%);
+}
+.wings{display:block;width:min(620px,96%);height:auto;margin:0 auto 6px}
+.over{font:700 clamp(11px,1.1vw,13px)/1 var(--disp);letter-spacing:.42em;color:var(--gold2);text-transform:uppercase;margin-block:10px 20px}
+html[lang="ar"] .over{font:500 17px/1.3 "El Messiri",sans-serif;text-transform:none}
+.cart{
+  display:inline-block;position:relative;border:4px solid var(--gold);border-radius:999px;
+  padding:clamp(14px,2.4vw,26px) clamp(28px,5vw,70px);background:rgba(13,26,69,.55);
+  box-shadow:inset 0 0 0 2px var(--night),inset 0 0 0 4px rgba(233,195,92,.5);
+}
+.cart::after{content:"";position:absolute;inset-block:-4px;inset-inline-end:-16px;width:5px;background:var(--gold);border-radius:3px}
+.cart h1{font:900 clamp(2.1rem,7.2vw,5.4rem)/1 var(--disp);letter-spacing:.06em;color:var(--gold2);
+  background:linear-gradient(180deg,#fbe9a8,#e0b040 55%,#a9741a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+html[lang="ar"] .cart h1{font:700 clamp(2.6rem,8.4vw,6rem)/1.25 "El Messiri",sans-serif}
+.tag{font:italic 400 clamp(1.15rem,2vw,1.6rem)/1.35 var(--body);margin-block:26px 12px;color:#fff3cf}
+html[lang="ar"] .tag{font:italic 400 clamp(1.3rem,2.2vw,1.8rem)/1.6 "Amiri",serif}
+.intro{max-width:54ch;margin-inline:auto;color:#d9dcf0;font-size:1.02rem}
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin-block-start:22px;font-size:.92rem;color:var(--gold2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.gl{width:1.25em;height:1.25em;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.22em}
+.horizon{display:block;width:100%;height:clamp(110px,15vw,210px);margin-block-start:26px}
+
+/* glyph bands */
+.band{display:block;width:100%;height:34px}
+.band.g{background:var(--lapis2);border-block:3px solid var(--gold)}
+.band.i{border-block:2px solid var(--ink2);background:rgba(200,150,42,.18)}
+.cavetto{height:22px;border-block-end:4px solid var(--ink2);
+  background:repeating-linear-gradient(90deg,var(--lapis) 0 9px,var(--pap2) 9px 11px,var(--terra) 11px 20px,var(--pap2) 20px 22px,var(--turq) 22px 31px,var(--pap2) 31px 33px,var(--gold) 33px 42px,var(--pap2) 42px 44px);
+  box-shadow:inset 0 9px 8px -6px rgba(0,0,0,.45)}
+
+/* register nav */
+.reg{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 14px;padding:22px 16px;max-width:1100px;margin-inline:auto}
+.reg a{
+  font:700 .8rem/1 var(--disp);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--lapis2);
+  border:2px solid var(--lapis2);border-radius:999px;padding:11px 18px;display:inline-flex;gap:8px;align-items:center;min-height:42px;position:relative;
+}
+.reg a::after{content:"";position:absolute;inset-block:2px;inset-inline-end:-8px;width:2.5px;background:var(--lapis2);border-radius:2px}
+.reg a:hover{background:var(--lapis2);color:var(--gold2)}
+html[lang="ar"] .reg a{font:700 1rem/1 "El Messiri",sans-serif;text-transform:none}
+
+/* ---------- hypostyle hall ---------- */
+.hallwrap{max-width:1400px;margin-inline:auto;padding-inline:clamp(0px,2vw,28px)}
+.hall{position:relative;display:grid;grid-template-columns:minmax(0,1fr);padding-inline-end:var(--cw)}
+.hall::after,.bay::before,.bay::after{
+  content:"";position:absolute;inset-block:0;width:var(--cw);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 118'%3E%3Crect x='3' width='48' height='9' fill='%23c8962a'/%3E%3Crect x='6' y='9' width='42' height='3' fill='%2314275f'/%3E%3Cpath d='M10 104C10 70 1 44 1 12h52c0 32-9 58-9 92z' fill='%231f9d95'/%3E%3Cpath d='M27 104C21 70 13 42 9 12h36c-4 30-12 58-18 92z' fill='%231c3484'/%3E%3Cpath d='M27 104c-4-30-7-60-7-92h14c0 32-3 62-7 92z' fill='%23e9c35c'/%3E%3Cpath d='M27 104c-2-30-3-56-3-80h6c0 24-1 50-3 80z' fill='%23b24a25'/%3E%3Cpath d='M1 12c0 32 9 58 9 92M53 12c0 32-9 58-9 92' fill='none' stroke='%232b1c0c' stroke-width='1.2'/%3E%3Crect x='9' y='104' width='36' height='4' fill='%23c8962a'/%3E%3Crect x='9' y='108' width='36' height='4' fill='%231c3484'/%3E%3Crect x='9' y='112' width='36' height='3' fill='%23c8962a'/%3E%3Crect x='9' y='115' width='36' height='3' fill='%23b24a25'/%3E%3C/svg%3E") top center/var(--cw) auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 30'%3E%3Cpath d='M9 0h36l6 14H3z' fill='%23c9ae6e'/%3E%3Crect y='14' width='54' height='16' fill='%23a98549'/%3E%3Crect y='14' width='54' height='3' fill='%235b4526' opacity='.5'/%3E%3C/svg%3E") bottom center/var(--cw) auto no-repeat,
+    linear-gradient(180deg,transparent 116px,#1c3484 116px 126px,#c8962a 126px 130px,#1f9d95 130px 140px,#c8962a 140px 144px,#b24a25 144px 154px,transparent 154px) center/66% 100% no-repeat,
+    repeating-linear-gradient(180deg,transparent 0 46px,rgba(91,69,38,.28) 46px 47px) center/66% 100% no-repeat,
+    linear-gradient(90deg,#9c7a41,#e2cd96 30%,#f6eac4 50%,#d3b97c 74%,#93713a) center/66% 100% no-repeat;
+  filter:drop-shadow(3px 0 5px rgba(60,40,10,.25));
+}
+.hall::after{inset-inline-end:0}
+.bay::before{inset-inline-start:0}
+.bay::after{inset-inline-end:0;display:none}
+html[lang="ar"] .it p{font-size:1rem}
+.bay{position:relative;padding:34px 14px 44px calc(var(--cw) + 14px);padding-inline:calc(var(--cw) + 14px) 14px;scroll-margin-top:10px}
+.bay + .bay{border-block-start:2px dashed rgba(91,69,38,.35)}
+.st{text-align:center;margin-block-end:22px}
+.st .n{display:block;font:700 .72rem/1 var(--disp);letter-spacing:.34em;color:var(--terra);text-transform:uppercase;margin-block-end:10px}
+html[lang="ar"] .st .n{font:500 .95rem/1.2 "El Messiri",sans-serif;text-transform:none}
+.st h2{
+  display:inline-flex;align-items:center;gap:10px;position:relative;font:700 clamp(1.15rem,1.55vw,1.4rem)/1.15 var(--disp);letter-spacing:.08em;
+  color:var(--lapis2);border:3px solid var(--lapis2);border-radius:999px;padding:10px 20px;background:var(--pap2);
+  box-shadow:inset 0 0 0 2px var(--pap2),inset 0 0 0 3.5px var(--gold);
+}
+.st h2::after{content:"";position:absolute;inset-block:-3px;inset-inline-end:-11px;width:4px;background:var(--lapis2);border-radius:2px}
+html[lang="ar"] .st h2{font:700 clamp(1.3rem,1.7vw,1.55rem)/1.4 "El Messiri",sans-serif}
+.st h2 .gl{color:var(--terra)}
+.items{list-style:none}
+.it{padding-block:13px;border-block-end:1px solid rgba(91,69,38,.3)}
+.it:last-child{border:0}
+.hd{display:flex;align-items:baseline;gap:8px}
+.hd h3{font:700 1.02rem/1.25 var(--disp);letter-spacing:.03em;color:var(--ink)}
+html[lang="ar"] .hd h3{font:700 1.18rem/1.45 "El Messiri",sans-serif}
+.hd .mk{color:var(--terra);flex:none;align-self:center}
+.hd .mk.v{color:var(--turq)}
+.hd i{flex:1;min-width:10px;border-block-end:2px dotted rgba(91,69,38,.5);transform:translateY(-4px)}
+.pr{white-space:nowrap;font:700 1.05rem/1 var(--disp);color:var(--lapis)}
+.pr small{font:600 .68rem/1 var(--disp);letter-spacing:.1em;color:var(--ink2)}
+html[lang="ar"] .pr small{font:500 .8rem/1 "El Messiri",sans-serif}
+.it p{color:var(--ink2);font-size:.96rem;margin-block-start:3px}
+.steps{height:26px;margin-inline:calc(clamp(0px,2vw,28px) * -1);
+  background:linear-gradient(180deg,#c9ae6e 0 8px,#b3975a 8px 9px,#bfa364 9px 17px,#9c7f45 17px 18px,#b0935a 18px)}
+
+/* ---------- stela + nile ---------- */
+.low{max-width:1400px;margin-inline:auto;padding:46px clamp(14px,3vw,40px) 60px;display:grid;gap:34px;grid-template-columns:minmax(0,1fr)}
+.stela{
+  position:relative;background:linear-gradient(180deg,#d8bf85,#c7ab6c);color:var(--ink);text-align:center;
+  border-radius:50% 50% 6px 6px / 150px 150px 6px 6px;padding:74px 26px 30px;border:3px solid var(--ink2);
+  box-shadow:inset 0 0 0 6px #e3cf9c,inset 0 0 0 8px rgba(91,69,38,.6),8px 10px 0 rgba(60,40,10,.2);
+}
+.stela .gl.big{width:54px;height:54px;color:var(--lapis2);stroke-width:1.2}
+.stela h2{font:900 clamp(1.4rem,2.3vw,1.9rem)/1.15 var(--disp);letter-spacing:.06em;color:var(--lapis2);margin-block:8px 6px}
+html[lang="ar"] .stela h2{font:700 clamp(1.6rem,2.5vw,2.1rem)/1.4 "El Messiri",sans-serif}
+.stela .sub{font-style:italic;color:var(--ink2)}
+.stela ol{list-style:none;margin-block:16px;border-block:2px solid var(--ink2);padding-block:6px}
+.stela li{padding-block:7px;border-block-end:1px solid rgba(91,69,38,.35);font-size:1rem}
+.stela li:last-child{border:0}
+.stela li b{font:700 .72rem/1 var(--disp);letter-spacing:.2em;color:var(--terra);display:block;text-transform:uppercase;margin-block-end:2px}
+html[lang="ar"] .stela li b{font:700 .9rem/1.3 "El Messiri",sans-serif;text-transform:none}
+.stela .big-pr{font:900 2.1rem/1 var(--disp);color:var(--terra)}
+.stela .big-pr small{font-size:.9rem;letter-spacing:.1em}
+html[lang="ar"] .stela .big-pr small{font-family:"El Messiri",sans-serif}
+.nile{position:relative;background:linear-gradient(180deg,var(--lapis),var(--lapis2));color:#f6ecd0;border:3px solid var(--gold);padding:0 0 26px;scroll-margin-top:10px;
+  box-shadow:inset 0 0 0 5px var(--lapis2),inset 0 0 0 6.5px rgba(233,195,92,.55)}
+.nile .waves{display:block;width:100%;height:40px;color:var(--turq)}
+.nile .st h2{background:var(--lapis2);color:var(--gold2);border-color:var(--gold);box-shadow:none}
+.nile .st h2::after{background:var(--gold)}
+.nile .st h2 .gl{color:#6fd9d1}
+.nile .st .n{color:#6fd9d1}
+.nile .st{margin-block:14px 8px}
+.nile .items{display:grid;grid-template-columns:minmax(0,1fr);padding-inline:clamp(18px,3vw,40px);column-gap:44px}
+.nile .it{border-color:rgba(233,195,92,.3)}
+.nile .hd h3{color:#fff3cf}.nile .pr{color:var(--gold2)}.nile .pr small{color:#c9cfee}
+.nile .it p{color:#cfd5f2}
+.nile .hd i{border-color:rgba(233,195,92,.45)}
+
+/* ---------- footer: tomb ceiling ---------- */
+footer{
+  color:#f1e6c6;text-align:center;padding:0 0 46px;
+  background:
+    radial-gradient(circle,rgba(233,195,92,.5) 0 1.4px,transparent 1.7px) 0 0/40px 40px,
+    radial-gradient(circle,rgba(233,195,92,.3) 0 1px,transparent 1.3px) 20px 20px/40px 40px,
+    var(--night);
+}
+.fgrid{max-width:1100px;margin:40px auto 0;padding-inline:20px;display:grid;gap:26px;grid-template-columns:minmax(0,1fr)}
+.fgrid h4{font:700 .78rem/1 var(--disp);letter-spacing:.3em;color:var(--gold2);text-transform:uppercase;margin-block-end:10px}
+html[lang="ar"] .fgrid h4{font:700 1.1rem/1.3 "El Messiri",sans-serif;text-transform:none}
+.fgrid p{font-size:.98rem;color:#d5d9ef}
+.fine{margin-block-start:30px;font-size:.85rem;color:#9aa3cf;padding-inline:20px}
+
+@media (min-width:640px){
+  .nile .items{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hall{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bay + .bay{border:0}
+  .bay:nth-child(n+3){border-block-start:2px dashed rgba(91,69,38,.35)}
+}
+@media (max-width:639px){
+  :root{--cw:30px}
+  .bay{padding-inline:calc(var(--cw) + 12px) 12px}
+  .hall{padding-inline-end:0}.hall::after{display:none}.bay::after{display:block}
+  .bay{padding-inline:calc(var(--cw) + 12px)}
+  .ctl{inset-block-start:10px;inset-inline-end:14px}
+  .gate{padding-top:64px}
+}
+@media (min-width:900px){
+  .pylon{grid-template-columns:clamp(120px,15vw,230px) minmax(0,1fr) clamp(120px,15vw,230px)}
+  .tower{display:flex;gap:6px;justify-content:center;padding:54px 16% 0 10%;
+    background:linear-gradient(90deg,#c7ab6c,#e6d3a0 45%,#d6bd82);
+    clip-path:polygon(0 0,84% 0,100% 100%,0 100%);position:relative}
+  .tower::before{content:"";position:absolute;inset:0 0 auto 0;height:34px;
+    background:repeating-linear-gradient(90deg,var(--lapis) 0 9px,var(--pap2) 9px 11px,var(--terra) 11px 20px,var(--pap2) 20px 22px,var(--turq) 22px 31px,var(--pap2) 31px 33px);
+    border-block-end:5px solid var(--ink2)}
+  .tower.b{clip-path:polygon(16% 0,100% 0,100% 100%,0 100%);padding:54px 10% 0 16%;background:linear-gradient(270deg,#c7ab6c,#e6d3a0 45%,#d6bd82)}
+  .tower svg{flex:1;max-width:34px;height:100%;border-inline:1.5px solid rgba(91,69,38,.55)}
+  .gate{padding-top:54px}
+  .low{grid-template-columns:minmax(260px,1fr) minmax(0,2.2fr);align-items:start}
+  .nile .items{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:1180px){
+  .hall{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .bay:nth-child(n+3){border:0}
+  .bay{padding-block:40px 60px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .sun{animation:rise 2.4s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{transform:translateY(60px);opacity:.3}to{transform:none;opacity:1}}
+  .waves path{animation:flow 6s linear infinite}
+  @keyframes flow{to{transform:translateX(-40px)}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg class="defs" aria-hidden="true">
+  <defs>
+    <g id="g1"><path d="M12 11c-3.4-3-3.6-8 0-8s3.4 5 0 8zm0 0v10M6 13.5h12"/></g>
+    <g id="g2"><path d="M2 9c4.5-5 14-5 19 0-5 4-14.5 4-19 0zM11 13v5c0 2 2.5 3 4.5 1.500M8 12.500l-4 6"/><circle cx="11.5" cy="9" r="2.2"/></g>
+    <g id="g3"><path d="M2 9l3.3-3 3.4 3L12 6l3.3 3 3.4-3L22 9M2 16l3.3-3 3.4 3 3.3-3 3.3 3 3.4-3 3.3 3"/></g>
+    <g id="g4"><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="1.3"/></g>
+    <g id="g5"><path d="M12 20c-5-2-7.5-7-7.5-12 3 1 5.5 3.5 7.5 7.5 2-4 4.5-6.5 7.5-7.5 0 5-2.5 10-7.5 12zM12 3.500c-2.2 3.5-2.2 8.5 0 12 2.2-3.5 2.2-8.5 0-12zM12 20v2"/></g>
+    <g id="g6"><path d="M9 21.500V8.500C9 4.5 11 2.5 14 2.500c2 3.5 1 8.5-5 11.5"/></g>
+    <g id="g7"><path d="M4 15.500c0-7 16-7 16 0zM3 19h18"/></g>
+    <g id="g8"><path d="M4.5 8.500l3-2.500c3.2 0 4.5 2.2 5.5 5.200l8 4.8-9 1.200M10 17v4.500M14 17v4.500M8 21.500h8"/></g>
+    <g id="g9"><path d="M3 20L12 4l9 16zM12 4l3 16"/></g>
+    <g id="g10"><path d="M3 12c4-5.5 10-5.5 14 0-4 5.5-10 5.5-14 0zM17 12l4.5-4.500v9z"/><circle cx="7.5" cy="11" r=".7"/></g>
+    <g id="g11"><path d="M4 8h16c0 7-3 11-8 11S4 15 4 8zM4 12h16"/></g>
+    <g id="g12"><path d="M3 18c3 0 3-4.5 6-4.500s3 4.5 6 4.5 3-4.5 6-4.500V7.500l-2.5 2"/></g>
+    <g id="g13"><path d="M12 22c-4-1-6-4.5-4.5-8 .8 1.5 1.8 2 2.5 2-1-4 0-8 3.5-12 0 4 4.5 6 4.5 11.5 0 3.5-2.5 6-6 6.500z"/></g>
+    <g id="row" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#g2" x="5"/><use href="#g1" x="39"/><use href="#g3" x="73"/><use href="#g8" x="107"/><use href="#g5" x="141"/><use href="#g4" x="175"/><use href="#g6" x="209"/><use href="#g7" x="243"/><use href="#g12" x="277"/><use href="#g9" x="311"/><use href="#g10" x="345"/><use href="#g11" x="379"/><use href="#g6" x="413"/>
+    </g>
+    <pattern id="pg" width="442" height="34" patternUnits="userSpaceOnUse"><use href="#row" y="5" stroke="#e9c35c"/></pattern>
+    <pattern id="pi" width="442" height="34" patternUnits="userSpaceOnUse"><use href="#row" y="5" stroke="#5b4526"/></pattern>
+    <pattern id="pv" width="34" height="442" patternUnits="userSpaceOnUse"><g fill="none" stroke="#5b4526" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#g8" x="5" y="5"/><use href="#g3" x="5" y="39"/><use href="#g1" x="5" y="73"/><use href="#g5" x="5" y="107"/><use href="#g2" x="5" y="141"/><use href="#g7" x="5" y="175"/><use href="#g12" x="5" y="209"/><use href="#g4" x="5" y="243"/><use href="#g6" x="5" y="277"/><use href="#g10" x="5" y="311"/><use href="#g9" x="5" y="345"/><use href="#g11" x="5" y="379"/><use href="#g6" x="5" y="413"/></g></pattern>
+  </defs>
+</svg>
+
+<div class="wrap">
+<header class="pylon" id="top">
+  <div class="ctl">
+    <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button" aria-label="Switch language"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+  <div class="tower" aria-hidden="true">
+    <svg><rect width="100%" height="100%" fill="url(#pv)"/></svg><svg><rect width="100%" height="100%" fill="url(#pv)" y="-120"/><rect width="100%" height="100%" fill="url(#pv)"/></svg><svg><rect width="100%" height="100%" fill="url(#pv)"/></svg>
+  </div>
+  <div class="gate">
+    <svg class="wings" viewBox="0 0 620 120" aria-hidden="true">
+      <g id="wing">
+        <path d="M310 46C390 8 520 6 616 34c-30 34-110 60-190 62-50 1-90-8-116-22z" fill="#b24a25" stroke="#e9c35c" stroke-width="2"/>
+        <path d="M310 46C390 16 500 14 584 34c-30 26-100 44-166 44-46 0-84-6-108-16z" fill="#1c3484" stroke="#e9c35c" stroke-width="2"/>
+        <path d="M310 46C380 24 470 22 540 34c-28 18-84 28-134 28-40 0-74-4-96-10z" fill="#1f9d95" stroke="#e9c35c" stroke-width="2"/>
+        <path d="M346 40l10 26M372 34l12 32M398 30l12 34M424 28l12 34M450 27l10 32M476 28l8 28M502 30l6 22M400 62l8 16M430 62l8 16M460 60l8 16M490 56l8 14M520 50l8 14M548 44l8 12M420 78l6 14M452 78l6 12M484 74l6 12M516 68l6 12" stroke="#e9c35c" stroke-width="1.5" fill="none"/>
+      </g>
+      <use href="#wing" transform="matrix(-1 0 0 1 620 0)"/>
+      <path d="M284 58c-14 8-20 22-12 34 4-10 10-14 18-16M336 58c14 8 20 22 12 34-4-10-10-14-18-16" fill="none" stroke="#e9c35c" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="310" cy="48" r="30" fill="#c0391f" stroke="#e9c35c" stroke-width="4"/>
+      <circle cx="310" cy="48" r="20" fill="#e9862a"/>
+    </svg>
+    <p class="over"><span lang="en">Egyptian Kitchen · On the Corniche</span><span lang="ar">مطبخ مصري · على الكورنيش</span></p>
+    <div class="cart"><h1><span lang="en">Beit El-Nil</span><span lang="ar">بيت النيل</span></h1></div>
+    <p class="tag"><span lang="en">Seven thousand years of supper, served by the river.</span><span lang="ar">سبعة آلاف عام من العشاء… تُقدَّم على ضفة النهر.</span></p>
+    <p class="intro"><span lang="en">Our house keeps the old order of an Egyptian table: bread first, then the clay pots, then the fire, and something sweet with mint tea before you are allowed to leave. Everything is cooked to share.</span><span lang="ar">في بيتنا تُرتَّب المائدة كما رتّبها الأجداد: العيش أولًا، ثم الطواجن الفخارية، ثم الشواء على الفحم، وأخيرًا لقمة حلوة مع الشاي بالنعناع قبل أن نأذن لك بالانصراف. وكل الأطباق تُطهى لتتقاسمها.</span></p>
+    <p class="legend">
+      <span><svg class="gl" viewBox="0 0 24 24"><use href="#g1"/></svg><span lang="en">Pharaoh's choice</span><span lang="ar">اختيار الفرعون</span></span>
+      <span><svg class="gl" viewBox="0 0 24 24"><use href="#g5"/></svg><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span>
+      <span><svg class="gl" viewBox="0 0 24 24"><use href="#g13"/></svg><span lang="en">Spicy</span><span lang="ar">حار</span></span>
+    </p>
+    <svg class="horizon" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <g class="sun"><circle cx="500" cy="150" r="74" fill="#f0b44a"/><circle cx="500" cy="150" r="56" fill="#f7d77c"/></g>
+      <path d="M0 170h170L290 60l120 110h40L560 20l150 150h30l80-76 90 76h90v30H0z" fill="#0d1a45"/>
+      <path d="M290 60l30 110h90zM560 20l40 150h110zM820 94l24 76h66z" fill="#1c3484"/>
+      <g stroke="#0d1a45" stroke-width="5" fill="none" stroke-linecap="round"><path d="M110 172c2-30 0-52-6-74M104 98c-16-10-30-8-40 2M104 98c-6-18-20-26-34-24M104 98c8-16 22-22 36-18M104 98c16-6 30-2 38 10M104 98c-2-14 4-26 14-32"/><path d="M930 172c-2-24 0-42 5-60M935 112c14-8 26-6 34 2M935 112c5-15 17-22 29-20M935 112c-7-14-19-19-31-16M935 112c-14-5-26-2-33 8"/></g>
+      <path d="M0 176h1000v24H0z" fill="#14275f"/>
+      <path d="M0 184q25-8 50 0t50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0" fill="none" stroke="#1f9d95" stroke-width="3"/>
+    </svg>
+  </div>
+  <div class="tower b" aria-hidden="true">
+    <svg><rect width="100%" height="100%" fill="url(#pv)"/></svg><svg><rect width="100%" height="100%" fill="url(#pv)" y="-120"/><rect width="100%" height="100%" fill="url(#pv)"/></svg><svg><rect width="100%" height="100%" fill="url(#pv)"/></svg>
+  </div>
+</header>
+<svg class="band g" aria-hidden="true"><rect width="100%" height="34" fill="url(#pg)"/></svg>
+
+<nav class="reg" aria-label="Sections">
+  <a href="#s1"><svg class="gl" viewBox="0 0 24 24"><use href="#g7"/></svg><span lang="en">First Bread</span><span lang="ar">فاتحة العيش</span></a>
+  <a href="#s2"><svg class="gl" viewBox="0 0 24 24"><use href="#g11"/></svg><span lang="en">Baladi Pots</span><span lang="ar">أكل بلدي</span></a>
+  <a href="#s3"><svg class="gl" viewBox="0 0 24 24"><use href="#g13"/></svg><span lang="en">The Fire</span><span lang="ar">على الفحم</span></a>
+  <a href="#s4"><svg class="gl" viewBox="0 0 24 24"><use href="#g5"/></svg><span lang="en">Honey &amp; Milk</span><span lang="ar">عسل ولبن</span></a>
+  <a href="#s5"><svg class="gl" viewBox="0 0 24 24"><use href="#g3"/></svg><span lang="en">From the Nile</span><span lang="ar">من النيل</span></a>
+</nav>
+
+<main>
+<div class="hallwrap">
+  <div class="cavetto" aria-hidden="true"></div>
+  <svg class="band i" aria-hidden="true"><rect width="100%" height="34" fill="url(#pi)"/></svg>
+  <div class="hall">
+    <section class="bay" id="s1">
+      <div class="st"><span class="n"><span lang="en">First Register</span><span lang="ar">السجلّ الأول</span></span>
+        <h2><svg class="gl" viewBox="0 0 24 24"><use href="#g7"/></svg><span lang="en">First Bread</span><span lang="ar">فاتحة العيش</span></h2></div>
+      <ul class="items">
+        <li class="it"><div class="hd"><h3><span lang="en">Ful Medames</span><span lang="ar">فول مدمّس</span></h3><svg class="gl mk v" viewBox="0 0 24 24"><use href="#g5"/></svg><i></i><span class="pr">65 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Fava beans left overnight in the copper qidra, with cumin, lemon and green olive oil.</span><span lang="ar">فول يبيت ليلته في القِدرة النحاسية، بالكمّون والليمون وزيت الزيتون الأخضر.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Taameya</span><span lang="ar">طعمية</span></h3><svg class="gl mk" viewBox="0 0 24 24"><use href="#g1"/></svg><svg class="gl mk v" viewBox="0 0 24 24"><use href="#g5"/></svg><i></i><span class="pr">60 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Bright-green fava falafel, fried to order in a coriander and sesame crust.</span><span lang="ar">أقراص الفول الأخضر بالكزبرة، تُقلى عند الطلب بقشرة مقرمشة من السمسم.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Baba Ghanoug</span><span lang="ar">بابا غنّوج</span></h3><svg class="gl mk v" viewBox="0 0 24 24"><use href="#g5"/></svg><i></i><span class="pr">70 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Aubergine charred on open flame, beaten with tahini, garlic and pomegranate molasses.</span><span lang="ar">باذنجان مشوي على اللهب، مهروس بالطحينة والثوم ودبس الرمان.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Besara</span><span lang="ar">بصارة</span></h3><svg class="gl mk v" viewBox="0 0 24 24"><use href="#g5"/></svg><i></i><span class="pr">65 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Velvet purée of split fava, dill and parsley under a crown of crisp onions.</span><span lang="ar">هريس مخملي من الفول المدشوش والشبت والبقدونس، يعلوه تاج من البصل المقرمش.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Wara' Enab</span><span lang="ar">ورق عنب</span></h3><i></i><span class="pr">85 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Vine leaves rolled finger-thin around herbed rice, simmered in lemon broth.</span><span lang="ar">أصابع رفيعة من ورق العنب محشوّة بالأرز والأعشاب، مطهوّة في مرق الليمون.</span></p></li>
+      </ul>
+    </section>
+
+    <section class="bay" id="s2">
+      <div class="st"><span class="n"><span lang="en">Second Register</span><span lang="ar">السجلّ الثاني</span></span>
+        <h2><svg class="gl" viewBox="0 0 24 24"><use href="#g11"/></svg><span lang="en">Baladi Pots</span><span lang="ar">أكل بلدي</span></h2></div>
+      <ul class="items">
+        <li class="it"><div class="hd"><h3><span lang="en">Koshari El-Nil</span><span lang="ar">كشري النيل</span></h3><svg class="gl mk" viewBox="0 0 24 24"><use href="#g1"/></svg><svg class="gl mk" viewBox="0 0 24 24"><use href="#g13"/></svg><i></i><span class="pr">95 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Rice, lentils, macaroni and chickpeas with garlic-vinegar daqqa, fiery shatta and fried onions.</span><span lang="ar">أرز وعدس ومكرونة وحمّص، مع الدقّة بالثوم والخل والشطّة الحارّة والبصل المحمّر.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Hawawshi</span><span lang="ar">حواوشي</span></h3><svg class="gl mk" viewBox="0 0 24 24"><use href="#g13"/></svg><i></i><span class="pr">120 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Baladi bread packed with spiced minced beef, peppers and onion, baked until it crackles.</span><span lang="ar">عيش بلدي محشوّ باللحم المفروم المتبّل والفلفل والبصل، يُخبز حتى يتقرمش.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Molokhia</span><span lang="ar">ملوخية</span></h3><i></i><span class="pr">110 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Jute-leaf stew finished with a sizzling garlic and coriander tasha; vermicelli rice on the side.</span><span lang="ar">ملوخية خضراء تُختم بطشّة الثوم والكزبرة، ومعها أرز بالشعرية.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Feteer Meshaltet</span><span lang="ar">فطير مشلتت</span></h3><svg class="gl mk v" viewBox="0 0 24 24"><use href="#g5"/></svg><i></i><span class="pr">130 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">A hundred buttered layers stretched by hand, with black honey and aged mish cheese.</span><span lang="ar">مئة طبقة بالسمن البلدي تُفرد باليد، مع العسل الأسود والجبن القديم.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Mahshi Platter</span><span lang="ar">محشي مشكّل</span></h3><svg class="gl mk v" viewBox="0 0 24 24"><use href="#g5"/></svg><i></i><span class="pr">125 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Courgette, pepper, aubergine and cabbage, each stuffed with tomato-herb rice.</span><span lang="ar">كوسة وفلفل وباذنجان وكرنب، كلٌّ محشوّ بالأرز والطماطم والخُضرة.</span></p></li>
+      </ul>
+    </section>
+
+    <section class="bay" id="s3">
+      <div class="st"><span class="n"><span lang="en">Third Register</span><span lang="ar">السجلّ الثالث</span></span>
+        <h2><svg class="gl" viewBox="0 0 24 24"><use href="#g13"/></svg><span lang="en">The Fire</span><span lang="ar">على الفحم</span></h2></div>
+      <ul class="items">
+        <li class="it"><div class="hd"><h3><span lang="en">Kofta &amp; Kebab</span><span lang="ar">كفتة وكباب</span></h3><svg class="gl mk" viewBox="0 0 24 24"><use href="#g1"/></svg><i></i><span class="pr">285 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Charcoal lamb kofta and veal kebab on parsley and sumac onions, with tahini.</span><span lang="ar">كفتة ضاني وكباب بتلّو على الفحم، فوق البقدونس والبصل بالسمّاق، مع الطحينة.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Hamam Mahshi</span><span lang="ar">حمام محشي</span></h3><i></i><span class="pr">260 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Pigeon stuffed with smoky freekeh and giblets, roasted to a lacquered skin.</span><span lang="ar">حمام محشوّ بالفريك المدخّن، يُحمَّر حتى تلمع قشرته.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Lamb Fattah</span><span lang="ar">فتّة باللحم</span></h3><svg class="gl mk" viewBox="0 0 24 24"><use href="#g1"/></svg><i></i><span class="pr">240 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Crisp bread and rice soaked in garlic-vinegar tomato sauce, crowned with slow-braised lamb.</span><span lang="ar">عيش محمّص وأرز مشبّع بصلصة الطماطم بالثوم والخل، تعلوه موزة ضاني مطهوّة على مهل.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Okra Tagen</span><span lang="ar">طاجن بامية</span></h3><i></i><span class="pr">195 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Baby okra and beef cubes bubbling in a clay pot of tomato, garlic and coriander.</span><span lang="ar">بامية صغيرة ومكعبات اللحم البقري في طاجن فخّار يغلي بالطماطم والثوم والكزبرة.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Samak Singari</span><span lang="ar">سمك سنجاري</span></h3><svg class="gl mk" viewBox="0 0 24 24"><use href="#g13"/></svg><i></i><span class="pr">310 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Alexandrian butterflied sea bass roasted under peppers, tomato, cumin and chilli.</span><span lang="ar">قاروص مفتوح على الطريقة الإسكندرانية، يُشوى تحت الفلفل والطماطم والكمّون والشطّة.</span></p></li>
+      </ul>
+    </section>
+
+    <section class="bay" id="s4">
+      <div class="st"><span class="n"><span lang="en">Fourth Register</span><span lang="ar">السجلّ الرابع</span></span>
+        <h2><svg class="gl" viewBox="0 0 24 24"><use href="#g5"/></svg><span lang="en">Honey &amp; Milk</span><span lang="ar">عسل ولبن</span></h2></div>
+      <ul class="items">
+        <li class="it"><div class="hd"><h3><span lang="en">Om Ali</span><span lang="ar">أم علي</span></h3><svg class="gl mk" viewBox="0 0 24 24"><use href="#g1"/></svg><i></i><span class="pr">90 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Warm pastry pudding baked in milk and cream with pistachio, coconut and raisins.</span><span lang="ar">رقائق مخبوزة في الحليب والقشطة مع الفستق وجوز الهند والزبيب، تُقدَّم ساخنة.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Basbousa</span><span lang="ar">بسبوسة</span></h3><i></i><span class="pr">70 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Semolina cake drenched in orange-blossom syrup, an almond pressed into every square.</span><span lang="ar">كعكة السميد المشرّبة بقطر ماء الزهر، وعلى كل قطعة حبّة لوز.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Konafa bil Qishta</span><span lang="ar">كنافة بالقشطة</span></h3><i></i><span class="pr">95 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Golden threads of pastry around clotted cream, cut at the table.</span><span lang="ar">خيوط ذهبية من الكنافة تحتضن القشطة البلدي، تُقطَّع أمامك.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Roz bel Laban</span><span lang="ar">أرز باللبن</span></h3><i></i><span class="pr">60 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Cool rice pudding scented with mastic, dusted with cinnamon.</span><span lang="ar">أرز باللبن بارد بنكهة المستكة، مرشوش بالقرفة.</span></p></li>
+        <li class="it"><div class="hd"><h3><span lang="en">Zalabya</span><span lang="ar">زلابية</span></h3><i></i><span class="pr">65 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+          <p><span lang="en">Hot dough pearls, crisp outside and airy within, rolled in honey.</span><span lang="ar">كرات عجين ساخنة، مقرمشة من الخارج هشّة من الداخل، مغموسة في العسل.</span></p></li>
+      </ul>
+    </section>
+  </div>
+  <div class="steps" aria-hidden="true"></div>
+</div>
+
+<div class="low">
+  <aside class="stela">
+    <svg class="gl big" viewBox="0 0 24 24" aria-hidden="true"><use href="#g2"/></svg>
+    <h2><span lang="en">Feast of the Two Lands</span><span lang="ar">وليمة الأرضَين</span></h2>
+    <p class="sub"><span lang="en">A table for two, upper and lower Egypt on one tray</span><span lang="ar">مائدة لشخصين تجمع الصعيد والدلتا في صينية واحدة</span></p>
+    <ol>
+      <li><b><span lang="en">To open</span><span lang="ar">البداية</span></b><span lang="en">Ful, taameya, baba ghanoug &amp; baladi bread</span><span lang="ar">فول وطعمية وبابا غنّوج وعيش بلدي</span></li>
+      <li><b><span lang="en">The pots</span><span lang="ar">الطواجن</span></b><span lang="en">Koshari El-Nil and molokhia</span><span lang="ar">كشري النيل وملوخية</span></li>
+      <li><b><span lang="en">The fire</span><span lang="ar">الشواء</span></b><span lang="en">Kofta &amp; kebab with lamb fattah</span><span lang="ar">كفتة وكباب مع فتّة باللحم</span></li>
+      <li><b><span lang="en">To close</span><span lang="ar">الختام</span></b><span lang="en">Om Ali and mint tea</span><span lang="ar">أم علي وشاي بالنعناع</span></li>
+    </ol>
+    <p class="big-pr">690 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></p>
+  </aside>
+
+  <section class="nile" id="s5">
+    <svg class="waves" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true"><path d="M-40 12l20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10M-40 28l20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10 20-10 20 10" fill="none" stroke="currentColor" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>
+    <div class="st"><span class="n"><span lang="en">Fifth Register</span><span lang="ar">السجلّ الخامس</span></span>
+      <h2><svg class="gl" viewBox="0 0 24 24"><use href="#g3"/></svg><span lang="en">From the Nile</span><span lang="ar">من النيل</span></h2></div>
+    <ul class="items">
+      <li class="it"><div class="hd"><h3><span lang="en">Karkadeh</span><span lang="ar">كركديه</span></h3><svg class="gl mk" viewBox="0 0 24 24"><use href="#g1"/></svg><i></i><span class="pr">45 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+        <p><span lang="en">Aswan hibiscus steeped cold, deep ruby and just sweet enough.</span><span lang="ar">كركديه أسواني منقوع على البارد، ياقوتي اللون وحلاوته على قدّها.</span></p></li>
+      <li class="it"><div class="hd"><h3><span lang="en">Asab</span><span lang="ar">عصير قصب</span></h3><i></i><span class="pr">40 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+        <p><span lang="en">Sugarcane pressed to order, served frothing with a squeeze of lime.</span><span lang="ar">قصب يُعصر عند الطلب ويُقدَّم برغوته مع عصرة ليمون.</span></p></li>
+      <li class="it"><div class="hd"><h3><span lang="en">Sobia</span><span lang="ar">سوبيا</span></h3><i></i><span class="pr">50 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+        <p><span lang="en">Chilled coconut and rice milk with vanilla, the taste of summer nights.</span><span lang="ar">حليب جوز الهند والأرز المثلّج بالفانيليا، طعم ليالي الصيف.</span></p></li>
+      <li class="it"><div class="hd"><h3><span lang="en">Tamr Hindi</span><span lang="ar">تمر هندي</span></h3><i></i><span class="pr">45 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+        <p><span lang="en">Sweet-sour tamarind over crushed ice with a little rosewater.</span><span lang="ar">تمر هندي حلو حامض على الثلج المجروش مع قطرة ماء ورد.</span></p></li>
+      <li class="it"><div class="hd"><h3><span lang="en">Sahlab</span><span lang="ar">سحلب</span></h3><i></i><span class="pr">60 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+        <p><span lang="en">Thick warm orchid milk with cinnamon, coconut and crushed nuts.</span><span lang="ar">سحلب ساخن كثيف بالقرفة وجوز الهند والمكسّرات.</span></p></li>
+      <li class="it"><div class="hd"><h3><span lang="en">Shai bel Na'na'</span><span lang="ar">شاي بالنعناع</span></h3><i></i><span class="pr">35 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+        <p><span lang="en">Strong black tea in a glass, with a fistful of fresh mint.</span><span lang="ar">شاي أحمر ثقيل في كوب زجاج، مع قبضة من النعناع الطازج.</span></p></li>
+      <li class="it"><div class="hd"><h3><span lang="en">Ahwa Mazboot</span><span lang="ar">قهوة مظبوط</span></h3><i></i><span class="pr">40 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+        <p><span lang="en">Cardamom coffee brewed in the kanaka, medium sweet, never stirred.</span><span lang="ar">قهوة بالحبّهان تُغلى في الكنكة، سكّرها مظبوط ولا تُقلَّب.</span></p></li>
+      <li class="it"><div class="hd"><h3><span lang="en">Lemon &amp; Mint</span><span lang="ar">ليمون بالنعناع</span></h3><i></i><span class="pr">45 <small><span lang="en">EGP</span><span lang="ar">ج.م</span></small></span></div>
+        <p><span lang="en">Whole lemons blitzed with mint and ice until pale green and frosty.</span><span lang="ar">ليمون كامل مخفوق بالنعناع والثلج حتى يصير أخضر فاتحًا مثلّجًا.</span></p></li>
+    </ul>
+  </section>
+</div>
+</main>
+
+<footer>
+  <svg class="band g" aria-hidden="true"><rect width="100%" height="34" fill="url(#pg)"/></svg>
+  <div class="fgrid">
+    <div><h4><span lang="en">Hours</span><span lang="ar">ساعات العمل</span></h4>
+      <p><span lang="en">Daily, noon to 1 am<br>Friday breakfast from 8 am</span><span lang="ar">يوميًا من ١٢ ظهرًا حتى ١ بعد منتصف الليل<br>فطور الجمعة من ٨ صباحًا</span></p></div>
+    <div><h4><span lang="en">Find the house</span><span lang="ar">العنوان</span></h4>
+      <p><span lang="en">14 Corniche El-Nil, Zamalek, Cairo<br>Tables: +20 2 5550 0147</span><span lang="ar">١٤ كورنيش النيل، الزمالك، القاهرة<br>للحجز: <span dir="ltr">+20 2 5550 0147</span></span></p></div>
+    <div><h4><span lang="en">Good to know</span><span lang="ar">يهمّك أن تعرف</span></h4>
+      <p><span lang="en">Our kitchen uses sesame, nuts, wheat and dairy. All meat is halal. Tell us about any allergy.</span><span lang="ar">مطبخنا يستخدم السمسم والمكسّرات والقمح ومنتجات الألبان. جميع اللحوم حلال. أخبرنا عن أي حساسية.</span></p></div>
+  </div>
+  <p class="fine"><span lang="en">Prices in Egyptian pounds, service and tax included.</span><span lang="ar">الأسعار بالجنيه المصري وتشمل الخدمة والضريبة.</span></p>
+</footer>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

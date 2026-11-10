@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Kaleidoscope · كاليدوسكوب</title>
+<meta name="description" content="Kaleidoscope — a dessert tasting room. Twenty jewel-sized desserts in five flights of colour. كاليدوسكوب — صالة لتذوّق الحلويات: عشرون جوهرة في خمس جولات لونية.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0420">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Alexandria:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--ink:#0c0420;--pink:#ff2e7e;--yel:#ffd400;--teal:#00c2a0;--vio:#7a3cff;--cy:#2de2ff;--or:#ff7a00;
+  --disp:'Syne','Alexandria','Trebuchet MS',sans-serif;--body:'Alexandria','Segoe UI',Tahoma,sans-serif;
+  --D:clamp(580px,calc(100vmin + 150px),1060px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{font-family:var(--body);font-weight:300;font-size:16px;line-height:1.5;color:#fff;overflow-x:clip}
+html[lang="ar"]{--disp:'Alexandria','Syne',Tahoma,sans-serif}
+html[lang="ar"] body{font-size:16.5px;line-height:1.8}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+
+.ctl{position:fixed;z-index:90;top:10px;inset-inline-end:10px;display:flex;gap:6px}
+.ctl>*{height:36px;padding:0 14px;border-radius:99px;border:2px solid #fff;background:var(--ink);color:#fff;font:500 13.5px/1 var(--body);display:inline-flex;align-items:center;text-decoration:none;cursor:pointer;box-shadow:3px 3px 0 var(--pink),-3px -3px 0 var(--cy)}
+.ctl>*:hover,.ctl>*:focus-visible{background:#fff;color:var(--ink);outline:none}
+.spec{position:fixed;z-index:80;inset-inline-start:14px;top:50%;translate:0 -50%;display:flex;flex-direction:column;gap:12px;padding:12px 8px;background:var(--ink);border:2px solid #fff;border-radius:99px}
+.spec a{width:18px;height:18px;background:var(--c);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);transition:scale .2s}
+.spec a:hover,.spec a:focus-visible{scale:1.5}
+
+/* ================= HERO ================= */
+.hero{position:relative;height:min(100svh,920px);min-height:600px;overflow:hidden;isolation:isolate;
+  background:repeating-conic-gradient(from 0deg at 50% 50%,#1b0a3d 0 5deg,#0c0420 5deg 10deg)}
+.k{position:absolute;left:50%;top:50%;width:var(--D);aspect-ratio:1;translate:-50% -50%;border-radius:50%;box-shadow:0 0 0 10px var(--ink),0 0 0 14px #fff,0 0 120px #ff2e7e88}
+.k>*{position:absolute;inset:0;border-radius:50%}
+.k .a{background:repeating-conic-gradient(from 0deg,var(--pink) 0 5deg,var(--yel) 5deg 10deg,var(--teal) 10deg 15deg,var(--vio) 15deg 20deg,var(--teal) 20deg 25deg,var(--yel) 25deg 30deg);animation:spin 140s linear infinite}
+.k .b{inset:13%;background:repeating-conic-gradient(from 7.5deg,var(--ink) 0 7.5deg,#0000 7.5deg 15deg),repeating-radial-gradient(circle closest-side,var(--or) 0 4%,var(--cy) 4% 8%,var(--pink) 8% 12%,#fff 12% 14%);animation:spin 90s linear infinite reverse;box-shadow:0 0 0 6px var(--ink)}
+.k .c{inset:25%;background:repeating-conic-gradient(from 0deg,var(--vio) 0 10deg,var(--cy) 10deg 15deg,var(--yel) 15deg 20deg,var(--cy) 20deg 25deg,var(--vio) 25deg 30deg);animation:spin 60s linear infinite;box-shadow:0 0 0 6px var(--ink)}
+.k svg{animation:spin 200s linear infinite reverse;overflow:visible}
+.k .sh{background:repeating-conic-gradient(from 0deg,#fff0 0 20deg,#ffffff59 30deg,#fff0 40deg 60deg);mix-blend-mode:overlay;animation:spin 24s linear infinite}
+.k .hub{inset:27%;background:radial-gradient(circle,#1b0a3d,var(--ink) 70%);box-shadow:0 0 0 5px #fff,0 0 0 11px var(--ink),0 0 0 14px var(--yel)}
+@keyframes spin{to{rotate:360deg}}
+.title{position:absolute;inset:0;z-index:5;display:grid;place-content:center;justify-items:center;text-align:center;padding:0 1rem;gap:.5rem}
+.title small{font-weight:500;letter-spacing:.4em;text-transform:uppercase;font-size:clamp(.72rem,1.1vw,.95rem);color:var(--yel)}
+html[lang="ar"] .title small{font-size:clamp(.95rem,1.4vw,1.2rem)}
+h1{font-family:var(--disp);font-weight:800;font-size:clamp(1.9rem,9.1vw,6.2rem);line-height:1;letter-spacing:-.02em;color:#fff;
+  -webkit-text-stroke:.16em var(--ink);paint-order:stroke fill;text-shadow:.05em .05em 0 var(--pink),-.05em -.05em 0 var(--cy)}
+html[lang="ar"] h1{font-size:clamp(3rem,8.4vw,6.6rem);line-height:1.5}
+.title p{max-width:min(24ch,calc(var(--D)*.4));font-size:clamp(.92rem,1.5vw,1.15rem);font-weight:400;line-height:1.4}
+html[lang="ar"] .title p{line-height:1.7}
+.title a{margin-top:.3rem;font-weight:700;font-size:.9rem;text-decoration:none;background:var(--yel);color:var(--ink);padding:.5rem 1.1rem;border-radius:99px;box-shadow:3px 3px 0 var(--pink)}
+
+.lede{background:var(--ink);text-align:center;padding:clamp(2rem,5vw,3.6rem) 1.3rem clamp(2.6rem,6vw,4.5rem);position:relative;border-top:6px solid #fff}
+.lede p{max-width:60ch;margin:auto;font-size:clamp(1.05rem,1.7vw,1.3rem);font-weight:300}
+.lede b{font-weight:700;color:var(--yel)}
+.lede .row{display:flex;justify-content:center;gap:10px;margin-bottom:1.2rem}
+.lede::after,.band::after{content:"";position:absolute;inset:auto 0 -1px 0;height:26px;background:conic-gradient(from -45deg at 50% 100%,var(--next) 90deg,#0000 0) 50% 0/52px 26px repeat-x;z-index:2}
+
+/* ================= GEMS ================= */
+.gem{--g:74px;width:var(--g);aspect-ratio:1;position:relative;flex:none;display:grid;place-items:center;clip-path:var(--cut);
+  background:conic-gradient(from 22.5deg,var(--c1) 0 45deg,var(--c3) 0 90deg,var(--c2) 0 135deg,var(--c3) 0 180deg,var(--c1) 0 225deg,var(--c2) 0 270deg,var(--c3) 0 315deg,var(--c2) 0)}
+.gem::before{content:"";position:absolute;inset:23%;clip-path:var(--cut);background:linear-gradient(135deg,#fff,var(--c1) 70%,var(--c2) 130%)}
+.gem b{position:relative;font-family:'Syne',sans-serif;font-weight:800;font-size:calc(var(--g)*.26);color:var(--c3);letter-spacing:0}
+.oct{--cut:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%)}
+.dia{--cut:polygon(22% 4%,78% 4%,100% 36%,50% 100%,0 36%)}
+.hex{--cut:polygon(50% 0,93.3% 25%,93.3% 75%,50% 100%,6.7% 75%,6.7% 25%)}
+.kite{--cut:polygon(50% 0,96% 38%,50% 100%,4% 38%)}
+.em{--cut:polygon(18% 6%,82% 6%,96% 22%,96% 78%,82% 94%,18% 94%,4% 78%,4% 22%)}
+.rnd{--cut:circle(49%)}
+.gw{filter:drop-shadow(4px 5px 0 #0004);flex:none;display:block}
+
+/* ================= FLIGHT BANDS ================= */
+.band{position:relative;background:var(--bg);color:var(--fg);padding:clamp(3rem,6vw,4.6rem) clamp(1rem,4vw,3.5rem) clamp(3.6rem,6vw,5rem);overflow:hidden;isolation:isolate;scroll-margin-top:0}
+.band::before{content:"";position:absolute;left:50%;top:50%;width:max(120vw,1500px);aspect-ratio:1;translate:-50% -50%;z-index:-1;
+  background:repeating-conic-gradient(from 0deg,var(--ray) 0 6deg,#0000 6deg 12deg);-webkit-mask:radial-gradient(circle,#000 0,#0000 62%);mask:radial-gradient(circle,#000 0,#0000 62%);animation:spin 240s linear infinite}
+.flight{max-width:1280px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,400px) minmax(0,1fr);gap:clamp(1rem,3vw,3rem);align-items:center}
+.core{text-align:center;display:grid;justify-items:center;gap:.4rem}
+.core .gem{--g:clamp(150px,17vw,210px)}
+.core .gem b{font-size:calc(var(--g)*.3)}
+.core small{font-weight:500;letter-spacing:.34em;text-transform:uppercase;font-size:.8rem;margin-top:.8rem}
+html[lang="ar"] .core small{font-size:1rem}
+.core h2{font-family:var(--disp);font-weight:800;font-size:clamp(2.3rem,3.5vw,3.1rem);line-height:1;letter-spacing:-.02em;-webkit-box-reflect:below -.12em linear-gradient(#0000 45%,#0005)}
+html[lang="ar"] .core h2{font-size:clamp(2.6rem,4.4vw,3.8rem);line-height:1.5;-webkit-box-reflect:below -.5em linear-gradient(#0000 45%,#0005)}
+.core p{margin-top:1.7rem;font-weight:400;max-width:26ch}
+.pair{margin-top:.5rem;font-size:.9rem;font-weight:500;border:2px solid currentColor;border-radius:99px;padding:.3rem .9rem;display:inline-block}
+.side{display:grid;gap:clamp(1.6rem,3.4vw,3rem)}
+.jw{display:flex;gap:1rem;align-items:center}
+.side.l .jw{flex-direction:row-reverse;text-align:end}
+.jw h3{font-family:var(--disp);font-weight:700;font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.15}
+html[lang="ar"] .jw h3{line-height:1.5;font-size:clamp(1.2rem,1.8vw,1.45rem)}
+.jw p{font-weight:400;font-size:1rem;max-width:36ch;margin-top:.15rem}
+.side.l .jw p{margin-inline-start:auto}
+.pr{display:inline-block;margin-top:.35rem;font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;background:var(--fg);color:var(--bg);padding:.05rem .65rem;border-radius:99px;letter-spacing:0}
+#f1{--bg:#ffd400;--fg:#1d0638;--ray:#ffffff66;--c1:#fff6b8;--c2:#ff8a00;--c3:#c23b00;--next:#ff4f93}
+#f2{--bg:#ff4f93;--fg:#2a0020;--ray:#ffffff3d;--c1:#ffe0ea;--c2:#e0003c;--c3:#7d0028;--next:#19d3a2}
+#f3{--bg:#19d3a2;--fg:#032a2a;--ray:#ffffff4d;--c1:#e2fff3;--c2:#00966c;--c3:#004f44;--next:#8a52ff}
+#f4{--bg:#8a52ff;--fg:#fff;--ray:#ffffff26;--c1:#f3e6ff;--c2:#c04dff;--c3:#3c0f8a;--next:#120a1e}
+#f4 .pr{color:#3c0f8a}
+#f5{--bg:#120a1e;--fg:#ffe9a8;--ray:#ffd40014;--c1:#fff3c9;--c2:#d9a520;--c3:#3a2a00;--next:#0c0420}
+#f5 .jw p,#f5 .core p{color:#e9e2f5}
+
+/* ================= THE PRISM (sets) ================= */
+.sets{background:var(--ink);padding:clamp(3rem,7vw,5.5rem) clamp(1rem,4vw,3rem);text-align:center;position:relative}
+.sets>h2{font-family:var(--disp);font-weight:800;font-size:clamp(2.2rem,5.4vw,4.4rem);line-height:1.05;background:linear-gradient(90deg,var(--yel),var(--pink),var(--vio),var(--cy),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+html[lang="ar"] .sets>h2{line-height:1.6}
+.sets>p{max-width:52ch;margin:.6rem auto 2.4rem;color:#ded5f0}
+.trio{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:1.6rem;align-items:center}
+.set{position:relative;padding:5px;border-radius:26px;background:conic-gradient(from var(--a,0deg),var(--pink),var(--yel),var(--teal),var(--cy),var(--vio),var(--pink))}
+.set>div{background:var(--ink);border-radius:21px;padding:1.7rem 1.3rem 1.6rem;display:grid;justify-items:center;gap:.5rem}
+.set.big>div{padding-block:2.6rem}
+.set h3{font-family:var(--disp);font-weight:800;font-size:1.8rem;line-height:1.15}
+.set.big h3{font-size:2.3rem}
+html[lang="ar"] .set h3{line-height:1.5}
+.set p{font-weight:300;max-width:30ch;color:#ded5f0}
+.set .big-pr{font-family:'Syne',sans-serif;font-weight:800;font-size:2.6rem;line-height:1;color:var(--yel);margin-top:.3rem}
+.set.big .big-pr{font-size:3.6rem}
+.minis{display:flex;gap:6px;justify-content:center;margin-bottom:.4rem}
+.minis .gem{--g:30px}
+.set.big .minis .gem{--g:40px}
+.g1{--c1:#fff6b8;--c2:#ff8a00;--c3:#c23b00}.g2{--c1:#ffe0ea;--c2:#e0003c;--c3:#7d0028}.g3{--c1:#e2fff3;--c2:#00966c;--c3:#004f44}.g4{--c1:#f3e6ff;--c2:#c04dff;--c3:#3c0f8a}.g5{--c1:#fff3c9;--c2:#d9a520;--c3:#3a2a00}
+
+/* ================= FOOTER ================= */
+footer{position:relative;background:var(--ink);overflow:hidden;text-align:center;padding:1rem clamp(1rem,4vw,3rem) 0;border-top:6px solid #fff;isolation:isolate}
+.cols{max-width:1100px;margin:2.6rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.cols h4{font-family:var(--disp);font-weight:800;font-size:1.15rem;margin-bottom:.3rem}
+.cols div:nth-child(1) h4{color:var(--yel)}.cols div:nth-child(2) h4{color:var(--pink)}.cols div:nth-child(3) h4{color:var(--cy)}
+.cols p{color:#ded5f0;font-size:.98rem}
+.half{position:relative;height:clamp(170px,26vw,300px);margin-top:2.6rem;overflow:hidden}
+.half .k{--D:clamp(380px,56vw,640px);top:100%}
+.half .word{position:absolute;inset:auto 0 12%;z-index:3;font-family:var(--disp);font-weight:800;font-size:clamp(1.3rem,3vw,2rem);-webkit-text-stroke:.3em var(--ink);paint-order:stroke fill}
+
+@media (max-width:900px){
+  .spec{display:none}
+  .flight{grid-template-columns:1fr;max-width:520px}
+  .core{margin-bottom:.8rem;order:-1}
+  .side.l .jw,.jw{flex-direction:row;text-align:start}
+  .side .jw:nth-child(even){flex-direction:row-reverse;text-align:end}
+  .side.l .jw p{margin-inline-start:0}
+  .side .jw:nth-child(even) p{margin-inline-start:auto}
+  .side{gap:1.5rem}
+  .gem{--g:66px}
+  .trio{grid-template-columns:1fr;max-width:440px}
+  .cols{grid-template-columns:1fr;gap:1.3rem}
+  .k .hub{inset:25%}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<div class="ctl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+<nav class="spec" aria-label="Flights">
+  <a href="#f1" style="--c:#ffd400"><span class="vh"><span lang="en">Citrine</span><span lang="ar">سيترين</span></span></a>
+  <a href="#f2" style="--c:#ff4f93"><span class="vh"><span lang="en">Ruby</span><span lang="ar">ياقوت</span></span></a>
+  <a href="#f3" style="--c:#19d3a2"><span class="vh"><span lang="en">Emerald</span><span lang="ar">زمرّد</span></span></a>
+  <a href="#f4" style="--c:#8a52ff"><span class="vh"><span lang="en">Amethyst</span><span lang="ar">جَمَشت</span></span></a>
+  <a href="#f5" style="--c:#ffe9a8"><span class="vh"><span lang="en">Onyx</span><span lang="ar">عقيق أسود</span></span></a>
+</nav>
+
+<header class="hero">
+  <div class="k" aria-hidden="true">
+    <i class="a"></i><i class="b"></i><i class="c"></i>
+    <svg viewBox="0 0 400 400">
+      <g fill="#0c0420"><path d="M200 24l-10-26h20z" transform="rotate(0 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(15 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(30 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(45 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(60 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(75 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(90 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(105 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(120 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(135 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(150 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(165 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(180 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(195 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(210 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(225 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(240 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(255 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(270 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(285 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(300 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(315 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(330 200 200)"/><path d="M200 24l-10-26h20z" transform="rotate(345 200 200)"/></g>
+      <g stroke="#0c0420" stroke-width="4" stroke-linejoin="round">
+        <g fill="#fff"><path d="M200 16C236 58 228 92 200 106 172 92 164 58 200 16z" transform="rotate(0 200 200)"/><path d="M200 16C236 58 228 92 200 106 172 92 164 58 200 16z" transform="rotate(60 200 200)"/><path d="M200 16C236 58 228 92 200 106 172 92 164 58 200 16z" transform="rotate(120 200 200)"/><path d="M200 16C236 58 228 92 200 106 172 92 164 58 200 16z" transform="rotate(180 200 200)"/><path d="M200 16C236 58 228 92 200 106 172 92 164 58 200 16z" transform="rotate(240 200 200)"/><path d="M200 16C236 58 228 92 200 106 172 92 164 58 200 16z" transform="rotate(300 200 200)"/></g>
+        <g fill="#ffd400"><path d="M200 16C236 58 228 92 200 106 172 92 164 58 200 16z" transform="rotate(30 200 200)"/><path d="M200 16C236 58 228 92 200 106 172 92 164 58 200 16z" transform="rotate(90 200 200)"/><path d="M200 16C236 58 228 92 200 106 172 92 164 58 200 16z" transform="rotate(150 200 200)"/><path d="M200 16C236 58 228 92 200 106 172 92 164 58 200 16z" transform="rotate(210 200 200)"/><path d="M200 16C236 58 228 92 200 106 172 92 164 58 200 16z" transform="rotate(270 200 200)"/><path d="M200 16C236 58 228 92 200 106 172 92 164 58 200 16z" transform="rotate(330 200 200)"/></g>
+        <g fill="#ff2e7e"><path d="M200 44l11 22-11 26-11-26z" transform="rotate(0 200 200)"/><path d="M200 44l11 22-11 26-11-26z" transform="rotate(30 200 200)"/><path d="M200 44l11 22-11 26-11-26z" transform="rotate(60 200 200)"/><path d="M200 44l11 22-11 26-11-26z" transform="rotate(90 200 200)"/><path d="M200 44l11 22-11 26-11-26z" transform="rotate(120 200 200)"/><path d="M200 44l11 22-11 26-11-26z" transform="rotate(150 200 200)"/><path d="M200 44l11 22-11 26-11-26z" transform="rotate(180 200 200)"/><path d="M200 44l11 22-11 26-11-26z" transform="rotate(210 200 200)"/><path d="M200 44l11 22-11 26-11-26z" transform="rotate(240 200 200)"/><path d="M200 44l11 22-11 26-11-26z" transform="rotate(270 200 200)"/><path d="M200 44l11 22-11 26-11-26z" transform="rotate(300 200 200)"/><path d="M200 44l11 22-11 26-11-26z" transform="rotate(330 200 200)"/></g>
+        <g fill="#2de2ff" stroke-width="3"><path d="M200 66l10 18-10 20-10-20z" transform="rotate(15 200 200)"/><path d="M200 66l10 18-10 20-10-20z" transform="rotate(45 200 200)"/><path d="M200 66l10 18-10 20-10-20z" transform="rotate(75 200 200)"/><path d="M200 66l10 18-10 20-10-20z" transform="rotate(105 200 200)"/><path d="M200 66l10 18-10 20-10-20z" transform="rotate(135 200 200)"/><path d="M200 66l10 18-10 20-10-20z" transform="rotate(165 200 200)"/><path d="M200 66l10 18-10 20-10-20z" transform="rotate(195 200 200)"/><path d="M200 66l10 18-10 20-10-20z" transform="rotate(225 200 200)"/><path d="M200 66l10 18-10 20-10-20z" transform="rotate(255 200 200)"/><path d="M200 66l10 18-10 20-10-20z" transform="rotate(285 200 200)"/><path d="M200 66l10 18-10 20-10-20z" transform="rotate(315 200 200)"/><path d="M200 66l10 18-10 20-10-20z" transform="rotate(345 200 200)"/></g>
+      </g>
+      <g fill="#fff"><circle cx="200" cy="101" r="3.2" transform="rotate(7.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(22.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(37.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(52.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(67.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(82.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(97.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(112.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(127.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(142.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(157.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(172.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(187.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(202.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(217.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(232.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(247.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(262.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(277.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(292.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(307.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(322.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(337.5 200 200)"/><circle cx="200" cy="101" r="3.2" transform="rotate(352.5 200 200)"/></g>
+    </svg>
+    <i class="sh"></i><i class="hub"></i>
+  </div>
+  <div class="title">
+    <small><span lang="en">Dessert Tasting</span><span lang="ar">تذوّق الحلويات</span></small>
+    <h1><span lang="en">Kaleidoscope</span><span lang="ar">كاليدوسكوب</span></h1>
+    <p><span lang="en">Twenty jewels. Five flights of colour. Turn slowly.</span><span lang="ar">عشرون جوهرة في خمس جولات لونية. أدِرها على مهل.</span></p>
+    <a href="#f1"><span lang="en">Begin the flight ↓</span><span lang="ar">ابدأ الجولة ↓</span></a>
+  </div>
+</header>
+
+<section class="lede" style="--next:#ffd400">
+  <div class="row" aria-hidden="true"><span class="gw"><i class="gem kite g1" style="--g:34px"></i></span><span class="gw"><i class="gem oct g2" style="--g:34px"></i></span><span class="gw"><i class="gem hex g3" style="--g:34px"></i></span><span class="gw"><i class="gem dia g4" style="--g:34px"></i></span><span class="gw"><i class="gem em g5" style="--g:34px"></i></span></div>
+  <p><span lang="en">We do not serve dessert after dinner. <b>We serve dessert instead of it.</b> Every piece is two or three bites, cut like a gem and plated in order of colour, from the sharpest citrus to the darkest chocolate. Order by the jewel, or let the whole spectrum come to you.</span><span lang="ar">نحن لا نقدّم الحلوى بعد العشاء، <b>بل نقدّمها بدلاً منه.</b> كل قطعة قضمتان أو ثلاث، مصقولة كالجوهرة ومرتّبة بحسب اللون، من أحدّ الحمضيات إلى أدكن الشوكولاتة. اطلب بالجوهرة، أو دَع الطيف كله يأتي إليك.</span></p>
+</section>
+
+<main>
+<!-- I CITRINE -->
+<section class="band" id="f1">
+ <div class="flight">
+  <div class="side l">
+    <article class="jw"><span class="gw"><i class="gem kite"><b>01</b></i></span><div><h3><span lang="en">Yuzu Meringue Tartlet</span><span lang="ar">تارتليت اليوزو والمرنغ</span></h3><p><span lang="en">Sharp yuzu curd in a sablé shell under torched meringue</span><span lang="ar">كريمة يوزو لاذعة في قاعدة سابليه تحت مرنغ محمَّر باللهب</span></p><span class="pr" dir="ltr">€6</span></div></article>
+    <article class="jw"><span class="gw"><i class="gem oct"><b>02</b></i></span><div><h3><span lang="en">Blood Orange Jelly</span><span lang="ar">جيلي البرتقال الأحمر</span></h3><p><span lang="en">A trembling cube with olive-oil sherbet and sea salt</span><span lang="ar">مكعّب يرتجف مع شربات زيت الزيتون وملح البحر</span></p><span class="pr" dir="ltr">€5</span></div></article>
+  </div>
+  <div class="core"><span class="gw"><i class="gem hex"><b>I</b></i></span><small><span lang="en">First flight</span><span lang="ar">الجولة الأولى</span></small><h2><span lang="en">Citrine</span><span lang="ar">سيترين</span></h2><p><span lang="en">Citrus and sunshine: bright, sour, wide awake.</span><span lang="ar">حمضيات وشمس: مشرقة، حامضة، توقظ الحواس.</span></p><span class="pair"><span lang="en">Pair with iced jasmine oolong</span><span lang="ar">يرافقها أولونغ الياسمين المثلّج</span></span></div>
+  <div class="side r">
+    <article class="jw"><span class="gw"><i class="gem dia"><b>03</b></i></span><div><h3><span lang="en">Lemon Verbena Posset</span><span lang="ar">بوسيت الليمون واللويزة</span></h3><p><span lang="en">Set cream scented with verbena, glazed in burnt honey</span><span lang="ar">كريمة متماسكة بعطر اللويزة وطبقة من العسل المحروق</span></p><span class="pr" dir="ltr">€6</span></div></article>
+    <article class="jw"><span class="gw"><i class="gem em"><b>04</b></i></span><div><h3><span lang="en">Kumquat Saffron Choux</span><span lang="ar">شو الكمكوات والزعفران</span></h3><p><span lang="en">Crackled choux bun, saffron cream, candied kumquat</span><span lang="ar">كرة شو مقرمشة بكريمة الزعفران والكمكوات المسكّر</span></p><span class="pr" dir="ltr">€7</span></div></article>
+  </div>
+ </div>
+</section>
+
+<!-- II RUBY -->
+<section class="band" id="f2">
+ <div class="flight">
+  <div class="side l">
+    <article class="jw"><span class="gw"><i class="gem rnd"><b>05</b></i></span><div><h3><span lang="en">Raspberry Rose Macaron</span><span lang="ar">ماكارون التوت والورد</span></h3><p><span lang="en">Rose buttercream around a heart of fresh raspberry</span><span lang="ar">كريمة زبدة بالورد تحيط بقلب من التوت الطازج</span></p><span class="pr" dir="ltr">€5</span></div></article>
+    <article class="jw"><span class="gw"><i class="gem hex"><b>06</b></i></span><div><h3><span lang="en">Strawberry Sumac Pavlova</span><span lang="ar">بافلوفا الفراولة والسمّاق</span></h3><p><span lang="en">Crisp meringue nest, macerated strawberries, sumac sugar</span><span lang="ar">عشّ مرنغ هشّ وفراولة منقوعة وسكّر بالسمّاق</span></p><span class="pr" dir="ltr">€7</span></div></article>
+  </div>
+  <div class="core"><span class="gw"><i class="gem oct"><b>II</b></i></span><small><span lang="en">Second flight</span><span lang="ar">الجولة الثانية</span></small><h2><span lang="en">Ruby</span><span lang="ar">ياقوت</span></h2><p><span lang="en">Berries and roses: perfumed, tart, a little reckless.</span><span lang="ar">توت وورد: عطرة، لاذعة، وفيها شيء من الجرأة.</span></p><span class="pair"><span lang="en">Pair with sparkling hibiscus</span><span lang="ar">يرافقها كركديه فوّار</span></span></div>
+  <div class="side r">
+    <article class="jw"><span class="gw"><i class="gem em"><b>07</b></i></span><div><h3><span lang="en">Sour Cherry Mille-feuille</span><span lang="ar">ميل فوي الكرز الحامض</span></h3><p><span lang="en">Caramelised puff pastry, pistachio cream, sour cherry</span><span lang="ar">عجين مورَّق مكرمل، كريمة الفستق والكرز الحامض</span></p><span class="pr" dir="ltr">€8</span></div></article>
+    <article class="jw"><span class="gw"><i class="gem kite"><b>08</b></i></span><div><h3><span lang="en">Pomegranate Granita</span><span lang="ar">غرانيتا الرمان</span></h3><p><span lang="en">Shaved pomegranate ice over whipped labneh cream</span><span lang="ar">ثلج الرمان المبشور فوق كريمة اللبنة المخفوقة</span></p><span class="pr" dir="ltr">€6</span></div></article>
+  </div>
+ </div>
+</section>
+
+<!-- III EMERALD -->
+<section class="band" id="f3">
+ <div class="flight">
+  <div class="side l">
+    <article class="jw"><span class="gw"><i class="gem em"><b>09</b></i></span><div><h3><span lang="en">Pistachio Praliné Éclair</span><span lang="ar">إكلير برالينيه الفستق</span></h3><p><span lang="en">Roasted Bronte pistachio cream under a mirror glaze</span><span lang="ar">كريمة فستق برونتي المحمّص تحت طبقة لامعة كالمرآة</span></p><span class="pr" dir="ltr">€7</span></div></article>
+    <article class="jw"><span class="gw"><i class="gem rnd"><b>10</b></i></span><div><h3><span lang="en">Matcha Sesame Dome</span><span lang="ar">قبّة الماتشا والسمسم</span></h3><p><span lang="en">Matcha mousse over white sesame crunch</span><span lang="ar">موس الماتشا فوق قاعدة مقرمشة من السمسم الأبيض</span></p><span class="pr" dir="ltr">€7</span></div></article>
+  </div>
+  <div class="core"><span class="gw"><i class="gem em"><b>III</b></i></span><small><span lang="en">Third flight</span><span lang="ar">الجولة الثالثة</span></small><h2><span lang="en">Emerald</span><span lang="ar">زمرّد</span></h2><p><span lang="en">Nuts, leaves and herbs: cool, green, quietly rich.</span><span lang="ar">مكسرات وأوراق وأعشاب: باردة، خضراء، غنيّة بهدوء.</span></p><span class="pair"><span lang="en">Pair with cold-brewed sencha</span><span lang="ar">يرافقها شاي سينشا منقوع على البارد</span></span></div>
+  <div class="side r">
+    <article class="jw"><span class="gw"><i class="gem kite"><b>11</b></i></span><div><h3><span lang="en">Basil Lime Sorbet</span><span lang="ar">سوربيه الريحان والليمون الأخضر</span></h3><p><span lang="en">A palate-cleansing scoop finished with green olive oil</span><span lang="ar">كرة تنعش الفم تُختم بزيت الزيتون الأخضر</span></p><span class="pr" dir="ltr">€5</span></div></article>
+    <article class="jw"><span class="gw"><i class="gem oct"><b>12</b></i></span><div><h3><span lang="en">Pandan Coconut Layers</span><span lang="ar">طبقات الباندان وجوز الهند</span></h3><p><span lang="en">Nine fine layers of pandan and coconut, steamed</span><span lang="ar">تسع طبقات رقيقة من الباندان وجوز الهند مطهوّة بالبخار</span></p><span class="pr" dir="ltr">€6</span></div></article>
+  </div>
+ </div>
+</section>
+
+<!-- IV AMETHYST -->
+<section class="band" id="f4">
+ <div class="flight">
+  <div class="side l">
+    <article class="jw"><span class="gw"><i class="gem oct"><b>13</b></i></span><div><h3><span lang="en">Violet Cassis Tart</span><span lang="ar">تارت البنفسج والكشمش</span></h3><p><span lang="en">Blackcurrant curd, violet cream, crystallised petals</span><span lang="ar">كريمة الكشمش الأسود وكريمة البنفسج مع بتلات مسكّرة</span></p><span class="pr" dir="ltr">€7</span></div></article>
+    <article class="jw"><span class="gw"><i class="gem dia"><b>14</b></i></span><div><h3><span lang="en">Lavender Panna Cotta</span><span lang="ar">بانا كوتا الخزامى</span></h3><p><span lang="en">Barely set cream, lavender honey, toasted almond</span><span lang="ar">كريمة بالكاد تتماسك، عسل الخزامى ولوز محمّص</span></p><span class="pr" dir="ltr">€6</span></div></article>
+  </div>
+  <div class="core"><span class="gw"><i class="gem dia"><b>IV</b></i></span><small><span lang="en">Fourth flight</span><span lang="ar">الجولة الرابعة</span></small><h2><span lang="en">Amethyst</span><span lang="ar">جَمَشت</span></h2><p><span lang="en">Flowers and dusk: soft, floral, faintly mysterious.</span><span lang="ar">أزهار وغسق: ناعمة، زهرية، فيها مسحة من الغموض.</span></p><span class="pair"><span lang="en">Pair with butterfly-pea lemonade</span><span lang="ar">ترافقها ليموناضة زهرة البازلاء الزرقاء</span></span></div>
+  <div class="side r">
+    <article class="jw"><span class="gw"><i class="gem hex"><b>15</b></i></span><div><h3><span lang="en">Ube Basque Cheesecake</span><span lang="ar">تشيز كيك الباسك بالأوبي</span></h3><p><span lang="en">Purple yam cheesecake, burnt on top, molten inside</span><span lang="ar">تشيز كيك بالبطاطا البنفسجية، محروق الوجه وسائل القلب</span></p><span class="pr" dir="ltr">€8</span></div></article>
+    <article class="jw"><span class="gw"><i class="gem rnd"><b>16</b></i></span><div><h3><span lang="en">Earl Grey Bonbon</span><span lang="ar">بونبون الإيرل غراي</span></h3><p><span lang="en">A painted shell of bergamot ganache and blueberry</span><span lang="ar">قشرة مرسومة تخفي غاناش البرغموت والتوت الأزرق</span></p><span class="pr" dir="ltr">€4</span></div></article>
+  </div>
+ </div>
+</section>
+
+<!-- V ONYX -->
+<section class="band" id="f5">
+ <div class="flight">
+  <div class="side l">
+    <article class="jw"><span class="gw"><i class="gem dia"><b>17</b></i></span><div><h3><span lang="en">Dark Chocolate Fondant</span><span lang="ar">فوندان الشوكولاتة الداكنة</span></h3><p><span lang="en">70% single-origin chocolate with a molten centre</span><span lang="ar">شوكولاتة ٧٠٪ من منشأ واحد بقلب سائل</span></p><span class="pr" dir="ltr">€8</span></div></article>
+    <article class="jw"><span class="gw"><i class="gem em"><b>18</b></i></span><div><h3><span lang="en">Black Sesame Financier</span><span lang="ar">فينانسييه السمسم الأسود</span></h3><p><span lang="en">Brown-butter cake with black sesame and cocoa nibs</span><span lang="ar">كعكة الزبدة البنّية بالسمسم الأسود وحبيبات الكاكاو</span></p><span class="pr" dir="ltr">€5</span></div></article>
+  </div>
+  <div class="core"><span class="gw"><i class="gem kite"><b>V</b></i></span><small><span lang="en">Final flight</span><span lang="ar">الجولة الأخيرة</span></small><h2><span lang="en">Onyx</span><span lang="ar">عقيق أسود</span></h2><p><span lang="en">Chocolate, coffee and smoke: the long dark finish.</span><span lang="ar">شوكولاتة وقهوة ودخان: ختام طويل داكن.</span></p><span class="pair"><span lang="en">Pair with a single-origin espresso</span><span lang="ar">يرافقها إسبريسو من منشأ واحد</span></span></div>
+  <div class="side r">
+    <article class="jw"><span class="gw"><i class="gem oct"><b>19</b></i></span><div><h3><span lang="en">Cardamom Opera Slice</span><span lang="ar">شريحة أوبرا بالهيل</span></h3><p><span lang="en">Almond sponge, espresso cream, cardamom ganache</span><span lang="ar">إسفنج اللوز وكريمة الإسبريسو وغاناش الهيل</span></p><span class="pr" dir="ltr">€7</span></div></article>
+    <article class="jw"><span class="gw"><i class="gem rnd"><b>20</b></i></span><div><h3><span lang="en">Smoked Caramel Truffle</span><span lang="ar">ترافل الكراميل المدخَّن</span></h3><p><span lang="en">Smoked salt caramel in dark chocolate with gold leaf</span><span lang="ar">كراميل بالملح المدخَّن في شوكولاتة داكنة مع ورق الذهب</span></p><span class="pr" dir="ltr">€4</span></div></article>
+  </div>
+ </div>
+</section>
+</main>
+
+<section class="sets" id="sets">
+  <h2><span lang="en">Or take the whole spectrum</span><span lang="ar">أو خُذ الطيف كله</span></h2>
+  <p><span lang="en">Tasting flights, plated at the counter and served in order of colour.</span><span lang="ar">جولات تذوّق تُنسَّق أمامك على المنضدة وتُقدَّم بترتيب الألوان.</span></p>
+  <div class="trio">
+    <article class="set" style="--a:40deg"><div><span class="minis" aria-hidden="true"><i class="gem kite g1"></i><i class="gem oct g2"></i><i class="gem hex g3"></i><i class="gem dia g4"></i><i class="gem em g5"></i></span><h3><span lang="en">The Prism</span><span lang="ar">المنشور</span></h3><p><span lang="en">Five jewels: your choice of one from each flight.</span><span lang="ar">خمس جواهر: واحدة من اختيارك من كل جولة.</span></p><span class="big-pr" dir="ltr">€26</span></div></article>
+    <article class="set big" style="--a:200deg"><div><span class="minis" aria-hidden="true"><i class="gem kite g1"></i><i class="gem oct g2"></i><i class="gem hex g3"></i><i class="gem dia g4"></i><i class="gem em g5"></i></span><h3><span lang="en">The Full Spectrum</span><span lang="ar">الطيف الكامل</span></h3><p><span lang="en">All twenty jewels in order, for two to four guests, with a pot of tea for the table.</span><span lang="ar">الجواهر العشرون كلها بالترتيب، لشخصين إلى أربعة، مع إبريق شاي للطاولة.</span></p><span class="big-pr" dir="ltr">€98</span></div></article>
+    <article class="set" style="--a:300deg"><div><span class="minis" aria-hidden="true"><i class="gem rnd g3"></i><i class="gem rnd g4"></i><i class="gem rnd g5"></i></span><h3><span lang="en">The Tea Lens</span><span lang="ar">عدسة الشاي</span></h3><p><span lang="en">Three small-pot teas chosen to match your flights. No alcohol is served.</span><span lang="ar">ثلاثة أباريق صغيرة من الشاي تُختار لتلائم جولاتك. لا نقدّم الكحول.</span></p><span class="big-pr" dir="ltr">€12</span></div></article>
+  </div>
+</section>
+
+<footer>
+  <div class="cols">
+    <div><h4><span lang="en">Turning hours</span><span lang="ar">ساعات الدوران</span></h4><p><span lang="en">Tuesday to Sunday, 2 pm until midnight. Last flight seated at 11 pm. Closed on Mondays.</span><span lang="ar">من الثلاثاء إلى الأحد، ٢ ظهراً حتى منتصف الليل. آخر جولة تُستقبل الساعة ١١ ليلاً. مغلق أيام الاثنين.</span></p></div>
+    <div><h4><span lang="en">The tasting room</span><span lang="ar">صالة التذوّق</span></h4><p><span lang="en">7 Passage des Miroirs, Le Marais, 75003 Paris. Eighteen counter seats; book ahead on 01 55 55 01 00.</span><span lang="ar">٧ ممرّ المرايا، لو ماريه، ٧٥٠٠٣ باريس. ثمانية عشر مقعداً على المنضدة؛ احجز مسبقاً على <span dir="ltr">01 55 55 01 00</span></span></p></div>
+    <div><h4><span lang="en">Fine print</span><span lang="ar">ملاحظات</span></h4><p><span lang="en">Our jewels contain nuts, gluten, eggs, dairy and sesame. Ask for the vegan or gluten-free prism. Prices in euros, service included.</span><span lang="ar">جواهرنا تحتوي على المكسرات والغلوتين والبيض والألبان والسمسم. اسأل عن المنشور النباتي أو الخالي من الغلوتين. الأسعار باليورو وتشمل الخدمة.</span></p></div>
+  </div>
+  <div class="half">
+    <div class="k" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><i class="sh"></i><i class="hub"></i></div>
+    <p class="word"><span lang="en">Keep turning.</span><span lang="ar">واصِل الدوران.</span></p>
+  </div>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

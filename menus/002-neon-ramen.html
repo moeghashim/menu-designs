@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Neon Ramen Alley · زقاق الرامن</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Neon Ramen Alley — a late-night ramen bar glowing at the end of the alley. زقاق الرامن — رامن ياباني لساعات الليل المتأخرة تحت أضواء النيون.">
+<meta name="theme-color" content="#07060d">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&family=Chakra+Petch:wght@400;600&family=Lemonada:wght@500;700&family=Readex+Pro:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&text=%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%E3%81%8A%E3%81%A4%E3%81%BE%E3%81%BF%E4%B8%BC%E3%81%B6%E3%82%8A%E3%83%89%E3%83%AA%E3%83%B3%E3%82%AF%E7%94%98%E5%91%B3%E9%BA%BA&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--bg:#07060d;--mag:#ff2d95;--cy:#19e6ff;--amb:#ffb000;--txt:#c9cde4;
+--neon:'Tilt Neon','Lemonada',system-ui,sans-serif;--body:'Chakra Petch','Readex Pro',system-ui,sans-serif;--jp:'M PLUS Rounded 1c','Hiragino Maru Gothic ProN','Yu Gothic','Noto Sans JP','IPAGothic',sans-serif}
+html[lang="ar"]{--neon:'Lemonada','Tilt Neon',sans-serif;--body:'Readex Pro','Chakra Petch',sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font:400 16.5px/1.5 var(--body);color:var(--txt);overflow-x:clip;position:relative;
+background:
+ radial-gradient(60% 30% at 15% 12%,rgba(255,45,149,.16),transparent 70%),radial-gradient(50% 26% at 90% 30%,rgba(25,230,255,.13),transparent 70%),radial-gradient(50% 20% at 10% 62%,rgba(255,176,0,.08),transparent 70%),radial-gradient(60% 20% at 85% 85%,rgba(185,140,255,.12),transparent 70%),
+ repeating-linear-gradient(0deg,transparent 0 26px,rgba(255,255,255,.028) 26px 28px),repeating-linear-gradient(90deg,transparent 0 62px,rgba(255,255,255,.022) 62px 64px),#07060d}
+html[lang="ar"] body{font-size:17.5px;line-height:1.8;font-weight:300}
+body::before{content:"";position:fixed;inset:-200px 0 0;pointer-events:none;z-index:5;opacity:.5;
+background:repeating-linear-gradient(98deg,transparent 0 46px,rgba(160,200,255,.13) 46px 47px,transparent 47px 113px,rgba(160,200,255,.09) 113px 114px,transparent 114px 171px);background-size:171px 200px;animation:rain .55s linear infinite;
+-webkit-mask:linear-gradient(#000,rgba(0,0,0,.25));mask:linear-gradient(#000,rgba(0,0,0,.25))}
+@keyframes rain{to{transform:translate3d(-28px,200px,0)}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.glow{color:#fff;text-shadow:0 0 3px #fff,0 0 10px var(--n),0 0 24px var(--n),0 0 54px var(--n)}
+.tube{border:3px solid color-mix(in srgb,var(--n) 35%,#fff);box-shadow:0 0 5px var(--n),0 0 18px var(--n),0 0 46px color-mix(in srgb,var(--n) 45%,transparent),inset 0 0 5px var(--n),inset 0 0 18px color-mix(in srgb,var(--n) 60%,transparent)}
+@keyframes flick{0%,18%,22%,25%,53%,57%,100%{opacity:1}20%,24%,55%{opacity:.25}}
+@keyframes buzz{0%,100%{opacity:1}48%{opacity:1}50%{opacity:.72}52%{opacity:1}}
+.fl{animation:flick 5.5s linear infinite}
+/* controls */
+.ctl{position:fixed;top:12px;inset-inline-end:12px;z-index:30;display:flex;gap:8px}
+.ctl a,.ctl button{--n:var(--cy);font:600 13px/1 var(--body);letter-spacing:.06em;color:#eaffff;background:rgba(7,6,13,.82);backdrop-filter:blur(6px);border:1.5px solid var(--n);border-radius:999px;padding:9px 14px;text-decoration:none;cursor:pointer;box-shadow:0 0 10px color-mix(in srgb,var(--n) 60%,transparent),inset 0 0 8px color-mix(in srgb,var(--n) 40%,transparent)}
+.ctl button{--n:var(--mag);font-family:'Readex Pro','Chakra Petch',sans-serif;letter-spacing:0}
+html[lang="ar"] .ctl a{letter-spacing:0}
+.ctl a:hover,.ctl button:hover{background:var(--n);color:#07060d}
+html[lang="en"] .to-en,html[lang="ar"] .to-ar{display:none}
+/* hero */
+.hero{position:relative;min-height:min(100vh,900px);display:grid;align-items:center;padding:84px clamp(18px,5vw,72px) 0;overflow:clip}
+.sky{position:absolute;inset:0;z-index:-1;
+background:linear-gradient(transparent 55%,var(--bg) 96%),
+ repeating-linear-gradient(90deg,transparent 0 14px,rgba(255,196,90,.18) 14px 22px,transparent 22px 40px) 6% 100%/120px 46% no-repeat,
+ repeating-linear-gradient(0deg,#0d0b1a 0 18px,transparent 18px 30px) 6% 100%/120px 46% no-repeat,
+ linear-gradient(#0d0b1a,#0d0b1a) 6% 100%/120px 46% no-repeat,
+ linear-gradient(#0b0a16,#0b0a16) 0 100%/9% 72% no-repeat,linear-gradient(#0b0a16,#0b0a16) 100% 100%/11% 80% no-repeat,
+ linear-gradient(#100d20,#100d20) 82% 100%/13% 58% no-repeat,linear-gradient(#0e0c1c,#0e0c1c) 22% 100%/15% 36% no-repeat}
+.hero-in{max-width:1320px;width:100%;margin:0 auto;display:grid;gap:28px;align-items:center}
+.marquee{--n:var(--mag);position:relative;border-radius:26px;padding:clamp(22px,3.4vw,46px) clamp(20px,3.6vw,52px);background:rgba(7,6,13,.72);-webkit-box-reflect:below 22px linear-gradient(transparent 62%,rgba(0,0,0,.22))}
+.marquee::before{content:"";position:absolute;inset:9px;border-radius:18px;border:1.5px solid rgba(25,230,255,.55);box-shadow:0 0 12px rgba(25,230,255,.5),inset 0 0 12px rgba(25,230,255,.3);pointer-events:none}
+.kick{--n:var(--amb);font:600 clamp(12px,1.1vw,15px)/1 var(--body);letter-spacing:.42em;text-transform:uppercase;color:#ffe2a0;text-shadow:0 0 12px var(--amb)}
+html[lang="ar"] .kick{letter-spacing:0;font-size:clamp(15px,1.4vw,18px)}
+h1{font:400 clamp(70px,10.5vw,168px)/.86 var(--neon);margin:.16em 0 .12em;letter-spacing:.01em}
+h1 b,h1 i{display:block;font-weight:400;font-style:normal}
+h1 .a{--n:var(--mag)}h1 .b{--n:var(--cy);animation:buzz 3.2s linear infinite}
+h1 .c{--n:var(--amb);font-size:.42em;letter-spacing:.5em;margin-top:.5em;animation:flick 7s linear infinite 1s}
+html[lang="ar"] h1{font-weight:700;line-height:1.5;font-size:clamp(54px,9vw,140px);letter-spacing:0;margin:0}
+html[lang="ar"] h1 .a{font-size:.5em;--n:var(--amb)}html[lang="ar"] h1 .b{--n:var(--mag)}
+.tagl{font-size:clamp(17px,1.6vw,22px);max-width:34ch;color:#e6e9ff}
+.open{--n:#39ff88;display:inline-block;margin-top:20px;border-radius:10px;padding:7px 16px;font:400 clamp(15px,1.3vw,19px)/1.2 var(--neon);animation:buzz 2.3s linear infinite}
+.bowlwrap{position:relative;justify-self:center;width:min(100%,520px)}
+.neon-svg{width:100%;height:auto;overflow:visible;fill:none;stroke:color-mix(in srgb,var(--n) 30%,#fff);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 3px var(--n)) drop-shadow(0 0 12px var(--n))}
+.neon-svg *{stroke:color-mix(in srgb,var(--n) 30%,#fff);filter:drop-shadow(0 0 4px var(--n))}
+.neon-svg text{fill:#fff;stroke:none;font-family:var(--neon)}
+.steam path{stroke-dasharray:14 200;animation:steam 4.5s ease-in infinite}
+.steam path:nth-child(2){animation-delay:-1.5s}.steam path:nth-child(3){animation-delay:-3s}
+@keyframes steam{0%{stroke-dashoffset:0;opacity:0}20%{opacity:.9;stroke-dasharray:60 200}100%{stroke-dashoffset:-150;opacity:0;stroke-dasharray:30 200}}
+.intro{max-width:1320px;margin:clamp(70px,9vw,120px) auto 0;padding:0 clamp(18px,5vw,72px);display:grid;gap:22px 60px;position:relative}
+.intro p{font-size:clamp(17px,1.5vw,20px);max-width:58ch}
+.intro strong{color:#fff;font-weight:600}
+.jump{display:flex;flex-wrap:wrap;gap:10px;align-content:start}
+.jump a{font:400 clamp(16px,1.4vw,19px)/1 var(--neon);text-decoration:none;padding:11px 16px;border-radius:10px;color:#fff;border:1.5px solid var(--n);text-shadow:0 0 8px var(--n);box-shadow:0 0 10px color-mix(in srgb,var(--n) 55%,transparent),inset 0 0 10px color-mix(in srgb,var(--n) 30%,transparent);transition:background .2s}
+.jump a:hover{background:color-mix(in srgb,var(--n) 30%,transparent)}
+/* alley */
+.alley{overflow-x:clip;max-width:1320px;margin:clamp(50px,7vw,90px) auto 0;padding:0 clamp(14px,5vw,72px);display:grid;gap:clamp(64px,8vw,120px)}
+.row{display:flex;gap:clamp(24px,4vw,70px);align-items:center}
+.row:nth-child(even){flex-direction:row-reverse}
+.shop{position:relative;flex:1 1 0;min-width:0;background:linear-gradient(180deg,rgba(18,15,34,.94),rgba(9,8,18,.94));border-radius:18px;padding:clamp(18px,2.6vw,36px);scroll-margin-top:70px;
+border:3px solid color-mix(in srgb,var(--n) 35%,#fff);box-shadow:0 0 5px var(--n),0 0 20px var(--n),0 0 70px color-mix(in srgb,var(--n) 30%,transparent),inset 0 0 5px var(--n),inset 0 0 22px color-mix(in srgb,var(--n) 45%,transparent)}
+.shop::before{content:"";position:absolute;top:34px;inset-inline-end:100%;width:50vw;height:10px;background:linear-gradient(#2a2740,#14121f);border-block:1px solid #3a3655;z-index:-1}
+.row:nth-child(even) .shop::before{inset-inline:100% auto}
+.shop header{display:flex;gap:16px;align-items:center;margin-bottom:clamp(14px,2vw,26px);padding-bottom:16px;border-bottom:1.5px solid color-mix(in srgb,var(--n) 55%,transparent)}
+.shop header div{flex:1}
+.jp{font:700 clamp(15px,1.4vw,19px)/1.05 var(--jp);writing-mode:vertical-rl;text-orientation:upright;color:#07060d;background:var(--n);padding:9px 6px;border-radius:6px;box-shadow:0 0 14px var(--n);letter-spacing:.08em}
+.shop h2{font:400 clamp(38px,5vw,72px)/1 var(--neon);color:#fff;text-shadow:0 0 3px #fff,0 0 10px var(--n),0 0 26px var(--n),0 0 60px var(--n);animation:buzz 4s linear infinite}
+.row:nth-child(3) h2{animation:flick 9s linear infinite 2s}
+html[lang="ar"] .shop h2{font-weight:700;line-height:1.6;font-size:clamp(34px,4.4vw,62px)}
+.shop header p{color:color-mix(in srgb,var(--n) 55%,#fff);font-size:.95em;margin-top:4px}
+.no{font:400 clamp(30px,3.4vw,50px)/1 var(--neon);color:transparent;-webkit-text-stroke:1.5px color-mix(in srgb,var(--n) 60%,#fff);filter:drop-shadow(0 0 6px var(--n))}
+.shop ul{list-style:none;padding:0;display:grid;gap:0 clamp(24px,3vw,44px)}
+.shop li{position:relative;display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:15px 0;border-bottom:1px dashed rgba(255,255,255,.14)}
+.shop h3{font:600 clamp(18px,1.5vw,21px)/1.25 var(--body);color:#fff;letter-spacing:.02em}
+html[lang="ar"] .shop h3{font:500 clamp(19px,1.6vw,22px)/1.5 var(--body);letter-spacing:0}
+.shop li p{grid-column:1;font-size:.95em;color:#b4b8d2}
+.yen{grid-column:2;grid-row:1/3;align-self:start;font:400 clamp(21px,1.8vw,26px)/1.2 'Tilt Neon',var(--body);color:#fff;text-shadow:0 0 8px var(--n),0 0 20px var(--n);white-space:nowrap}
+.heat{display:inline-flex;gap:4px;margin-inline-start:10px;vertical-align:middle}
+.heat i{width:8px;height:8px;border-radius:50%;background:#ff4d3d;box-shadow:0 0 8px #ff4d3d,0 0 2px #fff inset}
+.badge{display:inline-block;font:600 11.5px/1 var(--body);font-style:normal;letter-spacing:.14em;text-transform:uppercase;margin-inline-start:10px;padding:4px 8px;border-radius:4px;color:var(--n);border:1px solid var(--n);vertical-align:middle;box-shadow:0 0 8px color-mix(in srgb,var(--n) 50%,transparent)}
+html[lang="ar"] .badge{letter-spacing:0;font-size:13px;font-weight:500}
+/* ticket machine */
+.sides{border-radius:10px;background:linear-gradient(180deg,#191a2c,#0d0e1a)}
+.slot{display:flex;align-items:center;gap:14px;font:600 13px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--n);margin-bottom:18px}
+html[lang="ar"] .slot{letter-spacing:0;font-size:15px;font-weight:500}
+.slot span:first-child{width:54px;height:12px;border-radius:3px;background:#000;border:1.5px solid #555a7a;box-shadow:inset 0 0 0 3px #000,inset 0 0 6px var(--n)}
+.sides ul{grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr));gap:12px}
+.sides li{display:flex;flex-direction:column;gap:6px;padding:14px 14px 12px;border:1.5px solid color-mix(in srgb,var(--n) 60%,transparent);border-radius:8px;background:linear-gradient(180deg,color-mix(in srgb,var(--n) 20%,#0b0c18),#0b0c18 70%);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 4px 0 #000,0 0 12px color-mix(in srgb,var(--n) 25%,transparent);transition:transform .12s,box-shadow .12s}
+.sides li:hover{transform:translateY(3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 1px 0 #000,0 0 22px var(--n)}
+.sides li p{flex:1}
+.sides .yen{align-self:stretch;margin-top:6px;padding-top:8px;border-top:1px dashed color-mix(in srgb,var(--n) 50%,transparent);font-size:22px}
+.sides .badge,.sides .heat{margin-inline-start:8px}
+.rice{border-radius:60px 60px 18px 18px}
+.drinks{border-radius:14px;border-style:double;border-width:7px}
+.sweets{border-radius:18px 80px 18px 80px}
+/* ambient */
+.amb{flex:0 0 clamp(120px,18vw,240px);display:grid;place-items:center}
+.blade{--n:var(--cy);direction:ltr;display:grid;gap:4px;padding:16px 12px;border-radius:14px;font:700 clamp(40px,5vw,66px)/1.05 var(--jp);color:#fff;text-shadow:0 0 4px #fff,0 0 14px var(--n),0 0 34px var(--n);border:3px solid #c5f8ff;box-shadow:0 0 6px var(--n),0 0 24px var(--n),inset 0 0 18px rgba(25,230,255,.5);background:rgba(7,6,13,.7)}
+.blade span{display:block;text-align:center}
+.chochin{width:min(100%,170px);aspect-ratio:3/4;border-radius:46%/38%;display:grid;place-items:center;position:relative;
+background:repeating-linear-gradient(0deg,transparent 0 13px,rgba(90,0,0,.45) 13px 15px),radial-gradient(circle at 50% 45%,#ffd27a,#ff5a2a 45%,#b3131b 85%);box-shadow:0 0 30px rgba(255,90,42,.7),0 0 90px rgba(255,90,42,.35);animation:sway 6s ease-in-out infinite alternate;transform-origin:50% -30px}
+.chochin::before,.chochin::after{content:"";position:absolute;inset-inline:28%;height:14px;background:#111;border-radius:3px}
+.chochin::before{top:-8px}.chochin::after{bottom:-8px}
+.chochin b{font:700 clamp(46px,5vw,70px)/1 var(--jp);color:#1a0505}
+@keyframes sway{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+/* build */
+.build{--n:var(--amb);max-width:1320px;margin:clamp(70px,9vw,130px) auto 0;padding:0 clamp(14px,5vw,72px)}
+.build-in{border-radius:18px;padding:clamp(20px,3vw,40px);background:rgba(13,11,24,.9);border:1.5px solid rgba(255,176,0,.6);box-shadow:0 0 20px rgba(255,176,0,.25),inset 0 0 20px rgba(255,176,0,.1);display:grid;gap:26px 50px}
+.build h2{font:400 clamp(30px,3.6vw,50px)/1.1 var(--neon);color:#fff;text-shadow:0 0 10px var(--amb),0 0 30px var(--amb)}
+html[lang="ar"] .build h2{font-weight:700;line-height:1.6}
+.build h2+p{margin-top:8px;max-width:40ch}
+.dials{display:grid;gap:16px}
+.dial b{display:block;font:600 13px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--amb);margin-bottom:8px}
+html[lang="ar"] .dial b{letter-spacing:0;font-size:15.5px;font-weight:500}
+.dial div{display:flex;flex-wrap:wrap;gap:8px}
+.dial div>span{padding:7px 13px;border-radius:99px;border:1px solid rgba(255,255,255,.28);font-size:.93em}
+.dial div>span.on{border-color:var(--amb);color:#fff;box-shadow:0 0 10px rgba(255,176,0,.6),inset 0 0 8px rgba(255,176,0,.35)}
+.adds{list-style:none;padding:0;columns:2;column-gap:36px}
+.adds li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.16);break-inside:avoid}
+.adds .yen{font-size:19px;--n:var(--amb)}
+/* footer */
+footer{position:relative;margin-top:clamp(80px,10vw,150px);padding:clamp(60px,8vw,110px) clamp(18px,5vw,72px) 34px;overflow:clip;
+background:linear-gradient(180deg,transparent,rgba(3,3,8,.9) 30%),repeating-linear-gradient(90deg,transparent 0 8%,rgba(255,45,149,.16) 10% 13%,transparent 15% 30%,rgba(25,230,255,.14) 33% 37%,transparent 40% 58%,rgba(255,176,0,.12) 60% 63%,transparent 66% 82%,rgba(185,140,255,.14) 85% 88%,transparent 90%)}
+footer::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(7,6,13,.55) 5px 9px);pointer-events:none}
+.foot{position:relative;max-width:1320px;margin:0 auto;display:grid;gap:28px 50px}
+.foot h4{font:400 22px/1.2 var(--neon);color:#fff;text-shadow:0 0 10px var(--n),0 0 24px var(--n);margin-bottom:6px}
+html[lang="ar"] .foot h4{font-weight:700;line-height:1.7;font-size:20px}
+.fine{position:relative;max-width:1320px;margin:34px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);font-size:14.5px;color:#9a9fbe}
+html[lang="ar"] .fine{font-size:15.5px}
+@media (min-width:900px){
+ .hero-in{grid-template-columns:1.25fr 1fr}
+ .intro{grid-template-columns:1.2fr 1fr}
+ .ramen ul,.rice ul,.drinks ul{grid-template-columns:1fr 1fr}
+ .build-in{grid-template-columns:1fr 1.15fr}
+ .build .adds{grid-column:1/-1;columns:3}
+ .foot{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:899px){
+ .hero{padding-top:70px}
+ .bowlwrap{width:min(78%,330px);order:-1;margin-bottom:-6px}
+ .marquee{-webkit-box-reflect:below 14px linear-gradient(transparent 70%,rgba(0,0,0,.2))}
+ .row,.row:nth-child(even){flex-direction:column;align-items:stretch;gap:0}
+ .amb{flex:none;order:-1;place-items:end;padding-inline-end:22px;height:92px;margin-bottom:-18px;position:relative;z-index:2}
+ .row:nth-child(even) .amb{place-items:end start;padding-inline:22px 0}
+ .amb .neon-svg{width:74px}.chochin{width:64px}.chochin b{font-size:30px}
+ .blade{grid-auto-flow:column;padding:6px 12px;font-size:30px;border-width:2px}
+ .shop{margin-inline-end:10px}.row:nth-child(even) .shop{margin-inline:10px 0}
+ .adds{columns:1}
+ .kick{letter-spacing:.2em}.slot{letter-spacing:.06em;gap:10px}.slot span:first-child{width:40px}
+ .ctl a,.ctl button{padding:8px 11px;font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){*,body::before{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="ctl"><a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a><button id="langToggle" type="button"><span class="to-ar">العربية</span><span class="to-en">English</span></button></div>
+<header class="hero"><div class="sky" aria-hidden="true"></div>
+ <div class="hero-in">
+  <div class="marquee tube">
+   <p class="kick"><span lang="en">Ramen bar · open till 4 am</span><span lang="ar">رامن ياباني · حتى الرابعة فجرًا</span></p>
+   <h1><span lang="en"><b class="a glow">NEON</b><b class="b glow">RAMEN</b><i class="c glow">ALLEY</i></span><span lang="ar"><b class="a glow">زقاق</b><b class="b glow">الرامن</b></span></h1>
+   <p class="tagl"><span lang="en">Turn left at the vending machines. Follow the steam.</span><span lang="ar">انعطف يسارًا عند آلات البيع، ثمّ اتبع البخار.</span></p>
+   <span class="open tube glow"><span lang="en">● OPEN — slurp loudly</span><span lang="ar">● مفتوح — ارتشف بصوت عالٍ</span></span>
+  </div>
+  <div class="bowlwrap" aria-hidden="true">
+   <svg viewBox="0 0 400 380" class="neon-svg" style="--n:#19e6ff">
+    <g class="steam" style="--n:#e9f6ff"><path d="M150 150q-18-22 0-44t0-44-0-40"/><path d="M200 140q18-24 0-48t0-48 0-36"/><path d="M252 150q-18-22 0-44t0-44 0-40"/></g>
+    <g style="--n:#ff2d95"><path d="M286 40 214 176M318 58 232 180"/></g>
+    <g style="--n:#ffb000"><path d="M92 196q14-16 28 0t28 0 28 0 28 0 28 0 28 0 28 0 22-2"/><path d="M118 214q14-12 28 0t28 0 28 0 28 0 28 0 26 0"/><circle cx="130" cy="176" r="15"/><path d="M170 172q14-22 30-2"/></g>
+    <path d="M50 190h300q-4 88-82 120H132Q54 278 50 190z"/><path d="M40 190h320"/><path d="M140 310l-10 30h140l-10-30"/>
+    <g style="--n:#ff2d95"><path d="M86 232q10 34 46 54"/></g>
+   </svg>
+  </div>
+ </div>
+</header>
+<section class="intro">
+ <p><span lang="en">Eleven stools, one counter, and a pot that has not stopped simmering since the shutters first went up. Our broths are <strong>chicken and beef only</strong>, cooked low for twelve hours; the noodles are cut each afternoon upstairs. Order at the counter, pick your firmness, and never apologise for the noise.</span><span lang="ar">أحد عشر مقعدًا ومنضدة واحدة وقِدر لم يتوقّف عن الغليان منذ أن رُفعت الأبواب أوّل مرّة. مرقنا من <strong>الدجاج والبقر فقط</strong> ويُطهى على نار هادئة اثنتي عشرة ساعة، والنودلز تُقطَّع كلّ عصر في الطابق العلوي. اطلب من المنضدة، واختر قوام النودلز، ولا تعتذر أبدًا عن صوت الارتشاف.</span></p>
+ <nav class="jump" aria-label="Sections"><a href="#ramen" style="--n:#ff2d95"><span lang="en">Ramen</span><span lang="ar">رامن</span></a><a href="#sides" style="--n:#19e6ff"><span lang="en">Side Tickets</span><span lang="ar">تذاكر المقبّلات</span></a><a href="#rice" style="--n:#ffb000"><span lang="en">Rice Bowls</span><span lang="ar">أطباق الأرز</span></a><a href="#drinks" style="--n:#39ff88"><span lang="en">Vending Drinks</span><span lang="ar">مشروبات الآلة</span></a><a href="#sweets" style="--n:#b98cff"><span lang="en">After Hours</span><span lang="ar">بعد منتصف الليل</span></a></nav>
+</section>
+<main class="alley"><div class="row"><section class="shop ramen" id="ramen" style="--n:#ff2d95">
+<header><span class="jp" aria-hidden="true">ラーメン</span><div><h2><span lang="en">Ramen</span><span lang="ar">رامن</span></h2><p><span lang="en">Bowl No. 1–6 · noodles pulled at dawn</span><span lang="ar">الأطباق ١–٦ · نودلز تُحضَّر مع الفجر</span></p></div><span class="no">01</span></header>
+<ul><li><h3><span lang="en">Tori Paitan</span><span lang="ar">توري بايتان</span><em class="badge"><span lang="en">House signature</span><span lang="ar">توقيع الدار</span></em></h3><p><span lang="en">Creamy twelve-hour chicken broth, thin straight noodles, chicken chashu, soft ajitama egg</span><span lang="ar">مرق دجاج كريمي يُطهى اثنتي عشرة ساعة، نودلز رفيعة، تشاشو الدجاج وبيضة أجيتاما طريّة</span></p><span class="yen" dir="ltr">¥1,180</span></li><li><h3><span lang="en">Gyukotsu Shoyu</span><span lang="ar">غيوكوتسو شويو</span></h3><p><span lang="en">Beef-bone and aged soy broth, torched beef chashu, bamboo shoots, toasted nori</span><span lang="ar">مرق عظام البقر مع صويا معتّقة، تشاشو بقري ملفوح باللهب، براعم الخيزران ونوري محمّص</span></p><span class="yen" dir="ltr">¥1,380</span></li><li><h3><span lang="en">Spicy Miso Inferno</span><span lang="ar">ميسو الجحيم</span><em class="heat"><i></i><i></i><i></i><span class="sr" lang="en">spicy</span><span class="sr" lang="ar">حارّ</span></em></h3><p><span lang="en">Red miso, house chilli oil, minced chicken, sweet corn and a melting knob of butter</span><span lang="ar">ميسو أحمر وزيت الفلفل الحارّ من صنعنا، دجاج مفروم، ذرة حلوة وقطعة زبدة تذوب على مهل</span></p><span class="yen" dir="ltr">¥1,280</span></li><li><h3><span lang="en">Yuzu Shio</span><span lang="ar">يوزو شيو</span></h3><p><span lang="en">Clear sea-salt broth lifted with yuzu peel, poached chicken, mizuna greens</span><span lang="ar">مرق صافٍ بملح البحر تنعشه قشور اليوزو، دجاج مسلوق وأوراق الميزونا</span></p><span class="yen" dir="ltr">¥1,150</span></li><li><h3><span lang="en">Black Garlic Tantan</span><span lang="ar">تانتان بالثوم الأسود</span><em class="heat"><i></i><i></i><span class="sr" lang="en">spicy</span><span class="sr" lang="ar">حارّ</span></em></h3><p><span lang="en">Roasted sesame broth, black garlic oil, spiced beef mince, bok choy</span><span lang="ar">مرق السمسم المحمّص وزيت الثوم الأسود مع لحم بقري مفروم متبّل وبوك تشوي</span></p><span class="yen" dir="ltr">¥1,320</span></li><li><h3><span lang="en">Midnight Shiitake</span><span lang="ar">شيتاكي منتصف الليل</span><em class="badge"><span lang="en">Vegan</span><span lang="ar">نباتي</span></em></h3><p><span lang="en">Kombu and shiitake broth, silken tofu, charred leek, sesame — entirely plant-based</span><span lang="ar">مرق الكومبو والشيتاكي مع توفو حريري وكرّاث مشوي وسمسم — نباتي بالكامل</span></p><span class="yen" dir="ltr">¥1,100</span></li></ul></section><div class="amb" aria-hidden="true"><div class="blade"><span>ラ</span><span>ー</span><span class="fl">メ</span><span>ン</span></div></div></div><div class="row"><section class="shop sides" id="sides" style="--n:#19e6ff">
+<header><span class="jp" aria-hidden="true">おつまみ</span><div><h2><span lang="en">Side Tickets</span><span lang="ar">تذاكر المقبّلات</span></h2><p><span lang="en">Press a button. Hear it sizzle.</span><span lang="ar">اضغط الزرّ واسمع الأزيز.</span></p></div><span class="no">02</span></header><div class="slot"><span></span><span lang="en">① choose &nbsp;② pay &nbsp;③ slurp</span><span lang="ar">① اختر &nbsp;② ادفع &nbsp;③ ارتشف</span></div>
+<ul><li><h3><span lang="en">Chicken Gyoza</span><span lang="ar">غيوزا الدجاج</span></h3><p><span lang="en">Six pan-crisped dumplings, ponzu dip</span><span lang="ar">ست قطع محمّرة مع صلصة بونزو</span></p><span class="yen" dir="ltr">¥580</span></li><li><h3><span lang="en">Karaage</span><span lang="ar">كاراآغي</span><em class="badge"><span lang="en">House signature</span><span lang="ar">توقيع الدار</span></em></h3><p><span lang="en">Ginger-soy fried chicken, lemon, kewpie</span><span lang="ar">دجاج مقلي بالزنجبيل والصويا مع ليمون ومايونيز</span></p><span class="yen" dir="ltr">¥680</span></li><li><h3><span lang="en">Takoyaki</span><span lang="ar">تاكوياكي</span></h3><p><span lang="en">Octopus puffs, bonito flakes dancing</span><span lang="ar">كرات الأخطبوط مع رقائق البونيتو الراقصة</span></p><span class="yen" dir="ltr">¥620</span></li><li><h3><span lang="en">Edamame</span><span lang="ar">إدامامي</span><em class="badge"><span lang="en">Vegan</span><span lang="ar">نباتي</span></em></h3><p><span lang="en">Steamed, flaky sea salt, chilli threads</span><span lang="ar">مطهوّة بالبخار مع ملح بحري وخيوط الفلفل</span></p><span class="yen" dir="ltr">¥380</span></li><li><h3><span lang="en">Beef Bao</span><span lang="ar">باو البقر</span><em class="badge"><span lang="en">New</span><span lang="ar">جديد</span></em></h3><p><span lang="en">Braised short rib, pickled daikon</span><span lang="ar">ضلع بقري مطهوّ ببطء مع فجل دايكون مخلّل</span></p><span class="yen" dir="ltr">¥720</span></li><li><h3><span lang="en">Smashed Cucumber</span><span lang="ar">خيار مهروس</span><em class="heat"><i></i><span class="sr" lang="en">spicy</span><span class="sr" lang="ar">حارّ</span></em></h3><p><span lang="en">Sesame, garlic, la-yu chilli crunch</span><span lang="ar">سمسم وثوم وقرمشة زيت الفلفل</span></p><span class="yen" dir="ltr">¥350</span></li></ul></section><div class="amb" aria-hidden="true"><svg viewBox="0 0 160 200" class="neon-svg" style="--n:#ffb000"><path d="M45 70 35 30l30 22q15-6 30 0l30-22-10 40q12 14 10 32 14 10 12 34-2 30-40 34H63q-38-4-40-34-2-24 12-34-2-18 10-32z"/><path d="M62 88q6-8 12 0M86 88q6-8 12 0M74 104h12l-6 7zM60 112q20 14 40 0"/><path d="M125 84q14-18 22-2 4 12-8 22" style="--n:#ff2d95"/><circle cx="80" cy="150" r="12" style="--n:#19e6ff"/></svg></div></div><div class="row"><section class="shop rice" id="rice" style="--n:#ffb000">
+<header><span class="jp" aria-hidden="true">丼ぶり</span><div><h2><span lang="en">Rice Bowls</span><span lang="ar">أطباق الأرز</span></h2><p><span lang="en">Donburi — for when one bowl isn’t enough</span><span lang="ar">دونبوري — حين لا يكفي طبق واحد</span></p></div><span class="no">03</span></header>
+<ul><li><h3><span lang="en">Beef Chashu Don</span><span lang="ar">تشاشو دون بالبقر</span></h3><p><span lang="en">Torched beef belly over rice, onsen egg, spring onion</span><span lang="ar">شرائح بقرية ملفوحة باللهب على الأرز مع بيضة أونسن وبصل أخضر</span></p><span class="yen" dir="ltr">¥880</span></li><li><h3><span lang="en">Oyako Don</span><span lang="ar">أوياكو دون</span></h3><p><span lang="en">Chicken and egg simmered in sweet dashi</span><span lang="ar">دجاج وبيض مطهوّان في مرق داشي حلو</span></p><span class="yen" dir="ltr">¥820</span></li><li><h3><span lang="en">Garlic Chahan</span><span lang="ar">تشاهان بالثوم</span></h3><p><span lang="en">Wok-fired rice, egg, scallion, crisp garlic</span><span lang="ar">أرز مقلّب على نار قوية مع البيض والبصل الأخضر والثوم المقرمش</span></p><span class="yen" dir="ltr">¥760</span></li><li><h3><span lang="en">Katsu Curry</span><span lang="ar">كاتسو كاري</span><em class="heat"><i></i><span class="sr" lang="en">spicy</span><span class="sr" lang="ar">حارّ</span></em></h3><p><span lang="en">Panko chicken cutlet, dark Japanese curry, pickles</span><span lang="ar">شريحة دجاج مقرمشة مع كاري ياباني داكن ومخلّلات</span></p><span class="yen" dir="ltr">¥900</span></li></ul></section><div class="amb" aria-hidden="true"><div class="chochin"><b>麺</b></div></div></div><div class="row"><section class="shop drinks" id="drinks" style="--n:#39ff88">
+<header><span class="jp" aria-hidden="true">ドリンク</span><div><h2><span lang="en">Vending Drinks</span><span lang="ar">مشروبات الآلة</span></h2><p><span lang="en">Ice-cold, zero-proof, from the machine</span><span lang="ar">مثلّجة وخالية من الكحول، مباشرة من الآلة</span></p></div><span class="no">04</span></header>
+<ul><li><h3><span lang="en">Ramune</span><span lang="ar">رامونيه</span></h3><p><span lang="en">The marble-stoppered soda — original or melon</span><span lang="ar">الصودا ذات الكرة الزجاجية — أصلية أو بالشمّام</span></p><span class="yen" dir="ltr">¥320</span></li><li><h3><span lang="en">Yuzu Sparkler</span><span lang="ar">يوزو فوّار</span></h3><p><span lang="en">Yuzu juice, honey, soda, shiso leaf</span><span lang="ar">عصير اليوزو مع العسل والصودا وورقة شيسو</span></p><span class="yen" dir="ltr">¥420</span></li><li><h3><span lang="en">Iced Matcha Latte</span><span lang="ar">ماتشا لاتيه مثلّج</span></h3><p><span lang="en">Ceremonial matcha whisked over cold milk</span><span lang="ar">ماتشا فاخرة مخفوقة فوق حليب بارد</span></p><span class="yen" dir="ltr">¥480</span></li><li><h3><span lang="en">Lychee Calpico</span><span lang="ar">كالبيكو بالليتشي</span></h3><p><span lang="en">Cloud-white, tangy, lychee pearls</span><span lang="ar">أبيض كالغيم، منعش، مع لآلئ الليتشي</span></p><span class="yen" dir="ltr">¥450</span></li><li><h3><span lang="en">Mugicha</span><span lang="ar">موغيتشا</span></h3><p><span lang="en">Roasted barley tea — refills never end</span><span lang="ar">شاي الشعير المحمّص — يُعاد ملؤه بلا حساب</span></p><span class="yen" dir="ltr">¥250</span></li></ul></section><div class="amb" aria-hidden="true"><svg viewBox="0 0 160 220" class="neon-svg" style="--n:#39ff88"><path d="M80 15v150M40 125l40 45 40-45"/><path d="M30 190h100v20H30z" style="--n:#19e6ff"/><text x="80" y="206" text-anchor="middle" font-size="14">24H</text></svg></div></div><div class="row"><section class="shop sweets" id="sweets" style="--n:#b98cff">
+<header><span class="jp" aria-hidden="true">甘味</span><div><h2><span lang="en">After Hours</span><span lang="ar">بعد منتصف الليل</span></h2><p><span lang="en">Something sweet for the walk home</span><span lang="ar">شيء حلو لطريق العودة</span></p></div><span class="no">05</span></header>
+<ul><li><h3><span lang="en">Mochi Ice Trio</span><span lang="ar">ثلاثي موتشي المثلّج</span></h3><p><span lang="en">Matcha, black sesame, strawberry</span><span lang="ar">ماتشا، سمسم أسود، فراولة</span></p><span class="yen" dir="ltr">¥520</span></li><li><h3><span lang="en">Custard Taiyaki</span><span lang="ar">تاياكي بالكاسترد</span></h3><p><span lang="en">Fish-shaped waffle, hot vanilla custard</span><span lang="ar">وافل على شكل سمكة محشوّ بكاسترد الفانيليا الساخن</span></p><span class="yen" dir="ltr">¥480</span></li><li><h3><span lang="en">Matcha Soft Serve</span><span lang="ar">آيس كريم الماتشا</span></h3><p><span lang="en">Swirled high, kinako dust, a black-sugar drizzle</span><span lang="ar">لولب عالٍ مع مسحوق الكيناكو وخيط من السكّر الأسود</span></p><span class="yen" dir="ltr">¥450</span></li></ul></section><div class="amb" aria-hidden="true"><svg viewBox="0 0 160 200" class="neon-svg" style="--n:#b98cff"><path d="M105 30a62 62 0 1 0 30 100A52 52 0 0 1 105 30z"/><path d="M30 170q10-8 20 0t20 0 20 0 20 0 20 0" style="--n:#19e6ff"/><path d="M40 188q10-8 20 0t20 0 20 0 20 0" style="--n:#19e6ff"/></svg></div></div></main>
+<section class="build"><div class="build-in">
+ <div><h2><span lang="en">Tune your bowl</span><span lang="ar">اضبط طبقك</span></h2><p><span lang="en">Every ramen is built to order. Tell the cook how you like it — the highlighted settings are how we would eat it.</span><span lang="ar">كلّ طبق رامن يُحضَّر عند الطلب. أخبر الطاهي كيف تحبّه — والخيارات المضيئة هي ما نفضّله نحن.</span></p></div>
+ <div class="dials">
+  <div class="dial"><b><span lang="en">Noodle firmness</span><span lang="ar">قوام النودلز</span></b><div><span><span lang="en">Soft</span><span lang="ar">طريّة</span></span><span><span lang="en">Regular</span><span lang="ar">عادية</span></span><span class="on"><span lang="en">Firm</span><span lang="ar">متماسكة</span></span><span><span lang="en">Wire-hard</span><span lang="ar">قاسية جدًّا</span></span></div></div>
+  <div class="dial"><b><span lang="en">Broth richness</span><span lang="ar">غنى المرق</span></b><div><span><span lang="en">Light</span><span lang="ar">خفيف</span></span><span class="on"><span lang="en">Classic</span><span lang="ar">كلاسيكي</span></span><span><span lang="en">Extra rich</span><span lang="ar">غنيّ جدًّا</span></span></div></div>
+  <div class="dial"><b><span lang="en">Heat</span><span lang="ar">الحرارة</span></b><div><span class="on"><span lang="en">None</span><span lang="ar">بلا</span></span><span><span lang="en">Warm</span><span lang="ar">دافئ</span></span><span><span lang="en">Hot</span><span lang="ar">حارّ</span></span><span><span lang="en">Regret</span><span lang="ar">ندم</span></span></div></div>
+ </div>
+ <ul class="adds">
+  <li><span lang="en">Ajitama egg</span><span lang="ar">بيضة أجيتاما</span><span class="yen" dir="ltr">¥150</span></li><li><span lang="en">Extra chashu (beef or chicken)</span><span lang="ar">تشاشو إضافي (بقر أو دجاج)</span><span class="yen" dir="ltr">¥320</span></li><li><span lang="en">Kaedama — second helping of noodles</span><span lang="ar">كايداما — حصّة نودلز ثانية</span><span class="yen" dir="ltr">¥200</span></li>
+  <li><span lang="en">Toasted nori, five sheets</span><span lang="ar">نوري محمّص، خمس أوراق</span><span class="yen" dir="ltr">¥120</span></li><li><span lang="en">Corn &amp; butter</span><span lang="ar">ذرة وزبدة</span><span class="yen" dir="ltr">¥180</span></li><li><span lang="en">Black garlic oil</span><span lang="ar">زيت الثوم الأسود</span><span class="yen" dir="ltr">¥100</span></li>
+ </ul>
+</div></section>
+<footer><div class="foot">
+ <div style="--n:#ff2d95"><h4><span lang="en">Find the alley</span><span lang="ar">أين الزقاق؟</span></h4><p><span lang="en">Alley 7, Lantern Street, Shin-Yokocho — look for the pink glow past the vending machines</span><span lang="ar">الزقاق ٧، شارع الفوانيس، شين-يوكوتشو — ابحث عن الوهج الوردي بعد آلات البيع</span></p></div>
+ <div style="--n:#19e6ff"><h4><span lang="en">Hours</span><span lang="ar">ساعات العمل</span></h4><p><span lang="en">Every night 6 pm – 4 am<br>Last bowl called at 3:30</span><span lang="ar">كلّ ليلة من ٦ مساءً حتى ٤ فجرًا<br>آخر طلب عند ٣:٣٠</span></p></div>
+ <div style="--n:#ffb000"><h4><span lang="en">House rules</span><span lang="ar">قواعد الدار</span></h4><p><span lang="en">No reservations. Eleven stools, first come, first slurped. Cash or card.</span><span lang="ar">لا حجوزات. أحد عشر مقعدًا ومن يصل أوّلًا يأكل أوّلًا. نقدًا أو بالبطاقة.</span></p></div>
+ </div>
+ <p class="fine"><span lang="en">All chicken and beef are halal; we use no pork and no alcohol, including in our tare and marinades. Dishes contain wheat, soy, sesame and egg — ask the cook about allergens. Prices in yen, tax included.</span><span lang="ar">جميع لحوم الدجاج والبقر حلال، ولا نستخدم لحم الخنزير ولا الكحول حتى في الصلصات والتتبيلات. تحتوي الأطباق على القمح والصويا والسمسم والبيض — اسأل الطاهي عن مسبّبات الحساسية. الأسعار بالينّ الياباني وتشمل الضريبة.</span></p>
+</footer>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body></html>

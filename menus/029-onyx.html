@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Onyx · أونيكس</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Onyx — a fine-dining tasting in twelve movements, twenty-two seats above Riyadh. أونيكس — قائمة تذوّق فاخرة من اثنتي عشرة حركة.">
+<meta name="theme-color" content="#000000">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400&family=Italiana&family=Jost:wght@200;300;400&family=Scheherazade+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--w:#fff;--t:#d2d2d2;--m:#9a9a9a;--h:rgba(255,255,255,.26);--hh:rgba(255,255,255,.12);--ax:38%}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:#000}
+body{font-family:"Jost","Helvetica Neue",Arial,sans-serif;font-weight:300;font-size:1.06rem;line-height:1.7;color:var(--t);background:#000;overflow-x:clip;-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-family:"IBM Plex Sans Arabic","Tahoma",sans-serif;font-weight:300;font-size:1.08rem;line-height:2}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit;text-decoration:none}
+ol,ul{list-style:none}
+.caps{font-size:.7rem;letter-spacing:.42em;text-transform:uppercase;color:var(--m);font-weight:400}
+html[lang="ar"] .caps{font-size:.92rem;font-weight:300}
+.serif{font-family:"Italiana","Didot","Times New Roman",serif;font-weight:400}
+html[lang="ar"] .serif{font-family:"Scheherazade New","Amiri",serif}
+.n{font-family:"Italiana","Didot",serif;unicode-bidi:isolate;direction:ltr}
+
+/* top strip */
+.strip{position:fixed;inset-inline:0;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 clamp(1rem,3vw,2.6rem);height:52px;background:linear-gradient(#000 60%,rgba(0,0,0,0))}
+.strip .mark{font-family:"Italiana",serif;font-size:1rem;letter-spacing:.5em;color:var(--w)}
+html[lang="ar"] .strip .mark{font-family:"Scheherazade New",serif;font-size:1.35rem}
+.strip div{display:flex;gap:clamp(.9rem,2.4vw,2rem);align-items:center}
+.home-link,#langToggle{font:inherit;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;color:var(--t);background:none;border:0;border-bottom:1px solid var(--h);padding:.55rem 0 .3rem;min-height:36px;cursor:pointer;transition:color .4s,border-color .4s}
+html[lang="ar"] .home-link{font-size:.9rem}
+#langToggle [lang="ar"]{font-family:"IBM Plex Sans Arabic",sans-serif;font-size:.95rem;letter-spacing:0}
+#langToggle [lang="en"]{font-family:"Jost",sans-serif;font-size:.7rem;letter-spacing:.32em}
+.home-link:hover,#langToggle:hover,.home-link:focus-visible,#langToggle:focus-visible{color:#fff;border-color:#fff;outline:none}
+
+/* act index */
+.idx{position:fixed;z-index:20;inset-inline-start:clamp(1rem,2.2vw,2.4rem);top:50%;transform:translateY(-50%);display:none}
+.idx a{display:flex;align-items:center;gap:.8rem;padding:.55rem 0;font-size:.64rem;letter-spacing:.34em;text-transform:uppercase;color:#6d6d6d;transition:color .5s}
+html[lang="ar"] .idx a{font-size:.85rem}
+.idx a::before{content:"";width:18px;height:1px;background:currentColor;transition:width .5s}
+.idx a:hover,.idx a.on{color:#fff}
+.idx a.on::before,.idx a:hover::before{width:42px}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.2rem 0;overflow:clip}
+.gem{width:clamp(180px,26vw,330px);height:auto;overflow:visible}
+.gem g{fill:none;stroke:#fff;stroke-width:1;vector-effect:non-scaling-stroke}
+.gem .f{stroke:rgba(255,255,255,.45)}
+.halo{position:absolute;top:50%;left:50%;width:min(120vw,900px);aspect-ratio:1;transform:translate(-50%,-62%);background:radial-gradient(closest-side,rgba(255,255,255,.075),transparent 70%);pointer-events:none}
+h1{font-family:"Italiana","Didot",serif;font-weight:400;color:#fff;font-size:clamp(3.2rem,10vw,8.5rem);letter-spacing:.42em;margin-inline-end:-.42em;line-height:1;margin-block:clamp(2rem,5vh,3.6rem) 1.4rem;text-transform:uppercase}
+html[lang="ar"] h1{font-family:"Scheherazade New",serif;font-size:clamp(4rem,12vw,9.5rem);margin-inline-end:0;line-height:1.3;margin-block:1rem .4rem}
+.hero .lede{max-width:27rem;margin-top:1.8rem;color:var(--m)}
+.facts{display:flex;justify-content:center;gap:clamp(1.4rem,6vw,5rem);margin-top:clamp(2.4rem,6vh,4rem);padding-top:1.6rem;border-top:1px solid var(--h);width:min(100%,40rem)}
+.facts b{display:block;font-family:"Italiana",serif;font-weight:400;font-size:2.3rem;color:#fff;line-height:1.1}
+.drop{width:1px;flex:1;min-height:5rem;margin-top:2.6rem;background:linear-gradient(var(--h),transparent)}
+
+/* sequence */
+main{position:relative;max-width:1180px;margin-inline:auto;padding-inline:clamp(1.3rem,5vw,3rem)}
+.act{position:relative;scroll-margin-top:3rem}
+.act::before{content:"";position:absolute;inset-block:0;inset-inline-start:var(--ax);width:1px;background:var(--h)}
+#a1::before{background:linear-gradient(transparent,var(--h) 9rem)}
+.ah{position:relative;display:grid;grid-template-columns:var(--ax) minmax(0,1fr);align-items:end;padding-block:clamp(6rem,14vw,11rem) clamp(2rem,5vw,4rem)}
+.ah .caps{text-align:end;padding-inline-end:clamp(1.5rem,4vw,3.5rem);padding-bottom:.9rem}
+.ah h2{font-size:clamp(2.6rem,7vw,5.6rem);line-height:1;color:#fff;padding-inline-start:clamp(1.5rem,4vw,3.5rem);font-weight:400}
+html[lang="ar"] .ah h2{line-height:1.4;font-size:clamp(2.8rem,7vw,5.6rem)}
+.ah::after{content:"";position:absolute;inset-inline-start:var(--ax);bottom:calc(clamp(2rem,5vw,4rem) + .9rem);width:9px;height:9px;margin-inline-start:-4px;background:#000;border:1px solid #fff;transform:rotate(45deg)}
+.c{position:relative;display:grid;grid-template-columns:var(--ax) minmax(0,1fr);padding-block:clamp(3rem,7vw,5.5rem)}
+.c::after{content:"";position:absolute;inset-inline-start:var(--ax);top:calc(clamp(3rem,7vw,5.5rem) + 1.1rem);width:5px;height:5px;margin-inline-start:-2px;border-radius:50%;background:#fff}
+.c .no{text-align:end;padding-inline-end:clamp(1.5rem,4vw,3.5rem)}
+.c .no .n{display:block;font-size:clamp(4rem,9vw,7.5rem);line-height:.8;color:rgba(255,255,255,.3)}
+.c .no .caps{display:block;margin-top:1.2rem}
+.c .bd{padding-inline-start:clamp(1.5rem,4vw,3.5rem);max-width:36rem}
+.c h3{font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.15;color:#fff;font-weight:400}
+html[lang="ar"] .c h3{line-height:1.5;font-size:clamp(1.9rem,3.6vw,2.7rem)}
+.c .bd p{margin-top:.8rem;color:var(--t)}
+.c .el{margin-top:1.3rem;display:flex;flex-wrap:wrap;gap:.3rem 1.4rem}
+.c .pr{margin-top:1.4rem;display:flex;align-items:center;gap:1rem;color:var(--m);font-size:.82rem;letter-spacing:.2em;text-transform:uppercase}
+html[lang="ar"] .c .pr{font-size:.95rem}
+.c .pr::before{content:"";width:2.6rem;height:1px;background:var(--h)}
+.c .pr b{font-weight:300;color:#fff;font-size:1.05rem;letter-spacing:.12em;unicode-bidi:isolate}
+.sig{display:inline-block;border:1px solid var(--h);padding:.35rem .9rem;margin-bottom:1.1rem}
+
+/* the sequence price */
+.sum{position:relative;text-align:center;padding:clamp(6rem,14vw,11rem) 0;border-top:1px solid var(--h);margin-top:clamp(3rem,7vw,6rem)}
+.sum .big{font-size:clamp(3.4rem,10vw,7.5rem);color:#fff;line-height:1.05;margin-block:1.4rem .6rem;display:block}
+.sum .big small{font-family:"Jost",sans-serif;font-weight:300;font-size:.82rem;letter-spacing:.42em;vertical-align:middle;color:var(--m);margin-inline:.8rem}
+html[lang="ar"] .sum .big small{font-family:"IBM Plex Sans Arabic",sans-serif;font-size:1.1rem}
+.sum p{max-width:30rem;margin-inline:auto;color:var(--m)}
+
+/* pairings */
+.pair{scroll-margin-top:3rem;border-top:1px solid var(--h);padding-block:clamp(5rem,10vw,8rem)}
+.pair header{display:flex;justify-content:space-between;align-items:end;gap:1.5rem;flex-wrap:wrap;margin-bottom:clamp(2.4rem,5vw,4rem)}
+.pair h2{font-size:clamp(2.6rem,7vw,5.6rem);line-height:1;color:#fff;font-weight:400}
+html[lang="ar"] .pair h2{line-height:1.4}
+.pair header p{max-width:22rem;color:var(--m)}
+.glasses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--h);border-bottom:1px solid var(--h)}
+.glasses li{padding:2.2rem 1.6rem 2rem;border-inline-start:1px solid var(--h);display:flex;flex-direction:column;min-height:19rem}
+.glasses li:first-child{border-inline-start:0;padding-inline-start:0}
+.glasses svg{width:38px;height:64px;fill:none;stroke:#fff;stroke-width:.8;margin-bottom:1.6rem;overflow:visible}
+.glasses h3{font-size:1.55rem;line-height:1.2;color:#fff;font-weight:400;margin-top:.6rem}
+html[lang="ar"] .glasses h3{font-size:1.75rem;line-height:1.5}
+.glasses p{font-size:.98rem;margin-top:.5rem;color:var(--t)}
+.glasses .pp{margin-top:auto;padding-top:1.2rem;color:#fff;letter-spacing:.12em;unicode-bidi:isolate}
+.supp{margin-top:clamp(3rem,6vw,5rem);display:grid;grid-template-columns:var(--ax) minmax(0,1fr)}
+.supp ul{border-top:1px solid var(--h)}
+.supp li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.2rem 2rem;padding:1.3rem 0;border-bottom:1px solid var(--hh)}
+.supp li strong{font-size:1.45rem;color:#fff;font-weight:400}
+html[lang="ar"] .supp li strong{font-size:1.6rem}
+.supp li span.d{grid-column:1;color:var(--m);font-size:.98rem}
+.supp li b{grid-row:1;grid-column:2;font-weight:300;color:#fff;letter-spacing:.12em;align-self:center;unicode-bidi:isolate}
+
+footer{border-top:1px solid var(--h);margin-top:2rem}
+.fg{max-width:1180px;margin-inline:auto;padding:clamp(4rem,8vw,6rem) clamp(1.3rem,5vw,3rem);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3rem}
+.fg h3{margin-bottom:1.2rem}
+.fg p{color:var(--t);font-size:1rem}
+.fg b{font-weight:300;color:#fff;unicode-bidi:isolate;direction:ltr;display:inline-block}
+.last{text-align:center;padding:0 1rem 4rem}
+.last .serif{display:block;font-size:1.5rem;letter-spacing:.5em;margin-inline-end:-.5em;color:#fff;margin-bottom:.8rem}
+html[lang="ar"] .last .serif{margin-inline-end:0;font-size:2rem}
+
+@media (min-width:1280px){.idx{display:block}}
+@media (max-width:760px){
+  :root{--ax:0px}
+  .strip .mark{font-size:.85rem;letter-spacing:.35em}
+  .ah,.c,.supp{grid-template-columns:1fr}
+  .ah .caps{text-align:start;padding-inline:1.8rem 0;padding-bottom:1rem}
+  .ah h2,.c .bd{padding-inline-start:1.8rem}
+  .ah::after{bottom:auto;top:calc(clamp(6rem,14vw,11rem) + .35rem)}
+  .c .no{text-align:start;padding-inline:1.8rem 0;display:flex;align-items:baseline;gap:1.1rem;margin-bottom:1.4rem}
+  .c .no .n{font-size:3.4rem}
+  .c .no .caps{margin:0}
+  .c::after{top:calc(clamp(3rem,7vw,5.5rem) + 1.5rem)}
+  .facts{gap:1rem;justify-content:space-between}
+  .facts b{font-size:1.9rem}
+  .facts .caps{letter-spacing:.24em;font-size:.64rem}
+  .glasses{grid-template-columns:1fr;border-bottom:0}
+  .glasses li{border-inline-start:0;padding-inline:0;min-height:0;border-bottom:1px solid var(--h);display:grid;grid-template-columns:54px minmax(0,1fr);column-gap:1rem}
+  .glasses li svg{grid-row:1/6}
+  .glasses li>*:not(svg){grid-column:2}
+  .supp>span{display:none}
+  .fg{grid-template-columns:1fr;gap:2.6rem}
+  .sum .big small{display:block;margin:.6rem 0 0}
+}
+@media (min-width:761px) and (max-width:1000px){.glasses{grid-template-columns:repeat(2,minmax(0,1fr))}.glasses li:nth-child(3){border-inline-start:0;padding-inline-start:0}.glasses li:nth-child(-n+2){border-bottom:1px solid var(--h)}}
+@media (prefers-reduced-motion:no-preference){
+  .gem .rot{transform-origin:0 0;animation:turn 140s linear infinite}
+  @keyframes turn{to{transform:rotate(360deg)}}
+  .halo{animation:breathe 9s ease-in-out infinite alternate}
+  @keyframes breathe{from{opacity:.55}to{opacity:1}}
+  .pre{opacity:0;transform:translateY(22px)}
+  .rv{transition:opacity 1.8s cubic-bezier(.2,.6,.2,1),transform 1.8s cubic-bezier(.2,.6,.2,1)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="strip">
+  <span class="mark"><span lang="en">ONYX</span><span lang="ar">أونيكس</span></span>
+  <div>
+    <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+</div>
+
+<nav class="idx" aria-label="Acts">
+  <a href="#a1"><span lang="en">I · Prelude</span><span lang="ar">١ · الاستهلال</span></a>
+  <a href="#a2"><span lang="en">II · The Sea</span><span lang="ar">٢ · البحر</span></a>
+  <a href="#a3"><span lang="en">III · The Land</span><span lang="ar">٣ · البرّ</span></a>
+  <a href="#a4"><span lang="en">IV · Finale</span><span lang="ar">٤ · الختام</span></a>
+  <a href="#a5"><span lang="en">V · Pairings</span><span lang="ar">٥ · المرافَقة</span></a>
+</nav>
+
+<header class="hero">
+  <div class="halo" aria-hidden="true"></div>
+  <svg class="gem" viewBox="-160 -160 320 320" aria-hidden="true"><g class="rot"><polygon points="138.6,57.4 57.4,138.6 -57.4,138.6 -138.6,57.4 -138.6,-57.4 -57.4,-138.6 57.4,-138.6 138.6,-57.4"/><polygon points="64.7,26.8 26.8,64.7 -26.8,64.7 -64.7,26.8 -64.7,-26.8 -26.8,-64.7 26.8,-64.7 64.7,-26.8"/><path class="f" d="M118.0 0.0L138.6 57.4L83.4 83.4M118.0 0.0L64.7 26.8L83.4 83.4M83.4 83.4L57.4 138.6L0.0 118.0M83.4 83.4L26.8 64.7L0.0 118.0M0.0 118.0L-57.4 138.6L-83.4 83.4M0.0 118.0L-26.8 64.7L-83.4 83.4M-83.4 83.4L-138.6 57.4L-118.0 0.0M-83.4 83.4L-64.7 26.8L-118.0 0.0M-118.0 0.0L-138.6 -57.4L-83.4 -83.4M-118.0 0.0L-64.7 -26.8L-83.4 -83.4M-83.4 -83.4L-57.4 -138.6L-0.0 -118.0M-83.4 -83.4L-26.8 -64.7L-0.0 -118.0M-0.0 -118.0L57.4 -138.6L83.4 -83.4M-0.0 -118.0L26.8 -64.7L83.4 -83.4M83.4 -83.4L138.6 -57.4L118.0 0.0M83.4 -83.4L64.7 -26.8L118.0 0.0"/><circle r="158" class="f" stroke-dasharray="1 7"/></g></svg>
+  <h1><span lang="en">Onyx</span><span lang="ar">أونيكس</span></h1>
+  <p class="caps"><span lang="en">A tasting in twelve movements</span><span lang="ar">تذوّقٌ من اثنتي عشرة حركة</span></p>
+  <p class="lede"><span lang="en">One menu, served once each evening, in the order the kitchen intends. Nothing on the plate that does not need to be there.</span><span lang="ar">قائمة واحدة تُقدَّم مرّةً كلّ مساء، بالترتيب الذي يريده المطبخ. لا شيء في الطبق إلا ما لا غنى عنه.</span></p>
+  <div class="facts">
+    <div><b class="n">12</b><span class="caps"><span lang="en">Courses</span><span lang="ar">طبقًا</span></span></div>
+    <div><b class="n">3</b><span class="caps"><span lang="en">Hours</span><span lang="ar">ساعات</span></span></div>
+    <div><b class="n">22</b><span class="caps"><span lang="en">Seats</span><span lang="ar">مقعدًا</span></span></div>
+  </div>
+  <div class="drop" aria-hidden="true"></div>
+</header>
+
+<main>
+<section class="act" id="a1">
+  <div class="ah"><p class="caps"><span lang="en">Act I</span><span lang="ar">الفصل الأول</span></p><h2 class="serif"><span lang="en">Prelude</span><span lang="ar">الاستهلال</span></h2></div>
+  <article class="c"><div class="no"><span class="n">01</span><span class="caps"><span lang="en">Brittany</span><span lang="ar">بريتاني</span></span></div>
+    <div class="bd"><h3 class="serif"><span lang="en">Oyster, Cucumber Ice</span><span lang="ar">محار وثلج الخيار</span></h3>
+      <p><span lang="en">A single Gillardeau oyster beneath shaved frozen cucumber and a drop of dill oil.</span><span lang="ar">محارة جيلاردو واحدة تحت رقائق الخيار المجمّد وقطرة من زيت الشبت.</span></p>
+      <p class="pr"><span lang="en">Served singly</span><span lang="ar">منفردًا</span><b><span lang="en">SAR 95</span><span lang="ar">95 ر.س</span></b></p></div></article>
+  <article class="c"><div class="no"><span class="n">02</span><span class="caps"><span lang="en">Najd</span><span lang="ar">نجد</span></span></div>
+    <div class="bd"><h3 class="serif"><span lang="en">Charcoal Tartlet</span><span lang="ar">تارتليت الفحم</span></h3>
+      <p><span lang="en">Smoked labneh in a black pastry shell, aubergine caviar, dried black lime.</span><span lang="ar">لبنة مدخّنة في قشرة عجين سوداء مع كافيار الباذنجان واللومي الأسود.</span></p>
+      <p class="pr"><span lang="en">Served singly</span><span lang="ar">منفردًا</span><b><span lang="en">SAR 70</span><span lang="ar">70 ر.س</span></b></p></div></article>
+  <article class="c"><div class="no"><span class="n">03</span><span class="caps"><span lang="en">The oven</span><span lang="ar">الفرن</span></span></div>
+    <div class="bd"><h3 class="serif"><span lang="en">Bread &amp; Cultured Butter</span><span lang="ar">خبز وزبدة مخمّرة</span></h3>
+      <p><span lang="en">Black sesame sourdough baked each afternoon, butter aged ten days, Khalas date molasses.</span><span lang="ar">خبز العجين المخمّر بالسمسم الأسود يُخبز كلّ عصر، مع زبدة معتّقة عشرة أيام ودبس تمر الخلاص.</span></p>
+      <p class="pr"><span lang="en">Served singly</span><span lang="ar">منفردًا</span><b><span lang="en">SAR 55</span><span lang="ar">55 ر.س</span></b></p></div></article>
+</section>
+
+<section class="act" id="a2">
+  <div class="ah"><p class="caps"><span lang="en">Act II</span><span lang="ar">الفصل الثاني</span></p><h2 class="serif"><span lang="en">The Sea</span><span lang="ar">البحر</span></h2></div>
+  <article class="c"><div class="no"><span class="n">04</span><span class="caps"><span lang="en">Hokkaido</span><span lang="ar">هوكايدو</span></span></div>
+    <div class="bd"><h3 class="serif"><span lang="en">Scallop, Yuzu Kosho</span><span lang="ar">أسقلوب ويوزو كوشو</span></h3>
+      <p><span lang="en">Raw hand-dived scallop, warm brown-butter dashi poured at the table.</span><span lang="ar">أسقلوب نيء يُصاد باليد، يُسكب عليه مرق الداشي بالزبدة البنّية أمامكم.</span></p>
+      <p class="pr"><span lang="en">Served singly</span><span lang="ar">منفردًا</span><b><span lang="en">SAR 165</span><span lang="ar">165 ر.س</span></b></p></div></article>
+  <article class="c"><div class="no"><span class="n">05</span><span class="caps"><span lang="en">Alaska</span><span lang="ar">ألاسكا</span></span></div>
+    <div class="bd"><h3 class="serif"><span lang="en">Black Cod, Squid Ink</span><span lang="ar">قدّ أسود وحبر الحبّار</span></h3>
+      <p><span lang="en">Cod cured three days in white miso and date, an ink-dark emulsion, sea fennel.</span><span lang="ar">سمك القدّ يُعتّق ثلاثة أيام في الميسو الأبيض والتمر، مع مستحلب بلون الحبر وشمر البحر.</span></p>
+      <p class="pr"><span lang="en">Served singly</span><span lang="ar">منفردًا</span><b><span lang="en">SAR 210</span><span lang="ar">210 ر.س</span></b></p></div></article>
+  <article class="c"><div class="no"><span class="n">06</span><span class="caps"><span lang="en">Red Sea</span><span lang="ar">البحر الأحمر</span></span></div>
+    <div class="bd"><h3 class="serif"><span lang="en">Blue Lobster on Embers</span><span lang="ar">كركند أزرق على الجمر</span></h3>
+      <p><span lang="en">Tail grilled over date-palm charcoal, saffron bisque, finger lime.</span><span lang="ar">ذيل الكركند مشويًّا على فحم النخيل مع حساء البيسك بالزعفران والليمون الإصبعي.</span></p>
+      <p class="pr"><span lang="en">Served singly</span><span lang="ar">منفردًا</span><b><span lang="en">SAR 260</span><span lang="ar">260 ر.س</span></b></p></div></article>
+</section>
+
+<section class="act" id="a3">
+  <div class="ah"><p class="caps"><span lang="en">Act III</span><span lang="ar">الفصل الثالث</span></p><h2 class="serif"><span lang="en">The Land</span><span lang="ar">البرّ</span></h2></div>
+  <article class="c"><div class="no"><span class="n">07</span><span class="caps"><span lang="en">Périgord</span><span lang="ar">بيريغور</span></span></div>
+    <div class="bd"><h3 class="serif"><span lang="en">Black Truffle Custard</span><span lang="ar">كاسترد الكمأة السوداء</span></h3>
+      <p><span lang="en">Barely set egg custard, roast chicken jus, winter truffle shaved to cover.</span><span lang="ar">كاسترد بيض بالكاد يتماسك، مع مرق الدجاج المحمّر ورقائق الكمأة الشتوية تغطّيه.</span></p>
+      <p class="pr"><span lang="en">Served singly</span><span lang="ar">منفردًا</span><b><span lang="en">SAR 180</span><span lang="ar">180 ر.س</span></b></p></div></article>
+  <article class="c"><div class="no"><span class="n">08</span><span class="caps"><span lang="en">Challans</span><span lang="ar">شالان</span></span></div>
+    <div class="bd"><h3 class="serif"><span lang="en">Duck, Beetroot, Sour Cherry</span><span lang="ar">بطّ وشمندر وكرز حامض</span></h3>
+      <p><span lang="en">Breast dry-aged fourteen days, salt-baked beetroot, black garlic, cherry.</span><span lang="ar">صدر بطّ معتّق أربعة عشر يومًا مع شمندر مخبوز في الملح وثوم أسود وكرز.</span></p>
+      <p class="pr"><span lang="en">Served singly</span><span lang="ar">منفردًا</span><b><span lang="en">SAR 230</span><span lang="ar">230 ر.س</span></b></p></div></article>
+  <article class="c"><div class="no"><span class="n">09</span><span class="caps"><span lang="en">Kagoshima</span><span lang="ar">كاغوشيما</span></span></div>
+    <div class="bd"><h3 class="serif"><span lang="en">Wagyu A5, Charred Leek</span><span lang="ar">واغيو A5 وكرّاث محروق</span></h3>
+      <p><span lang="en">Striploin seared on binchotan, leek ash, bone-marrow jus. Halal certified.</span><span lang="ar">شريحة من الخاصرة تُشوى على فحم البينشوتان مع رماد الكرّاث ومرق نخاع العظم. لحم حلال موثّق.</span></p>
+      <p class="pr"><span lang="en">Served singly</span><span lang="ar">منفردًا</span><b><span lang="en">SAR 340</span><span lang="ar">340 ر.س</span></b></p></div></article>
+</section>
+
+<section class="act" id="a4">
+  <div class="ah"><p class="caps"><span lang="en">Act IV</span><span lang="ar">الفصل الرابع</span></p><h2 class="serif"><span lang="en">Finale</span><span lang="ar">الختام</span></h2></div>
+  <article class="c"><div class="no"><span class="n">10</span><span class="caps"><span lang="en">Al-Ahsa</span><span lang="ar">الأحساء</span></span></div>
+    <div class="bd"><h3 class="serif"><span lang="en">Black Lime Sorbet</span><span lang="ar">سوربيه اللومي الأسود</span></h3>
+      <p><span lang="en">Sun-dried lime, cold-pressed olive oil and three flakes of sea salt.</span><span lang="ar">ليمون مجفّف تحت الشمس مع زيت زيتون معصور على البارد وثلاث رقائق من ملح البحر.</span></p>
+      <p class="pr"><span lang="en">Served singly</span><span lang="ar">منفردًا</span><b><span lang="en">SAR 60</span><span lang="ar">60 ر.س</span></b></p></div></article>
+  <article class="c"><div class="no"><span class="n">11</span><span class="caps"><span lang="en">Madagascar</span><span lang="ar">مدغشقر</span></span></div>
+    <div class="bd"><p class="caps sig"><span lang="en">The signature</span><span lang="ar">طبق التوقيع</span></p>
+      <h3 class="serif"><span lang="en">Onyx</span><span lang="ar">أونيكس</span></h3>
+      <p><span lang="en">A polished stone of 72% chocolate; inside, black sesame praline and smoked vanilla cream.</span><span lang="ar">حجرٌ مصقول من شوكولاتة ٧٢٪، في داخله برالين السمسم الأسود وكريمة الفانيليا المدخّنة.</span></p>
+      <p class="pr"><span lang="en">Served singly</span><span lang="ar">منفردًا</span><b><span lang="en">SAR 110</span><span lang="ar">110 ر.س</span></b></p></div></article>
+  <article class="c"><div class="no"><span class="n">12</span><span class="caps"><span lang="en">The trolley</span><span lang="ar">العربة</span></span></div>
+    <div class="bd"><h3 class="serif"><span lang="en">Last Bites &amp; Saudi Coffee</span><span lang="ar">لقيمات الوداع والقهوة السعودية</span></h3>
+      <p><span lang="en">Cardamom truffle, date caramel, a burnt-honey madeleine still warm.</span><span lang="ar">ترافل بالهيل وكراميل التمر ومادلين بالعسل المحروق ما زالت دافئة.</span></p>
+      <p class="pr"><span lang="en">Served singly</span><span lang="ar">منفردًا</span><b><span lang="en">SAR 65</span><span lang="ar">65 ر.س</span></b></p></div></article>
+</section>
+
+<section class="sum">
+  <p class="caps"><span lang="en">The full sequence · per guest</span><span lang="ar">التسلسل الكامل · للضيف الواحد</span></p>
+  <span class="big serif"><span lang="en"><small>SAR</small><span class="n">1,450</span></span><span lang="ar"><span class="n">1,450</span><small>ر.س</small></span></span>
+  <p><span lang="en">Twelve courses, bread, water and Saudi coffee. A vegetarian sequence is prepared with the same care on request.</span><span lang="ar">اثنا عشر طبقًا مع الخبز والماء والقهوة السعودية. نُعدّ تسلسلًا نباتيًّا بالعناية نفسها عند الطلب.</span></p>
+</section>
+
+<section class="pair" id="a5">
+  <header><div><p class="caps"><span lang="en">Act V · zero-proof</span><span lang="ar">الفصل الخامس · بلا كحول</span></p><h2 class="serif"><span lang="en">Pairings</span><span lang="ar">المرافَقة</span></h2></div>
+    <p><span lang="en">Four glasses composed by our tea master, one for each act. All four together, SAR 280.</span><span lang="ar">أربع كؤوس يؤلّفها خبير الشاي لدينا، كأسٌ لكلّ فصل. الأربع معًا بـ 280 ر.س.</span></p></header>
+  <ul class="glasses">
+    <li><svg viewBox="0 0 38 64" aria-hidden="true"><path d="M12 2h14l-2 26a5 5 0 0 1-10 0zM19 33v27M9 60h20"/></svg>
+      <span class="caps"><span lang="en">With Act I</span><span lang="ar">مع الفصل الأول</span></span><h3 class="serif"><span lang="en">Sparkling Jasmine</span><span lang="ar">ياسمين فوّار</span></h3>
+      <p><span lang="en">Silver-needle tea cold-brewed fourteen hours, lightly carbonated.</span><span lang="ar">شاي الإبر الفضّية منقوع على البارد أربع عشرة ساعة ومكربن برفق.</span></p><span class="pp"><span lang="en">SAR 75</span><span lang="ar">75 ر.س</span></span></li>
+    <li><svg viewBox="0 0 38 64" aria-hidden="true"><path d="M6 2h26c0 16-4 26-13 26S6 18 6 2zM19 28v32M9 60h20"/></svg>
+      <span class="caps"><span lang="en">With Act II</span><span lang="ar">مع الفصل الثاني</span></span><h3 class="serif"><span lang="en">Verjus &amp; Green Apple</span><span lang="ar">حصرم وتفاح أخضر</span></h3>
+      <p><span lang="en">Clarified, bright and saline, with a leaf of sea lettuce.</span><span lang="ar">مصفّى ومشرق وفيه ملوحة خفيفة، مع ورقة من خسّ البحر.</span></p><span class="pp"><span lang="en">SAR 80</span><span lang="ar">80 ر.س</span></span></li>
+    <li><svg viewBox="0 0 38 64" aria-hidden="true"><path d="M4 4c0 20 6 30 15 30s15-10 15-30zM19 34v26M9 60h20"/></svg>
+      <span class="caps"><span lang="en">With Act III</span><span lang="ar">مع الفصل الثالث</span></span><h3 class="serif"><span lang="en">Smoked Tea &amp; Cherry</span><span lang="ar">شاي مدخّن وكرز</span></h3>
+      <p><span lang="en">Lapsang souchong, sour cherry and black pepper, served at cellar cool.</span><span lang="ar">شاي لابسانغ سوتشونغ مع الكرز الحامض والفلفل الأسود، يُقدَّم ببرودة القبو.</span></p><span class="pp"><span lang="en">SAR 85</span><span lang="ar">85 ر.س</span></span></li>
+    <li><svg viewBox="0 0 38 64" aria-hidden="true"><path d="M8 20h22v22a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8zM30 26h3a4 4 0 0 1 0 12h-3M5 58h28"/></svg>
+      <span class="caps"><span lang="en">With Act IV</span><span lang="ar">مع الفصل الرابع</span></span><h3 class="serif"><span lang="en">Cascara &amp; Cacao Husk</span><span lang="ar">قشر البنّ وقشر الكاكاو</span></h3>
+      <p><span lang="en">A warm infusion of coffee cherry and roasted cacao shell.</span><span lang="ar">منقوع دافئ من ثمرة البنّ وقشر الكاكاو المحمّص.</span></p><span class="pp"><span lang="en">SAR 70</span><span lang="ar">70 ر.س</span></span></li>
+  </ul>
+  <div class="supp"><span></span>
+    <ul>
+      <li><strong class="serif"><span lang="en">Oscietra Caviar, 10 g</span><span lang="ar">كافيار أوسيترا، ١٠ غ</span></strong><span class="d"><span lang="en">Added to course 01 or 04</span><span lang="ar">يُضاف إلى الطبق ٠١ أو ٠٤</span></span><b><span lang="en">+ SAR 220</span><span lang="ar">+ 220 ر.س</span></b></li>
+      <li><strong class="serif"><span lang="en">Fresh Truffle</span><span lang="ar">كمأة طازجة</span></strong><span class="d"><span lang="en">Shaved over any savoury course</span><span lang="ar">تُبشر فوق أيّ طبق مالح</span></span><b><span lang="en">+ SAR 160</span><span lang="ar">+ 160 ر.س</span></b></li>
+      <li><strong class="serif"><span lang="en">Cheese from the Cave</span><span lang="ar">أجبان من القبو</span></strong><span class="d"><span lang="en">Five farmhouse cheeses, between Acts III and IV</span><span lang="ar">خمسة أجبان ريفية بين الفصلين الثالث والرابع</span></span><b><span lang="en">+ SAR 120</span><span lang="ar">+ 120 ر.س</span></b></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="fg">
+    <div><h3 class="caps"><span lang="en">Seatings</span><span lang="ar">مواعيد الجلوس</span></h3><p><span lang="en">Tuesday to Sunday</span><span lang="ar">من الثلاثاء إلى الأحد</span><br><b>19:00</b> <span lang="en">and</span><span lang="ar">و</span> <b>21:30</b><br><span lang="en">By reservation only.</span><span lang="ar">بالحجز المسبق فقط.</span></p></div>
+    <div><h3 class="caps"><span lang="en">Address</span><span lang="ar">العنوان</span></h3><p><span lang="en">Level 44, Al Maha Tower<br>King Fahd Road, Riyadh</span><span lang="ar">الطابق ٤٤، برج المها<br>طريق الملك فهد، الرياض</span><br><b>+966 11 555 0129</b></p></div>
+    <div><h3 class="caps"><span lang="en">Before you arrive</span><span lang="ar">قبل وصولكم</span></h3><p><span lang="en">Please share allergies and dietary needs at least 48 hours ahead; the sequence contains shellfish, dairy, egg, gluten, sesame and nuts. All meat is halal and no alcohol is used. Prices include VAT.</span><span lang="ar">نرجو إبلاغنا بالحساسية والاحتياجات الغذائية قبل ٤٨ ساعة على الأقل؛ فالقائمة تحتوي على قشريات وألبان وبيض وغلوتين وسمسم ومكسّرات. جميع اللحوم حلال ولا نستخدم الكحول. الأسعار تشمل ضريبة القيمة المضافة.</span></p></div>
+  </div>
+  <p class="last"><span class="serif"><span lang="en">ONYX</span><span lang="ar">أونيكس</span></span><span class="caps"><span lang="en">Season twenty-nine</span><span lang="ar">الموسم التاسع والعشرون</span></span></p>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var els=[].slice.call(document.querySelectorAll('.ah,.c,.sum,.pair header,.glasses li,.supp li,.fg>div')),armed=false;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target)}})},{rootMargin:'0px 0px -12% 0px'});
+  /* content is visible by default; only once the guest starts scrolling are the courses still below the fold dimmed, then revealed slowly */
+  window.addEventListener('scroll',function(){
+    if(armed)return;armed=true;
+    els.forEach(function(el){if(el.getBoundingClientRect().top>innerHeight*.95){el.classList.add('pre');void el.offsetWidth;el.classList.add('rv');io.observe(el)}});
+  },{passive:true});
+  var links=[].slice.call(document.querySelectorAll('.idx a'));
+  var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
+  ['a1','a2','a3','a4','a5'].forEach(function(id){spy.observe(document.getElementById(id))});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Macro · ماكرو</title>
+<meta name="description" content="Macro — protein bowls with every gram accounted for. A menu you read like a dashboard. ماكرو — أطباق صحية محسوبة بالغرام.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0e1411">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --bg:#eceee5; --card:#fff; --ink:#0e1411; --mut:#59635c; --line:#dde1d5; --lime:#c9f44d; --lime2:#a5d51f;
+  --p:#5146e8; --c:#f29d0b; --f:#ee4c8d; --pt:#eceaff; --ctt:#fff3d9; --ft:#ffe6f0;
+  --sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-size:15.5px;line-height:1.45;color:var(--ink);background:var(--bg)}
+html[lang="ar"] body{font-family:"IBM Plex Sans Arabic","Figtree",system-ui,sans-serif;font-size:16.5px;line-height:1.6}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+.wrap{overflow:clip}
+b,.mono{font-variant-numeric:tabular-nums}
+
+/* ---------- shell ---------- */
+.side{position:sticky;inset-block-start:0;z-index:40;background:var(--ink);color:#e9eee4}
+.sidein{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 14px 0}
+.logo{display:flex;align-items:center;gap:9px;font:800 1.35rem/1 var(--sans);letter-spacing:-.03em;margin-inline-end:auto}
+html[lang="ar"] .logo{font:700 1.4rem/1 "IBM Plex Sans Arabic",sans-serif}
+.logo svg{width:30px;height:30px}
+.ctl{display:flex;gap:6px}
+.ctl a,.ctl button{font:600 13px/1 var(--sans);color:#e9eee4;background:#1b241f;border:1px solid #2c3831;border-radius:9px;padding:0 11px;height:36px;display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.ctl button{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.ctl [lang="ar"]{font-family:"IBM Plex Sans Arabic",sans-serif}
+.ctl a svg{width:14px;height:14px;fill:currentColor}
+.nav{display:flex;gap:6px;overflow-x:auto;flex:0 0 calc(100% + 28px);margin-inline:-14px;padding:0 14px 10px;min-width:0;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;display:flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem;padding:8px 12px;border-radius:9px;background:#1b241f;color:#cfd8cc;white-space:nowrap}
+.nav a:hover{background:#27332c;color:#fff}
+.ct{font:700 .7rem/1 var(--mono);background:rgba(201,244,77,.16);color:var(--lime);border-radius:6px;padding:3px 6px}
+.target,.sfoot{display:none}
+.main{padding:14px 14px 40px;min-width:0}
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.85rem;color:var(--mut);margin-block-end:12px}
+.crumb b{color:var(--ink)}
+.live{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:5px 11px;font-weight:600;color:var(--ink);margin-inline-start:auto}
+.live i{width:8px;height:8px;border-radius:50%;background:#22b455;box-shadow:0 0 0 4px rgba(34,180,85,.2)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:18px;background:var(--ink);color:#f1f5ea;border-radius:22px;padding:24px 20px;overflow:hidden;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:36px 36px;background-position:-1px -1px}
+.hero .eb{font:700 .72rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+html[lang="ar"] .hero .eb{font:600 .95rem/1.2 "IBM Plex Sans Arabic",sans-serif;text-transform:none}
+.hero h1{font:800 clamp(3.4rem,11vw,7.5rem)/.9 var(--sans);letter-spacing:-.055em;margin-block:12px 10px}
+.hero h1 em{font-style:normal;color:var(--lime)}
+html[lang="ar"] .hero h1{font:700 clamp(3.4rem,11vw,7rem)/1.15 "IBM Plex Sans Arabic",sans-serif}
+.hero .tl{font:600 clamp(1.15rem,2.2vw,1.6rem)/1.25 var(--sans);letter-spacing:-.01em}
+html[lang="ar"] .hero .tl{line-height:1.5}
+.hero .in{color:#b9c4b6;max-width:52ch;margin-block-start:10px;font-size:1rem}
+.ringbox{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.rings{position:relative;width:min(210px,52vw);aspect-ratio:1;flex:none}
+.rings svg{width:100%;height:100%;transform:rotate(-90deg)}
+html[dir="rtl"] .rings svg{transform:rotate(-90deg) scaleY(-1)}
+.rings circle{fill:none;stroke-width:9;stroke-linecap:round}
+.rings .t{stroke:rgba(255,255,255,.09)}
+.rings .rc{position:absolute;inset:0;display:grid;place-content:center;text-align:center;font-size:.78rem;color:#b9c4b6}
+.rings .rc b{font:700 1.9rem/1 var(--mono);color:#fff;display:block}
+.rl{display:grid;gap:9px;font-size:.92rem;flex:1;min-width:150px}
+.rl div{display:grid;grid-template-columns:12px 1fr auto;align-items:center;gap:9px;border-block-end:1px solid rgba(255,255,255,.1);padding-block-end:8px}
+.rlh{font:700 .72rem/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#93a091}
+html[lang="ar"] .rlh{font:600 .9rem/1.3 "IBM Plex Sans Arabic",sans-serif;text-transform:none}
+html[lang="ar"] .pc [lang="ar"]{font:500 .85rem/1 "IBM Plex Sans Arabic",sans-serif}
+.rl i{width:12px;height:12px;border-radius:4px}
+.rl b{font:700 .95rem/1 var(--mono)}
+.rl small{color:#93a091;font-size:.8rem;grid-column:2/-1;margin-block-start:-6px}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-block:12px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:6px;position:relative;overflow:hidden}
+.kpi > span{font-size:.82rem;color:var(--mut);font-weight:600;padding-inline-end:46px;min-height:2.4em}
+.kpi b{font:700 clamp(1.6rem,3vw,2.2rem)/1 var(--mono);letter-spacing:-.04em}
+.kpi b small{font:600 .8rem/1 var(--sans);color:var(--mut);letter-spacing:0;margin-inline-start:4px}
+html[lang="ar"] .kpi b small{font-family:"IBM Plex Sans Arabic",sans-serif}
+.kpi svg{width:100%;height:34px;display:block}
+.kpi em{font-style:normal;font:700 .72rem/1 var(--mono);color:#12853c;background:#dff6e5;border-radius:6px;padding:3px 6px;position:absolute;inset-block-start:12px;inset-inline-end:12px}
+
+/* ---------- widgets ---------- */
+.w{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin-block-start:12px;scroll-margin-top:110px;min-width:0}
+.wh{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-block-end:14px}
+.wh h2{display:flex;align-items:center;gap:9px;font:800 1.3rem/1.1 var(--sans);letter-spacing:-.025em;margin-inline-end:auto}
+html[lang="ar"] .wh h2{font:700 1.35rem/1.3 "IBM Plex Sans Arabic",sans-serif}
+.wh .no{font:700 .72rem/1 var(--mono);color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:4px 5px}
+.wh .ct{background:var(--ink);color:var(--lime)}
+.note{font-size:.86rem;color:var(--mut)}
+.note b{color:var(--ink)}
+.lg{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--mut);font-weight:600}
+.lg i{width:10px;height:10px;border-radius:3px;margin-inline-start:8px}
+.bp{background:var(--p)}.bc{background:var(--c)}.bf{background:var(--f)}
+.tp{color:var(--p)}.tc{color:#b26f00}.tf{color:#d42a72}
+.price{font-size:.8rem;color:var(--mut);font-weight:600;white-space:nowrap}
+.price b{font:700 1.25rem/1 var(--mono);color:var(--ink);letter-spacing:-.03em}
+
+/* bowl cards */
+.cards{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.card{border:1px solid var(--line);border-radius:16px;padding:14px;background:#fbfcf8;display:flex;flex-direction:column;gap:12px}
+.ctop{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.id{font:700 .72rem/1 var(--mono);background:var(--ink);color:#fff;border-radius:6px;padding:5px 7px}
+.tg{font-size:.74rem;font-weight:700;border-radius:99px;padding:4px 9px;background:#edf0e6;color:#3d4640}
+.tg.best{background:var(--lime);color:var(--ink)}.tg.hi{background:var(--pt);color:#3a30c4}.tg.hot{background:#ffe4dc;color:#c2370f}.tg.veg{background:#dff6e5;color:#12703a}
+.cmid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:start}
+.card h3{font:800 1.22rem/1.15 var(--sans);letter-spacing:-.02em;margin-block-end:5px}
+html[lang="ar"] .card h3{font:700 1.2rem/1.4 "IBM Plex Sans Arabic",sans-serif}
+.card p{color:var(--mut);font-size:.96rem}
+.donut{position:relative;width:92px;height:92px;flex:none}
+.donut svg{width:100%;height:100%;display:block}
+html[dir="rtl"] .donut svg{transform:scaleX(-1)}
+.donut circle{fill:none;stroke-width:5.4}
+.donut .trk{stroke:#e9ecdf}.sp{stroke:var(--p)}.sc{stroke:var(--c)}.sf{stroke:var(--f)}
+.dc{position:absolute;inset:0;display:grid;place-content:center;text-align:center;font-size:.66rem;color:var(--mut);font-weight:600;line-height:1.1}
+.dc b{font:700 1.2rem/1 var(--mono);color:var(--ink);display:block;letter-spacing:-.04em}
+.mbs{display:grid;gap:7px}
+.mb{display:grid;grid-template-columns:minmax(64px,auto) 1fr 46px;align-items:center;gap:9px;font-size:.8rem;font-weight:600;color:var(--mut)}
+html[lang="ar"] .mb{grid-template-columns:86px 1fr 46px}
+.mt{height:9px;border-radius:9px;background:#e9ecdf;overflow:hidden;display:block}
+.mt i{display:block;height:100%;inline-size:var(--v);border-radius:9px}
+.mb.p i{background:var(--p)}.mb.c i{background:var(--c)}.mb.f i{background:var(--f)}
+.mv{font:700 .92rem/1 var(--mono);color:var(--ink);text-align:end}
+.mv small{font:600 .7rem/1 var(--sans);color:var(--mut);margin-inline-start:1px}
+.cbot{display:flex;justify-content:space-between;align-items:end;gap:10px;border-block-start:1px dashed var(--line);padding-block-start:11px;margin-block-start:auto}
+.ppd{font-size:.76rem;color:var(--mut);font-weight:600}
+.ppd b{font:700 .85rem/1 var(--mono);color:#12853c}
+
+/* table */
+.tbl{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tr{display:grid;grid-template-columns:minmax(0,1fr) 36px 26px 26px 26px 46px;gap:5px;align-items:center;padding:10px 12px;border-block-start:1px solid var(--line);font:500 .84rem/1.2 var(--mono)}
+.tr > span{text-align:end}
+.tr > span:first-child{text-align:start}
+.tr .sp{display:none}
+.tr .nm{font:600 .98rem/1.3 var(--sans)}
+html[lang="ar"] .tr .nm{font:500 1rem/1.4 "IBM Plex Sans Arabic",sans-serif}
+.tr.th{border:0;background:#f3f5ec;font:700 .72rem/1 var(--mono);color:var(--mut);text-transform:uppercase}
+html[lang="ar"] .tr.th span[lang="ar"]{font:600 .8rem/1 "IBM Plex Sans Arabic",sans-serif}
+.tr.grp{display:block;background:var(--ink);color:#fff;font:700 .95rem/1.2 var(--sans)}
+html[lang="ar"] .tr.grp{font-family:"IBM Plex Sans Arabic",sans-serif}
+.tr.grp b{font-family:var(--mono);color:var(--lime);margin-inline-end:6px}
+.tr.grp em,.chips h4 em{font-style:normal;font-weight:500;color:#9aa698;font-size:.85em;margin-inline-start:6px}
+.pc{font-weight:700}
+.split{display:flex;height:9px;border-radius:9px;overflow:hidden;gap:2px;min-width:60px}
+.split i{display:block;border-radius:2px;min-width:2px}
+.chips{display:grid;gap:14px;margin-block-start:14px}
+.chips h4{font:700 .95rem/1.2 var(--sans);margin-block-end:8px}
+html[lang="ar"] .chips h4{font-family:"IBM Plex Sans Arabic",sans-serif}
+.chips h4 b{font-family:var(--mono);background:var(--ink);color:var(--lime);border-radius:6px;padding:3px 6px;font-size:.75rem;margin-inline-end:4px}
+.chips h4 em{color:var(--mut)}
+.chiprow{display:flex;flex-wrap:wrap;gap:6px}
+html[lang="en"] .chiprow[lang="ar"],html[lang="ar"] .chiprow[lang="en"]{display:none !important}
+.chiprow span{border:1px solid var(--line);background:#f6f8f0;border-radius:99px;padding:6px 12px;font-size:.9rem;font-weight:500}
+
+/* rank */
+.two{display:grid;grid-template-columns:minmax(0,1fr)}
+.rank li{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:12px;align-items:start;padding-block:12px;border-block-start:1px solid var(--line)}
+.rank li:first-child{border:0;padding-block-start:0}
+.rk{font:700 .9rem/30px var(--mono);width:30px;height:30px;border-radius:9px;background:#edf0e6;text-align:center}
+.rank li:first-child .rk{background:var(--lime)}
+.rank h3,.dr h3,.mini h3{font:700 1.05rem/1.2 var(--sans);letter-spacing:-.01em}
+html[lang="ar"] .rank h3,html[lang="ar"] .dr h3,html[lang="ar"] .mini h3{font:600 1.08rem/1.4 "IBM Plex Sans Arabic",sans-serif}
+.rank p,.dr p,.mini p{color:var(--mut);font-size:.94rem}
+.rb{display:flex;align-items:center;gap:8px;margin-block-start:8px}
+.rb i{display:block;height:12px;inline-size:calc(var(--v) - 50px);min-width:10px;border-radius:4px;background:linear-gradient(90deg,var(--p),#8a7cff)}
+html[dir="rtl"] .rb i{background:linear-gradient(270deg,var(--p),#8a7cff)}
+.rb b{font:700 .88rem/1 var(--mono);color:var(--p)}
+.rm{display:grid;justify-items:end;gap:4px}
+.rm small{font:500 .74rem/1 var(--mono);color:var(--mut)}
+.dr li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:center;padding-block:12px;border-block-start:1px solid var(--line)}
+.dr li:first-child{border:0;padding-block-start:0}
+.kc{font:500 .76rem/1 var(--mono);color:var(--mut);background:#f3f5ec;border-radius:6px;padding:5px 7px;white-space:nowrap}
+.tip{margin-block-start:12px;background:var(--lime);border-radius:12px;padding:11px 13px;font-size:.92rem;font-weight:500}
+.tip b{font:700 .7rem/1 var(--mono);text-transform:uppercase;background:var(--ink);color:var(--lime);border-radius:5px;padding:4px 6px;margin-inline-end:8px}
+html[lang="ar"] .tip b{font:600 .8rem/1 "IBM Plex Sans Arabic",sans-serif}
+
+/* minis */
+.minis{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.mini{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fbfcf8;display:grid;gap:8px;align-content:start}
+.mnums{display:flex;flex-wrap:wrap;gap:4px 12px;font:700 .78rem/1.2 var(--mono);color:var(--mut)}
+
+/* plans */
+.w.dark{background:var(--ink);border-color:var(--ink);color:#f1f5ea}
+.dark .wh .no{border-color:#33403a;color:#a9b5a7}.dark .wh .ct{background:var(--lime);color:var(--ink)}.dark .note{color:#a9b5a7}
+.plans{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.plan{background:#18211c;border:1px solid #2a352f;border-radius:16px;padding:16px;display:grid;gap:10px;align-content:start}
+.plan h3{font:800 1.5rem/1 var(--sans);letter-spacing:-.03em;color:var(--lime)}
+html[lang="ar"] .plan h3{font:700 1.5rem/1.3 "IBM Plex Sans Arabic",sans-serif}
+.plan .big{font-size:.85rem;color:#a9b5a7}
+.plan .big b{font:700 2.3rem/1 var(--mono);color:#fff;letter-spacing:-.05em}
+.plan p{color:#b9c4b6;font-size:.95rem}
+.plan .tp{color:#a69eff}.plan .tc{color:#ffc65c}.plan .tf{color:#ff8ab7}
+.plan .mnums{color:#a9b5a7}
+.plan .price{color:#a9b5a7;border-block-start:1px dashed #33403a;padding-block-start:10px}
+.plan .price b{color:#fff;font-size:1.5rem}
+
+footer{margin-block-start:12px;display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.fc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+.fc h4{font:700 .72rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-block-end:8px}
+html[lang="ar"] .fc h4{font:600 .92rem/1.2 "IBM Plex Sans Arabic",sans-serif;text-transform:none}
+.fc p{font-size:.96rem}
+.fine{grid-column:1/-1;font-size:.82rem;color:var(--mut);padding:4px 4px 0}
+
+@media (min-width:640px){
+  .main{padding:18px 22px 50px}
+  .kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .minis{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .plans{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .chips{grid-template-columns:3fr 2fr}
+  .tr{grid-template-columns:minmax(0,1fr) 60px 44px 44px 44px 110px 70px;padding-inline:16px;font-size:.9rem}
+  .tr .sp{display:block}
+  footer{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:center;padding:34px}
+  .w{padding:20px}
+}
+@media (min-width:1100px){
+  .app{display:grid;grid-template-columns:256px minmax(0,1fr)}
+  .side{position:static;background:var(--ink)}
+  .sidein{position:sticky;inset-block-start:0;height:100vh;flex-direction:column;flex-wrap:nowrap;align-items:stretch;padding:22px 16px;gap:0}
+  .logo{margin:0 0 26px;font-size:1.7rem;padding-inline:6px}
+  .logo svg{width:36px;height:36px}
+  .navl{font:700 .68rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#7f8c7e;padding:0 8px 10px;display:block}
+  html[lang="ar"] .navl{font:600 .85rem/1 "IBM Plex Sans Arabic",sans-serif;text-transform:none}
+  .nav{flex-direction:column;overflow:visible;padding:0;gap:3px;flex:none;margin:0}
+  .nav a{background:none;justify-content:space-between;padding:10px 10px;font-size:.98rem}
+  .nav a:first-child{background:#1b241f;color:#fff;box-shadow:inset 3px 0 0 var(--lime)}
+  html[dir="rtl"] .nav a:first-child{box-shadow:inset -3px 0 0 var(--lime)}
+  .target{display:block;margin-block-start:auto;background:#18211c;border:1px solid #2a352f;border-radius:14px;padding:14px;font-size:.84rem;color:#b9c4b6}
+  .target b{display:block;color:#fff;font-size:.95rem;margin-block-end:8px}
+  .target .split{height:10px;margin-block:8px}
+  .target small{font:500 .72rem/1.4 var(--mono);color:#93a091}
+  .ctl{margin-block-start:14px}
+  .ctl a,.ctl button{flex:1;justify-content:center;height:40px}
+  .main{padding:22px 28px 60px;max-width:1500px}
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .minis{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .two{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:12px;align-items:start}
+  .two .w{height:100%}
+  .w{scroll-margin-top:16px}
+}
+@media (max-width:1099px){.navl{display:none}.nav{order:3}}
+@media (prefers-reduced-motion:no-preference){
+  .rings .a{animation:draw 1.4s cubic-bezier(.2,.7,.2,1) both}
+  .rings .a:nth-of-type(4){animation-delay:.15s}.rings .a:nth-of-type(6){animation-delay:.3s}
+  @keyframes draw{from{stroke-dasharray:0 1000}}
+  .live i{animation:pulse 2s ease-out infinite}
+  @keyframes pulse{from{box-shadow:0 0 0 0 rgba(34,180,85,.45)}to{box-shadow:0 0 0 9px rgba(34,180,85,0)}}
+  .card,.mini{transition:transform .2s,box-shadow .2s}
+  .card:hover,.mini:hover{transform:translateY(-3px);box-shadow:0 12px 26px -14px rgba(14,20,17,.4)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="app">
+<aside class="side">
+  <div class="sidein">
+    <a class="logo" href="#top" aria-label="Macro">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="15.9" fill="none" stroke="#2c3831" stroke-width="7"/><circle cx="21" cy="21" r="15.9" fill="none" stroke="#c9f44d" stroke-width="7" stroke-dasharray="62 38" stroke-dashoffset="25" stroke-linecap="round"/></svg>
+      <span lang="en">Macro</span><span lang="ar">ماكرو</span>
+    </a>
+    <span class="navl"><span lang="en">Menu</span><span lang="ar">القائمة</span></span>
+    <nav class="nav" aria-label="Sections"><a href="#s1"><span class="nn"><span lang="en">Signature bowls</span><span lang="ar">الأطباق المميّزة</span></span><span class="ct">6</span></a><a href="#s2"><span class="nn"><span lang="en">Build your own</span><span lang="ar">كوّن طبقك</span></span><span class="ct">9</span></a><a href="#s3"><span class="nn"><span lang="en">Shakes</span><span lang="ar">مخفوقات البروتين</span></span><span class="ct">5</span></a><a href="#s4"><span class="nn"><span lang="en">Snacks</span><span lang="ar">وجبات خفيفة</span></span><span class="ct">5</span></a><a href="#s5"><span class="nn"><span lang="en">Drinks</span><span lang="ar">مشروبات</span></span><span class="ct">4</span></a><a href="#s6"><span class="nn"><span lang="en">Day plans</span><span lang="ar">خطط اليوم</span></span><span class="ct">3</span></a></nav>
+    <div class="target">
+      <b><span lang="en">Typical day target</span><span lang="ar">هدف يومي نموذجي</span></b>
+      <span lang="en">2,100 kcal</span><span lang="ar">2,100 سعرة</span>
+      <span class="split" aria-hidden="true"><i class="bp" style="flex:31"></i><i class="bc" style="flex:42"></i><i class="bf" style="flex:27"></i></span>
+      <small>P 165 · C 220 · F 70</small>
+    </div>
+    <div class="ctl">
+      <a class="home-link" href="../index.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1h6v6H1zM9 1h6v6H9zM1 9h6v6H1zM9 9h6v6H9z"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+      <button id="langToggle" type="button" aria-label="Switch language"><span lang="en">العربية</span><span lang="ar">English</span></button>
+    </div>
+  </div>
+</aside>
+
+<main class="main" id="top">
+  <div class="crumb"><span><span lang="en">Protein Bowls</span><span lang="ar">أطباق صحية</span> / <b><span lang="en">Menu overview</span><span lang="ar">نظرة على القائمة</span></b></span>
+    <span class="live"><i></i><span lang="en">Kitchen open · avg prep 6 min</span><span lang="ar">المطبخ مفتوح · التحضير 6 دقائق</span></span></div>
+
+  <section class="hero">
+    <div>
+      <p class="eb"><span lang="en">Protein bowls · Riyadh</span><span lang="ar">أطباق صحية · الرياض</span></p>
+      <h1><span lang="en">Macro<em>.</em></span><span lang="ar">ماكرو<em>.</em></span></h1>
+      <p class="tl"><span lang="en">Food you can read like a dashboard.</span><span lang="ar">طعام تقرؤه كما تقرأ لوحة بيانات.</span></p>
+      <p class="in"><span lang="en">Every bowl is weighed on the pass and logged to the gram. No guessing, no hidden oils, no “about 500 calories”. Pick by taste, check by numbers.</span><span lang="ar">كل طبق يُوزن قبل خروجه من المطبخ ويُسجَّل بالغرام. لا تخمين، ولا زيوت خفيّة، ولا «نحو 500 سعرة». اختر بذوقك وتأكّد بالأرقام.</span></p>
+    </div>
+    <div class="ringbox">
+      <div class="rings">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="t" cx="60" cy="60" r="52"/><circle class="a" cx="60" cy="60" r="52" stroke="#7b70ff" stroke-dasharray="268 327"/>
+          <circle class="t" cx="60" cy="60" r="40"/><circle class="a" cx="60" cy="60" r="40" stroke="#f29d0b" stroke-dasharray="96 252"/>
+          <circle class="t" cx="60" cy="60" r="28"/><circle class="a" cx="60" cy="60" r="28" stroke="#ee4c8d" stroke-dasharray="72 176"/>
+        </svg>
+        <div class="rc"><b>508</b><span lang="en">kcal</span><span lang="ar">سعرة</span></div>
+      </div>
+      <div class="rl"><p class="rlh"><span lang="en">The average signature bowl</span><span lang="ar">متوسط الطبق المميّز</span></p>
+        <div><i style="background:#7b70ff"></i><span lang="en">Protein</span><span lang="ar">بروتين</span><b>41<span lang="en">g</span><span lang="ar">غ</span></b><small><span lang="en">82% of a daily 50 g minimum</span><span lang="ar">82٪ من الحدّ الأدنى اليومي 50 غ</span></small></div>
+        <div><i style="background:#f29d0b"></i><span lang="en">Carbs</span><span lang="ar">كربوهيدرات</span><b>42<span lang="en">g</span><span lang="ar">غ</span></b><small><span lang="en">Whole grains, slow release</span><span lang="ar">حبوب كاملة بطيئة الامتصاص</span></small></div>
+        <div><i style="background:#ee4c8d"></i><span lang="en">Fat</span><span lang="ar">دهون</span><b>18<span lang="en">g</span><span lang="ar">غ</span></b><small><span lang="en">Mostly olive, avocado, sesame</span><span lang="ar">أغلبها زيتون وأفوكادو وسمسم</span></small></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="kpis">
+    <div class="kpi"><span><span lang="en">Avg protein / bowl</span><span lang="ar">متوسط البروتين للطبق</span></span><b>41<small><span lang="en">g</span><span lang="ar">غ</span></small></b><em>&lrm;+6%</em>
+      <svg viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true"><g fill="#5146e8"><rect x="2" y="20" width="12" height="14" rx="2" opacity=".35"/><rect x="19" y="16" width="12" height="18" rx="2" opacity=".45"/><rect x="36" y="18" width="12" height="16" rx="2" opacity=".55"/><rect x="53" y="11" width="12" height="23" rx="2" opacity=".65"/><rect x="70" y="13" width="12" height="21" rx="2" opacity=".75"/><rect x="87" y="7" width="12" height="27" rx="2" opacity=".88"/><rect x="104" y="3" width="12" height="31" rx="2"/></g></svg></div>
+    <div class="kpi"><span><span lang="en">Macros disclosed</span><span lang="ar">القيم الغذائية المعلنة</span></span><b>100<small>%</small></b>
+      <svg viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true"><rect y="13" width="120" height="9" rx="4.5" fill="#e9ecdf"/><rect y="13" width="120" height="9" rx="4.5" fill="#a5d51f"/></svg></div>
+    <div class="kpi"><span><span lang="en">Refined sugar</span><span lang="ar">السكر المكرّر</span></span><b>0<small><span lang="en">g</span><span lang="ar">غ</span></small></b>
+      <svg viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8c15 0 15 10 30 12s15 6 30 8 15 3 30 4 15 0 30 0" fill="none" stroke="#ee4c8d" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg></div>
+    <div class="kpi"><span><span lang="en">Bowls weighed today</span><span lang="ar">أطباق وُزنت اليوم</span></span><b>312</b><em>&lrm;+18</em>
+      <svg viewBox="0 0 120 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30l12-4 12 2 12-8 12 3 12-9 12 2 12-7 12 1 12-7 12 2v25H0z" fill="#f29d0b" opacity=".18"/><path d="M0 30l12-4 12 2 12-8 12 3 12-9 12 2 12-7 12 1 12-7 12 2" fill="none" stroke="#f29d0b" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg></div>
+  </div>
+
+<section class="w" id="s1"><header class="wh"><h2><span class="no">01</span><span lang="en">Signature bowls</span><span lang="ar">الأطباق المميّزة</span><span class="ct">6</span></h2><span class="lg"><i class="bp"></i><span lang="en">Protein</span><span lang="ar">بروتين</span><i class="bc"></i><span lang="en">Carbs</span><span lang="ar">كربوهيدرات</span><i class="bf"></i><span lang="en">Fat</span><span lang="ar">دهون</span></span></header><div class="cards">
+<article class="card"><div class="ctop"><span class="id">B-01</span><span class="tg best"><span lang="en">Best seller</span><span lang="ar">الأكثر طلبًا</span></span><span class="tg "><span lang="en">Omega-3</span><span lang="ar">أوميغا-3</span></span></div><div class="cmid"><div><h3><span lang="en">Teriyaki Salmon Power</span><span lang="ar">سلمون ترياكي باور</span></h3><p><span lang="en">Seared salmon, brown rice, edamame, avocado, pickled cucumber and toasted sesame.</span><span lang="ar">سلمون مشوّح مع الأرز البني والإدامامي والأفوكادو والخيار المخلّل والسمسم المحمّص.</span></p></div><div class="donut"><svg viewBox="0 0 42 42" aria-hidden="true"><circle class="trk" cx="21" cy="21" r="15.915"/><circle class="sp" cx="21" cy="21" r="15.915" stroke-dasharray="28.7 71.3" stroke-dashoffset="25.0"/><circle class="sc" cx="21" cy="21" r="15.915" stroke-dasharray="33.0 67.0" stroke-dashoffset="94.9"/><circle class="sf" cx="21" cy="21" r="15.915" stroke-dasharray="34.1 65.9" stroke-dashoffset="60.5"/></svg><div class="dc"><b>560</b><span lang="en">kcal</span><span lang="ar">سعرة</span></div></div></div><div class="mbs"><div class="mb p"><span class="ml"><span lang="en">Protein</span><span lang="ar">بروتين</span></span><span class="mt"><i style="--v:76%"></i></span><span class="mv">42<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div><div class="mb c"><span class="ml"><span lang="en">Carbs</span><span lang="ar">كربوهيدرات</span></span><span class="mt"><i style="--v:69%"></i></span><span class="mv">48<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div><div class="mb f"><span class="ml"><span lang="en">Fat</span><span lang="ar">دهون</span></span><span class="mt"><i style="--v:63%"></i></span><span class="mv">22<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div></div><div class="cbot"><span class="ppd"><b>0.68</b> <span lang="en">g protein / SAR</span><span lang="ar">غ بروتين لكل ريال</span></span><span class="price"><b>62</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></div></article>
+<article class="card"><div class="ctop"><span class="id">B-02</span><span class="tg hi"><span lang="en">High protein</span><span lang="ar">بروتين عالٍ</span></span><span class="tg hot"><span lang="en">Spicy</span><span lang="ar">حار</span></span></div><div class="cmid"><div><h3><span lang="en">Peri Chicken Grain</span><span lang="ar">دجاج بيري بيري بالكينوا</span></h3><p><span lang="en">Flame-grilled peri-peri chicken, quinoa, charred corn, black beans, yoghurt-lime drizzle.</span><span lang="ar">دجاج بيري بيري مشوي على اللهب مع الكينوا والذرة المشوية والفاصولياء السوداء وصلصة اللبن بالليمون.</span></p></div><div class="donut"><svg viewBox="0 0 42 42" aria-hidden="true"><circle class="trk" cx="21" cy="21" r="15.915"/><circle class="sp" cx="21" cy="21" r="15.915" stroke-dasharray="36.4 63.6" stroke-dashoffset="25.0"/><circle class="sc" cx="21" cy="21" r="15.915" stroke-dasharray="39.5 60.5" stroke-dashoffset="87.2"/><circle class="sf" cx="21" cy="21" r="15.915" stroke-dasharray="19.9 80.1" stroke-dashoffset="46.3"/></svg><div class="dc"><b>520</b><span lang="en">kcal</span><span lang="ar">سعرة</span></div></div></div><div class="mbs"><div class="mb p"><span class="ml"><span lang="en">Protein</span><span lang="ar">بروتين</span></span><span class="mt"><i style="--v:87%"></i></span><span class="mv">48<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div><div class="mb c"><span class="ml"><span lang="en">Carbs</span><span lang="ar">كربوهيدرات</span></span><span class="mt"><i style="--v:74%"></i></span><span class="mv">52<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div><div class="mb f"><span class="ml"><span lang="en">Fat</span><span lang="ar">دهون</span></span><span class="mt"><i style="--v:34%"></i></span><span class="mv">12<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div></div><div class="cbot"><span class="ppd"><b>0.98</b> <span lang="en">g protein / SAR</span><span lang="ar">غ بروتين لكل ريال</span></span><span class="price"><b>49</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></div></article>
+<article class="card"><div class="ctop"><span class="id">B-03</span><span class="tg hi"><span lang="en">High protein</span><span lang="ar">بروتين عالٍ</span></span></div><div class="cmid"><div><h3><span lang="en">Steak &amp; Sweet Potato</span><span lang="ar">ستيك وبطاطا حلوة</span></h3><p><span lang="en">Sliced sirloin, roasted sweet potato, wilted spinach, pickled red onion and chimichurri.</span><span lang="ar">شرائح السيرلوين مع البطاطا الحلوة المشوية والسبانخ والبصل الأحمر المخلّل وصلصة التشيميتشوري.</span></p></div><div class="donut"><svg viewBox="0 0 42 42" aria-hidden="true"><circle class="trk" cx="21" cy="21" r="15.915"/><circle class="sp" cx="21" cy="21" r="15.915" stroke-dasharray="29.6 70.4" stroke-dashoffset="25.0"/><circle class="sc" cx="21" cy="21" r="15.915" stroke-dasharray="28.2 71.8" stroke-dashoffset="94.0"/><circle class="sf" cx="21" cy="21" r="15.915" stroke-dasharray="38.0 62.0" stroke-dashoffset="64.4"/></svg><div class="dc"><b>610</b><span lang="en">kcal</span><span lang="ar">سعرة</span></div></div></div><div class="mbs"><div class="mb p"><span class="ml"><span lang="en">Protein</span><span lang="ar">بروتين</span></span><span class="mt"><i style="--v:84%"></i></span><span class="mv">46<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div><div class="mb c"><span class="ml"><span lang="en">Carbs</span><span lang="ar">كربوهيدرات</span></span><span class="mt"><i style="--v:63%"></i></span><span class="mv">44<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div><div class="mb f"><span class="ml"><span lang="en">Fat</span><span lang="ar">دهون</span></span><span class="mt"><i style="--v:74%"></i></span><span class="mv">26<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div></div><div class="cbot"><span class="ppd"><b>0.68</b> <span lang="en">g protein / SAR</span><span lang="ar">غ بروتين لكل ريال</span></span><span class="price"><b>68</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></div></article>
+<article class="card"><div class="ctop"><span class="id">B-04</span><span class="tg veg"><span lang="en">Vegan</span><span lang="ar">نباتي صِرف</span></span></div><div class="cmid"><div><h3><span lang="en">Green Goddess Tofu</span><span lang="ar">توفو الإلهة الخضراء</span></h3><p><span lang="en">Crispy tofu, courgette noodles, broccoli, peas and avocado under herb tahini.</span><span lang="ar">توفو مقرمش مع نودلز الكوسا والبروكلي والبازلاء والأفوكادو وطحينة الأعشاب.</span></p></div><div class="donut"><svg viewBox="0 0 42 42" aria-hidden="true"><circle class="trk" cx="21" cy="21" r="15.915"/><circle class="sp" cx="21" cy="21" r="15.915" stroke-dasharray="25.4 74.6" stroke-dashoffset="25.0"/><circle class="sc" cx="21" cy="21" r="15.915" stroke-dasharray="33.0 67.0" stroke-dashoffset="98.2"/><circle class="sf" cx="21" cy="21" r="15.915" stroke-dasharray="37.4 62.6" stroke-dashoffset="63.8"/></svg><div class="dc"><b>430</b><span lang="en">kcal</span><span lang="ar">سعرة</span></div></div></div><div class="mbs"><div class="mb p"><span class="ml"><span lang="en">Protein</span><span lang="ar">بروتين</span></span><span class="mt"><i style="--v:51%"></i></span><span class="mv">28<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div><div class="mb c"><span class="ml"><span lang="en">Carbs</span><span lang="ar">كربوهيدرات</span></span><span class="mt"><i style="--v:51%"></i></span><span class="mv">36<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div><div class="mb f"><span class="ml"><span lang="en">Fat</span><span lang="ar">دهون</span></span><span class="mt"><i style="--v:51%"></i></span><span class="mv">18<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div></div><div class="cbot"><span class="ppd"><b>0.67</b> <span lang="en">g protein / SAR</span><span lang="ar">غ بروتين لكل ريال</span></span><span class="price"><b>42</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></div></article>
+<article class="card"><div class="ctop"><span class="id">B-05</span><span class="tg "><span lang="en">Low carb</span><span lang="ar">قليل الكربوهيدرات</span></span></div><div class="cmid"><div><h3><span lang="en">Tuna Poke Lite</span><span lang="ar">بوكي التونة الخفيف</span></h3><p><span lang="en">Ahi tuna, cauliflower rice, mango, radish, nori and citrus ponzu.</span><span lang="ar">تونة آهي مع أرز القرنبيط والمانجو والفجل وأعشاب النوري وصلصة البونزو الحمضية.</span></p></div><div class="donut"><svg viewBox="0 0 42 42" aria-hidden="true"><circle class="trk" cx="21" cy="21" r="15.915"/><circle class="sp" cx="21" cy="21" r="15.915" stroke-dasharray="39.2 60.8" stroke-dashoffset="25.0"/><circle class="sc" cx="21" cy="21" r="15.915" stroke-dasharray="24.3 75.7" stroke-dashoffset="84.4"/><circle class="sf" cx="21" cy="21" r="15.915" stroke-dasharray="32.3 67.7" stroke-dashoffset="58.7"/></svg><div class="dc"><b>390</b><span lang="en">kcal</span><span lang="ar">سعرة</span></div></div></div><div class="mbs"><div class="mb p"><span class="ml"><span lang="en">Protein</span><span lang="ar">بروتين</span></span><span class="mt"><i style="--v:69%"></i></span><span class="mv">38<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div><div class="mb c"><span class="ml"><span lang="en">Carbs</span><span lang="ar">كربوهيدرات</span></span><span class="mt"><i style="--v:34%"></i></span><span class="mv">24<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div><div class="mb f"><span class="ml"><span lang="en">Fat</span><span lang="ar">دهون</span></span><span class="mt"><i style="--v:40%"></i></span><span class="mv">14<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div></div><div class="cbot"><span class="ppd"><b>0.66</b> <span lang="en">g protein / SAR</span><span lang="ar">غ بروتين لكل ريال</span></span><span class="price"><b>58</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></div></article>
+<article class="card"><div class="ctop"><span class="id">B-06</span><span class="tg hot"><span lang="en">Spicy</span><span lang="ar">حار</span></span></div><div class="cmid"><div><h3><span lang="en">Harissa Turkey Kofta</span><span lang="ar">كفتة الديك الرومي بالهريسة</span></h3><p><span lang="en">Turkey kofta, smoky freekeh, roasted peppers, cucumber and a spoon of labneh.</span><span lang="ar">كفتة ديك رومي مع الفريكة المدخّنة والفلفل المشوي والخيار وملعقة من اللبنة.</span></p></div><div class="donut"><svg viewBox="0 0 42 42" aria-hidden="true"><circle class="trk" cx="21" cy="21" r="15.915"/><circle class="sp" cx="21" cy="21" r="15.915" stroke-dasharray="32.3 67.7" stroke-dashoffset="25.0"/><circle class="sc" cx="21" cy="21" r="15.915" stroke-dasharray="33.8 66.2" stroke-dashoffset="91.3"/><circle class="sf" cx="21" cy="21" r="15.915" stroke-dasharray="29.7 70.3" stroke-dashoffset="56.1"/></svg><div class="dc"><b>540</b><span lang="en">kcal</span><span lang="ar">سعرة</span></div></div></div><div class="mbs"><div class="mb p"><span class="ml"><span lang="en">Protein</span><span lang="ar">بروتين</span></span><span class="mt"><i style="--v:80%"></i></span><span class="mv">44<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div><div class="mb c"><span class="ml"><span lang="en">Carbs</span><span lang="ar">كربوهيدرات</span></span><span class="mt"><i style="--v:66%"></i></span><span class="mv">46<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div><div class="mb f"><span class="ml"><span lang="en">Fat</span><span lang="ar">دهون</span></span><span class="mt"><i style="--v:51%"></i></span><span class="mv">18<small><span lang="en">g</span><span lang="ar">غ</span></small></span></div></div><div class="cbot"><span class="ppd"><b>0.85</b> <span lang="en">g protein / SAR</span><span lang="ar">غ بروتين لكل ريال</span></span><span class="price"><b>52</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></div></article>
+</div></section>
+<section class="w" id="s2"><header class="wh"><h2><span class="no">02</span><span lang="en">Build your own</span><span lang="ar">كوّن طبقك</span><span class="ct">9</span></h2><span class="note"><span lang="en">Base bowl <b>29 SAR</b> · one base, four toppings, one sauce</span><span lang="ar">الطبق الأساسي <b>29 ر.س</b> · قاعدة واحدة وأربع إضافات وصلصة</span></span></header>
+<div class="tbl"><div class="tr th"><span><span lang="en">Item</span><span lang="ar">الصنف</span></span><span><span lang="en">kcal</span><span lang="ar">سعرة</span></span><span class="tp">P</span><span class="tc">C</span><span class="tf">F</span><span class="sp"><span lang="en">Split</span><span lang="ar">التوزيع</span></span><span><span lang="en">SAR</span><span lang="ar">ر.س</span></span></div>
+<div class="tr grp"><span><b>01</b> <span lang="en">Base</span><span lang="ar">القاعدة</span> <em><span lang="en">pick one</span><span lang="ar">اختر واحدة</span></em></span></div>
+<div class="tr"><span class="nm"><span lang="en">Brown rice</span><span lang="ar">أرز بني</span></span><span>210</span><span class="tp">5</span><span class="tc">44</span><span class="tf">2</span><span class="sp"><span class="split" aria-hidden="true"><i class="bp" style="flex:9.3"></i><i class="bc" style="flex:82.2"></i><i class="bf" style="flex:8.5"></i></span></span><span class="pc"><span lang="en">incl.</span><span lang="ar">مشمول</span></span></div>
+<div class="tr"><span class="nm"><span lang="en">Tricolour quinoa</span><span lang="ar">كينوا ثلاثية الألوان</span></span><span>190</span><span class="tp">7</span><span class="tc">34</span><span class="tf">3</span><span class="sp"><span class="split" aria-hidden="true"><i class="bp" style="flex:14.7"></i><i class="bc" style="flex:71.2"></i><i class="bf" style="flex:14.1"></i></span></span><span class="pc"><span lang="en">incl.</span><span lang="ar">مشمول</span></span></div>
+<div class="tr"><span class="nm"><span lang="en">Cauliflower rice</span><span lang="ar">أرز القرنبيط</span></span><span>45</span><span class="tp">3</span><span class="tc">8</span><span class="tf">1</span><span class="sp"><span class="split" aria-hidden="true"><i class="bp" style="flex:22.6"></i><i class="bc" style="flex:60.4"></i><i class="bf" style="flex:17.0"></i></span></span><span class="pc"><span lang="en">incl.</span><span lang="ar">مشمول</span></span></div>
+<div class="tr"><span class="nm"><span lang="en">Mixed leaves</span><span lang="ar">أوراق خضراء مشكّلة</span></span><span>20</span><span class="tp">2</span><span class="tc">3</span><span class="tf">0</span><span class="sp"><span class="split" aria-hidden="true"><i class="bp" style="flex:40.0"></i><i class="bc" style="flex:60.0"></i><i class="bf" style="flex:0.0"></i></span></span><span class="pc"><span lang="en">incl.</span><span lang="ar">مشمول</span></span></div>
+<div class="tr grp"><span><b>02</b> <span lang="en">Protein</span><span lang="ar">البروتين</span> <em><span lang="en">add one or double up</span><span lang="ar">أضف واحدًا أو ضاعفه</span></em></span></div>
+<div class="tr"><span class="nm"><span lang="en">Grilled chicken breast</span><span lang="ar">صدر دجاج مشوي</span></span><span>190</span><span class="tp">36</span><span class="tc">0</span><span class="tf">4</span><span class="sp"><span class="split" aria-hidden="true"><i class="bp" style="flex:80.0"></i><i class="bc" style="flex:0.0"></i><i class="bf" style="flex:20.0"></i></span></span><span class="pc">&lrm;+18</span></div>
+<div class="tr"><span class="nm"><span lang="en">Seared salmon</span><span lang="ar">سلمون مشوّح</span></span><span>240</span><span class="tp">26</span><span class="tc">0</span><span class="tf">15</span><span class="sp"><span class="split" aria-hidden="true"><i class="bp" style="flex:43.5"></i><i class="bc" style="flex:0.0"></i><i class="bf" style="flex:56.5"></i></span></span><span class="pc">&lrm;+26</span></div>
+<div class="tr"><span class="nm"><span lang="en">Sirloin strips</span><span lang="ar">شرائح سيرلوين</span></span><span>230</span><span class="tp">32</span><span class="tc">0</span><span class="tf">11</span><span class="sp"><span class="split" aria-hidden="true"><i class="bp" style="flex:56.4"></i><i class="bc" style="flex:0.0"></i><i class="bf" style="flex:43.6"></i></span></span><span class="pc">&lrm;+28</span></div>
+<div class="tr"><span class="nm"><span lang="en">Crispy tofu</span><span lang="ar">توفو مقرمش</span></span><span>170</span><span class="tp">16</span><span class="tc">6</span><span class="tf">10</span><span class="sp"><span class="split" aria-hidden="true"><i class="bp" style="flex:36.0"></i><i class="bc" style="flex:13.5"></i><i class="bf" style="flex:50.5"></i></span></span><span class="pc">&lrm;+14</span></div>
+<div class="tr"><span class="nm"><span lang="en">Two soft eggs</span><span lang="ar">بيضتان نصف سلق</span></span><span>140</span><span class="tp">12</span><span class="tc">1</span><span class="tf">10</span><span class="sp"><span class="split" aria-hidden="true"><i class="bp" style="flex:33.8"></i><i class="bc" style="flex:2.8"></i><i class="bf" style="flex:63.4"></i></span></span><span class="pc">&lrm;+8</span></div>
+</div>
+<div class="chips"><div><h4><b>03</b> <span lang="en">Toppings</span><span lang="ar">الإضافات</span> <em><span lang="en">any four</span><span lang="ar">أي أربع</span></em></h4><p><span class="chiprow" lang="en"><span>Edamame</span><span>Charred corn</span><span>Avocado +6</span><span>Pickled cucumber</span><span>Roasted peppers</span><span>Black beans</span><span>Mango</span><span>Broccoli</span><span>Kimchi</span><span>Toasted seeds</span></span><span class="chiprow" lang="ar"><span>إدامامي</span><span>ذرة مشوية</span><span>أفوكادو <bdi dir="ltr">+6</bdi></span><span>خيار مخلّل</span><span>فلفل مشوي</span><span>فاصولياء سوداء</span><span>مانجو</span><span>بروكلي</span><span>كيمتشي</span><span>بذور محمّصة</span></span></p></div>
+<div><h4><b>04</b> <span lang="en">Sauce</span><span lang="ar">الصلصة</span> <em><span lang="en">pick one</span><span lang="ar">اختر واحدة</span></em></h4><p><span class="chiprow" lang="en"><span>Herb tahini</span><span>Yoghurt-lime</span><span>Citrus ponzu</span><span>Chimichurri</span><span>Peri-peri</span></span><span class="chiprow" lang="ar"><span>طحينة الأعشاب</span><span>لبن بالليمون</span><span>بونزو حمضي</span><span>تشيميتشوري</span><span>بيري بيري</span></span></p></div></div>
+</section>
+<div class="two"><section class="w" id="s3"><header class="wh"><h2><span class="no">03</span><span lang="en">Shakes</span><span lang="ar">مخفوقات البروتين</span><span class="ct">5</span></h2><span class="note"><span lang="en">Ranked by protein ↓</span><span lang="ar">مرتّبة حسب البروتين ↓</span></span></header><ol class="rank">
+<li><span class="rk">1</span><div class="rt"><h3><span lang="en">Double Whey Cacao</span><span lang="ar">دبل واي بالكاكاو</span></h3><p><span lang="en">Whey isolate, raw cacao, banana and oat milk.</span><span lang="ar">واي آيزوليت مع الكاكاو الخام والموز وحليب الشوفان.</span></p><span class="rb"><i style="--v:95%"></i><b>40<span lang="en">g</span><span lang="ar">غ</span></b></span></div><span class="rm"><span class="price"><b>29</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><small>380 <span lang="en">kcal</span><span lang="ar">سعرة</span></small></span></li>
+<li><span class="rk">2</span><div class="rt"><h3><span lang="en">Peanut Butter Recovery</span><span lang="ar">ريكفري بزبدة الفول السوداني</span></h3><p><span lang="en">Whey, peanut butter, dates and a pinch of sea salt.</span><span lang="ar">واي بروتين مع زبدة الفول السوداني والتمر ورشّة ملح بحري.</span></p><span class="rb"><i style="--v:81%"></i><b>34<span lang="en">g</span><span lang="ar">غ</span></b></span></div><span class="rm"><span class="price"><b>27</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><small>450 <span lang="en">kcal</span><span lang="ar">سعرة</span></small></span></li>
+<li><span class="rk">3</span><div class="rt"><h3><span lang="en">Vanilla Date Casein</span><span lang="ar">كازين بالفانيليا والتمر</span></h3><p><span lang="en">Slow-release casein, Medjool dates, cinnamon, almond milk.</span><span lang="ar">كازين بطيء الامتصاص مع تمر المجدول والقرفة وحليب اللوز.</span></p><span class="rb"><i style="--v:71%"></i><b>30<span lang="en">g</span><span lang="ar">غ</span></b></span></div><span class="rm"><span class="price"><b>27</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><small>340 <span lang="en">kcal</span><span lang="ar">سعرة</span></small></span></li>
+<li><span class="rk">4</span><div class="rt"><h3><span lang="en">Green Machine</span><span lang="ar">الآلة الخضراء</span></h3><p><span lang="en">Pea protein, spinach, mango, ginger and coconut water. Vegan.</span><span lang="ar">بروتين البازلاء مع السبانخ والمانجو والزنجبيل وماء جوز الهند. نباتي.</span></p><span class="rb"><i style="--v:57%"></i><b>24<span lang="en">g</span><span lang="ar">غ</span></b></span></div><span class="rm"><span class="price"><b>25</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><small>260 <span lang="en">kcal</span><span lang="ar">سعرة</span></small></span></li>
+<li><span class="rk">5</span><div class="rt"><h3><span lang="en">Berry Skyr Blast</span><span lang="ar">سكير بالتوت</span></h3><p><span lang="en">Icelandic skyr, mixed berries, chia and a little honey.</span><span lang="ar">لبن السكير الآيسلندي مع التوت المشكّل وبذور الشيا وقليل من العسل.</span></p><span class="rb"><i style="--v:52%"></i><b>22<span lang="en">g</span><span lang="ar">غ</span></b></span></div><span class="rm"><span class="price"><b>25</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span><small>240 <span lang="en">kcal</span><span lang="ar">سعرة</span></small></span></li>
+</ol></section>
+<section class="w" id="s5"><header class="wh"><h2><span class="no">05</span><span lang="en">Drinks</span><span lang="ar">مشروبات</span><span class="ct">4</span></h2></header><ul class="dr">
+<li><div><h3><span lang="en">Cold Brew</span><span lang="ar">كولد برو</span></h3><p><span lang="en">18-hour steep, black.</span><span lang="ar">منقوعة 18 ساعة، سادة.</span></p></div><span class="kc">5 <span lang="en">kcal</span><span lang="ar">سعرة</span></span><span class="price"><b>14</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li>
+<li><div><h3><span lang="en">Iced Oat Matcha</span><span lang="ar">ماتشا مثلّجة بحليب الشوفان</span></h3><p><span lang="en">Ceremonial grade, unsweetened.</span><span lang="ar">ماتشا فاخرة، غير محلّاة.</span></p></div><span class="kc">90 <span lang="en">kcal</span><span lang="ar">سعرة</span></span><span class="price"><b>19</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li>
+<li><div><h3><span lang="en">Electrolyte Lemonade</span><span lang="ar">ليموناضة الإلكترولايت</span></h3><p><span lang="en">Lemon, sea salt, magnesium.</span><span lang="ar">ليمون وملح بحري ومغنيسيوم.</span></p></div><span class="kc">20 <span lang="en">kcal</span><span lang="ar">سعرة</span></span><span class="price"><b>12</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li>
+<li><div><h3><span lang="en">Sparkling Water</span><span lang="ar">مياه فوّارة</span></h3><p><span lang="en">Lime or plain.</span><span lang="ar">بالليمون أو سادة.</span></p></div><span class="kc">0 <span lang="en">kcal</span><span lang="ar">سعرة</span></span><span class="price"><b>8</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></li>
+</ul><p class="tip"><span lang="en"><b>Tip</b> Add a 25 g whey shot to any drink for 9 SAR.</span><span lang="ar"><b>نصيحة</b> أضف جرعة واي 25 غ إلى أي مشروب مقابل 9 ر.س.</span></p></section></div>
+<section class="w" id="s4"><header class="wh"><h2><span class="no">04</span><span lang="en">Snacks &amp; sides</span><span lang="ar">وجبات خفيفة وجانبية</span><span class="ct">5</span></h2><span class="lg"><i class="bp"></i><span lang="en">Protein</span><span lang="ar">بروتين</span><i class="bc"></i><span lang="en">Carbs</span><span lang="ar">كربوهيدرات</span><i class="bf"></i><span lang="en">Fat</span><span lang="ar">دهون</span></span></header><div class="minis">
+<article class="mini"><h3><span lang="en">Chicken Satay Skewers</span><span lang="ar">أسياخ دجاج ساتيه</span></h3><p><span lang="en">Two skewers, peanut-lime dip.</span><span lang="ar">سيخان مع صلصة الفول السوداني والليمون.</span></p><span class="split" aria-hidden="true"><i class="bp" style="flex:47.7"></i><i class="bc" style="flex:10.2"></i><i class="bf" style="flex:42.1"></i></span><div class="mnums"><span class="tp">P 28</span><span class="tc">C 6</span><span class="tf">F 11</span><span>240 <span lang="en">kcal</span><span lang="ar">سعرة</span></span></div><span class="price"><b>24</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></article>
+<article class="mini"><h3><span lang="en">Egg White Bites</span><span lang="ar">لقيمات بياض البيض</span></h3><p><span lang="en">Baked with spinach and feta.</span><span lang="ar">مخبوزة مع السبانخ وجبن الفيتا.</span></p><span class="split" aria-hidden="true"><i class="bp" style="flex:45.0"></i><i class="bc" style="flex:10.0"></i><i class="bf" style="flex:45.0"></i></span><div class="mnums"><span class="tp">P 18</span><span class="tc">C 4</span><span class="tf">F 8</span><span>160 <span lang="en">kcal</span><span lang="ar">سعرة</span></span></div><span class="price"><b>17</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></article>
+<article class="mini"><h3><span lang="en">Protein Hummus</span><span lang="ar">حمّص بالبروتين</span></h3><p><span lang="en">White-bean hummus, crunchy crudités.</span><span lang="ar">حمّص الفاصولياء البيضاء مع خضار مقرمشة.</span></p><span class="split" aria-hidden="true"><i class="bp" style="flex:25.7"></i><i class="bc" style="flex:33.0"></i><i class="bf" style="flex:41.3"></i></span><div class="mnums"><span class="tp">P 14</span><span class="tc">C 18</span><span class="tf">F 10</span><span>220 <span lang="en">kcal</span><span lang="ar">سعرة</span></span></div><span class="price"><b>19</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></article>
+<article class="mini"><h3><span lang="en">Paprika Sweet Potato</span><span lang="ar">بطاطا حلوة بالبابريكا</span></h3><p><span lang="en">Oven wedges, smoked paprika, lime.</span><span lang="ar">أصابع مشوية بالفرن مع البابريكا المدخّنة والليمون.</span></p><span class="split" aria-hidden="true"><i class="bp" style="flex:5.7"></i><i class="bc" style="flex:72.7"></i><i class="bf" style="flex:21.6"></i></span><div class="mnums"><span class="tp">P 3</span><span class="tc">C 38</span><span class="tf">F 5</span><span>210 <span lang="en">kcal</span><span lang="ar">سعرة</span></span></div><span class="price"><b>15</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></article>
+<article class="mini"><h3><span lang="en">Dark Protein Brownie</span><span lang="ar">براوني البروتين الداكن</span></h3><p><span lang="en">70% chocolate, almond flour, no refined sugar.</span><span lang="ar">شوكولاتة 70٪ ودقيق اللوز، بلا سكر مكرّر.</span></p><span class="split" aria-hidden="true"><i class="bp" style="flex:24.9"></i><i class="bc" style="flex:33.2"></i><i class="bf" style="flex:41.9"></i></span><div class="mnums"><span class="tp">P 12</span><span class="tc">C 16</span><span class="tf">F 9</span><span>190 <span lang="en">kcal</span><span lang="ar">سعرة</span></span></div><span class="price"><b>16</b> <span lang="en">SAR</span><span lang="ar">ر.س</span></span></article>
+</div></section>
+<section class="w dark" id="s6"><header class="wh"><h2><span class="no">06</span><span lang="en">Day plans</span><span lang="ar">خطط اليوم</span><span class="ct">3</span></h2><span class="note"><span lang="en">Three meals + snack, packed by 7 am</span><span lang="ar">ثلاث وجبات ووجبة خفيفة، جاهزة قبل السابعة صباحًا</span></span></header><div class="plans">
+<article class="plan"><h3><span lang="en">Cut</span><span lang="ar">تنشيف</span></h3><div class="big"><b>1,400</b> <span lang="en">kcal</span><span lang="ar">سعرة</span></div><span class="split" aria-hidden="true"><i class="bp" style="flex:39.9"></i><i class="bc" style="flex:31.3"></i><i class="bf" style="flex:28.8"></i></span><div class="mnums"><span class="tp">P 140<span lang="en">g</span><span lang="ar">غ</span></span><span class="tc">C 110<span lang="en">g</span><span lang="ar">غ</span></span><span class="tf">F 45<span lang="en">g</span><span lang="ar">غ</span></span></div><p><span lang="en">Tuna Poke Lite, Green Goddess Tofu, Egg White Bites, Cold Brew.</span><span lang="ar">بوكي التونة الخفيف، توفو الإلهة الخضراء، لقيمات بياض البيض، كولد برو.</span></p><span class="price"><b>119</b> <span lang="en">SAR</span><span lang="ar">ر.س</span> <small><span lang="en">/ day</span><span lang="ar">/ اليوم</span></small></span></article>
+<article class="plan"><h3><span lang="en">Maintain</span><span lang="ar">محافظة</span></h3><div class="big"><b>2,100</b> <span lang="en">kcal</span><span lang="ar">سعرة</span></div><span class="split" aria-hidden="true"><i class="bp" style="flex:30.4"></i><i class="bc" style="flex:40.6"></i><i class="bf" style="flex:29.0"></i></span><div class="mnums"><span class="tp">P 165<span lang="en">g</span><span lang="ar">غ</span></span><span class="tc">C 220<span lang="en">g</span><span lang="ar">غ</span></span><span class="tf">F 70<span lang="en">g</span><span lang="ar">غ</span></span></div><p><span lang="en">Peri Chicken Grain, Teriyaki Salmon Power, Protein Hummus, Berry Skyr Blast.</span><span lang="ar">دجاج بيري بيري بالكينوا، سلمون ترياكي باور، حمّص بالبروتين، سكير بالتوت.</span></p><span class="price"><b>139</b> <span lang="en">SAR</span><span lang="ar">ر.س</span> <small><span lang="en">/ day</span><span lang="ar">/ اليوم</span></small></span></article>
+<article class="plan"><h3><span lang="en">Bulk</span><span lang="ar">تضخيم</span></h3><div class="big"><b>2,900</b> <span lang="en">kcal</span><span lang="ar">سعرة</span></div><span class="split" aria-hidden="true"><i class="bp" style="flex:28.6"></i><i class="bc" style="flex:42.2"></i><i class="bf" style="flex:29.2"></i></span><div class="mnums"><span class="tp">P 210<span lang="en">g</span><span lang="ar">غ</span></span><span class="tc">C 310<span lang="en">g</span><span lang="ar">غ</span></span><span class="tf">F 95<span lang="en">g</span><span lang="ar">غ</span></span></div><p><span lang="en">Steak &amp; Sweet Potato, Harissa Turkey Kofta, Satay Skewers, Double Whey Cacao, Brownie.</span><span lang="ar">ستيك وبطاطا حلوة، كفتة الديك الرومي، أسياخ الساتيه، دبل واي بالكاكاو، براوني.</span></p><span class="price"><b>165</b> <span lang="en">SAR</span><span lang="ar">ر.س</span> <small><span lang="en">/ day</span><span lang="ar">/ اليوم</span></small></span></article>
+</div></section>
+
+  <footer>
+    <div class="fc"><h4><span lang="en">Hours</span><span lang="ar">ساعات العمل</span></h4><p><span lang="en">Sat–Thu 6 am – 11 pm<br>Fri 1 pm – 11 pm</span><span lang="ar">السبت–الخميس 6 ص – 11 م<br>الجمعة 1 م – 11 م</span></p></div>
+    <div class="fc"><h4><span lang="en">Location</span><span lang="ar">الموقع</span></h4><p><span lang="en">Unit 12, Olaya Sports Boulevard, Riyadh<br>Pickup &amp; delivery: 011 555 0193</span><span lang="ar">محل 12، بوليفارد العليا الرياضي، الرياض<br>الاستلام والتوصيل: <span dir="ltr">011 555 0193</span></span></p></div>
+    <div class="fc"><h4><span lang="en">Allergens</span><span lang="ar">مسبّبات الحساسية</span></h4><p><span lang="en">We handle fish, soy, sesame, peanuts, tree nuts, egg and dairy. Ask for the full allergen matrix.</span><span lang="ar">نتعامل مع السمك والصويا والسمسم والفول السوداني والمكسّرات والبيض والألبان. اطلب جدول الحساسية الكامل.</span></p></div>
+    <p class="fine"><span lang="en">Values are per serving, measured in our kitchen, ±5%. Prices in Saudi riyals including VAT.</span><span lang="ar">القيم لكل حصّة ومقيسة في مطبخنا بهامش ±5٪. الأسعار بالريال السعودي شاملة ضريبة القيمة المضافة.</span></p>
+  </footer>
+</main>
+</div>
+</div>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

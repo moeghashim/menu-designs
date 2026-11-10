@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Ma · ما</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ma — a twelve-seat kaiseki counter. Six quiet courses for the eleventh month, and the space between them. ما: مائدة كايسيكي باثني عشر مقعدًا، ستة أطباق هادئة والمسافة التي بينها.">
+<meta name="theme-color" content="#e8e6df">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--paper:#e8e6df;--paper-2:#dedcd4;--ink:#262523;--stone:#6b6a65;--mist:#c9c7bf;--kaki:#e0561f;
+  --f:"Shippori Mincho","Amiri","Hiragino Mincho ProN","Yu Mincho","Times New Roman",serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);font-size:16.5px;line-height:1.7;color:var(--ink);background:var(--paper);overflow-x:clip;-webkit-font-smoothing:antialiased;position:relative}
+body::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .49 0 0 0 0 .46 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23p)'/%3E%3C/svg%3E")}
+html[lang="ar"]{--f:"Amiri","Shippori Mincho","Traditional Arabic","Times New Roman",serif}
+html[lang="ar"] body{font-size:19px;line-height:1.8}
+html[lang="ar"] *{letter-spacing:0 !important}
+ul{list-style:none}
+a{color:inherit}
+.defs{position:absolute;width:0;height:0}
+.wrap{position:relative;z-index:1;overflow:clip}
+
+/* controls: two quiet words */
+.ctl{position:fixed;z-index:20;top:14px;inset-inline-end:16px;display:flex;gap:18px;align-items:baseline;padding:6px 12px;background:rgba(232,230,223,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ctl a,.ctl button{font:400 13px/1.4 var(--f);letter-spacing:.14em;color:var(--stone);background:none;border:0;border-bottom:1px solid var(--stone);padding:2px 0;cursor:pointer;text-decoration:none}
+.ctl button{color:var(--ink);border-color:var(--ink)}
+html[lang="ar"] .ctl a,html[lang="ar"] .ctl button{font-size:16px}
+.ctl a:hover,.ctl button:hover{border-color:transparent}
+.ctl a:focus-visible,.ctl button:focus-visible{outline:1px solid var(--ink);outline-offset:5px}
+
+/* ---------- hero: enso, dot, emptiness ---------- */
+.hero{position:relative;min-height:min(100vh,980px);min-height:min(100svh,980px);display:grid;align-content:end;padding:0 clamp(22px,6vw,96px) clamp(48px,8vh,96px)}
+.enso{position:absolute;top:clamp(-70px,-4vw,-20px);inset-inline-end:clamp(-150px,-7vw,-40px);width:clamp(330px,56vw,820px);aspect-ratio:1}
+.enso svg{width:100%;height:100%;display:block;overflow:visible}
+[dir="rtl"] .enso svg{transform:scaleX(-1)}
+.dot{position:absolute;inset-inline-start:27%;top:64%;width:5.2%;aspect-ratio:1;border-radius:50%;background:var(--kaki);box-shadow:inset -3px -4px 8px rgba(120,30,0,.35);animation:breathe 9s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.12)}}
+.hero-t{position:relative;max-width:520px}
+.season{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);display:flex;align-items:center;gap:14px}
+.season::before{content:"";width:44px;height:1px;background:var(--stone)}
+html[lang="ar"] .season{font-size:17px}
+h1{font-weight:400;font-size:clamp(120px,22vw,300px);line-height:.8;letter-spacing:-.04em;margin:.14em 0 .12em;margin-inline-start:-.04em}
+html[lang="ar"] h1{line-height:1;margin:0 0 .02em;font-size:clamp(130px,23vw,310px)}
+.tagline{font-size:clamp(19px,2.3vw,26px);line-height:1.4}
+.intro{margin-top:26px;color:var(--stone);max-width:36ch}
+html[lang="ar"] .intro{max-width:40ch}
+.kaiseki{position:absolute;left:clamp(5px,1.2vw,22px);top:clamp(70px,12vh,130px);writing-mode:vertical-rl;font-size:13px;letter-spacing:.5em;text-transform:uppercase;color:var(--stone)}
+html[lang="ar"] .kaiseki{font-size:18px;direction:ltr}
+[dir="rtl"] .kaiseki{left:auto;right:clamp(2px,1.2vw,22px)}
+
+/* ---------- courses ---------- */
+main{position:relative;max-width:1360px;margin:0 auto;padding:0 clamp(22px,5vw,72px)}
+.course{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(12px,2vw,28px);padding-block:clamp(80px,13vw,190px)}
+.course header{position:relative;grid-column:1/-1;margin-bottom:44px}
+.num{display:block;font-size:clamp(110px,17vw,230px);line-height:.8;font-weight:400;color:var(--mist);letter-spacing:-.05em;margin-inline-start:-.05em;font-family:"Shippori Mincho",serif}
+.course h2{font-weight:500;font-size:clamp(30px,3.6vw,46px);line-height:1.15;letter-spacing:.02em;margin-top:-.42em;position:relative}
+html[lang="ar"] .course h2{font-weight:700;margin-top:-.5em}
+.gloss{color:var(--stone);font-style:italic;font-size:17px;margin-top:6px}
+html[lang="ar"] .gloss{font-size:20px}
+.brush{display:block;width:min(260px,70%);height:16px;margin-top:16px;color:var(--ink)}
+[dir="rtl"] .brush{transform:scaleX(-1)}
+.dishes{grid-column:1/-1;display:grid;gap:clamp(40px,5vw,64px)}
+.dish{position:relative;max-width:38ch}
+.dish h3{font-weight:500;font-size:clamp(20px,1.9vw,24px);line-height:1.3}
+html[lang="ar"] .dish h3{font-weight:700;font-size:clamp(23px,2.2vw,28px)}
+.dish p{color:var(--stone);margin-top:6px}
+.pr{display:block;width:fit-content;margin-top:12px;font-size:15px;letter-spacing:.16em;color:var(--ink);unicode-bidi:isolate;font-family:"Shippori Mincho",serif}
+.pr::before{content:"";display:inline-block;width:22px;height:1px;background:var(--ink);vertical-align:middle;margin-inline-end:10px}
+.pick{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--stone);margin-bottom:8px}
+.pick::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ink)}
+html[lang="ar"] .pick{font-size:16px}
+/* mobile: stepping stones */
+.dishes .dish:nth-child(even){margin-inline-start:22%}
+@media(min-width:980px){
+  .course header{margin-bottom:0;grid-row:1}
+  .dishes{grid-row:1}
+  .dishes .dish:nth-child(even){margin-inline-start:0}
+  .c1 header{grid-column:2/6}.c1 .dishes{grid-column:8/13;padding-top:120px}
+  .c3 header{grid-column:8/13}.c3 .dishes{grid-column:2/7;padding-top:60px}
+  .c5 header{grid-column:2/6}.c5 .dishes{grid-column:7/12;padding-top:160px}
+  .c1 .dish:nth-child(2),.c5 .dish:nth-child(2){margin-inline-start:14%}
+  .c3 .dish:nth-child(3){margin-inline-start:22%}
+  /* stepping-stone staircases */
+  .steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(28px,4vw,64px);align-items:start}
+  .c2 header{grid-column:1/5}.c2 .dishes{grid-column:4/13;padding-top:230px}
+  .c2 .dish:nth-child(2){margin-top:120px}.c2 .dish:nth-child(3){margin-top:240px}
+  .c4 header{grid-column:10/13}.c4 .dishes{grid-column:1/10;padding-top:150px;padding-inline-end:48px}
+  .c4 .dish:nth-child(1){margin-top:300px}.c4 .dish:nth-child(2){margin-top:150px}
+  .c6 header{grid-column:1/5}.c6 .dishes{grid-column:5/13;grid-template-columns:repeat(2,minmax(0,1fr));gap:90px clamp(40px,6vw,100px);padding-top:150px}
+  .c6 .dish:nth-child(even){transform:translateY(110px)}
+  .c6{padding-bottom:300px}
+}
+
+/* ink-wash interludes */
+.wash{position:relative;margin-inline:calc(-1 * clamp(22px,5vw,72px));height:clamp(200px,30vw,440px)}
+.wash svg{position:absolute;inset:0;width:100%;height:100%}
+.wash{-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent),linear-gradient(#000 70%,transparent 96%);-webkit-mask-composite:source-in;mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent),linear-gradient(#000 70%,transparent 96%);mask-composite:intersect}
+[dir="rtl"] .wash svg{transform:scaleX(-1)}
+.pause{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));padding-block:clamp(40px,7vw,110px)}
+.pause blockquote{grid-column:1/-1;font-size:clamp(24px,3.5vw,46px);line-height:1.45;font-weight:400;max-width:17em}
+.pause svg{grid-column:1/-1;width:100%;height:26px;margin-bottom:38px}
+[dir="rtl"] .pause svg{transform:scaleX(-1)}
+.pause cite{display:block;font-style:normal;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);margin-top:24px}
+html[lang="ar"] .pause cite{font-size:17px}
+@media(min-width:980px){.pause blockquote{grid-column:5/12}}
+
+/* ---------- the paths (set menus): hanging paper strips ---------- */
+.paths{position:relative;padding-block:clamp(60px,9vw,130px) clamp(80px,12vw,170px)}
+.paths>h2{font-weight:400;font-size:13px;letter-spacing:.4em;text-transform:uppercase;color:var(--stone);margin-bottom:46px;display:flex;align-items:center;gap:14px}
+.paths>h2::before{content:"";width:44px;height:1px;background:var(--stone)}
+html[lang="ar"] .paths>h2{font-size:19px}
+.strips{display:grid;gap:44px}
+@media(max-width:819px){.strip:nth-child(1){margin-inline-end:10%}.strip:nth-child(2){margin-inline-start:10%}.strip:nth-child(3){margin-inline:5%}}
+.strip{position:relative;background:#f2f0ea;padding:34px 26px 30px;box-shadow:0 1px 0 rgba(0,0,0,.06),0 18px 40px -22px rgba(38,37,35,.5);border-top:1px solid var(--ink)}
+.strip::before{content:"";position:absolute;top:-30px;inset-inline-start:50%;width:1px;height:30px;background:var(--stone)}
+.strip b{display:block;font-weight:400;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone)}
+html[lang="ar"] .strip b{font-size:17px}
+.strip h3{font-weight:500;font-size:clamp(26px,2.6vw,34px);line-height:1.2;margin:10px 0 14px}
+html[lang="ar"] .strip h3{font-weight:700}
+.strip p{color:var(--stone)}
+.strip .pr{margin-top:26px;font-size:19px}
+@media(min-width:820px){.strips{grid-template-columns:repeat(12,minmax(0,1fr));align-items:start;gap:0 28px}
+  .strip:nth-child(1){grid-column:2/5;min-height:430px}.strip:nth-child(2){grid-column:6/9;margin-top:110px;min-height:360px}.strip:nth-child(3){grid-column:10/13;margin-top:40px;min-height:300px}}
+
+/* ---------- footer: a stone ---------- */
+footer{position:relative;background:var(--ink);color:#d9d6cd;padding:clamp(60px,9vw,120px) clamp(22px,6vw,96px) 40px;overflow:clip}
+footer svg.stone{position:absolute;inset-inline-end:-6%;top:-30%;width:min(620px,80vw);opacity:.3}
+.f-grid{position:relative;max-width:1216px;margin:0 auto;display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+footer h2{font-weight:400;font-size:clamp(64px,9vw,120px);line-height:.9;letter-spacing:-.03em;color:#f0ede5}
+html[lang="ar"] footer h2{line-height:1.1}
+footer h3{font-weight:400;font-size:12.5px;letter-spacing:.34em;text-transform:uppercase;color:#96938b;margin-bottom:12px}
+html[lang="ar"] footer h3{font-size:17px}
+footer p{max-width:30ch}
+.colophon{position:relative;max-width:1216px;margin:70px auto 0;padding-top:18px;border-top:1px solid #4a4945;font-size:13.5px;letter-spacing:.1em;color:#96938b}
+html[lang="ar"] .colophon{font-size:16px}
+@media(max-width:700px){.hero{min-height:0;padding-top:350px}.enso{top:44px;inset-inline-end:-80px;width:340px}.kaiseki{top:74px}}
+@media(prefers-reduced-motion:reduce){*{animation:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<svg class="defs" aria-hidden="true">
+  <defs>
+    <filter id="dry" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.009 0.2" numOctaves="3" seed="11" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -6 0 0 0 4.3" result="s"/>
+      <feComposite in="SourceGraphic" in2="s" operator="in" result="c"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="5" result="w"/>
+      <feDisplacementMap in="c" in2="w" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="rough" x="-10%" y="-60%" width="120%" height="220%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.5" numOctaves="2" seed="3" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -4.6 0 0 0 3.2" result="s"/>
+      <feComposite in="SourceGraphic" in2="s" operator="in" result="c"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="8" result="w"/>
+      <feDisplacementMap in="c" in2="w" scale="5"/>
+    </filter>
+    <filter id="mist" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="4" seed="21" result="w"/>
+      <feDisplacementMap in="SourceGraphic" in2="w" scale="46" xChannelSelector="R" yChannelSelector="B" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="9"/>
+    </filter>
+    <symbol id="stroke" viewBox="0 0 400 16" preserveAspectRatio="none"><path d="M2 9C40 3 140 1 300 4c50 1 96 1 97 5 1 5-60 5-110 5C170 15 60 14 4 13 0 13-1 10 2 9z" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<div class="ctl">
+  <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<div class="wrap">
+<header class="hero">
+  <div class="enso" aria-hidden="true">
+    <svg viewBox="0 0 600 600">
+      <clipPath id="gap"><path d="M300 300L452 -60H-100V700H700V236z"/></clipPath>
+      <g filter="url(#dry)" fill="#262523">
+        <path fill-rule="evenodd" clip-path="url(#gap)" d="M300 52a248 248 0 1 0 .1 0zM324 84a212 212 0 1 1-.1 0z"/>
+        <circle cx="398" cy="76" r="27"/>
+        <path d="M540 262c8 2 30 4 44-6-10 12-30 16-44 14z" opacity=".8"/>
+      </g>
+    </svg>
+    <span class="dot"></span>
+  </div>
+  <p class="kaiseki"><span lang="en">Kaiseki · twelve seats</span><span lang="ar">كايسيكي · اثنا عشر مقعدًا</span></p>
+  <div class="hero-t">
+    <p class="season"><span lang="en">Menu of the eleventh month</span><span lang="ar">قائمة الشهر الحادي عشر</span></p>
+    <h1><span lang="en">Ma</span><span lang="ar">ما</span></h1>
+    <p class="tagline"><span lang="en">The space between one course and the next.</span><span lang="ar">المسافة بين طبقٍ والذي يليه.</span></p>
+    <p class="intro"><span lang="en">Six movements, served slowly, in the order the season suggests. Nothing arrives until the last bowl has been cleared and the counter is quiet again.</span><span lang="ar">ست حركات تُقدَّم على مهل، بالترتيب الذي يمليه الموسم. لا يصل طبقٌ قبل أن يُرفع الذي قبله ويعود الهدوء إلى المائدة.</span></p>
+  </div>
+</header>
+
+<main>
+  <section class="course c1">
+    <header><span class="num">01</span>
+      <h2><span lang="en">Sakizuke</span><span lang="ar">ساكيزوكه</span></h2>
+      <p class="gloss"><span lang="en">to begin</span><span lang="ar">الفاتحة</span></p>
+      <svg class="brush" aria-hidden="true"><use href="#stroke" filter="url(#rough)"/></svg></header>
+    <ul class="dishes">
+      <li class="dish"><span class="pick"><span lang="en">The itamae's choice</span><span lang="ar">اختيار الطاهي</span></span><h3><span lang="en">Persimmon, shira-ae</span><span lang="ar">كاكا مع شيرا-آئه</span></h3><p><span lang="en">Ripe hachiya persimmon folded through whipped tofu and white sesame.</span><span lang="ar">ثمرة كاكا ناضجة تُقلَّب بهدوء مع التوفو المخفوق والسمسم الأبيض.</span></p><span class="pr" dir="ltr">¥ 1,600</span></li>
+      <li class="dish"><h3><span lang="en">Ginkgo on pine needles</span><span lang="ar">جوز الجنكة على إبر الصنوبر</span></h3><p><span lang="en">Salt-roasted ginkgo nuts, still warm, threaded on green pine.</span><span lang="ar">حبّات جنكة محمّصة بالملح، ما زالت دافئة، منظومة على إبر صنوبر خضراء.</span></p><span class="pr" dir="ltr">¥ 1,200</span></li>
+      <li class="dish"><h3><span lang="en">Chawanmushi, snow crab</span><span lang="ar">تشاوان-موشي بسلطعون الثلج</span></h3><p><span lang="en">A trembling savoury custard of dashi and egg, crab and a scrape of yuzu.</span><span lang="ar">كاسترد مالح مرتجف من الداشي والبيض، مع السلطعون ومسحة من قشر اليوزو.</span></p><span class="pr" dir="ltr">¥ 2,200</span></li>
+    </ul>
+  </section>
+
+  <section class="course c2">
+    <header><span class="num">02</span>
+      <h2><span lang="en">Hassun</span><span lang="ar">هاسّون</span></h2>
+      <p class="gloss"><span lang="en">the season on a cedar tray</span><span lang="ar">الموسم على صينية من خشب الأرز</span></p>
+      <svg class="brush" aria-hidden="true"><use href="#stroke" filter="url(#rough)"/></svg></header>
+    <ul class="dishes steps">
+      <li class="dish"><h3><span lang="en">Mountain &amp; sea</span><span lang="ar">الجبل والبحر</span></h3><p><span lang="en">Five small bites: candied chestnut, mackerel sushi, lotus root, shimeji, kuruma prawn.</span><span lang="ar">خمس لقيمات: كستناء محلّاة، سوشي الإسقمري، جذر اللوتس، فطر الشيميجي، وروبيان كوروما.</span></p><span class="pr" dir="ltr">¥ 3,800</span></li>
+      <li class="dish"><h3><span lang="en">Sea bream temari</span><span lang="ar">تيماري الدنيس</span></h3><p><span lang="en">Kelp-cured bream pressed over vinegared rice, one leaf of kinome.</span><span lang="ar">دنيس معتّق بعشب الكومبو يُضغط على أرزّ بالخل، وورقة واحدة من الكينومه.</span></p><span class="pr" dir="ltr">¥ 2,400</span></li>
+      <li class="dish"><h3><span lang="en">Fallen leaves</span><span lang="ar">أوراق متساقطة</span></h3><p><span lang="en">Crisp lotus root, sweet potato and maple-cut carrot, sea salt.</span><span lang="ar">رقائق مقرمشة من جذر اللوتس والبطاطا الحلوة وجزر مقصوص كورق القيقب، مع ملح البحر.</span></p><span class="pr" dir="ltr">¥ 1,400</span></li>
+    </ul>
+  </section>
+
+  <div class="wash" aria-hidden="true">
+    <svg viewBox="0 0 1400 440" preserveAspectRatio="none">
+      <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#262523"/><stop offset=".55" stop-color="#262523" stop-opacity=".35"/><stop offset="1" stop-color="#262523" stop-opacity="0"/></linearGradient>
+      <g filter="url(#mist)" fill="url(#fade)">
+        <path opacity=".22" d="M-40 440C140 330 260 150 420 120c120-22 190 110 330 130 150 22 240-140 400-110 120 22 200 190 300 300z"/>
+        <path opacity=".38" d="M-40 440C100 400 200 270 340 258c130-10 170 100 300 110 120 8 160-60 260-40 90 18 120 70 200 112z"/>
+        <path opacity=".85" d="M770 440c40-80 100-196 180-204 96-10 150 110 250 204z"/>
+        <path opacity=".6" d="M120 440c30-40 60-96 110-100 56-4 90 56 140 100z"/>
+      </g>
+    </svg>
+  </div>
+
+  <section class="course c3">
+    <header><span class="num">03</span>
+      <h2><span lang="en">Mukōzuke</span><span lang="ar">موكوزوكه</span></h2>
+      <p class="gloss"><span lang="en">the knife, and nothing else</span><span lang="ar">السكّين ولا شيء سواها</span></p>
+      <svg class="brush" aria-hidden="true"><use href="#stroke" filter="url(#rough)"/></svg></header>
+    <ul class="dishes">
+      <li class="dish"><h3><span lang="en">Madai, kombu-jime</span><span lang="ar">ماداي كومبو-جيمه</span></h3><p><span lang="en">Red sea bream rested a night between sheets of kelp. Fresh wasabi.</span><span lang="ar">دنيس أحمر يستريح ليلةً بين صفائح الكومبو. واسابي طازج.</span></p><span class="pr" dir="ltr">¥ 3,200</span></li>
+      <li class="dish"><span class="pick"><span lang="en">Three years in the making</span><span lang="ar">ثلاث سنوات من الانتظار</span></span><h3><span lang="en">Akami of bluefin</span><span lang="ar">أكامي التونة الزرقاء</span></h3><p><span lang="en">Lean tuna brushed with our own soy, aged three winters in cedar.</span><span lang="ar">لحم التونة الأحمر مدهون بصلصة صويا من صنعنا، معتّقة ثلاثة شتاءات في براميل الأرز.</span></p><span class="pr" dir="ltr">¥ 3,900</span></li>
+      <li class="dish"><h3><span lang="en">Hokkaido scallop</span><span lang="ar">إسقلوب هوكايدو</span></h3><p><span lang="en">Sliced once, with sudachi juice and flakes of moshio salt.</span><span lang="ar">يُقطع مرةً واحدة، مع عصير السوداتشي ورقائق ملح الموشيو.</span></p><span class="pr" dir="ltr">¥ 3,400</span></li>
+    </ul>
+  </section>
+
+  <section class="course c4">
+    <header><span class="num">04</span>
+      <h2><span lang="en">Nimono</span><span lang="ar">نيمونو</span></h2>
+      <p class="gloss"><span lang="en">simmered, lid on</span><span lang="ar">على نارٍ هادئة والغطاء مُحكم</span></p>
+      <svg class="brush" aria-hidden="true"><use href="#stroke" filter="url(#rough)"/></svg></header>
+    <ul class="dishes steps">
+      <li class="dish"><h3><span lang="en">Furofuki daikon</span><span lang="ar">فوروفوكي دايكون</span></h3><p><span lang="en">A thick round of winter radish, three hours in dashi, under yuzu miso.</span><span lang="ar">قرص سميك من فجل الشتاء يُطهى ثلاث ساعات في الداشي ويُغطّى بميسو اليوزو.</span></p><span class="pr" dir="ltr">¥ 1,800</span></li>
+      <li class="dish"><h3><span lang="en">Owan of tilefish</span><span lang="ar">أوان سمك الأماداي</span></h3><p><span lang="en">A clear lacquer-bowl broth with matsutake; lift the lid slowly.</span><span lang="ar">مرق صافٍ في وعاء مطليّ باللّك مع فطر الماتسوتاكه؛ ارفع الغطاء ببطء.</span></p><span class="pr" dir="ltr">¥ 3,600</span></li>
+      <li class="dish"><h3><span lang="en">Wagyu cheek, black tea</span><span lang="ar">خدّ الواغيو بالشاي الأسود</span></h3><p><span lang="en">Braised until it parts for chopsticks, in roasted tea, soy and ginger.</span><span lang="ar">يُطهى حتى ينفصل بعيدان الأكل، في شاي محمّص وصويا وزنجبيل.</span></p><span class="pr" dir="ltr">¥ 4,200</span></li>
+    </ul>
+  </section>
+
+  <div class="pause">
+    <svg aria-hidden="true"><use href="#stroke" filter="url(#rough)" fill="#262523"/></svg>
+    <blockquote><span lang="en">The bowl is useful because of the hollow inside it. So is the evening.</span><span lang="ar">إنما ينفع الوعاءُ بفراغه. وكذلك الأمسية.</span>
+      <cite><span lang="en">A pause · tea is poured</span><span lang="ar">استراحة · يُسكب الشاي</span></cite></blockquote>
+  </div>
+
+  <section class="course c5">
+    <header><span class="num">05</span>
+      <h2><span lang="en">Yakimono</span><span lang="ar">ياكيمونو</span></h2>
+      <p class="gloss"><span lang="en">over binchōtan charcoal</span><span lang="ar">على فحم البينشوتان</span></p>
+      <svg class="brush" aria-hidden="true"><use href="#stroke" filter="url(#rough)"/></svg></header>
+    <ul class="dishes">
+      <li class="dish"><h3><span lang="en">Sawara, saikyo miso</span><span lang="ar">ساوارا بميسو سايكيو</span></h3><p><span lang="en">Spanish mackerel, two days in sweet white miso, grilled until it blisters.</span><span lang="ar">إسقمري إسباني يُنقع يومين في الميسو الأبيض الحلو ثم يُشوى حتى يتفحّم طرفه.</span></p><span class="pr" dir="ltr">¥ 3,400</span></li>
+      <li class="dish"><span class="pick"><span lang="en">For the table</span><span lang="ar">للمائدة كلّها</span></span><h3><span lang="en">Wagyu on a magnolia leaf</span><span lang="ar">واغيو على ورقة ماغنوليا</span></h3><p><span lang="en">Sirloin and hoba miso, set over a small flame in front of you.</span><span lang="ar">لحم الخاصرة مع ميسو الهوبا، فوق لهبٍ صغير أمامك.</span></p><span class="pr" dir="ltr">¥ 6,800</span></li>
+      <li class="dish"><h3><span lang="en">Charred aubergine</span><span lang="ar">باذنجان مفحّم</span></h3><p><span lang="en">Peeled at the counter, with grated ginger and dancing bonito.</span><span lang="ar">يُقشَّر أمامك ويُقدَّم مع زنجبيل مبشور ورقائق البونيتو الراقصة.</span></p><span class="pr" dir="ltr">¥ 1,700</span></li>
+    </ul>
+  </section>
+
+  <section class="course c6">
+    <header><span class="num">06</span>
+      <h2><span lang="en">Shokuji, Mizumono</span><span lang="ar">شوكوجي، ميزومونو</span></h2>
+      <p class="gloss"><span lang="en">rice, then something sweet</span><span lang="ar">الأرزّ، ثم شيء حلو</span></p>
+      <svg class="brush" aria-hidden="true"><use href="#stroke" filter="url(#rough)"/></svg></header>
+    <ul class="dishes">
+      <li class="dish"><h3><span lang="en">Clay-pot rice</span><span lang="ar">أرزّ القدر الفخّاري</span></h3><p><span lang="en">New-crop rice with chestnut and ginkgo, red miso soup, three pickles.</span><span lang="ar">أرزّ الحصاد الجديد بالكستناء والجنكة، مع حساء الميسو الأحمر وثلاثة مخلّلات.</span></p><span class="pr" dir="ltr">¥ 2,800</span></li>
+      <li class="dish"><h3><span lang="en">Warabi mochi</span><span lang="ar">وارابي موتشي</span></h3><p><span lang="en">Cut to order, dusted in roasted soybean flour, black sugar syrup.</span><span lang="ar">تُقطَّع عند الطلب وتُغبَّر بدقيق الصويا المحمّص مع شراب السكّر الأسود.</span></p><span class="pr" dir="ltr">¥ 1,300</span></li>
+      <li class="dish"><h3><span lang="en">Pear in yuzu</span><span lang="ar">إجّاص باليوزو</span></h3><p><span lang="en">A cold poached nashi pear, its own syrup, nothing more.</span><span lang="ar">إجّاص ناشي مسلوق يُقدَّم باردًا في شرابه، ولا شيء آخر.</span></p><span class="pr" dir="ltr">¥ 1,400</span></li>
+      <li class="dish"><h3><span lang="en">Matcha &amp; wagashi</span><span lang="ar">ماتشا وواغاشي</span></h3><p><span lang="en">Thin tea whisked at your seat, with the confection of the day.</span><span lang="ar">شاي خفيف يُخفق عند مقعدك، مع حلوى اليوم.</span></p><span class="pr" dir="ltr">¥ 1,500</span></li>
+    </ul>
+  </section>
+
+  <section class="paths">
+    <h2><span lang="en">Or leave it to us</span><span lang="ar">أو دَع الأمر لنا</span></h2>
+    <div class="strips">
+      <article class="strip"><b><span lang="en">Eight courses</span><span lang="ar">ثمانية أطباق</span></b><h3><span lang="en">The long path</span><span lang="ar">الدرب الطويل</span></h3><p><span lang="en">Every movement, in order, with the day's catch and two things that are not on this page. About two and a half hours.</span><span lang="ar">كل الحركات بترتيبها، مع صيد اليوم وطبقين لا تجدهما في هذه الصفحة. نحو ساعتين ونصف.</span></p><span class="pr" dir="ltr">¥ 18,000</span></article>
+      <article class="strip"><b><span lang="en">Five courses</span><span lang="ar">خمسة أطباق</span></b><h3><span lang="en">The short path</span><span lang="ar">الدرب القصير</span></h3><p><span lang="en">Sakizuke, mukōzuke, one bowl, the grill and rice. Ninety unhurried minutes.</span><span lang="ar">الفاتحة والنيء ووعاء واحد والمشوي والأرزّ. تسعون دقيقة بلا استعجال.</span></p><span class="pr" dir="ltr">¥ 11,000</span></article>
+      <article class="strip"><b><span lang="en">Alongside</span><span lang="ar">إلى جانبها</span></b><h3><span lang="en">Tea pairing</span><span lang="ar">مرافقة الشاي</span></h3><p><span lang="en">Five teas, cold-brewed gyokuro to smoked hōjicha. No alcohol is served.</span><span lang="ar">خمسة أنواع من الشاي، من الغيوكورو المنقوع باردًا إلى الهوجيتشا المدخّن. لا نقدّم الكحول.</span></p><span class="pr" dir="ltr">¥ 3,500</span></article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <svg class="stone" viewBox="0 0 600 400" aria-hidden="true"><g filter="url(#mist)"><path fill="#4a4945" d="M90 300c-30-90 40-190 170-210 140-22 260 40 270 130 8 76-90 110-220 112-110 2-200 10-220-32z"/></g></svg>
+  <div class="f-grid">
+    <h2><span lang="en">Ma</span><span lang="ar">ما</span></h2>
+    <div><h3><span lang="en">Seatings</span><span lang="ar">الجلسات</span></h3><p><span lang="en">Tuesday to Sunday, at 18:00 and 20:30. Closed Mondays. Twelve seats at one cypress counter; by reservation only.</span><span lang="ar">من الثلاثاء إلى الأحد، في الساعة ٦:٠٠ و٨:٣٠ مساءً. نغلق يوم الاثنين. اثنا عشر مقعدًا حول مائدة واحدة من خشب السرو، بالحجز المسبق فقط.</span></p></div>
+    <div><h3><span lang="en">The house</span><span lang="ar">الدار</span></h3><p><span lang="en">3-12 Ishibashi Lane, Higashi Ward, Kanazawa</span><span lang="ar">٣-١٢ زقاق إيشيباشي، حيّ هيغاشي، كانازاوا</span></p><p><span dir="ltr">+81 76 555 0167</span></p></div>
+    <div><h3><span lang="en">Please tell us</span><span lang="ar">أخبرونا من فضلكم</span></h3><p><span lang="en">Dashi, soy, sesame, shellfish and egg run through the menu. With two days' notice we will cook around almost anything.</span><span lang="ar">الداشي والصويا والسمسم والمحار والبيض حاضرة في معظم القائمة. أخبرونا قبل يومين لنطهو بما يناسبكم.</span></p></div>
+  </div>
+  <p class="colophon"><span lang="en">Prices in yen, tax and service included. The menu changes when the market does.</span><span lang="ar">الأسعار بالين الياباني شاملةً الضريبة والخدمة. تتغيّر القائمة بتغيّر السوق.</span></p>
+</footer>
+</div>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Paper Crane Dim Sum · الكُركي الورقي</title>
+<meta name="description" content="Paper Crane Dim Sum — hand-folded dumplings steamed to order in bamboo. الكُركي الورقي: ديم سم يُطوى باليد ويُطهى على البخار عند الطلب.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#d5311f">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&family=Reem+Kufi:wght@400;500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --paper:#f7f3ea; --paper2:#ece6d8; --ink:#1d1a17; --soft:#5b544b;
+  --red:#d5311f; --red-d:#b02214; --red-l:#e8523c;
+  --jade:#1f6f58; --jade-d:#15523f; --jade-l:#dcece3; --jade-m:#7fb9a0;
+  --bam:#e9cf98; --bam-d:#b88d4a;
+  --serif:"DM Serif Display","Reem Kufi",Georgia,serif;
+  --sans:"Outfit","Tajawal",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);font-size:16px;line-height:1.55;overflow-x:clip;font-weight:400}
+html[lang="ar"] body{font-family:"Tajawal","Outfit",system-ui,sans-serif;font-size:17px;line-height:1.8}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+ul{list-style:none}
+svg{display:block}
+
+/* controls */
+.ctl{position:fixed;inset-block-start:14px;inset-inline-end:14px;z-index:50;display:flex;gap:6px;align-items:stretch;filter:drop-shadow(0 3px 6px rgba(0,0,0,.22))}
+.ctl a,.ctl button{font:500 14px/1 var(--sans);color:var(--ink);background:#fff;border:0;cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:6px;padding:10px 12px;min-height:40px}
+.ctl a{clip-path:polygon(0 0,100% 0,100% 100%,10px 100%,0 calc(100% - 10px))}
+.ctl button{background:var(--ink);color:#fff;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);padding-inline:14px}
+html[dir="rtl"] .ctl a{clip-path:polygon(0 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%)}
+html[dir="rtl"] .ctl button{clip-path:polygon(10px 0,100% 0,100% 100%,0 100%,0 10px)}
+.ctl a:hover,.ctl button:hover{background:var(--red);color:#fff}
+html[lang="ar"] .ctl a,html[lang="ar"] .ctl button{font-family:"Tajawal",sans-serif;font-size:15px}
+.ctl svg{width:14px;height:14px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);min-height:min(100svh,860px);background:
+  linear-gradient(118deg,transparent 49.9%,rgba(29,26,23,.06) 50%,transparent 50.4%),
+  linear-gradient(62deg,transparent 39.9%,rgba(29,26,23,.05) 40%,transparent 40.4%),
+  linear-gradient(90deg,#fbf8f1,var(--paper) 60%,var(--paper2));overflow:clip}
+.hero-txt{position:relative;z-index:2;align-self:center;padding:clamp(72px,9vw,120px) clamp(22px,5vw,84px) clamp(40px,6vw,90px)}
+.kick{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600}
+.kick::before{content:"";width:34px;border-top:2px dashed var(--red)}
+html[lang="ar"] .kick{font-size:16px}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(58px,9.2vw,148px);line-height:.88;margin-block:22px 10px;letter-spacing:-.02em}
+h1 em{display:block;font-style:italic;color:var(--red);padding-inline-start:.42em}
+html[lang="ar"] h1{font-family:"Reem Kufi",var(--serif);font-weight:700;font-size:clamp(54px,8.4vw,132px);line-height:1.12}
+html[lang="ar"] h1 em{font-style:normal}
+.sub{display:flex;align-items:center;gap:14px;margin-block:18px 26px}
+.seal{flex:none;width:58px;height:58px;background:var(--red);color:#fff;display:grid;place-items:center;transform:rotate(-6deg);box-shadow:3px 4px 0 var(--red-d)}
+.seal svg{width:40px;height:40px}
+.sub p{font-family:var(--serif);font-size:clamp(21px,2.2vw,30px);line-height:1.2;max-width:17em}
+html[lang="ar"] .sub p{font-family:"Reem Kufi",serif;line-height:1.5}
+.intro{max-width:34em;color:var(--soft);font-size:clamp(16px,1.25vw,18px);font-weight:300}
+html[lang="ar"] .intro{font-weight:400;font-size:clamp(17px,1.35vw,19.5px)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-block-start:28px;font-size:15px}
+.facts b{font-family:var(--serif);font-weight:400;font-size:26px;color:var(--jade);margin-inline-end:6px}
+html[lang="ar"] .facts b{font-family:"Reem Kufi",serif}
+.facts li{display:flex;align-items:baseline}
+
+.hero-art{position:relative;background:var(--red);clip-path:polygon(17% 0,100% 0,100% 100%,0 100%);min-height:420px}
+html[dir="rtl"] .hero-art{transform:scaleX(-1)}
+.hero-art .facets{position:absolute;inset:0;width:100%;height:100%}
+.sun{position:absolute;inset-inline-start:50%;inset-block-start:47%;width:min(74%,560px);aspect-ratio:1;transform:translate(-50%,-50%)}
+html[dir="rtl"] .sun{transform:translate(50%,-50%)}
+.crane{position:absolute;inset-inline-start:52%;inset-block-start:47%;width:min(88%,680px);transform:translate(-50%,-50%);filter:drop-shadow(0 26px 22px rgba(60,6,0,.38));animation:float 7s ease-in-out infinite}
+html[dir="rtl"] .crane{transform:translate(50%,-50%);animation-name:floatr}
+@keyframes float{50%{transform:translate(-50%,-53%) rotate(-1.5deg)}}
+@keyframes floatr{50%{transform:translate(50%,-53%) rotate(1.5deg)}}
+
+/* ---------- fold-step nav ---------- */
+.steps{position:relative;z-index:3;background:var(--ink);color:var(--paper);padding:26px clamp(14px,4vw,60px) 30px;clip-path:polygon(0 0,100% 18px,100% 100%,0 100%);margin-block-start:-18px}
+.steps p{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--jade-m);text-align:center;margin-block:8px 14px}
+html[lang="ar"] .steps p{font-size:15px}
+.steps ol{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);max-width:1060px;margin-inline:auto}
+.steps li{position:relative}
+.steps li+li::before{content:"";position:absolute;inset-inline-start:-18%;inset-block-start:26px;width:36%;border-top:1.5px dashed rgba(247,243,234,.45)}
+.steps a{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;padding:4px 2px;font-size:clamp(13px,1.3vw,17px);font-weight:500;text-align:center;transition:transform .3s}
+.steps a:hover{transform:translateY(-4px);color:#fff}
+.steps a svg{width:clamp(44px,5vw,60px);height:clamp(44px,5vw,60px);position:relative;z-index:1;background:var(--ink);border-radius:50%}
+.steps i{font-style:normal;font-family:var(--serif);color:var(--red-l);font-size:1.05em;margin-inline-end:.3em}
+html[lang="ar"] .steps a{font-family:"Reem Kufi",sans-serif;font-size:clamp(14px,1.4vw,18px)}
+
+/* ---------- sheets ---------- */
+.sheet{position:relative;filter:drop-shadow(0 -8px 14px rgba(29,26,23,.14))}
+.sheet+.sheet{margin-block-start:-46px}
+.in{position:relative;display:grid;grid-template-columns:minmax(250px,340px) minmax(0,1fr);gap:clamp(24px,4vw,64px);padding:clamp(84px,9vw,124px) clamp(18px,5vw,84px) clamp(96px,10vw,140px);background:var(--bg,var(--paper));color:var(--fg,var(--ink));clip-path:polygon(0 46px,100% 0,100% 100%,0 100%)}
+.sheet:nth-of-type(even) .in{clip-path:polygon(0 0,100% 46px,100% 100%,0 100%)}
+.sheet:nth-of-type(even) .in{grid-template-columns:minmax(0,1fr) minmax(250px,340px)}
+.sheet:nth-of-type(even) .fold{order:2}
+.in::after{content:"";position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(104deg,transparent 33.9%,var(--crease,rgba(29,26,23,.07)) 34%,transparent 34.3%),
+  linear-gradient(76deg,transparent 71.9%,var(--crease,rgba(29,26,23,.07)) 72%,transparent 72.3%),
+  linear-gradient(104deg,rgba(255,255,255,.0) 34%,rgba(0,0,0,.022) 34.1%,transparent 60%)}
+.fold{position:relative;align-self:start;position:sticky;inset-block-start:24px;background:var(--hb,var(--red));color:var(--hf,#fff);padding:34px 30px 74px;clip-path:polygon(0 0,100% 0,100% 72%,42% 100%,0 84%);z-index:1}
+html[dir="rtl"] .fold{clip-path:polygon(0 0,100% 0,100% 84%,58% 100%,0 72%)}
+.fold::before{content:"";position:absolute;inset:0;background:linear-gradient(118deg,rgba(255,255,255,.16) 0 38%,transparent 38.1%),linear-gradient(200deg,transparent 0 62%,rgba(0,0,0,.16) 62.1%)}
+html[dir="rtl"] .fold::before{transform:scaleX(-1)}
+.fold>*{position:relative}
+.fold .no{font-family:var(--serif);font-size:15px;letter-spacing:.2em;text-transform:uppercase;opacity:.85;display:flex;align-items:center;gap:10px}
+.fold .no b{font-weight:400;font-size:74px;line-height:.8;letter-spacing:0;opacity:1}
+html[lang="ar"] .fold .no{font-family:"Reem Kufi",serif;font-size:18px}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,3.6vw,50px);line-height:1;margin-block:18px 12px}
+html[lang="ar"] h2{font-family:"Reem Kufi",serif;font-weight:700;line-height:1.3;font-size:clamp(32px,3.3vw,46px)}
+.fold p{font-size:15.5px;font-weight:300;opacity:.95;max-width:22em}
+html[lang="ar"] .fold p{font-weight:400;font-size:17px}
+
+.items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,3.4vw,56px);align-content:start;position:relative;z-index:1}
+.it{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:4px 16px;align-items:start;padding-block:22px;background:linear-gradient(90deg,currentColor 0 9px,transparent 9px 16px) bottom/16px 1.5px repeat-x}
+.it:nth-child(4n+2),.it:nth-child(4n+3){background-image:linear-gradient(90deg,currentColor 0 12px,transparent 12px 17px,currentColor 17px 19px,transparent 19px 24px,currentColor 24px 26px,transparent 26px 31px);background-size:31px 1.5px}
+.it svg.st{width:56px;height:56px;filter:drop-shadow(0 3px 3px rgba(0,0,0,.18))}
+.it h3{font-family:var(--serif);font-weight:400;font-size:clamp(21px,1.7vw,25px);line-height:1.15}
+html[lang="ar"] .it h3{font-family:"Tajawal",sans-serif;font-weight:700;line-height:1.5;font-size:clamp(19px,1.5vw,22px)}
+.it p{font-size:15.5px;color:var(--mut,var(--soft));font-weight:300;margin-block-start:4px}
+html[lang="ar"] .it p{font-weight:400;font-size:16.5px}
+.pr{font-family:var(--serif);font-weight:400;font-size:24px;white-space:nowrap;unicode-bidi:isolate;line-height:1.15;color:var(--pc,var(--red))}
+.pr i{font-style:normal;font-family:var(--sans);font-size:11.5px;letter-spacing:.1em;font-weight:500;opacity:.8}
+html[lang="ar"] .pr i{font-family:"Tajawal",sans-serif;font-size:14px}
+.tags{grid-column:2/-1;display:flex;flex-wrap:wrap;gap:6px;margin-block-start:6px}
+.tg{font-size:12.5px;font-weight:500;padding:3px 9px 3px 8px;display:inline-flex;gap:5px;align-items:center;clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,0 100%);background:var(--tb,var(--jade-l));color:var(--tf,var(--jade-d))}
+html[lang="ar"] .tg{font-size:14px}
+.tg.pk{--tb:var(--red);--tf:#fff}
+.tg.ht{--tb:var(--ink);--tf:#fff}
+.tg.pc{--tb:transparent;--tf:inherit;box-shadow:inset 0 0 0 1px currentColor;clip-path:none;opacity:.75}
+
+/* sheet colours */
+#crisp{--bg:var(--jade-l);--hb:var(--jade);--pc:var(--jade-d);--mut:#3f5a50}
+#rolls{--bg:#fffdf8;--hb:var(--ink)}
+#sweet{--bg:var(--red);--fg:#fff;--hb:#fff;--hf:var(--red-d);--pc:#fff;--mut:#ffe9e3;--crease:rgba(255,255,255,.16);--tb:rgba(255,255,255,.2);--tf:#fff}
+#sweet .tg.pk{--tb:#fff;--tf:var(--red-d)}
+#sweet .it p{font-weight:400}
+
+/* ---------- set basket ---------- */
+.set{position:relative;z-index:2;margin:-30px clamp(14px,5vw,84px) 0;filter:drop-shadow(0 18px 24px rgba(29,26,23,.25))}
+.set-in{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(18px,3vw,48px);align-items:center;background:var(--ink);color:var(--paper);padding:clamp(28px,4vw,48px) clamp(22px,4vw,60px);clip-path:polygon(0 0,calc(100% - 54px) 0,100% 54px,100% 100%,54px 100%,0 calc(100% - 54px))}
+.set svg{width:clamp(90px,11vw,150px);height:auto}
+.set h2{margin-block:6px 8px;color:#fff}
+.set small{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--jade-m);font-weight:600}
+html[lang="ar"] .set small{font-size:16px}
+.set p{font-weight:300;max-width:44em}
+html[lang="ar"] .set p{font-weight:400}
+.set .pr{font-size:clamp(40px,4.4vw,60px);color:var(--red-l);text-align:center}
+.set .pr span{display:block;font-family:var(--sans);font-size:14px;color:var(--paper);opacity:.8}
+html[lang="ar"] .set .pr span{font-family:"Tajawal",sans-serif;font-size:16px}
+
+/* ---------- tea steamers ---------- */
+.tea{position:relative;background:var(--jade);color:#fff;padding:clamp(120px,12vw,170px) clamp(18px,5vw,84px) clamp(70px,8vw,110px);margin-block-start:-80px;clip-path:polygon(0 0,100% 60px,100% 100%,0 100%);overflow:clip}
+.tea::before{content:"";position:absolute;inset:0;background:linear-gradient(112deg,rgba(255,255,255,.07) 0 28%,transparent 28.1%),linear-gradient(248deg,rgba(0,0,0,.14) 0 22%,transparent 22.1%)}
+.tea-h{position:relative;display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:10px 40px;margin-block-end:40px}
+.tea-h .no{font-family:var(--serif);letter-spacing:.2em;text-transform:uppercase;font-size:15px;opacity:.85}
+html[lang="ar"] .tea-h .no{font-family:"Reem Kufi",serif;font-size:18px}
+.tea-h h2{font-size:clamp(40px,5vw,72px);margin:6px 0 0}
+.tea-h p{max-width:26em;font-weight:300}
+html[lang="ar"] .tea-h p{font-weight:400}
+.pots{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(14px,2vw,30px)}
+.pot{text-align:center}
+.lid{position:relative;aspect-ratio:1;border-radius:50%;display:grid;place-content:center;gap:2px;color:var(--ink);padding:14%;
+  background:radial-gradient(circle,transparent 0 61%,var(--bam-d) 61.5% 63%,transparent 63.5%),repeating-linear-gradient(90deg,#f1dcab 0 9px,#e4c888 9px 10px),var(--bam);
+  border:clamp(7px,.8vw,11px) solid #d9b872;outline:2px solid var(--bam-d);outline-offset:-2px;box-shadow:0 14px 0 -4px var(--jade-d),0 18px 24px rgba(0,0,0,.3);transition:transform .35s}
+.pot:nth-child(even) .lid{background:radial-gradient(circle,transparent 0 61%,var(--bam-d) 61.5% 63%,transparent 63.5%),repeating-linear-gradient(0deg,#f1dcab 0 9px,#e4c888 9px 10px),var(--bam)}
+.pot:hover .lid{transform:translateY(-6px) rotate(-4deg)}
+.lid h3{font-family:var(--serif);font-weight:400;font-size:clamp(17px,1.55vw,23px);line-height:1.05}
+html[lang="ar"] .lid h3{font-family:"Reem Kufi",serif;font-weight:500;line-height:1.35;font-size:clamp(17px,1.5vw,21px)}
+.lid .pr{font-size:clamp(18px,1.6vw,22px);color:var(--red-d)}
+.pot p{margin-block-start:18px;font-size:15px;font-weight:300;opacity:.95}
+html[lang="ar"] .pot p{font-weight:400;font-size:16.5px}
+
+/* ---------- footer ---------- */
+footer{background:var(--paper);padding:clamp(50px,6vw,84px) clamp(18px,5vw,84px) 40px;position:relative}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.1fr;gap:clamp(22px,3vw,48px)}
+.foot h4{font-family:var(--serif);font-weight:400;font-size:22px;margin-block-end:8px;color:var(--red)}
+html[lang="ar"] .foot h4{font-family:"Reem Kufi",serif;font-weight:700}
+.foot p,.foot li{color:var(--soft);font-size:15.5px}
+html[lang="ar"] .foot p,html[lang="ar"] .foot li{font-size:16.5px}
+.foot li{display:flex;justify-content:space-between;gap:12px;padding-block:5px;border-bottom:1px dashed rgba(29,26,23,.25)}
+.foot li span:last-child{white-space:nowrap}
+.key{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.thousand{display:flex;align-items:center;gap:16px;margin-block-start:44px;padding-block-start:22px;border-top:2px dashed rgba(29,26,23,.3);color:var(--soft);font-size:15px}
+.thousand svg{width:54px;flex:none}
+.thousand b{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--ink);display:block}
+html[lang="ar"] .thousand b{font-family:"Reem Kufi",serif}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .pots{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:40px}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-art{order:-1;height:92vw;max-height:520px;min-height:330px;clip-path:polygon(0 0,100% 0,100% 84%,0 100%)}
+  .hero-txt{padding-block-start:26px}
+  .in,.sheet:nth-of-type(even) .in{grid-template-columns:1fr;gap:10px}
+  .sheet:nth-of-type(even) .fold{order:0}
+  .fold{position:relative;inset-block-start:0;padding:26px 24px 56px;margin-inline:-4px}
+  .fold .no b{font-size:56px}
+  .fold p{max-width:none}
+  .set-in{grid-template-columns:auto 1fr;clip-path:polygon(0 0,calc(100% - 34px) 0,100% 34px,100% 100%,34px 100%,0 calc(100% - 34px))}
+  .set .pr{grid-column:1/-1;text-align:start;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+}
+@media (max-width:640px){
+  .items{grid-template-columns:1fr}
+  .it{grid-template-columns:48px minmax(0,1fr) auto;gap:4px 12px;padding-block:18px}
+  .it svg.st{width:48px;height:48px}
+  .steps{padding-inline:8px}
+  .steps a{font-size:13px}
+  html[lang="ar"] .steps a{font-size:14px}
+  .steps i{display:block;margin:0}
+  .pots{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 18px}
+  .foot{grid-template-columns:1fr}
+  .set-in{grid-template-columns:1fr}
+  .set svg{width:84px}
+  .ctl a span{display:none}
+  .ctl a{padding-inline:12px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="bk"><circle cx="28" cy="28" r="26" fill="#d9b872" stroke="#b88d4a" stroke-width="1.5"/><circle cx="28" cy="28" r="21" fill="#f6ead0" stroke="#b88d4a" stroke-width="1"/><path d="M12 22h32M9 28h38M12 34h32" stroke="#e4c888" stroke-width="1"/></g>
+    <g id="dp"><circle r="6.6" fill="#fff" stroke="#c9bfa9" stroke-width="1"/><path d="M-4 0q4-4 8 0M-2.5-2.5l1 2M0-3.4v2.4M2.5-2.5l-1 2" fill="none" stroke="#b9ae97" stroke-width=".9" stroke-linecap="round"/></g>
+    <symbol id="s4" viewBox="0 0 56 56"><use href="#bk"/><use href="#dp" x="20" y="20"/><use href="#dp" x="36" y="20"/><use href="#dp" x="20" y="36"/><use href="#dp" x="36" y="36"/></symbol>
+    <symbol id="s3" viewBox="0 0 56 56"><use href="#bk"/><use href="#dp" x="28" y="19"/><use href="#dp" x="19.5" y="34"/><use href="#dp" x="36.5" y="34"/></symbol>
+    <symbol id="s2" viewBox="0 0 56 56"><use href="#bk"/><g transform="translate(19 28) scale(1.25)"><use href="#dp"/></g><g transform="translate(37 28) scale(1.25)"><use href="#dp"/></g></symbol>
+    <symbol id="sr" viewBox="0 0 56 56"><use href="#bk"/><g fill="#fff" stroke="#c9bfa9"><rect x="13" y="16" width="30" height="7" rx="3.5"/><rect x="13" y="24.5" width="30" height="7" rx="3.5"/><rect x="13" y="33" width="30" height="7" rx="3.5"/></g></symbol>
+    <symbol id="sb" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26" fill="#fff" stroke="#d5311f" stroke-width="3"/><circle cx="28" cy="28" r="19" fill="#f3e2bd" stroke="#e2cfa3"/><path d="M17 26q5-7 11 0t11 0M17 32q5-7 11 0t11 0" fill="none" stroke="#b88d4a" stroke-width="1.6" stroke-linecap="round"/><circle cx="35" cy="21" r="2" fill="#1f6f58"/><circle cx="22" cy="37" r="1.6" fill="#d5311f"/></symbol>
+    <symbol id="cr" viewBox="0 0 64 48"><path d="M22 30 8 6l10 20z" fill="#fff"/><path d="M8 6 2 11l8-2z" fill="#d5311f"/><path d="M42 30 56 4l-8 22z" fill="#e9e3d6"/><path d="M24 29h18L28 2z" fill="#fff"/><path d="M33 29h9L28 2z" fill="#ddd6c6"/><path d="M22 30h20l-10 14z" fill="#cfc7b5"/><path d="M22 30h10v14z" fill="#f1ece0"/></symbol>
+  </defs>
+</svg>
+
+<div class="ctl">
+  <a class="home-link" href="../index.html" aria-label="All menus"><svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M0 0h6v6H0zM8 0h6v6H8zM0 8h6v6H0zM8 8h6v6H8z"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<header class="hero">
+  <div class="hero-txt">
+    <span class="kick"><span lang="en">Hand-folded since 2009</span><span lang="ar">يُطوى باليد منذ ٢٠٠٩</span></span>
+    <h1><span lang="en">Paper <em>Crane</em></span><span lang="ar">الكُركي <em>الورقي</em></span></h1>
+    <div class="sub">
+      <span class="seal" aria-hidden="true"><svg viewBox="0 0 64 48"><use href="#cr"/></svg></span>
+      <p><span lang="en">Dim sum — every dumpling a small act of origami.</span><span lang="ar">ديم سم — كل قطعة طيّة أوريغامي صغيرة.</span></p>
+    </div>
+    <p class="intro"><span lang="en">Our kitchen pleats, tucks and creases some three thousand parcels a day. They are steamed to order in bamboo and carried to your table while the lid is still breathing.</span><span lang="ar">في مطبخنا تُطوى وتُثنى نحو ثلاثة آلاف قطعة كل يوم، تُطهى على البخار عند الطلب في سلال الخيزران، وتصل إلى مائدتكم والبخار ما زال يتصاعد من تحت الغطاء.</span></p>
+    <ul class="facts">
+      <li><b>13</b><span lang="en">pleats in every har gow</span><span lang="ar">ثنية في كل قطعة هار غاو</span></li>
+      <li><b>7</b><span lang="en">minutes in the steamer</span><span lang="ar">دقائق على البخار</span></li>
+      <li><b>0</b><span lang="en">shortcuts</span><span lang="ar">طرق مختصرة</span></li>
+    </ul>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <svg class="facets" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d="M17 0h45L30 58z" fill="#e2432f"/><path d="M62 0h38v34z" fill="#c2281a"/><path d="M100 34v66H64z" fill="#b82416"/><path d="M0 100l30-42 34 42z" fill="#c92b1b"/><path d="M62 0l38 34-36 66L30 58z" fill="#d5311f"/>
+      <path d="M62 0 30 58l34 42M30 58l70-24" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width=".25" stroke-dasharray="1.4 1"/>
+    </svg>
+    <svg class="sun" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="98" fill="#15523f"/><circle cx="100" cy="100" r="86" fill="#1f6f58"/>
+      <g stroke="#15523f" stroke-width="1.6"><path d="M30 50h140M18 75h164M14 100h172M18 125h164M30 150h140"/></g>
+      <circle cx="100" cy="100" r="86" fill="none" stroke="#7fb9a0" stroke-width="1.2" stroke-dasharray="3 4"/>
+    </svg>
+    <svg class="crane" viewBox="0 0 640 470">
+      <!-- back wing -->
+      <path d="M318 262 478 34l-60 228z" fill="#d9d2c2"/><path d="M318 262 478 34 372 262z" fill="#ebe5d8"/>
+      <!-- tail -->
+      <path d="M392 286 566 96 438 262z" fill="#f3eee3"/><path d="M392 286 566 96 420 300z" fill="#cdc5b3"/>
+      <!-- neck -->
+      <path d="M252 288 112 78l94 172z" fill="#fff"/><path d="M252 288 112 78l118 216z" fill="#e2dccd"/>
+      <!-- head -->
+      <path d="M112 78 58 126l70-22z" fill="#f6f2e8"/><path d="M58 126l26-8 3-18z" fill="#1d1a17"/>
+      <!-- front wing -->
+      <path d="M238 266h196L206 22z" fill="#fff"/><path d="M330 266h104L206 22z" fill="#e6e0d2"/><path d="M238 266h92L206 22z" fill="#fbf9f3"/>
+      <path d="M206 22 330 266" stroke="#bdb5a3" stroke-width="1.2" stroke-dasharray="7 5" fill="none"/>
+      <!-- body -->
+      <path d="M230 294 252 266h168l18 34-102 122z" fill="#f4efe4"/><path d="M336 266h84l18 34-102 122z" fill="#d3ccbb"/><path d="M230 294l106 128V266h-84z" fill="#f8f5ec"/><path d="M252 266h168l18 34H230z" fill="#fff" opacity=".55"/>
+      <path d="M230 296h208" stroke="#bdb5a3" stroke-width="1.2" stroke-dasharray="7 5"/>
+    </svg>
+  </div>
+</header>
+
+<nav class="steps" aria-label="Sections">
+  <p><span lang="en">Unfold the menu in five steps</span><span lang="ar">افتحوا القائمة في خمس طيّات</span></p>
+  <ol>
+    <li><a href="#steamed"><svg viewBox="0 0 60 60" fill="none" stroke="#f7f3ea" stroke-width="1.6"><rect x="13" y="13" width="34" height="34" fill="#2c2824"/><path d="M13 47 47 13" stroke-dasharray="4 3" stroke="#e8523c"/></svg><span><i>1</i><span lang="en">Steamed</span><span lang="ar">بالبخار</span></span></a></li>
+    <li><a href="#crisp"><svg viewBox="0 0 60 60" fill="none" stroke="#f7f3ea" stroke-width="1.6"><path d="M10 46h40L30 14z" fill="#2c2824"/><path d="M30 14v32" stroke-dasharray="4 3" stroke="#e8523c"/></svg><span><i>2</i><span lang="en">Crisp</span><span lang="ar">مقرمش</span></span></a></li>
+    <li><a href="#rolls"><svg viewBox="0 0 60 60" fill="none" stroke="#f7f3ea" stroke-width="1.6"><path d="M30 8 46 26 30 52 14 26z" fill="#2c2824"/><path d="M14 26h32M30 8v44" stroke-dasharray="4 3" stroke="#e8523c"/></svg><span><i>3</i><span lang="en">Rolls</span><span lang="ar">لفائف</span></span></a></li>
+    <li><a href="#sweet"><svg viewBox="0 0 60 60" fill="none" stroke="#f7f3ea" stroke-width="1.6"><path d="M30 10 40 30 30 50 20 30z" fill="#2c2824"/><path d="M20 30 8 18M40 30l12-12" /><path d="M20 30h20" stroke-dasharray="4 3" stroke="#e8523c"/></svg><span><i>4</i><span lang="en">Sweet</span><span lang="ar">حلو</span></span></a></li>
+    <li><a href="#tea"><svg viewBox="-6 -6 76 60"><use href="#cr"/></svg><span><i>5</i><span lang="en">Tea</span><span lang="ar">شاي</span></span></a></li>
+  </ol>
+</nav>
+
+<main>
+<section class="sheet" id="steamed"><div class="in">
+  <header class="fold">
+    <span class="no"><b>1</b><span lang="en">First fold</span><span lang="ar">الطيّة الأولى</span></span>
+    <h2><span lang="en">Steamed in Bamboo</span><span lang="ar">على بخار الخيزران</span></h2>
+    <p><span lang="en">Thin skins, quick heat. Each basket leaves the steamer the moment it is ready — please eat it the same way.</span><span lang="ar">عجينة رقيقة وحرارة سريعة. تخرج كل سلة من البخار لحظة نضجها، فتناولوها ساخنة كما هي.</span></p>
+  </header>
+  <ul class="items">
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#s4"/></svg><div><h3><span lang="en">Har Gow</span><span lang="ar">هار غاو</span></h3><p><span lang="en">Crystal prawn dumplings with bamboo shoot, the skin pleated thirteen times and thin enough to blush.</span><span lang="ar">زلابية الروبيان الشفّافة مع براعم الخيزران، بعجينة رقيقة تُثنى ثلاث عشرة ثنية حتى يشفّ لونها الوردي.</span></p></div><b class="pr">34 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg pk"><span lang="en">Chef's fold</span><span lang="ar">طيّة الشيف</span></span><span class="tg pc"><span lang="en">4 pieces</span><span lang="ar">4 قطع</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#s4"/></svg><div><h3><span lang="en">Chicken &amp; Prawn Siu Mai</span><span lang="ar">سيو ماي الدجاج والروبيان</span></h3><p><span lang="en">Open-topped parcels of hand-chopped chicken, prawn and shiitake, crowned with orange tobiko.</span><span lang="ar">قطع مفتوحة من الدجاج المفروم يدويًا والروبيان وفطر الشيتاكي، يعلوها بطارخ التوبيكو البرتقالي.</span></p></div><b class="pr">32 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg pc"><span lang="en">4 pieces</span><span lang="ar">4 قطع</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#s4"/></svg><div><h3><span lang="en">Short-Rib Soup Dumplings</span><span lang="ar">زلابية الحساء بضلع البقر</span></h3><p><span lang="en">Xiao long bao filled with braised beef and its own hot broth. Nip, sip, then dip in ginger black vinegar.</span><span lang="ar">شياو لونغ باو محشوّة بلحم البقر المطهو ببطء ومرقه الساخن. اقضموا طرفها، ارتشفوا المرق، ثم اغمسوها في خل الزنجبيل الأسود.</span></p></div><b class="pr">36 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg pc"><span lang="en">4 pieces</span><span lang="ar">4 قطع</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#s3"/></svg><div><h3><span lang="en">Jade Garden Dumplings</span><span lang="ar">زلابية حديقة اليشم</span></h3><p><span lang="en">Spinach-green skins around king oyster mushroom, water chestnut and sweet garlic chive.</span><span lang="ar">عجينة خضراء بالسبانخ تحتضن فطر المحار الملكي وكستناء الماء والثوم المعمّر الحلو.</span></p></div><b class="pr">28 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg"><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span><span class="tg pc"><span lang="en">3 pieces</span><span lang="ar">3 قطع</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#s3"/></svg><div><h3><span lang="en">Scallop &amp; Chive Crystals</span><span lang="ar">بلّورات الإسكالوب والثوم المعمّر</span></h3><p><span lang="en">A whole scallop on a prawn cushion, folded like a purse and tied with a ribbon of chive.</span><span lang="ar">حبة إسكالوب كاملة فوق وسادة من الروبيان، تُطوى كصُرّة صغيرة وتُربط بخيط من الثوم المعمّر.</span></p></div><b class="pr">38 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg pc"><span lang="en">3 pieces</span><span lang="ar">3 قطع</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#s2"/></svg><div><h3><span lang="en">Lotus Leaf Sticky Rice</span><span lang="ar">أرز لزج بورق اللوتس</span></h3><p><span lang="en">Glutinous rice, chicken thigh, dried scallop and salted egg yolk, wrapped and steamed in a lotus leaf.</span><span lang="ar">أرز دبِق مع فخذ الدجاج والإسكالوب المجفّف وصفار البيض المملّح، يُلفّ في ورقة لوتس ويُطهى على البخار.</span></p></div><b class="pr">30 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg pc"><span lang="en">2 parcels</span><span lang="ar">لفّتان</span></span></div></li>
+  </ul>
+</div></section>
+
+<section class="sheet" id="crisp"><div class="in">
+  <header class="fold">
+    <span class="no"><b>2</b><span lang="en">Second fold</span><span lang="ar">الطيّة الثانية</span></span>
+    <h2><span lang="en">Crisp &amp; Golden</span><span lang="ar">مقرمش وذهبي</span></h2>
+    <p><span lang="en">From the fryer, the griddle and the oven: the pieces that crackle when you fold them in half.</span><span lang="ar">من المقلاة والصاج والفرن: قطع تُسمَع قرمشتها حين تُثنى نصفين.</span></p>
+  </header>
+  <ul class="items">
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#s3"/></svg><div><h3><span lang="en">Baked Honey Chicken Buns</span><span lang="ar">خبز الدجاج بالعسل المخبوز</span></h3><p><span lang="en">Our char siu, made with honey-roast chicken, under a crackled sugar crust that shatters like thin ice.</span><span lang="ar">حشوة «تشار سيو» بالدجاج المشوي بالعسل، تحت قشرة سكّرية متشقّقة تتكسّر كالجليد الرقيق.</span></p></div><b class="pr">30 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg pk"><span lang="en">Chef's fold</span><span lang="ar">طيّة الشيف</span></span><span class="tg pc"><span lang="en">3 pieces</span><span lang="ar">3 قطع</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#s4"/></svg><div><h3><span lang="en">Sesame Prawn Toast Triangles</span><span lang="ar">مثلّثات توست الروبيان بالسمسم</span></h3><p><span lang="en">Minced prawn on milk bread, cut corner to corner, rolled in sesame and fried until it sings.</span><span lang="ar">روبيان مفروم على خبز الحليب، يُقطع من الزاوية إلى الزاوية، يُغطّى بالسمسم ويُقلى حتى يصير ذهبيًا.</span></p></div><b class="pr">29 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg pc"><span lang="en">4 pieces</span><span lang="ar">4 قطع</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#s3"/></svg><div><h3><span lang="en">Lace Taro Puffs</span><span lang="ar">فطائر القلقاس المخرّمة</span></h3><p><span lang="en">Mashed taro wrapped around roast duck and mushroom, fried into a fragile golden honeycomb.</span><span lang="ar">قلقاس مهروس يحيط بالبط المشوي والفطر، يُقلى حتى يتحوّل إلى قرص عسل ذهبي هشّ.</span></p></div><b class="pr">31 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg pc"><span lang="en">3 pieces</span><span lang="ar">3 قطع</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#sr"/></svg><div><h3><span lang="en">Pan-Seared Turnip Cake</span><span lang="ar">كعكة اللفت المحمّرة</span></h3><p><span lang="en">Soft daikon cake with dried shrimp and smoked beef, seared on both faces, served with house XO sauce.</span><span lang="ar">كعكة طرية من الفجل الأبيض مع الروبيان المجفّف ولحم البقر المدخّن، تُحمَّر على الوجهين وتُقدَّم مع صلصة XO الخاصة بنا.</span></p></div><b class="pr">26 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg ht"><span lang="en">A little heat</span><span lang="ar">حرارة خفيفة</span></span><span class="tg pc"><span lang="en">3 slices</span><span lang="ar">3 شرائح</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#sr"/></svg><div><h3><span lang="en">Garden Spring Rolls</span><span lang="ar">لفائف الربيع بالخضار</span></h3><p><span lang="en">Cabbage, carrot, wood-ear mushroom and glass noodles in a wrapper rolled tight as a scroll.</span><span lang="ar">ملفوف وجزر وفطر أذن الخشب وشعيرية زجاجية في رقاقة تُلفّ بإحكام كلفيفة ورق.</span></p></div><b class="pr">24 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg"><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span><span class="tg pc"><span lang="en">3 rolls</span><span lang="ar">3 لفائف</span></span></div></li>
+  </ul>
+</div></section>
+
+<section class="sheet" id="rolls"><div class="in">
+  <header class="fold">
+    <span class="no"><b>3</b><span lang="en">Third fold</span><span lang="ar">الطيّة الثالثة</span></span>
+    <h2><span lang="en">Rice Rolls &amp; Noodles</span><span lang="ar">لفائف الأرز والنودلز</span></h2>
+    <p><span lang="en">Sheets of steamed rice batter, folded in thirds while still trembling, and noodles tossed over a roaring wok.</span><span lang="ar">صفائح من عجين الأرز المطهو بالبخار تُطوى أثلاثًا وهي ما زالت ترتجف، ونودلز تُقلَّب فوق لهب المقلاة العالي.</span></p>
+  </header>
+  <ul class="items">
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#sr"/></svg><div><h3><span lang="en">Prawn Cheung Fun</span><span lang="ar">تشونغ فان بالروبيان</span></h3><p><span lang="en">Silky rice rolls around whole prawns and yellow chive; warm sweet soy is poured at the table.</span><span lang="ar">لفائف أرز حريرية حول حبّات روبيان كاملة وثوم معمّر أصفر، يُسكب عليها صوص الصويا الحلو الدافئ أمامكم.</span></p></div><b class="pr">36 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg pc"><span lang="en">3 rolls</span><span lang="ar">3 لفائف</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#sr"/></svg><div><h3><span lang="en">Crisp-Inside Beef Roll</span><span lang="ar">لفافة البقر المقرمشة من الداخل</span></h3><p><span lang="en">Soft rice sheet, a crackling fried layer, then tender beef with coriander. Three textures in one fold.</span><span lang="ar">رقاقة أرز طرية، تليها طبقة مقلية مقرمشة، ثم لحم بقر طري بالكزبرة. ثلاثة قوامات في طيّة واحدة.</span></p></div><b class="pr">38 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg pk"><span lang="en">Chef's fold</span><span lang="ar">طيّة الشيف</span></span><span class="tg pc"><span lang="en">3 rolls</span><span lang="ar">3 لفائف</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#sb"/></svg><div><h3><span lang="en">Dan Dan Noodles</span><span lang="ar">نودلز دان دان</span></h3><p><span lang="en">Hand-pulled wheat noodles, minced chicken, roasted sesame, pickled mustard greens and numbing Sichuan pepper.</span><span lang="ar">نودلز قمح مسحوبة يدويًا مع دجاج مفروم وسمسم محمّص وخردل مخلّل وفلفل سيتشوان اللاذع.</span></p></div><b class="pr">34 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg ht"><span lang="en">Hot</span><span lang="ar">حار</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#sb"/></svg><div><h3><span lang="en">Wok-Breath Beef Ho Fun</span><span lang="ar">هو فان البقر بنَفَس المقلاة</span></h3><p><span lang="en">Wide rice noodles, seared beef fillet, bean sprouts and spring onion, tossed until smoky at the edges.</span><span lang="ar">نودلز أرز عريضة مع فيليه بقر محمّر وبراعم الفاصولياء والبصل الأخضر، تُقلَّب حتى تكتسب أطرافها نكهة الدخان.</span></p></div><b class="pr">44 <i lang="en">AED</i><i lang="ar">د.إ</i></b></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#sb"/></svg><div><h3><span lang="en">Ginger &amp; Scallion Congee</span><span lang="ar">عصيدة الأرز بالزنجبيل والبصل الأخضر</span></h3><p><span lang="en">Rice simmered for four hours until it gives up, finished with fried dough twists and white pepper.</span><span lang="ar">أرز يُطهى على نار هادئة أربع ساعات حتى يذوب تمامًا، ويُقدَّم مع أصابع العجين المقلية والفلفل الأبيض.</span></p></div><b class="pr">26 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg"><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span></div></li>
+  </ul>
+</div></section>
+
+<section class="sheet" id="sweet"><div class="in">
+  <header class="fold">
+    <span class="no"><b>4</b><span lang="en">Fourth fold</span><span lang="ar">الطيّة الرابعة</span></span>
+    <h2><span lang="en">The Sweet Crease</span><span lang="ar">الثنية الحلوة</span></h2>
+    <p><span lang="en">Small, warm and not too sweet. Order them with the last pot of tea, not after it.</span><span lang="ar">صغيرة ودافئة وحلاوتها معتدلة. اطلبوها مع آخر إبريق شاي، لا بعده.</span></p>
+  </header>
+  <ul class="items">
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#s3"/></svg><div><h3><span lang="en">Molten Custard Buns</span><span lang="ar">خبز الكاسترد السائل</span></h3><p><span lang="en">Snow-white buns hiding a lava of salted egg yolk custard. Tear slowly; it runs.</span><span lang="ar">خبز ناصع البياض يخفي في قلبه كاسترد صفار البيض المملّح السائل. افتحوه على مهل فهو يسيل.</span></p></div><b class="pr">26 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg pk"><span lang="en">Chef's fold</span><span lang="ar">طيّة الشيف</span></span><span class="tg pc"><span lang="en">3 pieces</span><span lang="ar">3 قطع</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#s3"/></svg><div><h3><span lang="en">Egg Custard Tarts</span><span lang="ar">تارت كاسترد البيض</span></h3><p><span lang="en">Seventy-two layers of pastry and a barely set custard, baked every hour on the hour.</span><span lang="ar">اثنتان وسبعون طبقة من العجين المورّق وكاسترد بالكاد يتماسك، تُخبز طازجة كل ساعة.</span></p></div><b class="pr">24 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg pc"><span lang="en">3 pieces</span><span lang="ar">3 قطع</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#s3"/></svg><div><h3><span lang="en">Sesame Balls</span><span lang="ar">كرات السمسم</span></h3><p><span lang="en">Hollow, chewy rice spheres with a sweet red bean centre, rolled in toasted white sesame.</span><span lang="ar">كرات أرز مجوّفة مطاطية القوام بقلب من الفاصولياء الحمراء الحلوة، مغطّاة بالسمسم الأبيض المحمّص.</span></p></div><b class="pr">20 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg"><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span><span class="tg pc"><span lang="en">3 pieces</span><span lang="ar">3 قطع</span></span></div></li>
+    <li class="it"><svg class="st" aria-hidden="true"><use href="#sb"/></svg><div><h3><span lang="en">Mango Pomelo Sago</span><span lang="ar">ساغو المانجو والبوميلو</span></h3><p><span lang="en">Chilled Alphonso mango cream with tapioca pearls and bursts of pink pomelo.</span><span lang="ar">كريمة مانجو ألفونسو المبرّدة مع لآلئ التابيوكا وحبّات البوميلو الوردي.</span></p></div><b class="pr">22 <i lang="en">AED</i><i lang="ar">د.إ</i></b>
+      <div class="tags"><span class="tg"><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span></div></li>
+  </ul>
+</div></section>
+</main>
+
+<aside class="set"><div class="set-in">
+  <svg viewBox="0 0 150 130" aria-hidden="true"><g stroke="#b88d4a" stroke-width="2"><rect x="15" y="84" width="120" height="30" rx="6" fill="#d9b872"/><rect x="15" y="52" width="120" height="30" rx="6" fill="#e9cf98"/><rect x="15" y="20" width="120" height="30" rx="6" fill="#d9b872"/><path d="M15 99h120M15 67h120M15 35h120" stroke-width="1"/></g><path d="M52 14q-8-8 0-14M75 12q-8-8 0-14M98 14q-8-8 0-14" transform="translate(0 4)" fill="none" stroke="#7fb9a0" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <div>
+    <small><span lang="en">Set for two · chef's choice</span><span lang="ar">قائمة لشخصين · من اختيار الشيف</span></small>
+    <h2><span lang="en">The Thousand-Crane Basket</span><span lang="ar">سلّة الألف كُركي</span></h2>
+    <p><span lang="en">Eight baskets stacked three high: five steamed, two crisp and one sweet, chosen by the kitchen this morning, with a pot of any tea, refilled as long as you stay.</span><span lang="ar">ثماني سلال مرصوصة فوق بعضها: خمس بالبخار واثنتان مقرمشتان وواحدة حلوة، يختارها المطبخ كل صباح، مع إبريق من أي شاي يُعاد ملؤه ما دمتم على المائدة.</span></p>
+  </div>
+  <b class="pr">185 <i lang="en">AED</i><i lang="ar">د.إ</i><span><span lang="en">for two guests</span><span lang="ar">لشخصين</span></span></b>
+</div></aside>
+
+<section class="tea" id="tea">
+  <div class="tea-h">
+    <div><span class="no"><span lang="en">Fifth fold</span><span lang="ar">الطيّة الخامسة</span></span>
+    <h2><span lang="en">Lift the Lid: Tea</span><span lang="ar">ارفعوا الغطاء: الشاي</span></h2></div>
+    <p><span lang="en">Yum cha means “drink tea”. The dumplings are, strictly speaking, the side dish. Priced per pot.</span><span lang="ar">«يَم تشا» تعني «اشربوا الشاي»، أما الديم سم فهو في الأصل طبق جانبي. الأسعار للإبريق الواحد.</span></p>
+  </div>
+  <ul class="pots">
+    <li class="pot"><div class="lid"><h3><span lang="en">Jasmine Pearls</span><span lang="ar">لآلئ الياسمين</span></h3><b class="pr">18 <i lang="en">AED</i><i lang="ar">د.إ</i></b></div><p><span lang="en">Hand-rolled green tea that unfurls in the pot.</span><span lang="ar">شاي أخضر ملفوف يدويًا يتفتّح داخل الإبريق.</span></p></li>
+    <li class="pot"><div class="lid"><h3><span lang="en">Iron Goddess Oolong</span><span lang="ar">أولونغ تيغوانيين</span></h3><b class="pr">22 <i lang="en">AED</i><i lang="ar">د.إ</i></b></div><p><span lang="en">Orchid-scented, buttery, long on the tongue.</span><span lang="ar">بعبير الأوركيد وقوام ناعم ومذاق يطول.</span></p></li>
+    <li class="pot"><div class="lid"><h3><span lang="en">Aged Pu‑erh</span><span lang="ar">بو-إير معتّق</span></h3><b class="pr">26 <i lang="en">AED</i><i lang="ar">د.إ</i></b></div><p><span lang="en">Ten years in the cake. Dark, earthy, made for fried things.</span><span lang="ar">معتّق عشر سنوات. داكن وترابي، رفيق المقليات.</span></p></li>
+    <li class="pot"><div class="lid"><h3><span lang="en">Dragon Well</span><span lang="ar">بئر التنّين</span></h3><b class="pr">24 <i lang="en">AED</i><i lang="ar">د.إ</i></b></div><p><span lang="en">Pan-fired spring leaves with a chestnut sweetness.</span><span lang="ar">أوراق ربيعية محمّصة بحلاوة تشبه الكستناء.</span></p></li>
+    <li class="pot"><div class="lid"><h3><span lang="en">Chrysan&shy;themum</span><span lang="ar">الأقحوان</span></h3><b class="pr">16 <i lang="en">AED</i><i lang="ar">د.إ</i></b></div><p><span lang="en">Whole golden flowers with rock sugar. Caffeine-free.</span><span lang="ar">أزهار ذهبية كاملة مع سكر النبات. خالٍ من الكافيين.</span></p></li>
+    <li class="pot"><div class="lid"><h3><span lang="en">Iced Lychee Black</span><span lang="ar">شاي الليتشي المثلّج</span></h3><b class="pr">20 <i lang="en">AED</i><i lang="ar">د.إ</i></b></div><p><span lang="en">Cold-brewed black tea, lychee and a squeeze of lime.</span><span lang="ar">شاي أسود منقوع على البارد مع الليتشي وعصرة ليمون أخضر.</span></p></li>
+  </ul>
+</section>
+
+<footer>
+  <div class="foot">
+    <div><h4><span lang="en">Find the crane</span><span lang="ar">أين تجدوننا</span></h4><p><span lang="en">Level 2, The Paper Mill Courtyard<br>14 Lantern Street, Al Quoz, Dubai</span><span lang="ar">الطابق الثاني، ساحة مصنع الورق<br>14 شارع الفوانيس، القوز، دبي</span></p><p dir="ltr" style="margin-block-start:8px;unicode-bidi:plaintext">+971 4 555 0136</p></div>
+    <div><h4><span lang="en">Hours</span><span lang="ar">ساعات العمل</span></h4><ul>
+      <li><span lang="en">Sat – Thu</span><span lang="ar">السبت – الخميس</span><span dir="ltr">11:00 – 23:00</span></li>
+      <li><span lang="en">Friday</span><span lang="ar">الجمعة</span><span dir="ltr">13:00 – 00:00</span></li>
+      <li><span lang="en">Yum cha brunch</span><span lang="ar">برنش يَم تشا</span><span dir="ltr">11:00 – 15:00</span></li></ul></div>
+    <div><h4><span lang="en">Reading the tags</span><span lang="ar">دليل الرموز</span></h4><div class="key">
+      <span class="tg pk"><span lang="en">Chef's fold — the ones we are proudest of</span><span lang="ar">طيّة الشيف — أكثر ما نفخر به</span></span>
+      <span class="tg"><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span>
+      <span class="tg ht"><span lang="en">Chilli heat</span><span lang="ar">حار</span></span></div></div>
+    <div><h4><span lang="en">Allergens</span><span lang="ar">مسبّبات الحساسية</span></h4><p><span lang="en">Our kitchen handles shellfish, wheat, soy, sesame, egg and nuts. No pork or alcohol is used anywhere. Tell your server what to leave out; prices include VAT.</span><span lang="ar">يتعامل مطبخنا مع القشريات والقمح والصويا والسمسم والبيض والمكسرات. لا نستخدم لحم الخنزير ولا الكحول إطلاقًا. أخبروا النادل بما تودّون استبعاده؛ الأسعار تشمل ضريبة القيمة المضافة.</span></p></div>
+  </div>
+  <div class="thousand"><svg viewBox="0 0 64 48" aria-hidden="true" style="filter:drop-shadow(0 2px 2px rgba(0,0,0,.3))"><use href="#cr"/></svg><p><b><span lang="en">Fold your receipt.</span><span lang="ar">اطووا فاتورتكم.</span></b><span lang="en">Ask for the diagram, leave a crane, and we will hang it above the pass with the other 4,812.</span><span lang="ar">اطلبوا رسم الطيّ واتركوا لنا كُركيًا، وسنعلّقه فوق نافذة المطبخ مع 4,812 كُركيًا آخر.</span></p></div>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

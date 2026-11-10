@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Stack · ستاك</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Stack — an all-day pancake house. Buttermilk stacks, savoury towers, wobbling soufflés and maple by the jug. ستاك: بيت البان كيك طوال اليوم، أكوام باللبن الرائب وأبراج مالحة وسوفليه مرتجف.">
+<meta name="theme-color" content="#ffd447">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--ink:#241a4a;--cream:#fff6e0;--sun:#ffd447;--sun-d:#e9b312;--coral:#ff6f61;--coral-d:#d94a3d;--blue:#5566f2;--blue-d:#3643bd;--mint:#22c79a;--mint-d:#12976f;--syr:#8a4b1c;--syr-d:#5c2e0c;--pan:#f2a94e;
+  --f:"Fredoka","Baloo Bhaijaan 2","Trebuchet MS","Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);font-size:17px;line-height:1.45;color:var(--ink);background-color:var(--cream);overflow-x:clip;-webkit-font-smoothing:antialiased;
+  background-image:repeating-linear-gradient(26.565deg,transparent 0 47px,rgba(36,26,74,.055) 47px 49px),repeating-linear-gradient(-26.565deg,transparent 0 47px,rgba(36,26,74,.055) 47px 49px)}
+html[lang="ar"]{--f:"Baloo Bhaijaan 2","Fredoka","Tahoma",sans-serif}
+html[lang="ar"] body{font-size:18px;line-height:1.6}
+html[lang="ar"] *{letter-spacing:0 !important}
+ul{list-style:none}a{color:inherit;text-decoration:none}
+.defs{position:absolute;width:0;height:0}
+
+/* controls: two little slabs */
+.ctl{position:fixed;z-index:60;top:12px;inset-inline-end:12px;display:flex;gap:8px}
+.ctl a,.ctl button{font:600 14px/1 var(--f);color:var(--ink);background:#fff;border:0;border-radius:12px;padding:10px 13px;cursor:pointer;box-shadow:0 5px 0 #cfc3a3,6px 12px 14px rgba(36,26,74,.22);display:flex;align-items:center;gap:7px;transition:transform .15s,box-shadow .15s}
+.ctl button{background:var(--ink);color:#fff;box-shadow:0 5px 0 #0e0828,6px 12px 14px rgba(36,26,74,.22)}
+.ctl a:hover,.ctl button:hover{transform:translateY(3px);box-shadow:0 2px 0 #0e0828}
+.ctl a:focus-visible,.ctl button:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.ctl svg{width:14px;height:14px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--sun);overflow:hidden;border-radius:0 0 56px 56px;box-shadow:0 26px 0 var(--sun-d),0 70px 60px -20px rgba(36,26,74,.3);z-index:6}
+.hero-in{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:20px;padding:clamp(76px,8vw,110px) clamp(20px,4vw,56px) clamp(40px,5vw,70px)}
+.tag{display:inline-block;font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;background:#fff;border-radius:999px;padding:8px 16px;box-shadow:0 4px 0 var(--sun-d)}
+html[lang="ar"] .tag{font-size:16px}
+h1{font-weight:700;font-size:clamp(88px,15.5vw,230px);line-height:.86;letter-spacing:-.02em;color:#fff;margin:.2em 0 .32em;
+  text-shadow:0 .055em 0 var(--coral),0 .11em 0 var(--blue),0 .165em 0 var(--mint),0 .22em 0 var(--ink),.12em .42em .14em rgba(36,26,74,.25)}
+html[lang="ar"] h1{font-weight:800;line-height:1.05;margin:.02em 0 .3em;font-size:clamp(96px,16vw,240px)}
+.lede{font-size:clamp(20px,2.3vw,28px);font-weight:500;line-height:1.25;max-width:19em}
+.hero p.intro{margin-top:14px;max-width:32em;font-size:clamp(16px,1.3vw,18px)}
+html[lang="ar"] .hero p.intro{font-size:clamp(17px,1.4vw,19px)}
+.art{position:relative;aspect-ratio:1/0.92;min-width:0}
+.floor{position:absolute;left:50%;top:60%;width:88%;aspect-ratio:1;display:grid;grid-template-columns:repeat(4,1fr);gap:5%;transform:translate(-50%,-50%) rotateX(60deg) rotateZ(45deg)}
+.floor i{position:relative;border-radius:14%;background:#fff3c4;box-shadow:1px 1px 0 var(--sun-d),2px 2px 0 var(--sun-d),3px 3px 0 var(--sun-d),4px 4px 0 var(--sun-d),5px 5px 0 var(--sun-d),6px 6px 0 var(--sun-d),7px 7px 0 var(--sun-d),8px 8px 0 var(--sun-d)}
+.floor i.up{--c:var(--coral);--d:var(--coral-d);background:var(--c);transform:translate(-38%,-38%);box-shadow:1px 1px 0 var(--d),3px 3px 0 var(--d),5px 5px 0 var(--d),7px 7px 0 var(--d),9px 9px 0 var(--d),11px 11px 0 var(--d),13px 13px 0 var(--d),60px 60px 18px rgba(36,26,74,.22);animation:bob 5s ease-in-out infinite}
+.floor i.b{--c:var(--blue);--d:var(--blue-d);animation-delay:-1.6s}.floor i.m{--c:var(--mint);--d:var(--mint-d);animation-delay:-3.1s}.floor i.w{--c:#fff;--d:#d9cfae;animation-delay:-2.3s}
+@keyframes bob{50%{transform:translate(-52%,-52%)}}
+.pile{position:absolute;left:50%;top:50%;width:54%;transform:translate(-50%,-56%);overflow:visible}
+
+/* ---------- body layout: stack-nav rail + layers ---------- */
+.body{max-width:1380px;margin:0 auto;padding:clamp(70px,8vw,120px) clamp(12px,3vw,40px) 60px;display:grid;grid-template-columns:190px minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:start}
+.rail{position:sticky;top:24px;display:grid;justify-items:center;padding-top:8px}
+.rail small{font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px;opacity:.7}
+html[lang="ar"] .rail small{font-size:16px}
+.rail a{--c:var(--coral);--d:var(--coral-d);position:relative;display:grid;place-items:center;width:100%;min-height:50px;padding:6px 10px;border-radius:999px;background:var(--c);color:#fff;font-weight:600;font-size:15.5px;text-align:center;line-height:1.1;box-shadow:0 10px 0 var(--d);margin-bottom:14px;transition:transform .18s}
+.rail a:nth-of-type(2){--c:var(--blue);--d:var(--blue-d);width:92%}.rail a:nth-of-type(3){--c:var(--mint);--d:var(--mint-d);width:97%}
+.rail a:nth-of-type(4){--c:#fff;--d:#d9cfae;color:var(--ink);width:90%}.rail a:nth-of-type(5){--c:var(--syr);--d:var(--syr-d);width:95%}
+.rail a:hover{transform:translateY(-5px)}
+.rail .plate{width:112%;height:26px;border-radius:50%;background:#fff;box-shadow:0 7px 0 #d9cfae,10px 26px 22px rgba(36,26,74,.25);margin-top:-8px}
+.layers{display:grid;gap:clamp(64px,7vw,96px);min-width:0}
+.layer{--c:var(--coral);--d:var(--coral-d);--t:#fff;position:relative;border-radius:clamp(28px,4vw,48px);background:var(--c);color:var(--t);padding:clamp(22px,3.4vw,48px);padding-bottom:clamp(34px,4vw,60px);box-shadow:0 22px 0 var(--d),30px 70px 50px -14px rgba(36,26,74,.3);scroll-margin-top:20px}
+.l2{--c:var(--blue);--d:var(--blue-d)}.l3{--c:var(--mint);--d:var(--mint-d);--t:var(--ink)}.l4{--c:#fff;--d:#d9cfae;--t:var(--ink)}.l5{--c:var(--syr);--d:var(--syr-d)}
+.lh{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 22px;margin-bottom:clamp(44px,5vw,64px)}
+.lh b{font-weight:700;font-size:clamp(64px,8vw,112px);line-height:.8;color:var(--c);-webkit-text-stroke:0;text-shadow:0 0 0 #fff;filter:none;color:rgba(255,255,255,.28)}
+.l3 .lh b,.l4 .lh b{color:rgba(36,26,74,.16)}
+.lh h2{font-weight:700;font-size:clamp(34px,5vw,64px);line-height:1;text-shadow:0 .07em 0 var(--d)}
+html[lang="ar"] .lh h2{font-weight:800;line-height:1.2}
+.l4 .lh h2{text-shadow:0 .07em 0 #e6dcbd}
+.lh p{flex:1 1 240px;font-weight:500;font-size:clamp(16px,1.4vw,19px);max-width:30em;padding-bottom:6px}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:54px clamp(16px,2vw,26px)}
+.tile{position:relative;display:flex;flex-direction:column;background:#fff;color:var(--ink);border-radius:22px;padding:22px 20px 18px;min-height:100%;box-shadow:0 9px 0 rgba(36,26,74,.22),14px 30px 24px -6px rgba(36,26,74,.28);transition:transform .22s}
+.l4 .tile{background:var(--cream)}
+.tile:hover{transform:translateY(-6px)}
+.ms{position:absolute;top:-40px;inset-inline-end:10px;width:88px;height:102px;overflow:visible;filter:drop-shadow(8px 10px 0 rgba(36,26,74,.14))}
+.tile h3{font-weight:600;font-size:22px;line-height:1.12;padding-inline-end:84px;min-height:2.3em}
+html[lang="ar"] .tile h3{font-weight:700;font-size:23px;line-height:1.3}
+.tile p{margin:8px 0 16px;font-size:16px;color:#4b4370;flex:1}
+html[lang="ar"] .tile p{font-size:17px}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pr{font-weight:700;font-size:20px;background:var(--sun);border-radius:12px;padding:5px 12px 4px;box-shadow:0 4px 0 var(--sun-d);unicode-bidi:isolate;white-space:nowrap}
+.pr small{font-weight:600;font-size:12px;margin-inline-start:4px}
+html[lang="ar"] .pr small{font-size:14px}
+.bd{font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--ink);border-radius:999px;padding:5px 10px}
+html[lang="ar"] .bd{font-size:14px}
+.bd.hot{background:var(--coral-d)}
+@media(min-width:700px){.tiles>li:nth-child(even){transform:translateY(22px)}}
+/* small tiles for sides & drinks */
+.minis{grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:22px clamp(16px,2vw,26px)}
+.minis>li:nth-child(even){transform:none}
+.minis .tile{display:grid;grid-template-columns:54px 1fr auto;align-items:center;gap:4px 14px;padding:14px 16px}
+.minis .tile svg{grid-row:1/3;width:54px;height:54px;overflow:visible}
+.minis .tile h3{padding:0;min-height:0;font-size:19px}
+html[lang="ar"] .minis .tile h3{font-size:20px}
+.minis .tile p{grid-column:2;margin:0;font-size:15px}
+html[lang="ar"] .minis .tile p{font-size:16px}
+.minis .pr{grid-row:1/3;grid-column:3}
+
+/* how tall? */
+.tall{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 6px;align-content:space-between;background:rgba(36,26,74,.18);border-radius:22px;padding:18px 10px 16px;border:3px dashed rgba(255,255,255,.55)}
+.tall>p{grid-column:1/-1;font-weight:600;font-size:clamp(18px,1.8vw,22px);text-align:center}
+.tall div{display:grid;justify-items:center;text-align:center;align-content:end;gap:2px;font-weight:600}
+.tall svg{width:clamp(56px,6vw,74px);height:auto;overflow:visible}
+.tall div>span{font-size:15px;line-height:1.2}.tall div>span:last-child{font-size:13.5px;font-weight:500;opacity:.92}
+
+/* ---------- footer ---------- */
+footer{position:relative;background:var(--ink);color:#fff;border-radius:56px 56px 0 0;margin-top:40px;padding:clamp(50px,6vw,84px) clamp(20px,4vw,56px) 30px;
+  background-image:repeating-linear-gradient(26.565deg,transparent 0 47px,rgba(255,255,255,.05) 47px 49px),repeating-linear-gradient(-26.565deg,transparent 0 47px,rgba(255,255,255,.05) 47px 49px)}
+.fg{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:clamp(16px,2.4vw,30px);align-items:start}
+.fg h2{font-weight:700;font-size:clamp(56px,8vw,110px);line-height:.9;color:var(--sun);text-shadow:0 .06em 0 var(--coral),0 .12em 0 var(--blue)}
+html[lang="ar"] .fg h2{font-weight:800;line-height:1.15}
+.fg>div:first-child p{margin-top:28px;max-width:18em;font-weight:500}
+.ft{background:#33286a;border-radius:22px;padding:20px;box-shadow:0 9px 0 #150d33}
+.ft:nth-child(3){transform:translateY(24px)}
+.ft h3{font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--sun);margin-bottom:8px}
+html[lang="ar"] .ft h3{font-size:18px}
+.ft p{font-size:16px;color:#e4defa}
+.ft li{display:flex;justify-content:space-between;gap:10px;font-size:16px;color:#e4defa}
+.fine{max-width:1280px;margin:54px auto 0;font-size:14.5px;color:#a79fd0;text-align:center}
+
+@media(max-width:1020px){
+  .body{grid-template-columns:minmax(0,1fr)}
+  .rail{position:static;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;justify-items:stretch;padding:0}
+  .rail small,.rail .plate{display:none}
+  .rail a,.rail a:nth-of-type(n){width:auto;margin:0;font-size:14px;border-radius:16px;min-height:54px;padding:6px 4px;box-shadow:0 7px 0 var(--d)}
+  .fg{grid-template-columns:1fr 1fr}.fg>div:first-child{grid-column:1/-1}.ft:nth-child(3){transform:none}
+}
+@media(max-width:760px){
+  .hero-in{grid-template-columns:minmax(0,1fr);padding-top:70px;gap:0}
+  .art{order:-1;max-width:400px;width:100%;margin:0 auto}
+  h1{margin-top:.12em}
+  .hero{border-radius:0 0 36px 36px}
+}
+@media(max-width:560px){
+  .rail{grid-template-columns:repeat(6,minmax(0,1fr))}.rail a{grid-column:span 2}.rail a:nth-of-type(n+4){grid-column:span 3}
+  .fg{grid-template-columns:1fr}
+  .layer{margin-inline:-2px}
+  .tall span{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<svg class="defs" aria-hidden="true"><defs>
+  <symbol id="pc" viewBox="0 0 260 150" overflow="visible"><path d="M10 60v26a120 60 0 0 0 240 0V60z" fill="#fbdc9c"/><ellipse cx="130" cy="60" rx="120" ry="60" fill="#e08c35"/><ellipse cx="130" cy="59" rx="103" ry="50" fill="#f2a94e"/></symbol>
+  <symbol id="st2" viewBox="0 0 260 300" overflow="visible"><use href="#pc" y="150" width="260" height="150"/><use href="#pc" y="118" width="260" height="150"/></symbol>
+  <symbol id="st3" viewBox="0 0 260 300" overflow="visible"><use href="#st2" width="260" height="300"/><use href="#pc" y="86" width="260" height="150"/></symbol>
+  <symbol id="st4" viewBox="0 0 260 300" overflow="visible"><use href="#st3" width="260" height="300"/><use href="#pc" y="54" width="260" height="150"/></symbol>
+  <symbol id="st5" viewBox="0 0 260 300" overflow="visible"><use href="#st4" width="260" height="300"/><use href="#pc" y="22" width="260" height="150"/></symbol>
+  <!-- toppings, drawn for a 3-stack (top face centre 130,146) -->
+  <symbol id="butter" viewBox="0 0 260 300" overflow="visible"><path d="M130 112l40 20v22l-40 20-40-20v-22z" fill="#f4c21f"/><path d="M130 112l40 20-40 20-40-20z" fill="#fff0a3"/><path d="M130 152v22l-40-20v-22z" fill="#ffd94a"/></symbol>
+  <symbol id="berry" viewBox="0 0 260 300" overflow="visible"><g fill="#4353d8"><circle cx="104" cy="136" r="19"/><circle cx="150" cy="128" r="19"/><circle cx="134" cy="158" r="19"/></g><g fill="#8e9bff"><circle cx="98" cy="130" r="6"/><circle cx="144" cy="122" r="6"/><circle cx="128" cy="152" r="6"/></g></symbol>
+  <symbol id="cream" viewBox="0 0 260 300" overflow="visible"><ellipse cx="130" cy="150" rx="56" ry="26" fill="#fff"/><ellipse cx="130" cy="134" rx="40" ry="20" fill="#fff"/><ellipse cx="130" cy="120" rx="24" ry="13" fill="#fff"/><circle cx="130" cy="104" r="13" fill="#ff5a5f"/></symbol>
+  <symbol id="syrup" viewBox="0 0 260 300" overflow="visible"><path d="M56 146c0-22 34-36 74-36s74 14 74 36c0 10-8 12-8 26s-14 14-14 0-10-4-22-2c-10 2-4 34-18 34s-6-30-18-32-20-2-26 6-16 6-16-6-26-10-26-26z" fill="#7a3e12"/><ellipse cx="118" cy="134" rx="30" ry="9" fill="#a35a22"/></symbol>
+  <symbol id="egg" viewBox="0 0 260 300" overflow="visible"><path d="M58 148c0-22 30-38 70-38 46 0 78 14 78 36s-30 34-76 34-72-10-72-32z" fill="#fff"/><ellipse cx="136" cy="140" rx="30" ry="17" fill="#ffb81f"/><ellipse cx="128" cy="135" rx="9" ry="4" fill="#ffe08a"/></symbol>
+  <symbol id="green" viewBox="0 0 260 300" overflow="visible"><ellipse cx="130" cy="146" rx="62" ry="28" fill="#7ac74f"/><ellipse cx="124" cy="140" rx="36" ry="14" fill="#a5e06f"/><circle cx="150" cy="132" r="10" fill="#fff"/><circle cx="108" cy="150" r="8" fill="#fff"/></symbol>
+  <symbol id="cube" viewBox="0 0 60 60"><path d="M30 6l24 12v24L30 54 6 42V18z" fill="currentColor"/><path d="M30 6l24 12-24 12L6 18z" fill="#fff" opacity=".55"/><path d="M30 30v24L6 42V18z" fill="#fff" opacity=".22"/></symbol>
+  <symbol id="cup" viewBox="0 0 60 60"><path d="M44 26h6a8 8 0 0 1 0 16h-6" fill="none" stroke="#d9cfae" stroke-width="5"/><path d="M10 18v24a20 10 0 0 0 40 0V18z" fill="#fff" stroke="#d9cfae" stroke-width="0"/><path d="M10 34v8a20 10 0 0 0 40 0v-8a20 10 0 0 1-40 0z" fill="#e9e0c4"/><ellipse cx="30" cy="18" rx="20" ry="10" fill="#f3ead0"/><ellipse cx="30" cy="19" rx="15" ry="7" fill="currentColor"/></symbol>
+</defs></svg>
+
+<div class="ctl">
+  <a class="home-link" href="../index.html"><svg viewBox="0 0 14 14" aria-hidden="true"><path fill="currentColor" d="M0 0h6v6H0zM8 0h6v6H8zM0 8h6v6H0zM8 8h6v6H8z"/></svg><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <span class="tag"><span lang="en">Pancake house · all day</span><span lang="ar">بيت البان كيك · طوال اليوم</span></span>
+      <h1><span lang="en">Stack</span><span lang="ar">ستاك</span></h1>
+      <p class="lede"><span lang="en">One on top of another, until someone says stop.</span><span lang="ar">واحدة فوق أخرى، إلى أن يقول أحدهم: كفى.</span></p>
+      <p class="intro"><span lang="en">Buttermilk batter mixed every morning, griddled to order on cast iron and stacked as high as you dare. Pick a layer below and start building.</span><span lang="ar">عجينة باللبن الرائب نخفقها كل صباح، نخبزها عند الطلب على صاج من الحديد الزهر ونرصّها بالارتفاع الذي تجرؤ عليه. اختر طبقةً من الأسفل وابدأ البناء.</span></p>
+    </div>
+    <div class="art" aria-hidden="true">
+      <div class="floor"><i class="up b"></i><i></i><i></i><i class="up w"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="up m"></i><i class="up"></i><i></i><i></i><i></i></div>
+      <svg class="pile" viewBox="0 0 320 380">
+        <path d="M60 300l250 125v34L160 352z" fill="#241a4a" opacity=".13"/>
+        <path d="M6 262v14a154 77 0 0 0 308 0v-14z" fill="#d9cfae"/><ellipse cx="160" cy="262" rx="154" ry="77" fill="#fff"/><ellipse cx="160" cy="262" rx="126" ry="62" fill="#f1e9d2"/>
+        <use href="#pc" x="30" y="190" width="260" height="150"/><use href="#pc" x="36" y="156" width="260" height="150"/><use href="#pc" x="26" y="122" width="260" height="150"/><use href="#pc" x="34" y="88" width="260" height="150"/><use href="#pc" x="30" y="54" width="260" height="150"/>
+        <path d="M70 114c0-24 40-40 90-40s90 16 90 40c0 14-10 14-10 40s-16 26-16 0-12-10-26-8c-12 2-4 78-22 78s-8-72-22-74-24-2-30 8-4 40-18 40-2-36-10-44-26-16-26-40z" fill="#7a3e12"/>
+        <ellipse cx="150" cy="100" rx="42" ry="12" fill="#a35a22"/>
+        <path d="M160 58l46 23v24l-46 23-46-23V81z" fill="#f4c21f"/><path d="M160 58l46 23-46 23-46-23z" fill="#fff0a3"/><path d="M160 104v24l-46-23V81z" fill="#ffd94a"/>
+        <g fill="#4353d8"><circle cx="34" cy="318" r="15"/><circle cx="64" cy="336" r="15"/><circle cx="288" cy="300" r="13"/></g><g fill="#8e9bff"><circle cx="29" cy="313" r="5"/><circle cx="59" cy="331" r="5"/><circle cx="284" cy="296" r="4"/></g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="body">
+  <nav class="rail" aria-label="Sections">
+    <small><span lang="en">Pick a layer</span><span lang="ar">اختر طبقة</span></small>
+    <a href="#l1"><span lang="en">Classic stacks</span><span lang="ar">الأكوام الكلاسيكية</span></a>
+    <a href="#l2"><span lang="en">Savoury stacks</span><span lang="ar">الأكوام المالحة</span></a>
+    <a href="#l3"><span lang="en">Soufflé &amp; specials</span><span lang="ar">سوفليه ومميّزات</span></a>
+    <a href="#l4"><span lang="en">Sides</span><span lang="ar">إضافات</span></a>
+    <a href="#l5"><span lang="en">Drinks</span><span lang="ar">مشروبات</span></a>
+    <span class="plate" aria-hidden="true"></span>
+  </nav>
+
+  <main class="layers">
+    <section class="layer l1" id="l1">
+      <div class="lh"><b>01</b><h2><span lang="en">Classic stacks</span><span lang="ar">الأكوام الكلاسيكية</span></h2><p><span lang="en">Three fluffy buttermilk pancakes unless you say otherwise.</span><span lang="ar">ثلاث فطائر هشّة باللبن الرائب، ما لم تطلب غير ذلك.</span></p></div>
+      <ul class="tiles">
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#butter"/></svg><h3><span lang="en">The Original Three</span><span lang="ar">الثلاثية الأصلية</span></h3><p><span lang="en">Whipped salted butter and a jug of warm maple syrup. Nothing to hide behind.</span><span lang="ar">زبدة مملّحة مخفوقة وإبريق من شراب القيقب الدافئ. بساطة لا تحتاج إلى تبرير.</span></p><div class="foot"><span class="pr">29<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><span class="bd"><span lang="en">Since day one</span><span lang="ar">منذ اليوم الأول</span></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#berry"/></svg><h3><span lang="en">Blueberry Tower</span><span lang="ar">برج التوت الأزرق</span></h3><p><span lang="en">Berries folded into the batter, more spooned on top, lemon cream between layers.</span><span lang="ar">توت مطويّ في العجينة ومزيد منه فوقها، مع كريمة الليمون بين الطبقات.</span></p><div class="foot"><span class="pr">36<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#syrup"/></svg><h3><span lang="en">Banana Caramel</span><span lang="ar">موز وكراميل</span></h3><p><span lang="en">Bananas caramelised in the pan, salted caramel and toasted pecans.</span><span lang="ar">موز مكرمل في المقلاة مع كراميل مملّح وجوز البيكان المحمّص.</span></p><div class="foot"><span class="pr">38<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#syrup"/></svg><h3><span lang="en">Double Chocolate</span><span lang="ar">شوكولاتة مضاعفة</span></h3><p><span lang="en">Cocoa pancakes studded with dark chips, drowned in hot fudge.</span><span lang="ar">فطائر بالكاكاو مرصّعة برقائق الشوكولاتة الداكنة وغارقة في صوص ساخن.</span></p><div class="foot"><span class="pr">39<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#cream"/></svg><h3><span lang="en">Lotus Crunch</span><span lang="ar">لوتس المقرمش</span></h3><p><span lang="en">Melted speculoos spread, crushed biscuit and a cloud of vanilla cream.</span><span lang="ar">كريمة بسكويت اللوتس الذائبة مع بسكويت مجروش وغيمة من كريمة الفانيلا.</span></p><div class="foot"><span class="pr">41<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><span class="bd"><span lang="en">Best seller</span><span lang="ar">الأكثر طلبًا</span></span></div></article></li>
+        <li class="tall">
+        <p><span lang="en">How tall are we going?</span><span lang="ar">إلى أي ارتفاع نصل؟</span></p>
+        <div><svg viewBox="0 0 260 300" aria-hidden="true"><use href="#st2"/></svg><span lang="en">Short · 2</span><span lang="ar">قصير · ٢</span><span><span lang="en">minus 6 SAR</span><span lang="ar">أقلّ بـ ٦ ر.س</span></span></div>
+        <div><svg viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/></svg><span lang="en">Regular · 3</span><span lang="ar">عادي · ٣</span><span><span lang="en">as priced</span><span lang="ar">بالسعر المذكور</span></span></div>
+        <div><svg viewBox="0 0 260 300" aria-hidden="true"><use href="#st5"/></svg><span lang="en">Tall · 5</span><span lang="ar">شاهق · ٥</span><span><span lang="en">plus 12 SAR</span><span lang="ar">زيادة ١٢ ر.س</span></span></div>
+      </li>
+      </ul>
+    </section>
+
+    <section class="layer l2" id="l2">
+      <div class="lh"><b>02</b><h2><span lang="en">Savoury stacks</span><span lang="ar">الأكوام المالحة</span></h2><p><span lang="en">Breakfast for people who skip dessert. Maple on the side, always.</span><span lang="ar">فطور لمن لا يحبّ الحلو. وشراب القيقب حاضر إلى جانبه دائمًا.</span></p></div>
+      <ul class="tiles">
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#egg"/></svg><h3><span lang="en">Turkey Bacon &amp; Egg</span><span lang="ar">لحم الحبش المقدّد والبيض</span></h3><p><span lang="en">Crisp turkey rashers, a fried egg with a runny middle and a maple drizzle.</span><span lang="ar">شرائح حبش مقرمشة وبيضة مقلية بصفار سائل مع خيط من شراب القيقب.</span></p><div class="foot"><span class="pr">42<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#syrup"/></svg><h3><span lang="en">Fried Chicken &amp; Hot Honey</span><span lang="ar">دجاج مقلي وعسل حار</span></h3><p><span lang="en">Buttermilk-brined thigh, chilli honey and bread-and-butter pickles.</span><span lang="ar">فخذ دجاج منقوع باللبن الرائب مع عسل بالفلفل الحار ومخلّل حلو.</span></p><div class="foot"><span class="pr">48<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><span class="bd hot"><span lang="en">Spicy</span><span lang="ar">حار</span></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#egg"/></svg><h3><span lang="en">Smoked Beef Benedict</span><span lang="ar">بنديكت اللحم المدخّن</span></h3><p><span lang="en">Smoked beef brisket, two poached eggs and brown-butter hollandaise.</span><span lang="ar">صدر بقري مدخّن وبيضتان مسلوقتان مع صلصة هولنديز بالزبدة البنّية.</span></p><div class="foot"><span class="pr">49<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#butter"/></svg><h3><span lang="en">Halloumi &amp; Za'atar</span><span lang="ar">حلّوم وزعتر</span></h3><p><span lang="en">Griddled halloumi, za'atar butter and a sweet-sharp tomato jam.</span><span lang="ar">جبنة حلّوم مشوية على الصاج مع زبدة الزعتر ومربّى طماطم حلو لاذع.</span></p><div class="foot"><span class="pr">39<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><span class="bd"><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#green"/></svg><h3><span lang="en">Avocado &amp; Feta</span><span lang="ar">أفوكادو وفيتا</span></h3><p><span lang="en">Smashed avocado, crumbled feta, chilli flakes and a poached egg.</span><span lang="ar">أفوكادو مهروس وجبنة فيتا مفتّتة ورقائق فلفل حار وبيضة مسلوقة.</span></p><div class="foot"><span class="pr">41<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#egg"/></svg><h3><span lang="en">Shakshuka Stack</span><span lang="ar">ستاك الشكشوكة</span></h3><p><span lang="en">Spiced tomato and pepper sauce, a baked egg and cool labneh.</span><span lang="ar">صلصة الطماطم والفلفل المتبّلة مع بيضة مخبوزة ولبنة باردة.</span></p><div class="foot"><span class="pr">40<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><span class="bd"><span lang="en">Vegetarian</span><span lang="ar">نباتي</span></span></div></article></li>
+      </ul>
+    </section>
+
+    <section class="layer l3" id="l3">
+      <div class="lh"><b>03</b><h2><span lang="en">Soufflé &amp; specials</span><span lang="ar">سوفليه ومميّزات</span></h2><p><span lang="en">Whisked by hand and steamed under a lid. Allow twenty minutes; they will not be rushed.</span><span lang="ar">تُخفق يدويًا وتُطهى بالبخار تحت غطاء. امنحها عشرين دقيقة، فهي لا تحبّ العجلة.</span></p></div>
+      <ul class="tiles">
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#cream"/></svg><h3><span lang="en">Japanese Soufflé</span><span lang="ar">سوفليه ياباني</span></h3><p><span lang="en">Three trembling cloud pancakes with chantilly and seasonal fruit.</span><span lang="ar">ثلاث فطائر كالغيم ترتجف على الطبق مع كريمة شانتيه وفاكهة الموسم.</span></p><div class="foot"><span class="pr">44<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><span class="bd"><span lang="en">20 min</span><span lang="ar">٢٠ دقيقة</span></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#green"/></svg><h3><span lang="en">Matcha Soufflé</span><span lang="ar">سوفليه الماتشا</span></h3><p><span lang="en">Ceremonial matcha cream, white chocolate and fresh strawberries.</span><span lang="ar">كريمة الماتشا الفاخرة مع الشوكولاتة البيضاء والفراولة الطازجة.</span></p><div class="foot"><span class="pr">47<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><span class="bd"><span lang="en">20 min</span><span lang="ar">٢٠ دقيقة</span></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#cream"/></svg><h3><span lang="en">Pistachio Kunafa Stack</span><span lang="ar">ستاك الكنافة بالفستق</span></h3><p><span lang="en">Pistachio cream and crisp kunafa between every layer, rose syrup over the top.</span><span lang="ar">كريمة الفستق وكنافة مقرمشة بين كل طبقة وأخرى، وفوقها قطر ماء الورد.</span></p><div class="foot"><span class="pr">46<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><span class="bd hot"><span lang="en">Chef's stack</span><span lang="ar">ستاك الشيف</span></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st2"/><use href="#butter" y="32"/></svg><h3><span lang="en">Dutch Baby</span><span lang="ar">دتش بيبي</span></h3><p><span lang="en">A skillet-baked puff that arrives ballooned, with lemon and icing sugar.</span><span lang="ar">فطيرة تُخبز في مقلاة حديدية وتصلك منتفخة، مع الليمون والسكّر الناعم.</span></p><div class="foot"><span class="pr">37<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st5"/></svg><h3><span lang="en">Silver Dollars</span><span lang="ar">الدولارات الفضّية</span></h3><p><span lang="en">Twelve minis for dunking in chocolate, caramel and berry compote.</span><span lang="ar">اثنتا عشرة فطيرة صغيرة تُغمَّس في الشوكولاتة والكراميل ومربّى التوت.</span></p><div class="foot"><span class="pr">33<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span><span class="bd"><span lang="en">To share</span><span lang="ar">للمشاركة</span></span></div></article></li>
+        <li><article class="tile"><svg class="ms" viewBox="0 0 260 300" aria-hidden="true"><use href="#st3"/><use href="#syrup"/></svg><h3><span lang="en">Tiramisu Stack</span><span lang="ar">ستاك التيراميسو</span></h3><p><span lang="en">Espresso-soaked layers, mascarpone cream and a snowfall of cocoa.</span><span lang="ar">طبقات مشرّبة بالإسبريسو مع كريمة الماسكاربوني ونثرة كثيفة من الكاكاو.</span></p><div class="foot"><span class="pr">43<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></div></article></li>
+      </ul>
+    </section>
+
+    <section class="layer l4" id="l4">
+      <div class="lh"><b>04</b><h2><span lang="en">Sides</span><span lang="ar">إضافات</span></h2><p><span lang="en">Blocks to build with. Add them to any stack.</span><span lang="ar">مكعّبات للبناء. أضفها إلى أي ستاك.</span></p></div>
+      <ul class="tiles minis">
+        <li><article class="tile"><svg viewBox="0 0 60 60" aria-hidden="true" style="color:#f2a94e"><use href="#cube"/></svg><h3><span lang="en">One more pancake</span><span lang="ar">فطيرة إضافية</span></h3><p><span lang="en">Because three was close.</span><span lang="ar">لأن الثلاث كادت تكفي.</span></p><span class="pr">8<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article></li>
+        <li><article class="tile"><svg viewBox="0 0 60 60" aria-hidden="true" style="color:#ff6f61"><use href="#cube"/></svg><h3><span lang="en">Turkey bacon</span><span lang="ar">لحم حبش مقدّد</span></h3><p><span lang="en">Four crisp rashers.</span><span lang="ar">أربع شرائح مقرمشة.</span></p><span class="pr">12<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article></li>
+        <li><article class="tile"><svg viewBox="0 0 60 60" aria-hidden="true" style="color:#ffd447"><use href="#cube"/></svg><h3><span lang="en">Two eggs</span><span lang="ar">بيضتان</span></h3><p><span lang="en">Fried, scrambled or poached.</span><span lang="ar">مقليتان أو مخفوقتان أو مسلوقتان.</span></p><span class="pr">10<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article></li>
+        <li><article class="tile"><svg viewBox="0 0 60 60" aria-hidden="true" style="color:#5566f2"><use href="#cube"/></svg><h3><span lang="en">Bowl of berries</span><span lang="ar">وعاء توت</span></h3><p><span lang="en">Blueberries, raspberries, strawberries.</span><span lang="ar">توت أزرق وتوت العلّيق وفراولة.</span></p><span class="pr">14<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article></li>
+        <li><article class="tile"><svg viewBox="0 0 60 60" aria-hidden="true" style="color:#8a4b1c"><use href="#cube"/></svg><h3><span lang="en">Real maple jug</span><span lang="ar">إبريق قيقب أصلي</span></h3><p><span lang="en">Grade A, from Québec.</span><span lang="ar">درجة أولى، من كيبيك.</span></p><span class="pr">9<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article></li>
+        <li><article class="tile"><svg viewBox="0 0 60 60" aria-hidden="true" style="color:#22c79a"><use href="#cube"/></svg><h3><span lang="en">Hash brown stack</span><span lang="ar">ستاك الهاش براون</span></h3><p><span lang="en">Three golden potato cakes.</span><span lang="ar">ثلاثة أقراص بطاطا ذهبية.</span></p><span class="pr">13<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article></li>
+      </ul>
+    </section>
+
+    <section class="layer l5" id="l5">
+      <div class="lh"><b>05</b><h2><span lang="en">Drinks</span><span lang="ar">مشروبات</span></h2><p><span lang="en">Something to pour beside the syrup.</span><span lang="ar">شيء يُسكب إلى جانب الشراب.</span></p></div>
+      <ul class="tiles minis">
+        <li><article class="tile"><svg viewBox="0 0 60 60" aria-hidden="true" style="color:#c98f5a"><use href="#cup"/></svg><h3><span lang="en">Spanish latte</span><span lang="ar">سبانش لاتيه</span></h3><p><span lang="en">Hot or iced, lightly sweet.</span><span lang="ar">ساخن أو مثلّج، بحلاوة خفيفة.</span></p><span class="pr">19<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article></li>
+        <li><article class="tile"><svg viewBox="0 0 60 60" aria-hidden="true" style="color:#8a4b1c"><use href="#cup"/></svg><h3><span lang="en">Flat white</span><span lang="ar">فلات وايت</span></h3><p><span lang="en">Double shot, house blend.</span><span lang="ar">جرعتان من خلطة الدار.</span></p><span class="pr">17<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article></li>
+        <li><article class="tile"><svg viewBox="0 0 60 60" aria-hidden="true" style="color:#ff9f1c"><use href="#cup"/></svg><h3><span lang="en">Fresh orange juice</span><span lang="ar">عصير برتقال طازج</span></h3><p><span lang="en">Squeezed to order.</span><span lang="ar">يُعصر عند الطلب.</span></p><span class="pr">18<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article></li>
+        <li><article class="tile"><svg viewBox="0 0 60 60" aria-hidden="true" style="color:#f6d9a8"><use href="#cup"/></svg><h3><span lang="en">Maple milkshake</span><span lang="ar">ميلك شيك القيقب</span></h3><p><span lang="en">Vanilla ice cream, maple, sea salt.</span><span lang="ar">آيس كريم فانيلا وقيقب وملح بحري.</span></p><span class="pr">24<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article></li>
+        <li><article class="tile"><svg viewBox="0 0 60 60" aria-hidden="true" style="color:#d9a441"><use href="#cup"/></svg><h3><span lang="en">Saudi coffee pot</span><span lang="ar">دلّة قهوة سعودية</span></h3><p><span lang="en">Cardamom and saffron, with dates.</span><span lang="ar">بالهيل والزعفران، مع التمر.</span></p><span class="pr">21<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article></li>
+        <li><article class="tile"><svg viewBox="0 0 60 60" aria-hidden="true" style="color:#ff6f61"><use href="#cup"/></svg><h3><span lang="en">Berry iced tea</span><span lang="ar">شاي مثلّج بالتوت</span></h3><p><span lang="en">Hibiscus, raspberry, mint.</span><span lang="ar">كركديه وتوت العلّيق ونعناع.</span></p><span class="pr">16<small><span lang="en">SAR</span><span lang="ar">ر.س</span></small></span></article></li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="fg">
+    <div><h2><span lang="en">Stack</span><span lang="ar">ستاك</span></h2><p><span lang="en">Walk in, sit down, stack up. No reservations before noon.</span><span lang="ar">ادخل، اجلس، وابدأ الرصّ. لا حجوزات قبل الظهر.</span></p></div>
+    <div class="ft"><h3><span lang="en">Hours</span><span lang="ar">ساعات العمل</span></h3><ul>
+      <li><span lang="en">Sat – Wed</span><span lang="ar">السبت – الأربعاء</span><span dir="ltr">6:30 – 23:00</span></li>
+      <li><span lang="en">Thu – Fri</span><span lang="ar">الخميس – الجمعة</span><span dir="ltr">6:30 – 01:00</span></li></ul></div>
+    <div class="ft"><h3><span lang="en">Find us</span><span lang="ar">موقعنا</span></h3><p><span lang="en">Block 8, Al Nakheel Walk, Prince Turki Road, Riyadh</span><span lang="ar">المبنى ٨، ممشى النخيل، طريق الأمير تركي، الرياض</span></p><p><span dir="ltr">+966 11 555 0168</span></p></div>
+    <div class="ft"><h3><span lang="en">Allergens</span><span lang="ar">مسبّبات الحساسية</span></h3><p><span lang="en">Our batter contains wheat, milk and egg. Gluten-free and vegan batters on request, cooked on a separate griddle.</span><span lang="ar">تحتوي عجينتنا على القمح والحليب والبيض. تتوفّر عجينة خالية من الغلوتين وأخرى نباتية عند الطلب، وتُخبزان على صاج مستقل.</span></p></div>
+  </div>
+  <p class="fine"><span lang="en">Prices in Saudi riyals, VAT included. All meat is halal.</span><span lang="ar">الأسعار بالريال السعودي شاملةً ضريبة القيمة المضافة. جميع اللحوم حلال.</span></p>
+</footer>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Exhibit A · المعروض أ</title>
+<meta name="description" content="Exhibit A — a gallery restaurant where every dish hangs as a framed work across four rooms. المعروض أ — مطعم المعرض، حيث يُعلَّق كل طبق كلوحةٍ في أربع قاعات.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f1efea">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Amiri:wght@400;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --wall:#f1efea; --ink:#151515; --mute:#6a6762; --red:#d7261e; --card:#fdfcf9;
+  --disp:"Bodoni Moda","Didot","Bodoni MT",Georgia,serif; --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --gold:linear-gradient(135deg,#8a6a22,#e9cf7d 22%,#a8842f 45%,#f3e2a0 62%,#8f6d24 82%,#d9bb62);
+}
+html[lang="ar"]{ --disp:"Amiri","Noto Naskh Arabic","Times New Roman",serif; --body:"Almarai","Segoe UI",Tahoma,sans-serif; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
+body{background:var(--wall);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;overflow-x:clip;-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-size:17px;line-height:1.75}
+html[lang="ar"] *{letter-spacing:0 !important}
+a{color:inherit}
+ol,ul{list-style:none}
+.cap{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+html[lang="ar"] .cap{font-size:.84rem;font-weight:400}
+
+/* ───── wayfinding bar ───── */
+.way{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:6px;height:52px;padding-inline:clamp(12px,3vw,40px);background:rgba(241,239,234,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-block-end:1px solid var(--ink)}
+.way .wm{font-family:var(--disp);font-size:1.25rem;font-weight:600;white-space:nowrap;margin-inline-end:auto}
+.way .wm b{display:inline-grid;place-items:center;width:1.5em;height:1.5em;border:2px solid var(--ink);font-weight:600;margin-inline-start:.2em;line-height:1}
+html[lang="ar"] .way .wm{font-weight:700;font-size:1.4rem}
+.way nav{display:flex}
+.way nav a{display:grid;place-items:center;width:34px;height:34px;text-decoration:none;font-family:"Bodoni Moda",Georgia,serif;font-size:1.1rem;border:1px solid var(--ink);margin-inline-start:-1px}
+.way nav a:hover,.way nav a:focus-visible{background:var(--ink);color:var(--wall);outline:0}
+.way nav a:last-child{background:var(--ink);color:var(--wall)}
+.home-link,#langToggle{height:34px;display:inline-flex;align-items:center;gap:7px;padding-inline:12px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:500 .82rem var(--body);text-decoration:none;cursor:pointer;margin-inline-start:6px}
+#langToggle{background:var(--red);border-color:var(--red);color:#fff;font-family:"Almarai","Hanken Grotesk",sans-serif;font-weight:700}
+.home-link i{width:12px;height:12px;background:linear-gradient(var(--ink) 0 0) 0 0/5px 5px,linear-gradient(var(--ink) 0 0) 100% 0/5px 5px,linear-gradient(var(--ink) 0 0) 0 100%/5px 5px,linear-gradient(var(--red) 0 0) 100% 100%/5px 5px;background-repeat:no-repeat}
+.home-link span{display:none}
+@media (min-width:820px){.home-link span{display:inline}}
+@media (max-width:420px){.way nav a{width:28px}.way .wm{font-size:1.05rem}}
+
+/* ───── shared room furniture ───── */
+.room{position:relative;padding:clamp(40px,6vw,90px) clamp(16px,4vw,64px) 0;overflow:clip}
+.floor{height:clamp(70px,9vw,120px);margin:clamp(36px,5vw,70px) calc(-1*clamp(16px,4vw,64px)) 0;position:relative;border-block-start:9px solid #e3e0d9;box-shadow:inset 0 14px 18px -10px rgba(0,0,0,.35);
+  background:repeating-linear-gradient(90deg,rgba(60,40,20,.16) 0 2px,transparent 2px 140px),linear-gradient(#c8b392,#a8916f)}
+.bench{position:absolute;inset-block-end:38%;inset-inline-start:50%;width:min(320px,46vw);height:18px;margin-inline-start:calc(-1*min(160px,23vw));background:#1b1b1b;border-radius:3px;box-shadow:0 30px 22px -8px rgba(0,0,0,.3)}
+.bench::before,.bench::after{content:"";position:absolute;inset-block-start:100%;width:10px;height:34px;background:#1b1b1b}
+.bench::before{inset-inline-start:22px}.bench::after{inset-inline-end:22px}
+.rh{display:grid;grid-template-columns:auto 1fr;gap:6px clamp(18px,3vw,44px);align-items:end;margin-block-end:clamp(28px,4vw,56px);max-width:1000px}
+.rh .n{font-family:"Bodoni Moda","Didot",Georgia,serif;font-weight:400;font-size:clamp(6rem,15vw,13rem);line-height:.74;grid-row:span 3;letter-spacing:-.04em}
+.rh h2{font-family:var(--disp);font-weight:400;font-size:clamp(2rem,4.6vw,4rem);line-height:1.02}
+html[lang="ar"] .rh h2{font-weight:700;line-height:1.3}
+.rh h2 em{font-style:italic}
+.rh p{max-width:54ch;color:#3a3835}
+
+/* frames */
+.fr{position:relative;background:#fbfaf6;padding:var(--mat,9%);box-shadow:0 26px 34px -18px rgba(0,0,0,.45),0 3px 6px rgba(0,0,0,.18);width:100%}
+.fr.blk{border:7px solid #161616}
+.fr.oak{border:10px solid #b48a56;border-image:linear-gradient(120deg,#9a7242,#d0a873 30%,#a67c48 60%,#c79d66) 1}
+.fr.gold{border:14px solid #b8963c;border-image:var(--gold) 1}
+.fr.flt{--mat:0%;border:4px solid #fff;outline:1px solid #cfcbc3}
+.fr.wht{border:9px solid #fff;outline:1px solid #d6d2ca}
+.art{aspect-ratio:var(--ar,1);background-repeat:no-repeat !important;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.a1{background:radial-gradient(closest-side,#fffdf6 98%,#0000) 50% 60%/48% 48%,radial-gradient(closest-side,#d8442f 98%,#0000) 12% 18%/26% 26%,radial-gradient(closest-side,#e8743b 98%,#0000) 88% 14%/18% 18%,radial-gradient(closest-side,#c9342a 98%,#0000) 90% 88%/30% 30%,radial-gradient(closest-side,#2f7d4f 98%,#0000) 14% 88%/34% 13%,radial-gradient(closest-side,#2f7d4f 98%,#0000) 58% 8%/13% 26%,radial-gradient(closest-side,#111 98%,#0000) 36% 14%/4% 4%,radial-gradient(closest-side,#111 98%,#0000) 66% 94%/3% 3%,radial-gradient(closest-side,#111 98%,#0000) 6% 56%/3.5% 3.5%,#e9dcc0}
+.a2{background:linear-gradient(180deg,#f0e6dd 0 5%,#b01a58 9% 44%,#f0e6dd 49% 52%,#5e0d36 57% 79%,#86b06c 84% 93%,#f0e6dd 97%);box-shadow:inset 0 0 0 9px #f0e6dd}
+.a3{background:linear-gradient(#d8ecd0,#d8ecd0) 22% 82%/46% 1.6%,radial-gradient(closest-side,#a9c8ff 98%,#0000) 74% 26%/30% 30%,linear-gradient(160deg,#0a2aa8,#1540e0 60%,#0b1f7a)}
+.a4{background:linear-gradient(#f8cf6d,#f8cf6d) 50% 78%/32% 32%,linear-gradient(#ee9a2f,#ee9a2f) 50% 68%/56% 56%,linear-gradient(#d9741c,#d9741c) 50% 58%/80% 80%,#b3520d}
+.a5{background:radial-gradient(circle,#191919 0 27%,#0000 29%) 0 0/24px 24px,radial-gradient(circle,#191919 0 15%,#0000 17%) 12px 12px/24px 24px,#f5c518;background-repeat:repeat !important}
+.a6{background:linear-gradient(90deg,#0000 0 63%,#f0d79c 63% 64.6%,#0000 64.6%),linear-gradient(90deg,#0000 0 12%,#5d0f0a 12% 13%,#0000 13%),linear-gradient(#93200f,#b02a1a 48%,#7b140d)}
+.a7{background:radial-gradient(closest-side,#fff6dc 98%,#0000) 72% 22%/11% 16%,linear-gradient(#f7e6c9 0 40%,#f3bd90 40% 49%,#86bccd 49% 51%,#2f7393 51% 78%,#1c4e6a 78%)}
+.a8{background:radial-gradient(closest-side,#2f8f4e 98%,#0000) 20% 16%/44% 22%,radial-gradient(closest-side,#57b56b 98%,#0000) 84% 34%/36% 30%,radial-gradient(closest-side,#1f6b3a 98%,#0000) 30% 58%/52% 20%,radial-gradient(closest-side,#8fd18f 98%,#0000) 78% 80%/40% 24%,radial-gradient(closest-side,#f2e24e 98%,#0000) 56% 40%/10% 7%,radial-gradient(closest-side,#f2e24e 98%,#0000) 16% 86%/9% 6%,#eef4df}
+.a9{background:radial-gradient(closest-side,#f3cf6a 98%,#0000) 52% 40%/13% 74%,linear-gradient(#55524c,#55524c) 51% 93%/30% 7%,linear-gradient(#8a857c,#8a857c) 51% 85%/14% 5%,#1f232b}
+.a10{background:linear-gradient(#d12d1f,#d12d1f) 88% 8%/9% 6%,linear-gradient(#131313,#131313) 46% 48%/70% 47%,#f0ebe0}
+.dot{position:absolute;z-index:2;inset-block-end:-8px;inset-inline-end:-8px;width:20px;height:20px;border-radius:50%;background:var(--red);box-shadow:0 2px 3px rgba(0,0,0,.3)}
+
+/* placard */
+.pl{background:var(--card);padding:12px 14px 11px;box-shadow:0 1px 0 #fff inset,0 6px 10px -6px rgba(0,0,0,.35),0 0 0 1px rgba(0,0,0,.06);text-align:start;max-width:250px}
+.pl .acc{display:flex;justify-content:space-between;gap:10px;color:var(--mute);font-size:.66rem;letter-spacing:.1em;margin-block-end:5px}
+.pl .acc span:last-child{display:inline-flex;align-items:center;gap:4px}
+.pl .acc span:last-child::before{content:"";width:11px;height:9px;border:2px solid currentColor;border-block-end:0;border-radius:7px 7px 0 0}
+.pl h3{font-family:var(--body);font-weight:700;font-size:1rem;line-height:1.2}
+html[lang="ar"] .pl h3{font-size:1.06rem;line-height:1.5}
+.pl .by{font-style:italic;font-size:.82rem;color:var(--mute)}
+html[lang="ar"] .pl .by{font-style:normal}
+.pl .med{font-size:.9rem;line-height:1.38;margin-block:5px 7px}
+html[lang="ar"] .pl .med{line-height:1.6}
+.pl .pr{font-weight:700;font-size:.92rem;unicode-bidi:isolate;display:flex;justify-content:space-between;align-items:center;gap:8px;border-block-start:1px solid #dcd8cf;padding-block-start:6px}
+.pl .pr i{font-style:normal;font-weight:500;font-size:.72rem;color:var(--red)}
+html[lang="ar"] .pl .pr i{font-size:.82rem}
+
+/* ───── lobby ───── */
+.lobby{background:radial-gradient(ellipse 50% 60% at 76% 30%,#fff 0,#0000 70%),var(--wall)}
+.lobby .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,5vw,80px);align-items:start}
+.lobby h1{font-family:var(--disp);font-weight:400;font-size:clamp(3.7rem,13.4vw,13.5rem);line-height:.9;letter-spacing:-.03em;display:block;margin-block:.1em .18em}
+html[lang="ar"] .lobby h1{font-weight:700;line-height:1.2;font-size:clamp(3.4rem,11.5vw,11.5rem);margin-block:.25em .2em}
+.lobby h1 b{display:inline-block;font-weight:400;line-height:.86;padding:.08em .22em .1em;margin-inline-start:.06em;border:.09em solid #b8963c;border-image:var(--gold) 1;background:radial-gradient(closest-side,var(--red) 98%,#0000) 78% 24%/34% 30% no-repeat,#fbfaf6;box-shadow:0 .16em .2em -.08em rgba(0,0,0,.45),inset 0 0 0 .05em #fbfaf6,inset 0 0 0 .06em rgba(0,0,0,.25);vertical-align:-.04em}
+html[lang="ar"] .lobby h1 b{font-weight:700;line-height:1.1;padding:.34em .34em .12em;vertical-align:-.12em}
+.lobby .wt{max-width:46ch;font-size:clamp(1rem,1.25vw,1.15rem)}
+.lobby .wt p + p{margin-block-start:.9em}
+.lobby .wt p:first-child{font-family:var(--disp);font-size:1.5em;line-height:1.2}
+html[lang="ar"] .lobby .wt p:first-child{line-height:1.6}
+.plan{display:grid;grid-template-columns:5fr 2fr 4fr;grid-template-rows:1fr 1fr;border:4px solid var(--ink);aspect-ratio:11/8;background:#fff;position:relative}
+.plan a{position:relative;display:grid;align-content:space-between;padding:9px 11px;text-decoration:none;border:2px solid var(--ink);transition:background .2s}
+.plan a:hover,.plan a:focus-visible{background:#ffe9a8;outline:0}
+.plan a b{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;font-size:clamp(1.8rem,3vw,2.8rem);line-height:.9}
+.plan a span{font-size:.78rem;line-height:1.2;font-weight:500}
+html[lang="ar"] .plan a span{font-size:.88rem;line-height:1.35}
+.plan .r1{grid-column:1}.plan .r2{grid-column:2/4}.plan .r3{grid-column:1/3}.plan .r4{grid-column:3;background:var(--ink);color:#fff}
+.plan .r4:hover{background:#333}
+.plan a::after{content:"";position:absolute;background:#fff;z-index:1}
+.plan .r1::after{inset-inline-end:-4px;inset-block-start:38%;width:6px;height:26%}
+.plan .r2::after{inset-block-end:-4px;inset-inline-start:58%;height:6px;width:22%}
+.plan .r3::after{inset-inline-end:-4px;inset-block-start:38%;width:6px;height:26%;background:#888}
+.plan .r1::before{content:"";position:absolute;inset-block-end:-7px;inset-inline-start:16%;width:26%;height:10px;background:#fff;z-index:2}
+.plan .you{position:absolute;inset-block-end:calc(50% - 30px);inset-inline-start:11%;display:flex;align-items:center;gap:6px;font-size:.66rem;font-weight:700;color:var(--red);z-index:3;pointer-events:none}
+.plan .you::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(215,38,30,.25);animation:ping 2s ease-out infinite}
+@keyframes ping{to{box-shadow:0 0 0 12px rgba(215,38,30,0)}}
+.tix{margin-block-start:22px;display:grid;grid-template-columns:1fr auto;border:1px solid var(--ink);background:var(--card)}
+.tix div{padding:14px 16px}
+.tix h3{font-family:var(--disp);font-weight:400;font-size:1.6rem;line-height:1.1}
+html[lang="ar"] .tix h3{font-weight:700;line-height:1.4}
+.tix p{font-size:.9rem;margin-block-start:4px}
+.tix .p{display:grid;place-content:center;text-align:center;border-inline-start:1px dashed var(--ink);font-family:"Bodoni Moda",Georgia,serif;font-size:2rem;line-height:1;unicode-bidi:isolate;min-width:108px}
+.tix .p small{display:block;font:500 .66rem var(--body);letter-spacing:.14em;margin-block-end:4px}
+@media (max-width:900px){.lobby .grid{grid-template-columns:1fr}}
+
+/* ───── Room 1 : line hang ───── */
+.line{display:grid;grid-template-columns:1.1fr .9fr 1.25fr .85fr 1fr;gap:clamp(18px,3vw,54px);align-items:start}
+.line .work{display:grid;grid-template-rows:clamp(230px,21vw,310px) auto;gap:26px;justify-items:center}
+.line figure{display:contents}
+.line .fr{align-self:center;width:var(--w,100%)}
+@media (max-width:1000px){
+  .line{grid-template-columns:1fr;gap:34px}
+  .line .work{grid-template-rows:none;grid-template-columns:42% 1fr;gap:18px;align-items:center;justify-items:start}
+  .line .work:nth-child(even){grid-template-columns:1fr 42%}
+  .line .work:nth-child(even) .fr{order:2}
+  .line .fr{width:100%}
+}
+
+/* ───── Room 2 : salon hang on a painted wall ───── */
+.r-two{background:#27463c;color:#f1efea;--card:#fdfcf9}
+.r-two .rh p{color:#d6dfd8}
+.r-two .floor{border-block-start-color:#1c342c}
+.salon{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.cluster{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(6,1fr);gap:clamp(8px,1.4vw,20px);aspect-ratio:1/.98}
+.cluster .fr{height:100%;display:grid;--mat:6%}
+.cluster .art{aspect-ratio:auto;height:100%}
+.cluster li{position:relative}
+.cluster li:nth-child(1){grid-area:1/1/4/5}.cluster li:nth-child(2){grid-area:1/5/3/7}.cluster li:nth-child(3){grid-area:3/5/7/7}.cluster li:nth-child(4){grid-area:4/1/7/3}.cluster li:nth-child(5){grid-area:4/3/7/5}
+.tagn{position:absolute;z-index:3;inset-block-end:-9px;inset-inline-start:-9px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#f5e3a4,#b8963c 70%);color:#201803;font:700 .85rem "Hanken Grotesk",sans-serif;box-shadow:0 2px 4px rgba(0,0,0,.45)}
+.key{background:var(--card);color:var(--ink);padding:clamp(18px,2.4vw,32px);box-shadow:0 18px 30px -16px rgba(0,0,0,.6)}
+.key > .cap{display:block;border-block-end:2px solid var(--ink);padding-block-end:8px;margin-block-end:4px}
+.key li{display:grid;grid-template-columns:30px 1fr auto;gap:2px 12px;padding-block:13px;border-block-end:1px solid #dcd8cf;align-items:baseline}
+.key li:last-child{border:0;padding-block-end:0}
+.key .k{font-family:"Bodoni Moda",Georgia,serif;font-size:1.6rem;line-height:1;grid-row:span 2}
+.key h3{font-weight:700;font-size:1.04rem;line-height:1.25}
+.key h3 i{display:inline-block;font-style:normal;font-weight:500;font-size:.72rem;color:var(--red);margin-inline-start:6px;white-space:nowrap}
+.key h3 i::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--red);margin-inline-end:5px}
+html[lang="ar"] .key h3 i{font-size:.84rem}
+.key .med{grid-column:2/4;font-size:.92rem;line-height:1.4;color:#3a3835}
+html[lang="ar"] .key .med{line-height:1.65}
+.key .pr{font-weight:700;font-size:.95rem;white-space:nowrap;unicode-bidi:isolate}
+@media (max-width:900px){.salon{grid-template-columns:1fr}}
+
+/* ───── Room 3 : sculpture court ───── */
+.court{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,3vw,56px);align-items:end;margin-block-end:calc(-1*clamp(36px,5vw,70px) - 20px);position:relative;z-index:2;max-width:1240px;margin-inline:auto}
+.plinth{display:grid;justify-items:center}
+.plinth svg{width:min(78%,200px);height:auto;display:block;margin-block-end:-2px;filter:drop-shadow(0 10px 8px rgba(0,0,0,.18))}
+.plinth .blk{width:100%;min-height:var(--h,260px);background:linear-gradient(90deg,#fff 0 78%,#e4e1da 78%);box-shadow:0 30px 30px -14px rgba(0,0,0,.4);padding:16px 22% 22px 16px;padding-inline:16px 26%;border-block-start:6px solid #fff;position:relative}
+[dir="rtl"] .plinth .blk{background:linear-gradient(270deg,#fff 0 78%,#e4e1da 78%)}
+.plinth .pl{box-shadow:none;background:none;padding:0;max-width:none}
+.r-three .floor{background:repeating-linear-gradient(90deg,rgba(0,0,0,.07) 0 2px,transparent 2px 220px),linear-gradient(#bdbab3,#a19e97)}
+@media (max-width:1000px){.court{grid-template-columns:1fr 1fr;row-gap:40px}.plinth .blk{min-height:0;padding-inline:14px 20%}}
+@media (max-width:560px){.court{grid-template-columns:1fr;row-gap:34px}.plinth{grid-template-columns:38% 1fr;align-items:end;justify-items:stretch}.plinth svg{width:100%;margin-block-end:14px}.plinth .blk{padding-inline:14px 17%;background:linear-gradient(90deg,#fff 0 89%,#e4e1da 89%)}[dir="rtl"] .plinth .blk{background:linear-gradient(270deg,#fff 0 89%,#e4e1da 89%)}}
+
+/* ───── Room 4 : dark room ───── */
+.r-four{background:#0d0d0f;color:#eeeae2}
+.r-four .rh p{color:#b9b5ad}
+.r-four .rh .n{color:#0d0d0f;-webkit-text-stroke:1.5px #eeeae2}
+.lights{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(18px,3vw,48px)}
+.lw{display:grid;gap:26px;align-content:start}
+.lw .lt{aspect-ratio:3/4;position:relative;display:grid;place-items:center}
+.lw .lt::before{content:"";display:block}
+.l1::before{width:78%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#0d0d0f 0 55%,#ff7a1a 58%,#ff9d4d 62%,#ff7a1a00 72%);box-shadow:0 0 70px 6px rgba(255,122,26,.5);animation:glow 5s ease-in-out infinite alternate}
+.l2::before{width:70%;height:86%;background:linear-gradient(#ff2d7a,#ff7fb0 60%,#ffc2d6);box-shadow:0 0 80px 14px rgba(255,45,122,.55);filter:blur(1.5px)}
+.l3::before{width:86%;height:90%;background:linear-gradient(90deg,#0000 6%,#fff6a8 6% 10%,#0000 10% 28%,#b6ff6a 28% 32%,#0000 32% 50%,#fff 50% 54%,#0000 54% 72%,#fff6a8 72% 76%,#0000 76% 90%,#b6ff6a 90% 94%,#0000 94%);filter:drop-shadow(0 0 14px #eaff8a) drop-shadow(0 0 30px rgba(200,255,120,.6))}
+.l4{font-family:"Amiri","Noto Naskh Arabic",serif;font-size:clamp(3.4rem,6.5vw,6.4rem);font-weight:700;color:#ffe9b0;text-shadow:0 0 8px #ffc64a,0 0 26px #ff9d1a,0 0 60px rgba(255,157,26,.7);line-height:1}
+.l4::before{display:none !important}
+.l5::before{width:74%;aspect-ratio:1;background:radial-gradient(circle,#0d0d0f 0 34%,#0000 35.5%),#f6f2e8;box-shadow:0 0 80px 10px rgba(246,242,232,.45)}
+@keyframes glow{to{box-shadow:0 0 110px 16px rgba(255,122,26,.7)}}
+.lw .pl{background:none;box-shadow:none;padding:0;border-block-start:1px solid #55524c;padding-block-start:12px;max-width:none}
+.lw .pl .acc,.lw .pl .by{color:#9a968e}
+.lw .pl .pr{border-color:#3a3835}
+.lw .pl .pr i{color:#ff8a7a}
+.r-four .floor{background:linear-gradient(#1b1b1e,#050506);border-block-start-color:#222;box-shadow:none}
+@media (max-width:1000px){.lights{grid-template-columns:1fr;gap:30px}.lw{grid-template-columns:36% 1fr;gap:22px;align-items:center}.lw .lt{aspect-ratio:1}}
+
+/* ───── visitor information ───── */
+.info{padding:clamp(40px,6vw,90px) clamp(16px,4vw,64px) 40px;display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:28px 44px;border-block-start:1px solid var(--ink)}
+.info h2{font-family:var(--disp);font-weight:400;font-size:clamp(2.2rem,4vw,3.6rem);line-height:1}
+html[lang="ar"] .info h2{font-weight:700;line-height:1.3}
+.exit{display:inline-flex;align-items:center;gap:8px;background:#0f8a4b;color:#fff;font-weight:700;font-size:.8rem;letter-spacing:.14em;padding:6px 12px;margin-block-end:14px;box-shadow:0 0 22px rgba(15,138,75,.45)}
+.exit::after{content:"→";font-size:1.1em;letter-spacing:0}
+[dir="rtl"] .exit::after{content:"←"}
+.info h4{margin-block-end:6px;color:var(--mute)}
+.info .fine{grid-column:1/-1;border-block-start:1px solid #cfcbc3;padding-block-start:16px;font-size:.88rem;color:#3a3835;max-width:110ch}
+@media (max-width:900px){.info{grid-template-columns:1fr 1fr}.info>div:first-child{grid-column:1/-1}}
+@media (max-width:480px){.info{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="way">
+  <span class="wm"><span lang="en">Exhibit<b>A</b></span><span lang="ar">المعروض<b>أ</b></span></span>
+  <nav aria-label="Rooms"><a href="#r1">1</a><a href="#r2">2</a><a href="#r3">3</a><a href="#r4">4</a></nav>
+  <a class="home-link" href="../index.html"><i aria-hidden="true"></i><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+  <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+</div>
+
+<header class="room lobby">
+  <span class="cap"><span lang="en">Gallery restaurant · Level 2 · Admission free, lunch is not</span><span lang="ar">مطعم المعرض · الطابق الثاني · الدخول مجاني، أمّا الغداء فلا</span></span>
+  <h1><span lang="en">Exhibit <b>A</b></span><span lang="ar">المعروض <b>أ</b></span></h1>
+  <div class="grid">
+    <div class="wt">
+      <p><span lang="en">Nineteen works in four rooms, all of them edible, none of them behind glass.</span><span lang="ar">تسعة عشر عملًا في أربع قاعات، كلّها تؤكل، وليس بينها ما يُعرض خلف الزجاج.</span></p>
+      <p><span lang="en">This exhibition treats the plate as a canvas and the kitchen as a studio. Each dish is hung with a label naming its title, its medium and its price. Please do touch the works. Photography is encouraged; leftovers are not.</span><span lang="ar">يتعامل هذا المعرض مع الطبق بوصفه لوحةً ومع المطبخ بوصفه مرسمًا. يُعلَّق كل طبق مع بطاقةٍ تذكر عنوانه وخاماته وسعره. نرجو لمس الأعمال. التصوير مرحَّبٌ به، أمّا ترك البقايا فلا.</span></p>
+      <p class="cap"><span lang="en">Curated by Chef Lina Haddad · Season 12</span><span lang="ar">تنسيق الشيف لينا حدّاد · الموسم الثاني عشر</span></p>
+    </div>
+    <div>
+      <nav class="plan" aria-label="Floor plan">
+        <a class="r1" href="#r1"><b>1</b><span lang="en">Studies<br>starters</span><span lang="ar">دراسات<br>مقبّلات</span></a>
+        <a class="r2" href="#r2"><b>2</b><span lang="en">Permanent Collection<br>main courses</span><span lang="ar">المجموعة الدائمة<br>أطباق رئيسية</span></a>
+        <a class="r3" href="#r3"><b>3</b><span lang="en">Sculpture Court<br>desserts</span><span lang="ar">فناء المنحوتات<br>حلويات</span></a>
+        <a class="r4" href="#r4"><b>4</b><span lang="en">Dark Room<br>drinks</span><span lang="ar">القاعة المعتمة<br>مشروبات</span></a>
+        <span class="you"><span lang="en">You are here</span><span lang="ar">أنت هنا</span></span>
+      </nav>
+      <div class="tix">
+        <div><h3><span lang="en">The Guided Tour</span><span lang="ar">الجولة المصحوبة</span></h3><p><span lang="en">Five works selected by the curator, one from every room and a surprise from the archive.</span><span lang="ar">خمسة أعمال تختارها القيّمة، واحدٌ من كل قاعة ومفاجأةٌ من الأرشيف.</span></p></div>
+        <span class="p" dir="ltr"><small>SAR</small>320</span>
+      </div>
+    </div>
+  </div>
+  <div class="floor" aria-hidden="true"><span class="bench"></span></div>
+</header>
+
+<section class="room r-one" id="r1">
+  <header class="rh"><span class="n">1</span><span class="cap"><span lang="en">Room 1 · starters</span><span lang="ar">القاعة ١ · مقبّلات</span></span><h2><span lang="en">Studies <em>&amp; small works</em></span><span lang="ar">دراسات وأعمال صغيرة</span></h2><p><span lang="en">Hung at eye level and best seen up close. Quick, bright sketches before the larger canvases.</span><span lang="ar">معلّقةٌ على مستوى النظر، وتُرى أجمل عن قرب. اسكتشاتٌ سريعة مشرقة قبل اللوحات الكبرى.</span></p></header>
+  <ol class="line">
+    <li class="work"><figure><div class="fr oak" style="--ar:1/1"><div class="art a1" style="--ar:1/1"></div></div><figcaption class="pl"><span class="acc"><span>EA.01</span><span>101</span></span><h3><span lang="en">Still Life with Burrata</span><span lang="ar">طبيعة صامتة مع البوراتا</span></h3><p class="med"><span lang="en">Burrata, heirloom tomato, basil oil and black-olive crumb on stoneware.</span><span lang="ar">بوراتا، طماطم بلدية، زيت الريحان وفتات الزيتون الأسود على خزف حجري.</span></p><p class="pr"><span dir="ltr">SAR 58</span></p></figcaption></figure></li>
+    <li class="work"><figure><div class="fr blk" style="--w:78%"><div class="art a2" style="--ar:3/4"></div><span class="dot"></span></div><figcaption class="pl"><span class="acc"><span>EA.02</span><span>102</span></span><h3><span lang="en">Composition in Beetroot No. 3</span><span lang="ar">تكوين بالشمندر رقم ٣</span></h3><p class="med"><span lang="en">Salt-baked beetroot, labneh, pistachio and sumac.</span><span lang="ar">شمندر مخبوز في الملح، لبنة، فستق حلبي وسمّاق.</span></p><p class="pr"><span dir="ltr">SAR 46</span><i><span lang="en">Curator’s choice</span><span lang="ar">اختيار القيّمة</span></i></p></figcaption></figure></li>
+    <li class="work"><figure><div class="fr flt"><div class="art a3" style="--ar:4/3"></div></div><figcaption class="pl"><span class="acc"><span>EA.03</span><span>103</span></span><h3><span lang="en">Blue Period</span><span lang="ar">المرحلة الزرقاء</span></h3><p class="med"><span lang="en">Cured hamour, butterfly-pea pickled daikon, cucumber and lime.</span><span lang="ar">هامور مقدَّد، فجل أبيض مخلّل بزهرة البازلاء الزرقاء، خيار وليمون أخضر.</span></p><p class="pr"><span dir="ltr">SAR 64</span></p></figcaption></figure></li>
+    <li class="work"><figure><div class="fr wht" style="--w:86%"><div class="art a4" style="--ar:1/1"></div></div><figcaption class="pl"><span class="acc"><span>EA.04</span><span>104</span></span><h3><span lang="en">Untitled (Soup)</span><span lang="ar">بلا عنوان (حساء)</span></h3><p class="med"><span lang="en">Roast pumpkin velouté, brown butter and crisp sage.</span><span lang="ar">فيلوتيه القرع المشوي، زبدة بنّية ومريمية مقرمشة.</span></p><p class="pr"><span dir="ltr">SAR 38</span></p></figcaption></figure></li>
+    <li class="work"><figure><div class="fr gold" style="--w:84%"><div class="art a5" style="--ar:4/5"></div></div><figcaption class="pl"><span class="acc"><span>EA.05</span><span>105</span></span><h3><span lang="en">Yellow on Yellow</span><span lang="ar">أصفر على أصفر</span></h3><p class="med"><span lang="en">Saffron arancini, lemon aioli and aged parmesan.</span><span lang="ar">أرانشيني بالزعفران، أيولي الليمون وبارميزان معتّق.</span></p><p class="pr"><span dir="ltr">SAR 42</span></p></figcaption></figure></li>
+  </ol>
+  <div class="floor" aria-hidden="true"></div>
+</section>
+
+<section class="room r-two" id="r2">
+  <header class="rh"><span class="n">2</span><span class="cap"><span lang="en">Room 2 · main courses</span><span lang="ar">القاعة ٢ · أطباق رئيسية</span></span><h2><span lang="en">The Permanent <em>Collection</em></span><span lang="ar">المجموعة الدائمة</span></h2><p><span lang="en">Hung salon-style, frame to frame. These five never leave the wall; find each number in the key.</span><span lang="ar">معلّقةٌ على طريقة الصالونات، إطارًا بجوار إطار. هذه الخمسة لا تغادر الجدار؛ ابحث عن كل رقم في الدليل.</span></p></header>
+  <div class="salon">
+    <ol class="cluster" aria-hidden="true">
+      <li><div class="fr gold"><div class="art a6"></div></div><span class="tagn">6</span></li>
+      <li><div class="fr oak"><div class="art a7"></div></div><span class="tagn">7</span></li>
+      <li><div class="fr gold"><div class="art a8"></div></div><span class="tagn">8</span></li>
+      <li><div class="fr blk"><div class="art a9"></div></div><span class="tagn">9</span></li>
+      <li><div class="fr gold"><div class="art a10"></div></div><span class="tagn">10</span></li>
+    </ol>
+    <div class="key">
+      <span class="cap"><span lang="en">Key to the wall</span><span lang="ar">دليل الجدار</span></span>
+      <ol>
+        <li><span class="k">6</span><h3><span lang="en">Large Red Field</span><span lang="ar">حقل أحمر كبير</span><i><span lang="en">Curator’s choice</span><span lang="ar">اختيار القيّمة</span></i></h3><span class="pr" dir="ltr">SAR 165</span><p class="med"><span lang="en">Wagyu short rib braised twelve hours, pomegranate glaze, smoked potato.</span><span lang="ar">ضلع واغيو مطهوّ اثنتي عشرة ساعة، تلميعة دبس الرمّان وبطاطا مدخّنة.</span></p></li>
+        <li><span class="k">7</span><h3><span lang="en">Seascape, Morning</span><span lang="ar">منظر بحري، صباحًا</span></h3><span class="pr" dir="ltr">SAR 128</span><p class="med"><span lang="en">Pan-roasted sea bass, shaved fennel, saffron beurre blanc.</span><span lang="ar">قاروص محمّر في المقلاة، شمر مبشور وصلصة الزبدة البيضاء بالزعفران.</span></p></li>
+        <li><span class="k">8</span><h3><span lang="en">Garden, After Rain</span><span lang="ar">حديقة بعد المطر</span></h3><span class="pr" dir="ltr">SAR 86</span><p class="med"><span lang="en">Pea and mint risotto, green asparagus, lemon zest.</span><span lang="ar">ريزوتو البازلاء والنعناع، هليون أخضر وبرش الليمون.</span></p></li>
+        <li><span class="k">9</span><h3><span lang="en">Bird in Space</span><span lang="ar">طائر في الفضاء</span></h3><span class="pr" dir="ltr">SAR 98</span><p class="med"><span lang="en">Roast baby chicken, za’atar, preserved-lemon jus.</span><span lang="ar">فرّوج مشوي، زعتر ومرق الليمون المخلّل.</span></p></li>
+        <li><span class="k">10</span><h3><span lang="en">Black Square</span><span lang="ar">المربّع الأسود</span></h3><span class="pr" dir="ltr">SAR 112</span><p class="med"><span lang="en">Squid-ink tagliolini, Gulf prawns, garlic and one red chilli.</span><span lang="ar">تالياتيلّي بحبر الحبّار، روبيان الخليج، ثوم وحبّة فلفل أحمر واحدة.</span></p></li>
+      </ol>
+    </div>
+  </div>
+  <div class="floor" aria-hidden="true"><span class="bench"></span></div>
+</section>
+
+<section class="room r-three" id="r3">
+  <header class="rh"><span class="n">3</span><span class="cap"><span lang="en">Room 3 · desserts</span><span lang="ar">القاعة ٣ · حلويات</span></span><h2><span lang="en">Sculpture <em>Court</em></span><span lang="ar">فناء المنحوتات</span></h2><p><span lang="en">Works in the round, shown on plinths under the skylight. Walk around them; then use a spoon.</span><span lang="ar">أعمالٌ مجسَّمة تُعرض على قواعد تحت كوّة السقف. طُف حولها أولًا، ثم استعمل الملعقة.</span></p></header>
+  <ol class="court">
+    <li class="plinth" style="--h:230px">
+      <svg viewBox="0 0 200 190" aria-hidden="true"><path d="M100 0v26M40 26h130M40 26v30M170 26v22M10 56h64M10 56v26M74 56v40M140 48h56M140 48v34M196 48v18" stroke="#151515" stroke-width="2.5" fill="none"/><circle cx="10" cy="96" r="14" fill="#f5c518"/><ellipse cx="74" cy="112" rx="20" ry="16" fill="#fff" stroke="#151515" stroke-width="2.5"/><circle cx="140" cy="100" r="18" fill="#f08a1c"/><circle cx="196" cy="76" r="10" fill="#7fbf3f"/><path d="M100 190v-46" stroke="#151515" stroke-width="3"/><ellipse cx="100" cy="186" rx="34" ry="4" fill="#151515"/></svg>
+      <div class="blk"><div class="pl"><span class="acc"><span>EA.11</span><span>301</span></span><h3><span lang="en">Mobile</span><span lang="ar">موبايل معلَّق</span></h3><p class="med"><span lang="en">Pavlova, passion fruit, mango and lime, suspended in cream.</span><span lang="ar">بافلوفا، باشن فروت، مانجو وليمون أخضر، معلّقة في الكريمة.</span></p><p class="pr"><span dir="ltr">SAR 48</span></p></div></div>
+    </li>
+    <li class="plinth" style="--h:310px">
+      <svg viewBox="0 0 200 190" aria-hidden="true"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f6e3a0"/><stop offset=".5" stop-color="#c9a13e"/><stop offset="1" stop-color="#8f6d24"/></linearGradient></defs><rect x="30" y="110" width="140" height="80" fill="url(#g)"/><rect x="84" y="56" width="86" height="54" fill="url(#g)" opacity=".92"/><rect x="84" y="22" width="34" height="34" fill="url(#g)"/><rect x="118" y="36" width="20" height="20" fill="url(#g)" opacity=".85"/><path d="M30 190A80 80 0 0 1 110 110A54 54 0 0 1 164 56A34 34 0 0 0 118 30" fill="none" stroke="#fff8dc" stroke-width="2.5"/><circle cx="60" cy="80" r="9" fill="#7fae5a"/></svg>
+      <div class="blk"><div class="pl"><span class="acc"><span>EA.12</span><span>302</span></span><h3><span lang="en">Golden Section</span><span lang="ar">النسبة الذهبية</span></h3><p class="med"><span lang="en">Saffron and honey cake, pistachio cream, a leaf of edible gold.</span><span lang="ar">كعكة الزعفران والعسل، كريمة الفستق وورقة من الذهب الصالح للأكل.</span></p><p class="pr"><span dir="ltr">SAR 52</span><i><span lang="en">Curator’s choice</span><span lang="ar">اختيار القيّمة</span></i></p></div></div>
+    </li>
+    <li class="plinth" style="--h:190px">
+      <svg viewBox="0 0 200 190" aria-hidden="true"><path d="M30 60v106a70 22 0 0 0 140 0V60Z" fill="#2b1810"/><path d="M30 60v106a70 22 0 0 0 46 20V80Z" fill="#1d0f09"/><ellipse cx="100" cy="60" rx="70" ry="22" fill="#4a2a1a"/><ellipse cx="100" cy="60" rx="52" ry="15" fill="#3a2014"/><path d="M84 54l10 8M108 52l12 6M96 66l14 2" stroke="#f1efea" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <div class="blk"><div class="pl"><span class="acc"><span>EA.13</span><span>303</span></span><h3><span lang="en">Monochrome (Chocolate)</span><span lang="ar">أحادي اللون (شوكولاتة)</span></h3><p class="med"><span lang="en">70% chocolate tart, cocoa nib, flakes of sea salt.</span><span lang="ar">تارت شوكولاتة ٧٠٪، حبيبات الكاكاو ورقائق ملح البحر.</span></p><p class="pr"><span dir="ltr">SAR 46</span></p></div></div>
+    </li>
+    <li class="plinth" style="--h:270px">
+      <svg viewBox="0 0 200 190" aria-hidden="true"><path d="M36 190C10 150 30 96 70 92C60 50 110 20 138 52C176 46 196 96 168 124C190 150 176 186 164 190Z" fill="#fbf3ea" stroke="#e6d9cb" stroke-width="2"/><path d="M70 92C92 96 104 112 104 130M138 52C132 76 140 96 168 124" fill="none" stroke="#e6d9cb" stroke-width="2.5"/><circle cx="118" cy="38" r="15" fill="#d7261e"/><circle cx="58" cy="150" r="9" fill="#e8574c"/><circle cx="150" cy="160" r="7" fill="#d7261e"/></svg>
+      <div class="blk"><div class="pl"><span class="acc"><span>EA.14</span><span>304</span></span><h3><span lang="en">Soft Sculpture</span><span lang="ar">منحوتة ليّنة</span></h3><p class="med"><span lang="en">Vanilla panna cotta that trembles, roasted strawberries, black pepper.</span><span lang="ar">بانا كوتا بالفانيلا ترتجف عند اللمس، فراولة مشوية وفلفل أسود.</span></p><p class="pr"><span dir="ltr">SAR 42</span></p></div></div>
+    </li>
+  </ol>
+  <div class="floor" aria-hidden="true"></div>
+</section>
+
+<section class="room r-four" id="r4">
+  <header class="rh"><span class="n">4</span><span class="cap"><span lang="en">Room 4 · drinks, all zero-proof</span><span lang="ar">القاعة ٤ · مشروبات، كلّها بلا كحول</span></span><h2><span lang="en">The Dark <em>Room</em></span><span lang="ar">القاعة المعتمة</span></h2><p><span lang="en">Light works. Let your eyes adjust for a moment; the glasses arrive glowing.</span><span lang="ar">أعمالٌ ضوئية. دع عينيك تعتادان العتمة لحظة؛ فالكؤوس تصل متوهّجة.</span></p></header>
+  <ol class="lights">
+    <li class="lw"><div class="lt l1" aria-hidden="true"></div><div class="pl"><span class="acc"><span>EA.15</span><span>401</span></span><h3><span lang="en">Nocturne</span><span lang="ar">ليليّة</span></h3><p class="med"><span lang="en">Espresso over tonic, a wheel of burnt orange.</span><span lang="ar">إسبريسو فوق التونيك مع شريحة برتقال محروقة.</span></p><p class="pr"><span dir="ltr">SAR 28</span></p></div></li>
+    <li class="lw"><div class="lt l2" aria-hidden="true"></div><div class="pl"><span class="acc"><span>EA.16</span><span>402</span></span><h3><span lang="en">Colour Study: Hibiscus</span><span lang="ar">دراسة لونية: الكركديه</span></h3><p class="med"><span lang="en">Cold-steeped hibiscus, rose water, sparkling water.</span><span lang="ar">كركديه منقوع على البارد، ماء الورد ومياه فوّارة.</span></p><p class="pr"><span dir="ltr">SAR 32</span></p></div></li>
+    <li class="lw"><div class="lt l3" aria-hidden="true"></div><div class="pl"><span class="acc"><span>EA.17</span><span>403</span></span><h3><span lang="en">Light Installation</span><span lang="ar">تجهيز ضوئي</span></h3><p class="med"><span lang="en">Yuzu lemonade, fresh ginger, soda, lemongrass.</span><span lang="ar">ليمونادة اليوزو، زنجبيل طازج، صودا وعشبة الليمون.</span></p><p class="pr"><span dir="ltr">SAR 30</span></p></div></li>
+    <li class="lw"><div class="lt l4" aria-hidden="true">قهوة</div><div class="pl"><span class="acc"><span>EA.18</span><span>404</span></span><h3><span lang="en">Calligraphy in Neon</span><span lang="ar">خطٌّ بالنيون</span></h3><p class="med"><span lang="en">Saudi coffee with cardamom and saffron, poured at the table; Sukkari dates.</span><span lang="ar">قهوة سعودية بالهيل والزعفران تُصبّ على الطاولة، مع تمر سكّري.</span></p><p class="pr"><span dir="ltr">SAR 26</span><i><span lang="en">Curator’s choice</span><span lang="ar">اختيار القيّمة</span></i></p></div></li>
+    <li class="lw"><div class="lt l5" aria-hidden="true"></div><div class="pl"><span class="acc"><span>EA.19</span><span>405</span></span><h3><span lang="en">Negative Space</span><span lang="ar">الفراغ السالب</span></h3><p class="med"><span lang="en">Clarified milk punch of black tea, citrus and spice. Crystal clear.</span><span lang="ar">بنش الحليب المصفّى من الشاي الأسود والحمضيات والبهارات. صافٍ كالبلّور.</span></p><p class="pr"><span dir="ltr">SAR 36</span></p></div></li>
+  </ol>
+  <div class="floor" aria-hidden="true"></div>
+</section>
+
+<footer class="info">
+  <div><span class="exit"><span lang="en">EXIT</span><span lang="ar">مخرج</span></span><h2><span lang="en">Visitor information</span><span lang="ar">معلومات الزوّار</span></h2></div>
+  <div><h4 class="cap"><span lang="en">Opening hours</span><span lang="ar">ساعات الافتتاح</span></h4><p><span lang="en">Saturday – Thursday 12:00 – 23:00<br>Friday 13:30 – 23:30</span><span lang="ar">السبت – الخميس ١٢:٠٠ – ٢٣:٠٠<br>الجمعة ١٣:٣٠ – ٢٣:٣٠</span></p></div>
+  <div><h4 class="cap"><span lang="en">Location</span><span lang="ar">الموقع</span></h4><p><span lang="en">Level 2, Dar Al-Funoon Museum<br>14 Al-Mirsam Street, Riyadh</span><span lang="ar">الطابق الثاني، متحف دار الفنون<br>١٤ شارع المرسم، الرياض</span></p></div>
+  <div><h4 class="cap"><span lang="en">Private views</span><span lang="ar">عروض خاصة</span></h4><p><span lang="en">The Sculpture Court seats sixteen for private dinners.</span><span lang="ar">يتّسع فناء المنحوتات لستة عشر ضيفًا في العشاءات الخاصة.</span></p></div>
+  <p class="fine"><span lang="en">Conservation notes: no alcohol and no pork are used in any work. Works may contain nuts, milk, egg, gluten, fish and shellfish; please speak to a gallery attendant about allergies. Prices in Saudi riyals, VAT included. Audio-guide numbers are for decoration only.</span><span lang="ar">ملاحظات الحفظ: لا يدخل الكحول ولا لحم الخنزير في أي عمل. قد تحتوي الأعمال على مكسرات أو حليب أو بيض أو غلوتين أو سمك أو قشريات؛ يُرجى إبلاغ مشرف القاعة بأي حساسية. الأسعار بالريال السعودي شاملةً ضريبة القيمة المضافة. أرقام الدليل الصوتي للزينة فقط.</span></p>
+</footer>
+
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

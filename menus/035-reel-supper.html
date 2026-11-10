@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Reel Supper Club · نادي السينما للعشاء</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Reel Supper Club — dinner and a movie in a 1946 picture house: a four-act supper, then the lights go down. نادي السينما للعشاء: عشاء من أربعة فصول ثم تُطفأ الأنوار ويبدأ الفيلم.">
+<meta name="theme-color" content="#150a0d">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Cairo:wght@400;600;800&family=Limelight&family=Rakkas&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{--night:#150a0d;--night2:#231116;--red:#b81d2c;--red2:#7c0f1c;--gold:#f4c453;--bulb:#ffe9a8;--cream:#f6ead2;--paper:#efe0bf;--ink:#1b1113;--teal:#1f6f78;
+  --disp:'Limelight','Rakkas',Georgia,serif;--body:'Barlow Condensed','Cairo','Arial Narrow',sans-serif}
+html[lang="ar"]{--disp:'Rakkas','Limelight','Tahoma',serif;--body:'Cairo','Barlow Condensed','Tahoma',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-size:18.5px;line-height:1.35;color:var(--cream);background:var(--night);overflow-x:clip}
+html[lang="ar"] body{font-size:16.5px;line-height:1.75}
+a{color:inherit}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--bulb);outline-offset:3px}
+.up{text-transform:uppercase;letter-spacing:.16em}
+html[lang="ar"] .up{letter-spacing:0}
+.tix{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);font:700 19px/1 'Barlow Condensed','Cairo',sans-serif;padding:8px 18px;unicode-bidi:isolate;white-space:nowrap;
+  -webkit-mask:radial-gradient(circle 7px at 0 50%,#0000 97%,#000),radial-gradient(circle 7px at 100% 50%,#0000 97%,#000);-webkit-mask-composite:source-in;
+  mask:radial-gradient(circle 7px at 0 50%,#0000 97%,#000),radial-gradient(circle 7px at 100% 50%,#0000 97%,#000);mask-composite:intersect}
+.tix small{font-size:11px;letter-spacing:.14em;font-weight:600;padding-inline-end:10px;border-inline-end:1.5px dashed var(--ink)}
+html[lang="ar"] .tix small{letter-spacing:0;font-size:12.5px}
+
+/* ===== façade ===== */
+.front{position:relative;padding:14px clamp(34px,7vw,120px) clamp(30px,4vw,54px);background:radial-gradient(ellipse at 50% 30%,#3a1820,var(--night) 70%);overflow:clip}
+.curtain{position:absolute;top:0;bottom:0;width:clamp(26px,6vw,104px);background:repeating-linear-gradient(90deg,var(--red2) 0,var(--red) 14px,#d93445 20px,var(--red) 26px,var(--red2) 40px);box-shadow:inset 0 -80px 60px -30px #0009}
+.curtain.l{left:0;border-radius:0 0 40% 0/0 0 8% 0}.curtain.r{right:0;border-radius:0 0 0 40%/0 0 0 8%}
+.valance{position:absolute;inset:0 0 auto 0;height:34px;background:radial-gradient(circle at 50% 0,var(--red) 0 24px,#0000 25px) 0 0/48px 34px repeat-x,linear-gradient(var(--red2) 10px,#0000 10px);filter:drop-shadow(0 4px 0 var(--gold));z-index:1}
+.exits{position:relative;z-index:2;display:flex;justify-content:flex-end;gap:10px;padding-top:36px}
+#langToggle,.home-link{font:700 15px/1 'Barlow Condensed','Cairo',sans-serif;letter-spacing:.14em;text-transform:uppercase;min-height:40px;padding:0 14px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;text-decoration:none;
+  color:#baffd0;background:#0c2a18;border:2px solid #2fd16b;border-radius:4px;box-shadow:0 0 12px #2fd16b88,inset 0 0 10px #2fd16b44;text-shadow:0 0 6px #2fd16b}
+html[lang="ar"] .home-link,html[lang="en"] #langToggle{letter-spacing:0;font-family:'Cairo',sans-serif;font-size:14px}
+#langToggle:hover,.home-link:hover{background:#2fd16b;color:#06200f;text-shadow:none}
+.marquee{position:relative;max-width:1060px;margin:18px auto 0;padding:clamp(34px,4vw,54px) clamp(22px,4vw,60px) clamp(30px,3.6vw,48px);text-align:center;background:linear-gradient(#2c0e15,#1a090d);border:3px solid var(--gold);border-radius:14px;box-shadow:0 0 0 8px #0b0506,0 0 80px #f4c45333,0 30px 60px #000}
+.marquee::before,.marquee::after{content:"";position:absolute;inset:7px;pointer-events:none;filter:drop-shadow(0 0 4px #f4c453);
+  background:radial-gradient(circle,var(--bulb) 0 3.6px,#0000 4.6px) var(--o,0) 0/32px 14px repeat-x,radial-gradient(circle,var(--bulb) 0 3.6px,#0000 4.6px) var(--o,0) 100%/32px 14px repeat-x,
+   radial-gradient(circle,var(--bulb) 0 3.6px,#0000 4.6px) 0 var(--o,0)/14px 32px repeat-y,radial-gradient(circle,var(--bulb) 0 3.6px,#0000 4.6px) 100% var(--o,0)/14px 32px repeat-y;animation:chase .9s steps(1) infinite}
+.marquee::after{--o:16px;animation-delay:-.45s}
+@keyframes chase{0%{opacity:1}50%{opacity:.22}}
+.reel{width:clamp(64px,8vw,96px);animation:roll 14s linear infinite}
+@keyframes roll{to{transform:rotate(360deg)}}
+.marquee .up{display:block;color:var(--gold);font-weight:500;font-size:clamp(14px,1.5vw,18px);margin-top:6px}
+html[lang="ar"] .marquee .up{font-size:clamp(15px,1.6vw,19px)}
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(58px,11vw,150px);line-height:.95;color:var(--bulb);text-shadow:0 0 6px #fff7,0 0 22px #f4c453,0 0 60px #e0731d;margin-block:.12em .1em}
+html[lang="ar"] h1{line-height:1.2;font-size:clamp(56px,10vw,136px)}
+h1 small{display:block;font-size:.5em;line-height:1.1;color:#fff;text-shadow:0 0 6px #fff,0 0 20px var(--red),0 0 46px var(--red)}
+html[lang="ar"] h1 small{line-height:1.35}
+.board{margin:clamp(18px,2.4vw,30px) auto 0;max-width:760px;background:var(--cream) repeating-linear-gradient(#0000 0 43px,#c9b78e 43px 45px);color:var(--ink);padding:0 14px;border:6px solid #0b0506;box-shadow:inset 0 0 40px #b9923f66,0 0 30px #ffe9a833}
+.board p{min-height:45px;font:700 clamp(19px,2.6vw,28px)/45px 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.16em;padding-top:1px}
+html[lang="ar"] .board p{font-family:'Cairo',sans-serif;font-weight:800;letter-spacing:0;font-size:clamp(16px,2.3vw,24px)}
+.board p:nth-child(2){color:var(--red)}
+.board b{color:var(--red);font-weight:700}
+.pitch{max-width:60ch;margin:22px auto 0;color:#e9d9bd;font-size:clamp(19px,1.6vw,22px)}
+html[lang="ar"] .pitch{font-size:clamp(17px,1.4vw,19px)}
+.prog{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:22px;position:relative;z-index:2}
+.prog a{text-decoration:none;min-height:44px}
+.prog a:hover{filter:brightness(1.15);transform:translateY(-2px)}
+
+/* act headings */
+.act{text-align:center;padding:clamp(40px,5vw,70px) 16px clamp(18px,2.4vw,30px)}
+.act .up{color:var(--gold);font-weight:600;font-size:16px}
+.act h2{font-family:var(--disp);font-weight:400;font-size:clamp(38px,5.6vw,76px);line-height:1.05;color:var(--cream)}
+html[lang="ar"] .act h2{line-height:1.35}
+.act p{color:#d9c7a6;max-width:52ch;margin:6px auto 0}
+
+/* ===== ACT I: film strip ===== */
+.strip{position:relative;background:#070505;padding:46px 20px;border-block:2px solid #2a2022}
+.strip::before,.strip::after{content:"";position:absolute;left:0;right:0;height:20px;background:repeating-linear-gradient(90deg,#0000 0 12px,var(--cream) 12px 30px,#0000 30px 42px);border-radius:3px;opacity:.9}
+.strip::before{top:13px}.strip::after{bottom:13px}
+.frames{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;max-width:1500px;margin-inline:auto}
+.frame{position:relative;background:linear-gradient(160deg,#f3e6c8,#e2cfa3);color:var(--ink);padding:34px 18px 18px;border-radius:5px;display:flex;flex-direction:column;gap:6px;box-shadow:inset 0 0 50px #8a5a1f55}
+.frame .no{position:absolute;top:10px;inset-inline-start:14px;font:600 13px/1 'Barlow Condensed',sans-serif;letter-spacing:.2em;color:#b4541a}
+.frame h3{font-family:var(--disp);font-weight:400;font-size:clamp(21px,1.8vw,26px);line-height:1.12}
+html[lang="ar"] .frame h3{line-height:1.4}
+.frame p{flex:1;color:#3a2a22}
+.frame .tix{align-self:flex-start;background:var(--ink);color:var(--bulb);margin-top:6px}
+.frame .tix small{border-color:var(--bulb)}
+
+/* ===== ACT II: posters ===== */
+.wallp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.6vw,40px);max-width:1240px;margin-inline:auto;padding:6px clamp(16px,3vw,40px) 20px}
+.poster{position:relative;background:var(--paper);color:var(--ink);padding:10px 10px 30px;box-shadow:0 0 0 1px #0006,0 18px 30px #000a;display:flex;flex-direction:column;transition:transform .25s}
+.poster:nth-child(odd){transform:rotate(-.8deg)}.poster:nth-child(even){transform:rotate(.7deg)}
+.poster:hover{transform:rotate(0) scale(1.02)}
+.art{position:relative;height:clamp(130px,15vw,200px);background:var(--c1);overflow:hidden}
+.art::before{content:"";position:absolute;inset:0;background:var(--c2);clip-path:var(--shape)}
+.art::after{content:"";position:absolute;width:34%;aspect-ratio:1;border-radius:50%;background:var(--c3);inset-inline-end:10%;top:14%}
+.art .ns{position:absolute;top:10px;inset-inline-start:10px;background:var(--ink);color:var(--bulb);font:600 12.5px/1 var(--body);padding:6px 9px 5px;z-index:1}
+html[lang="ar"] .art .ns{font-size:13px;padding:4px 9px 6px}
+.pa{--c1:#e8a33a;--c2:#1b1113;--c3:#b81d2c;--shape:polygon(0 100%,0 62%,14% 70%,22% 40%,34% 66%,44% 30%,58% 62%,70% 44%,82% 70%,100% 52%,100% 100%)}
+.pb{--c1:#1f6f78;--c2:#f6ead2;--c3:#f4c453;--shape:polygon(0 70%,12% 60%,25% 70%,38% 60%,50% 70%,62% 60%,75% 70%,88% 60%,100% 70%,100% 100%,0 100%)}
+.pc{--c1:#b81d2c;--c2:#f4c453;--c3:#1b1113;--shape:polygon(8% 100%,20% 30%,34% 30%,30% 100%,44% 100%,48% 12%,62% 12%,60% 100%)}
+.pd{--c1:#31543a;--c2:#f6ead2;--c3:#e8a33a;--shape:polygon(0 100%,18% 46%,30% 74%,46% 20%,60% 70%,72% 50%,100% 100%)}
+.pe{--c1:#f4c453;--c2:#b81d2c;--c3:#fff;--shape:polygon(0 0,100% 0,100% 16%,0 58%)}
+.pf{--c1:#1b1113;--c2:#b81d2c;--c3:#f6ead2;--shape:polygon(0 100%,50% 18%,100% 100%)}
+.poster h3{font-family:var(--disp);font-weight:400;font-size:clamp(28px,2.8vw,40px);line-height:1.02;text-align:center;margin:16px 6px 6px;color:var(--red2)}
+html[lang="ar"] .poster h3{line-height:1.3}
+.poster p{text-align:center;padding-inline:12px;color:#3a2a22;flex:1}
+.star{display:block;text-align:center;margin:10px 8px 0;padding-top:8px;border-top:1.5px solid var(--ink);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+html[lang="ar"] .star{letter-spacing:0;font-size:14.5px}
+.poster .tix{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%) rotate(-3deg);box-shadow:0 4px 0 #0005}
+
+/* double feature banner */
+.dbl{max-width:1100px;margin:clamp(46px,6vw,80px) auto 0;padding-inline:16px}
+.dbl-in{display:grid;grid-template-columns:1fr;gap:10px 30px;align-items:center;background:var(--gold);color:var(--ink);padding:22px clamp(28px,4vw,54px);
+  -webkit-mask:radial-gradient(circle 18px at 0 50%,#0000 97%,#000),radial-gradient(circle 18px at 100% 50%,#0000 97%,#000);-webkit-mask-composite:source-in;
+  mask:radial-gradient(circle 18px at 0 50%,#0000 97%,#000),radial-gradient(circle 18px at 100% 50%,#0000 97%,#000);mask-composite:intersect}
+.dbl h2{font-family:var(--disp);font-weight:400;font-size:clamp(30px,3.6vw,48px);line-height:1.1}
+html[lang="ar"] .dbl h2{line-height:1.4}
+.dbl .seat{font:700 clamp(40px,5vw,64px)/1 'Barlow Condensed',sans-serif;unicode-bidi:isolate;text-align:center;border-top:2px dashed var(--ink);padding-top:12px}
+.dbl .seat small{display:block;font-size:14px;letter-spacing:.14em;text-transform:uppercase;margin-top:4px;font-family:var(--body)}
+html[lang="ar"] .dbl .seat small{letter-spacing:0;font-size:15px}
+
+/* ===== INTERMISSION: concessions ===== */
+.stand{max-width:1160px;margin:0 auto;padding-inline:16px}
+.stand-in{background:var(--cream);color:var(--ink);border-radius:0 0 10px 10px;position:relative;padding:clamp(40px,4vw,56px) clamp(18px,3vw,44px) clamp(26px,3vw,40px);display:grid;grid-template-columns:1fr;gap:24px 50px}
+.awning{height:54px;background:repeating-linear-gradient(90deg,var(--red) 0 36px,#fff 36px 72px);border-radius:10px 10px 0 0;position:relative;z-index:1;margin-bottom:-18px;filter:drop-shadow(0 3px 0 #0003);-webkit-mask:radial-gradient(circle at 50% 0,#000 17px,#0000 18px) 0 100%/36px 18px repeat-x,linear-gradient(#000,#000) 0 0/100% calc(100% - 18px) no-repeat;mask:radial-gradient(circle at 50% 0,#000 17px,#0000 18px) 0 100%/36px 18px repeat-x,linear-gradient(#000,#000) 0 0/100% calc(100% - 18px) no-repeat}
+.corn{width:min(52%,200px);justify-self:center}
+.corn svg{width:100%;height:auto;display:block}
+.stand h3{font-family:var(--disp);font-weight:400;font-size:28px;color:var(--red2);border-bottom:3px double var(--ink);padding-bottom:4px;margin-bottom:6px}
+html[lang="ar"] .stand h3{font-size:30px}
+.li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 12px;align-items:center;padding:9px 0;border-bottom:1px dashed #1b111355}
+.li b{font-weight:700;font-size:21px;text-transform:uppercase;letter-spacing:.04em}
+html[lang="ar"] .li b{letter-spacing:0;font-size:18px;font-weight:800}
+.li p{grid-column:1;color:#4a382e}
+.li .tix{grid-column:2;grid-row:1/span 2;background:var(--red);color:#fff;font-size:17px;padding:7px 14px}
+
+/* ===== ACT III: credits ===== */
+.credits{background:#050304;padding-bottom:clamp(40px,5vw,70px);margin-top:clamp(46px,6vw,80px);border-top:2px solid #2a2022}
+.roll{max-width:1000px;margin-inline:auto;padding-inline:16px}
+.cr{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:0 22px;align-items:center;padding:14px 0}
+.cr h3{font-weight:600;font-size:clamp(21px,2vw,26px);text-transform:uppercase;letter-spacing:.14em;text-align:end;color:#fff}
+html[lang="ar"] .cr h3{letter-spacing:0;font-weight:800;font-size:clamp(19px,1.8vw,23px)}
+.cr p{color:#cdbb9c}
+.end{text-align:center;margin-top:30px;font-family:var(--disp);font-size:clamp(44px,7vw,92px);line-height:1.2;color:var(--cream)}
+.leader{width:110px;display:block;margin:34px auto 4px}
+.leader .sw{transform-origin:60px 60px;animation:roll 2.4s linear infinite}
+
+/* ===== ticket footer ===== */
+footer{padding:clamp(40px,5vw,70px) 16px 40px;background:radial-gradient(ellipse at 50% 0,#3a1820,var(--night) 70%)}
+.ticket{max-width:1100px;margin-inline:auto;background:var(--cream);color:var(--ink);display:grid;grid-template-columns:1fr;border-radius:10px;overflow:hidden;box-shadow:0 20px 40px #000a}
+.stub{background:var(--red);color:#fff;padding:22px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:6px;border-bottom:3px dashed var(--cream)}
+.stub b{font-family:var(--disp);font-weight:400;font-size:40px;line-height:1.1}
+.bar{height:38px;margin-top:8px;background:repeating-linear-gradient(90deg,#fff 0 3px,#0000 3px 6px,#fff 6px 7px,#0000 7px 12px,#fff 12px 16px,#0000 16px 19px)}
+.tk{padding:clamp(20px,3vw,36px);display:grid;grid-template-columns:1fr;gap:22px 40px}
+.tk h2{font-family:var(--disp);font-weight:400;font-size:25px;color:var(--red2);margin-bottom:4px}
+html[lang="ar"] .tk h2{font-size:27px}
+.tk dl{display:grid;grid-template-columns:auto 1fr;gap:3px 14px}
+.tk dt{font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+html[lang="ar"] .tk dt{letter-spacing:0;font-weight:800}
+.tk .t{unicode-bidi:isolate;direction:ltr;display:inline-block}
+.fine{grid-column:1/-1;border-top:1.5px solid var(--ink);padding-top:12px;font-size:16.5px;color:#4a382e}
+html[lang="ar"] .fine{font-size:15px}
+
+@media (min-width:760px){
+  .dbl-in{grid-template-columns:1fr auto}
+  .dbl .seat{border-top:0;border-inline-start:2px dashed var(--ink);padding:0 0 0 30px;padding-inline:30px 0}
+  .stand-in{grid-template-columns:180px 1fr 1fr;align-items:start}
+  .corn{width:100%;align-self:center}
+  .ticket{grid-template-columns:230px 1fr}
+  .stub{border-bottom:0;border-inline-end:3px dashed var(--cream)}
+  .tk{grid-template-columns:1fr 1fr}
+}
+@media (max-width:1100px){
+  .frames{grid-template-columns:1fr;max-width:520px}
+  .strip{padding:20px 46px}
+  .strip::before,.strip::after{top:0;bottom:0;height:auto;width:20px;background:repeating-linear-gradient(#0000 0 12px,var(--cream) 12px 30px,#0000 30px 42px)}
+  .strip::before{left:13px;right:auto}.strip::after{right:13px;left:auto}
+}
+@media (max-width:860px){
+  .wallp{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .wallp{grid-template-columns:1fr;max-width:400px;gap:44px}
+  .front{padding-inline:30px}
+  .marquee{padding-inline:20px}
+  .board{padding-inline:6px}
+  .board p{letter-spacing:.03em;font-size:15.5px}
+  html[lang="ar"] .board p{font-size:13.5px}
+  .cr{grid-template-columns:1fr;text-align:center;gap:6px;padding:16px 0;border-bottom:1px solid #ffffff1c}
+  .cr h3{text-align:center}
+  .cr .tix{justify-self:center;order:3}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="front">
+  <div class="curtain l"></div><div class="curtain r"></div><div class="valance"></div>
+  <div class="exits">
+    <a class="home-link" href="../index.html"><span lang="en">← All menus</span><span lang="ar">كل القوائم →</span></a>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+  <div class="marquee">
+    <svg class="reel" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="#f4c453" stroke-width="5"/><g fill="#f4c453"><circle cx="50" cy="22" r="11"/><circle cx="50" cy="78" r="11"/><circle cx="22" cy="50" r="11"/><circle cx="78" cy="50" r="11"/><circle cx="50" cy="50" r="6"/></g></svg>
+    <span class="up"><span lang="en">The Regal Picture House · est. 1946</span><span lang="ar">دار سينما ريجال · منذ 1946</span></span>
+    <h1><span lang="en">Reel<small>Supper Club</small></span><span lang="ar">نادي السينما<small>للعشاء</small></span></h1>
+    <div class="board">
+      <p><span lang="en">Now showing · Dinner &amp; a movie</span><span lang="ar">يُعرض الآن · عشاء وسينما</span></p>
+      <p><span lang="en">A supper in four acts</span><span lang="ar">عشاء في أربعة فصول</span></p>
+      <p><span lang="en">Doors <b>6:45</b> · Supper <b>7:30</b> · Film <b>9:00</b></span><span lang="ar">الأبواب <b>6:45</b> · العشاء <b>7:30</b> · الفيلم <b>9:00</b></span></p>
+    </div>
+    <p class="pitch"><span lang="en">Take your seat in the stalls of a 1946 picture house. We cook, the projectionist threads the reel, and when the plates are cleared the lights go down.</span><span lang="ar">خذ مقعدك في صالة سينما من عام 1946. نحن نطبخ، وعامل العرض يلقّم البكرة، وحين تُرفع الصحون تُطفأ الأنوار.</span></p>
+  </div>
+  <nav class="prog" aria-label="Programme">
+    <a class="tix" href="#act1"><small><span lang="en">Act I</span><span lang="ar">الفصل 1</span></small><span lang="en">Trailers</span><span lang="ar">الإعلانات</span></a>
+    <a class="tix" href="#act2"><small><span lang="en">Act II</span><span lang="ar">الفصل 2</span></small><span lang="en">Features</span><span lang="ar">الأفلام الرئيسية</span></a>
+    <a class="tix" href="#break"><small><span lang="en">Break</span><span lang="ar">استراحة</span></small><span lang="en">Concessions</span><span lang="ar">المقصف</span></a>
+    <a class="tix" href="#act3"><small><span lang="en">Act III</span><span lang="ar">الفصل 3</span></small><span lang="en">End credits</span><span lang="ar">شارة النهاية</span></a>
+  </nav>
+</header>
+
+<main>
+<section id="act1">
+  <div class="act"><span class="up"><span lang="en">Act I · Starters</span><span lang="ar">الفصل الأول · المقبّلات</span></span>
+    <h2><span lang="en">The Trailers</span><span lang="ar">الإعلانات التشويقية</span></h2>
+    <p><span lang="en">Short, punchy, and they give away just enough of the plot.</span><span lang="ar">قصيرة ومشوّقة، وتكشف من الحبكة ما يكفي فقط.</span></p></div>
+  <div class="strip"><ul class="frames">
+    <li class="frame"><span class="no">1A</span><h3><span lang="en">Popcorn Chicken, Take One</span><span lang="ar">دجاج الفشار، اللقطة الأولى</span></h3><p><span lang="en">Buttermilk chicken bites, truffle salt, sweetcorn aioli.</span><span lang="ar">قطع دجاج باللبن الرائب مع ملح الكمأة وأيولي الذرة الحلوة.</span></p><span class="tix" dir="ltr">£9</span></li>
+    <li class="frame"><span class="no">2A</span><h3><span lang="en">Burrata in Technicolor</span><span lang="ar">بوراتا بالألوان</span></h3><p><span lang="en">Heirloom tomatoes of every shade, basil oil, pomegranate.</span><span lang="ar">طماطم بلدية بكل ألوانها مع زيت الريحان وحبّ الرمّان.</span></p><span class="tix" dir="ltr">£11</span></li>
+    <li class="frame"><span class="no">3A</span><h3><span lang="en">The Opening Scene</span><span lang="ar">المشهد الافتتاحي</span></h3><p><span lang="en">Roasted tomato soup with a grilled three-cheese dipper.</span><span lang="ar">حساء الطماطم المشوية مع إصبع توست بثلاثة أجبان للتغميس.</span></p><span class="tix" dir="ltr">£8</span></li>
+    <li class="frame"><span class="no">4A</span><h3><span lang="en">Carpaccio, Director's Cut</span><span lang="ar">كارباتشيو بنسخة المخرج</span></h3><p><span lang="en">Smoked beef fillet sliced film-thin, capers, parmesan, rocket.</span><span lang="ar">فيليه بقري مدخّن بشرائح برقّة الشريط السينمائي مع الكبَر والبارميزان والجرجير.</span></p><span class="tix" dir="ltr">£12</span></li>
+    <li class="frame"><span class="no">5A</span><h3><span lang="en">Best Supporting Cauliflower</span><span lang="ar">قرنبيط بدور مساعد</span></h3><p><span lang="en">Crisp florets, whipped tahini, chilli honey and sesame.</span><span lang="ar">زهرات مقرمشة مع طحينة مخفوقة وعسل حارّ وسمسم.</span></p><span class="tix" dir="ltr">£8</span></li>
+  </ul></div>
+</section>
+
+<section id="act2">
+  <div class="act"><span class="up"><span lang="en">Act II · Mains</span><span lang="ar">الفصل الثاني · الأطباق الرئيسية</span></span>
+    <h2><span lang="en">Feature Presentations</span><span lang="ar">العروض الرئيسية</span></h2>
+    <p><span lang="en">Six pictures on the bill tonight. Every one a full-length feature.</span><span lang="ar">ستّة أفلام على لوحة الليلة، وكلّها أفلام طويلة.</span></p></div>
+  <ul class="wallp">
+    <li class="poster"><div class="art pa"><span class="ns up"><span lang="en">Now showing</span><span lang="ar">يُعرض الآن</span></span></div><h3><span lang="en">The Long Take</span><span lang="ar">اللقطة الطويلة</span></h3><p><span lang="en">Twelve-hour beef short rib that falls from the bone, glazed in its own juices.</span><span lang="ar">ضلع بقري يُطهى اثنتي عشرة ساعة حتى ينفصل عن العظم، ملمَّع بمرقه.</span></p><span class="star"><span lang="en">Starring · butter mash · pickled shallots</span><span lang="ar">بطولة · بطاطا مهروسة بالزبدة · كرّاث مخلّل</span></span><span class="tix" dir="ltr"><small>ADMIT ONE</small>£26</span></li>
+    <li class="poster"><div class="art pb"><span class="ns up"><span lang="en">Critics' choice</span><span lang="ar">اختيار النقّاد</span></span></div><h3><span lang="en">Sea Change</span><span lang="ar">مدّ وجزر</span></h3><p><span lang="en">Pan-roast sea bass with crackling skin over saffron-braised fennel.</span><span lang="ar">قاروص محمّر بجلد مقرمش فوق شمر مطهوّ بالزعفران.</span></p><span class="star"><span lang="en">Starring · brown shrimp butter · samphire</span><span lang="ar">بطولة · زبدة الروبيان البنّي · عشبة البحر</span></span><span class="tix" dir="ltr"><small>ADMIT ONE</small>£24</span></li>
+    <li class="poster"><div class="art pc"><span class="ns up"><span lang="en">Crowd-pleaser</span><span lang="ar">حبيب الجماهير</span></span></div><h3><span lang="en">The Big Cheese</span><span lang="ar">الجبنة الكبيرة</span></h3><p><span lang="en">Double smashed beef burger, aged cheddar, burnt-onion relish, brioche bun.</span><span lang="ar">برغر بقري مزدوج مضغوط مع شيدر معتّق ومربّى البصل المحروق في خبز بريوش.</span></p><span class="star"><span lang="en">Starring · turkey bacon · house fries</span><span lang="ar">بطولة · ديك رومي مقدّد · بطاطا الدار</span></span><span class="tix" dir="ltr"><small>ADMIT ONE</small>£18</span></li>
+    <li class="poster"><div class="art pd"><span class="ns up"><span lang="en">Rated V</span><span lang="ar">تصنيف: نباتي</span></span></div><h3><span lang="en">Into the Woods</span><span lang="ar">في قلب الغابة</span></h3><p><span lang="en">Hand-cut pappardelle with wild mushrooms, thyme cream and black truffle.</span><span lang="ar">بابارديلّه مقطّعة باليد مع فطر برّي وكريمة الزعتر وكمأة سوداء.</span></p><span class="star"><span lang="en">Starring · aged parmesan · crisp sage</span><span lang="ar">بطولة · بارميزان معتّق · مريمية مقرمشة</span></span><span class="tix" dir="ltr"><small>ADMIT ONE</small>£17</span></li>
+    <li class="poster"><div class="art pe"><span class="ns up"><span lang="en">Family matinée</span><span lang="ar">عرض عائلي</span></span></div><h3><span lang="en">Bird on a Wire</span><span lang="ar">طائر على السلك</span></h3><p><span lang="en">Rotisserie half chicken, lemon and thyme, basted until the credits roll.</span><span lang="ar">نصف دجاجة على الشوّاية الدوّارة بالليمون والزعتر، تُدهن حتى تظهر شارة النهاية.</span></p><span class="star"><span lang="en">Starring · roast garlic jus · charred corn</span><span lang="ar">بطولة · مرق الثوم المشوي · ذرة مشوية</span></span><span class="tix" dir="ltr"><small>ADMIT ONE</small>£21</span></li>
+    <li class="poster"><div class="art pf"><span class="ns up"><span lang="en">Late show</span><span lang="ar">العرض الأخير</span></span></div><h3><span lang="en">The Steak-Out</span><span lang="ar">كمين الستيك</span></h3><p><span lang="en">250 g dry-aged ribeye, seared hard, rested long, sliced at the table.</span><span lang="ar">ريب آي معتّق بوزن 250 غراماً، يُشوى على نار قوية ويرتاح طويلاً ثم يُقطَّع على الطاولة.</span></p><span class="star"><span lang="en">Starring · peppercorn sauce · fries</span><span lang="ar">بطولة · صلصة الفلفل الأسود · بطاطا مقلية</span></span><span class="tix" dir="ltr"><small>ADMIT ONE</small>£32</span></li>
+  </ul>
+  <div class="dbl"><div class="dbl-in">
+    <div><span class="up"><span lang="en">Tonight's best seat</span><span lang="ar">أفضل مقعد الليلة</span></span>
+      <h2><span lang="en">The Double Feature</span><span lang="ar">العرض المزدوج</span></h2>
+      <p><span lang="en">Any trailer, any feature, any end credit, bottomless popcorn, and your reserved seat for tonight's film.</span><span lang="ar">أيّ مقبّل وأيّ طبق رئيسي وأيّ حلوى، مع فشار بلا حدود ومقعدك المحجوز لفيلم الليلة.</span></p></div>
+    <div class="seat"><span dir="ltr">£48</span><small><span lang="en">per seat</span><span lang="ar">للمقعد الواحد</span></small></div>
+  </div></div>
+</section>
+
+<section id="break">
+  <div class="act"><span class="up"><span lang="en">Intermission · Sides &amp; drinks</span><span lang="ar">استراحة · أطباق جانبية ومشروبات</span></span>
+    <h2><span lang="en">The Concession Stand</span><span lang="ar">مقصف السينما</span></h2>
+    <p><span lang="en">Fifteen minutes. Stretch your legs, fill your hands.</span><span lang="ar">خمس عشرة دقيقة. حرّك ساقيك واملأ يديك.</span></p></div>
+  <div class="stand"><div class="awning" aria-hidden="true"></div><div class="stand-in">
+    <div class="corn" aria-hidden="true"><svg viewBox="0 0 200 250"><g fill="#fff3c9" stroke="#1b1113" stroke-width="3"><circle cx="52" cy="78" r="24"/><circle cx="100" cy="60" r="28"/><circle cx="148" cy="78" r="24"/><circle cx="76" cy="50" r="20"/><circle cx="126" cy="46" r="20"/><circle cx="100" cy="88" r="24"/><circle cx="66" cy="96" r="18"/><circle cx="136" cy="98" r="18"/></g><path d="M30 100h140l-18 144H48z" fill="#fff" stroke="#1b1113" stroke-width="3"/><path d="M50 100h20l6 144H60zM90 100h20v144H90zM130 100h20l-10 144h-16z" fill="#b81d2c"/><ellipse cx="100" cy="170" rx="34" ry="22" fill="#f4c453" stroke="#1b1113" stroke-width="3"/><path d="M82 170h36M100 158v24" stroke="#1b1113" stroke-width="3"/></svg></div>
+    <div><h3><span lang="en">Snacks</span><span lang="ar">التسالي</span></h3>
+      <div class="li"><b><span lang="en">Bottomless Butter Popcorn</span><span lang="ar">فشار بالزبدة بلا حدود</span></b><span class="tix" dir="ltr">£4</span><p><span lang="en">Popped to order, brown butter, sea salt.</span><span lang="ar">يُفرقع عند الطلب مع زبدة بنّية وملح البحر.</span></p></div>
+      <div class="li"><b><span lang="en">Truffle Parmesan Fries</span><span lang="ar">بطاطا بالكمأة والبارميزان</span></b><span class="tix" dir="ltr">£6</span><p><span lang="en">Skin-on, triple-cooked, far too many.</span><span lang="ar">بقشرها وتُطهى ثلاث مرّات، وبكمّية أكثر ممّا ينبغي.</span></p></div>
+      <div class="li"><b><span lang="en">Four-Cheese Mac</span><span lang="ar">معكرونة بأربعة أجبان</span></b><span class="tix" dir="ltr">£7</span><p><span lang="en">Baked with a toasted crumb lid.</span><span lang="ar">تُخبز تحت غطاء من فتات الخبز المحمّص.</span></p></div>
+      <div class="li"><b><span lang="en">Charred Greens</span><span lang="ar">خضار مشوية</span></b><span class="tix" dir="ltr">£6</span><p><span lang="en">Tenderstem, lemon, chilli and garlic.</span><span lang="ar">بروكلي رفيع مع الليمون والفلفل الحارّ والثوم.</span></p></div>
+    </div>
+    <div><h3><span lang="en">Soda Fountain</span><span lang="ar">نافورة المشروبات</span></h3>
+      <div class="li"><b><span lang="en">Cherry Cola Float</span><span lang="ar">كولا الكرز بالآيس كريم</span></b><span class="tix" dir="ltr">£7</span><p><span lang="en">House cherry syrup, cola, vanilla ice cream.</span><span lang="ar">شراب كرز من صنعنا مع الكولا وآيس كريم الفانيلا.</span></p></div>
+      <div class="li"><b><span lang="en">The Screen Siren</span><span lang="ar">نجمة الشاشة</span></b><span class="tix" dir="ltr">£8</span><p><span lang="en">Hibiscus, rose and pink grapefruit spritz. Zero proof.</span><span lang="ar">سبريتز الكركديه والورد والغريب فروت الوردي. خالٍ من الكحول.</span></p></div>
+      <div class="li"><b><span lang="en">Salted Caramel Shake</span><span lang="ar">ميلك شيك الكراميل المملّح</span></b><span class="tix" dir="ltr">£8</span><p><span lang="en">Thick enough to hold the straw upright.</span><span lang="ar">كثيف إلى حدّ أنّ المصّاصة تقف فيه وحدها.</span></p></div>
+      <div class="li"><b><span lang="en">Mint Lemonade</span><span lang="ar">ليموناضة بالنعناع</span></b><span class="tix" dir="ltr">£5</span><p><span lang="en">Fresh-pressed, crushed ice, a lot of mint.</span><span lang="ar">عصير طازج على ثلج مجروش مع كثير من النعناع.</span></p></div>
+      <div class="li"><b><span lang="en">Projectionist's Coffee</span><span lang="ar">قهوة عامل العرض</span></b><span class="tix" dir="ltr">£4</span><p><span lang="en">Long black, strong enough for a double bill.</span><span lang="ar">قهوة سوداء طويلة تكفي لعرضين متتاليين.</span></p></div>
+    </div>
+  </div></div>
+</section>
+
+<section class="credits" id="act3">
+  <div class="act"><span class="up"><span lang="en">Act III · Desserts</span><span lang="ar">الفصل الثالث · الحلويات</span></span>
+    <h2><span lang="en">End Credits</span><span lang="ar">شارة النهاية</span></h2>
+    <p><span lang="en">Stay in your seat. The best bit comes after the story ends.</span><span lang="ar">ابقَ في مقعدك. أجمل ما في الفيلم يأتي بعد نهاية القصّة.</span></p></div>
+  <ul class="roll">
+    <li class="cr"><h3><span lang="en">Choc-Ice Sundae</span><span lang="ar">صنداي الشوكولاتة المثلّجة</span></h3><span class="tix" dir="ltr">£8</span><p><span lang="en">Vanilla ice cream, hot fudge, honeycomb, a cherry on top.</span><span lang="ar">آيس كريم الفانيلا مع صلصة الشوكولاتة الساخنة وقرص العسل المقرمش وحبّة كرز.</span></p></li>
+    <li class="cr"><h3><span lang="en">The Encore</span><span lang="ar">الإعادة بطلب الجمهور</span></h3><span class="tix" dir="ltr">£9</span><p><span lang="en">Sticky toffee pudding, date caramel, clotted cream.</span><span lang="ar">بودينغ التوفي الدبق مع كراميل التمر وقشطة كثيفة.</span></p></li>
+    <li class="cr"><h3><span lang="en">Fade to White</span><span lang="ar">تلاشٍ إلى البياض</span></h3><span class="tix" dir="ltr">£8</span><p><span lang="en">Lemon curd tart under a cloud of torched meringue.</span><span lang="ar">تارت كريمة الليمون تحت غيمة من المرنغ المحمّص باللهب.</span></p></li>
+    <li class="cr"><h3><span lang="en">Popcorn Panna Cotta</span><span lang="ar">بانا كوتا الفشار</span></h3><span class="tix" dir="ltr">£8</span><p><span lang="en">Popcorn-infused cream, salted caramel, caramel corn.</span><span lang="ar">كريمة منقوعة بالفشار مع كراميل مملّح وفشار مكرمل.</span></p></li>
+    <li class="cr"><h3><span lang="en">The Final Cut</span><span lang="ar">المونتاج الأخير</span></h3><span class="tix" dir="ltr">£6</span><p><span lang="en">Affogato: a scoop of vanilla, a shot of hot espresso.</span><span lang="ar">أفوغاتو: كرة فانيلا تُغمر بجرعة إسبريسو ساخنة.</span></p></li>
+  </ul>
+  <svg class="leader" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="none" stroke="#f6ead2" stroke-width="3"/><circle cx="60" cy="60" r="40" fill="none" stroke="#f6ead2" stroke-width="1.5"/><path d="M60 0v120M0 60h120" stroke="#f6ead2" stroke-width="1.5"/><path class="sw" d="M60 60V8" stroke="#b81d2c" stroke-width="4"/></svg>
+  <p class="end"><span lang="en">The End</span><span lang="ar">النهاية</span></p>
+</section>
+</main>
+
+<footer>
+  <div class="ticket">
+    <div class="stub"><span class="up"><span lang="en">Admit one</span><span lang="ar">تذكرة دخول</span></span><b><span lang="en">Row F<br>Seat 35</span><span lang="ar">الصف F<br>المقعد 35</span></b><div class="bar" aria-hidden="true"></div></div>
+    <div class="tk">
+      <div><h2><span lang="en">This week's reels</span><span lang="ar">بكرات هذا الأسبوع</span></h2>
+        <dl>
+          <dt><span lang="en">Tue</span><span lang="ar">الثلاثاء</span></dt><dd><span lang="en">Silent comedies with live piano</span><span lang="ar">كوميديا صامتة مع بيانو حيّ</span></dd>
+          <dt><span lang="en">Wed</span><span lang="ar">الأربعاء</span></dt><dd><span lang="en">Golden-age Cairo musicals</span><span lang="ar">استعراضيات العصر الذهبي للسينما المصرية</span></dd>
+          <dt><span lang="en">Thu</span><span lang="ar">الخميس</span></dt><dd><span lang="en">Noir night, black and white only</span><span lang="ar">ليلة النوار بالأبيض والأسود فقط</span></dd>
+          <dt><span lang="en">Fri – Sat</span><span lang="ar">الجمعة – السبت</span></dt><dd><span lang="en">Classics chosen by audience vote</span><span lang="ar">كلاسيكيات يختارها الجمهور بالتصويت</span></dd>
+          <dt><span lang="en">Sun</span><span lang="ar">الأحد</span></dt><dd><span lang="en">Family matinée, lunch at 1 pm</span><span lang="ar">عرض عائلي نهاري والغداء عند الواحدة</span></dd>
+        </dl></div>
+      <div><h2><span lang="en">Box office</span><span lang="ar">شبّاك التذاكر</span></h2>
+        <p><span lang="en">The Regal Picture House, 35 Lantern Row, Old Town</span><span lang="ar">دار سينما ريجال، 35 صفّ الفوانيس، البلدة القديمة</span></p>
+        <p><span lang="en">Tuesday to Sunday, doors</span><span lang="ar">من الثلاثاء إلى الأحد، تُفتح الأبواب</span> <span class="t">6:45 pm</span></p>
+        <p><span lang="en">Reservations</span><span lang="ar">الحجز</span> <span class="t">+44 20 5550 0135</span></p></div>
+      <p class="fine"><span lang="en">Please tell your usher about allergies: our kitchen handles nuts, gluten, dairy, eggs, fish and sesame. All meat is halal; we serve no alcohol and no pork. Prices in pounds sterling, service not included. Phones off once the lights dim.</span><span lang="ar">أخبر المرشد عن أيّ حساسية: مطبخنا يتعامل مع المكسّرات والغلوتين والألبان والبيض والسمك والسمسم. جميع اللحوم حلال، ولا نقدّم الكحول ولا لحم الخنزير. الأسعار بالجنيه الإسترليني ولا تشمل الخدمة. تُغلق الهواتف عند إطفاء الأنوار.</span></p>
+    </div>
+  </div>
+</footer>
+<script>
+document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});
+</script>
+</body>
+</html>

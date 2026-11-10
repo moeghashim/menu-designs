@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Matchday Grill · مشاوي يوم المباراة</title>
+<meta name="description" content="Matchday Grill — a sports grill where the menu is the team sheet: a starting XI off the flame, subs on the bench. مشاوي يوم المباراة — قائمة على شكل خطّة لعب.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0c">
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:ital,wght@0,600;0,700;1,800&family=Caveat:wght@600;700&family=Changa:wght@500;700;800&family=Handjet:wght@400;600;800&family=Playpen+Sans+Arabic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+html[lang="en"] [lang="ar"], html[lang="ar"] [lang="en"] { display: none !important; }
+:root{
+  --grass:#1f7a3a; --grass2:#1a6c33; --chalk:rgba(255,255,255,.78); --black:#0b0b0c; --led:#ffb400; --red:#e0263c; --yel:#ffd60a;
+  --hd:"Barlow Condensed","Changa","Arial Narrow",sans-serif; --bd:"Barlow","Almarai",system-ui,sans-serif; --hand:"Caveat","Playpen Sans Arabic",cursive; --dot:"Handjet","Courier New",monospace;
+}
+html[lang="ar"]{ --hd:"Changa","Barlow Condensed",sans-serif; --bd:"Almarai","Barlow",sans-serif; --hand:"Playpen Sans Arabic","Caveat",cursive; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--bd);font-size:16px;line-height:1.45;color:#fff;background:var(--black);-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-size:16.5px;line-height:1.7}
+html[lang="ar"] *{letter-spacing:0 !important}
+.page{overflow:clip}
+.led{font-family:var(--dot);color:var(--led);text-shadow:0 0 8px rgba(255,180,0,.65)}
+
+/* sticky ticker bar */
+.bar{position:sticky;inset-block-start:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px clamp(10px,3vw,28px);background:#000;border-block-end:2px solid #262626}
+.live{display:flex;align-items:center;gap:8px;font-family:var(--dot);font-weight:600;font-size:1.25rem;letter-spacing:.06em;color:#fff;white-space:nowrap;min-width:0;overflow:hidden}
+.live i{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red);animation:blink 1.4s steps(2) infinite;flex:none}
+@keyframes blink{50%{opacity:.25}}
+.live b{color:var(--led);font-weight:800}
+.ctl{display:flex;gap:6px;flex:none}
+.ctl a,.ctl button{font:700 .95rem/1 var(--hd);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;color:#fff;background:#1c1c1e;border:1px solid #444;border-radius:4px;padding:9px 12px;min-height:36px;display:inline-flex;align-items:center}
+.ctl button{background:var(--yel);color:#000;border-color:var(--yel);font-family:"Changa",var(--hd)}
+html[lang="ar"] .ctl button{font-family:"Barlow Condensed",sans-serif;letter-spacing:.06em !important}
+.ctl a:hover{border-color:#fff}
+
+/* scoreboard */
+.sb{position:relative;background:#0b0b0c;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.3px);background-size:5px 5px;padding:clamp(26px,4vw,56px) clamp(14px,4vw,60px) clamp(30px,4vw,56px);text-align:center;border-block-end:10px solid #18181a}
+.sb .comp{font-family:var(--dot);font-size:clamp(1rem,1.6vw,1.35rem);letter-spacing:.2em;color:#9a9a9a}
+h1{font-family:var(--hd);font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(3.3rem,11.5vw,10.5rem);line-height:.86;letter-spacing:-.01em;margin-block:8px clamp(18px,2.4vw,30px)}
+html[lang="ar"] h1{font-style:normal;line-height:1.2;font-size:clamp(2.7rem,9vw,8rem)}
+h1 em{font-style:inherit;color:var(--yel)}
+.score{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(8px,2vw,26px);max-width:980px;margin-inline:auto;align-items:stretch}
+.team{background:#000;border:2px solid #2a2a2a;border-radius:8px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.team span{font-family:var(--dot);font-weight:600;font-size:clamp(1.3rem,3.4vw,2.6rem);letter-spacing:.08em;line-height:1}
+.team b{font-family:var(--dot);font-weight:800;font-size:clamp(3rem,8vw,6rem);line-height:.8;color:var(--led);text-shadow:0 0 14px rgba(255,180,0,.7)}
+.team.away b{color:#ff3b30;text-shadow:0 0 14px rgba(255,59,48,.7)}
+.clock{background:#000;border:2px solid #2a2a2a;border-radius:8px;padding:8px clamp(8px,2vw,22px);display:grid;place-content:center;font-family:var(--dot)}
+.clock b{font-weight:800;font-size:clamp(1.6rem,4vw,3rem);line-height:1;color:#3dff7a;text-shadow:0 0 12px rgba(61,255,122,.6)}
+.clock span{font-size:clamp(.8rem,1.2vw,1.05rem);letter-spacing:.14em;color:#9a9a9a}
+.tag{font-family:var(--hd);font-weight:700;font-size:clamp(1.3rem,2.4vw,2rem);text-transform:uppercase;letter-spacing:.04em;margin-block-start:clamp(18px,2.4vw,30px)}
+.talk{max-width:60ch;margin:8px auto 0;color:#c9c9c9}
+
+/* pitch */
+.ground{background:#12351f;padding:clamp(12px,3vw,44px) clamp(8px,3vw,44px)}
+.pitch{position:relative;max-width:1280px;margin-inline:auto;border:4px solid var(--chalk);background:repeating-linear-gradient(180deg,var(--grass) 0 110px,var(--grass2) 110px 220px);overflow:hidden}
+.pitch::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0,rgba(255,255,255,.12),transparent 55%),radial-gradient(rgba(0,0,0,.1) 1px,transparent 1.4px);background-size:auto,4px 4px;pointer-events:none}
+.mk{position:absolute;border:4px solid var(--chalk);pointer-events:none;z-index:0}
+.lane.half{height:clamp(96px,11vw,130px);margin-block:10px 0}
+.lane.half::before{content:"";position:absolute;inset-inline:0;top:50%;border-top:4px solid var(--chalk)}
+.lane.half::after{content:"";position:absolute;top:50%;left:50%;width:clamp(130px,17vw,210px);aspect-ratio:1;border-radius:50%;border:4px solid var(--chalk);transform:translate(-50%,-50%);background:radial-gradient(circle,var(--chalk) 0 6px,transparent 7px)}
+.lane.half svg{position:relative;z-index:1}
+.cr{width:44px;height:44px;border-radius:50%}
+.cr.a{top:-22px;left:-22px}.cr.b{top:-22px;right:-22px}.cr.c{bottom:-22px;left:-22px}.cr.d{bottom:-22px;right:-22px}
+.pen{position:relative;z-index:1;width:min(64%,620px);margin-inline:auto;border:4px solid var(--chalk);text-align:center}
+.pen.top{border-block-start:0;padding:14px 12px 22px}
+.pen.top::after,.pen.bot::before{content:"";position:absolute;left:50%;transform:translateX(-50%);width:42%;height:26px;border:4px solid var(--chalk)}
+.pen.top::after{inset-block-start:0;border-block-start:0}
+.pen.bot::before{inset-block-end:0;border-block-end:0}
+.pen.bot{border-block-end:0;padding:26px 14px 50px;margin-block-start:10px}
+.xi{font-family:var(--hand);font-weight:700;font-size:clamp(2.2rem,5vw,3.8rem);line-height:1;margin-block-start:26px;transform:rotate(-2deg)}
+html[lang="ar"] .xi{font-size:clamp(1.8rem,4vw,3rem);line-height:1.4}
+.xi small{display:block;font-size:.5em;font-weight:600;opacity:.9}
+.unit{position:relative;z-index:1;padding:clamp(18px,3vw,34px) clamp(8px,2vw,30px) 0}
+.ul{font-family:var(--hand);font-weight:700;font-size:clamp(1.5rem,2.6vw,2.1rem);text-align:center;line-height:1.1;margin-block-end:14px;color:#fff}
+html[lang="ar"] .ul{font-size:clamp(1.25rem,2.2vw,1.7rem);line-height:1.5}
+.ul small{font-size:.72em;font-weight:600;opacity:.85}
+.line{list-style:none;display:grid;gap:clamp(8px,1.6vw,22px);justify-content:center;direction:ltr}
+.line.c3{grid-template-columns:repeat(3,minmax(0,300px))}
+.line.c4{grid-template-columns:repeat(4,minmax(0,270px))}
+.pl{direction:ltr;display:flex;flex-direction:column;align-items:center;text-align:center;padding:4px 4px 10px}
+html[dir="rtl"] .pl{direction:rtl}
+.line{padding-block-end:30px}
+.c3 .pl:nth-child(odd){transform:translateY(34px)}
+.c4 .pl:nth-child(2),.c4 .pl:nth-child(3){transform:translateY(28px)}
+.kit{position:relative;width:86px;height:78px;display:grid;place-content:center;background:linear-gradient(90deg,#b81b30 0 50%,var(--red) 50%);clip-path:polygon(24% 0,38% 0,50% 13%,62% 0,76% 0,100% 20%,88% 42%,78% 33%,78% 100%,22% 100%,22% 33%,12% 42%,0 20%);filter:drop-shadow(0 6px 4px rgba(0,0,0,.35));margin-block-end:4px}
+.kit b{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:2.4rem;line-height:1;color:#fff;margin-block-start:10px}
+.kit.gk{background:linear-gradient(90deg,#e6bd00 0 50%,var(--yel) 50%)}.kit.gk b{color:#111}
+.kw{position:relative;filter:drop-shadow(0 6px 5px rgba(0,0,0,.35))}
+.kw .kit{filter:none}
+.cap{position:absolute;inset-block-start:26px;left:-2px;width:22px;height:18px;background:var(--yel);color:#000;font:700 .8rem/18px "Barlow Condensed",sans-serif;text-align:center;border-radius:3px;font-style:normal;transform:rotate(-24deg)}
+.pos{font-family:var(--hand);font-weight:700;font-size:1.25rem;line-height:1;color:var(--yel)}
+html[lang="ar"] .pos{font-size:1.02rem;line-height:1.5}
+.pl h3{font-family:var(--hd);font-weight:700;font-size:clamp(1.45rem,2.3vw,2rem);text-transform:uppercase;line-height:1;letter-spacing:.01em;margin-block:2px 4px;text-shadow:0 2px 0 rgba(0,0,0,.3)}
+html[lang="ar"] .pl h3{line-height:1.35;font-size:clamp(1.3rem,2vw,1.7rem)}
+.pl p{font-size:.95rem;color:#f2fff5;max-width:30ch;text-shadow:0 1px 2px rgba(0,60,20,.6)}
+html[lang="ar"] .pl p{font-size:.98rem}
+.pr{display:inline-flex;align-items:baseline;gap:5px;margin-block-start:7px;background:#000;border-radius:4px;padding:1px 9px 0;font-family:var(--dot);unicode-bidi:isolate;border:1px solid #2c2c2c}
+.pr b{font-weight:800;font-size:1.55rem;line-height:1.1;color:var(--led);text-shadow:0 0 8px rgba(255,180,0,.6)}
+.pr i{font-style:normal;font-size:.95rem;color:#bbb;letter-spacing:.06em}
+.card{display:inline-block;width:11px;height:15px;border-radius:2px;background:var(--yel);transform:rotate(10deg);vertical-align:-1px;margin-inline-start:5px;box-shadow:0 1px 2px rgba(0,0,0,.4)}
+.card.r{background:#ff2d2d}
+.lane{position:relative;z-index:1;height:clamp(40px,6vw,74px);margin-block-start:6px}
+.lane svg{width:100%;height:100%;display:block;overflow:visible}
+.lane path,.lane circle{fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;opacity:.85}
+.lane .da{stroke-dasharray:9 9}
+.gkp{max-width:520px;margin-inline:auto}
+.gkp p{max-width:44ch}
+.serv{font-family:var(--hand);font-weight:700;font-size:1.2rem;color:var(--yel)}
+html[lang="ar"] .serv{font-size:1rem}
+
+/* legend + combo */
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;max-width:1280px;margin:16px auto 0;font-size:.95rem;color:#d7efdd}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend .card{margin:0}
+.legend .cap{position:static;transform:none;display:inline-block}
+.combo{background:var(--yel);color:#000;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(12px,3vw,40px);padding:clamp(16px,2.4vw,28px) clamp(16px,5vw,80px)}
+.combo .w{font-family:var(--hd);font-style:italic;font-weight:800;font-size:clamp(2rem,5vw,4.2rem);line-height:.9;text-transform:uppercase}
+html[lang="ar"] .combo .w{font-style:normal;line-height:1.3;font-size:clamp(1.7rem,4vw,3.2rem)}
+.combo p{font-size:1.08rem;font-weight:500;max-width:52ch}
+.combo .pr{margin:0;padding:4px 14px}.combo .pr b{font-size:2.6rem}
+
+/* bench */
+.bench{background:#17181b;padding:clamp(40px,6vw,80px) clamp(12px,4vw,60px) clamp(30px,5vw,60px);position:relative}
+.sh{max-width:1280px;margin:0 auto clamp(18px,3vw,34px);display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-block-end:3px solid #fff;padding-block-end:10px}
+.sh h2{font-family:var(--hd);font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(2.4rem,6vw,5rem);line-height:.9}
+html[lang="ar"] .sh h2{font-style:normal;line-height:1.3;font-size:clamp(2rem,5vw,3.8rem)}
+.sh p{font-family:var(--hand);font-weight:700;font-size:1.5rem;color:var(--yel);line-height:1.1}
+html[lang="ar"] .sh p{font-size:1.15rem;line-height:1.5}
+.dug{max-width:1280px;margin-inline:auto;border-radius:26px 26px 0 0;border:3px solid #3a3d44;border-block-end:0;background:linear-gradient(180deg,rgba(140,190,255,.14),rgba(140,190,255,.03) 60%);padding:clamp(18px,3vw,34px) clamp(10px,2vw,26px) 0}
+.subs{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,26px) clamp(12px,2vw,26px)}
+.sub{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:start;padding-block-end:16px}
+.brd{grid-row:1 / span 3;width:68px;background:#000;border:3px solid #55585f;border-radius:8px;padding:6px 0 2px;text-align:center;position:relative;margin-block-end:18px}
+.brd::after{content:"";position:absolute;inset-block-start:100%;left:50%;width:10px;height:18px;margin-left:-5px;background:#55585f;border-radius:0 0 4px 4px}
+.brd b{font-family:var(--dot);font-weight:800;font-size:2.7rem;line-height:.9;color:#3dff7a;text-shadow:0 0 10px rgba(61,255,122,.6);display:block}
+.brd span{font-family:var(--dot);font-size:.85rem;color:#ff5b52;letter-spacing:.1em}
+.sub h3{font-family:var(--hd);font-weight:700;text-transform:uppercase;font-size:1.5rem;line-height:1.05}
+html[lang="ar"] .sub h3{line-height:1.4;font-size:1.35rem}
+.sub p{color:#c4c7cc;font-size:.97rem}
+.sub .pr{justify-self:start;margin-block-start:4px}
+.seat{max-width:1280px;margin-inline:auto;height:22px;background:repeating-linear-gradient(90deg,#c91f33 0 96px,#17181b 96px 104px);border-radius:0 0 8px 8px;box-shadow:0 14px 0 -6px #0c0c0d}
+
+/* half-time table */
+.ht{background:#f4f1e8;color:#111;padding:clamp(40px,6vw,80px) clamp(12px,4vw,60px)}
+.ht .sh{border-color:#111}.ht .sh p{color:#b3122a}
+.tbl{max-width:1280px;margin-inline:auto;width:100%;border-collapse:collapse}
+.tbl th{font-family:var(--hd);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.95rem;text-align:start;padding:8px 10px;background:#111;color:#fff}
+.tbl td{padding:12px 10px;border-block-end:1px solid #cfcab9;vertical-align:middle}
+.tbl tr:nth-child(1) td:first-child{box-shadow:inset 5px 0 0 #1f9d4c}
+html[dir="rtl"] .tbl tr:nth-child(1) td:first-child{box-shadow:inset -5px 0 0 #1f9d4c}
+.tbl .ps{font-family:var(--hd);font-weight:700;font-size:1.6rem;width:54px;text-align:center}
+.tbl h3{font-family:var(--hd);font-weight:700;text-transform:uppercase;font-size:1.45rem;line-height:1.1}
+html[lang="ar"] .tbl h3{line-height:1.4;font-size:1.3rem}
+.tbl p{color:#4a4a44;font-size:.97rem}
+.form{white-space:nowrap}
+.form i{display:inline-block;width:20px;height:20px;border-radius:4px;background:#1f9d4c;margin-inline-end:3px}
+.form i.d{background:#a9a595}.form i.l{background:#d8323f}
+.tbl .pt{text-align:end;white-space:nowrap}
+.ht .pr{margin:0}
+
+/* extra time tickets */
+.et{background:var(--black);background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.3px);background-size:5px 5px;padding:clamp(40px,6vw,80px) clamp(12px,4vw,60px)}
+.tix{list-style:none;max-width:1280px;margin-inline:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px)}
+.tk{display:grid;grid-template-columns:1fr 92px;background:#f4f1e8;color:#111;border-radius:12px;position:relative;-webkit-mask:radial-gradient(circle 11px at calc(100% - 92px) 0,transparent 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 11px at calc(100% - 92px) 100%,transparent 98%,#000) bottom/100% 51% no-repeat;mask:radial-gradient(circle 11px at calc(100% - 92px) 0,transparent 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 11px at calc(100% - 92px) 100%,transparent 98%,#000) bottom/100% 51% no-repeat}
+html[dir="rtl"] .tk{-webkit-mask:radial-gradient(circle 11px at 92px 0,transparent 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 11px at 92px 100%,transparent 98%,#000) bottom/100% 51% no-repeat;mask:radial-gradient(circle 11px at 92px 0,transparent 98%,#000) top/100% 51% no-repeat,radial-gradient(circle 11px at 92px 100%,transparent 98%,#000) bottom/100% 51% no-repeat}
+.tk .m{padding:16px 18px 18px;border-inline-end:2px dashed #9b9685}
+.tk .min{font-family:var(--dot);font-weight:800;font-size:1.5rem;color:#b3122a;letter-spacing:.06em}
+.tk h3{font-family:var(--hd);font-style:italic;font-weight:800;text-transform:uppercase;font-size:1.9rem;line-height:.95;margin-block:2px 6px}
+html[lang="ar"] .tk h3{font-style:normal;line-height:1.35;font-size:1.6rem}
+.tk p{font-size:.97rem;color:#3d3d38}
+.tk .stub{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:10px 6px}
+.tk .stub .pr{flex-direction:column;align-items:center;gap:0;padding:4px 10px;margin:0}
+.bc{width:60px;height:26px;background:repeating-linear-gradient(90deg,#111 0 2px,transparent 2px 5px,#111 5px 6px,transparent 6px 8px,#111 8px 11px,transparent 11px 13px)}
+
+/* full time */
+footer{background:#000;padding:clamp(34px,5vw,70px) clamp(14px,4vw,60px) 40px;border-block-start:10px solid #18181a}
+.ft{max-width:1280px;margin-inline:auto;display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:clamp(18px,3vw,46px)}
+.ft h2{font-family:var(--dot);font-weight:800;font-size:clamp(3rem,7vw,5.6rem);line-height:.85;color:var(--led);text-shadow:0 0 14px rgba(255,180,0,.6);letter-spacing:.04em}
+.ft h3{font-family:var(--hd);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:1rem;color:var(--yel);margin-block-end:8px}
+html[lang="ar"] .ft h3{font-size:1.15rem}
+.fx{list-style:none;font-family:var(--dot);font-size:1.3rem;line-height:1.5;letter-spacing:.04em}
+.fx li{display:flex;justify-content:space-between;gap:12px;border-block-end:1px dotted #3a3a3a}
+.fx b{color:#3dff7a;font-weight:600;unicode-bidi:isolate}
+.ft p{color:#c9c9c9;font-size:.97rem}
+.ref{max-width:1280px;margin:26px auto 0;padding-block-start:16px;border-block-start:1px solid #2a2a2a;color:#9d9d9d;font-size:.92rem}
+
+@media (max-width:820px){
+  .live{font-size:1.05rem}
+  .score{grid-template-columns:1fr 1fr}
+  .clock{grid-column:1/-1;grid-row:2;display:flex;justify-content:center;align-items:baseline;gap:12px;padding:6px}
+  .team{flex-direction:column;gap:2px;padding:10px 6px}
+  .pen{width:78%}
+  .line.c3,.line.c4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .line{padding-block-end:0}
+  .c3 .pl:nth-child(odd){transform:none}
+  .c3 .pl:nth-child(2){grid-column:1/-1;order:-1;margin-block-end:4px}
+  .c3 .pl:nth-child(2) p{max-width:34ch}
+  .c4 .pl:nth-child(2),.c4 .pl:nth-child(3){transform:none}
+  .c4 .pl:nth-child(1){order:1}.c4 .pl:nth-child(4){order:2}.c4 .pl:nth-child(2){order:3}.c4 .pl:nth-child(3){order:4}
+  .kit{width:72px;height:66px}.kit b{font-size:2rem}
+  .cap{inset-block-start:21px}
+  .combo{grid-template-columns:1fr;justify-items:start}
+  .subs{grid-template-columns:1fr}
+  .seat{height:16px}
+  .tbl th.fh,.tbl td.form{display:none}
+  .tbl .ps{width:36px;font-size:1.35rem;padding-inline:4px}
+  .tix{grid-template-columns:1fr}
+  .ft{grid-template-columns:1fr}
+}
+@media (min-width:821px) and (max-width:1080px){.subs{grid-template-columns:repeat(2,1fr)}.tix{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="bar">
+  <p class="live"><i aria-hidden="true"></i><span lang="en">LIVE · GRILL <b>3–0</b> HUNGER</span><span lang="ar">مباشر · الشواء <b dir="ltr">3–0</b> الجوع</span></p>
+  <div class="ctl">
+    <a class="home-link" href="../index.html"><span lang="en">All menus</span><span lang="ar">كل القوائم</span></a>
+    <button id="langToggle" type="button"><span lang="en">العربية</span><span lang="ar">English</span></button>
+  </div>
+</div>
+
+<header class="sb">
+  <p class="comp"><span lang="en">SPORTS GRILL · EVERY MATCH LIVE</span><span lang="ar">مشاوي رياضية · كل المباريات مباشرة</span></p>
+  <h1><span lang="en">Matchday <em>Grill</em></span><span lang="ar">مشاوي <em>يوم المباراة</em></span></h1>
+  <div class="score">
+    <div class="team"><span lang="en" class="led">GRILL</span><span lang="ar" class="led">الشواء</span><b>3</b></div>
+    <div class="clock"><b dir="ltr">90+4'</b><span lang="en">FULL TIME</span><span lang="ar">نهاية المباراة</span></div>
+    <div class="team away"><b>0</b><span lang="en" style="color:#ff6a61;font-family:var(--dot)">HUNGER</span><span lang="ar" style="color:#ff6a61;font-family:var(--dot)">الجوع</span></div>
+  </div>
+  <p class="tag"><span lang="en">Hunger never stood a chance.</span><span lang="ar">الجوع لم تكن له أيّ فرصة.</span></p>
+  <p class="talk"><span lang="en">Team talk: we line up 4‑3‑3. Flame up front, burgers running the midfield, a back four that never leaves you hungry, and a keeper big enough for the whole table. Pick your eleven.</span><span lang="ar">كلمة المدرّب: نلعب بخطّة <bdi dir="ltr">4‑3‑3</bdi>. اللهب في الهجوم، والبرغر يتحكّم بالوسط، ودفاعٌ من أربعة لا يترك للجوع ثغرة، وحارسٌ يكفي الطاولة كلّها. اختر تشكيلتك.</span></p>
+</header>
+
+<main>
+<section class="ground">
+  <div class="pitch">
+    <i class="mk cr a"></i><i class="mk cr b"></i><i class="mk cr c"></i><i class="mk cr d"></i>
+    <div class="pen top">
+      <h2 class="xi"><span lang="en">Starting XI<small>formation 4‑3‑3 · all off the charcoal</small></span><span lang="ar">التشكيلة الأساسية<small>خطّة <bdi dir="ltr">4‑3‑3</bdi> · كلّها على الفحم</small></span></h2>
+    </div>
+
+    <div class="unit">
+      <p class="ul"><span lang="en">Attack <small>— wings &amp; the flame grill</small></span><span lang="ar">الهجوم <small>— الأجنحة وشواية اللهب</small></span></p>
+      <ul class="line c3">
+        <li class="pl"><span class="kit"><b>11</b></span><span class="pos"><span lang="en">Left wing</span><span lang="ar">جناح أيسر</span></span><h3><span lang="en">Buffalo Wingers</span><span lang="ar">أجنحة بافلو</span><i class="card" aria-hidden="true"></i></h3><p><span lang="en">Eight charcoal wings tossed in hot buffalo butter, with a ranch dip.</span><span lang="ar">ثمانية أجنحة على الفحم تُقلَّب بزبدة البافلو الحارّة، مع صلصة الرانش.</span></p><span class="pr"><b>39</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+        <li class="pl"><span class="kit"><b>9</b></span><span class="pos"><span lang="en">Striker</span><span lang="ar">رأس الحربة</span></span><h3><span lang="en">The Striker</span><span lang="ar">الهدّاف</span></h3><p><span lang="en">300 g ribeye straight off the flame, chimichurri, charred corn and a baked potato.</span><span lang="ar">ريب آي 300 غرام من اللهب مباشرة، مع تشيميتشوري وذرة مشوية وبطاطا مخبوزة.</span></p><span class="pr"><b>119</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+        <li class="pl"><span class="kit"><b>7</b></span><span class="pos"><span lang="en">Right wing</span><span lang="ar">جناح أيمن</span></span><h3><span lang="en">Honey‑Sumac Wingers</span><span lang="ar">أجنحة العسل والسمّاق</span></h3><p><span lang="en">Eight wings glazed with honey and sumac, finished with toasted sesame.</span><span lang="ar">ثمانية أجنحة مغطّاة بالعسل والسمّاق ويعلوها سمسم محمّص.</span></p><span class="pr"><b>39</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+      </ul>
+    </div>
+    <div class="lane" aria-hidden="true"><svg viewBox="0 0 1000 70" preserveAspectRatio="xMidYMid meet"><path class="da" d="M330 62 Q360 20 452 12"/><path d="M438 4 L454 12 L440 22"/><path class="da" d="M690 60 Q650 26 566 16"/><path d="M580 6 L564 16 L578 27"/><path d="M190 22 l18 18 m0 -18 l-18 18"/><circle cx="820" cy="34" r="10"/></svg></div>
+
+    <div class="unit">
+      <p class="ul"><span lang="en">Midfield <small>— burgers run the game</small></span><span lang="ar">الوسط <small>— البرغر يدير اللعب</small></span></p>
+      <ul class="line c3">
+        <li class="pl"><span class="kit"><b>8</b></span><span class="pos"><span lang="en">Box‑to‑box</span><span lang="ar">لاعب ارتكاز متحرّك</span></span><h3><span lang="en">Box‑to‑Box</span><span lang="ar">من المنطقة إلى المنطقة</span></h3><p><span lang="en">Double smashed beef, cheddar, pickles and burnt‑onion mayo in a potato bun.</span><span lang="ar">قرصا لحم مهروسان مع شيدر ومخلّل ومايونيز البصل المحروق في خبز البطاطا.</span></p><span class="pr"><b>49</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+        <li class="pl"><span class="kw"><span class="kit"><b>10</b></span><i class="cap">C</i></span><span class="pos"><span lang="en">Playmaker · captain</span><span lang="ar">صانع الألعاب · القائد</span></span><h3><span lang="en">The No. 10</span><span lang="ar">الرقم 10</span></h3><p><span lang="en">Wagyu patty, turkey‑bacon jam, truffle aioli and aged cheddar on toasted brioche.</span><span lang="ar">قرص واغيو مع مربّى بيكون الديك الرومي وأيولي الكمأة وشيدر معتّق في خبز بريوش محمّص.</span></p><span class="pr"><b>62</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+        <li class="pl"><span class="kit"><b>6</b></span><span class="pos"><span lang="en">Holding mid</span><span lang="ar">محور دفاعي</span></span><h3><span lang="en">The Anchor</span><span lang="ar">المحور</span><i class="card" aria-hidden="true"></i></h3><p><span lang="en">Twelve‑hour smoked brisket, crunchy slaw and pickled chilli, piled high.</span><span lang="ar">بريسكت مدخّن اثنتي عشرة ساعة مع سلطة ملفوف مقرمشة وفلفل مخلّل.</span></p><span class="pr"><b>55</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+      </ul>
+    </div>
+    <div class="lane half" aria-hidden="true"><svg viewBox="0 0 1000 70" preserveAspectRatio="xMidYMid meet"><path class="da" d="M250 58 Q300 16 390 30"/><path d="M376 18 L392 30 L376 40"/><circle cx="700" cy="36" r="10"/><path d="M770 26 l18 18 m0 -18 l-18 18"/></svg></div>
+
+    <div class="unit">
+      <p class="ul"><span lang="en">Defence <small>— a back four that holds the line</small></span><span lang="ar">الدفاع <small>— رباعيّ لا يُخترق</small></span></p>
+      <ul class="line c4">
+        <li class="pl"><span class="kit"><b>3</b></span><span class="pos"><span lang="en">Left back</span><span lang="ar">ظهير أيسر</span></span><h3><span lang="en">Overlap Dog</span><span lang="ar">هوت دوغ الانطلاقة</span></h3><p><span lang="en">Grilled beef frank, chilli con carne, crispy onions and yellow mustard.</span><span lang="ar">نقانق بقري مشوية مع تشيلي كون كارني وبصل مقرمش وخردل.</span></p><span class="pr"><b>34</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+        <li class="pl"><span class="kit"><b>5</b></span><span class="pos"><span lang="en">Centre‑back</span><span lang="ar">قلب دفاع</span></span><h3><span lang="en">The Wall</span><span lang="ar">الجدار</span><i class="card r" aria-hidden="true"></i></h3><p><span lang="en">Nachos stacked with pulled beef, cheese sauce, jalapeños and fire salsa.</span><span lang="ar">ناتشوز مكدّسة باللحم المسحّب وصلصة الجبن والهالبينو وصلصة ناريّة.</span></p><span class="pr"><b>44</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+        <li class="pl"><span class="kit"><b>4</b></span><span class="pos"><span lang="en">Centre‑back</span><span lang="ar">قلب دفاع</span></span><h3><span lang="en">Back Four</span><span lang="ar">رباعيّ الدفاع</span></h3><p><span lang="en">Four mini sliders: classic, smoky BBQ, spicy and mushroom‑Swiss.</span><span lang="ar">أربعة سلايدرز صغيرة: كلاسيكي، باربكيو مدخّن، حارّ، وفطر مع جبن سويسري.</span></p><span class="pr"><b>46</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+        <li class="pl"><span class="kit"><b>2</b></span><span class="pos"><span lang="en">Right back</span><span lang="ar">ظهير أيمن</span></span><h3><span lang="en">Late Tackle</span><span lang="ar">تدخّل متأخّر</span></h3><p><span lang="en">Quesadilla of grilled chicken, peppers and smoked cheese, chipotle crema.</span><span lang="ar">كاساديا بالدجاج المشوي والفلفل والجبن المدخّن مع كريمة الشيبوتلي.</span></p><span class="pr"><b>38</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+      </ul>
+    </div>
+
+    <div class="pen bot">
+      <div class="pl gkp"><span class="kit gk"><b>1</b></span><span class="pos"><span lang="en">Goalkeeper</span><span lang="ar">حارس المرمى</span></span><h3><span lang="en">Safe Hands Platter</span><span lang="ar">طبق الأيادي الأمينة</span></h3><p><span lang="en">Covers the whole table: wings, sliders, beef ribs, onion rings, fries and three dips.</span><span lang="ar">يغطّي الطاولة كلّها: أجنحة وسلايدرز وأضلاع بقرية وحلقات بصل وبطاطا وثلاث صلصات.</span></p><span class="serv"><span lang="en">feeds 3–4 supporters</span><span lang="ar">يكفي <bdi dir="ltr">3–4</bdi> مشجّعين</span></span><span class="pr"><b>149</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></div>
+    </div>
+  </div>
+  <p class="legend"><span><i class="card" aria-hidden="true"></i><span lang="en">Yellow card — spicy</span><span lang="ar">بطاقة صفراء — حارّ</span></span><span><i class="card r" aria-hidden="true"></i><span lang="en">Red card — sending‑off hot</span><span lang="ar">بطاقة حمراء — حرارة تستحقّ الطرد</span></span><span><i class="cap" aria-hidden="true">C</i><span lang="en">Captain — the chef’s pick</span><span lang="ar">القائد — اختيار الشيف</span></span></p>
+</section>
+
+<aside class="combo">
+  <p class="w"><span lang="en">Kick‑off Combo</span><span lang="ar">وجبة ضربة البداية</span></p>
+  <p><span lang="en">Any midfielder, any substitute and a bottomless soft drink. Every day until the 18:00 kick‑off.</span><span lang="ar">أيّ لاعب وسط مع أيّ بديل ومشروب غازي بلا حدود. يوميًّا حتى صافرة البداية عند 18:00.</span></p>
+  <span class="pr"><b>59</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span>
+</aside>
+
+<section class="bench">
+  <header class="sh"><h2><span lang="en">The Bench</span><span lang="ar">دكّة البدلاء</span></h2><p><span lang="en">substitutes — sides ready to come on</span><span lang="ar">البدلاء — أطباق جانبية جاهزة للنزول</span></p></header>
+  <div class="dug">
+    <ul class="subs">
+      <li class="sub"><div class="brd"><b>12</b><span lang="en">ON</span><span lang="ar">دخول</span></div><h3><span lang="en">Stadium Fries</span><span lang="ar">بطاطا الملعب</span></h3><p><span lang="en">Skin‑on, twice fried, sea salt and house ketchup.</span><span lang="ar">بقشرها، تُقلى مرّتين، مع ملح البحر وكاتشب الدار.</span></p><span class="pr"><b>16</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+      <li class="sub"><div class="brd"><b>13</b><span lang="en">ON</span><span lang="ar">دخول</span></div><h3><span lang="en">Truffle Parmesan Fries</span><span lang="ar">بطاطا بالكمأة والبارميزان</span></h3><p><span lang="en">Tossed in truffle oil and a snowfall of parmesan.</span><span lang="ar">تُقلَّب بزيت الكمأة وتُغطّى بالبارميزان المبشور.</span></p><span class="pr"><b>24</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+      <li class="sub"><div class="brd"><b>14</b><span lang="en">ON</span><span lang="ar">دخول</span></div><h3><span lang="en">Onion Rings</span><span lang="ar">حلقات البصل</span></h3><p><span lang="en">Thick‑cut in a crisp sparkling batter, smoky BBQ dip.</span><span lang="ar">حلقات سميكة بعجينة مقرمشة مع صلصة باربكيو مدخّنة.</span></p><span class="pr"><b>18</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+      <li class="sub"><div class="brd"><b>15</b><span lang="en">ON</span><span lang="ar">دخول</span></div><h3><span lang="en">Mac &amp; Cheese Bites</span><span lang="ar">كرات المعكرونة بالجبن</span></h3><p><span lang="en">Six golden bites with a molten three‑cheese centre.</span><span lang="ar">ستّ كرات ذهبية بقلبٍ ذائب من ثلاثة أجبان.</span></p><span class="pr"><b>22</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+      <li class="sub"><div class="brd"><b>16</b><span lang="en">ON</span><span lang="ar">دخول</span></div><h3><span lang="en">Corn Ribs</span><span lang="ar">أضلاع الذرة</span><i class="card" aria-hidden="true"></i></h3><p><span lang="en">Charred corn ribs, chilli‑lime butter and crumbled feta.</span><span lang="ar">أضلاع ذرة مشوية بزبدة الفلفل والليمون وفتات الفيتا.</span></p><span class="pr"><b>19</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+      <li class="sub"><div class="brd"><b>17</b><span lang="en">ON</span><span lang="ar">دخول</span></div><h3><span lang="en">Groundsman’s Slaw</span><span lang="ar">سلطة حارس الملعب</span></h3><p><span lang="en">Red and white cabbage, green apple and a sharp mustard dressing.</span><span lang="ar">ملفوف أحمر وأبيض وتفّاح أخضر مع تتبيلة خردل لاذعة.</span></p><span class="pr"><b>12</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></li>
+    </ul>
+  </div>
+  <div class="seat" aria-hidden="true"></div>
+</section>
+
+<section class="ht">
+  <header class="sh"><h2><span lang="en">Half‑Time</span><span lang="ar">بين الشوطين</span></h2><p><span lang="en">the drinks table — fifteen minutes to refuel</span><span lang="ar">جدول المشروبات — ربع ساعة لاستعادة الأنفاس</span></p></header>
+  <table class="tbl">
+    <thead><tr><th><span lang="en">Pos</span><span lang="ar">المركز</span></th><th><span lang="en">Drink</span><span lang="ar">المشروب</span></th><th class="fh"><span lang="en">Form</span><span lang="ar">آخر النتائج</span></th><th class="pt"><span lang="en">Pts</span><span lang="ar">النقاط</span></th></tr></thead>
+    <tbody>
+      <tr><td class="ps">1</td><td><h3><span lang="en">Lemon‑Mint Slush</span><span lang="ar">سلاش الليمون بالنعناع</span></h3><p><span lang="en">Frozen lemonade blitzed with fresh mint. Top of the table since day one.</span><span lang="ar">ليموناضة مثلّجة مخفوقة بالنعناع الطازج. متصدّر الجدول منذ اليوم الأول.</span></p></td><td class="form"><i></i><i></i><i></i><i></i><i></i></td><td class="pt"><span class="pr"><b>18</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></td></tr>
+      <tr><td class="ps">2</td><td><h3><span lang="en">Salted Caramel Shake</span><span lang="ar">ميلك شيك الكراميل المملّح</span></h3><p><span lang="en">Vanilla ice cream, salted caramel and a pretzel crumb rim.</span><span lang="ar">آيس كريم فانيلا وكراميل مملّح وحافّة من فتات البريتزل.</span></p></td><td class="form"><i></i><i></i><i class="d"></i><i></i><i></i></td><td class="pt"><span class="pr"><b>28</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></td></tr>
+      <tr><td class="ps">3</td><td><h3><span lang="en">Iced Peach Tea</span><span lang="ar">شاي الخوخ المثلّج</span></h3><p><span lang="en">Cold‑brewed black tea, peach and lemon, by the pitcher.</span><span lang="ar">شاي أسود منقوع على البارد مع الخوخ والليمون، يُقدَّم بالإبريق.</span></p></td><td class="form"><i></i><i class="d"></i><i></i><i></i><i class="l"></i></td><td class="pt"><span class="pr"><b>22</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></td></tr>
+      <tr><td class="ps">4</td><td><h3><span lang="en">Classic Vanilla Shake</span><span lang="ar">ميلك شيك الفانيلا الكلاسيكي</span></h3><p><span lang="en">Thick, cold and exactly what it says.</span><span lang="ar">كثيف وبارد، وكما يقول اسمه تمامًا.</span></p></td><td class="form"><i class="d"></i><i></i><i></i><i class="l"></i><i></i></td><td class="pt"><span class="pr"><b>24</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></td></tr>
+      <tr><td class="ps">5</td><td><h3><span lang="en">Bottomless Soft Drinks</span><span lang="ar">مشروبات غازية بلا حدود</span></h3><p><span lang="en">Cola, lemon‑lime, orange or soda water. Refills until the final whistle.</span><span lang="ar">كولا أو ليمون أو برتقال أو صودا. إعادة التعبئة حتى صافرة النهاية.</span></p></td><td class="form"><i></i><i class="l"></i><i class="d"></i><i></i><i class="d"></i></td><td class="pt"><span class="pr"><b>14</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="et">
+  <header class="sh"><h2><span lang="en">Extra Time</span><span lang="ar">الوقت الإضافي</span></h2><p><span lang="en">desserts — for games that deserve more</span><span lang="ar">الحلويات — لمباريات تستحقّ المزيد</span></p></header>
+  <ul class="tix">
+    <li class="tk"><div class="m"><span class="min" dir="ltr">90+1'</span><h3><span lang="en">Golden Goal</span><span lang="ar">الهدف الذهبي</span></h3><p><span lang="en">Warm fudge brownie in a cast‑iron skillet, vanilla ice cream melting on top.</span><span lang="ar">براوني دافئ في مقلاة حديدية يذوب فوقه آيس كريم الفانيلا.</span></p></div><div class="stub"><span class="pr"><b>32</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span><i class="bc" aria-hidden="true"></i></div></li>
+    <li class="tk"><div class="m"><span class="min" dir="ltr">105'</span><h3><span lang="en">Hat‑Trick Sundae</span><span lang="ar">صنداي الهاتريك</span></h3><p><span lang="en">Three scoops, three sauces: chocolate, caramel and strawberry, with crushed wafer.</span><span lang="ar">ثلاث كرات وثلاث صلصات: شوكولاتة وكراميل وفراولة، مع ويفر مجروش.</span></p></div><div class="stub"><span class="pr"><b>28</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span><i class="bc" aria-hidden="true"></i></div></li>
+    <li class="tk"><div class="m"><span class="min" dir="ltr">120'</span><h3><span lang="en">Penalty Shoot‑out</span><span lang="ar">ركلات الترجيح</span></h3><p><span lang="en">Five cinnamon churros, five chances to score in chocolate or dulce de leche.</span><span lang="ar">خمس أصابع تشوروز بالقرفة، وخمس فرص للتسجيل في الشوكولاتة أو الدولسي دي ليتشي.</span></p></div><div class="stub"><span class="pr"><b>26</b><i lang="en">SAR</i><i lang="ar">ر.س</i></span><i class="bc" aria-hidden="true"></i></div></li>
+  </ul>
+</section>
+</main>
+
+<footer>
+  <div class="ft">
+    <div><h2><span lang="en">FULL TIME</span><span lang="ar">صافرة النهاية</span></h2><p style="margin-block-start:12px"><span lang="en">Fourteen screens, one charcoal pit, no bad seats. Book a table for the big fixtures.</span><span lang="ar">أربع عشرة شاشة وحفرة فحم واحدة ولا مقعد سيّئ. احجز طاولتك للمباريات الكبرى.</span></p></div>
+    <div><h3><span lang="en">Fixtures · opening hours</span><span lang="ar">المواعيد · ساعات العمل</span></h3>
+      <ul class="fx"><li><span lang="en">SAT – WED</span><span lang="ar">السبت – الأربعاء</span><b dir="ltr">12:00 – 01:00</b></li><li><span lang="en">THU – FRI</span><span lang="ar">الخميس – الجمعة</span><b dir="ltr">12:00 – 03:00</b></li><li><span lang="en">MATCH NIGHTS</span><span lang="ar">ليالي المباريات</span><b lang="en">TILL THE WHISTLE</b><b lang="ar">حتى الصافرة</b></li></ul></div>
+    <div><h3><span lang="en">Home ground</span><span lang="ar">ملعبنا</span></h3><p><span lang="en">Gate 4, Stadium Boulevard<br>Al Malaz, Riyadh</span><span lang="ar">البوّابة 4، جادّة الملعب<br>الملز، الرياض</span></p></div>
+  </div>
+  <p class="ref"><span lang="en">Referee’s notes: all beef and chicken are halal and grilled over natural charcoal. Dishes may contain gluten, dairy, egg, sesame and mustard — tell your server before kick‑off. Prices in Saudi riyals, VAT included.</span><span lang="ar">ملاحظات الحكم: جميع اللحوم والدواجن حلال وتُشوى على الفحم الطبيعي. قد تحتوي الأطباق على الغلوتين والألبان والبيض والسمسم والخردل، فأخبر النادل قبل صافرة البداية. الأسعار بالريال السعودي وتشمل الضريبة.</span></p>
+</footer>
+</div>
+<script>document.getElementById('langToggle').addEventListener('click',function(){var d=document.documentElement,l=d.lang==='ar'?'en':'ar';d.lang=l;d.dir=l==='ar'?'rtl':'ltr';try{localStorage.setItem('menu-lang',l)}catch(e){}});</script>
+</body>
+</html>
