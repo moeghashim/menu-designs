@@ -6,7 +6,7 @@
 <title>100 Menus · ١٠٠ قائمة طعام</title>
 <meta name="description" content="A gallery of 100 one-of-a-kind bilingual (English + Arabic) restaurant menu designs.">
 <meta name="theme-color" content="#0e0d0b">
-<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en')}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
+<script>(function(){var l='en';try{var p=new URLSearchParams(location.search).get('lang');l=(p==='ar'||p==='en')?p:(localStorage.getItem('menu-lang')||'en');if(p===l)localStorage.setItem('menu-lang',l)}catch(e){}var d=document.documentElement;d.lang=l;d.dir=l==='ar'?'rtl':'ltr'})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:wght@400;500;600&family=Rakkas&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
